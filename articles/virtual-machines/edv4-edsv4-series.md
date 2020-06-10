@@ -1,11 +1,12 @@
 ---
-title: Edv4 and Edsv4-series - Azure Virtual Machines
+title: Edv4 and Edsv4-series 
 description: Specifications for the Ev4, Edv4, Esv4 and Edsv4-series VMs.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
 ---

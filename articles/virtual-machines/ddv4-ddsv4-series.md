@@ -1,13 +1,14 @@
 ---
- title: Ddv4 and Ddsv4-series - Azure Virtual Machines
- description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
- author: brbell
- ms.author: brbell
- ms.reviewer: cynthn
- ms.custom: mimckitt
- ms.service: virtual-machines
- ms.topic: conceptual
- ms.date: 06/01/2020
+title: Ddv4 and Ddsv4-series 
+description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
+author: brbell
+ms.author: brbell
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 06/01/2020
 ---
 
 # Ddv4 and Ddsv4-series
