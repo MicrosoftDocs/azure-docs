@@ -255,11 +255,11 @@
       href: update-visual-studio-deployment-script.md
     - name: IntelliJ IDEA
       href: create-templates-use-intellij.md
-  - name: View template properties
+  - name: Discover template properties
     items:
     - name: Export template
       href: export-template-portal.md
-    - name: View resources
+    - name: Discover resources
       href: view-resources.md
   - name: Deploy templates
     items:
