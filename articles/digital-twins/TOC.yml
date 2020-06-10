@@ -58,6 +58,8 @@
     href: how-to-create-azure-function.md
   - name: Ingest telemetry from IoT Hub
     href: how-to-ingest-iot-hub-data.md
+  - name: Integrate with Azure Maps
+    href: how-to-integrate-maps.md
 - name: Reference
   items:
   - name: Digital Twins REST APIs
