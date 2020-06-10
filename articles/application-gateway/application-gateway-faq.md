@@ -340,9 +340,9 @@ The Application Gateway Ingress Controller (AGIC) allows [Azure Application Gate
 
 Currently, one instance of Ingress Controller can only be associated to one Application Gateway.
 
-### WHy is my AKS cluster with kubenet not working with AGIC?
+### Why is my AKS cluster with kubenet not working with AGIC?
 
-We don't automatically associate the route table resource to the Application Gateway subnet, so please verify that the route table created by the AKS cluster is associated with the Application Gateway's subnet. 
+AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see instructions [here](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
 
 ### Can I connect my AKS cluster and Application Gateway in separate virtual networks? 
 
@@ -354,11 +354,11 @@ Please see the differences between AGIC deployed through Helm versus deployed as
 
 ### When should I use the add-on versus the Helm deployment? 
 
-Please see the differences between AGIC deployed through Helm versus deployed as an AKS add-on [here](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especially the tables documenting which scenario(s) are supported by AGIC deployed through Helm as opposed to an AKS add-on. In general, deploying through Helm will guarantee that you have the latest changes, and will have more features available than the AKS add-on. 
+Please see the differences between AGIC deployed through Helm versus deployed as an AKS add-on [here](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), especially the tables documenting which scenario(s) are supported by AGIC deployed through Helm as opposed to an AKS add-on. In general, deploying through Helm will allow you to test out beta features and release candidates before an official release. 
 
-### Can I control which version of AGIC add-on is run?
+### Can I control which version of AGIC will be deployed with the add-on?
 
-No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest version available. 
+No, AGIC add-on is a managed service which means Microsoft will automatically update the add-on to the latest stable version. 
 
 ## Diagnostics and logging
 
