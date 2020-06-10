@@ -3,9 +3,9 @@ title: Schema reference for trigger and action types
 description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 01/19/2020
+ms.date: 06/10/2020
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -219,15 +219,15 @@ This trigger sends a subscription request to an endpoint by using a [Microsoft-m
 |-------|------|-------------| 
 | <*connection-name*> | String | The name for the connection to the managed API that the workflow uses | 
 | <*body-content*> | JSON Object | Any message content to send as payload to the managed API | 
-|||| 
+||||
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*max-runs*> | Integer | By default, workflow instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| Value | Type | Description |
+|-------|------|-------------|
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| <*max-runs*> | Integer | By default, workflow instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | When your workflow is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
