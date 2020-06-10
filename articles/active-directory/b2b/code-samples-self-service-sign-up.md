@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Samples for External Identities self-service sign-up
 
-The following tables provide links to code samples for leveraging Web APIs in your self-service sign-up user flows using the API connectors feature.
+The following tables provide links to code samples for leveraging web APIs in your self-service sign-up user flows using the API connectors feature.
 
 ## API connector Azure Function quickstarts
 

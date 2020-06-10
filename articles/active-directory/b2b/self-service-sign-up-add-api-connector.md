@@ -1,6 +1,6 @@
 ---
 title: Add an API connector to a user flow 
-description: Configure a Web API to be used in a user flow.
+description: Configure a web API to be used in a user flow.
 
 services: active-directory
 ms.service: active-directory
@@ -96,9 +96,9 @@ Custom attributes can be created for the user using the **extension_\<aad-extens
 > [**Identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The  'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
 
 
-## Expected response types from the Web API
+## Expected response types from the web API
 
-When the Web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
 
 - [Continuation response](#continuation-response)
 - [Blocking response](#blocking-response)
@@ -132,7 +132,7 @@ Content-type: application/json
 | version | String | Yes | The version of the API. |
 | action  | String | Yes | Value must be `Continue`. |
 | \<builtInUserAttribute> | \<attribute-type> | No  | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**. |
-| \<extension_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have `_<aad-extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow.  Custom attributes cannot sent back in the token. |
+| \<extension_CustomAttribute> | \<attribute-type> | No  | The return claim does *not* have `_<aad-extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow. Custom attributes cannot be sent back in the token. |
 
 ### Blocking Response
 
@@ -200,4 +200,4 @@ Content-type: application/json
 - Learn [how your API should respond](api-connectors-overview.md#expected-response-types-from-the-web-api)
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-for-a-user-flow)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
-- Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing)
+<!-- - Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing) -->
