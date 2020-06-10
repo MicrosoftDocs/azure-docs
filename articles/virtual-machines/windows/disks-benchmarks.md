@@ -4,7 +4,7 @@ description: Learn about the process of benchmarking your application on Azure.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ---

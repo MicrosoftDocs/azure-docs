@@ -7,6 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
+ms.custom: tracking-python
 ---
 
 # Use Spark & Hive Tools for Visual Studio Code
