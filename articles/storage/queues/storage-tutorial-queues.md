@@ -177,13 +177,13 @@ Create a new method to send a message into the queue.
 
    This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [CreateIfNotExistsAsync](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync). Then, it adds the *newMessage* to the queue by calling [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync).
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_SendMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
    # [\.NET v11](#tab/dotnetv11)
 
    This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the *newMessage* to the queue by calling [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_SendMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
 1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that *doesn't* expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**. The following code snippet adds a message that doesn't expire.
 
