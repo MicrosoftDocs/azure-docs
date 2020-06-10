@@ -62,7 +62,7 @@
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
   - name: Cross-Platform
     items:
-    - name: Push notifications via a backend service
+    - name: Send push notifications via a backend service
       items:
       - name: Xamarin.Forms
         href: notification-hubs-backend-service-xamarin-forms.md
