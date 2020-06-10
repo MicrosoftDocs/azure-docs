@@ -58,7 +58,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections** tab at the top of the page. If you aren't using a dedicated tier of Event Hubs, you see a message: **Private endpoint connections on Event Hubs are only supported by namespaces created under a dedicated cluster**.
+5. Select the **Private endpoint connections** tab at the top of the page. 
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Image](./media/private-link-service/private-link-service-3.png)
