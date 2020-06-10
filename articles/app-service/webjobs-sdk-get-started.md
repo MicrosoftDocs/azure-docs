@@ -215,7 +215,7 @@ A connection string is required to configure storage. Keep this connection strin
 1. In **Settings**, select **Access keys**.
 1. For the **Connection string** under **key1**, select the **Copy to clipboard** icon.
 
- ![key](./media/webjobs-sdk-get-started/connectionkey.png)
+     ![key](./media/webjobs-sdk-get-started/connectionkey.png)
 
 ## Configure storage to run locally
 
