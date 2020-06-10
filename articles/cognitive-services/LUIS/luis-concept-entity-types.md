@@ -53,7 +53,7 @@ Consider the following four utterances:
 
 ## Label entities in all intents
 
-Entities extract data regardless of the predicted intent. Make sure you label _all_ example utterances in all intents. The `None` intent missing entity labeling cause confusion even if there were far more training utterances for the other intents.
+Entities extract data regardless of the predicted intent. Make sure you label _all_ example utterances in all intents. The `None` intent missing entity labeling causes confusion even if there were far more training utterances for the other intents.
 
 ## Design entities for decomposition
 
