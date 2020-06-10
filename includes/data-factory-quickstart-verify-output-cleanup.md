@@ -6,7 +6,7 @@ author: linda33wj
 ms.author: jingwang
 ---
 
-## Verify the output
+## Review deployed resources
 
 The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
 

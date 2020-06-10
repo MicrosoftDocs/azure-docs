@@ -674,56 +674,7 @@ You define a trigger that runs the pipeline once an hour. The deployed trigger i
 }
 ```
 
-## Review deployed resources
-
-The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
-
-1. In the Azure portal, on the **adftutorial** container page, select **Refresh** to see the output folder. 
-    
-    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
-
-2. Select **output** in the folder list. 
-
-3. Confirm that the **emp.txt** is copied to the output folder. 
-
-    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
-
-## Reuse the template
-
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
-
-Example:
-
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
-
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
-```
-
-Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.
-
-You can also reuse the template to perform repeated tasks. For example, create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories.
-
-## Clean up resources
-
-You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../articles/azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
-
-Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
-
-```powershell
-Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
-```
-
-> [!Note]
-> Dropping a resource group may take some time. Please be patient with the process
-
-If you want to delete just the data factory, not the entire resource group, run the following command: 
-
-```powershell
-Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
-```
+[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ## Next steps
 
