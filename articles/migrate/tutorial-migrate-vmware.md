@@ -70,39 +70,7 @@ There are some changes needed on VMs before you migrate them to Azure.
 - For some operating systems, Azure Migrate makes these changes automatically. 
 - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 
-Review the tables to identify the changes you need to make. 
-
-### Prepare Windows VMs
-
-**Action** | **Details** | **Windows Server version**
---- | --- | ---
-Configure the SAN policy as Online All | This ensures that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Azure Migrate does it automatically for Windows Server 2008 R2 or later.<br/><br/> For earlier operating systems, set this manually.
-Install Hyper-V Guest Integration | Required to connect to Azure VMs after migration. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) for machines running Windows Server 2003.
-Enable Azure Serial Console | [Enable the console](../virtual-machines/troubleshooting/serial-console-windows.md) to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Optionally install this manually.
-Connect after migration | To connect to Azure VMs after migration, there are a number of steps to take before you migrate. Follow [these instructions](#prepare-to-connect-to-azure-windows-vms). | Install manually.
-
-
-### Prepare Linux VMs
-
-Azure Migrate completes these actions automatically for these versions:
-- Red Hat Enterprise Linux 6.5+, 7.0+
-- CentOS 6.5+, 7.0+
-- SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
-- Debian 7, 8
-
-**Action** | **Details** | **Linux version**
---- | --- | ---
-Install Hyper-V Linux Integration Services | Rebuild the Linux init image to contain the necessary Hyper-V drivers. This ensures that the VM will boot in Azure, and is only required on some distributions. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
-Enable Azure serial console logging | This helps with troubleshooting. You don't need to reboot the VM. The Azure VM will boot using the disk image, and this is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console) to enable. | Install manually for all versions except those called out above.
-Update device map file | Update the device map file that has the device name to volume associations, to use persistent device identifiers | Install manually for all versions except those called out above.
-Update fstab entries | Update entries to use persistent volume identifiers. | Install manually for all versions except those called out above.
-Remove udev rule | Remove any udev rules that reserves interface names based on mac address etc. | Install manually for all versions except those called out above.
-Update network interfaces | Update network interfaces to receive IP address based on DHCP. | Install manually for all versions except those called out above.
-Enable ssh | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules. | Install manually for all versions except those called out above.
-
-[Follow this article](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) that discusses these steps for running a Linux VM on Azure, and include instructions for some of the popular Linux distributions.  
-
+Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ## Replicate VMs
 
