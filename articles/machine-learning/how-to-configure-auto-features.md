@@ -41,7 +41,7 @@ In every automated machine-learning experiment, [automatic scaling and normaliza
 
 For experiments that you configure by using the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
 |Featurization configuration | Description|
 ------------- | ------------- |
