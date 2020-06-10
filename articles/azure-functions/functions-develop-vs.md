@@ -77,9 +77,9 @@ For more information, see [Functions class library project](functions-dotnet-cla
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-The settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings). The values in a `ConnectionStrings` collection are never published.
+Visual Studio doesn't automatically upload the settings in local.settings.json when you publish the project. To make sure that these settings also exist in your function app in Azure, upload them after you publish your project. For more information, see [Function app settings](#function-app-settings). The values in a `ConnectionStrings` collection are never published.
 
-The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
+Your code can also read the function app settings values as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
 ## Configure the project for local development
 
@@ -173,17 +173,20 @@ As with triggers, input and output bindings are added to your function as bindin
 
 ## Testing functions
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
 
-To test your function, press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+To test your function in Visual Studio:
 
-With the project running, you can test your code as you would test a deployed function. For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When you run Visual Studio in debug mode, breakpoints are hit as expected. 
+1. Press F5. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+
+2. With the project running, test your code as you would test a deployed function. 
+
+   For more information, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). When you run Visual Studio in debug mode, breakpoints are hit as expected.
 
 <!---
 For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
 -->
 
-For more information about using the Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 ## Publish to Azure
 
@@ -229,6 +232,6 @@ To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 
-For more information about the Azure Functions Core Tools, see [Code and test Azure functions locally](functions-run-local.md).
+For more information about the Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
 For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    

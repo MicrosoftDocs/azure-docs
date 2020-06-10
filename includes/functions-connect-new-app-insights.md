@@ -18,17 +18,19 @@ Azure Functions makes it easy to add Application Insights integration to a funct
 
     :::image type="content" source="media/functions-connect-new-app-insights/enable-application-insights.png" alt-text="Enable Application Insights from the portal":::
 
-1. Create an Application Insights resource by using the settings specified in the table below the image. Expand **Change your resource**. 
-
-   :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Create an Application Insights resource":::
+1. Expand **Change your resource** and create an Application Insights resource by using the settings specified in the following table.  
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **New resource name** | Unique app name | It's easiest to use the same name as your function app, which must be unique in your subscription. | 
     | **Location** | West Europe | If possible, use the same [region](https://azure.microsoft.com/regions/) as your function app, or one that's close to that region. |
 
-1. Select **Apply**. The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the Application Insights window.
+    :::image type="content" source="media/functions-connect-new-app-insights/ai-general.png" alt-text="Create an Application Insights resource":::
 
-1. Back in your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, Application Insights integration is enabled for your function app running in Azure.
+1. Select **Apply**. 
+
+   The Application Insights resource is created in the same resource group and subscription as your function app. After the resource is created, close the Application Insights window.
+
+1. In your function app, select **Configuration** under **Settings**, and then select **Application settings**. If you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, Application Insights integration is enabled for your function app running in Azure.
 
 [Azure Portal]: https://portal.azure.com
