@@ -84,6 +84,6 @@ Learn about the [network security groups][network-security].
 
 <!--Link References-->
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/en-us/azure/virtual-network/security-overview
+[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
+[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
 
