@@ -8,7 +8,7 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/11/2020
 ---
 
 # Skillset concepts in Azure Cognitive Search
@@ -27,8 +27,8 @@ A skillset has three main properties:
 
 Skillsets are authored in JSON. The following example is an abbreviated version of a skillset created in a tutorial. Two skills are shown: 
 
-+ Skill #1 is a Split skill that accepts a reviews_text field as input, and splits the content into pages of 5000 characters as output.
-+ Skill #2 is a Key Phrase Extraction skill accepts pages as input, and produces a new field called "keyPhrases" as output.
++ Skill #1 is a Split skill that accepts a "reviews_text" field as input, and splits the content into "pages" of 5000 characters as output.
++ Skill #2 is a Key Phrase Extraction skill accepts "pages" as input, and produces a new field called "keyPhrases" as output.
 
 
 ```json
