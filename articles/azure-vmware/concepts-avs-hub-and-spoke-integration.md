@@ -19,7 +19,7 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 The Hub is a virtual network in Azure that acts as a central point of connectivity to your on-premises and AVS private cloud. The Spokes are virtual networks that run the peering with the Hub to enable cross VNET and used to isolate workloads.
 
-Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke VNETs usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md). App Service Environment have direct integration with Azure VNETs or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled.
+Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke VNETs usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md). App Service Environment has direct integration with Azure VNETs or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled.
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and AVS through ExpressRoute.
 
