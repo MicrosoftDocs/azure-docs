@@ -45,7 +45,7 @@
       href: pim-resource-roles-activate-your-roles.md
   - name: Manage Azure AD roles
     items:
-    - name: Feature update
+    - name: Feature overview
       href: azure-ad-roles-features.md
     - name: PowerShell for Azure AD roles
       href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,26 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
+  - name: Manage PIM groups
+    items:
+    - name: Feature overview
+      href: pim-groups-features.md
+    - name: Assign roles
+      href: pim-groups-assign-roles.md
+    - name: Invite external users
+      href: pim-groups-external-users.md
+    - name: Approve requests
+      href: pim-groups-approval-workflow.md
+    - name: Extend or renew assignments
+      href: pim-groups-renew-extend.md
+    - name: Configure role settings
+      href: pim-groups-configure-role-settings.md
+    - name: Configure alerts
+      href: pim-groups-configure-alerts.md
+    - name: View audit history
+      href: pim-groups-audit.md
+    - name: Use custom roles
+      href: pim-groups-custom-role-policy.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
   - name: Access reviews
