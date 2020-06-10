@@ -352,7 +352,7 @@ In this section, you'll learn how to receive and process messages after you rece
 
         ![Select event subscription](./media/service-bus-to-event-grid-integration-example/select-event-subscription.png)
     3. On the **Event Subscription** page, select **Delete**. Select **Yes** to confirm deletion. 
-        ![Delete event subscripton button](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
+        ![Delete event subscription button](./media/service-bus-to-event-grid-integration-example/delete-subscription-button.png)
 2. Follow instructions in the [Connect the function and namespace via Event Grid](#connect-the-function-and-namespace-via-event-grid) section to create an Event Grid subscription using the new function URL.
 3. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic and monitor the function. 
 
