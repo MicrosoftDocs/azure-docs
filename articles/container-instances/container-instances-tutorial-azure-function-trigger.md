@@ -78,7 +78,7 @@ if ($name) {
     }
     else  {
         $body = "There was a problem starting the container group."
-}
+    }
 [...]
 ```
 
@@ -86,7 +86,7 @@ This example creates a container group consisting of a single container instance
  
 ## Test function app locally
 
-Ensure that the function runs properly locally before republishing the function app project to Azure. When run locally, the function doesn't create Azure resources, because the  However, you can test the function flow with and without passing a name value in a query string. To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local/azure-functions/functions-debug-powershell-local.md).
+Ensure that the function runs locally before republishing the function app project to Azure. When run locally, the function doesn't create Azure resources. However, you can test the function flow with and without passing a name value in a query string. To debug the function, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
 ## Republish Azure function app
 
