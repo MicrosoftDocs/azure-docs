@@ -273,18 +273,18 @@ The sample web app uses a **knockout front-end client application** to capture f
 
 The following sections explain the parts of the server and client that a developer needs to understand to use Personalizer.
 
-## Rank API: Client application sends user agent context to server
+## Rank API: Client application sends context to server
 
 The client application collects the user's browser _user agent_.
 
 > [!div class="mx-imgBorder"]
 > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/user-agent.png)
 
-## Rank API: Server application manages calls to Personalizer
+## Rank API: Server application calls Personalizer
 
 This is a typical .NET web app with a client application, much of the boiler plate code is provided for you. Any code not specific to Personalizer is removed from the following code snippets so you can focus on the Personalizer-specific code.
 
-### Create Personalizer client using key and endpoint
+### Create Personalizer client
 
 In the server's **Startup.cs**, the Personalizer endpoint and key are used to create the Personalizer client. The client application doesn't need to communicate with Personalizer in this app, instead relying on the server to make those SDK calls.
 
@@ -330,7 +330,7 @@ namespace HttpRequestFeaturesExample
 }
 ```
 
-### Server uses Personalizer to select best action
+### Select best action
 
 In the server's **PersonalizerController.cs**, the **GenerateRank** server API summarizes the preparation to call the Rank API
 
@@ -505,7 +505,7 @@ The JSON sent to Personalizer, containing both actions (with features) and the c
 }
 ```
 
-### Return Personalizer ranked rewardActionId to client
+### Return Personalizer rewardActionId to client
 
 The Rank API returns the selected best action **rewardActionId** to the server.
 
@@ -554,7 +554,7 @@ In this tutorial, the `rewardActionId` value is displayed.
 
 In your own future application, that may be some exact text, a button, or a section of the web page highlighted. The list is returned for any post-analysis of scores, not an ordering of the content. Only the `rewardActionId` content should be displayed.
 
-## Reward API: collect information to determine reward
+## Reward API: collect information for reward
 
 The [reward score](concept-rewards.md) should be carefully planned, just as the features are planned. The reward score typically should be a value from 0 to 1. The value _can_ be calculated partially in the client application, based on user behaviors, and partially on the server, based on business logic and goals.
 
