@@ -37,9 +37,9 @@ Complete the tasks in the table to prepare Azure for agent-based migration.
 
 **Task** | **Details**
 --- | ---
-**Create an Azure Migrate project** |	Your Azure account needs Contributer or Owner permissions to create a project.
-**Verify Azure account permissions**| Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
-**Set up an Azuer network** | Set up a network that Azure VMs will join after migration.
+**Create an Azure Migrate project** | Your Azure account needs Contributor or Owner permissions to create a project.
+**Verify Azure account permissions** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+**Set up an Azure network** | Set up a network that Azure VMs will join after migration.
 
 ### Assign permissions to create project
 If you don't have an Azure Migrate project, verify permissions to create one.
