@@ -87,27 +87,24 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-# Java V4 SDK
-
-## <a id="override-default-consistency-javav4"></a> Java V4 SDK
+### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
 # [Async](#tab/asyncjava)
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
 
 # [Sync](#tab/syncjava)
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
 
 --- 
 
-### Java V2 SDKs
+### <a id="override-default-consistency-javav2"></a> Java V2 SDKs
 
-## <a id="override-default-consistency-javav4"></a>
 # [Async](#tab/asyncjava)
 
 Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
