@@ -7,6 +7,7 @@ ms.date: 02/12/2020
 ms.author: mimart
 # Used by articles that interact with the Microsoft Graph API for user object manipulation.
 ---
+
 #### [App registrations](#tab/app-reg-ga/) 
 
 1. Under **Manage**, select **API permissions**.
