@@ -3,10 +3,8 @@ title: Use a Standard SKU load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
-ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
