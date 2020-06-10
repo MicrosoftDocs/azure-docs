@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/10/2020
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -23,8 +23,8 @@ Disaster recovery of physical servers | Replication of on-premises Windows/Linux
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-vCenter Server | Version 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
-vSphere hosts | Version 6.7, 6.5, 6.0, or 5.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
+vCenter Server | Version 7.0, 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
+vSphere hosts | Version 7.0, 6.7, 6.5, 6.0, or 5.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
 
 
 ## Site Recovery configuration server
