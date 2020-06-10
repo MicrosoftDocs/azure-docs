@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 04/23/2020
+ms.date: 06/10/2020
 ms.author: diberry
 ---
 # What's new in Personalizer
@@ -17,7 +17,7 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ## Release notes
 
-### June2020
+### June 2020
 
 * New tutorial - [using Personalizer in a web app](tutorial-use-personalizer-web-app.md)
 
