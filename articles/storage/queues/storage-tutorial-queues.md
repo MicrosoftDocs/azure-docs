@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Work with Azure storage queues - Azure Storage
-description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages.
+title: Tutorial - Work with Azure Storage queues in .NET
+description: A tutorial on how to use the Azure Queue service to create queues, and insert, get, and delete messages using .NET code.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 # Customer intent: As a developer, I want to use queues in my app so that my service will scale automatically during high demand times without losing data.
 ---
 
-# Tutorial: Work with Azure storage queues
+# Tutorial: Work with Azure storage queues in .NET
 
 Azure Queue storage implements cloud-based queues to enable communication between components of a distributed application. Each queue maintains a list of messages that can be added by a sender component and processed by a receiver component. With a queue, your application can scale immediately to meet demand. This article shows the basic steps for working with an Azure storage queue.
 
@@ -60,7 +60,7 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
    dotnet build
    ```
 
-   You should see results similar to the following:
+   You should see results similar to the following output:
 
    ```output
    C:\Tutorials>dotnet new console -n QueueApp
@@ -147,7 +147,7 @@ Add the connection string into the app so it can access the storage account.
 
 1. Switch back to Visual Studio Code.
 
-1. Remove the "Hello World" code from **Main** and replace it with the following line which gets the connection string from the environment variable.
+1. Remove the "Hello World" code from **Main** and replace it with the following line that gets the connection string from the environment variable.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -190,7 +190,7 @@ Create a new method to send a message into the queue.
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_SendMessage":::
    ---
 
-   By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live. To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+   By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -203,7 +203,7 @@ Create a new method to send a message into the queue.
 
 1. Save the file.
 
-A queue message must be in a format that can be included in an XML request with UTF-8 encoding and may be up to 64 KB in size. If a message contains binary data, [Base64-encode](/dotnet/api/system.convert.tobase64string) the message.
+A queue message must be in a format that can be included in an XML request with UTF-8 encoding. A message may be up to 64 KB in size. If a message contains binary data, [Base64-encode](/dotnet/api/system.convert.tobase64string) the message.
 
 ## Dequeue messages
 
