@@ -395,7 +395,7 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 > [!NOTE]
 > The Dynamics data types AttributeType.CalendarRules, AttributeType.MultiSelectPicklist and AttributeType.PartyList aren't supported.
 
-### Writing data to lookup field
+## Writing data to lookup field
 
 To write data into lookup field with multiple targets, e.g. *Customer* and *Owner*, follow this guidance and example:
 
