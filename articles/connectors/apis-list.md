@@ -105,7 +105,7 @@ Logic Apps provides built-in actions for running your own code in your logic app
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][azure-functions-doc] | Add and run JavaScript code snippets from your logic apps. |
+| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][inline-code-doc] | Add and run JavaScript code snippets from your logic apps. |
 |||||
 
 ### Control workflow
@@ -392,6 +392,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic apps"
 [http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic apps"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic apps based a schedule"

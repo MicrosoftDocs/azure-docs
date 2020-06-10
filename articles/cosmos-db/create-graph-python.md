@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
+ms.custom: tracking-python
 
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal

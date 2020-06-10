@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/05/2020
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -86,7 +86,7 @@ When specifying boolean and integer values in your template, don't surround the 
 
 Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
 
-Secure strings and secure objects can't be read after resource deployment.
+When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 For samples of formatting data types, see [Parameter type formats](parameter-files.md#parameter-type-formats).
 
@@ -277,7 +277,7 @@ The following example shows the structure of an output definition:
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
-<a id="comments" />
+<a id="comments"></a>
 
 ## Comments and metadata
 

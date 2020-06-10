@@ -188,6 +188,6 @@ id | name | birthdate
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+- [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
 
 

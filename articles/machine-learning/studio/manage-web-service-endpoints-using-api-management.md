@@ -14,8 +14,6 @@ ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 ## Overview
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 

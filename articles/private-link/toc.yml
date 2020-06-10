@@ -12,12 +12,18 @@
     href: create-private-endpoint-powershell.md
   - name: Create a Private Endpoint - Azure CLI
     href: create-private-endpoint-cli.md
+  - name: Create a Private Endpoint - ARM template
+    displayName: Resource Manager
+    href: create-private-endpoint-template.md
   - name: Create a Private Link service - Portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell
     href: create-private-link-service-powershell.md
   - name: Create a Private Link service - Azure CLI
     href: create-private-link-service-cli.md
+  - name: Create a Private Link service - ARM template
+    displayName: Resource Manager
+    href: create-private-link-service-template.md
 
 - name: Concepts
   items:
