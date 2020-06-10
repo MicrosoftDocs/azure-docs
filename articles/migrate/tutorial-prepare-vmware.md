@@ -133,7 +133,7 @@ You can migrate VMware VMs using [agentless or agent-based migration](server-mig
 4. [Review](migrate-support-matrix-vmware-migration.md#appliance-requirements-agentless) the Azure Migrate appliance requirements for agentless migration.
 5. Note the URL access required for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 6. Review [port access](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) requirements.
-7. Set up permissions for agentless migration.
+7. Set up permissions for agentless migration, as described in the next procedure.
 
 
 ### Assign permissions to an account
@@ -143,7 +143,7 @@ Azure Migrate appliance connects to the vCenter Server to discover and migrate V
 1. In the vSphere Web Client, open **Administration** > **Access** > **SSO Users and Groups**.
 2. In **Users**, click the **New User** icon.
 3. Type in the new user details.
-4. Assign [these permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-(agentless))
+4. Assign [these permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless)
 
 #### Create a role and assign to an account
 

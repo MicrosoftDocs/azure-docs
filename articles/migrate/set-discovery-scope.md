@@ -17,7 +17,7 @@ When you set up the appliance, it connects to vCenter Server and starts discover
 
 ## Before you start
 
-If you haven't set up a vCenter user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
+If you haven't set up a vCenter user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-prepare-vmware.md#assign-permissions-to-an-account) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
 
 
 ## Assign permissions and roles

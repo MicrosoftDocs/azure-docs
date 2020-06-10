@@ -71,7 +71,7 @@ There are some changes needed on VMs before you migrate them to Azure.
 
 Review the tables to identify the changes you need to make.
 
-## Windows machines
+### Windows machines
 
 Required changes are summarized in the table.
 
@@ -83,7 +83,7 @@ Required changes are summarized in the table.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
 
-### Configure SAN policy
+#### Configure SAN policy
 
 By default, Azure VMs are assigned drive D to use as temporary storage.
 
@@ -100,7 +100,7 @@ Configure this setting manually as follows:
 5. During the test migration, you can verify that the drive letters are preserved.
 
 
-## Linux machines
+### Linux machines
 
 Azure Migrate completes these actions automatically for these versions
 
@@ -112,7 +112,7 @@ Azure Migrate completes these actions automatically for these versions
 
 For other versions, prepare machines as summarized in the table.  
 
-### Prepare Windows machines for migration
+
 **Action** | **Details** | **Linux version**
 --- | --- | ---
 **Install Hyper-V Linux Integration Services** | Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
