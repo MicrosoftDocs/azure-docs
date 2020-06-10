@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/16/2020
 ---
 
-# Integrate Azure VMware Solution (AVS) deployment in a Hub and Spoke architecture
+# Integrate Azure VMware Solution (AVS) in a Hub and Spoke architecture
 
 In this article, we provide recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new [Hub and Spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
 
