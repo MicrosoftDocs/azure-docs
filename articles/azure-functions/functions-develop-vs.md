@@ -3,7 +3,7 @@ title: Develop Azure Functions using Visual Studio
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/10/2020
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -198,7 +198,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 ## Function app settings
 
-Because these settings aren't uploaded automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
+Because Visual Studio doesn't upload these settings automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
 
 The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
