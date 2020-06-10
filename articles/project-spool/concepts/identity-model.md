@@ -20,7 +20,7 @@ Every addressable entity in ACS world, a user, bot, pstn number, short code, app
 * pstn numbers - PhoneNumberIdentity represents an entity in ACS world that maps to a phone number.
 * bot | server application - BotIdentity represents an entity in ACS world that maps to a particular bot or server application, identified by ACS Identity or bot APP ID
 
-When your application interacts with other entities in the ACS system using ACS client SDKs you'll use corresponding Identity objects:
+When your application interacts with other entities in the ACS system using ACS client SDKs you'll use corresponding Identity objects.
 Identity types defines set of properties:
 * type - user | bot | pstn | ...
 * identity, depending on the type:
