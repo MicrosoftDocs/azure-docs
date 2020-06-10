@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
-manager: jroth
 ms.date: 08/27/2019
 ---
 # Tutorial: Add a managed instance of SQL Managed Instance to a failover group
