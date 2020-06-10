@@ -156,7 +156,7 @@ ms.author: sedusch
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and troubleshooting for end-to-end data collection for SAP Host Agent)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -531,7 +531,7 @@ To be sure SAP supports your environment, set up the Azure Extension for SAP as 
 
 #### VM extension for SAP check
 
-Check whether the VM Extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
+Check whether the VM Extension for SAP is working, as described in [Checks and Troubleshooting][deployment-guide-troubleshooting-chapter].
 
 #### Post-deployment steps
 
@@ -643,7 +643,7 @@ In the Azure portal, enter the following parameters for the template:
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **User image VHD URI** (unmanaged disk image template only): The URI of the private OS image VHD, for example, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
    * **User image storage account** (unmanaged disk image template only): The name of the storage account where the private OS image is stored, for example, &lt;accountname> in https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
-   * **userImageId** (managed disk image template only): Id of the Managed Disk image you want to use
+   * **userImageId** (managed disk image template only): ID of the Managed Disk image you want to use
    * **Admin username** and **Admin password**: The username and password.
 
      A new user is created, for signing in to the virtual machine.
@@ -674,7 +674,7 @@ To be sure SAP supports your environment, set up the Azure Extension for SAP as 
 
 #### SAP VM Extension check
 
-Check whether the VM Extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
+Check whether the VM Extension for SAP is working, as described in [Checks and Troubleshooting][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Moving an on-premises VM by using a non-generalized Azure VHD with SAP
@@ -735,7 +735,7 @@ In the Azure portal, enter the following parameters for the template:
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
    * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.
-   * **OS disk Managed Disk Id** (managed disk template only): The Id of the Managed Disk OS disk, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
+   * **OS disk Managed Disk ID** (managed disk template only): The ID of the Managed Disk OS disk, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
    * **New or existing subnet**: Determines whether a new virtual network and subnet are created, or an existing subnet is used. If you already have a virtual network that is connected to your on-premises network, select **Existing**.
    * **Subnet ID**: If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
      /subscriptions/&lt;subscription id>/resourceGroups/&lt;resource group name>/providers/Microsoft.Network/virtualNetworks/&lt;virtual network name>/subnets/&lt;subnet name>
@@ -765,7 +765,7 @@ To be sure SAP supports your environment, set up the Azure Extension for SAP as 
 
 #### SAP VM check
 
-Check whether the VM extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
+Check whether the VM extension for SAP is working, as described in [Checks and Troubleshooting][deployment-guide-troubleshooting-chapter].
 
 ## Update the configuration of Azure Extension for SAP
 
@@ -937,7 +937,7 @@ To install the Azure Extension for SAP by using PowerShell:
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].  
 1. Run the following PowerShell cmdlet.
-    For a list of available environments, run `commandlet Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure in China, select **AzureChinaCloud**.
+    For a list of available environments, run `commandlet Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -1048,7 +1048,7 @@ The process will be automated in the next version of Azure PowerShell (> 4.2.0).
     ```
 
 1. Run the following PowerShell cmdlet to install the Azure Extension for SAP.
-    The extension is currently only supported in AzureCloud. Azure China, Azure Government or any of the other special environments are not yet supported.
+    The extension is currently only supported in AzureCloud. Azure China 21Vianet, Azure Government or any of the other special environments are not yet supported.
 
     ```powershell
     $env = Get-AzEnvironment -Name AzureCloud
@@ -1066,8 +1066,6 @@ The process will be automated in the next version of Azure PowerShell (> 4.2.0).
 #### <a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configure the new Azure Extension for SAP with Azure CLI
 
 The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using Azure CLI, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
-
-The process will be automated in a future version of the Azure CLI. We will update this article once the new version is available. Until then, please follow these steps to install the extension manually.
 
 1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
 
@@ -1095,7 +1093,7 @@ The process will be automated in a future version of the Azure CLI. We will upda
     ```
 
 1. Run the following Azure CLI command to install the Azure Extension for SAP.
-    The extension is currently only supported in AzureCloud. Azure China, Azure Government or any of the other special environments are not yet supported.
+    The extension is currently only supported in AzureCloud. Azure China 21Vianet, Azure Government or any of the other special environments are not yet supported.
 
     ```azurecli
     # For Linux machines
@@ -1105,7 +1103,7 @@ The process will be automated in a future version of the Azure CLI. We will upda
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
     ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and troubleshooting for end-to-end data collection for SAP Host Agent
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting
 
 After you have deployed your Azure VM and set up the relevant Azure Extension for SAP, check whether all the components of the extension are working as expected.
 
@@ -1278,7 +1276,7 @@ If any of these checks fail, and for detailed information about how to redeploy 
 If some of the infrastructure data is not delivered correctly as indicated by the test described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1], run the `Test-AzVMAEMExtension` cmdlet to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
+1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure China 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1302,7 +1300,7 @@ Make sure that every health check result is **OK**. If some checks do not displa
 If some of the infrastructure data is not delivered correctly as indicated by the test described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1-new], run the `Get-AzVMExtension` cmdlet to check whether the Azure Extension for SAP is installed. The `Test-AzVMAEMExtension` does not yet support the new extension. Once the cmdlet supports the new extension, we will update this article.
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
+1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure China 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>
@@ -1394,7 +1392,7 @@ Executing azperfli.exe as described earlier you can get a result that is indicat
 
 ###### Solution
 
-The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the SAP Extension for SAP to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the collecting data for Standard Disk Storage accounts was throttling of I/Os that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of that data is not critical.
+The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the SAP Extension for SAP to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the collecting data for Standard Disk Storage accounts was throttling of inputs and outputs that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of that data is not critical.
 
 
 #### ![Linux][Logo_Linux] Some Azure performance counters are missing
@@ -1451,7 +1449,7 @@ For a complete and up-to-date list of known issues, see SAP Note [1999351], whic
 
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
-## Error Codes of the Azure Extension and Their Interpretation
+## Azure Extension Error Codes
 
 | Error ID | Error description | Solution |
 |---|---|---|
