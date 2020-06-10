@@ -36,7 +36,7 @@ The table summarizes the tasks you need to complete in Azure. Instructions follo
 **Create a VM** | You need permissions to create a VM in the resource group and virtual network, and to write to an Azure managed disk. | You Azure account needs the Virtual Machine Contributor role.
 
 
-### Assign permissions to create project/register appliance
+### Assign permissions to create project
 
 Check you have permissions to create an Azure Migrate project.
 

@@ -41,7 +41,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 **Use the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
 **Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required
-**Deploy the replication appliance** | The [replication appliance](migrate-replication-appliance) is used for agent-based migration. It connects between the Mobility service running on VMs, and Server Migration. | Not required | Required
+**Deploy the replication appliance** | The [replication appliance](migrate-replication-appliance.md) is used for agent-based migration. It connects between the Mobility service running on VMs, and Server Migration. | Not required | Required
 **Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
 **Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
 **Run a full migration** | Migrate the VMs. | Required | Required
