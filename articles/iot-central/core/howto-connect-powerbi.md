@@ -47,7 +47,7 @@ When you open the PBIX file, be sure the read and follow the instructions on the
 
 The PBIX file contains the **Devices and Telemetry** report shows a historical view of the telemetry that has been sent by devices. It provides a breakdown of the different types of telemetry, and also shows the most recent telemetry sent by devices.
 
-:::image type="content" source="media/howto-connect-powerbi/template-page1-hasdata.png" alt-text="Power BI Devices and Measurements report":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI Devices and Telemetry report":::
 
 ## Pipeline resources
 
