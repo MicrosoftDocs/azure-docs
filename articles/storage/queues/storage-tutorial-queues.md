@@ -22,6 +22,7 @@ In this tutorial, you learn how to:
 >
 > - Create an Azure storage account
 > - Create the app
+> - Add the Azure client libraries
 > - Add support for asynchronous code
 > - Create a queue
 > - Insert messages into a queue
@@ -38,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Create an Azure storage account
 
-First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart.
+First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart. This is a separate step to perform after you create a general Azure account, as required in the prerequisites.
 
 ## Create the app
 
@@ -90,6 +91,45 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
    C:\Tutorials\QueueApp>_
    ```
 
+## Add the Azure client libraries
+
+1. Add the Azure Storage client libraries to the project by using the `dotnet add package` command.
+
+   # [\.NET v12](#tab/dotnet)
+
+   Execute the following command from the project folder in the console window.
+
+   ```console
+   dotnet add package Azure.Storage.Queues
+   ```
+
+   # [\.NET v11](#tab/dotnetv11)
+
+   Execute the following commands from the project folder in the console window.
+
+   ```console
+   dotnet add package Microsoft.Azure.Storage.Common
+   ```
+
+   ```console
+   dotnet add package Microsoft.Azure.Storage.Queue
+   ```
+   ---
+
+### Add using statements
+
+1. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
+
+   # [\.NET v12](#tab/dotnet)
+
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
+
+   # [\.NET v11](#tab/dotnetv11)
+
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
+
+1. Save the **Program.cs** file.
+
 ## Add support for asynchronous code
 
 Since the app uses cloud resources, the code runs asynchronously.
@@ -106,36 +146,7 @@ Since the app uses cloud resources, the code runs asynchronously.
 
 ## Create a queue
 
-1. Install the **Microsoft.Azure.Storage.Common** and **Microsoft.Azure.Storage.Queue** packages to the project with the `dotnet add package` command. Execute the following dotnet commands from the project folder in the console window.
-
-   # [\.NET v12](#tab/dotnet)
-
-   ```console
-   dotnet add package Azure.Storage.Queues
-   ```
-
-   # [\.NET v11](#tab/dotnetv11)
-
-   ```console
-   dotnet add package Microsoft.Azure.Storage.Common
-   ```
-
-   ```console
-   dotnet add package Microsoft.Azure.Storage.Queue
-   ```
-   ---
-
-1. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
-
-   # [\.NET v12](#tab/dotnet)
-
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
-
-   # [\.NET v11](#tab/dotnetv11)
-
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
-
-1. Save the **Program.cs** file.
+Before making any calls into Azure APIs, you must get your credentials from the Azure portal. The credentials authorize access to your Azure resources.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -145,7 +156,7 @@ Add the connection string into the app so it can access the storage account.
 
 1. Switch back to Visual Studio Code.
 
-1. Remove the "Hello World" code from **Main** and replace it with the following line that gets the connection string from the environment variable.
+1. In the **Main**  method, replace the `Console.WriteLine("Hello World!");` code with the following line that gets the connection string from the environment variable.
 
    # [\.NET v12](#tab/dotnet)
 
