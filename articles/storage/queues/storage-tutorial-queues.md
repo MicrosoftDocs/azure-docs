@@ -134,8 +134,6 @@ Since the app uses cloud resources, the code runs asynchronously.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
-   ---
-
 
 1. Save the **Program.cs** file.
 
@@ -156,7 +154,6 @@ Add the connection string into the app so it can access the storage account.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
-   ---
 
 1. Add the following code to **Main** to create a queue object, which is later passed into the send and receive methods.
 
@@ -167,7 +164,6 @@ Add the connection string into the app so it can access the storage account.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
-   ---
 
 1. Save the file.
 
@@ -188,7 +184,6 @@ Create a new method to send a message into the queue.
    This method is passed a queue reference. A new queue is created, if it doesn't already exist, by calling [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the *newMessage* to the queue by calling [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_SendMessage":::
-   ---
 
    By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
 
@@ -199,7 +194,6 @@ Create a new method to send a message into the queue.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
-   ---
 
 1. Save the file.
 
@@ -222,7 +216,6 @@ Create a new method to retrieve a message from the queue. Once the message is su
    Add a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialReceiveMessage":::
-   ---
 
 1. Save the file.
 
@@ -239,7 +232,6 @@ It's a best practice at the end of a project to identify whether you still need 
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_ReceiveMessage":::
-   ---
 
 1. Save the file.
 
@@ -260,7 +252,6 @@ Finally, wait for user input before exiting by calling **Console.ReadLine**.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
-   ---
 
 1. Save the file.
 
@@ -275,7 +266,6 @@ Here is the complete code listing for this project.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
-   ---
 
 ## Build and run the app
 
