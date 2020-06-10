@@ -37,10 +37,11 @@ In your Azure subscription, your account needs **Microsoft.Authorization/*/Write
 
 For ISV tools and Azure Database Migration Assistant, allow access to the public cloud URLs summarized in the table. If you're using a URL-based proxy to connect to the internet, make sure that the proxy resolves any CNAME records received while looking up the URLs. 
 
-**URL** | **Details**--- | ---
+**URL** | **Details**
+--- | ---
 *.portal.azure.com 	| Navigate to the Azure portal. 
-*.windows.net<br/>*.msftauth.net<br/>*.msauth.net <br/>*.microsoft.com<br/> *.live.com 	| Sign in to your Azure subscription. 
-*.microsoftonline.com<br/>*.microsoftonline-p.com |	Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com 	| Sign in to your Azure subscription. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Create Azure Active Directory (AD) apps for the appliance to communicate with Azure Migrate. 
 management.azure.com | Make Azure Resource Manager calls to the Azure Migrate Project.
 *.servicebus.windows.net | Communication between the appliance and EventHub for sending the messages.
 
