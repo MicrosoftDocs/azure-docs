@@ -145,11 +145,12 @@ the [reference architectures](https://docs.microsoft.com/azure/architecture/refe
 
 
 <!-- LINKS - external -->
+[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+
+[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+
+[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
 
 <!-- LINKS - internal -->
 
--   [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
 
--   [Hub & Spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
-
--   [Azure networking documentation](https://docs.microsoft.com/azure/networking/)
