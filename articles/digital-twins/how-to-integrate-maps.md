@@ -35,7 +35,9 @@ This how-to will cover:
 
 ### Topology
 
-:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="An office map showing room 121 colored orange":::
+The image below illustrates where the indoor maps integration elements in this tutorial fit into a larger, end-to-end Azure Digital Twins scenario.
+
+:::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
 ## Create a function to update a map using twin update notifications
 
