@@ -16,14 +16,16 @@
 
 - name: Concepts
   items:
-  - name: Overview of prerequisites
+  - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status
     href: resource-scenario-status.md
-  - name: Network topologies SQL MI migration
-    href: resource-network-topologies.md
-  - name: Custom roles (SQL Server to SQL MI)
-    href: resource-custom-roles-sql-db-managed-instance.md
+  - name: Migration to SQL Managed Instance
+    items: 
+    - name: Network topologies 
+      href: resource-network-topologies.md
+    - name: Custom roles 
+      href: resource-custom-roles-sql-db-managed-instance.md
 
 - name: Tutorials
   expanded: true
@@ -90,9 +92,8 @@
     - name: Azure SQL Managed Instance 
       href: how-to-migrate-ssis-packages-managed-instance.md
 
-
 - name: Resources
-  - name: Frequently Asked Questions
+  - name: Frequently asked questions
     href: faq.md
   - name: Feedback
     href: https://feedback.azure.com/forums/906100-azure-database-migration-service
