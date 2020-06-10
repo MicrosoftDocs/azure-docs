@@ -79,7 +79,7 @@ Once you have upgraded the version of SQL Server By Using the installation media
 :::image type="content" source="./media/change-sql-server-version/verify-version-in-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
-> If you already have Resource Provider installed, then [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and [Register the SQL VM resource]((sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL installed on the VM. This will update the metadata and billing associated with this VM.
+> If you already have Resource Provider installed, then [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL installed on the VM. This will update the metadata and billing associated with this VM.
 
 ## Downgrade version of SQL Server
 
