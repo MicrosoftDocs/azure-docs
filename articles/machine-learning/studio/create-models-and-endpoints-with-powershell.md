@@ -1,5 +1,5 @@
 ---
-title: Create multiple model endpoints
+title: Create multiple model and endpoints
 titleSuffix: ML Studio (classic) - Azure
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning

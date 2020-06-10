@@ -11,6 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
+ms.custom: tracking-python
 ---
 
 # Use an insights token to get insights for an image
