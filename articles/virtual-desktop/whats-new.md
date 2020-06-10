@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/09/2020
+ms.date: 06/10/2020
 ms.author: helohr
+ms.reviewer: thhickli
 manager: lizross
 ---
 # What's new in Windows Virtual Desktop?
@@ -23,37 +24,37 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 ## June 2020
 
-Last month, we introduced the Windows Virtual Desktop Spring 2020 release. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 release. We've also included some information about the updates we've made over the past month.
+Last month, we introduced the Windows Virtual Desktop Spring 2020 update. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
 
-### Windows Virtual Desktop is now an Azure Resource Manager service
+### Windows Virtual Desktop is now integrated into Azure Resource Manager
 
-Windows Virtual Desktop is now an Azure Resource Manager service. In the Spring 2020 release, all Windows Virtual Desktop objects are now Azure Resource Manager resources. Since the Windows Virtual Desktop Spring 2020 release is integrated with the Azure portal, users can use Azure Resource Manager to interact the Azure service fabric. See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
+Windows Virtual Desktop is now integrated into Azure Resource Manager. In the Spring 2020 update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. The Windows Virtual Desktop Spring 2020 update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
 Here's what this change does for you:
 
-- Windows Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required.
+- Windows Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required. To get started, check out our tutorial at [Create a host pool with the Azure Portal](create-host-pools-azure-marketplace.md).
 
-- Before the Spring 2020 release, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
+- Before the Spring 2020 update, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
-- In the Fall 2019 release, there were four Remote Desktop Service (RDS) admin roles that you could assign to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
+- The earlier version of Windows Virtual Desktop had four Remote Desktop Service (RDS) admin roles that you could assign to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
 
-- In the Spring 2020 release, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
+- In the Spring 2020 update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
 - Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports. You can also integrate with Power BI to use enhanced visualizations.
 
-- You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 release, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
+- You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
 ### Service metadata storage location
 
-With the Spring 2020 release, Windows Virtual Desktop now lets you select additional US and EU geographies to store your metadata in.
+With the Spring 2020 update, Windows Virtual Desktop now lets you select additional US geographies to store your metadata in.
 
 Learn more about data locations at [Data locations](data-locations.md).
 
 ### PowerShell support
 
-We've also created the AzWvd PowerShell module to use with the Spring 2020 release. This new module is supported in PowerShell Core, which runs on .NET Core.
+We've added new AzWvd cmdlets to the Azure PowerShell Az Module with the Spring 2020 update. This new module is supported in PowerShell Core, which runs on .NET Core.
 
 To install the module, run the following cmdlet:
 
