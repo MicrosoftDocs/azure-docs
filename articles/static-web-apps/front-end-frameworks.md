@@ -13,6 +13,8 @@ ms.author: cshoe
 
 The Azure Static Web Apps requires that you have the appropriate configuration values in the [build configuration file](github-actions-workflow.md) for your front-end framework or library.
 
+## Configuration
+
 The following table lists the settings for a series of frameworks and libraries<sup>1</sup>.
 
 The intent of the table columns is explained by the following items:
