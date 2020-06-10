@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/16/2020
+ms.date: 6/8/2020
 ---
 
 # How to configure server parameters in Azure Database for MariaDB by using the Azure portal
@@ -23,42 +23,6 @@ Azure Database for MariaDB supports configuration of some server parameters. Thi
 ![Save or Discard changes](./media/howto-server-parameters/4-save_parameters.png)
 5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 ![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
-
-## List of configurable server parameters
-
-The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements.
-
-## Non-configurable server parameters
-
-InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-pricing-tiers.md).
-
-|**Pricing Tier**| **vCore(s)**|**InnoDB Buffer Pool (MB)**|
-|---|---|---|
-|Basic| 1| 1024|
-|Basic| 2| 2560|
-|General Purpose| 2| 3584|
-|General Purpose| 4| 7680|
-|General Purpose| 8| 15360|
-|General Purpose| 16| 31232|
-|General Purpose| 32| 62976|
-|General Purpose| 64| 125952|
-|Memory Optimized| 2| 7168|
-|Memory Optimized| 4| 15360|
-|Memory Optimized| 8| 30720|
-|Memory Optimized| 16| 62464|
-|Memory Optimized| 32| 125952|
-
-These additional server parameters are not configurable in the system:
-
-|**Parameter**|**Fixed value**|
-| :------------------------ | :-------- |
-|innodb_file_per_table in Basic tier|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256MB|
-|innodb_log_files_in_group|2|
-
-Other server parameters that are not listed here are set to their MariaDB out-of-box default values for [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
 
 ## Working with the time zone parameter
 
@@ -97,8 +61,6 @@ SET time_zone = 'US/Pacific';
 
 Refer to the MariaDB documentation for [Date and Time Functions](https://mariadb.com/kb/en/library/convert_tz/).
 
-<!--
 ## Next steps
 
-- [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md).
--->
+- Learn more about [server parameters](concepts-server-parameters.md)

@@ -4,16 +4,19 @@
   items:
   - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
-  - name: Create a blueprint - PowerShell
+    href: ./create-blueprint-portal.md
+  - name: Create a blueprint - Azure PowerShell
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-powershell.md
+    href: ./create-blueprint-powershell.md
+  - name: Create a blueprint - Azure CLI
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-azurecli.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
@@ -268,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/blueprint/blueprint
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
