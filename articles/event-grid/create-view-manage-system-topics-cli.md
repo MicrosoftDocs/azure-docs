@@ -13,6 +13,20 @@ ms.author: spelluru
 # Create, view, and manage Event Grid system topics using Azure CLI
 This article shows you how to create and manage system topics using Azure CLI. For an overview of system topics, see [System topics](system-topics.md).
 
+## Install extension for Azure CLI
+For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensions-list).
+
+In CloudShell:
+
+- If you've installed the extension previously, update it: `az extension update -n eventgrid`
+- If you haven't installed the extension previously, install it:  `az extension add -n eventgrid`
+
+For a local installation:
+
+1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with az --version.
+2. Uninstall previous versions of the extension: `az extension remove -n eventgrid`
+3. Install the eventgrid extension with `az extension add -n eventgrid`
+
 ## Create a system topic
 
 - To create a system topic on an Azure source first and then create an event subscription for that topic, see the following reference topics:
