@@ -39,10 +39,10 @@ public enum IdentityType
   ...
 }
 interface IIdentity
-    {
-        IdentityType Type { get; }
-        string AcsId { get; }
-    }
+ {
+     IdentityType Type { get; }
+     string AcsId { get; }
+ }
  interface IUserIdentity: IIdentity {}
  interface IBotIdentity: IIdentity {}
  interface IPstnIdentity: IIdentity {}
