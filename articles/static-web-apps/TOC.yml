@@ -34,7 +34,7 @@
     - name: Configure app settings
       href: application-settings.md
     - name: Configure front-end frameworks and libraries
-      href: application-settings.md
+      href: front-end-frameworks.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
