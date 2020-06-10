@@ -4,7 +4,7 @@ description: Describes how to resolve errors when a resource can't be found. The
 ms.topic: troubleshooting
 ms.date: 06/10/2020
 ---
-# Resolve not found errors for Azure resources
+# Resolve resource not found errors
 
 This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources. You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
@@ -39,7 +39,7 @@ When you receive this error while doing a management task, check the values you 
 
 If you're using PowerShell or Azure CLI, check whether you're running the command in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az-account-set). Many commands also provide a subscription parameter that lets you specify a different subscription than the current context.
 
-If you're having trouble verifying the properties, sign in to the [portal](https://portal.azure.com). Find the resource you're trying to use and double-check the resource name, resource group, and subscription.
+If you're having trouble verifying the properties, sign in to the [portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
 ## Solution 2 - set dependencies
 
@@ -76,7 +76,7 @@ When you see dependency problems, you need to gain insight into the order of res
 
    ![sequential deployment](./media/error-not-found/deployment-events-sequence.png)
 
-## Solution 3 - get resource from different subscription or resource group
+## Solution 3 - get external resource
 
 When deploying a template and you need to get a resource that exists in a different subscription or resource group, use the [resourceId function](template-functions-resource.md#resourceid). This function returns to get the fully qualified name of the resource.
 
@@ -120,9 +120,9 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
-## Solution 5 - check reference function
+## Solution 5 - check functions
 
-When deploying a template, look for an expression that includes the [reference](template-functions-resource.md#reference) function or [listKeys](template-functions-resource.md#listkeys) function. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Double check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
+When deploying a template, look for expressions that use the [reference](template-functions-resource.md#reference) or [listKeys](template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
