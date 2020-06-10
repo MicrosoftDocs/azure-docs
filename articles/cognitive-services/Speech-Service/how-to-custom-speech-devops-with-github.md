@@ -14,11 +14,14 @@ ms.author: kaprochi
 
 # Apply DevOps to Custom Speech model development using GitHub Actions
 
-Go to the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to create a copy of the template and begin development of Custom Speech models with a robust system of testing, training, and versioning already in place with GitHub Actions. The repository supplies you with testing and training data to get started, but the data can be replaced to use this solution for your own project.
+Go to the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to create a copy of the template and begin development of Custom Speech models with a robust system of testing, training, and versioning already in place with GitHub Actions. The repository supplies you with testing and training data to get started, but the data can be replaced to use this solution for your own project. 
+dsa
+asd
+asd
 
 The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) provides detailed guidance to:
 
-- Copy the template to your own GitHub repository.
+ - Copy the template to your own GitHub repository.
 - Create Speech resources in Azure that will be used by workflows running on GitHub Actions.
 - Create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and get the token that is used by the continuous integration (CI) and continuous delivery (CD) workflows to sign into Azure.
 - Configure [parameters for the CI/CD workflows](how-to-custom-speech-continuous-integration-continuous-deployment.md) and store them in [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
