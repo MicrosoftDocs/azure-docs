@@ -30,7 +30,7 @@ This article describes how to set up agentless dependency analysis in Azure Migr
     - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
     - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
     - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. [Set up an appliance](how-to-set-up-appliance-vmware.md) for VMware VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
-- Check that VMware Tools (later than 10.2) is instaleld on each VM you want to analyze.
+- Check that VMware Tools (later than 10.2) is installed on each VM you want to analyze.
 
 
 ## Create a user account for discovery
@@ -115,4 +115,4 @@ Choose the machines on which you want to stop dependency discovery.
 
 ## Next steps
 
-[Group the machines](how-to-create-a-group.md) for assessment.
+[Group machines](how-to-create-a-group.md) for assessment.
