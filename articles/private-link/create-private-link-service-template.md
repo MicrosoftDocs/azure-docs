@@ -4,12 +4,13 @@ description: Private link service ARM template
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
 ---
 
-# Create a private link service - Resource Manager template
+# Quickstart: Create a private link service - Resource Manager template
 
 In this quickstart, you use a Resource Manager template to create a private link service.
 
@@ -27,20 +28,20 @@ this template creates a private link service.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-privatelink-service/azuredeploy.json)
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
 Multiple Azure resources are defined in the template:
 
-- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : private link service to expose privately the service
-- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : private endpoint to access privately the service
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : one for each Virtual Machine
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : Load balancer that exposes the virtual machines that host the service
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 Network Interfaces, one for each Virtual Machine
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : 2 Virtual machines, one that hosts the service and one to test the connection to the private endpoint
 - [**Microsoft.Compute/virtualMachines/extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : Extension that installs web server
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : one for each Virtual Machine
+- [**Microsoft.Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : private link service to expose privately the service
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : 2 Public IP address, one for each Virtual Machine
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 Network Interfaces, one for each Virtual Machine
+- [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : private endpoint to access privately the service
 
 ### Deploy the template
 

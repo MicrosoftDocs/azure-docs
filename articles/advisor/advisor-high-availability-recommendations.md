@@ -90,6 +90,14 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the  Cosmos DB Spark connector and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
 
+## Upgrade recommendation for deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+
+Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+
+## Upgrade recommendation for deprecation of Older Spark Versions in HDInsight Spark cluster
+
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. ",
+
 ## Enable virtual machine replication
 Virtual machines that do not have replication enabled to another region are not resilient to regional outages. Replicating virtual machines reduces any adverse business impact during the time of an Azure region outage. Advisor will detect VMs that do not have replication enabled and recommend enabling replication so that in the event of an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
@@ -102,9 +110,9 @@ Virtual machines that do not have replication enabled to another region are not 
 ## Next steps
 
 For more information about Advisor recommendations, see:
-* [Introduction to Azure Advisor](advisor-overview.md)
+* [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
