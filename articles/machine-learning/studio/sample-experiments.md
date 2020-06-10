@@ -5,7 +5,7 @@ description: Learn how to use example machine learning experiments to create new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: samples
 
 author: likebupt
 ms.author: keli19
