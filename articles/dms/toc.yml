@@ -15,45 +15,68 @@
 
 - name: Tutorials
   items:
-  - name: Migrate SQL Server to Azure SQL DB single database offline
-    href: tutorial-sql-server-to-azure-sql.md
-  - name: Migrate SQL Server to Azure SQL DB single database online
-    href: tutorial-sql-server-azure-sql-online.md
-  - name: Migrate SQL Server to Azure SQL DB managed instance offline
-    href: tutorial-sql-server-to-managed-instance.md
-  - name: Migrate SQL Server to Azure SQL DB managed instance online
-    href: tutorial-sql-server-managed-instance-online.md
-  - name: Migrate RDS SQL Server to Azure SQL DB single database or Azure SQL DB managed instance online
-    href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - name: Migrate MySQL to Azure DB for MySQL online
-    href: tutorial-mysql-azure-mysql-online.md
-  - name: Migrate RDS MySQL to Azure DB for MySQL online
-    href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - name: Migrate PostgreSQL to Azure DB for PostgreSQL online via the portal
-    href: tutorial-postgresql-azure-postgresql-online-portal.md
-  - name: Migrate PostgreSQL to Azure DB for PostgreSQL online via the CLI
-    href: tutorial-postgresql-azure-postgresql-online.md
-  - name: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online
-    href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - name: Migrate MongoDB to Azure Cosmos DB Mongo API offline
-    href: tutorial-mongodb-cosmos-db.md
-  - name: Migrate MongoDB to Azure Cosmos DB Mongo API online
-    href: tutorial-mongodb-cosmos-db-online.md
-  - name: Migrate Oracle to Azure DB for PostgreSQL–Single server online
-    href: tutorial-oracle-azure-postgresql-online.md  
+  - name: Migrate SQL Server to
+    items: 
+    - name: Azure SQL Database (offline)
+      href: tutorial-sql-server-to-azure-sql.md
+    - name: Azure SQL Database (online)
+      href: tutorial-sql-server-azure-sql-online.md
+    - name: Azure SQL Managed Instance (offline)
+      href: tutorial-sql-server-to-managed-instance.md
+    - name: Azure SQL Managed Instance (online)
+      href: tutorial-sql-server-managed-instance-online.md
+  - name: Migrate RDS SQL Server to
+    items: 
+    - name: Azure SQL Database or SQL Managed Instance
+      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+  - name: Migrate MySQL to 
+    items: 
+    - name: Azure Database for MySQL
+      href: tutorial-mysql-azure-mysql-online.md
+  - name: Migrate RDS MySQL to 
+    items: 
+    - name: Azure Database for MySQL
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+  - name: Migrate PostgreSQL to 
+    items: 
+    - name: Azure DB for PostgreSQL (Portal)
+      href: tutorial-postgresql-azure-postgresql-online-portal.md
+    - name: Azure DB for PostgreSQL (Az CLI)
+      href: tutorial-postgresql-azure-postgresql-online.md
+  - name: Migrate RDS PostgreSQL to 
+    items: 
+    - name: Azure DB for PostgreSQL 
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+  - name: Migrate MongoDB to 
+    items: 
+    - name: Azure Cosmos DB Mongo API (offline)
+      href: tutorial-mongodb-cosmos-db.md
+    - name: Azure Cosmos DB Mongo API (online)
+      href: tutorial-mongodb-cosmos-db-online.md
+  - name: Migrate Oracle to 
+    items: 
+    - name: Azure DB for PostgreSQL–Single server online
+      href: tutorial-oracle-azure-postgresql-online.md  
+
+
 
 - name: How-to guides
   items:
-  - name: Use PowerShell to migrate SQL Server to Azure SQL DB single database
-    href: howto-sql-server-to-azure-sql-powershell.md
-  - name: Use PowerShell to migrate SQL Server to Azure SQL DB managed instance
-    href: howto-sql-server-to-azure-sql-mi-powershell.md
   - name: Monitor migration activity
     href: how-to-monitor-migration-activity.md
-  - name: Redeploy SSIS packages to Azure SQL DB single database
-    href: how-to-migrate-ssis-packages.md
-  - name: Redeploy SSIS packages to an Azure SQL DB managed instance
-    href: how-to-migrate-ssis-packages-managed-instance.md
+  - name: Use PowerShell to migrate
+    items: 
+    - name: SQL Server to SQL Database
+      href: howto-sql-server-to-azure-sql-powershell.md
+    - name: SQL Server to SQL Managed Instance 
+      href: howto-sql-server-to-azure-sql-mi-powershell.md
+  - name: Redeploy SSIS package to
+    items: 
+    - name: Azure SQL Database
+      href: how-to-migrate-ssis-packages.md
+    - name: Azure SQL Managed Instance 
+      href: how-to-migrate-ssis-packages-managed-instance.md
+
 
 - name: Resources
   expanded: true
@@ -62,30 +85,37 @@
     href: resource-scenario-status.md
   - name: Overview of prerequisites
     href: pre-reqs.md
-  - name: Network topologies for Azure SQL DB MI migrations
+  - name: Network topologies SQL MI migration
     href: resource-network-topologies.md
   - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
-    href: resource-custom-roles-sql-db-managed-instance.md
+    href: resource-custom-roles-sql-db-managed-instance.m
   - name: Troubleshooting and known issues
     items:
-    - name: Troubleshoot source database connectivity issues
-      href: known-issues-troubleshooting-dms-source-connectivity.md
-    - name: Troubleshoot common issues and errors
-      href: known-issues-troubleshooting-dms.md
-    - name: Known Issues - Online migration to Azure SQL DB single database
-      href: known-issues-azure-sql-online.md
-    - name: Known Issues - Online migration to Azure SQL DB managed instance
-      href: known-issues-azure-sql-db-managed-instance-online.md
-    - name: Known Issues - Online migration to Azure DB for MySQL
-      href: known-issues-azure-mysql-online.md
-    - name: Known Issues - Online migration from PostgreSQL to Azure DB for PostgreSQL
-      href: known-issues-azure-postgresql-online.md
-    - name: Known Issues - Online migration from Oracle to Azure DB for PostgreSQL – Single server
-      href: known-issues-oracle-azure-postgresql-online.md
-    - name: Known Issues - Migration from MongoDB to Azure Cosmos DB's API for MongoDB
-      href: known-issues-mongo-cosmos-db.md
-    - name: Known Issues - Using hybrid mode
-      href: known-issues-dms-hybrid-mode.md
+    - name: Troubleshoot
+      items: 
+      - name: Common errors
+        href: known-issues-troubleshooting-dms.md
+      - name: Source database connectivity 
+        href: known-issues-troubleshooting-dms-source-connectivity.md
+     - name: Known issues
+       items: 
+        - name: Using hybrid mode
+          href: known-issues-dms-hybrid-mode.md
+    - name: Known migration issues
+      items:     
+      - name: to SQL Database
+        href: known-issues-azure-sql-online.md
+      - name: SQL Managed Instance
+        href: known-issues-azure-sql-db-managed-instance-online.md
+      - name: to Azure DB for MySQL
+        href: known-issues-azure-mysql-online.md
+      - name: From PostgreSQL to Azure DB for PostgreSQL
+        href: known-issues-azure-postgresql-online.md
+      - name: From Oracle to Azure DB for PostgreSQL
+        href: known-issues-oracle-azure-postgresql-online.md
+      - name: From MongoDB to Azure Cosmos DB's API for MongoDB
+        href: known-issues-mongo-cosmos-db.md
+
   - name: Videos
     items:
     - name: Use the Database Migration Guide
