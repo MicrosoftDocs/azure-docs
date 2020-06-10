@@ -141,6 +141,12 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## The rendered image in Unity is upside-down
+
+Make sure to follow the [project setup guide](../tutorials/unity/project-setup.md) exactly. An upside down image indicates that Unity is required to create an off-screen render target. This behavior is currently not supported and creates a huge performance impact on HoloLens 2.
+
+Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
+
 ## Unity code using the Remote Rendering API doesn't compile
 
 ### Use Debug when compiling for Unity Editor

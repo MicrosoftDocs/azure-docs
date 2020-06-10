@@ -35,13 +35,17 @@ View the status of your share subscriptions by navigating to Sent Shares -> Shar
 
 ## Snapshot history 
 
-In the history tab, you are able to view the snapshots that have been copied in to your data consumer's tenant. You are able to monitor the frequency and duration of each snapshot interval. 
+In the **History** tab of a share, you are able to view when data is copied from data provider to data consumer's data store. You are able to monitor the frequency, duration and status of each snapshot. 
 
 ![Snapshot history](./media/sent-shares.png "Snapshot history") 
 
-You can view more details about each snapshot run by clicking on the run start date. 
+You can view more details about each snapshot run by clicking on the run start date. Then click on the status for each dataset to view the amount of data transferred, number of files/records copied, duration of the snapshot, number of vCores used and error message if there is any. 
 
-Up to 30 days of snapshot history is displayed by default. If you need to see more than 30 days worth of history, navigate to Monitoring -> Diagnostic settings and select **Add diagnostic setting**. You will be required to select a storage account to store these logs into. 
+Up to 30 days of snapshot history is displayed. If you need to save and see more than 30 days worth of history, you can leverage diagnostic setting.
+
+## Diagnostic setting
+
+You can configure diagnostic setting to save log data or events. Navigate to Monitoring -> Diagnostic settings and select **Add diagnostic setting**. Select the log data or events that you are interested in, and where you want to store or send them. 
 
 ![Snapshot history](./media/diagnostic-settings.png "Diagnostic settings") 
 

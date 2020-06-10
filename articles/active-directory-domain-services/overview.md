@@ -24,7 +24,7 @@ Azure AD DS integrates with your existing Azure AD tenant. This integration lets
 > [!div class="nextstepaction"]
 > [To get started, create an Azure AD DS managed domain using the Azure portal][tutorial-create]
 
-Azure AD DS replicates identity information from Azure AD, so works with Azure AD tenants that are cloud-only, or synchronized with an on-premises Active Directory Domain Services (AD DS) environment. The same set of Azure AD DS features exists for both environments.
+Azure AD DS replicates identity information from Azure AD, so it works with Azure AD tenants that are cloud-only, or synchronized with an on-premises Active Directory Domain Services (AD DS) environment. The same set of Azure AD DS features exists for both environments.
 
 * If you have an existing on-premises AD DS environment, you can synchronize user account information to provide a consistent identity for users. To learn more, see [How objects and credentials are synchronized in a managed domain][synchronization].
 * For cloud-only environments, you don't need a traditional on-premises AD DS environment to use the centralized identity services of Azure AD DS.
