@@ -17,6 +17,10 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ## Release notes
 
+### June2020
+
+* New tutorial - [using Personalizer in a web app](tutorial-use-personalizer-web-app.md)
+
 ### May 2020 - //Build conference
 
 The following are available in **Public Preview**:
