@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of your server.
@@ -67,7 +67,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Planned maintenance notifications are currently in preview
+> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.

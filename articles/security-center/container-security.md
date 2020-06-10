@@ -50,7 +50,7 @@ When you're exploring the security issues of a VM, Security Center provides addi
 >[!NOTE]
 > These CIS benchmark checks will not run on AKS-managed instances or Databricks-managed VMs.
 
-### Continuous monitoring of your Kubernetes clusters (Preview)
+### Continuous monitoring of your Kubernetes clusters
 Security Center works together with Azure Kubernetes Service (AKS), Microsoft's managed container orchestration service for developing, deploying, and managing containerized applications.
 
 AKS provides security controls and visibility into the security posture of your clusters. Security Center uses these features to:
@@ -63,7 +63,7 @@ For details of the relevant Security Center recommendations that might appear fo
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
+We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](threat-protection.md#azure-containers).
 
 
 ## Container security FAQ

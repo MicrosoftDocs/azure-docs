@@ -5,7 +5,8 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
+ms.custom: tracking-python
 ---
 
 # How to connect applications to Azure Database for MySQL

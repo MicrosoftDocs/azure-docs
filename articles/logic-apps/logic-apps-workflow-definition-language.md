@@ -198,7 +198,7 @@ You can also have values that don't exist until run time.
 To represent these values, you can use *expressions*, 
 which are evaluated at run time. An expression is a sequence 
 that can contain one or more [functions](#functions), 
-[operators](#operators), variables, explicit values, 
+[operators](#operators), [variables](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (\@). 

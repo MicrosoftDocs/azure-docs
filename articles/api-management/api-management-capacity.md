@@ -45,7 +45,7 @@ To follow the steps from this article, you must have:
 
 + API Management data plane services, such as request processing, which can include forwarding requests or running a policy.
 + API Management management plane services, such as management actions applied via the Azure Portal or ARM, or load coming from the [developer portal](api-management-howto-developer-portal.md).
-+ Selected operating system processes, including processes that involve cost of SSL handshakes on new connections.
++ Selected operating system processes, including processes that involve cost of TLS handshakes on new connections.
 
 Total **capacity** is an average of its own values from every unit of an API Management instance.
 

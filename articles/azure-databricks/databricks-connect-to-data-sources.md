@@ -42,7 +42,7 @@ The following list provides the data sources in Azure that you can use with Azur
 
     This link provides instructions on how to use the [Azure Event Hubs Spark connector](https://github.com/Azure/azure-event-hubs-spark) from Azure Databricks to access data in Azure Event Hubs.
 
-- [Azure SQL Data Warehouse](/azure/databricks/data/data-sources/azure/sql-data-warehouse)
+- [Azure SQL Data Warehouse](/azure/synapse-analytics/sql-data-warehouse/)
 
     This link provides instructions on how to use the Azure SQL Data Warehouse connector to connect from Azure Databricks.
     

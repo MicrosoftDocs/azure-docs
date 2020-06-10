@@ -1,15 +1,15 @@
 ---
 title: Get default answer - QnA Maker
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
-ms.topic: conceptual
-ms.date: 01/10/2020
+ms.topic: how-to
+ms.date: 04/22/2020
 ---
 
-# Set default answer for a knowledge base
+# Change default answer for a QnA Maker resource
 
 The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
 
-## Change Default Answer
+## Change Default Answer in the Azure portal
 
 1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
 
@@ -27,4 +27,4 @@ The default answer is returned when there is no match to the question. You may w
 
 ## Next steps
 
-* [Create a bot with QnA Maker and LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Create a knowledge base](../How-to/manage-knowledge-bases.md)

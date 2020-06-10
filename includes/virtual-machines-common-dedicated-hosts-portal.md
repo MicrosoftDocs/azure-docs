@@ -13,7 +13,7 @@
 ## Limitations
 
 - Virtual machine scale sets are not currently supported on dedicated hosts.
-- The initial release supports the following VM series: DSv3, ESv3, FSv2, LSv2, and MSv2. 
+- The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create a host group
 

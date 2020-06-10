@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
@@ -95,7 +95,7 @@ Export this certificate to a file using the [Manage User Certificate](/dotnet/fr
 
 1. To view your certificates, under **Certificates - Current User** in the left pane, expand the **Personal** directory.
 1. Right-click on the cert you created, select **All tasks->Export**.
-1. Follow the Certificate Export wizard.  Export the private key, specify a password for the cert file, and export to a file.
+1. Follow the Certificate Export wizard.  Do not export the private key, and export to a .CER file.
 
 To upload the certificate:
 

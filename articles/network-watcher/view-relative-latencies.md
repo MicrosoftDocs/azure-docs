@@ -1,5 +1,5 @@
 ---
-title: View relative latencies to Azure regions from specific locations | Microsoft Docs
+title: View relative latencies to Azure regions from specific locations
 description: Learn how to view relative latencies across Internet providers to Azure regions from specific locations.
 services: network-watcher
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.custom:
 > [!WARNING]
 > This feature is currently in preview and still being tested for stability.
 
-In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers’ connections to Azure.  
+In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers' connections to Azure.  
         
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,7 +41,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatch
 
 ## Compare relative network latencies to a single Azure region from a specific location
 
-Evaluate service providers, or troubleshoot a user reporting an issue such as “the site was slow,” from a specific location to the azure region where a service is deployed. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
+Evaluate service providers, or troubleshoot a user reporting an issue such as "the site was slow," from a specific location to the azure region where a service is deployed. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

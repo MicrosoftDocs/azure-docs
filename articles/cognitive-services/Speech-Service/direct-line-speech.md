@@ -3,16 +3,16 @@ title: Direct Line Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for Voice assistants using Direct Line Speech with the Speech Software Development Kit (SDK).
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.author: dapine
+ms.date: 03/11/2020
+ms.author: trbye
 ---
 
-# About Direct Line Speech
+# What is Direct Line Speech?
 
 **Direct Line Speech** is a robust, end-to-end solution for creating a flexible, extensible voice assistant. It is powered by the Bot Framework and its Direct Line Speech channel, that is optimized for voice-in, voice-out interaction with bots.
 

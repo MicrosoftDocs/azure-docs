@@ -1,8 +1,8 @@
 ---
 title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for using automatic device management to minimize repetitive and complex tasks involved in managing IoT devices at scale.
-author: chrisgre
-ms.author: chrisgre
+author: robinsh
+ms.author: robinsh
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub

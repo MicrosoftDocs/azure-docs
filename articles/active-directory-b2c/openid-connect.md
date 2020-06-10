@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -145,7 +145,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the authorization code. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, threfore not used on this flow. If using a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this flow. If using a client secret, please change it on a periodic basis. |
 | code | Yes | The authorization code that you acquired in the beginning of the user flow. |
 | grant_type | Yes | The type of grant, which must be `authorization_code` for the authorization code flow. |
 | redirect_uri | Yes | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -214,7 +214,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
-| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, threfore not used on this call. If using a client secret, please change it on a periodic basis. |
+| client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this call. If using a client secret, please change it on a periodic basis. |
 | grant_type | Yes | The type of grant, which must be a refresh token for this part of the authorization code flow. |
 | refresh_token | Yes | The original refresh token that was acquired in the second part of the flow. The `offline_access` scope must be used in both the authorization and token requests in order to receive a refresh token. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
@@ -258,7 +258,7 @@ Error responses look like:
 
 ## Send a sign-out request
 
-When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again.
+When you want to sign the user out of the application, it isn't enough to clear the application's cookies or otherwise end the session with the user. Redirect the user to Azure AD B2C to sign out. If you fail to do so, the user might be able to reauthenticate to your application without entering their credentials again. For more information, see [Azure AD B2C session](session-overview.md).
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
@@ -279,6 +279,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
-### External identity provider sign-out
 
-Directing the user to the `end_session` endpoint clears some of the user's single sign-on state with Azure AD B2C, but it doesn't sign the user out of their social identity provider (IDP) session. If the user selects the same IDP during a subsequent sign-in, they are reauthenticated without entering their credentials. If a user wants to sign out of the application, it doesn't necessarily mean they want to sign out of their Facebook account. However, if local accounts are used, the user's session ends properly.

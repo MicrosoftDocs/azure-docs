@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Front Door Service documentation
+title: Azure Front Door documentation
 summary: Azure Front Door is a scalable and secure entry point for fast delivery of your global web applications.
 
 metadata:
-  title: Azure Front Door Service Documentation
-  description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  title: Azure Front Door Documentation
+  description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
   ms.service: frontdoor
   ms.topic: landing-page
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Front Door?
             url: front-door-overview.md
+          - text: What's new?
+            url: front-door-whats-new.md      
 
        
   # Card
@@ -84,3 +86,19 @@ landingContent:
         links:
           - text: Azure load balancing
             url: front-door-lb-with-azure-app-delivery-suite.md
+
+# Card
+  - title: Configure a Rules Engine
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is Rules Engine?
+            url: front-door-rules-engine.md
+          - text: Rules Engine Match Conditions
+            url: front-door-rules-engine-match-conditions.md
+          - text: Rules Engine Actions
+            url: front-door-rules-engine-actions.md
+      - linkListType: tutorial
+        links:
+          - text: Set up a Rules Engine configuration
+            url: front-door-tutorial-rules-engine.md

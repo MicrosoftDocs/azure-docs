@@ -1,8 +1,8 @@
 ---
 title: Mobility Service data structures in Azure Maps| Microsoft Azure Maps
 description: In this article, you will learn about common fields and data structures returned via the Microsoft Azure Maps Mobility Services.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,13 +26,13 @@ The `metroID` is a metro area's ID that can be used to call the [Get Metro Area 
 
 ## Stop IDs
 
-Transit stops can be referred to by two types of IDs, the [General Transit Feed Specification (GFTS)](https://gtfs.org/) ID and the Azure Maps stop ID. The GFTS ID is referred to as the stopKey and the Azure Maps stop ID is referred to as stopID. When frequently referring to transit stops, you're encouraged to use the Azure Maps stop ID. stopID is more stable and likely to stay the same as long as the physical stop exists. The GTFS stop ID is updated more often. For example, GTFS stop ID can be updated per the GTFS provider request or when a new GTFS version is released. Although the physical stop had no change, the GTFS stop ID may change.
+Transit stops can be referred to by two types of IDs, the [General Transit Feed Specification (GFTS)](http://gtfs.org/) ID and the Azure Maps stop ID. The GFTS ID is referred to as the stopKey and the Azure Maps stop ID is referred to as stopID. When frequently referring to transit stops, you're encouraged to use the Azure Maps stop ID. stopID is more stable and likely to stay the same as long as the physical stop exists. The GTFS stop ID is updated more often. For example, GTFS stop ID can be updated per the GTFS provider request or when a new GTFS version is released. Although the physical stop had no change, the GTFS stop ID may change.
 
 To start, you can request nearby transit stops using [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
 ## Line Groups and Lines
 
-Mobility Service uses a parallel data model for Lines and Line Groups. This model is used to better deal with changes inherited from [GTFS](https://gtfs.org/) routes and the trips data.
+Mobility Service uses a parallel data model for Lines and Line Groups. This model is used to better deal with changes inherited from [GTFS](http://gtfs.org/) routes and the trips data.
 
 
 ### Line Groups

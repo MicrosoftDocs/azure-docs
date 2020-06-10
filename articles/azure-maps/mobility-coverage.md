@@ -1,8 +1,8 @@
 ---
 title: Mobility (transit) coverage | Microsoft Azure Maps
 description: In this article, you'll learn about Mobility coverage in Microsoft Azure Maps
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -114,7 +114,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Switzerland | Basel, Geneva, Yverdon-les-Bains, Zurich | 
 | Turkey | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
 | United Kingdom | East Anglia, East Midlands, London and South East, North East, North West, Northern Ireland, Scotland, South West, Wales, West Midlands, Yorkshire |
-| Ukraine | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
+| Ukraine | Kharkiv, Zhytomyr, Kyiv, Lviv, Chernivtsi |
 
 
 ## Middle East and Africa

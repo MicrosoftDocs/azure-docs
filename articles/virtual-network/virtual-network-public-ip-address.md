@@ -3,13 +3,14 @@ title: Create, change, or delete an Azure public IP address | Microsoft Docs
 description: Learn how to create, change, or delete a public IP address.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6 
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -113,4 +114,4 @@ To perform tasks on public IP addresses, your account must be assigned to the [n
 ## Next steps
 
 - Create a public IP address using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for public IP addresses
+- Create and assign [Azure Policy definitions](policy-samples.md) for public IP addresses

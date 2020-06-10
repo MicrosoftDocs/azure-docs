@@ -72,7 +72,7 @@ If none of these steps work for you, the following support channels are also ava
 | --- | --- |
 | 2 | Invalid option provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
 | 3 | Invalid configuration provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
-| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent.md#network-firewall-requirements). |
+| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent.md#firewall-requirements). |
 | 5 | 403 HTTP error received from Azure Monitor. See the full output of the omsadmin script for details. |
 | 6 | Non-200 HTTP error received from Azure Monitor. See the full output of the omsadmin script for details. |
 | 7 | Unable to connect to Azure Monitor. See the full output of the omsadmin script for details. |
@@ -153,15 +153,8 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Review the section [Update proxy settings](agent-manage.md#update-proxy-settings) to verify you have properly configured the agent to communicate through a proxy server.    
-* Double check that the following Azure Monitor endpoints are whitelisted:
 
-    |Agent Resource| Ports | Direction |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Port 443| Inbound and outbound |  
-    |*.oms.opinsights.azure.com | Port 443| Inbound and outbound |  
-    |*.blob.core.windows.net | Port 443| Inbound and outbound |  
-
-    If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+3. Double-check that the endpoints outlined in the Azure Monitor [network firewall requirements](log-analytics-agent.md#firewall-requirements) list are added to an allow list correctly. If you use Azure Automation, the necessary network configuration steps are linked above as well.
 
 ## Issue: You receive a 403 error when trying to onboard
 

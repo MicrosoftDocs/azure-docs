@@ -6,9 +6,9 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
+ms.custom:  [mvc, amqp, mqtt]
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---

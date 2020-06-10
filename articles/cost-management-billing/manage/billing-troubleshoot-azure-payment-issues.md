@@ -3,13 +3,9 @@ title: Troubleshoot Azure payment issues
 description: Resolving an issue when updating payment information account in the Microsoft Azure portal or account center.
 author: v-miegge
 ms.reviewerr: dcscontentpm
-editor: v-jesits
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: jaserano
 ---

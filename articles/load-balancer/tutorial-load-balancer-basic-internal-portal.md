@@ -116,10 +116,10 @@ To distribute traffic to the VMs, the load balancer uses a back-end address pool
 1. On the **Add a backend pool** page, type or select the following values:
    
    - **Name**: Type *MyBackendPool*.
-   - **Associated to**: Drop down and select **Availability set**.
-   - **Availability set**: Select **MyAvailabilitySet**.
+   - **Associated to**: Drop down and select **Virtual Machine**.
    
-1. Select **Add a target network IP configuration**. 
+   
+1. Select **Virtual Machine**. 
    1. Add **MyVM1** and **MyVM2** to the back-end pool.
    2. After you add each machine, drop down and select its **Network IP configuration**. 
    

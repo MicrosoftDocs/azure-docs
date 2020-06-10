@@ -2,16 +2,16 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/10/2020	
+ms.date: 02/10/2020    
 ms.author: cynthn
 ---
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | VMs per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |25,000<sup>1</sup> per region. |
 | VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
 | Azure Spot VM total cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
 | VM per series, such as Dv2 and F, cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. Contact support to increase limit. |
-| [Availability sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per region. |
+| [Availability sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,500 per region. |
 | Virtual machines per availability set | 200 |
 | Certificates per subscription |Unlimited<sup>2</sup> |
 

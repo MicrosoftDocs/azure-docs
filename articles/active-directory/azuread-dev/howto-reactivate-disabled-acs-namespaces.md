@@ -13,6 +13,7 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
+ROBOTS: NOINDEX
 ---
 
 # How to: Reactivate disabled Access Control Service namespaces
@@ -21,7 +22,7 @@ ms.custom: aaddev
 
 On November 2017, we announced that Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), is being retired on November 7, 2018.
 
-Since then, we've sent emails to the ACS subscriptions’ admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
+Since then, we've sent emails to the ACS subscriptions' admin email about the ACS retirement 12 months, 9 months, 6 months, 3 months, 1 month, 2 weeks, 1 week, and 1 day before the retirement date of November 7, 2018.
 
 On October 3, 2018, we announced (through email and [a blog post](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)) an extension offer to customers who can't finish their migration before November 7, 2018. The announcement also had instructions for requesting the extension.
 

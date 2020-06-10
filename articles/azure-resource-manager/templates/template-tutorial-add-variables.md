@@ -2,14 +2,14 @@
 title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template to simplify the syntax.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Tutorial: Add variables to your Resource Manager template
+# Tutorial: Add variables to your ARM template
 
-In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Azure Resource Manager (ARM) template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -64,8 +64,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -73,6 +75,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Verify deployment
 

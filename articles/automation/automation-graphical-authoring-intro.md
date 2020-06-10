@@ -1,21 +1,16 @@
 ---
-title: Graphical Authoring in Azure Automation
-description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
+title: Author graphical runbooks in Azure Automation
+description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ---
-# Graphical authoring in Azure Automation
+# Author graphical runbooks in Azure Automation
+
+All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook, and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
 Graphical authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. You can add activities to the canvas from a library of cmdlets and runbooks, link them together, and configure them to form a workflow. If you have ever worked with System Center Orchestrator or Service Management Automation (SMA), graphical authoring should look familiar. This article provides an introduction to the concepts you need to get started creating a graphical runbook.
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
-## Graphical runbooks
-
-All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
 ## Overview of graphical editor
 
@@ -31,7 +26,7 @@ The Canvas control allows you to design your runbook. You can add activities fro
 
 ### Library control
 
-The Library control allows you to select [activities](#activities) to add to your runbook. You add them to the canvas, where you can connect them to other activities. The Library control includes the sections defined in the following table.
+The Library control allows you to select [activities](#use-activities) to add to your runbook. You add them to the canvas, where you can connect them to other activities. The Library control includes the sections defined in the following table.
 
 | Section | Description |
 |:--- |:--- |
@@ -48,11 +43,11 @@ The Configuration control enables you to provide details for an object that is s
 
 The Test control is not displayed when the graphical editor is first started. It is opened when you interactively test a graphical runbook.
 
-## Activities
+## Use activities
 
 Activities are the building blocks of a runbook. An activity can be a PowerShell cmdlet, a child runbook, or a workflow. You can add an activity to the runbook by right-clicking it in the Library control and selecting **Add to canvas**. You can then click and drag the activity to place it anywhere on the canvas that you like. The location of the activity on the canvas does not affect the operation of the runbook. You can lay out your runbook any way you find most suitable to visualize its operation.
 
-![Add to canvas](media/automation-graphical-authoring-intro/add-to-canvas-revised20165.png)
+![Add to canvas](media/automation-graphical-authoring-intro/add-to-canvas-cmdlet.png)
 
 Select an activity on the canvas to configure its properties and parameters in the Configuration blade. You can change the label of the activity to a name that you find descriptive. The runbook still runs the original cmdlet. You are simply changing the display name that the graphical editor uses. Note that the label must be unique within the runbook.
 
@@ -62,11 +57,11 @@ A parameter set defines the mandatory and optional parameters that accept values
 
 In the following example, the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
 
-![Parameter set](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
+![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
 #### Parameter values
 
-When you specify a value for a parameter, you select a data source to determine how the value is specified. The data sources that are available for a particular parameter depend on the valid values for that parameter. For example, **Null** is not an available option for a parameter that does not allow null values.
+When you specify a value for a parameter, you select a data source to determine how the value is specified. The data sources that are available for a particular parameter depend on the valid values for that parameter. For example, Null is not an available option for a parameter that does not allow null values.
 
 | Data Source | Description |
 |:--- |:--- |
@@ -77,12 +72,12 @@ When you specify a value for a parameter, you select a data source to determine 
 | Credential Asset |Select an Automation credential as input. |
 | Certificate Asset |Select an Automation certificate as input. |
 | Connection Asset |Select an Automation connection as input. |
-| PowerShell Expression |Specify a simple [PowerShell expression](#powershell-expressions). The expression is evaluated before the activity and the result is used for the parameter value. You can use variables to refer to the output of an activity or a runbook input parameter. |
+| PowerShell Expression |Specify a simple [PowerShell expression](#work-with-powershell-expressions). The expression is evaluated before the activity and the result is used for the parameter value. You can use variables to refer to the output of an activity or a runbook input parameter. |
 | Not Configured |Clear any value that was previously configured. |
 
 #### Optional additional parameters
 
-All cmdlets have the option to provide additional parameters. These are PowerShell-common parameters or other custom parameters. The graphical editor presents a text box where you can provide parameters using PowerShell syntax. For example, to use the *Verbose* common parameter, you should specify `-Verbose:$True`.
+All cmdlets have the option to provide additional parameters. These are PowerShell-common parameters or other custom parameters. The graphical editor presents a text box where you can provide parameters using PowerShell syntax. For example, to use the `Verbose` common parameter, you should specify `-Verbose:$True`.
 
 ### Retry activity
 
@@ -96,14 +91,14 @@ The retry condition is a PowerShell expression that is evaluated after each time
 
 ![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
 
-The retry condition can use a variable named *RetryData* that provides access to information about the activity retries. This variable has the properties in the following table:
+The retry condition can use a variable named `RetryData` that provides access to information about the activity retries. This variable has the properties in the following table:
 
 | Property | Description |
 |:--- |:--- |
-| NumberOfAttempts |Number of times that the activity has been run. |
-| Output |Output from the last run of the activity. |
-| TotalDuration |Timed elapsed since the activity was started the first time. |
-| StartedAt |Time (in UTC format) when the activity was first started. |
+| `NumberOfAttempts` |Number of times that the activity has been run. |
+| `Output` |Output from the last run of the activity. |
+| `TotalDuration` |Timed elapsed since the activity was started the first time. |
+| `StartedAt` |Time (in UTC format) when the activity was first started. |
 
 The following are examples of activity retry conditions.
 
@@ -130,7 +125,7 @@ After you configure a retry condition for an activity, the activity includes two
 
 A workflow Script control is a special activity that accepts PowerShell or PowerShell Workflow script, depending on the type of graphical runbook being authored. This control provides functionality that might not be available by other means. It cannot accept parameters, but it can use variables for activity output and runbook input parameters. Any output of the activity is added to the databus. An exception is output with no outgoing link, in which case the output is added to the output of the runbook.
 
-For example, the following code performs date calculations using a runbook input variable named *NumberOfDays*. It then sends a calculated DateTime value as output to be used by subsequent activities in the runbook.
+For example, the following code performs date calculations using a runbook input variable named `NumberOfDays`. It then sends a calculated DateTime value as output to be used by subsequent activities in the runbook.
 
 ```powershell-interactive
 $DateTimeNow = (Get-Date).ToUniversalTime()
@@ -138,15 +133,15 @@ $DateTimeStart = ($DateTimeNow).AddDays(-$NumberOfDays)}
 $DateTimeStart
 ```
 
-## Links and workflow
+## Use links for workflow
 
 A link in a graphical runbook connects two activities. It is displayed on the canvas as an arrow pointing from the source activity to the destination activity. The activities run in the direction of the arrow with the destination activity starting after the source activity completes.
 
-### Link creation
+### Create a link
 
 You can create a link between two activities by selecting the source activity and clicking the circle at the bottom of the shape. Drag the arrow to the destination activity and release.
 
-![Create a link](media/automation-graphical-authoring-intro/create-link-revised20165.png)
+![Create a link](media/automation-graphical-authoring-intro/create-link-options.png)
 
 Select the link to configure its properties in the Configuration blade. Properties include the link type, which is described in the following table.
 
@@ -155,15 +150,15 @@ Select the link to configure its properties in the Configuration blade. Properti
 | Pipeline |The destination activity runs once for each object output from the source activity. The destination activity does not run if the source activity results in no output. Output from the source activity is available as an object. |
 | Sequence |The destination activity runs only once when it receives output from the source activity. Output from the source activity is available as an array of objects. |
 
-### Start of activity
+### Start runbook activity
 
 A graphical runbook starts with any activities that do not have an incoming link. There is often only one activity that acts as the starting activity for the runbook. If multiple activities do not have an incoming link, the runbook starts by running them in parallel. It follows the links to run other activities as each completes.
 
-### Link conditions
+### Specify link conditions
 
-When you specify a condition on a link, the destination activity runs only if the condition resolves to True. You typically use an *ActivityOutput* variable in a condition to retrieve the output from the source activity.
+When you specify a condition on a link, the destination activity runs only if the condition resolves to True. You typically use an `ActivityOutput` variable in a condition to retrieve the output from the source activity.
 
-For a pipeline link, you must specify a condition for a single object. The runbook evaluates the condition for each object output by the source activity. It then runs the destination activity for each object that satisfies the condition. For example, with a source activity of **Get-AzVM**, you can use the following syntax for a conditional pipeline link to retrieve only virtual machines in the resource group named Group1.
+For a pipeline link, you must specify a condition for a single object. The runbook evaluates the condition for each object output by the source activity. It then runs the destination activity for each object that satisfies the condition. For example, with a source activity of `Get-AzVM`, you can use the following syntax for a conditional pipeline link to retrieve only virtual machines in the resource group named Group1.
 
 ```powershell-interactive
 $ActivityOutput['Get Azure VMs'].Name -match "Group1"
@@ -175,7 +170,7 @@ For example, take the following set of activities in our **Start VM** runbook:
 
 ![Conditional Link with Sequences](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)
 
-The runbook uses three different sequence links that verify values of the input parameters *VMName* and *ResourceGroupName* to determine the appropriate action to take. Possible actions are start a single VM, start all VMs in the resource group, or start all VMs in a subscription. For the sequence link between **Connect to Azure** and **Get single VM**, here is the condition logic:
+The runbook uses three different sequence links that verify values of the input parameters `VMName` and `ResourceGroupName` to determine the appropriate action to take. Possible actions are start a single VM, start all VMs in the resource group, or start all VMs in a subscription. For the sequence link between `Connect to Azure` and `Get single VM`, here is the condition logic:
 
 ```powershell-interactive
 <#
@@ -190,13 +185,13 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 When you use a conditional link, the data available from the source activity to other activities in that branch is filtered by the condition. If an activity is the source to multiple links, the data available to activities in each branch depends on the condition in the link connecting to that branch.
 
-For example, the **Start-AzVM** activity in the runbook below starts all virtual machines. It has two conditional links. The first conditional link uses the expression `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` to filter if the **Start-AzVM** activity completes successfully. The second conditional link uses the expression `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` to filter if the **Start-AzVm** activity fails to start the virtual machine.
+For example, the `Start-AzVM` activity in the runbook below starts all virtual machines. It has two conditional links. The first conditional link uses the expression `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` to filter if the `Start-AzVM` activity completes successfully. The second conditional link uses the expression `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` to filter if the `Start-AzVm` activity fails to start the virtual machine.
 
 ![Conditional link example](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
-Any activity that follows the first link and uses the activity output from **Get-AzureVM** only retrieves the virtual machines that were started at the time when **Get-AzureVM** was run. Any activity that follows the second link only gets the virtual machines that were stopped at the time when **Get-AzureVM** was run. Any activity following the third link gets all virtual machines regardless of their running state.
+Any activity that follows the first link and uses the activity output from `Get-AzureVM` only retrieves the virtual machines that were started at the time when `Get-AzureVM` was run. Any activity that follows the second link only gets the virtual machines that were stopped at the time when `Get-AzureVM` was run. Any activity following the third link gets all virtual machines regardless of their running state.
 
-### Junctions
+### Use junctions
 
 A junction is a special activity that waits until all incoming branches have completed. This allows the runbook to run multiple activities in parallel and ensure that all have completed before moving on.
 
@@ -206,13 +201,13 @@ The example below is part of a runbook that starts a set of virtual machines whi
 
 ![Junction](media/automation-graphical-authoring-intro/runbook-junction.png)
 
-### Cycles
+### Work with cycles
 
 A cycle is formed when a destination activity links back to its source activity or to another activity that eventually links back to its source. Graphical authoring does not currently support cycles. If your runbook has a cycle, it saves properly but receives an error when it runs.
 
 ![Cycle](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
-### Data sharing between activities
+### Share data between activities
 
 Any data that an activity outputs with an outgoing link is written to the databus for the runbook. Any activity in the runbook can use data on the databus to populate parameter values or include in script code. An activity can access the output of any previous activity in the workflow.
 
@@ -226,30 +221,28 @@ The first mechanism uses an activity output data source to populate a parameter 
 
 ![activity output](media/automation-graphical-authoring-intro/activity-output-datasource-revised20165.png)
 
-The second data access mechanism retrieves the output of an activity in a PowerShell expression data source or a workflow script activity with an *ActivityOutput* variable, using the syntax shown below. If the output is an object, your runbook can specify a single property.
+The second data access mechanism retrieves the output of an activity in a PowerShell expression data source or a workflow script activity with an `ActivityOutput` variable, using the syntax shown below. If the output is an object, your runbook can specify a single property.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label']
 $ActivityOutput['Activity Label'].PropertyName
 ```
 
-### Checkpoints
+### Use checkpoints
 
-You can set [checkpoints](automation-powershell-workflow.md#checkpoints) in a graphical PowerShell Workflow runbook by selecting **Checkpoint runbook** on any activity. This causes a checkpoint to be set after the activity runs.
+You can set [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) in a graphical PowerShell Workflow runbook by selecting **Checkpoint runbook** on any activity. This causes a checkpoint to be set after the activity runs.
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Checkpoints are only enabled in graphical PowerShell Workflow runbooks, and are not available in graphical runbooks. If the runbook uses Azure cmdlets, it should follow any checkpointed activity with an **Connect-AzAccount** activity. The connect operation is used in case the runbook is suspended and must restart from this checkpoint on a different worker.
+Checkpoints are only enabled in graphical PowerShell Workflow runbooks, and are not available in graphical runbooks. If the runbook uses Azure cmdlets, it should follow any checkpointed activity with a `Connect-AzAccount` activity. The connect operation is used in case the runbook is suspended and must restart from this checkpoint on a different worker.
 
-## Runbook input and output
-
-### Runbook input<a name="runbook-input"></a>
+## Handle runbook input
 
 A runbook requires input either from a user starting the runbook through the Azure portal or from another runbook, if the current one is used as a child. For example, for a runbook that creates a virtual machine, the user might need to provide such information as the name of the virtual machine and other properties each time the runbook starts.
 
 The runbook accepts input by defining one or more input parameters. The user provides values for these parameters each time the runbook starts. When the user starts the runbook using the Azure portal, the user is prompted to provide values for each input parameter supported by the runbook.
 
-When authoring your runbook, you can access its input parameters by clicking the **Input and output** button on the runbook toolbar. This opens the Input and Output control where you can edit an existing input parameter or create a new one by clicking **Add input**.
+When authoring your runbook, you can access its input parameters by clicking **Input and output** on the runbook toolbar. This opens the Input and Output control where you can edit an existing input parameter or create a new one by clicking **Add input**.
 
 ![Add input](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -260,20 +253,20 @@ Each input parameter is defined by the properties in the following table:
 | Name | Required. The name of the parameter. The name must be unique within the runbook. It must start with a letter and can contain only letters, numbers, and underscores. The name cannot contain a space. |
 | Description |Optional. Description of the purpose for the input parameter. |
 | Type | Optional. Data type expected for the parameter value. The Azure portal provides an appropriate control for the data type for each parameter when prompting for input. Supported parameter types are String, Int32, Int64, Decimal, Boolean, DateTime, and Object. If a data type is not selected, it defaults to String.|
-| Mandatory | Optional. Setting that specifies if a value must be provided for the parameter. If you choose **yes**, a value must be provided when the runbook is started. If you choose **no**, a value is not required when the runbook is started, and a default value can be used. The runbook cannot start if you do not provide a value for each mandatory parameter that does not have a default value defined. |
-| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose **Custom**. Select **None** if you don't want to provide any default value. |
+| Mandatory | Optional. Setting that specifies if a value must be provided for the parameter. If you choose `yes`, a value must be provided when the runbook is started. If you choose `no`, a value is not required when the runbook is started, and a default value can be used. The runbook cannot start if you do not provide a value for each mandatory parameter that does not have a default value defined. |
+| Default Value | Optional. The value used for a parameter if one is not passed in when the runbook is started. To set a default value, choose `Custom`. Select `None` if you don't want to provide any default value. |
 
-### Runbook output
+## Handle runbook output
 
 Graphical authoring saves data created by any activity that does not have an outgoing link to the [output of the runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
-## PowerShell expressions
+## Work with PowerShell expressions
 
-One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#activities) and for setting [link conditions](#links-and-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
-### PowerShell expression data source
+### Use a PowerShell expression as a data source
 
-You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#activities) with the results of PowerShell code. The expression can be a single line of code that performs a simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
+You can use a PowerShell expression as a data source to populate the value of an [activity parameter](#use-activities) with the results of PowerShell code. The expression can be a single line of code that performs a simple function or multiple lines that perform some complex logic. Any output from a command that is not assigned to a variable is output to the parameter value.
 
 For example, the following command outputs the current date.
 
@@ -296,9 +289,9 @@ if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend"
 else { "Weekday" }
 ```
 
-### Activity output
+### Use activity output
 
-To use the output from a previous activity in your runbook, use the *ActivityOutput* variable with the following syntax.
+To use the output from a previous activity in your runbook, use the `ActivityOutput` variable with the following syntax.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label'].PropertyName
@@ -322,11 +315,11 @@ The runbook can use the output of an activity in a more complex expression, such
 "The computer name is " + $ActivityOutput['Get-AzureVM'].Name
 ```
 
-### Conditions
+### Compare values
 
 Use [comparison operators](https://technet.microsoft.com/library/hh847759.aspx) to compare values or determine if a value matches a specified pattern. A comparison returns a value of either True or False.
 
-For example, the following condition determines if the virtual machine from an activity named **Get-AzureVM** is currently stopped.
+For example, the following condition determines if the virtual machine from an activity named `Get-AzureVM` is currently stopped.
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
@@ -338,13 +331,13 @@ The following condition determines if the same virtual machine is in any state o
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-You can join multiple conditions in your runbook using a [logical operator](https://technet.microsoft.com/library/hh847789.aspx), such as **-and** or **-or**. For example, the following condition checks to see if the virtual machine in the previous example is in a state of **Stopped** or **Stopping**.
+You can join multiple conditions in your runbook using a [logical operator](https://technet.microsoft.com/library/hh847789.aspx), such as `-and` or `-or`. For example, the following condition checks to see if the virtual machine in the previous example is in a state of Stopped or Stopping.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
 ```
 
-### Hashtables
+### Use hashtables
 
 [Hashtables](https://technet.microsoft.com/library/hh847780.aspx) are name-value pairs that are useful for returning a set of values. You might also see a hashtable referred to as a dictionary. Properties for certain activities expect a hashtable instead of a simple value.
 
@@ -363,7 +356,7 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-The following example uses output from an activity called **Get Twitter Connection** to populate a hashtable.
+The following example uses output from an activity called `Get Twitter Connection` to populate a hashtable.
 
 ```powershell-interactive
 @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
@@ -372,44 +365,46 @@ The following example uses output from an activity called **Get Twitter Connecti
     'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
 ```
 
-## Authenticating to Azure resources
+## Authenticate to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the `AzureRunAsConnection` connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
-The **Get Run As Connection activity**, or **Get-AutomationConnection**, is configured with a constant value data source named **AzureRunAsConnection**.
+The `Get Run As Connection` activity, or `Get-AutomationConnection`, is configured with a constant value data source named `AzureRunAsConnection`.
 
 ![Run As Connection Configuration](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
 
-The next activity, **Connect-AzAccount**, adds the authenticated Run As account for use in the runbook.
+The next activity, `Connect-AzAccount`, adds the authenticated Run As account for use in the runbook.
 
 ![Connect-AzAccount Parameter Set](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
->For PowerShell runbooks, **Add-AzAccount** and **Add-AzureRMAccount** are aliases for **Connect-AzAccount**. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use **Connect-AzAccount** itself.
+>For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount` itself.
 
-For the parameter fields, **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the Field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
+For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
-Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the **Add-AzureAccount** cmdlet with a [credential asset](automation-credentials.md). The asset represents an Active Directory user with access to the Azure account.
+Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](automation-credentials.md). The asset represents an Active Directory user with access to the Azure account.
 
-You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an **Add-AzureAccount** activity that uses the credential asset for its input. See the following example.
+You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an `Add-AzureAccount` activity that uses the credential asset for its input. See the following example.
 
 ![Authentication activities](media/automation-graphical-authoring-intro/authentication-activities.png)
 
-The runbook must authenticate at its start and after each checkpoint. Thus you must use an **Add-AzureAccount** activity after any **Checkpoint-Workflow** activity. You do not need to use an additional credential activity.
+The runbook must authenticate at its start and after each checkpoint. Thus you must use an `Add-AzureAccount` activity after any `Checkpoint-Workflow` activity. You do not need to use an additional credential activity.
 
 ![Activity output](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## Exporting and importing a graphical runbook
+## Export a graphical runbook
 
 You can only export the published version of a graphical runbook. If the runbook has not yet been published, the **Export** button is disabled. When you click the **Export** button, the runbook downloads to your local computer. The name of the file matches the name of the runbook with a **.graphrunbook** extension.
 
+## Import a graphical runbook
+
 You can import a graphical or graphical PowerShell Workflow runbook file by selecting the **Import** option when adding a runbook. When you select the file to import, you can keep the same name or provide a new one. The **Runbook Type** field displays the type of runbook after it assesses the file selected. If you attempt to select a different type that is not correct, the graphical editor presents a message noting that there are potential conflicts and there might be syntax errors during conversion.
 
-![Import runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Import runbook](media/automation-graphical-authoring-intro/runbook-import.png)
 
-## Testing a graphical runbook
+## Test a graphical runbook
 
 Each graphical runbook in Azure Automation has a Draft version and a Published version. You can run only the Published version, while you can only edit the Draft version. The Published version is unaffected by any changes to the Draft version. When the Draft version is ready for use, you publish it, which overwrites the current Published version with your Draft version.
 
@@ -417,7 +412,7 @@ You can test the Draft version of a runbook in the Azure portal while leaving th
 
 Open the Test control for your graphical runbook by opening the runbook for edit and then clicking **Test pane**. The Test control prompts for input parameters, and you can start the runbook by clicking **Start**.
 
-## Publishing a graphical runbook
+## Publish a graphical runbook
 
 Publish a graphical runbook by opening the runbook for editing and then clicking **Publish**. Possible statuses for the runbook are:
 
@@ -429,9 +424,9 @@ Publish a graphical runbook by opening the runbook for editing and then clicking
 
 You have the option to revert to the Published version of a runbook. This operation throws away any changes made since the runbook was last published. It replaces the Draft version of the runbook with the Published version.
 
-## Next Steps
+## Next steps
 
-* To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md).
-* To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
+* To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
-* To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
+* To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

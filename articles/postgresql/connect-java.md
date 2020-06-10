@@ -4,11 +4,10 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: ["mvc", "seo-java-august2019"]
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.custom: seo-java-august2019
 ---
 
 # Quickstart: Use Java to connect to and query data in Azure Database for PostgreSQL - Single Server

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -22,89 +22,112 @@ In Azure Active Directory B2C (Azure AD B2C), you can configure the complexity r
 
 ## Prerequisites
 
-Complete the steps in [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+Complete the steps in [Get started with custom policies](custom-policy-get-started.md). You should have a working custom policy for sign-up and sign-in with local accounts.
+
 
 ## Add the elements
 
-1. Copy the *SignUpOrSignIn.xml* file that you downloaded with the starter pack and name it *SingUpOrSignInPasswordComplexity.xml*.
-2. Open the *SingUpOrSignInPasswordComplexity.xml* file and change the **PolicyId** and the **PublicPolicyUri** to a new policy name. For example, *B2C_1A_signup_signin_password_complexity*.
-3. Add the following **ClaimType** elements with identifiers of `newPassword` and `reenterPassword`:
+To configure the password complexity, override the `newPassword` and `reenterPassword` [claim types](claimsschema.md) with a reference to [predicate validations](predicates.md#predicatevalidations). The PredicateValidations element groups a set of predicates to form a user input validation that can be applied to a claim type. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+
+1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
+1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
+1. Add the `newPassword` and `reenterPassword` claims to the **ClaimsSchema** element.
 
     ```XML
-    <ClaimsSchema>
-      <ClaimType Id="newPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-      <ClaimType Id="reenterPassword">
-        <InputValidationReference Id="PasswordValidation" />
-      </ClaimType>
-    </ClaimsSchema>
+    <ClaimType Id="newPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
+    <ClaimType Id="reenterPassword">
+      <PredicateValidationReference Id="CustomPassword" />
+    </ClaimType>
     ```
 
-4. [Predicates](predicates.md) have method types of `IsLengthRange` or `MatchesRegex`. The `MatchesRegex` type is used to match a regular expression. The `IsLengthRange` type takes a minimum and maximum string length. Add a **Predicates** element to the **BuildingBlocks** element if it doesn't exist with the following **Predicate** elements:
+1. [Predicates](predicates.md) defines a basic validation to check the value of a claim type and returns true or false. The validation is done by using a specified method element, and a set of parameters relevant to the method. Add the following predicates to the **BuildingBlocks** element, immediately after the closing of the `</ClaimsSchema>` element:
 
     ```XML
     <Predicates>
-      <Predicate Id="PIN" Method="MatchesRegex" HelpText="The password must be a pin.">
+      <Predicate Id="LengthRange" Method="IsLengthRange">
+        <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^[0-9]+$</Parameter>
+          <Parameter Id="Minimum">6</Parameter>
+          <Parameter Id="Maximum">64</Parameter>
         </Parameters>
       </Predicate>
-      <Predicate Id="Length" Method="IsLengthRange" HelpText="The password must be between 8 and 16 characters.">
+      <Predicate Id="Lowercase" Method="IncludesCharacters">
+        <UserHelpText>a lowercase letter</UserHelpText>
         <Parameters>
-          <Parameter Id="Minimum">8</Parameter>
-          <Parameter Id="Maximum">16</Parameter>
+          <Parameter Id="CharacterSet">a-z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Uppercase" Method="IncludesCharacters">
+        <UserHelpText>an uppercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">A-Z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Number" Method="IncludesCharacters">
+        <UserHelpText>a digit</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">0-9</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Symbol" Method="IncludesCharacters">
+        <UserHelpText>a symbol</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
     ```
 
-5. Each **InputValidation** element is constructed by using the defined **Predicate** elements. This element allows you to perform boolean aggregations that are similar to `and` and `or`. Add an **InputValidations** element to the **BuildingBlocks** element if it doesn't exist with the following **InputValidation** element:
+1. Add the following predicate validations to the **BuildingBlocks** element, immediately after the closing of the `</Predicates>` element:
 
     ```XML
-    <InputValidations>
-      <InputValidation Id="PasswordValidation">
-        <PredicateReferences Id="LengthGroup" MatchAtLeast="1">
-          <PredicateReference Id="Length" />
-        </PredicateReferences>
-        <PredicateReferences Id="3of4" MatchAtLeast="3" HelpText="You must have at least 3 of the following character classes:">
-          <PredicateReference Id="Lowercase" />
-          <PredicateReference Id="Uppercase" />
-          <PredicateReference Id="Number" />
-          <PredicateReference Id="Symbol" />
-        </PredicateReferences>
-      </InputValidation>
-    </InputValidations>
+    <PredicateValidations>
+      <PredicateValidation Id="CustomPassword">
+        <PredicateGroups>
+          <PredicateGroup Id="LengthGroup">
+            <PredicateReferences MatchAtLeast="1">
+              <PredicateReference Id="LengthRange" />
+            </PredicateReferences>
+          </PredicateGroup>
+          <PredicateGroup Id="CharacterClasses">
+            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+            <PredicateReferences MatchAtLeast="3">
+              <PredicateReference Id="Lowercase" />
+              <PredicateReference Id="Uppercase" />
+              <PredicateReference Id="Number" />
+              <PredicateReference Id="Symbol" />
+            </PredicateReferences>
+          </PredicateGroup>
+        </PredicateGroups>
+      </PredicateValidation>
+    </PredicateValidations>
     ```
 
-6. Make sure that the **PolicyProfile** technical profile contains the following elements:
+1. The following technical profiles are [Active Directory technical profiles](active-directory-technical-profile.md), which read and write data to Azure Active Directory. Override these technical profiles in the extension file. Use `PersistedClaims` to disable the strong password policy. Find the **ClaimsProviders** element.  Add the following claim providers as follows:
 
     ```XML
-    <RelyingParty>
-      <DefaultUserJourney ReferenceId="SignUpOrSignIn"/>
-      <TechnicalProfile Id="PolicyProfile">
-        <DisplayName>PolicyProfile</DisplayName>
-        <Protocol Name="OpenIdConnect"/>
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
-        </InputClaims>
-        <OutputClaims>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="email"/>
-          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        </OutputClaims>
-        <SubjectNamingInfo ClaimType="sub"/>
-      </TechnicalProfile>
-    </RelyingParty>
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AAD-UserWritePasswordUsingObjectId">
+          <PersistedClaims>
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+          </PersistedClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
     ```
 
-7. Save the policy file.
+1. Save the policy file.
 
 ## Test your policy
-
-When testing your applications in Azure AD B2C, it can be useful to have the Azure AD B2C token returned to `https://jwt.ms` to be able to review the claims in it.
 
 ### Upload the files
 
@@ -113,12 +136,12 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Identity Experience Framework**.
 5. On the Custom Policies page, click **Upload Policy**.
-6. Select **Overwrite the policy if it exists**, and then search for and select the *SingUpOrSignInPasswordComplexity.xml* file.
+6. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
 7. Click **Upload**.
 
 ### Run the policy
 
-1. Open the policy that you changed. For example, *B2C_1A_signup_signin_password_complexity*.
+1. Open the sign-up or sign-in policy. For example, *B2C_1A_signup_signin*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
 3. Click **Run now**.
 4. Select **Sign up now**, enter an email address, and enter a new password. Guidance is presented on password restrictions. Finish entering the user information, and then click **Create**. You should see the contents of the token that was returned.
@@ -126,5 +149,4 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 ## Next steps
 
 - Learn how to [Configure password change using custom policies in Azure Active Directory B2C](custom-policy-password-change.md).
-
-
+- Learn more about the [Predicates](predicates.md) and [PredicateValidations](predicates.md#predicatevalidations) elements in the IEF reference.

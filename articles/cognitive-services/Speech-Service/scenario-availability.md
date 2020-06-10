@@ -18,7 +18,13 @@ ms.author: cbasoglu
 The Speech SDK features many scenarios across a wide variety of programming languages and environments. Not all scenarios are available in all programming languages or all environments yet. Listed below is the availability of each scenario.
 
 - **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers**
-  - All programming languages/environments where there is an arrow link <img src="media/index/link.jpg" height="15" width="15"></img> in the quickstart table [here](https://aka.ms/csspeech).
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (Jre and Android)
+  - JavaScript (Brower and NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity

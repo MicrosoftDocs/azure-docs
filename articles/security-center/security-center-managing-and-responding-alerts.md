@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/27/2019
+ms.date: 03/15/2020
 ms.author: memildin
 
 ---
@@ -19,8 +19,8 @@ ms.author: memildin
 
 This topic shows you how to view and process the alerts that you have received in order to protect your resources. 
 
-* To learn about the different types of alerts, see [Security alert types](security-center-alerts-overview.md#security-alert-types).
-* For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
+* To learn about the different types of alerts, see [Security alert types](alerts-reference.md).
+* For an overview of how Security Center generates alerts, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md).
 
 > [!NOTE]
 > To enable advanced detections, upgrade to Azure Security Center Standard. A free trial is available. To upgrade, select Pricing Tier in the [Security Policy](tutorial-security-policy.md). See [Azure Security Center pricing](security-center-pricing.md) to learn more.
@@ -64,27 +64,10 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
     In some cases, in order to mitigate a security alert, you may have to use other Azure controls or services to implement the recommended remediation. 
 
-    The following topics guide you through the different alerts, according to resource types:
-    
-    * [Alerts for IaaS Windows machines](threat-protection.md#windows-machines)
-    * [Alerts for IaaS Linux machines](threat-protection.md#linux-machines)
-    * [Alerts for Azure App Service](threat-protection.md#app-services)
-    * [Alerts for Azure containers](threat-protection.md#azure-containers)
-    * [Alerts for SQL Database and SQL Data Warehouse](threat-protection.md#data-sql)
-    * [Alerts for Azure Storage](threat-protection.md#azure-storage)
-    * [Alerts for Cosmos DB](threat-protection.md#cosmos-db)
-
-    The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
-    
-    * [Alerts for Azure management layer (Azure Resource Manager) (Preview)](threat-protection.md#management-layer)
-    * [Alerts for Azure Key Vault (Preview)](threat-protection.md#azure-keyvault)
-    * [Alerts for Azure network layer](threat-protection.md#network-layer)
-    * [Alerts from other services](threat-protection.md#alerts-other)    
-
 ## See also
 
 In this document, you learned how to configure security policies in Security Center. To learn more about Security Center, see the following:
 
+- [The Microsoft Learn module on how to use the alert capabilities of Azure Security Center to watch for and respond to threats](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md).
 * [Handling security incidents](security-center-incident.md)
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)

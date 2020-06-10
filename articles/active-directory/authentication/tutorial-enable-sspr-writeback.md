@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least a trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P2 trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
 * An account with *global administrator* privileges.
@@ -50,14 +50,17 @@ Azure AD Connect lets you synchronize users, groups, and credential between an o
 To correctly work with SSPR writeback, the account specified in Azure AD Connect must have the appropriate permissions and options set. If you're not sure which account is currently in use, open Azure AD Connect and select the **View current configuration** option. The account that you need to add permissions to is listed under **Synchronized Directories**. The following permissions and options must be set on the account:
 
 * **Reset password**
-* **Change password**
 * **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
-* **Extended rights** on either:
+* **Extended rights** for "Unexpire Password" on either:
    * The root object of *each domain* in that forest
    * The user organizational units (OUs) you want to be in scope for SSPR
 
-If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud.
+If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
+
+> [!TIP]
+>
+> If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly.
 
 To set up the appropriate permissions for password writeback to occur, complete the following steps:
 
@@ -67,8 +70,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. From the **Permissions** tab, select **Add**.
 1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
-1. Under *Permissions*, select the boxes for the following options:
-    * **Change password**
+1. Under *Permissions*, select the box for the following option:
     * **Reset password**
 1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**
@@ -80,9 +82,12 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.
 
-Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work correctly, group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`.
+Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. For password writeback to work most efficiently, the group policy for *Minimum password age* must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within `gpedit.msc`.
 
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
+
+> [!Note]
+> In order for passwords to be changed immediately, password writeback must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback will still work after the on-premises policies are evaluated. 
 
 ## Enable password writeback in Azure AD Connect
 

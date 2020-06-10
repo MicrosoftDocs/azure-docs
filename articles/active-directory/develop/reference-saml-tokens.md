@@ -1,18 +1,14 @@
 ---
-title: Azure AD token & claim types | Microsoft Docs
+title: Azure AD token & claim types
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
 services: active-directory
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/22/2018
 ms.author: ryanwi

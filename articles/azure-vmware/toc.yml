@@ -1,0 +1,50 @@
+- name: Azure VMware Solution (AVS)
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure VMware Solution (AVS)
+    href: introduction.md
+- name: Tutorials
+  items:
+  - name: 1 - Network planning
+    href: tutorial-network-checklist.md
+  - name: 2 - Create an AVS private cloud
+    href: tutorial-create-private-cloud.md
+  - name: 3 - Configure networking
+    href: tutorial-configure-networking.md
+  - name: 4 - Access a private cloud 
+    href: tutorial-access-private-cloud.md
+  - name: 5 - Scale a private cloud
+    href: tutorial-scale-private-cloud.md
+- name: Concepts
+  items:
+  - name: Private clouds and clusters
+    href: concepts-private-clouds-clusters.md
+  - name: Private cloud networking and inter-connectivity
+    href: concepts-networking.md
+  - name: Storage in private clouds
+    href: concepts-storage.md
+  - name: Access and identity for private clouds
+    href: concepts-identity.md
+  - name: Private cloud upgrades
+    href: concepts-upgrades.md
+- name: How-to guides
+  items:
+  - name: Set up HCX
+    href: hybrid-cloud-extension-installation.md
+  - name: Manage DHCP
+    href: manage-dhcp.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
+  - name: Azure Backup Server for AVS
+    items:
+    - name: Set up Azure Backup Server for AVS
+      href: set-up-mabs-for-avs.md
+    - name: Back up AVS VMs with Azure Backup Server
+      href: backup-avs-vms-with-mabs.md
+- name: Reference
+  items:
+- name: Resources
+  items: 
+    - name: FAQ
+      href: faq.md

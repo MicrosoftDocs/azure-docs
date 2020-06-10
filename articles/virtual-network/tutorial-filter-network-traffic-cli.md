@@ -160,7 +160,7 @@ az vm create \
 
 The VM takes a few minutes to create. After the VM is created, output similar to the following example is returned: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVmWeb",
@@ -232,7 +232,7 @@ Logout of the *myVmMgmt* VM. To confirm that you can access the *myVmWeb* web se
 
 When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

@@ -3,7 +3,7 @@ title: Troubleshooting Azure VM allocation failures | Microsoft Docs
 description: Troubleshoot allocation failures when you create, restart, or resize a VM in Azure
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -12,7 +12,7 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines 
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
+ms.author: daberry
 
 ---
 # Troubleshoot allocation failures when you create, restart, or resize VMs in Azure

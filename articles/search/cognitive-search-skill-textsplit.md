@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/04/2020
 ---
 # Text split cognitive skill
 
@@ -27,7 +27,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | textSplitMode      | Either "pages" or "sentences" | 
-| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 100.  If the textSplitMode is set to "pages", the algorithm will try to split the text into chunks that are at most "maximumPageLength" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength". | 
+| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 300.  If the textSplitMode is set to "pages", the algorithm will try to split the text into chunks that are at most "maximumPageLength" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength". | 
 | defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). Few things to consider:<ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format is used.</li><li>If the language is not in the previous list, the split skill breaks the text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-whitespace languages such as Chinese, Japanese, and Korean.</li><li>If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), the default of English (en) should be sufficient. </li></ul>  |
 
 

@@ -1,12 +1,15 @@
 ---
 title: Learn more about orchestration modes for virtual machine scale sets in Azure
 description: Learn more about orchestration modes for virtual machine scale sets in Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
+ms.reviewer: jushiman
+ms.custom: mimckitt
+
 ---
 
 

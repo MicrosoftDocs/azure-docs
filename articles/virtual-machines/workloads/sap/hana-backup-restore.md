@@ -159,7 +159,7 @@ In this step, you authorize the SAP HANA user account that you created so that t
 
 ### Step 6: Get the snapshot scripts, configure the snapshots, and test the configuration and connectivity
 
-Download the most recent version of the scripts from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). 
+Download the most recent version of the scripts from [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). 
 The way the scripts are installed changed with release 4.1 of the scripts. For more information, see "Enable communication with SAP HANA" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 For the exact sequence of commands, see "Easy installation of snapshot tools (default)" in [Microsoft snapshot tools for SAP HANA on Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). We recommend the use of the default installation. 

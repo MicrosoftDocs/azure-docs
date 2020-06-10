@@ -3,7 +3,8 @@ title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
 author: amberbhargava
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 03/17/2020
+ms.reviewer: andalmia
 ms.author: banders
 ---
 
@@ -17,6 +18,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 
 ## Create subscriptions for an EA billing account
+
+Use the information in the following sections to create EA subscriptions.
 
 ### Prerequisites
 
@@ -197,7 +200,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
-- There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
+- There's a limit of 500 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,34 +272,34 @@ The API response lists all the invoice sections and their billing profiles on wh
 
 ```json
 {
-	"value": [{
-		"billingProfileDisplayName": "Contoso finance",
-		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-		"enabledAzurePlans": [{
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0001",
-			"skuDescription": "Microsoft Azure Plan"
-		}, {
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0002",
-			"skuDescription": "Microsoft Azure Plan for DevTest"
-		}],
-		"invoiceSectionDisplayName": "Development",
-		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/invoiceSections/GJ77-xxxx-xxx-xxx"
-	}, {
-		"billingProfileDisplayName": "Contoso finance",
-		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-		"enabledAzurePlans": [{
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0001",
-			"skuDescription": "Microsoft Azure Plan"
-		}, {
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0002",
-			"skuDescription": "Microsoft Azure Plan for DevTest"
-		}],
-		"invoiceSectionDisplayName": "Testing",
-		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
+    "value": [{
+        "billingProfileDisplayName": "Contoso finance",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
+        "enabledAzurePlans": [{
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0001",
+            "skuDescription": "Microsoft Azure Plan"
+        }, {
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0002",
+            "skuDescription": "Microsoft Azure Plan for DevTest"
+        }],
+        "invoiceSectionDisplayName": "Development",
+        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/invoiceSections/GJ77-xxxx-xxx-xxx"
+    }, {
+        "billingProfileDisplayName": "Contoso finance",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
+        "enabledAzurePlans": [{
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0001",
+            "skuDescription": "Microsoft Azure Plan"
+        }, {
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0002",
+            "skuDescription": "Microsoft Azure Plan for DevTest"
+        }],
+        "invoiceSectionDisplayName": "Testing",
+        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
   }]
 }
 

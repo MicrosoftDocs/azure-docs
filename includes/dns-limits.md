@@ -2,12 +2,12 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 2/14/2020	
+ms.date: 2/14/2020    
 ms.author: rohink
 ---
 **Public DNS zones**
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Public DNS Zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |

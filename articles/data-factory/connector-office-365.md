@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory integrates with [Microsoft Graph data connect](https://docs.microsoft.com/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  Please refer to [this link](https://docs.microsoft.com/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](https://docs.microsoft.com/graph/data-connect-policies#licensing) for licensing information.
 
