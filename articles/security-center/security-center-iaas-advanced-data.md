@@ -44,7 +44,7 @@ Advanced data security for SQL machines by Azure Security Center requires the SQ
 
     - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
-        - **Deploy Azure Arc** - YOu can connect any Windows machine to Security Center. However, for advanced data security alerts to appear in the security tab in the **SQL Server – Azure Arc** page, set up Azure Arc on the host and follow the instructions for an Azure Arc hosted SQL machine, above.
+        - **Deploy Azure Arc** - You can connect any Windows machine to Security Center. However, to benefit from the security tab in the **SQL Server – Azure Arc** page, set up Azure Arc on the host and follow the instructions for an Azure Arc hosted SQL machine, above.
         In addition to the alerts appearing in the security tab, Azure Arc provides deeper integration across *all* of your Azure environment.
         
         - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
