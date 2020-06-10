@@ -71,7 +71,7 @@ If you want to log custom traces, follow the standard deployment process for AKS
 1. To send data to Application Insights during inference, update the scoring file by adding print statements. To log more complex information, such as the request data and the response, us a JSON structure. The following example score.py file logs the time the model is initialized, the input and output during inference, and the time any errors occur:
 
     > [!IMPORTANT]
-    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. If your input is > 64kb, you should instead store it to blob storage.
+    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. If your input is > 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
     
     ```python
     import pickle
