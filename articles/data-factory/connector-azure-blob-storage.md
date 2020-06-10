@@ -505,7 +505,13 @@ When you copy files from Amazon S3, Azure Blob storage, or Azure Data Lake Stora
 
 ## Mapping data flow properties
 
-When you're transforming data in mapping data flows, you can read and write files from Azure Blob storage in JSON, Avro, delimited text, or Parquet format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
+When you're transforming data in mapping data flows, you can read and write files from Azure Blob storage in the following formats:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 
 ### Source transformation
 
