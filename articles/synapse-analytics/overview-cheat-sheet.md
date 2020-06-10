@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics cheat sheet
+# Cheat Sheet for Azure Synapse Analytics (workspaces preview)
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
