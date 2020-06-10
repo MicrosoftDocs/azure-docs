@@ -46,7 +46,7 @@ Parameters are case-sensitive.
 
 ## Skill outputs
 
-| Ouput	 | Description |
+| Output	 | Description |
 |--------------------|-------------|
 | `keyPhrases` | A list of key phrases extracted from the input text. The key phrases are returned in order of importance. |
 
