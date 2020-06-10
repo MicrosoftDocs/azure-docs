@@ -30,7 +30,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ## What is in each edition
 
-| Data for Machine Learning Capability                     | Edition                 |
+### Data for Machine Learning capabilities  
+
+| Data capabilities                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Labelling Project Management Portal                                                | All                     |
 | Labeller Portal                                                                    | All                     |
@@ -44,7 +46,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 <br/>
 <br/>
 
-| Build & Train Capabilities                              | Edition                 |
+### Build & train capabilities
+
+| Build & Train Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Automated Machine Learning - Create and run experiments in notebooks               | All                     |
 | Automated Machine Learning - Create and run experiments in studio web experience   | Enterprise edition only |
@@ -73,6 +77,8 @@ Customers are responsible for costs incurred on compute and other Azure resource
 <br/>
 <br/>
 
+### Deploy & model management capabilities
+
 | Deploy & Model Management Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
@@ -87,7 +93,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 <br/>
 <br/>
 
-| Security, Governance, and Control Capabilities                                    | Edition                 |
+### Security, governance, and control capabilities
+
+| Security, Governance, and Control Capabilities     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Role-based Access Control (RBAC) support                                           | All                     |
 | Virtual Network (VNet) support for compute                                         | All                     |
