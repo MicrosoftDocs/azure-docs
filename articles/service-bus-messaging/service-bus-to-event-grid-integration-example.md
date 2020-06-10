@@ -73,7 +73,7 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by following the
 2. On the **Logic Apps Designer** page, select **Blank Logic App** under **Templates**. 
 3. On the designer, do the following steps:
     1. Search for **Event Grid**. 
-    2. Select **When a resource event occurs (preview) - Azure Event Grid**. 
+    2. Select **When a resource event occurs - Azure Event Grid**. 
 
         ![Logic Apps Designer - select Event Grid trigger](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
 4. Select **Sign in**, enter your Azure credentials, and select **Allow Access**. 
