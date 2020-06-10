@@ -30,7 +30,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13651).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -41,7 +41,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 1.1: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13651).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -155,7 +155,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.1: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13662).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -166,7 +166,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 2.1: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13662).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -269,7 +269,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.1: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13672).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -280,7 +280,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 3.1: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13672).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -578,7 +578,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 6.1: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13699).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -589,7 +589,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 6.1: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13699).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -725,7 +725,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 7.1: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13712).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
@@ -736,7 +736,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 ### 7.1: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/13712).
+> To revise the text in this section, update the [underlying Work Item](None.).
 
 **Guidance**: Not applicable to Security Center.
 
