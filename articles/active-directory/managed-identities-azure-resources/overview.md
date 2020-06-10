@@ -37,12 +37,12 @@ The managed identities for Azure resources can help you with this because manage
 All Azure resources that support managed identities can obtain tokens to exchange data without having credentials in the code. The process consists of the following steps:
 
  
-1.	**Enable** – Create the Managed Identity for the resource
-2.	**Grant access** –  Allow access to resources with Azure RBAC
+1.	**Enable** – Create the Managed Identity for the resource.
+2.	**Grant access** –  Allow access to resources with Azure RBAC.
 3.	**Access** - Perform the allowed actions.
 4.	**Disable** – Delete the Managed Identity. 
 
-## Managed Identity Types
+## Managed identity types
 
 There are two types of managed identities:
 
@@ -58,7 +58,7 @@ For stand-alone Azure resources, you can enable **system-assigned** managed iden
 While system-assigned managed identities provide the most convenient solution for stand-alone resources, things look different if you need to manage a group of Azure resources for the same task. In this scenario you are better of creating a identity manually and assigning this master identity to all Azure resources you need to group. This assignment is known as **user-assigned** managed identity. What is a good example?
   
 
-## Supported Services
+## Supported services
 
 You can use managed identities for Azure resources to authenticate to services that support Azure AD authentication. For a list of Azure services that support the managed identities for Azure resources feature, see [Services that support managed identities for Azure resources](services-support-msi.md).
 

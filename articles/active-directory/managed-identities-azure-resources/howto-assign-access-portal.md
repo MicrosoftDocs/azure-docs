@@ -31,7 +31,7 @@ After you've configured an Azure resource with a managed identity, you can give 
 
 ## Use RBAC to assign a managed identity access to another resource
 
-After you've enabled managed identity on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure VMSS](qs-configure-portal-windows-vmss.md):
+After you've enabled managed identity on an Azure resource, such as an [Azure VM](qs-configure-portal-windows-vm.md) or [Azure virtual machine scale set](qs-configure-portal-windows-vmss.md):
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription under which you have configured the managed identity.
 
