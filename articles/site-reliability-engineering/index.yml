@@ -57,7 +57,7 @@ productDirectory:
        imageSrc: ./media/index/learn.svg
        links:
          - url: https://docs.microsoft.com/learn/modules/intro-to-site-reliability-engineering/
-           text: Introduction to Site Reliability Engineering
+           text: Introduction to site reliability engineering
          - url: https://docs.microsoft.com/learn/paths/improve-reliability-modern-operations/
            text: Improve your reliability with modern operations practices  
      # Card
