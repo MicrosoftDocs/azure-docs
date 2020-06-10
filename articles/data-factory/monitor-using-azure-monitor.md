@@ -72,9 +72,9 @@ After a few moments, the new setting appears in your list of settings for this d
 
 ![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
-Select **Create** and then select **OMS Workspace** and **OMS Workspace settings**.
+Select **Create** and then create or select the **Log Analytics Workspace**.
 
-![Creating a new solution](media/data-factory-monitor-oms/monitor-oms-image5.png)
+![Creating a new solution](media/data-factory-monitor-oms/monitor-loganalytics-image5.png)
 
 ### Monitor Data Factory metrics
 
