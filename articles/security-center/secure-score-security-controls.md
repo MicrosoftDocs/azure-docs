@@ -49,7 +49,6 @@ Security Center displays your score prominently in the portal: it's the first th
 
 You can also access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). For example, you can use the **Secure Score Control Definitions** API to list the security controls, their recommendations, and the max score available for your subscriptions. In addition, you can use the **Secure Scores** API to get the score for a specific initiative. The API methods provide the flexibility to query your secure score status from Power BI dashboards, your own reporting systems, or however your organization programatically gathers security posture data.
 
-
 ## How the secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
