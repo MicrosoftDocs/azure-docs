@@ -32,11 +32,11 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3537).
 
-**Guidance**: Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services. Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
+**Guidance**: Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services.  Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
 
-* [Firewall Rules](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+Firewall Rules:  https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
+Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
 
-* [Manage Azure Data Lake Analytics using Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
 
 **Azure Security Center monitoring**: Yes
 
@@ -49,6 +49,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable; Azure Data Lake Analytics does not support virtual networks.
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Not applicable
@@ -60,6 +61,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable, Benchmark is intended for web applications running on Azure App Service or IaaS instances.
 
+
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Not applicable
@@ -69,11 +71,13 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3540).
 
-**Guidance**: Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services. Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
+**Guidance**: 
+Use firewall settings for Data Lake Analytics to limit external IP ranges to allow access from your on-premise clients and 3rd party services.  Configuration of firewall settings is available via Portal, REST APIs or PowerShell.
 
-* [Firewall Rules](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+Firewall Rules:  https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
 
-* [Manage Azure Data Lake Analytics using Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -84,7 +88,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3541).
 
-**Guidance**: Not applicable; Data Lake Analytics does not use network security groups (NSGs).
+**Guidance**: Not applicable; Data Lake Analytics does not use network security groups (NSGs). 
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -96,6 +101,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3542).
 
 **Guidance**: Not applicable; recommendation is intended for compute resources.
+
 
 **Azure Security Center monitoring**: No
 
@@ -119,6 +125,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
 
+
+
 **Azure Security Center monitoring**: No
 
 **Responsibility**: Not applicable
@@ -140,6 +148,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3546).
 
 **Guidance**: Not applicable; Data Lake Analytics does not use virtual network or network security groups.
+
+
 
 **Azure Security Center monitoring**: No
 
@@ -176,9 +186,13 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3549).
 
-**Guidance**: Ingest logs via Azure Monitor to aggregate security data like Audit and Requests. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds.
+**Guidance**: Ingest logs via Azure Monitor to aggregate security data  like Audit and Requests. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage, optionally with security features such as immutable storage and enforced retention holds. 
 
-* [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+How to collect platform logs and metrics with Azure Monitor: 
+
+https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings 
+
+
 
 **Azure Security Center monitoring**: No
 
@@ -190,10 +204,10 @@ For more information, see the [Azure security baselines overview](https://docs.m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3550).
 
 **Guidance**: Enable Diagnostic Settings for Data Lake Analytics to access Audit and requests logs. These include data like event source, date, user, timestamp and other useful elements.
-
-* [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
-
-* [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+How to collect platform logs and metrics with Azure Monitor:
+https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
+Understand logging and different log types in Azure:
+https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview 
 
 **Azure Security Center monitoring**: Yes
 
@@ -204,7 +218,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3551).
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
+**Guidance**:  Not applicable; this recommendation is intended for compute resources.
 
 **Azure Security Center monitoring**: No
 
@@ -215,11 +229,11 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3552).
 
-**Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements.
+**Guidance**: When storing Security event logs in the Azure Storage account or Log Analytics workspace, you may set the retention policy according to your organization's requirements. 
 
-* [How to configure retention policy for Azure Storage account logs](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+How to configure retention policy for Azure Storage account logs: https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging 
 
-* [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+Change the data retention period in Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Azure Security Center monitoring**: Yes
 
@@ -230,13 +244,13 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3553).
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results for your Data Lake Analytics resources. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
-
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
-
-* [For more information about the Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-
-* [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results for your Data Lake Analytics resources. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
+How to onboard Azure Sentinel:
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+For more information about the Log Analytics Workspace:
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+How to perform custom queries in Azure Monitor:
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Azure Security Center monitoring**: Yes
 
@@ -247,13 +261,14 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3554).
 
-**Guidance**: Enable Diagnostic Settings for Data Lake Analytics and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
+**Guidance**: Enable Diagnostic Settings for Data Lake Analytics and send logs to a Log Analytics Workspace. Onboard your Log Analytics Workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. 
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard 
 
-* [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+How to alert on log analytics log data: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response  
 
-* [Accessing diagnostic logs for Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)
+Accessing diagnostic logs for Azure Data Lake Analytics: https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs
+
 
 **Azure Security Center monitoring**: No
 
@@ -275,9 +290,10 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3556).
 
-**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Data Lake Analytics however you can use third party dns logging solution.
+**Guidance**: Azure DNS Analytics (Preview) solution in Azure Monitor gathers insights into DNS infrastructure on security, performance, and operations. Currently this does not support Azure Data Lake Analytics however you can use third party dns logging solution. 
 
-* [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)
+Gather insights about your DNS infrastructure with the DNS Analytics Preview solution: https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -303,11 +319,12 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3558).
 
-**Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. 
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+How to get a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0 
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+How to get members of a directory role in Azure AD with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -320,7 +337,9 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Data Lake Analytics does not have the concept of default passwords as authentication is provided with Azure Active Directory and secured by role-based access controls (RBAC).
 
-* [Azure Data Lake Analytics Overview](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
+Azure Data Lake Analytics Overview:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview
+
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -332,10 +351,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3560).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
-
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
-
-* [Learn more](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
+Learn more: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/
 
 **Azure Security Center monitoring**: Yes
 
@@ -347,8 +364,8 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3561).
 
 **Guidance**: Use a Service Principal in conjunction with the AppId, TenantID, and ClientSecret, to seamlessly authenticate your application and retrieve the token that will be used to access your Key Vault secrets.
-
-* [Understand service-to-service authentication to Azure Key](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+Understand service-to-service authentication to Azure Key:
+https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Azure Security Center monitoring**: Yes
 
@@ -361,9 +378,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Enable Azure Active Directory multi-factor authentication(MFA) and follow Azure Security Center Identity and access management recommendations to help protect your Data Lake Analytics resources.
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
-
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to enable MFA in Azure:
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+How to monitor identity and access within Azure Security Center:https://docs.microsoft.com/azure/security-center/security-center-identity-access 
 
 **Azure Security Center monitoring**: Yes
 
@@ -375,10 +392,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3563).
 
 **Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure Data Lake Analytics resources.
-
-* [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
-
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+Learn about Privileged Access Workstations:
+https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+How to enable MFA in Azure:
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center monitoring**: Yes
 
@@ -390,10 +407,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3564).
 
 **Guidance**: Use Azure Active Directory security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
-
-* [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
-
-* [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to identify Azure AD users flagged for risky activity:
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+How to monitor users' identity and access activity in Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center monitoring**: Yes
 
@@ -404,9 +421,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3565).
 
-**Guidance**: Use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
-
-* [How to configure named locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+**Guidance**: Use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions. 
+How to configure named locations in Azure: 
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center monitoring**: N/A
 
@@ -417,9 +434,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3566).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to Data Lake Analytics resources.
-
-* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to Data Lake Analytics resources. 
+How to create and configure an Azure AD instance:
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 **Azure Security Center monitoring**: Yes
 
@@ -430,11 +447,11 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3567).
 
-**Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access. 
-
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
-
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+**Guidance**: Review the Azure Active Directory logs to help discover stale accounts which can include those with Storage account administrative roles. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right Users have continued access.  
+Understand Azure AD reporting:
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+How to use Azure Identity Access Reviews:
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 **Azure Security Center monitoring**: Yes
 
@@ -445,9 +462,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3568).
 
-**Guidance**: Enable diagnostic settings for Data Lake Analytics and Azure Active Directory, sending all logs to a Log Analytics workspace. Configure desired alerts (such as attempts to access disabled secrets) within Log Analytics.
+**Guidance**: Enable diagnostic settings for Data Lake Analytics and Azure Active Directory, sending all logs to a Log Analytics workspace. Configure desired alerts (such as attempts to access disabled secrets) within Log Analytics.  
+Integrate Azure AD logs with Azure Monitor logs: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-* [Integrate Azure AD logs with Azure Monitor logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -458,13 +476,13 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3569).
 
-**Guidance**: Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your Data Lake Analytics resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses.
+**Guidance**: Use Azure Active Directory's Risk and Identity Protection features to configure automated responses to detected suspicious actions related to your Data Lake Analytics resources. You should enable automated responses through Azure Sentinel to implement your organization's security responses. 
 
-* [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
 
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies 
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: Yes
 
@@ -477,7 +495,9 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Guidance**: Not applicable; Customer Lockbox not supported for Azure Data Lake Analytics.
 
-* [Supported services and scenarios in general availability](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+Supported services and scenarios in general availability: 
+
+https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Azure Security Center monitoring**: Yes
 
@@ -492,9 +512,10 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3571).
 
-**Guidance**: Use tags to assist in tracking Data Lake Analytics resources that store or process sensitive information.
+**Guidance**: Use tags to assist in tracking Data Lake Analytics resources that store or process sensitive information. 
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure Security Center monitoring**: No
 
@@ -505,19 +526,21 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3572).
 
-**Guidance**: Implement isolation using separate subscriptions, management groups for individual security domains such as environment, data sensitivity. You can restrict your Data Lake Analytics to control the level of access to your Data Lake Analytics resources that your applications and enterprise environments demand. When firewall rules are configured, only applications requesting data over the specified set of networks can access your Data Lake Analytics resources. You can control access to Azure Data Lake Analytics via Azure AD RBAC.
+**Guidance**: Implement isolation using separate subscriptions, management groups for individual security domains such as environment, data sensitivity. You can restrict your Data Lake Analytics to control the level of access to your Data Lake Analytics resources that your applications and enterprise environments demand. When firewall rules are configured, only applications requesting data over the specified set of networks can access your Data Lake Analytics resources. You can control access to Azure Data Lake Analytics via Azure AD RBAC. 
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription 
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create 
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags 
 
-* [Manage Role-Based Access Control](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+Manage Role-Based Access Control:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control
 
-* [Firewall Rules](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+Firewall Rules:  https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules 
 
-* [Manage Azure Data Lake Analytics using Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+Manage Azure Data Lake Analytics using Azure PowerShell:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell
+
+
 
 **Azure Security Center monitoring**: No
 
@@ -532,9 +555,14 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+Understand customer data protection in Azure:
 
-* [How to secure Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-security-guide)
+https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+
+How to secure Azure Storage Accounts:
+
+https://docs.microsoft.com/azure/storage/common/storage-security-guide
+
 
 **Azure Security Center monitoring**: No
 
@@ -547,7 +575,8 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Microsoft Azure resources will negotiate TLS 1.2 by default. Ensure that any clients connecting to your Data Lake Analytics are able to negotiate TLS 1.2 or greater.
 
-* [Example Operations - list](https://docs.microsoft.com/rest/api/datalakeanalytics/operations/list)
+Example Operations - list : https://docs.microsoft.com/rest/api/datalakeanalytics/operations/list
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -558,9 +587,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3575).
 
-**Guidance**: Data identification features are not yet available for Azure Data Lake Analytics resources. Implement third-party solution if required for compliance purposes.
+**Guidance**: Data identification features are not yet available for Azure Data Lake Analytics resources. Implement third-party solution if required for compliance purposes. 
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -571,9 +601,10 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3576).
 
-**Guidance**: Use role-based access control (RBAC) to control how users interact with the service.
+**Guidance**: Use role-based access control (RBAC) to control how users interact with the service.  
 
-* [Manage Role-Based Access Control](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+Manage Role-Based Access Control:  https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -595,7 +626,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3578).
 
-**Guidance**: * [Data is stored in the default Data Lake Storage Gen1 account. For data at rest, Data Lake Storage Gen1 supports "on by default," transparent encryption. Encryption of data in Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
+**Guidance**: Data is stored in the default Data Lake Storage Gen1 account.  For data at rest, Data Lake Storage Gen1 supports "on by default," transparent encryption.
+
+Encryption of data in Azure Data Lake Storage Gen1: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption
 
 **Azure Security Center monitoring**: N/A
 
@@ -606,9 +639,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3579).
 
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Data Lake Analytics resources.
-
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Data Lake Analytics resources.How to create alerts for Azure Activity Log events:https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: N/A
 
@@ -623,11 +654,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3580).
 
-**Guidance**: Follow recommendations from Azure Security Center on securing your Azure Data Lake Analytics resources.
-
-Microsoft performs vulnerability management on the underlying systems that support Azure Data Lake Analytics.
-
-* [Understand Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+**Guidance**: Follow recommendations from Azure Security Center on securing your Azure Data Lake Analytics resources.Microsoft performs vulnerability management on the underlying systems that support Azure Data Lake Analytics.Understand Azure Security Center recommendations:https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 **Azure Security Center monitoring**: N/A
 
@@ -671,9 +698,10 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3584).
 
-**Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center.
+**Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center. 
 
-* [Understand Azure Security Center Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+Understand Azure Security Center Secure Score: https://docs.microsoft.com/azure/security-center/security-center-secure-score
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -688,15 +716,21 @@ Microsoft performs vulnerability management on the underlying systems that suppo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3585).
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s).  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+How to create queries with Azure Resource Graph:
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+How to view your Azure Subscriptions:
+
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
+Understand Azure RBAC:
+
+https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center monitoring**: N/A
 
@@ -709,7 +743,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: N/A
 
@@ -723,14 +759,16 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Data Lake Analytics resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
 In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+
 - Not allowed resource types
+
 - Allowed resource types
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: N/A
 
@@ -760,9 +798,13 @@ Allowed resource types
 
 In addition, use Azure Resource Graph to query/discover resources within the subscription(s).
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
+How to create queries with Azure Graph:
+
+https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 **Azure Security Center monitoring**: N/A
 
@@ -806,15 +848,7 @@ In addition, use Azure Resource Graph to query/discover resources within the sub
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3593).
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-
-Not allowed resource types
-
-Allowed resource types
-
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:Not allowed resource typesAllowed resource typesHow to configure and manage Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manageHow to deny a specific resource type with Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: N/A
 
@@ -833,12 +867,14 @@ Allowed resource types
 
 ### 6.11: Limit users' ability to interact with Azure Resources Manager via scripts
 
+
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3595).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-* [How to configure Conditional Access to block access to ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+How to configure Conditional Access to block access to ARM:  https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -879,9 +915,13 @@ Allowed resource types
 
 Diagnostic logs in Data Lake Analytics should be enabled
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+How to view available Azure Policy Aliases:
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+
+How to configure and manage Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: N/A
 
@@ -903,11 +943,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3600).
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
-
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-
-* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.How to configure and manage Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manageUnderstand Azure Policy Effects:https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Azure Security Center monitoring**: N/A
 
@@ -931,9 +967,9 @@ Diagnostic logs in Data Lake Analytics should be enabled
 
 **Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-* [About permissions and groups in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
 
 **Azure Security Center monitoring**: N/A
 
@@ -955,9 +991,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3604).
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DataLakeAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
-
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Guidance**: Use Azure Policy aliases in the "Microsoft.DataLakeAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: N/A
 
@@ -979,9 +1013,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3606).
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DataLakeAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Data Lake Analytics resources.
-
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+**Guidance**: Use Azure Policy aliases in the "Microsoft.DataLakeAnalytics" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Data Lake Analytics resources.How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center monitoring**: N/A
 
@@ -1005,6 +1037,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 
 **Guidance**: &lt;---NEED to Validate how source credentials are stored----&gt;
 
+
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
@@ -1016,6 +1049,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 
 **Guidance**: Data Lake Analytics does not support Azure managed identities.
 
+
 **Azure Security Center monitoring**: N/A
 
 **Responsibility**: Customer
@@ -1025,9 +1059,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3610).
 
-**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
-
-* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.How to setup Credential Scanner:https://secdevtools.azurewebsites.net/helpcredscan.html
 
 **Azure Security Center monitoring**: N/A
 
@@ -1053,9 +1085,7 @@ Diagnostic logs in Data Lake Analytics should be enabled
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3612).
 
-**Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Data Lake Analytics), however it does not run on customer content.
-
-Pre-scan any content being uploaded to Azure resources, such as App Service, Data Lake Analytics, Blob Storage etc. Microsoft cannot access your data in these instances.
+**Guidance**: Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Data Lake Analytics), however it does not run on customer content.Pre-scan any content being uploaded to Azure resources, such as App Service, Data Lake Analytics, Blob Storage etc. Microsoft cannot access your data in these instances.
 
 **Azure Security Center monitoring**: N/A
 
@@ -1081,13 +1111,14 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3614).
 
-**Guidance**: Data Lake Analytics jobs logs and data output are stored in the underlying Data Lake Storage gen 1 service. You can use various methods to copy data including ADLCopy, Azure PowerShell or Azure Data Factory. You can also use Azure Automation to backup data on a regular basis automatically.
+**Guidance**: Data Lake Analytics jobs logs and data output are stored in the underlying Data Lake Storage gen 1 service.  You can use various methods to copy data including ADLCopy, Azure PowerShell or Azure Data Factory.  You can also use Azure Automation to backup data on a regular basis automatically.
 
-* [Manage Azure Data Lake Storage Gen1 resources by using Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+Manage Azure Data Lake Storage Gen1 resources by using Storage Explorer:  https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer
 
-* [Copy data from Azure Storage Blobs to Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
+Copy data from Azure Storage Blobs to Azure Data Lake Storage Gen1:  https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob
 
-* [Azure Automation overview](https://docs.microsoft.com/azure/automation/automation-intro)
+Azure Automation overview:  https://docs.microsoft.com/azure/automation/automation-intro
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1098,11 +1129,11 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3615).
 
-**Guidance**: Data Lake Analytics jobs logs and data output are stored in the underlying Data Lake Storage gen 1 service. You can use various methods to copy data including ADLCopy, Azure PowerShell or Azure Data Factory.
+**Guidance**: Data Lake Analytics jobs logs and data output are stored in the underlying Data Lake Storage gen 1 service.  You can use various methods to copy data including ADLCopy, Azure PowerShell or Azure Data Factory.  
 
-* [Manage Azure Data Lake Storage Gen1 resources by using Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+Manage Azure Data Lake Storage Gen1 resources by using Storage Explorer:  https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer
+Copy data from Azure Storage Blobs to Azure Data Lake Storage Gen1:  https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob
 
-* [Copy data from Azure Storage Blobs to Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
 
 **Azure Security Center monitoring**: N/A
 
@@ -1113,7 +1144,8 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3616).
 
-**Guidance**: Periodically perform data restoration of your backup data to test the integrity of the data.
+**Guidance**: Periodically perform data restoration of your backup data to test the integrity of the data.  
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1124,11 +1156,12 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3617).
 
-**Guidance**: Data Lake Analytics backups stored within your Data Lake Storage Gen1 or Azure Storage supports encryption by default and cannot be turned off. You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.
+**Guidance**: Data Lake Analytics backups stored within your Data Lake Storage Gen1 or Azure Storage supports  encryption by default and cannot be turned off.  You should treat your backups as sensitive data and apply the relevant access and data protection controls as part of this baseline.  
 
-* [Securing data stored in Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data)
+Securing data stored in Azure Data Lake Storage Gen1:  https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data
 
-* [Authorizing access to data in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+Authorizing access to data in Azure Storage:  https://docs.microsoft.com/azure/storage/common/storage-auth
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1144,12 +1177,13 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3618).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
+Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
 
-* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
 
-* [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1160,13 +1194,14 @@ Pre-scan any content being uploaded to Azure resources, such as App Service, Dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3619).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-* [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-* [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1179,7 +1214,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
-* [Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center monitoring**: N/A
 
@@ -1191,8 +1226,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3620).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
+How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1204,10 +1240,11 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3621).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
+How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1219,8 +1256,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3622).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
+How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+
 
 **Azure Security Center monitoring**: N/A
 
@@ -1235,9 +1273,10 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/3623).
 
-**Guidance**: * [Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 
 
-* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+
 
 **Azure Security Center monitoring**: N/A
 
