@@ -32,17 +32,17 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23730).
 
-**Guidance**: Azure Automation Account does not yet support private link for restricting access to the service through private endpoints. The multi-tenant Runbook Workers leverage shared backend resoruces which Microsoft is responsibly for isolating from each other, their networking is unrestricted and can access public resources.The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation account does not yet support Azure Private Link for restricting access to the service through private endpoints. The multi-tenant Hybrid Runbook Workers leverage shared backend resources, which Microsoft is responsible for isolating from each other; their networking is unrestricted and can access public resources. Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then when you create an Azure virtual machine (VM), you must create a virtual network (VNet) or use an existing VNet and configure VM with a subnet.  Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service specific requirements, please refer to the security recommendation for that specific service. Alternatively, if customer has a specific use case, Azure Firewall may also be used to meet certain requirements.
+If you are using Hybrid Runbook Workers running on Azure virtual machines, then when you create an Azure virtual machine, you must create a virtual network (VNet) or use an existing VNet and configure your VMs with a subnet.   Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service specific requirements, refer to the security recommendation for that specific service.  Alternatively, if you have a specific requirement, Azure Firewall may also be used to meet it.
 
-* [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+Virtual networks and virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
 
-* [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+How to create an NSG with a Security Config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-* [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+How to deploy and configure Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -53,15 +53,15 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then wh
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23731).
 
-**Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation currently does not have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines, ensure the subnet containing those workers are enable with a network security group (NSG) and configure flow logs to send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, ensure the subnet containing those workers are enabled with a Network Security Group (NSG) and configure flow logs to forward logs to a Storage Account for traffic audit. You may also forward NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 While NSG rules and user defined routes do not apply to private endpoint, NSG flow logs and monitoring information for outbound connections are still supported and can be used.
 
-* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+How to Enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-* [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+How to Enable and use Traffic Analytics: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
 **Azure Security Center monitoring**: Yes
 
@@ -83,21 +83,21 @@ While NSG rules and user defined routes do not apply to private endpoint, NSG fl
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23733).
 
-**Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then enable Distributed Denial of Service (DDoS) Standard protection on your Virtual Networks housing your Hybrid Runbook Workers to guard against DDoS attacks. Using Azure Security Center Integrated Threat Intelligence, you can deny communications with known malicious IP addresses. Configure appropriately Azure Firewall on each of the Virtual Network segments, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, enable Distributed Denial of Service (DDoS) Standard protection on your Virtual Networks hosting your Hybrid Runbook Workers to guard against DDoS attacks. By using Azure Security Center Integrated Threat Intelligence, you can deny communications with known malicious IP addresses.  Configure Azure Firewall on each of the Virtual Network segments, with Threat Intelligence enabled, and configure to **Alert and deny** for malicious network traffic.
 
-You can use Azure Security Center's Just In Time Network access to limit exposure of Windows Virtual Machines to the approved IP addresses for a limited period. Also, use Azure Security Center Adaptive Network Hardening to recommend NSG configurations that limit ports and source IPs based on actual traffic and threat intelligence.
+You can use Azure Security Center's Just In Time Network access to limit exposure of Windows virtual machines to the approved IP addresses for a limited period of time.  Also, use Azure Security Center Adaptive Network Hardening recommendations for NSG configurations to limit ports and source IPs based on actual traffic and threat intelligence.
 
-* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-* [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+Understand Azure Security Center Integrated Threat Intelligence: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-* [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+Understand Azure Security Center Adaptive Network Hardening: https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-* [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+Understand Azure Security Center Just In Time Network Access Control: https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 **Azure Security Center monitoring**: Yes
 
@@ -108,13 +108,13 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23734).
 
-**Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then you can record NSG flow logs into a storage account to generate flow records for your Azure Virtual Machines that are acting as runbook workers. When investigating anomalous activity, you could enable Network Watcher packet capture so that network traffic can be reviewed for unusual and unexpected activity.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can record NSG flow logs into a storage account to generate flow records for your Azure Virtual Machines that are acting as runbook workers. When investigating anomalous activity, you could enable Network Watcher packet capture so that network traffic can be reviewed for unusual and unexpected activity.
 
-* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+How to Enable NSG Flow Logs: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-* [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+How to enable Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Azure Security Center monitoring**: Yes
 
@@ -125,15 +125,15 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23735).
 
-**Guidance**: The Azure Automation offering does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers, this control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then you can combine packet captures provided by Network Watcher and open source IDS tools such as Suricata, to perform network intrusion detection for a wide range of threats to those worker machines. Also, you can deploy Azure Firewall on the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
+If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you can combine packet captures provided by Network Watcher and open source IDS tools such as Suricata, to perform network intrusion detection for a wide range of threats to those worker machines. Also, you can deploy Azure Firewall to the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
 
-* [Perform network intrusion detection with Network Watcher and open source tools](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
+Perform network intrusion detection with Network Watcher and open source tools: https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools
 
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-* [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+How to configure alerts with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -155,9 +155,9 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23737).
 
-**Guidance**: Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall configured in Azure which require access to your Automation Resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., 'GuestAndHybridManagement') in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: Use Virtual Network service tags to define network access controls on Network Security Groups or Azure Firewall configured in Azure which require access to your Automation Resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, GuestAndHybridManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-* [Understand and using Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+Understand and using Service Tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -172,11 +172,14 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 
 You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+Azure Policy samples for networking:
+https://docs.microsoft.com/azure/governance/policy/samples/#network
 
-* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+How to create an Azure Blueprint:
+https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -193,11 +196,14 @@ Use any of the built-in Azure policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags:
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-* [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+How to create a Virtual Network:
+https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+How to create an NSG with a Security Config:
+https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -210,9 +216,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-* [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+How to view and retrieve Azure Activity Log events: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
-* [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+How to create alerts in Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -227,9 +233,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23741).
 
-**Guidance**: Microsoft maintains time sources for Azure resources, however, you have the option to manage the time synchronization settings for any Hybrid Runbook workers running on Windows Virtual Machines.
+**Guidance**: Microsoft maintains time sources for Azure resources. However, you have the option to manage the time synchronization settings for any Hybrid Runbook Workers running on Windows virtual machines.
 
-* [How to configure time synchronization for Azure compute resources](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+How to configure time synchronization for Azure compute resources: https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -240,23 +246,23 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23742).
 
-**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure Automation resources. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage. Azure Automation can send runbook job status, job streams, automation state configuration data, update management, and change tracking or inventory logs to your Log Analytics workspace, this information is visibile in the Azure portal or with PowerShell which enables you to perform simple investigations.
+**Guidance**: Forward log data to Azure Monitor Logs to aggregate security data generated by Azure Automation resources. Within Azure Monitor, use log queries to search and perform analytics, and use Azure Storage Accounts for long-term/archival storage. Azure Automation can send runbook job status, job streams, Automation state configuration data, update management, and change tracking or inventory logs to your Log Analytics workspace. This information is visible from the Azure portal, Azure PowerShell, and Azure Monitor Logs API, which enables you to perform simple investigations.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-* [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+How to collect platform logs and metrics with Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings
 
-* [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+How to get started with Azure Monitor and third-party SIEM integration: https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/
 
-* [Forward Azure Automation job data to Azure Monitor logs](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)
+Forward Azure Automation job data to Azure Monitor logs: https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics
 
-* [Integrate DSC with Azure Monitor logs](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)
+Integrate DSC with Azure Monitor logs: https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics
 
-* [Supported regions for linked Log Analytics workspace](https://docs.microsoft.com/azure/automation/how-to/region-mappings)
+Supported regions for linked Log Analytics workspace: https://docs.microsoft.com/azure/automation/how-to/region-mappings
 
-* [Query Update Management Logs](https://docs.microsoft.com/azure/automation/automation-update-management-query-logs)
+Query Update Management Logs: https://docs.microsoft.com/azure/automation/automation-update-management-query-logs
 
 **Azure Security Center monitoring**: Yes
 
@@ -267,11 +273,11 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23743).
 
-**Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
+**Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. 
 
-* [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+How to collect platform logs and metrics with Azure Monitor:  https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings 
 
-* [View and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+View and retrieve Azure Activity log events:  https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
 
 **Azure Security Center monitoring**: Yes
 
@@ -283,10 +289,10 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23744).
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
+ 
+However when using the Hybrid Runbook Worker feature, Azure Security Center provides Security Event log monitoring for Windows virtual machines. If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link.
 
-However when using the Hybrid Runbook Worker feature, Azure Security Center provides Security Event log monitoring for Windows Virtual Machines. If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link.
-
-* [Configure data collection tier within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+Configure data collection tier within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -297,11 +303,11 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23745).
 
-**Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
+**Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+Change the data retention period in Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
-* [Data retention details for Automation Accounts](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+Data retention details for Automation Accounts: https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -312,15 +318,19 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23746).
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor log queries to review logs and perform queries on log data.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel:
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-* [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+Understand log queries in Azure Monitor:
 
-* [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+
+How to perform custom queries in Azure Monitor:
+https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -331,15 +341,19 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23747).
 
-**Guidance**: Use Azure Security Center with Log Analytics Workspace for monitoring and alerting on anomalous activity found in security logs and events.
+**Guidance**: Use Azure Security Center with Azure Monitor for monitoring and alerting on anomalous activity found in security logs and events.
 
 Alternatively, you may enable and on-board data to Azure Sentinel.
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel:
+https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-* [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+How to manage alerts in Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
 
-* [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+How to alert on Azure Monitor log data:
+
+https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -350,13 +364,15 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23748).
 
-**Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
+**Guidance**: When using Azure Automation with multi-tenant runbook workers, this control is not applicable, and the platform handles the underlying virtual machines.
 
-However when using the Hybrid Runbook Worker feature, you may use Microsoft Antimalware for Azure Cloud Services and Virtual Machines and configure your virtual machines to log events to an Azure Storage Account. Configure a Log Analytics workspace to ingest the events from the Storage Accounts and create alerts where appropriate. Follow recommendations in Azure Security Center: "Compute &amp; Apps".
+ 
+However when using the Hybrid Runbook Worker feature, you may use Microsoft Antimalware for Azure Cloud Services and virtual machines. Configure your virtual machines to log events to an Azure Storage Account. Configure a Log Analytics workspace to ingest the events from the Storage Accounts and create alerts where appropriate. Follow recommendations in Azure Security Center: "Compute &amp; Apps". 
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+How to configure Microsoft Antimalware for Cloud Services and Virtual Machines: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-* [How to Enable guest-level monitoring for Virtual Machines](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
+How to Enable guest-level monitoring for virtual machines: https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -379,10 +395,11 @@ However when using the Hybrid Runbook Worker feature, you may use Microsoft Anti
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23750).
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
+ 
+However, when using the Hybrid Runbook Worker feature, Azure Security Center provides Security event log monitoring for Azure virtual machines.  Security Center provisions the Log Analytics agent on all supported Azure VMs, and any new ones that are created if automatic provisioning is enabled. Or you can install the agent manually.  The agent enables the process creation event 4688 and the commandline field inside event 4688. New processes created on the VM are recorded by event log and monitored by Security Center’s detection services.
 
-However when using the Hybrid Runbook Worker feature, Azure Security Center provides Security Event log monitoring for Azure Virtual Machines(VM). Security Center provisions the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created if automatic provisioning is enabled OR you can install the agent manually. The agent enables the process creation event 4688 and the CommandLine field inside event 4688. New processes created on the VM are recorded by EventLog and monitored by Security Center’s detection services.
-
-* [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+Data collection in Azure Security Center:
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -397,15 +414,17 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23751).
 
-**Guidance**: Use Azure Active Directory(Azure AD) built-in administrator roles which can be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
+**Guidance**: Use Azure Active Directory built-in administrator roles which can be explicitly assigned and can be queried. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. Whenever using Automation Account Run As accounts for your runbooks, ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+How to get a directory role in Azure AD with PowerShell:
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+How to get members of a directory role in Azure AD with PowerShell:
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
-* [Delete a Run As or Classic Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+Delete a Run As or Classic Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account
 
-* [Manage an Azure Automation Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account)
+Manage an Azure Automation Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account
 
 **Azure Security Center monitoring**: Yes
 
@@ -416,7 +435,7 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23752).
 
-**Guidance**: Azure Automation Account does not have the concept of default passwords. Customers are responsible for third party applications and marketplace services that may use default passwords that run on top on the service or its Hybrid Runbook Workers.
+**Guidance**: Azure Automation Account does not have the concept of default passwords.  Customers are responsible for third party applications and marketplace services that may use default passwords that run on top on the service or its Hybrid Runbook Workers.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -427,15 +446,15 @@ However when using the Hybrid Runbook Worker feature, Azure Security Center prov
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23753).
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions, scope these identities with the least priviledged permissions they need to do their automation work. Delete any unused Run As accounts to minimize your exposed attack surface.
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts. Whenever using Automation Account Run As accounts for your runbooks, ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Scope these identities with the least privileged permissions they need in order for your runbooks to successfully perform their automated process. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager. 
 
-* [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+Learn more about Privileged Identity Management: https://docs.microsoft.com/azure/active-directory/privileged-identity-management/
 
-* [Delete a Run As or Classic Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+Delete a Run As or Classic Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account
 
-* [Manage an Azure Automation Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account)
+Manage an Azure Automation Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account
 
 **Azure Security Center monitoring**: Yes
 
@@ -446,13 +465,13 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23754).
 
-**Guidance**: Wherever possible, use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Wherever possible, use SSO with Azure Active Directory rather than configuring individual stand-alone credentials per-service. Use Azure Security Center Identity and Access Management recommendations. 
 
-* [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Single sign-on to applications in Azure Active Directory: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on 
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to monitor identity and access within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-* [Use Azure AD to authenticate to Azure](https://docs.microsoft.com/azure/automation/automation-use-azure-ad)
+Use Azure AD to authenticate to Azure: https://docs.microsoft.com/azure/automation/automation-use-azure-ad
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -463,56 +482,60 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23755).
 
-**Guidance**: Enable Azure AD multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations.
+**Guidance**: Enable Azure AD multi-factor authentication(MFA) and follow Azure Security Center Identity and Access Management recommendations. 
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+How to enable MFA in Azure: 
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted 
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+How to monitor identity and access within Azure Security Center: 
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use dedicated machines for all administrative tasks
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23756).
 
-**Guidance**: Use PAWs (privileged access workstations) with multi-factor authentication (MFA) configured to log into and configure Azure Automation Account resources in production environments.
+**Guidance**: Use PAWs with multi-factor authentication configured to log into and configure Azure Automation Account resources in production environments. 
 
-* [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+Learn about Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+How to enable MFA in Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activities from administrative accounts
+### 3.7: Log and alert on suspicious activities from administrative accounts.
+
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23757).
 
-**Guidance**: Utilize Azure AD Risk Detections to view alerts and reports on risky user behavior. Optionally, customer may ingest Azure Security Center Risk Detection alerts into Azure Monitor and configure custom alerting/notifications using Action Groups.
+**Guidance**: Utilize Azure AD Risk Detections to view alerts and reports on risky user behavior. Optionally, customer may forward Azure Security Center Risk Detection alerts to Azure Monitor and configure custom alerting/notifications using Action Groups. 
 
-* [Understanding Azure Security Center risk detections (suspicious activity)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+Understanding Azure Security Center risk detections (suspicious activity): https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events 
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+How to integrate Azure Activity Logs into Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics 
 
-* [How to configure action groups for custom alerting and notification](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+How to configure action groups for custom alerting and notification: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 3.8: Manage Azure resources from only approved locations
+### 3.8: Manage Azure resources from only approved locations.
+
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23758).
 
-**Guidance**: Customer to use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: It is recommended to use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions. 
 
-* [How to configure named locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+How to configure named locations in Azure:  https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -523,11 +546,11 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23759).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials. If using Hybrid Runbook Workers you may leverage managed identities instead of Run As Accounts to enable more seamless secure permissioning.
+**Guidance**: Use Azure AD as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials. If using Hybrid Runbook Workers you may leverage managed identities instead of Run As Accounts to enable more seamless secure permissions.
 
-* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+How to create and configure an Azure AD instance: https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
-* [Use runbook authentication with managed identities](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+Use runbook authentication with managed identities: https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities
 
 **Azure Security Center monitoring**: Yes
 
@@ -538,15 +561,18 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23760).
 
-**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
+**Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+Understand Azure AD reporting:
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+How to use Azure identity access reviews:
 
-* [Delete a Run As or Classic Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-* [Manage an Azure Automation Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account)
+Delete a Run As or Classic Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account
+
+Manage an Azure Automation Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account
 
 **Azure Security Center monitoring**: Yes
 
@@ -561,7 +587,8 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure desired Alerts within Log Analytics Workspace.
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+How to integrate Azure Activity Logs into Azure Monitor:
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -574,11 +601,11 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your network resource. You can also ingest data into Azure Sentinel for further investigation.
 
-* [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+How to view Azure AD risky sign-ins: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+How to configure and enable Identity Protection risk policies: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -591,9 +618,9 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: For Azure Automation Accounts, Microsoft support can access platform resource metadata during an open support case without usage of another tool.
 
-However when using Hybrid Runbook Workers backed by Azure Virtual machines and a third party needs to access customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
+However, when using Hybrid Runbook Workers backed by Azure virtual machines and a third party needs to access customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
 
-* [Understanding Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+Understanding Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -608,9 +635,9 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23764).
 
-**Guidance**: Use Tags to assist in tracking Azure Automation resources which store or process sensitive information.
+**Guidance**: Use tags to assist in tracking Azure Automation resources which store or process sensitive information. 
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -621,21 +648,21 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23765).
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production, isolate environments by using separate Automation Account resources. Resources llike Hybrid Runbook Workers should be separated by virtual network/subnet, tagged appropriately, and secured within an network security group (NSG) or Azure Firewall. For Virtual Machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Isolate environments by using separate Automation Account resources. Resources like Hybrid Runbook Workers should be separated by virtual network/subnet, tagged appropriately, and secured within an network security group (NSG) or Azure Firewall. For virtual machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to create Management Groups: https://docs.microsoft.com/azure/governance/management-groups/create
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-* [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+How to create an NSG with a Security Config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+How to deploy Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
-* [How to configure alert or alert and deny with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+How to configure alert or alert and deny with Azure Firewall: https://docs.microsoft.com/azure/firewall/threat-intel
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -650,7 +677,7 @@ However when using Hybrid Runbook Workers backed by Azure Virtual machines and a
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+Understand customer data protection in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center monitoring**: Yes
 
@@ -661,13 +688,14 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23767).
 
-**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or greater. Azure Automation fully supports and enforces transport layer (TLS) 1.2 and all client callsor later versions for all external HTPPS endpoints (through webhooks, DSC nodes, hybrid worker).
+**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or higher. Azure Automation fully supports and enforces transport layer (TLS) 1.2  and all client calls or later versions for all external HTPPS endpoints (through webhooks, DSC nodes, hybrid runbook worker).
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-* [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+Understand encryption in transit with Azure: https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit
 
-* [Azure Automation TLS 1.2 enforcment](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+Azure Automation TLS 1.2 enforcement: https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/
+
 
 **Azure Security Center monitoring**: Yes
 
@@ -689,13 +717,14 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23769).
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least priviledged or 'just-enough' acccess model. When using Hybrid Runbook Workers leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
+**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least priviledged or 'just-enough' acccess model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+How to configure RBAC in Azure:
+https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-* [Runbook permissions for a Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+Runbook permissions for a Hybrid Runbook Worker: https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker
 
-* [Manage role permissions and security](https://docs.microsoft.com/azure/automation/automation-role-based-access-control)
+Manage role permissions and security: https://docs.microsoft.com/azure/automation/automation-role-based-access-control
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -706,9 +735,10 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23770).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then you will need to use a third party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines..
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you need to use a third party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines..
+
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -719,17 +749,17 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23771).
 
-**Guidance**: Use customer managed keys with Azure Automation , the offering support the usage of customer managed keys to encrypt all 'Secure assets' used such as : credentials, certificates, connections, and encrpyted variables. Leverage encrypted variables with your runbooks for all of your persistent variable lookup needs to prevent unintended exposure.
+**Guidance**: Use customer managed keys with Azure Automation. Azure Automation supports the use of customer managed keys to encrypt all 'Secure assets' used such as : credentials, certificates, connections, and encrypted variables. Leverage encrypted variables with your runbooks for all of your persistent variable lookup needs to prevent unintended exposure.
 
-When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM) are encrypted at rest using either Server-side encryption or Azure disk encryption (ADE). Azure Disk Encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
+When using Hybrid Runbook Workers, the virtual disks on the virtual machines are encrypted at rest using either server-side encryption or Azure disk encryption (ADE). Azure disk encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
-* [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption)
+Server side encryption of Azure managed disks: https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption
 
-* [Azure Disk Encryption for Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
+Azure Disk Encryption for Windows VMs: https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
-* [Managed variables in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables)
+Managed variables in Azure Automation: https://docs.microsoft.com/azure/automation/shared-resources/variables
 
 **Azure Security Center monitoring**: Yes
 
@@ -740,11 +770,12 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23772).
 
-**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources like networking components, Azure Automation accounts, and runbooks.
+**Guidance**: Use Azure Monitor with Azure Activity Log to create alerts for when changes take place to critical Azure resources like networking components, Azure Automation accounts, and runbooks. 
 
-* [Diagnostic logging for a network security group](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+Diagnostic logging for a network security group: https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring
 
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+How to create alerts for Azure Activity Log events: 
+https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -761,9 +792,9 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 
 **Guidance**: Follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure resources
 
-* [Security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+Security recommendations in Azure Security Center:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-* [Security Center recommendation reference](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+Security Center recommendation reference:  https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -774,13 +805,13 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines (VM
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23774).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use the Azure Update Management to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software. 
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+Update Management in Azure:  https://docs.microsoft.com/azure/automation/automation-update-management
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/automation/automation-tutorial-update-management
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -791,13 +822,13 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23775).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant hybrid runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then you can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can use Azure Update Management to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allows you to publish custom updates into Windows Server Update Services (WSUS). This scenario enables Update Management to patch machines that use Configuration Manager as their update repository with third-party software. 
 
-* [Update Management solution in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+Update Management solution in Azure: https://docs.microsoft.com/azure/automation/automation-update-management
 
-* [Manage updates and patches for your Azure VMs](https://docs.microsoft.com/azure/automation/automation-tutorial-update-management)
+Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/automation/automation-tutorial-update-management
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -821,7 +852,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 
 **Guidance**: Use the default risk ratings (Secure Score) provided by Azure Security Center to help prioritize the remediation of discovered vulnerabilities.
 
-* [Understand Azure Security Center Secure Score](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+Understand Azure Security Center Secure Score: https://docs.microsoft.com/azure/security-center/security-center-secure-score
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -836,13 +867,13 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23778).
 
-**Guidance**: Use Azure Resource Graph to query and discover all Azure Automation resources within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query and discover all Azure Automation resources within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions. 
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal 
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0 
 
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Understand Azure RBAC: https://docs.microsoft.com/azure/role-based-access-control/overview
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -853,9 +884,10 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23779).
 
-**Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+**Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy. 
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use tags:  https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -868,15 +900,15 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure Automation resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+How to create additional Azure subscriptions:  https://docs.microsoft.com/azure/billing/billing-create-subscription 
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+How to create Management Groups:  https://docs.microsoft.com/azure/governance/management-groups/create 
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+How to create and use Tags:  https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-* [Delete a Run As or Classic Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account)
+Delete a Run As or Classic Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account#delete-a-run-as-or-classic-run-as-account
 
-* [Manage an Azure Automation Run As account](https://docs.microsoft.com/azure/automation/manage-runas-account)
+Manage an Azure Automation Run As account: https://docs.microsoft.com/azure/automation/manage-runas-account
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -898,17 +930,18 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then yo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23782).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-- Not allowed resource types
-- Allowed resource types
+**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
-In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts.
+- Not allowed resource types 
+- Allowed resource types 
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts. 
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
+Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/azure/automation/policy-samples
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -921,13 +954,13 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install,remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
+If you are using Hybrid Runbook Workers backed by Azure Virtual Machines  then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.  Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
 
-* [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+An introduction to Azure Automation:  https://docs.microsoft.com/azure/automation/automation-intro
 
-* [How to enable Azure VM Inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+How to enable Azure VM Inventory:  https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software
 
-* [Manage module in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+Manage module in Azure Automation: https://docs.microsoft.com/azure/automation/shared-resources/modules
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -940,9 +973,9 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 
 **Guidance**: Customer may prevent resource creation or usage with Azure Policy as required by the customer's company guidelines. You can implement your own process for removing unauthorized resources. Within the Azure Automation offering it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [Manage module in Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/modules)
+Manage module in Azure Automation: https://docs.microsoft.com/azure/automation/shared-resources/modules
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -955,7 +988,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 
 **Guidance**: When using the Hybrid Runbook Worker feature, you may use Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-* [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -966,13 +999,14 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23786).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
-- Not allowed resource types
-- Allowed resource types
+**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- Not allowed resource types 
+- Allowed resource types 
 
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
+
+How to deny a specific resource type with Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -985,9 +1019,9 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 
 **Guidance**: When using the Hybrid Runbook Worker feature, you may use the Azure Security Center Adaptive Application Controls feature with your hybrid worker virtual machines.
 
-Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third party solution if this does not meet your organization's requirement.
+Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux).  Implement third party solution if this does not meet your organization's requirement.
 
-* [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+How to use Azure Security Center Adaptive Application Controls:  https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -998,9 +1032,9 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23788).
 
-**Guidance**: Use Azure Conditional Access policies to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App from unsecured or unapproved locations, or devices.
+**Guidance**: Use Azure Conditional Access policies to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App from unsecured or unapproved locations, or devices. 
 
-* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+How to configure Conditional Access to block access to Azure Resource Manager: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center monitoring**: Yes
 
@@ -1011,11 +1045,11 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23789).
 
-**Guidance**: When using the Hybrid Runbook Worker feature, and depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources. You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
+**Guidance**: When using the Hybrid Runbook Worker feature, and depending on the type of scripts, you may use operating system specific configurations or third-party resources to limit users' ability to execute scripts within Azure compute resources.  You can also leverage Azure Security Center Adaptive Application Controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-* [How to control PowerShell script execution in Windows Environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+How to control PowerShell script execution in Windows Environments: https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
 
-* [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+How to use Azure Security Center Adaptive Application Controls: https://docs.microsoft.com/azure/security-center/security-center-adaptive-application
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1026,21 +1060,21 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23790).
 
-**Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
+**Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG). 
 
-* [Virtual networks and virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/network-overview)
+Virtual networks and virtual machines in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
 
-* [What is Azure Firewall?](https://docs.microsoft.com/azure/firewall/overview)
+What is Azure Firewall?:  https://docs.microsoft.com/azure/firewall/overview
 
-* [What is Azure Web Application Firewall?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+What is Azure Web Application Firewall?: https://docs.microsoft.com/azure/web-application-firewall/overview
 
-* [Network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
+Network security groups: https://docs.microsoft.com/azure/virtual-network/security-overview
 
-* [What is Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+What is Azure Virtual Network?: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
 
-* [Organize your resources with Azure management groups](https://docs.microsoft.com/azure/governance/management-groups/overview)
+Organize your resources with Azure management groups: https://docs.microsoft.com/azure/governance/management-groups/overview
 
-* [Subscription decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+Subscription decision guide: https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1061,15 +1095,15 @@ Also, Azure Resource Manager has the ability to export the template in Java Scri
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-* [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+Tutorial: Create and manage policies to enforce compliance: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/azure/automation/policy-samples
 
-* [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+Single and multi-resource export to a template in Azure portal: https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal
 
-* [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+Security recommendations - a reference guide: https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1080,13 +1114,13 @@ You may also use recommendations from Azure Security Center as a secure configur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23792).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS.  This is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on your virtual machines.
 
-* [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+How to monitor Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-recommendations
 
-* [How to remediate Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+How to remediate Azure Security Center recommendations:  https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1097,19 +1131,19 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23793).
 
-**Guidance**: Use Azure Resource Manager templates and Azure Policies to securely configure Azure resources associated with Azure Automation. Azure Resource Manager templates are JSON based files used to deploy Azure resources, any custom templates will need to be stored and maintained securely in a code repository. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Resource Manager templates and Azure Policy to securely configure Azure resources associated with Azure Automation. Azure Resource Manager templates are JSON based files used to deploy Azure resources, and any custom templates will need to be stored and maintained securely in a code repository. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-* [Use source control integration](https://docs.microsoft.com/azure/automation/source-control-integration)
+Use source control integration: https://docs.microsoft.com/azure/automation/source-control-integration
 
-* [Information on creating Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal)
+Information on creating Azure Resource Manager templates:  https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal 
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
 
-* [Understanding Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+Understanding Azure Policy Effects:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
-* [Deploy an Automation Account using an Azure Resource Manager template](https://docs.microsoft.com/azure/automation/automation-create-account-template#deploy-the-template)
+Deploy an Automation Account using an Azure Resource Manager template: https://docs.microsoft.com/azure/automation/automation-create-account-template#deploy-the-template
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/azure/automation/policy-samples
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1120,23 +1154,21 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23794).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-When using the Hybrid Runbook Worker feature, there are several options for maintaining a secure configuration for Azure Virtual Machines(VM) for deployment:
+When using the Hybrid Runbook Worker feature, there are several options for maintaining a secure configuration for Azure virtual machines for deployment:
 
 1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
-
-2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
-
+2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means. 
 3- Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
 
-For most scenarios, the Microsoft base VM templates combined with the Azure Automation Desired State Configuration can assist in meeting and maintaining the security requirements.
+For most scenarios, the Microsoft base VM templates combined with the Azure Automation State Configuration can assist in meeting and maintaining the security requirements. 
 
-* [Information on how to download the VM template](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+Information on how to download the VM template: https://docs.microsoft.com/azure/virtual-machines/windows/download-template
 
-* [Information on creating ARM templates](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+Information on creating ARM templates: https://docs.microsoft.com/azure/virtual-machines/windows/ps-template
 
-* [How to upload a custom VM VHD to Azure](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+How to upload a custom VM VHD to Azure: https://docs.microsoft.com/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1147,13 +1179,13 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23795).
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory if integrated with Azure DevOps, or Active Directory if integrated with TFS. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+How to store code in Azure DevOps:  https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-* [About permissions and groups in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+About permissions and groups in Azure DevOps:  https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
 
-* [Use source control integration](https://docs.microsoft.com/azure/automation/source-control-integration)
+Use source control integration: https://docs.microsoft.com/azure/automation/source-control-integration
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1164,13 +1196,13 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23796).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, ensure you are properly limiting access to the custom OS image located in your storage account so only authorized users may access the image.
 
-* [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+Understand RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-* [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+How to configure RBAC in Azure:  https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1181,13 +1213,13 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23797).
 
-**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources.
+**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources. You may also make use of built-in policy definitions related to your specific resources. 
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [How to use Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+How to use Aliases: https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/azure/automation/policy-samples
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1198,11 +1230,11 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23798).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-When using the Hybrid Runbook Worker feature, use Azure Automation State Configuration on the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified.
+When using the Hybrid Runbook Worker feature, use Azure Automation State Configuration on the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
-* [Onboarding machines for management by Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1215,15 +1247,15 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: Use Azure Policy to alert and audit Azure resource configurations, policy can be used to detect certain resource not configured with a private endpoint.
 
-When using the Hybrid Runbook Worker feature, leverage Azure Security Center to perform baseline scans for your Azure Virtual machines. Additional methods for automated configuration includes the Azure Automation State Configuration.
+When using the Hybrid Runbook Worker feature, leverage Azure Security Center to perform baseline scans for your Azure Virtual machines.  Additional methods for automated configuration includes the Azure Automation State Configuration.
 
-* [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+How to remediate recommendations in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations
 
-* [Getting started with Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-getting-started)
+Getting started with Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-getting-started
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+How to configure and manage Azure Policy:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/azure/automation/policy-samples
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1236,9 +1268,9 @@ When using the Hybrid Runbook Worker feature, leverage Azure Security Center to 
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
-When using the Hybrid Runbook Worker feature, use Azure Automation State Configuration for the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified.
+When using the Hybrid Runbook Worker feature,  use Azure Automation State Configuration for the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
-* [Onboarding machines for management by Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1251,13 +1283,13 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications.
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
-* [Use runbook authentication with managed identities](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+Use runbook authentication with managed identities: https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities
 
-* [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+How to create a Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
-* [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+How to provide Key Vault authentication with a managed identity:  https://docs.microsoft.com/azure/key-vault/managed-identity
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1270,9 +1302,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: Use Managed Identities to provide Azure services with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-* [How to configure Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+How to configure Managed Identities:  https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1283,9 +1315,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23803).
 
-**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
 
-* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcredscan.htm
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1302,9 +1334,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
-When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure Windows virtual machines to continuously monitor and defend your runbook worker resources.
+When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure Windows virtual machines to continuously monitor and defend your runbook worker resources. 
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+How to configure Microsoft Antimalware for Cloud Services and Virtual Machines:  https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1315,9 +1347,10 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23805).
 
-**Guidance**: Not applicable; Azure Automation as a service does not store files. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Automation), however it does not run on your content.
+**Guidance**: Not applicable; Azure Automation as a service does not store files.  Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Automation), however it does not run on your content.  
 
-* [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines:
+https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1328,13 +1361,13 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23806).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure to automatically install the latest signature, platform, and engine updates by default onto your runbook worker. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. The Windows OS can be further protected with additional security to limit the risk of virus or malware based attacks with the Microsoft Defender Advanced Threat Protection service that integrates with Azure Security Center.
+When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure to automatically install the latest signature, platform, and engine updates by default onto your runbook worker. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. The Windows OS can be further protected with additional security to limit the risk of virus or malware based attacks with the Microsoft Defender Advanced Threat Protection service that integrates with Azure Security Center. 
 
-* [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines:  https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
-* [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure)
+Microsoft Defender Advanced Threat Protection:  https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/onboard-configure
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1349,27 +1382,27 @@ When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azur
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23807).
 
-**Guidance**: Use Azure Resource Manager to deploy Azure Automation Accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation Accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
+**Guidance**: Use Azure Resource Manager to deploy Azure Automation accounts, and related resources.  Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation accounts and related resources.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
 
 Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
-* [Overview of Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+Overview of Azure Resource Manager: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
 
-* [Azure Resource Manager template reference for Azure Automation resources](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+Azure Resource Manager template reference for Azure Automation resources: https://docs.microsoft.com/azure/templates/microsoft.automation/allversions
 
-* [Create an Automation account using an Azure Resource Manager template](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+Create an Automation account using an Azure Resource Manager template: https://docs.microsoft.com/azure/automation/automation-create-account-template
 
-* [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+Single and multi-resource export to a template in Azure portal: https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal
 
-* [Resource Groups - Export Template](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+Resource Groups - Export Template:  https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate
 
-* [Introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+Introduction to Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
 
-* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+How to backup key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
-* [Use source control integration](https://docs.microsoft.com/azure/automation/source-control-integration)
+Use source control integration: https://docs.microsoft.com/azure/automation/source-control-integration
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1380,25 +1413,25 @@ Use the source control integration feature to keep your runbooks in your Automat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23808).
 
-**Guidance**: Use Azure Resource Manager to deploy Azure Automation Accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation Accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Backup customer managed keys within Azure Key Vault. You can export your runbooks to script files using either Azure portal or PowerShell.
+**Guidance**: Use Azure Resource Manager to deploy Azure Automation accounts, and related resources.  Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation accounts and related resources.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.  Backup customer managed keys within Azure Key Vault. You can export your runbooks to script files using either Azure portal or PowerShell.
 
-* [Overview of Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+Overview of Azure Resource Manager: https://docs.microsoft.com/azure/azure-resource-manager/management/overview
 
-* [Azure Resource Manager template reference for Azure Automation resources](https://docs.microsoft.com/azure/templates/microsoft.automation/allversions)
+Azure Resource Manager template reference for Azure Automation resources: https://docs.microsoft.com/azure/templates/microsoft.automation/allversions
 
-* [Create an Automation account using an Azure Resource Manager template](https://docs.microsoft.com/azure/automation/automation-create-account-template)
+Create an Automation account using an Azure Resource Manager template: https://docs.microsoft.com/azure/automation/automation-create-account-template
 
-* [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+Single and multi-resource export to a template in Azure portal: https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal
 
-* [Resource Groups - Export Template](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+Resource Groups - Export Template:  https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate
 
-* [Introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+Introduction to Azure Automation: https://docs.microsoft.com/azure/automation/automation-intro
 
-* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+How to backup key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
-* [Azure data backup for Automation Accounts](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+Azure data backup for Automation Accounts: https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup
 
 **Azure Security Center monitoring**: Yes
 
@@ -1409,13 +1442,13 @@ Use the source control integration feature to keep your runbooks in your Automat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23809).
 
-**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up customer managed keys. 
 
-* [Deploy resources with ARM templates and Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+Deploy resources with ARM templates and Azure portal:  https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal
 
-* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+How to restore key vault keys in Azure:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-* [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+Use of customer-managed keys for an Automation account: https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account
 
 **Azure Security Center monitoring**: Yes
 
@@ -1426,15 +1459,15 @@ Use the source control integration feature to keep your runbooks in your Automat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23810).
 
-**Guidance**: Use Azure DevOps to securely store and manage your code like Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
+**Guidance**: Use Azure DevOps to securely store and manage your code like Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory if integrated with Azure DevOps, or Active Directory if integrated with TFS. 
 
 Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops 
 
-* [About permissions and groups in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+About permissions and groups in Azure DevOps: https://docs.microsoft.com/azure/devops/organizations/security/about-permissions
 
-* [Use source control integration](https://docs.microsoft.com/azure/automation/source-control-integration)
+Use source control integration: https://docs.microsoft.com/azure/automation/source-control-integration
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1451,11 +1484,11 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+Guidance on building your own security incident response process: https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+Microsoft Security Response Center's Anatomy of an Incident: https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/
 
-* [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan: https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1466,13 +1499,13 @@ Use the source control integration feature to keep your runbooks in your Automat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23812).
 
-**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+**Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
-Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-* [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+Security alerts in Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
-* [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+Use tags to organize your Azure resources: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center monitoring**: Yes
 
@@ -1485,7 +1518,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
-* [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
+NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities: https://csrc.nist.gov/publications/detail/sp/800-84/final
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1498,7 +1531,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+How to set the Azure Security Center Security Contact: https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
 **Azure Security Center monitoring**: Yes
 
@@ -1511,9 +1544,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+How to configure continuous export: https://docs.microsoft.com/azure/security-center/continuous-export
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+How to stream alerts into Azure Sentinel: https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1526,7 +1559,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+How to configure Workflow Automation and Logic Apps: https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1543,9 +1576,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-* [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+Penetration Testing Rules of Engagement:  https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+Microsoft Cloud Red Teaming:  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Not applicable
 
