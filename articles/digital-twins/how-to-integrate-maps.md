@@ -149,7 +149,7 @@ Both samples send temperature in a compatible range, so you should see the color
 
 :::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="An office map showing room 121 colored orange":::
 
-## Next steps - Store your maps information in the Twins graph
+## Store your maps information in the Twins graph
 
 Now that you have a hardcoded solution to updating your maps information, you can use the Azure Digital Twins graph to store all of the information necessary for updating your indoor map. This would include the stateset ID, maps subscription ID, and feature ID of each map and location respectively. 
 
@@ -157,7 +157,9 @@ A solution for this specific example would involve updating each top-level space
 
 Depending on the configuration of your topology, you will be able to store these three attributes at different levels correlating to the granularity of your map.
 
+## Next steps
+
 To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-1. [How-to manage a digital twin](./how-to-manage-twin.md)
-2. [How-to query the twin graph](./how-to-query-graph.md)
+* [How-to: Manage a digital twin](./how-to-manage-twin.md)
+* [How-to: Query the twin graph](./how-to-query-graph.md)
