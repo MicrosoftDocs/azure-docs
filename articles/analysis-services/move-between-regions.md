@@ -1,6 +1,6 @@
 ﻿---
 title: Move Azure Analysis Services to a different region | Microsoft Docs
-description: 
+description: Describes how to move an Azure Analysis Services resource to a different region.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: how-to
@@ -122,7 +122,7 @@ To get a shared access signature by using the portal:
 
 3. Right-click your storage container, and then select **Get Shared Access Signature**.
 
-    :::image type="content" source="media/move-between-regions/get_sas.png" alt-text="Get SAS":::
+    :::image type="content" source="media/move-between-regions/get-sas.png" alt-text="Get SAS":::
 
 4. In **Shared Access Signature**, select **Create**. By default, the SAS will expire in 24 hours.
 
