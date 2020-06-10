@@ -24,7 +24,7 @@ A service tag represents a group of IP address prefixes from a given Az
 You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **AzureEventGrid**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service.
 
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | AzureEventGrid | Azure Event Grid. | Both | No | No |
 
 
