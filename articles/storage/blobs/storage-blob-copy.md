@@ -8,7 +8,7 @@ ms.author: mhopkins
 ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Copy a blob with .NET

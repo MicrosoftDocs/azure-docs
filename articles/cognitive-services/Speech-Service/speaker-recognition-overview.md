@@ -22,7 +22,7 @@ Speaker Verification streamlines the process of verifying an enrolled speaker id
 
 ### How does Speaker Verification work?
 
-![How does speaker verification work](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Speaker Verification flowchart.":::
 
 Speaker verification can be either text-dependent or text-independent. **Text-dependent** verification means speakers need to choose the same passphrase to use during both enrollment and verification phases. **Text-independent** verification means speakers can speak in everyday language in the enrollment and verification phrases.
 
@@ -54,4 +54,5 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 ## Next steps
 
 > [!div class="nextstepaction"]
+> * Complete the Speaker Recognition [basics article](speaker-recognition-basics.md) for a run-through of common design patterns you can use in your applications.
 > * See the [video tutorial](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) for text-independent speaker verification.

@@ -138,6 +138,8 @@
 - name: Resources
   expanded: true
   items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Developer resources
@@ -158,22 +160,6 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Region availability
       href: https://azure.microsoft.com/regions/services/
-  - name: Support and help options
-    items:
-    - name: Azure support options
-      href: https://azure.microsoft.com/support/options/
-    - name: Azure IoT support and help options
-      href: https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-timeseries-insights
-    - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-time-series-insights.html
-  - name: Feedback and forums
-    items:  
-    - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-time-series-insights.html
-    - name: Product requests and suggestions
-      href: https://feedback.azure.com/forums/906859-azure-time-series-insights
   - name: Azure videos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
   - name: Channel 9 videos
