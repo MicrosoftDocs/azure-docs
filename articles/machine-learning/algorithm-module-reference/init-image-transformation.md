@@ -46,7 +46,6 @@ This article describes how to use the **Init Image Transformation** module in Az
 
 14.  For **Random perspective**, specify whether to performs Perspective transformation of the given PIL Image randomly with probability 0.5.
 
-15.  For **Random erasing**, specify whether to randomly selects a rectangle region in an image and erases its pixels with probability 0.5.
 
 16.  Connect to [Apply Image Transformation](apply-image-transformation.md) module, to apply the transformation specified above to the input image dataset.
 

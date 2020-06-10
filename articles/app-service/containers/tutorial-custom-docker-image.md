@@ -8,7 +8,7 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
 
 # Tutorial: Build a custom image and run in App Service from a private registry
