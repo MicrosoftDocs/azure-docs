@@ -13,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
@@ -621,7 +624,7 @@
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Monitor metadata
+    - name: Azure Instance Metadata Service
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
@@ -860,8 +863,10 @@
           href: disks-enable-ultra-ssd.md
         - name: Benchmark a disk
           href: disks-benchmarks.md
-    - name: Find unattached disks
+    - name: Find unattached disks - PowerShell
       href: find-unattached-disks.md
+    - name: Find unattached disks - Portal
+      href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking

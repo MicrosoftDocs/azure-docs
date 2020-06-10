@@ -25,7 +25,7 @@ This article shows you how to request an access token for a web application and 
 ## Prerequisites
 
 - [Create a user flow](tutorial-create-user-flows.md) to enable users to sign up and sign in to your application.
-- If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-application.md).
+- If you haven't already done so, [add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md).
 
 ## Scopes
 
@@ -45,7 +45,7 @@ The following example shows scopes encoded in a URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-If you request more scopes than what is granted for your client application, the call succeeds if at least one permission is granted. The **scp** claim in the resulting access token is populated with only the permissions that were successfully granted. The OpenID Connect standard specifies several special scope values. The following scopes represent the permission to access the user’s profile:
+If you request more scopes than what is granted for your client application, the call succeeds if at least one permission is granted. The **scp** claim in the resulting access token is populated with only the permissions that were successfully granted. The OpenID Connect standard specifies several special scope values. The following scopes represent the permission to access the user's profile:
 
 - **openid** - Requests an ID token.
 - **offline_access** - Requests a refresh token using [Auth Code flows](authorization-code-flow.md).
