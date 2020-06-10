@@ -24,6 +24,8 @@ These are the service limits of Azure Digital Twins during public preview.
 >
 > If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+## Limits by type
+
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
 ## Next steps
