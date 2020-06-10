@@ -118,7 +118,9 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
 
 ### Add using statements
 
-1. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
+1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to execute later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
+
+1. Open the **Program.cs** source file and add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -134,9 +136,7 @@ Create a .NET Core application named **QueueApp**. For simplicity, this app will
 
 Since the app uses cloud resources, the code runs asynchronously.
 
-1. From the command line in the project directory, type `code .` to open Visual Studio Code in the current directory. Keep the command-line window open. There will be more commands to execute later. If you're prompted to add C# assets required to build and debug, click the **Yes** button.
-
-1. Open the **Program.cs** source file and update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value.
+1. Update the **Main** method to run asynchronously. Replace **void** with an **async Task** return value.
 
    ```csharp
    static async Task Main(string[] args)
@@ -254,7 +254,7 @@ It's a best practice at the end of a project to identify whether you still need 
 
 If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the **InsertMessageAsync** method we added earlier.
 
-If there are no command-line arguments, execute a retrieve operation. Call the **RetrieveNextMessageAsync** method to retrieve the next message in the queue.
+If there are no command-line arguments, attempt a retrieve operation. Call the **RetrieveNextMessageAsync** method to retrieve the next message in the queue.
 
 Finally, wait for user input before exiting by calling **Console.ReadLine**.
 
@@ -281,6 +281,7 @@ Here is the complete code listing for this project.
    # [\.NET v11](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
+   ---
 
 ## Build and run the app
 
