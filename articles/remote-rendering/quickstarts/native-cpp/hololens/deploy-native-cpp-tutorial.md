@@ -50,13 +50,13 @@ The C++ Hololens tutorial can be found in the subdirectory *NativeCpp/HoloLens*.
 
 ## Build the project
 
-Open the solution file *HolographicApp.sln* located in the  *NativeCpp/HoloLens* subdirectory with Visual Studio 2019.
+Open the solution file *HolographicApp.sln* located in the *NativeCpp/HoloLens* subdirectory with Visual Studio 2019.
 
 Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make sure the debugger mode is set to *Device* as opposed to *Remote Machine*:
 
 ![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them  to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
 
 
 ```cpp
