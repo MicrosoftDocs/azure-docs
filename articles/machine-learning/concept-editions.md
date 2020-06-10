@@ -15,12 +15,8 @@ ms.date: 06/11/2020
 Azure Machine Learning offers two editions tailored for your machine learning needs:
 
 | Basic Edition | Enterprise Edition                 |
-|------------------------------------------------------------------------------------|:-----------:|
-|Great for open-source development at cloud scale with a code-first experience.|All of Basic + the studio web interface + secure, comprehensive ML lifecycle management for all skill levels.|
-
-+ **Basic**: 
-
-+ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
+|------------------------------------------------------------------------------------|-----------|
+|Great for open-source development <br/>at cloud scale with <br/>a code-first experience.|All of Basic <br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>for all skill levels.|
 
 These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
 
@@ -45,6 +41,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | View, edit or delete dataset drift monitors from the SDK                           | All                     |
 | View, edit or delete dataset drift monitors from the UI                            | Enterprise edition only |
 
+<br/>
 <br/>
 
 | Build & Train Capabilities                              | Edition                 |
@@ -74,6 +71,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 
 <br/>
+<br/>
 
 | Deploy & Model Management Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
@@ -86,6 +84,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | Model profiling                                                                    | All                     |
 | Explainability in UI                                                               | Enterprise edition only |
 
+<br/>
 <br/>
 
 | Security, Governance, and Control Capabilities                                    | Edition                 |
