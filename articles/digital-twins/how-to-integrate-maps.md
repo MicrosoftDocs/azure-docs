@@ -27,11 +27,11 @@ This how-to will cover:
 
 ### Prerequisites
 
-1. Follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md).
-    1. You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
-2. Follow the Azure Maps [Tutorial: Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
-    1. [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
-    1. You will need your feature *stateset ID* and Azure Maps *subscription ID*.
+* Follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md).
+    * You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
+* Follow the Azure Maps [Tutorial: Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
+    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
+    * You will need your feature *stateset ID* and Azure Maps *subscription ID*.
 
 ### Topology
 
@@ -39,9 +39,9 @@ The image below illustrates where the indoor maps integration elements in this t
 
 :::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
-## Create a function to update a map using twin update notifications
+## Create a function to update a map when twins update
 
-First, you'll create a route in Azure Digital Twins to forward all twin update events to an Event Grid topic. Then, you'll use an Azure function to read those update messages and update a feature stateset in Azure Maps. 
+First, you'll create a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, you'll use an Azure function to read those update messages and update a feature stateset in Azure Maps. 
 
 ## Create a route and filter to twin update notifications
 
@@ -49,21 +49,20 @@ Azure Digital Twins instances can emit twin update events whenever a twin's stat
 
 This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
 
-1. Create an Event Grid topic, which will receive events from our Azure Digital Twins instance.
-```azurecli
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
-```
+1. Create an event grid topic, which will receive events from our Azure Digital Twins instance.
+    ```azurecli
+    az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
+    ```
 
-2. Create an endpoint to link your Event Grid topic to Azure Digital Twins.
-```azurecli
-az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
-```
+2. Create an endpoint to link your event grid topic to Azure Digital Twins.
+    ```azurecli
+    az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
+    ```
 
 3. Create a route in Azure Digital Twins to send twin update events to your endpoint.
-
-```azurecli
-az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
-```
+    ```azurecli
+    az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
+    ```
 
 ## Create an Azure function to update maps
 
@@ -149,7 +148,7 @@ Both samples send temperature in a compatible range, so you should see the color
 
 :::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="An office map showing room 121 colored orange":::
 
-## Store your maps information in the Azure Digital Twins graph
+## Store your maps information in Azure Digital Twins
 
 Now that you have a hardcoded solution to updating your maps information, you can use the Azure Digital Twins graph to store all of the information necessary for updating your indoor map. This would include the stateset ID, maps subscription ID, and feature ID of each map and location respectively. 
 
