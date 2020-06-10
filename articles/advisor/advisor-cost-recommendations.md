@@ -19,7 +19,7 @@ The recommended actions are shut-down or resize, specific to resource being reco
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Optimize spend for MariaDB, MySQL and PostgreSQL servers by right sizing 
-Advisor analysis your usage and recommends if your MariaDB/MySQL/PostgreSQL database server resources has been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Advisor analyses your usage and recommends if your MariaDB/MySQL/PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
