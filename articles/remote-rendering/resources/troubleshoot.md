@@ -159,7 +159,7 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
     
 ### Arm64 Builds for Unity Projects Fail because AudioPluginMsHRTF.dll is missing
 
-The _AudioPluginMsHRTF.dll_ for Arm64 was added to the _Windows Mixed Reality_ package _(com.unity.xr.windowsmr.metro)_ in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to _Window > Package Manager_ and look for the _Windows Mixed Reality_ package.
+The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
 
 ## Unstable Holograms
 
