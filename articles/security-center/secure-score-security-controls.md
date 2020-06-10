@@ -47,7 +47,7 @@ The secure score page of Security Center includes:
 
 Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
 
-You can also access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview).
+You can also access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). For example, you can use the **Secure Score Control Definitions** API to list the security controls, their recommendations, and the max score available for your subscriptions. In addition, you can use the **Secure Scores** API to get the score for a specific initiative. 
 
 
 ## How the secure score is calculated 
