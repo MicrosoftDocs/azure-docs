@@ -97,10 +97,10 @@
         href: known-issues-troubleshooting-dms.md
       - name: Source database connectivity 
         href: known-issues-troubleshooting-dms-source-connectivity.md
-     - name: Known issues
-       items: 
-        - name: Using hybrid mode
-          href: known-issues-dms-hybrid-mode.md
+    - name: Known issues
+      items: 
+      - name: Using hybrid mode
+        href: known-issues-dms-hybrid-mode.md
     - name: Known migration issues
       items:     
       - name: to SQL Database
