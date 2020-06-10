@@ -39,7 +39,7 @@ This migration is supported by Panzura and customers can get started by requesti
 
 #### Migrate to Nasuni
 
-Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure.  As a leading Azure ISV, Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
+Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure.  As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
 
 Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
 
