@@ -26,10 +26,10 @@ Consider the following checklist before you move your application to production.
 *    Use the latest [SDK](sql-api-sdk-dotnet-standard.md). Preview SDKs should not be used for production. This will prevent hitting known issues that are already fixed.
 *    Review the [performance tips](performance-tips.md), and follow the suggested practices. This will help prevent scaling, latency, and other performance issues.
 *    Enable the SDK logging to help you troubleshoot an issue. Enabling the logging may affect performance so it's best to enable it only when troubleshooting issues. You can enable the following logs:
-    *    [Log metrics](monitor-accounts.md) by using the Azure portal. Portal metrics show the Azure Cosmos DB telemetry, which is helpful to determine if the issue corresponds to Azure Cosmos DB or if it's from the client side.
-    *    Log the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) in the V2 SDK or [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) in V3 SDK from the point operation responses.
-    *    Log the [SQL Query Metrics](sql-api-query-metrics.md) from all the query responses 
-    *    Follow the setup for [SDK logging]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
+*    [Log metrics](monitor-accounts.md) by using the Azure portal. Portal metrics show the Azure Cosmos DB telemetry, which is helpful to determine if the issue corresponds to Azure Cosmos DB or if it's from the client side.
+*    Log the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) in the V2 SDK or [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics) in V3 SDK from the point operation responses.
+*    Log the [SQL Query Metrics](sql-api-query-metrics.md) from all the query responses 
+*    Follow the setup for [SDK logging]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)
 
 Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
 
