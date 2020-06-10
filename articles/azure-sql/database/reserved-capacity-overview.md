@@ -38,7 +38,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the **Purchase Reservations** pane, select **SQL Database** to purchase a new reservation for SQL Database.
-4. Fill in the required fields. Existing instances of SQL Database (single or pooled) or SQL Managed Instance that match the attributes you select qualify to get the reserved capacity discount. The actual number of databases or managed instances that get the discount depends on the scope and quantity selected.
+4. Fill in the required fields. Existing databases (single or pooled) or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of databases or managed instances that get the discount depends on the scope and quantity selected.
 
     ![Screenshot before submitting the reserved capacity purchase](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 
@@ -50,9 +50,9 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
     |Scope       |The vCore reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select <br/><br/>**Shared**, the vCore reservation discount is applied to the database or managed instance running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br/><br/>**Single subscription**, the vCore reservation discount is applied to the databases or managed instances in this subscription. <br/><br/>**Single resource group**, the reservation discount is applied to the instances of databases or managed instances in the selected subscription and the selected resource group within that subscription.|
     |Region      |The Azure region that's covered by the capacity reservation.|
     |Deployment Type|The SQL resource type that you want to buy the reservation for.|
-    |Performance Tier|The service tier for the instances of SQL Database or SQL Managed Instance. |
+    |Performance Tier|The service tier for the databases or managed instances. |
     |Term        |One year or three years.|
-    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run multiple instances of SQL Database with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify the quantity as 16 to maximize the benefit for all the databases. |
+    |Quantity    |The amount of compute resources being purchased within the capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you run or plan to run multiple databases with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify the quantity as 16 to maximize the benefit for all the databases. |
 
 1. Review the cost of the capacity reservation in the **Costs** section.
 1. Select **Purchase**.
@@ -64,7 +64,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## vCore size flexibility
 
-vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. Reserved capacity also provides you with the flexibility to temporarily move your hot instances of SQL Database in and out of elastic pools (within the same region and performance tier) as part of your normal operations without losing the reserved capacity benefit. By keeping an unapplied buffer in your reservation, you can effectively manage the performance spikes without exceeding your budget.
+vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. Reserved capacity also provides you with the flexibility to temporarily move your hot databases in and out of elastic pools (within the same region and performance tier) as part of your normal operations without losing the reserved capacity benefit. By keeping an unapplied buffer in your reservation, you can effectively manage the performance spikes without exceeding your budget.
 
 ## Limitation
 
