@@ -5,7 +5,7 @@ services: synapse-analytics
 author: saveenr 
 ms.service: synapse-analytics 
 ms.topic: overview 
-ms.subservice:
+ms.subservice: overview
 ms.date: 04/15/2020 
 ms.author: saveenr 
 ms.reviewer: jrasnick
