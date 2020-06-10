@@ -382,13 +382,11 @@ The test plan is important to have a comparison between the expected results and
 | [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while on a trusted location / work| User is not prompted to MFA |
 | [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while not on a trusted location / work| User is prompted to MFA and can sign in successfully |
 | [Require MFA (for admin)](howto-baseline-protect-administrators.md)| Global Admin signs into App| Admin is prompted to MFA |
-| [Risky sign-ins](../identity-protection/howto-sign-in-risk-policy.md)| User signs into App using a [Tor browser](../azure/active-directory/active-directory-identityprotection-playbook.md)| Admin is prompted to MFA |
+| [Risky sign-ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| User signs into App using an unapproved browser| Admin is prompted to MFA |
 | [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an authorized device| Access Granted |
 | [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an unauthorized device| Access blocked |
-| [Password change for risky users](../identity-protection/howto-user-risk-policy.md)| Authorized user attempts to sign in with compromised credentials (high risk sign in)| User is prompted to change password or access is blocked based on your policy |
+| [Password change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Authorized user attempts to sign in with compromised credentials (high risk sign in)| User is prompted to change password or access is blocked based on your policy |
 
-
- 
 
 ### Configure the test policy
 
