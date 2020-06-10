@@ -408,7 +408,14 @@ When you copy files from Azure Data Lake Storage Gen1/Gen2 to Gen2, you can choo
 
 ## Mapping data flow properties
 
-When transforming data in mapping data flow, you can read and write files from Azure Data Lake Storage Gen2 in JSON, Avro, Delimited Text, or Parquet format. For more information, see [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in the mapping data flow feature.
+When you're transforming data in mapping data flows, you can read and write files from Azure Data Lake Storage Gen2 in the following formats:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Common Data Model (preview)](format-common-data-model.md#mapping-data-flow-properties)
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 
 ### Source transformation
 
