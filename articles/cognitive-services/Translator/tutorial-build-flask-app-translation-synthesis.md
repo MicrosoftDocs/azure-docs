@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
+ms.custom: tracking-python
 ---
 
 # Tutorial: Build a Flask app with Azure Cognitive Services
@@ -115,7 +116,7 @@ Let's create a virtual environment for our Flask app using `virtualenv`. Using a
 
 ### Install requests
 
-Requests is a popular module that is used to send HTTP 1.1 requests. There’s no need to manually add query strings to your URLs, or to form-encode your POST data.
+Requests is a popular module that is used to send HTTP 1.1 requests. There's no need to manually add query strings to your URLs, or to form-encode your POST data.
 
 1. To install requests, run:
 
@@ -140,7 +141,7 @@ Next we need to install Flask. Flask handles the routing for our web app, and al
    ```
    The version should be printed to terminal. Anything else means something went wrong.
 
-2. To run the Flask app, you can either use the flask command or Python’s -m switch with Flask. Before you can do that you need to tell your terminal which app to work with by exporting the `FLASK_APP` environment variable:
+2. To run the Flask app, you can either use the flask command or Python's -m switch with Flask. Before you can do that you need to tell your terminal which app to work with by exporting the `FLASK_APP` environment variable:
 
    **macOS/Linux**:
    ```

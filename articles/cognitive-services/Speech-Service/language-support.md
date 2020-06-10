@@ -39,7 +39,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | Arabic (Bahrain), modern standard | Yes       | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Yes       | Language model                                    |
 | `ar-IL` | Arabic (Israel)                   | Yes       | No                                                |
+| `ar-JO` | Arabic (Jordan)                   | Yes       | No                                                |
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
+| `ar-LB` | Arabic (Lebanon)                  | Yes       | No                                                |
 | `ar-PS` | Arabic (Palestine)                | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
@@ -72,7 +74,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | Russian (Russia)                  | Yes       | Acoustic model<br>Language model                  |
 | `sv-SE` | Swedish (Sweden)                  | Yes       | Language model                                    |
 | `ta-IN` | Tamil (India)                     | Yes       | Language model                                    |
-| `te-IN` | Telugu (India)                    | Yes       | No                                                |
+| `te-IN` | Telugu (India)                    | Yes       | Language model                                    |
 | `th-TH` | Thai (Thailand)                   | Yes       | No                                                |
 | `tr-TR` | Turkish (Turkey)                  | Yes       | Language model                                    |
 | `zh-CN` | Chinese (Mandarin, simplified)    | Yes       | Acoustic model<br>Language model                  |

@@ -45,7 +45,7 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Visualize Evaluation results** to see the results.
+After you run **Evaluate Model**, select the module to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons.   The **Visualize** icon has a bar graph icon, and is a first way to see the results.
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  

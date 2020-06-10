@@ -1,6 +1,6 @@
 ---
 title: Set up private link
-description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network
+description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
 ms.date: 05/19/2020
 ---
@@ -294,7 +294,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### Disable public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **Disabled**. Then select **Save**.
 
 ## Validate private link connection
 

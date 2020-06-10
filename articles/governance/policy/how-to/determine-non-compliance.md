@@ -216,7 +216,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="change-history"/>Change history (Preview)
+## <a name="change-history"></a>Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode

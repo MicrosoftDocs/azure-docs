@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 05/12/2020
+ms.date: 05/26/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -34,13 +34,6 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> This article uses a preview version of the Az.AKS PowerShell module. You must install it
-> separately from the Az PowerShell module using the following command:
-> `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview`. Once the preview
-> version the Az.AKS PowerShell module is generally available, it becomes part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

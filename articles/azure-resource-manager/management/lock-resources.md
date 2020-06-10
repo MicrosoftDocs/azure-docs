@@ -133,7 +133,7 @@ The following example shows a template that creates an app service plan, a web s
 }
 ```
 
-For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ## PowerShell
 You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.
@@ -235,7 +235,7 @@ In the request, include a JSON object that specifies the properties for the lock
     } 
 
 ## Next steps
-* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md)
+* To learn about logically organizing your resources, see [Using tags to organize your resources](tag-resources.md).
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

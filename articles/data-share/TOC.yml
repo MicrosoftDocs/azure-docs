@@ -19,13 +19,11 @@
     href: terminology.md
   - name: Roles and requirements 
     href: concepts-roles-permissions.md
-  - name: Disaster recovery
-    href: disaster-recovery.md
 - name: Samples
   items:
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/?service=data-share/
-  - name: Azure Powershell
+  - name: Azure PowerShell
     href: samples-powershell.md
 - name: How-to guides
   items:
@@ -43,14 +41,20 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+  - name: Security
+    href: security.md
+  - name: Disaster recovery
+    href: disaster-recovery.md
 - name: Reference
   items:
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
-  - name: Azure Powershell
+  - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0
   - name: REST API
     href: /rest/api/datashare
+  - name: Azure CLI
+    href: azure-cli-references-for-data-share.md 
 - name: Resources
   items:
   - name: Microsoft Q&A question page

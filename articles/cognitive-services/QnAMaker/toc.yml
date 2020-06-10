@@ -44,7 +44,7 @@
       href: Concepts/knowledge-base.md
     - name: Content types imported
       href: Concepts/content-types.md
-    - name: Question and answer sets
+    - name: Question and answer pairs
       href: Concepts/question-answer-set.md
   - name: Knowledge base lifecycle
     items:
@@ -72,8 +72,6 @@
     - name: Manage resources
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Create a business continuity plan
-      href: How-To/business-continuity-plan.md
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning

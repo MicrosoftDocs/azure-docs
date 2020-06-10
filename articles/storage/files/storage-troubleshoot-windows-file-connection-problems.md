@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -339,9 +339,21 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
 4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
 5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
-6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
+6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
+7. CheckAadUserHasSid: check if an Azuer AD user has a SID in AD, require user to input of the Object Id of the Azure AD user with -ObjectId. 
+8. CheckStorageAccountDomainJoined: check if you have registered an identity in AD to represent the storage account. 
 
-We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
+## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
+
+### Symptom
+
+You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
+- After you click on Edit permission under the Security tab, the Permission wizard does not load. 
+- When you try to select a new user or group, the domain location does not display the right AD DS domain. 
+
+### Solution
+
+We recommend you to use [icacls tool](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
