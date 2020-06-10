@@ -146,7 +146,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor high availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
