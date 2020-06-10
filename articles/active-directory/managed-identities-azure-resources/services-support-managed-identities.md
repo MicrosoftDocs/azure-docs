@@ -163,6 +163,22 @@ Refer to the following list to configure managed identity for Azure Logic Apps (
 - [Azure Resource Manager template](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
+### Azure Policy
+
+|Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following list to configure managed identity for Azure Policy (in regions where available):
+
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure Resource Manager templates](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
+- [REST](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
+
+
 ### Azure Service Fabric
 
 [Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
@@ -176,6 +192,15 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 
 - [Azure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
+### Azure Spring Cloud
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | Not Available | Not Available | Not Available | 
+| User assigned | Not Available | Not Available | Not Available | Not Available |
+
+
+For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
 
 ### Azure Virtual Machine Scale Sets

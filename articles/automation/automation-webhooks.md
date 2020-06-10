@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
 ---
 # Start a runbook from a webhook
@@ -14,6 +14,8 @@ A webhook allows an external service to start a particular runbook in Azure Auto
 > Using a webhook to start a Python runbook is not supported.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
+
+To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## Webhook properties
 
@@ -95,7 +97,8 @@ Use the following procedure to create a new webhook linked to a runbook in the A
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
 1. Click **Parameters** to provide values for the runbook parameters. If the runbook has mandatory parameters, you can't create the webhook unless you provide values.
-1. Click **Create** to create the webhook.
+
+2. Click **Create** to create the webhook.
 
 ## Use a webhook
 

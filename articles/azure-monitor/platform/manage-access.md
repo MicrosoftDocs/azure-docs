@@ -264,6 +264,18 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+The examples above define a whitelist of tables that are allowed. This example shows blacklist definition when a user can access all tables but the _SecurityAlert_ table:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### Custom logs
 
@@ -286,7 +298,7 @@ Sometimes custom logs come from sources that are not directly associated to a sp
 
 * If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
 * If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
-* Administrators of the subscription will have access to all data types regardless of any other permission settings.
+* Administrators and owners of the subscription will have access to all data types regardless of any other permission settings.
 * Workspace owners are treated like any other user for per-table access control.
 * We recommend assigning roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
 

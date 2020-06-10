@@ -128,9 +128,9 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click the **Next: Build >** button to edit the build configuration
 
-1. Set _App location_ to **public**.
+1. Set _App location_ to **/**.
 
-1. Leave the _App artifact location_ blank.
+1. Set _App artifact location_ to **public**.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
@@ -153,17 +153,20 @@ Next, you add configuration settings that the build process uses to build your a
    ```yml
    - uses: actions/checkout@v2
      with:
-       submodules: true
+       submodules: true  # Fetch Hugo themes (true OR recursive)
+       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
    - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.8
+     uses: peaceiris/actions-hugo@v2.4.11
      with:
-       hugo-version: "latest"
+       hugo-version: "latest"  # Hugo version: latest OR x.y.z
        # extended: true
 
    - name: Build
      run: hugo
    ```
+   
+   For more details about installing Hugo to GitHub Actions runner, see [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
 
 1. Commit the updated workflow and push to GitHub.
 
