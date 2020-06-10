@@ -339,9 +339,9 @@ The cmdlet performs these checks below in sequence and provides guidance for fai
 3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
 4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
 5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
-6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
-
-We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
+6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
+7. CheckAadUserHasSid: check if an Azuer AD user has a SID in AD, require user to input of the Object Id of the Azure AD user with -ObjectId. 
+8. CheckStorageAccountDomainJoined: check if you have registered an identity in AD to represent the storage account. 
 
 ## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
 
