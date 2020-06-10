@@ -1,12 +1,12 @@
 ---
- title: Dv3 and Dsv3-series - Azure Virtual Machines
- description: Specifications for the Dv3 and Dsv3-series VMs.
- services: virtual-machines
- author: joelpelley
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: Dv3 and Dsv3-series
+description: Specifications for the Dv3 and Dsv3-series VMs.
+author: joelpelley
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # Dv3 and Dsv3-series
