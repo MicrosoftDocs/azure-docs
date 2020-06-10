@@ -16,7 +16,7 @@ ms.author: spelluru
 ## What are system topics? 
 Azure services like Storage, Media services, and Event Hubs publish events to the Event Grid service when activities are performed against those services. For example, when a blob is uploaded to an Azure Storage account, the Azure Storage service publishes a **blob created** event to the Event Grid service. A **system topic** represents some or all of these events from an Azure source. For example, a system topic may represent all blob events or some blob events (for example: only blob created event) published for a specific storage account. You can create one or more subscriptions for these system topics.  
 
-The system topics are different from custom topics or domains in that only internal Azure services can publish to them. Therefore, you don't see an endpoint or a Shared Access Signature (SAS) key for a system topic . 
+The system topics are different from custom topics or domains in that only internal Azure services can publish to them. Therefore, you don't see an endpoint or a Shared Access Signature (SAS) key for a system topic. 
 
 ## Why system topic is an Azure resource now? 
 Previously, the system topic resource was implicit and was not exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can view and manage system topics yourself, set up diagnostic logs, set up alerts etc. for them. 
