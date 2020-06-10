@@ -27,11 +27,11 @@ A skillset has three properties:
 + ```cognitiveServices```, the cognitive services key required for billing the cognitive skills invoked
 + ```knowledgeStore```, the storage account where your enriched documents will be projected
 
-Skillsets are authored in JSON. You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expression. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. These concepts are best described with an example. 
+Skillsets are authored in JSON. You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. Later in this article, we'll use an example to illustrate the syntax. 
 
 ### Enrichment tree
 
-To envision how a skillset progressively enriches your document, let's start with unenriched source data. The source data is raw content in Azure Blob storage or another [supported Azure data source](search-indexer-overview.md#supported-data-sources) that an Azure Cognitive Search indexer can retrieve.
+To envision how a skillset progressively enriches your document, let's start with unenriched source data. The source data is raw content in Azure Blob storage or another [supported Azure data source](search-indexer-overview.md#supported-data-sources) that an Azure Cognitive Search indexer can process.
 
 After the indexer connects to the source, the first step in enrichment is *document cracking*, or opening a document to extract content. The output of document cracking depends on the data source and the specific parsing mode selected. If you specified [field mappings](search-indexer-field-mappings.md) in an indexer to map source fields to a destination in an index or knowledge store, those mappings are read from the indexer definition at this stage.
 
@@ -87,20 +87,39 @@ The diagram above describes the selector you work with based on where you are in
 Using the hotel reviews sample as a reference point, we are going to look at:
 
 + How the enrichment tree evolves with the execution of each skill
-
 + How the context and inputs work to determine how many times a skill executes
-
 + What the shape of the input is based on the context
 
 A "document" within the enrichment process represents a single row (a hotel review) within the hotel_reviews.csv source file.
 
-### Skill #1: Split skill 
+### Skill #1: Split skill
+
+```json
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document/reviews_text",
+      "defaultLanguageCode": "en",
+      "textSplitMode": "pages",
+      "maximumPageLength": 5000,
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/reviews_text"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+```
+
+With the skill context of ```"/document/reviews_text"```, the split skill will execute once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and it is added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
+
+The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping. Conceptually, the tree looks as follows:
 
 ![enrichment tree after document cracking](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Enrichment tree after document cracking and before skill execution")
-
-With the skill context of ```"/document/reviews_text"```, this skill will execute once for the `reviews_text`. The skill output is a list where the `reviews_text` is chunked into 5000 character segments. The output from the split skill is named `pages` and added to the enrichment tree. The `targetName` feature allows you to rename a skill output before being added to the enrichment tree.
-
-The enrichment tree now has a new node placed under the context of the skill. This node is available to any skill, projection, or output field mapping.
 
 The root node for all enrichments is `"/document"`. When working with blob indexers, the `"/document"` node will have child nodes of `"/document/content"` and `"/document/normalized_images"`. When working with CSV data, as we are in this example, the column names will map to nodes beneath `"/document"`. 
 
