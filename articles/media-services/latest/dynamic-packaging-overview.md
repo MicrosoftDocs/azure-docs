@@ -80,7 +80,7 @@ The following steps show a common Media Services streaming workflow where dynami
 1. Publish the output asset that contains the adaptive bitrate MP4 set. You publish by creating a [streaming locator](streaming-locators-concept.md).
 1. Build URLs that target different formats (HLS, MPEG-DASH, and Smooth Streaming). The *streaming endpoint* would take care of serving the correct manifest and requests for all these different formats.
     
-    The MP4 is present in the image below just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaing locator). The dynamic packager is not altering the file. 
+    The MP4 is present in the image below just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator). The dynamic packager is not altering the file. 
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
