@@ -67,7 +67,7 @@ az vm create \
 Create a Azure Database for MariaDB with the az mariadb server create command. Remember that the name of your MariaDB Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az mariadb server create \
 --name mydemoserver \
 --resource-group myResourcegroup \
@@ -83,13 +83,19 @@ az mariadb server create \
 
 ## Create the Private Endpoint 
 Create a private endpoint for the MariaDB server in your Virtual Network: 
+
+Get the resource id of the server
+```azurecli-interactive
+$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id")
+```
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
+    --private-connection-resource-id $resourceid \  
     --group-id mariadbServer \  
     --connection-name myConnection  
  ```
