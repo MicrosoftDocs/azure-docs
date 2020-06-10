@@ -1,6 +1,6 @@
 ---
 title: Manage user-assigned managed identities using REST - Azure AD
-description: Step by step instructions on how to create, list and delete a user-assigned managed identity to make REST API calls.
+description: Step-by-step instructions on how to create, list, and delete a user-assigned managed identity to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -17,11 +17,11 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# Create, list or delete a user-assigned managed identity using REST API calls
+# Create, list, or delete a user-assigned managed identity using REST API calls
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed identities for Azure resources provides Azure services the ability to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources provide Azure services the ability to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
 In this article, you learn how to create, list, and delete a user-assigned managed identity using CURL to make REST API calls.
 

@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 As a cloud developer, you are probably looking for the simplest and most secure method to access Azure resources in your code. 
 
-The managed identities for Azure resources can help you with this because managed identities:
+The managed identities for Azure resources can help you with this requirement because managed identities:
 
 - **Eliminate** the need for credentials in your code.
 - **Rotate** credentials automatically.
@@ -55,7 +55,7 @@ For stand-alone Azure resources, you can enable **system-assigned** managed iden
 
  ![System-assigned managed identity](./media/overview/system-assigned.png)  
 
-While system-assigned managed identities provide the most convenient solution for stand-alone resources, things look different if you need to manage a group of Azure resources for the same task. In this scenario you are better of creating a identity manually and assigning this master identity to all Azure resources you need to group. This assignment is known as **user-assigned** managed identity. What is a good example?
+While system-assigned managed identities provide the most convenient solution for stand-alone resources, things look different if you need to manage a group of Azure resources for the same task. In this scenario, you are better of creating an identity manually and assigning this master identity to all Azure resources you need to group. This assignment is known as **user-assigned** managed identity. What is a good example?
   
 
 ## Supported services

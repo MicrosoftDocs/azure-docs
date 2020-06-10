@@ -1,6 +1,6 @@
 ---
 title: Create, list & delete user-assigned managed identity using Azure PowerShell - Azure AD
-description: Step by step instructions on how to create, list and delete user-assigned managed identity using Azure PowerShell.
+description: Step-by-step instructions on how to create, list, and delete user-assigned managed identity using Azure PowerShell.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# Create, list or delete a user-assigned managed identity using Azure PowerShell
+# Create, list, or delete a user-assigned managed identity using Azure PowerShell
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list and delete a user-assigned managed identity using Azure PowerShell.
+In this article, you learn how to create, list, and delete a user-assigned managed identity using Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 

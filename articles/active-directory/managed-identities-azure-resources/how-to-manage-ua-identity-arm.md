@@ -1,6 +1,6 @@
 ---
 title: Create & delete a user-assigned managed identity using Azure Resource Manager
-description: Step by step instructions on how to create and delete user-assigned managed identities using Azure Resource Manager.
+description: Step-by-step instructions on how to create and delete user-assigned managed identities using Azure Resource Manager.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 # Create, list and delete a user-assigned managed identity using Azure Resource Manager
 
 
-Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
 In this article, you create a user-assigned managed identity using an Azure Resource Manager.
 
