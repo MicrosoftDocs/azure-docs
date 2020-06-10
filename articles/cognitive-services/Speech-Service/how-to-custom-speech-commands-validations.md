@@ -3,13 +3,13 @@ title: 'Add validations in Custom Commands Preview - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to add validations to a command parameter in a Custom Commands Preview app.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: donkim
+ms.author: nitinme
 ---
 
 # Add validations to a command parameter in a Custom Commands Preview application
