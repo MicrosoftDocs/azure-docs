@@ -113,6 +113,8 @@
   #  href: concepts/media-devices.md
   - name: SMS
     href: concepts/sms.md
+  - name: SMS Flows
+    href: concepts/sms-flows.md
   - name: SDK Options
     href: concepts/sdk-options.md
   - name: Diagnostics and metrics
