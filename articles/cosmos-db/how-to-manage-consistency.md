@@ -87,9 +87,7 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-## Java V4 SDK
-
-Java content.
+### Java V4 SDK
 
 ### <a id="override-default-consistency-javav2"></a>
 #### [Async](#tab/api-async)
