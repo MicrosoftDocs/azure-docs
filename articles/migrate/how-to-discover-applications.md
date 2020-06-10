@@ -2,7 +2,7 @@
 title: Discover apps, roles, and features on on-premises servers with Azure Migrate 
 description: Learn how to discover apps, roles, and features on on-premises servers with Azure Migrate Server Assessment.
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 06/10/2020
 ---
 
 # Discover machine apps, roles, and features
@@ -41,7 +41,7 @@ After the appliance is deployed and you've provided credentials, the appliance s
 
 ## Verify permissions
 
-You [created a vCenter Server read-only account](tutorial-prepare-vmware?branch=pr-en-us-118043#set-up-permissions-for-assessment) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for app discovery.
+You [created a vCenter Server read-only account](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) for discovery and assessment. The read-only account needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for app discovery.
 
 ### Add the user account to the appliance
 
