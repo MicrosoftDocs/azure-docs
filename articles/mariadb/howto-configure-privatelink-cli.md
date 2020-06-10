@@ -90,6 +90,7 @@ $resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-t
 ```
 
 ```azurecli-interactive
+#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
