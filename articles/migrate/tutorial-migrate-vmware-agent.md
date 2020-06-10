@@ -8,10 +8,10 @@ ms.custom: MVC
 
 # Migrate VMware VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using agent-based migration with the Azure Migrate Server Migration tool.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
-In this tutorial, you learn how to:
+This tutorialis the third in a series that demonstrates how to assess and migrate VMware VMs to Azure. In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up the source environment, and deploy an Azure Migrate replication appliance for agent-based migration.
 > * Set up the target environment for migration.
@@ -21,33 +21,9 @@ In this tutorial, you learn how to:
 > * Run a full migration to Azure.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How-tos for VMware assessment and migration.
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-
-## Before you begin
-
-We recommend that you try out VMware VM assessment with Azure Migrate Server Assessment, before you migrate VMs to Azure. Set up an assessment as follows:
-
-1. Follow the tutorial to [prepare Azure and VMware](tutorial-prepare-vmware.md) for assessment.
-2. Then, follow [this tutorial](tutorial-assess-vmware.md) to set up an Azure Migrate appliance for assessment, and discover and assess VMs.
-
-
-Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
-
-## Migration methods
-
-You can migrate VMware VMs to Azure using the Azure Migrate Server Migration tool. This tool offers a couple of options for VMware VM migration:
-
-- Agentless replication. Migrate VMs without needing to install anything on them.
-- Agent-based migration. or replication. Install an agent (the Mobility services agent) on the VM for replication.
-
-To decide whether you want to use agentless or agent-based migration, review these articles:
-
-- [Learn about](server-migrate-overview.md) the VMware migration options.
-- [Compare migration methods](server-migrate-overview.md#compare-migration-methods).
-- [Follow this article](tutorial-migrate-vmware.md) to try out agentless migration.
-
 
 
 ## Prerequisites
@@ -55,13 +31,15 @@ To decide whether you want to use agentless or agent-based migration, review the
 Before you begin this tutorial, you should:
 
 1. [Review](migrate-architecture.md) the VMware migration architecture.
-2. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
+2. [Complete the first tutorial](tutorial-prepare-vmware.md) to prepare Azure and VMware for migration.
+3. We recommend that you complete the second tutorial to [assess VMware VMs](tutorial-assess-vmware.md) before migrating them to Azure, but you don't have to.
+4. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
 
     - Create a VM in the selected resource group.
     - Create a VM in the selected virtual network.
     - Write to an Azure managed disk. 
 
-3. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to an Azure network you specify when you set up migration.
+5. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to the Azure network you set up.
 
 
 ## Prepare Azure
