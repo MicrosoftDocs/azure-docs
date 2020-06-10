@@ -41,6 +41,22 @@ Does the text, as a distinguishing trait, have to:
 
 Because there are several choices in how a trait is described, you can use more than one feature that helps describe that trait or concept. A common pairing is to use a phrase list feature and one of the entity types commonly used as features: prebuilt entity, regular expression entity, or list entity.
 
+### Ticket booking entity example
+
+As a first example, consider an app for booking a flight with a Flight reservation intent and a ticket booking entity.
+
+The ticket booking entity is a machine learned entity for the flight destination. To help extract the location, use two features to help:
+* Phrase list of relevant words such as `plane`, `flight`, `reservation`, `ticket`
+* Prebuilt `geographyV2` entity as feature to the entity
+
+### Pizza entity example
+
+As a another example, consider an app for order a pizza with a Create pizza order intent and a pizza entity.
+
+The pizza entity is a machine learned entity for the pizza details. To help extract the details use two features to help:
+* Phrase list of relevant words such as `cheese`, `crust`, `pepperoni`, `pineapple`
+* Prebuilt `number` entity as feature to the entity
+
 ## A phrase list for a particular concept
 
 A phrase list is a list of words or phrases that encapsulates a particular concept and is applied as a case-insensitive match at the token level.
@@ -80,7 +96,7 @@ If you want to extract the medical terms:
 A phrase list applies at the token level, regardless of case. The following chart shows how a phrase list containing the word `Ann` is applied to variations of the same characters in that order.
 
 
-| Token variation of `Ann` | Phrase list fires when token is found |
+| Token variation of `Ann` | Phrase list match when token is found |
 |--------------------------|---------------------------------------|
 | ANN<br>aNN<br>           | Yes - token is `Ann`                  |
 | Ann's                    | Yes - token is `Ann`                  |
