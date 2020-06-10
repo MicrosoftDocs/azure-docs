@@ -25,35 +25,35 @@
       href: tutorial-sql-server-to-managed-instance.md
     - name: to Azure SQL Managed Instance (online)
       href: tutorial-sql-server-managed-instance-online.md
-  - name: Migrate RDS SQL Server to
+  - name: Migrate RDS SQL Server
     items: 
     - name: to Azure SQL Database or SQL Managed Instance
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - name: Migrate MySQL to 
+  - name: Migrate MySQL
     items: 
     - name: to Azure Database for MySQL
       href: tutorial-mysql-azure-mysql-online.md
-  - name: Migrate RDS MySQL to 
+  - name: Migrate RDS MySQL
     items: 
     - name: to Azure Database for MySQL
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - name: Migrate PostgreSQL to 
+  - name: Migrate PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL (Portal)
       href: tutorial-postgresql-azure-postgresql-online-portal.md
     - name: to Azure DB for PostgreSQL (Az CLI)
       href: tutorial-postgresql-azure-postgresql-online.md
-  - name: Migrate RDS PostgreSQL to 
+  - name: Migrate RDS PostgreSQL
     items: 
     - name: to Azure DB for PostgreSQL 
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - name: Migrate MongoDB to 
+  - name: Migrate MongoDB
     items: 
     - name: to Azure Cosmos DB Mongo API (offline)
       href: tutorial-mongodb-cosmos-db.md
     - name: to Azure Cosmos DB Mongo API (online)
       href: tutorial-mongodb-cosmos-db-online.md
-  - name: Migrate Oracle to 
+  - name: Migrate Oracle
     items: 
     - name: to Azure DB for PostgreSQL–Single server online
       href: tutorial-oracle-azure-postgresql-online.md  
