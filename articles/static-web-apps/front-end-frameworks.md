@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 06/09/2020
+ms.date: 06/10/2020
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ The following table lists the settings for a series of frameworks and libraries<
 
 The intent of the table columns is explained by the following items:
 
-- **App artifact location**: Lists the value for   `app_artifact_location`, which is the [destination folder of production versions application files](github-actions-workflow.md#build-and-deploy).
+- **App artifact location**: Lists the value for `app_artifact_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
 
 - **Custom build command**: By default, the build process runs `npm run build` or `npm run azure:build`. When the default command doesn't work with a given framework, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
 
