@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 02/11/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to integrate Jamf Pro with Azure Active Direc
 * Automatically sign in your users to Jamf Pro with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -39,7 +39,10 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Jamf Pro supports **SP-initiated** and **IdP-initiated** SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. 
+
+* Jamf Pro supports **SP-initiated** and **IdP-initiated** SSO.
+* Once you configure Jamf Pro you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Add Jamf Pro from the gallery
 
@@ -91,7 +94,7 @@ In this section, you enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, go to the **SAML Signing Certificate** section, select the **copy** button to copy **App Federation Metadata URL**, and then save it to your computer.
 
-	![The SAML SIgning Certificate download link](common/copy-metadataurl.png)
+	![The SAML Signing Certificate download link](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 
@@ -100,7 +103,7 @@ In this section, you create a test user in the Azure portal called B.Simon.
 1. In the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter [name]@[companydomain].[extension]. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Select **Create**.
@@ -123,7 +126,7 @@ In this section, you grant B.Simon access to Jamf Pro.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user. Then, select the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select the **Assign** button.
 
-## Configure SSO in Jamf Pro 
+## Configure SSO in Jamf Pro
 
 1. To automate the configuration within Jamf Pro, install the **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
 
@@ -147,30 +150,32 @@ In this section, you grant B.Simon access to Jamf Pro.
 
 	![The Single Sign-On page in Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-	a. Select the **Enable Single Sign-On Authentication** check box.
+	a. Select **Edit**.
 
-	b. Select **Other** as an option from the **IDENTITY PROVIDER** drop-down menu.
+	b. Select the **Enable Single Sign-On Authentication** check box.
 
-	c. In the **OTHER PROVIDER** field, enter **Azure AD**.
+  c. Select **Azure** as an option from the **Identity Provider** drop-down menu.
 
-	d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section in the Azure portal.
+  d. Copy the **ENTITY ID** value and paste it into the **Identifier (Entity ID)** field in the **Basic SAML Configuration** section in the Azure portal.
 
-	> [!NOTE]
-	> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section in the Azure portal.
+> [!NOTE]
+> Use the value in the `<SUBDOMAIN>` field to complete the sign-on URL and reply URL in the **Basic SAML Configuration** section in the Azure portal.
 
-	e. Select **Metadata URL** from the **IDENTITY PROVIDER METADATA SOURCE** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
+  e. Select **Metadata URL** from the **Identity Provider Metadata Source** drop-down menu. In the field that appears, paste the **App Federation Metadata Url** value that you've copied from the Azure portal.
 
-7. On the same page, scroll down to the **User Mapping** section. Then, take the following steps.	
+  f. (Optional) Edit the token expiration value or select "Disable SAML token expiration".
 
-	![The User Mapping section of the Single Sign-On page in Jamf Pro.](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+7. On the same page, scroll down to the **User Mapping** section. Then, take the following steps.
 
-	a. Select the **NameID** option for **IDENTITY PROVIDER USER MAPPING**. By default, this option is set to **NameID**, but you can define a custom attribute.
+	![The User Mapping section of the Single Sign-On page in Jamf Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
-	b. Select **Email** for **JAMF PRO USER MAPPING**. Jamf Pro maps SAML attributes sent by the IdP first by users and then by groups. When a user tries to access Jamf Pro, Jamf Pro gets information about the user from the Identity Provider and matches it against all Jamf Pro user accounts. If the incoming user account isn't found, then Jamf Pro attempts to match it by group name.
+	a. Select the **NameID** option for **Identity Provider User Mapping**. By default, this option is set to **NameID**, but you can define a custom attribute.
+
+	b. Select **Email** for **Jamf Pro User Mapping**. Jamf Pro maps SAML attributes sent by the IdP first by users and then by groups. When a user tries to access Jamf Pro, Jamf Pro gets information about the user from the Identity Provider and matches it against all Jamf Pro user accounts. If the incoming user account isn't found, then Jamf Pro attempts to match it by group name.
 
 	c. Paste the value `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in the **IDENTITY PROVIDER GROUP ATTRIBUTE NAME** field.
 
-	d. Select **Allow users to bypass the Single Sign-On authentication**. As a result, users won't be redirected to the Identity Provider sign-in page for authentication and can sign in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
+	d. On the same page, scroll down to the **Security** section and select **Allow users to bypass the Single Sign-On authentication**. As a result, users won't be redirected to the Identity Provider sign-in page for authentication and can sign in to Jamf Pro directly instead. When a user tries to access Jamf Pro via the Identity Provider, IdP-initiated SSO authentication and authorization occurs.
 
 	e. Select **Save**.
 
@@ -198,7 +203,7 @@ To provision a user account, take the following steps:
 
 	![The Create Standard Account option in the Jamf Pro User Accounts & Groups page](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. On the **New Account** dialog box, take the following steps.
+6. On the **New Account** dialog box, perform the following steps:
 
 	![New account setup options in Jamf Pro system settings](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -216,7 +221,7 @@ To provision a user account, take the following steps:
 
 	g. Select **Save**.
 
-## Test the SSO configuration 
+## Test the SSO configuration
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
@@ -226,9 +231,8 @@ When you select the Jamf Pro tile in the Access Panel, you should be automatical
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Try Jamf Pro with Azure AD](https://aad.portal.azure.com/)
-

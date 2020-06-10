@@ -1,20 +1,22 @@
 ---
-title: Delta copy from a database by using a control table with Azure Data Factory | Microsoft Docs
+title: Delta copy from a database using a control table
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/24/2018
 ---
+
 # Delta copy from a database with a control table
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes a template that's available to incrementally load new or updated rows from a database table to Azure by using an external control table that stores a high-watermark value.
 
@@ -33,10 +35,13 @@ The template contains four activities:
 - **Copy** copies only changes from the source database to the destination store. The query that identifies the changes in the source database is similar to 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
 - **SqlServerStoredProcedure** writes the current high-watermark value to an external control table for delta copy next time.
 
-The template defines five parameters:
+The template defines following parameters:
 - *Data_Source_Table_Name* is the table in the source database that you want to load data from.
 - *Data_Source_WaterMarkColumn* is the name of the column in the source table that's used to identify new or updated rows. The type of this column is typically *datetime*, *INT*, or similar.
-- *Data_Destination_Folder_Path* or *Data_Destination_Table_Name* is the place where the data is copied to in your destination store.
+- *Data_Destination_Container* is the root path of the place where the data is copied to in your destination store.
+- *Data_Destination_Directory* is the directory path under the root of the place where the data is copied to in your destination store.
+- *Data_Destination_Table_Name* is the place where the data is copied to in your destination store (applicable when "Azure Synapse Analytics (formerly SQL DW)" is selected as Data Destination).
+- *Data_Destination_Folder_Path* is the place where the data is copied to in your destination store (applicable when "File System" or "Azure Data Lake Storage Gen1" is selected as Data Destination).
 - *Control_Table_Table_Name* is the external control table that stores the high-watermark value.
 - *Control_Table_Column_Name* is the column in the external control table that stores the high-watermark value.
 
@@ -95,20 +100,18 @@ The template defines five parameters:
     ![Create a new connection to the control table data store](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Select **Use this template**.
-
-     ![Use this template](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
 	
 8. You see the available pipeline, as shown in the following example:
+  
+    ![Review the pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Review the pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Select **Stored Procedure**. For **Stored procedure name**, choose **[dbo].[update_watermark]**. Select **Import parameter**, and then select **Add dynamic content**.  
 
-9. Select **Stored Procedure**. For **Stored procedure name**, choose **[update_watermark]**. Select **Import parameter**, and then select **Add dynamic content**.  
-
-     ![Set the stored procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
+    ![Set the stored procedure activity](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)	
 
 10. Write the content **\@{activity('LookupCurrentWaterMark').output.firstRow.NewWatermarkValue}**, and then select **Finish**.  
 
-     ![Write the content for the parameters of the stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
+    ![Write the content for the parameters of the stored procedure](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)		 
 	 
 11. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
@@ -127,13 +130,12 @@ The template defines five parameters:
 			INSERT INTO data_source_table
 			VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
 	```
+
 14. To run the pipeline again, select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Select **Debug**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+    You will see that only new rows were copied to the destination.
 
-    You see that only new rows were copied to the destination.
-
-15. (Optional:) If you selected SQL Data Warehouse as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. Make sure that the container has already been created in Blob storage.
+15. (Optional:) If you select Azure Synapse Analytics (formerly SQL DW) as the data destination, you must also provide a connection to Azure Blob storage for staging, which is required by SQL Data Warehouse Polybase. The template will generate a container path for you. After the pipeline run, check whether the container has been created in Blob storage.
     
     ![Configure Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
 	

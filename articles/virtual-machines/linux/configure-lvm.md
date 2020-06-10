@@ -1,23 +1,12 @@
 ---
-title: Configure LVM on a virtual machine running Linux | Microsoft Docs
+title: Configure LVM on a virtual machine running Linux 
 description: Learn how to configure LVM on Linux in Azure.
-services: virtual-machines-linux
-documentationcenter: na
-author: szarkos
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-
-ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
+author: gbowerman
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
-ms.author: szark
+ms.author: guybo
 ms.subservice: disks
-
 ---
 # Configure LVM on a Linux VM in Azure
 This document will discuss how to configure Logical Volume Manager (LVM) in your Azure virtual machine. LVM may be used on the OS disk or data disks in Azure VMs, however, by default most cloud images will not have LVM configured on the OS disk. The steps below will focus on configuring LVM for your data disks.
@@ -169,7 +158,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS & Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

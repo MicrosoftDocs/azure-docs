@@ -8,7 +8,7 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 01/14/2020
 ms.author: metan
 #Customer intent: As a developer, I want to integrate two Cognitive Services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
@@ -19,14 +19,14 @@ The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively 
 
 The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
-In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift).
+In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* An Immersive Reader resource configured for Azure Active Directory (Azure AD) authentication. Follow [these instructions](./azure-active-directory-authentication.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 * Usage of this sample requires an Azure subscription to the Computer Vision Cognitive Service. [Create a Computer Vision Cognitive Service resource in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 
 ## Create an Xcode project
@@ -50,7 +50,7 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
   target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
+  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
 4. In the terminal, in the directory of your Xcode project, run the command `pod install` to install the Immersive Reader SDK pod.
@@ -70,19 +70,13 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 In the main project folder, which contains the ViewController.swift file, create a Swift class file called Constants.swift. Replace the class with the following code, adding in your values where applicable. Keep this file as a local file that only exists on your machine and be sure not to commit this file into source control, as it contains secrets that should not be made public. It is recommended that you do not keep secrets in your app. Instead, we recommend using a backend service to obtain the token, where the secrets can be kept outside of the app and off of the device. The backend API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)) to prevent unauthorized users from obtaining tokens to use against your Immersive Reader service and billing; that work is beyond the scope of this tutorial.
 
-[!code-swift[Constants](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/Constants.swift)]
-
 ## Set up the app to run without a storyboard
 
 Open AppDelegate.swift and replace the file with the following code.
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
-
 ## Add functionality for taking and uploading photos
 
 Rename ViewController.swift to PictureLaunchViewController.swift and replace the file with the following code.
-
-[!code-swift[PictureLaunchViewController](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/PictureLaunchViewController.swift)]
 
 ## Build and run the app
 
@@ -102,4 +96,4 @@ Inside the app, take or upload a photo of text by pressing the 'Take Photo' butt
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
+* Explore the [Immersive Reader SDK Reference](./reference.md)

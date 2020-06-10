@@ -52,6 +52,9 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 | RoleName |The name of the Azure VM. |
 | RecoveryPointId|The timestamp for the VM recovery. |
 
+>[!Note]
+>The value for variable 'FailoverDirection' will be 'PrimaryToSecondary' in case of failover and 'SecondaryToPrimary' in case of failback.
+
 The following example shows a context variable:
 
 ```
@@ -107,7 +110,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 ## Customize the recovery plan
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
-2. To create a recovery plan, click **+Recovery Plan**. [Learn more](/site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
+2. To create a recovery plan, click **+Recovery Plan**. [Learn more](site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
 3. In the recovery plan page, click **Customize**.
 
     ![Click the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)

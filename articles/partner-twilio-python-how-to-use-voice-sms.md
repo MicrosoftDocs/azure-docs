@@ -13,6 +13,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
+ms.custom: tracking-python
 
 ---
 # How to Use Twilio for Voice and SMS Capabilities in Python
@@ -107,7 +108,7 @@ Once you have installed the Twilio library for Python, you can then `import` it 
 
         import twilio
 
-For more information, see [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.rst).
+For more information, see [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **from_number** and **to_number** phone numbers, and ensure that you've verified the **from_number** phone number for your Twilio account before running the code.

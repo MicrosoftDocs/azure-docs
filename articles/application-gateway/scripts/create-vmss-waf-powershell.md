@@ -4,8 +4,8 @@ description: Azure PowerShell Script Sample - Create an application gateway with
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
+
+
 tags: azure-resource-manager
 
 ms.service: application-gateway

@@ -9,7 +9,7 @@ ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 09/05/2019
 ms.author: iainfou
 
@@ -60,7 +60,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 With the *AAD DC Administrators* group created, add a user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet. You first get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet, then the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet.
 
-In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
+In the following example, the user object ID for the account with a UPN of `admin@aaddscontoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -70,7 +70,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -124,11 +124,17 @@ $Vnet= New-AzVirtualNetwork `
 
 ## Create an Azure AD DS managed domain
 
-Now let's create an Azure AD DS managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *contoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
+Now let's create an Azure AD DS managed domain. Set your Azure subscription ID, and then provide a name for the managed domain, such as *aaddscontoso.com*. You can get your subscription ID using the [Get-AzSubscription][Get-AzSubscription] cmdlet.
+
+If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+
+Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+
+There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones].
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -144,6 +150,8 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Complete PowerShell script
@@ -155,12 +163,12 @@ The following complete PowerShell script combines all of the tasks shown in this
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD
@@ -229,6 +237,8 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
@@ -254,3 +264,4 @@ To see the Azure AD DS managed domain in action, you can [domain-join a Windows 
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[availability-zones]: ../availability-zones/az-overview.md

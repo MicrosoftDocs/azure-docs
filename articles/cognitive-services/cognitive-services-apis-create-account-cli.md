@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To sign into your local installation of the CLI, run the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command:
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -69,8 +69,15 @@ az group create \
 
 When creating a new resource, you will need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You will use this and other information as parameters when creating the resource.
 
+### Multi-service
+
+| Service                    | Kind                      |
+|----------------------------|---------------------------|
+| Multiple services. See the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page for more details.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> Many Cognitive services have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
+> Many of the Cognitive Services below have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
 
 ### Vision
 
@@ -79,7 +86,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
-| Face API                   | `Face`                    |
+| Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
@@ -144,7 +151,7 @@ az cognitiveservices account create \
 
 To log into your local installation of the Command-Line Interface(CLI), use the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -165,6 +172,16 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 * service features enabled within the pricing tier.
 * The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
+## Get current quota usage for your resource
+
+Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## Clean up resources
 
@@ -173,7 +190,7 @@ If you want to clean up and remove a Cognitive Services resource, you can delete
 To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## See also

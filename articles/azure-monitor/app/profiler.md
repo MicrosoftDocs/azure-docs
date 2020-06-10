@@ -1,18 +1,14 @@
 ---
 title: Profile live Azure App Service apps with Application Insights | Microsoft Docs
 description: Profile live apps on Azure App Service with Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
+ms.date: 08/06/2018
+
+ms.reviewer: mbullwin
 ---
+
 # Profile live Azure App Service apps with Application Insights
 
 You can run Profiler on ASP.NET and ASP.NET Core apps that are running on Azure App Service using Basic service tier or higher. Enabling Profiler on Linux is currently only possible via [this method](profiler-aspnetcore-linux.md).
@@ -58,14 +54,14 @@ If you want to enable the profiler for other clouds, you can use the below app s
 
 |App Setting    | US Government Values| China Cloud |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## Disable Profiler
 
-To stop or restart Profiler for an individual app's instance, under **Web Jobs**, go to the app resource. To delete Profiler, go to **Extensions**.
+To stop or restart Profiler for an individual app's instance, under **WebJobs** and stop the webjob named ApplicationInsightsProfiler3. Even if the profiler is disabled using the switch on the Application Insights page as described above, the profiler process will still run. The profiler will check to see if it's enabled. If it's disabled, it will go to sleep for a period of time before checking again. It doesn't do any profiling if it's disabled. If you disable this webjob, the profiler process won't run at all, even to check to see if it's enabled.
 
-![Disable Profiler for a web job][disable-profiler-webjob]
+  ![Disable Profiler for a web job][disable-profiler-webjob]
 
 We recommend that you have Profiler enabled on all your apps to discover any performance issues as early as possible.
 

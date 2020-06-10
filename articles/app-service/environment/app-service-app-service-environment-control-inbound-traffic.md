@@ -1,16 +1,9 @@
 ---
-title: Control inbound traffic to App Service environment - Azure
-description: Learn about how to configure network security rules to control inbound traffic to an App Service Environment.
-services: app-service
-documentationcenter: ''
+title: Control inbound traffic v1
+description: Learn howto control inbound traffic to an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: erikre
-editor: ''
 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
@@ -34,10 +27,10 @@ Before locking down inbound network traffic with a network security group, it is
 
 The following is a list of ports used by an App Service Environment. All ports are **TCP**, unless otherwise clearly noted:
 
-* 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
-* 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via SSL.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+* 454:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via TLS.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
+* 455:  **Required port** used by Azure infrastructure for managing and maintaining App Service Environments via TLS.  Do not block traffic to this port.  This port is always bound to the public VIP of an ASE.
 * 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
-* 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
+* 443: Default port for inbound TLS traffic to apps running in App Service Plans in an App Service Environment.  On an ILB-enabled ASE, this port is bound to the ILB address of the ASE.
 * 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.  On an ILB-enabled ASE, this port can be bound to the ILB address for an ASE.
 * 990:  Control channel for FTPS.  This port can be safely blocked if FTPS is not being used.  On an ILB-enabled ASE, this port can be bound to the ILB address for an ASE.
 * 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used.  On an ILB-enabled ASE, this port can be bound to the ASE's ILB address.
@@ -65,7 +58,7 @@ The following demonstrates creating a network security group:
 
 Once a network security group is created, one or more network security rules are added to it.  Since the set of rules may change over time, it is recommended to space out the numbering scheme used for rule priorities to make it easy to insert additional rules over time.
 
-The example below shows a rule that explicitly grants access to the management ports needed by the Azure infrastructure to manage and maintain an App Service Environment.  Note that all management traffic flows over SSL and is secured by client certificates, so even though the ports are opened they are inaccessible by any entity other than Azure management infrastructure.
+The example below shows a rule that explicitly grants access to the management ports needed by the Azure infrastructure to manage and maintain an App Service Environment.  Note that all management traffic flows over TLS and is secured by client certificates, so even though the ports are opened they are inaccessible by any entity other than Azure management infrastructure.
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 

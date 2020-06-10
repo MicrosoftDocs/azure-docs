@@ -9,14 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 04/14/2020
 ms.author: pafarley
+ms.custom: tracking-python
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the Face REST API and Python
 
-In this quickstart, you will use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
+In this quickstart, you'll use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
 
 ![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 

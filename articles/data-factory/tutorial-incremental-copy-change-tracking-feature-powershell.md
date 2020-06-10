@@ -1,19 +1,22 @@
 ---
-title: 'Incrementally copy data using Change Tracking and Azure Data Factory | Microsoft Docs'
-description: 'In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database. '
+title: Incrementally copy data using Change Tracking using PowerShell
+description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
 services: data-factory
-documentationcenter: ''
+ms.author: yexu
 author: dearandyxu
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.author: yexu
 ---
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information 
+
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source Azure SQL database to an Azure blob storage.  
 
 You perform the following steps in this tutorial:
@@ -21,7 +24,7 @@ You perform the following steps in this tutorial:
 > [!div class="checklist"]
 > * Prepare the source data store
 > * Create a data factory.
-> * Create linked services. 
+> * Create linked services.
 > * Create source, sink, and change tracking datasets.
 > * Create, run, and monitor the full copy pipeline
 > * Add or update data in the source table
@@ -30,18 +33,18 @@ You perform the following steps in this tutorial:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Overview
-In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
 
 ## End-to-end workflow
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
-> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server. 
+> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use a SQL Server instance.
 
 1. **Initial loading of historical data** (run once):
     1. Enable Change Tracking technology in the source Azure SQL database.
     2. Get the initial value of SYS_CHANGE_VERSION in the Azure SQL database as the baseline to capture changed data.
-    3. Load full data from the Azure SQL database into an Azure blob storage. 
+    3. Load full data from the Azure SQL database into an Azure blob storage.
 2. **Incremental loading of delta data on a schedule** (run periodically after the initial loading of data):
     1. Get the old and new SYS_CHANGE_VERSION values.
     3. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from **sys.change_tracking_tables** with data in the **source table**, and then move the delta data to destination.
@@ -53,7 +56,7 @@ In this tutorial, you create two pipelines that perform the following two operat
 1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
     ![Full loading of data](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
-1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically. 
+1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically.
     1. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
     2. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
     3. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
@@ -66,14 +69,14 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## Prerequisites
 
 * Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
-* **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one. Create a container named **adftutorial**. 
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
+* **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server. 
+1. Launch **SQL Server Management Studio**, and connect to SQL Database.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
-    
+
     ```sql
     create table data_source_table
     (
@@ -93,22 +96,22 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         (5, 'eeee', 22);
 
     ```
-4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query: 
+4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
 
     > [!NOTE]
-    > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table. 
+    > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table.
     > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
- 
+
     ```sql
     ALTER DATABASE <your database name>
     SET CHANGE_TRACKING = ON  
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
-  
+
     ALTER TABLE data_source_table
     ENABLE CHANGE_TRACKING  
     WITH (TRACK_COLUMNS_UPDATED = ON)
     ```
-5. Create a new table and store the ChangeTracking_version with a default value by running the following query: 
+5. Create a new table and store the ChangeTracking_version with a default value by running the following query:
 
     ```sql
     create table table_store_ChangeTracking_version
@@ -123,21 +126,21 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     INSERT INTO table_store_ChangeTracking_version
     VALUES ('data_source_table', @ChangeTracking_version)
     ```
-    
+
     > [!NOTE]
     > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
-6. Run the following query to create a stored procedure in your Azure SQL database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step. 
+6. Run the following query to create a stored procedure in your Azure SQL database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
     AS
-    
+
     BEGIN
-    
+
         UPDATE table_store_ChangeTracking_version
         SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
-    
+
     END    
     ```
 
@@ -145,25 +148,25 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
-2. Define a variable for the location of the data factory: 
+2. Define a variable for the location of the data factory:
 
     ```powershell
     $location = "East US"
     ```
-3. To create the Azure resource group, run the following command: 
+3. To create the Azure resource group, run the following command:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
-    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again. 
-3. Define a variable for the data factory name. 
+    ```
+    If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again.
+3. Define a variable for the data factory name.
 
     > [!IMPORTANT]
     >  Update the data factory name to be globally unique.  
@@ -171,10 +174,10 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet: 
-    
+5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
     ```
 
 Note the following points:
@@ -189,7 +192,7 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database.
 
 ### Create Azure Storage linked service.
 In this step, you link your Azure Storage Account to the data factory.
@@ -202,16 +205,13 @@ In this step, you link your Azure Storage Account to the data factory.
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
     ```
 2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder.
-3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. 
+3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -229,7 +229,7 @@ In this step, you link your Azure Storage Account to the data factory.
 ### Create Azure SQL Database linked service.
 In this step, you link your Azure SQL database to the data factory.
 
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file. 
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your server, name of your database, user ID, and password before saving the file.
 
     ```json
     {
@@ -237,15 +237,12 @@ In this step, you link your Azure SQL database to the data factory.
     	"properties": {
     		"type": "AzureSqlDatabase",
     		"typeProperties": {
-    			"connectionString": {
-    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-    				"type": "SecureString"
-    			}
+    			"connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
     		}
     	}
     }
     ```
-2. In **Azure PowerShell**, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**. 
+2. In **Azure PowerShell**, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -264,9 +261,9 @@ In this step, you link your Azure SQL database to the data factory.
 In this step, you create datasets to represent data source, data destination. and the place to store the SYS_CHANGE_VERSION.
 
 ### Create a source dataset
-In this step, you create a dataset to represent the source data. 
+In this step, you create a dataset to represent the source data.
 
-1. Create a JSON file named SourceDataset.json in the same folder with the following content: 
+1. Create a JSON file named SourceDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -285,13 +282,13 @@ In this step, you create a dataset to represent the source data.
     ```
 
 2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: SourceDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -301,9 +298,9 @@ In this step, you create a dataset to represent the source data.
     ```
 
 ### Create a sink dataset
-In this step, you create a dataset to represent the data that is copied from the source data store. 
+In this step, you create a dataset to represent the data that is copied from the source data store.
 
-1. Create a JSON file named SinkDataset.json in the same folder with the following content: 
+1. Create a JSON file named SinkDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -327,13 +324,13 @@ In this step, you create a dataset to represent the data that is copied from the
 
     You create the adftutorial container in your Azure Blob Storage as part of the prerequisites. Create the container if it does not exist (or) set it to the name of an existing one. In this tutorial, the output file name is dynamically generated by using the expression: @CONCAT('Incremental-', pipeline().RunId, '.txt').
 2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: SinkDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -345,7 +342,7 @@ In this step, you create a dataset to represent the data that is copied from the
 ### Create a change tracking dataset
 In this step, you create a dataset for storing the change tracking version.  
 
-1. Create a JSON file named ChangeTrackingDataset.json in the same folder with the following content: 
+1. Create a JSON file named ChangeTrackingDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -365,13 +362,13 @@ In this step, you create a dataset for storing the change tracking version.
 
     You create the table table_store_ChangeTracking_version as part of the prerequisites.
 2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: ChangeTrackingDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : ChangeTrackingDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -383,7 +380,7 @@ In this step, you create a dataset for storing the change tracking version.
 ## Create a pipeline for the full copy
 In this step, you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
-1. Create a JSON file: FullCopyPipeline.json in same folder with the following content: 
+1. Create a JSON file: FullCopyPipeline.json in same folder with the following content:
 
     ```json
     {
@@ -400,7 +397,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
     					"type": "BlobSink"
     				}
     			},
-    
+
     			"inputs": [{
     				"referenceName": "SourceDataset",
     				"type": "DatasetReference"
@@ -414,12 +411,12 @@ In this step, you create a pipeline with a copy activity that copies the entire 
     }
     ```
 2. Run the Set-AzDataFactoryV2Pipeline cmdlet to create the pipeline: FullCopyPipeline.
-    
+
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
-   ``` 
+   ```
 
-   Here is the sample output: 
+   Here is the sample output:
 
    ```json
     PipelineName      : FullCopyPipeline
@@ -428,37 +425,37 @@ In this step, you create a pipeline with a copy activity that copies the entire 
     Activities        : {FullCopyActivity}
     Parameters        :
    ```
- 
+
 ### Run the full copy pipeline
-Run the pipeline: **FullCopyPipeline** by using **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Run the pipeline: **FullCopyPipeline** by using **Invoke-AzDataFactoryV2Pipeline** cmdlet.
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
-``` 
+```
 
 ### Monitor the full copy pipeline
 
 1. Log in to [Azure portal](https://portal.azure.com).
-2. Click **All services**, search with the keyword `data factories`, and select **Data factories**. 
+2. Click **All services**, search with the keyword `data factories`, and select **Data factories**.
 
     ![Data factories menu](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
-3. Search for **your data factory** in the list of data factories, and select it to launch the Data factory page. 
+3. Search for **your data factory** in the list of data factories, and select it to launch the Data factory page.
 
     ![Search for your data factory](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
-4. In the Data factory page, click **Monitor & Manage** tile. 
+4. In the Data factory page, click **Monitor & Manage** tile.
 
     ![Monitor & Manage tile](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. The **Data Integration Application** launches in a separate tab. You can see all the **pipeline runs** and their statuses. Notice that in the following example, the status of the pipeline run is **Succeeded**. You can check parameters passed to the pipeline by clicking link in the **Parameters** column. If there was an error, you see a link in the **Error** column. Click the link in the **Actions** column. 
+5. The **Data Integration Application** launches in a separate tab. You can see all the **pipeline runs** and their statuses. Notice that in the following example, the status of the pipeline run is **Succeeded**. You can check parameters passed to the pipeline by clicking link in the **Parameters** column. If there was an error, you see a link in the **Error** column. Click the link in the **Actions** column.
 
     ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
-6. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline. 
+6. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
     ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
-7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image. 
+7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 
 ### Review the results
-You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container. 
+You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container.
 
 ![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
@@ -474,7 +471,7 @@ The file should have the data from the Azure SQL database:
 
 ## Add more data to the source table
 
-Run the following query against the Azure SQL database to add a row and update a row. 
+Run the following query against the Azure SQL database to add a row and update a row.
 
 ```sql
 INSERT INTO data_source_table
@@ -486,12 +483,12 @@ VALUES
 UPDATE data_source_table
 SET [Age] = '10', [name]='update' where [PersonID] = 1
 
-``` 
+```
 
 ## Create a pipeline for the delta copy
 In this step, you create a pipeline with the following activities, and run it periodically. The **lookup activities** get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity. The **copy activity** copies the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage. The **stored procedure activity** updates the value of SYS_CHANGE_VERSION for the next pipeline run.
 
-1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content: 
+1. Create a JSON file: IncrementalCopyPipeline.json in same folder with the following content:
 
     ```json
     {
@@ -506,7 +503,7 @@ In this step, you create a pipeline with the following activities, and run it pe
     	                    "type": "SqlSource",
     	                    "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
     	                    },
-    	
+
     	                    "dataset": {
     	                    "referenceName": "ChangeTrackingDataset",
     	                    "type": "DatasetReference"
@@ -521,14 +518,14 @@ In this step, you create a pipeline with the following activities, and run it pe
     	                        "type": "SqlSource",
     	                        "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
                         },
-    
+
     	                    "dataset": {
     	                    "referenceName": "SourceDataset",
     	                    "type": "DatasetReference"
     	                    }
     	                }
     	            },
-    
+
     	            {
     	                "name": "IncrementalCopyActivity",
     	                "type": "Copy",
@@ -555,7 +552,7 @@ In this step, you create a pipeline with the following activities, and run it pe
     	                        ]
                         }
     	                ],
-    	
+
     	                "inputs": [
     	                    {
                             "referenceName": "SourceDataset",
@@ -569,24 +566,24 @@ In this step, you create a pipeline with the following activities, and run it pe
     	                    }
     	                ]
     	            },
-    	
+
                 {
     	                "name": "StoredProceduretoUpdateChangeTrackingActivity",
     	                "type": "SqlServerStoredProcedure",
     	                "typeProperties": {
-    
+
     	                    "storedProcedureName": "Update_ChangeTracking_Version",
     	                    "storedProcedureParameters": {
                             "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
     	                        "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
     	                    }
                     },
-    	
+
     	                "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
     	                    "type": "LinkedServiceReference"
     	                },
-    	
+
     	                "dependsOn": [
                         {
     	                        "activity": "IncrementalCopyActivity",
@@ -597,18 +594,18 @@ In this step, you create a pipeline with the following activities, and run it pe
     	                ]
     	            }
     	        ]
-    	
+
     	    }
     }
-    
+
     ```
 2. Run the Set-AzDataFactoryV2Pipeline cmdlet to create the pipeline: FullCopyPipeline.
-    
+
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Here is the sample output: 
+   Here is the sample output:
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -619,34 +616,34 @@ In this step, you create a pipeline with the following activities, and run it pe
    ```
 
 ### Run the incremental copy pipeline
-Run the pipeline: **IncrementalCopyPipeline** by using **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
+Run the pipeline: **IncrementalCopyPipeline** by using **Invoke-AzDataFactoryV2Pipeline** cmdlet.
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
-``` 
+```
 
 
 ### Monitor the incremental copy pipeline
 1. In the **Data Integration Application**, refresh the **pipeline runs** view. Confirm that you see the IncrementalCopyPipeline in the list. Click the link in the **Actions** column.  
 
     ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
-2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline. 
+2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
     ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
-3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image. 
+3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 ### Review the results
-You see the second file in the `incchgtracking` folder of the `adftutorial` container. 
+You see the second file in the `incchgtracking` folder of the `adftutorial` container.
 
 ![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row. 
+The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row.
 
 ```
 1,update,10,2,U
 6,new,50,1,I
 ```
-The first three columns are changed data from data_source_table. The last two columns are the metadata from change tracking system table. The fourth column is the SYS_CHANGE_VERSION for each changed row. The fifth column is the operation:  U = update, I = insert.  For details about the change tracking information, see [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+The first three columns are changed data from data_source_table. The last two columns are the metadata from change tracking system table. The fourth column is the SYS_CHANGE_VERSION for each changed row. The fifth column is the operation:  U = update, I = insert.  For details about the change tracking information, see [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql).
 
 ```
 ==================================================================
@@ -656,12 +653,9 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 6        new     50		1			          I
 ```
 
-    
+
 ## Next steps
 Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]
 >[Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
-
-
-

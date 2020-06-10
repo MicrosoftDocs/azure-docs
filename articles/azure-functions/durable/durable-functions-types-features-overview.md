@@ -1,18 +1,14 @@
 ---
-title: Function types in the Durable Functions extension of Azure Functions
+title: Function types in Azure Durable Functions
 description: Learn about the types of functions and roles that support function-to-function communication in a Durable Functions orchestration in Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can learn how to use this technology to solve my application development challenges.
 ---
 
-# Durable Functions types and features (Azure Functions)
+# Durable Functions types and features
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use Durable Functions for stateful orchestration of function execution. A durable function app is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
@@ -20,7 +16,7 @@ There are currently four durable function types in Azure Functions: activity, or
 
 ## Orchestrator functions
 
-Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions application patterns](durable-functions-overview.md#application-patterns). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](durable-functions-orchestrations.md#sub-orchestrations), [waiting for external events](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-orchestrations.md#calling-http-endpoints), and [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator functions can also interact with [entity functions](#entity-functions).
+Orchestrator functions describe how actions are executed and the order in which actions are executed. Orchestrator functions describe the orchestration in code (C# or JavaScript) as shown in [Durable Functions application patterns](durable-functions-overview.md#application-patterns). An orchestration can have many different types of actions, including [activity functions](#activity-functions), [sub-orchestrations](durable-functions-orchestrations.md#sub-orchestrations), [waiting for external events](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md), and [timers](durable-functions-orchestrations.md#durable-timers). Orchestrator functions can also interact with [entity functions](#entity-functions).
 
 > [!NOTE]
 > Orchestrator functions are written using ordinary code, but there are strict requirements on how to write the code. Specifically, orchestrator function code must be *deterministic*. Failing to follow these determinism requirements can cause orchestrator functions to fail to run correctly. Detailed information on these requirements and how to work around them can be found in the [code constraints](durable-functions-code-constraints.md) topic.
@@ -36,7 +32,7 @@ Unlike orchestrator functions, activity functions aren't restricted in the type 
 > [!NOTE]
 > Because activity functions only guarantee *at least once* execution, we recommend you make your activity function logic *idempotent* whenever possible.
 
-Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
+Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to define an activity function. .NET functions receive a `DurableActivityContext` as a parameter. You can also bind the trigger to any other JSON-serializeable object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings). Activity functions can only have a single value passed to them. To pass multiple values, you must use tuples, arrays, or complex types.
 
 > [!NOTE]
 > You can trigger an activity function only from an orchestrator function.
@@ -46,7 +42,7 @@ Use an [activity trigger](durable-functions-bindings.md#activity-trigger) to def
 Entity functions define operations for reading and updating small pieces of state. We often refer to these stateful entities as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. They can also be invoked from client functions or from orchestrator functions. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
+> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
 
 For more information about entity functions, see the [Durable Entities](durable-functions-entities.md) article.
 

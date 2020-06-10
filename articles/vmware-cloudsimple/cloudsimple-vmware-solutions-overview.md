@@ -9,9 +9,9 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# What is VMware Solution on Azure by CloudSimple
+# What is Azure VMware Solution by CloudSimple
 
-**VMware Solution on Azure by CloudSimple** is a fully managed service that empowers you to run the VMware platform in Azure. This solution includes vSphere, vCenter, vSAN, NSX-T, and corresponding tools. Your VMware environment runs natively on Azure bare metal infrastructure in Azure cloud locations. The service includes all the features required to consume the VMware platforms efficiently and securely.
+**Azure VMware Solution by CloudSimple** is a fully managed service that empowers you to run the VMware platform in Azure. This solution includes vSphere, vCenter, vSAN, NSX-T, and corresponding tools. Your VMware environment runs natively on Azure bare metal infrastructure in Azure cloud locations. The service includes all the features required to consume the VMware platforms efficiently and securely.
 
 ![VMware Solution on Azure by CloudSimple Overview](media/azure-vmware-solution-by-cloudsimple.png)
 

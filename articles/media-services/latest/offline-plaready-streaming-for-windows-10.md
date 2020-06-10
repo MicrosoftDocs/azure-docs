@@ -1,5 +1,5 @@
 ---
-title: Configure your account for offline streaming of PlayReady protected content - Azure
+title: Configure offline PlayReady streaming with Azure Media Services v3
 description: This article shows how to configure your Azure Media Services account for streaming PlayReady for Windows 10 offline.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
@@ -18,7 +18,7 @@ ms.author: willzhan
 
 ---
 
-# Offline PlayReady Streaming for Windows 10
+# Offline PlayReady Streaming for Windows 10 with Media Services v3
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 
@@ -57,13 +57,13 @@ Below are two sets of test assets, the first one using PlayReady license deliver
 
 Asset #1:
 
-* Progressive download URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
-* PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
+* Progressive download URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 Asset #2:
 
 * Progressive download URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (on premises): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
+* PlayReady LA_URL (on premises): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 For playback testing, we used a Universal Windows Application on Windows 10. In [Windows 10 Universal samples](https://github.com/Microsoft/Windows-universal-samples), there is a basic player sample called [Adaptive Streaming Sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). All we have to do is to add the code for us to pick downloaded video and use it as the source, instead of adaptive streaming source. The changes are in button click event handler:
 
@@ -109,7 +109,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 ```
 
 ![Offline mode playback of PlayReady protected fMP4](./media/offline-playready-for-windows/offline-playready1.jpg)
-
 
 Since the video is under PlayReady protection, the screenshot will not be able to include the video.
 

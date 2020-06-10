@@ -1,10 +1,11 @@
 ---
-title: 'Tutorial: Configure LucidChart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LucidChart.
+title: 'Tutorial: Configure Lucidchart for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to automatically provision and de-provision user accounts from Azure AD to Lucidchart.
 services: active-directory
 documentationcenter: ''
-author: ArvindHarinder1
-manager: CelesteDG
+author: zchia
+writer: zchia
+manager: beatrizd
 
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
@@ -13,77 +14,150 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
-ms.collection: M365-identity-device-management
+ms.date: 01/13/2020
+ms.author: Zhchia
 ---
 
-# Tutorial: Configure LucidChart for automatic user provisioning
+# Tutorial: Configure Lucidchart for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in LucidChart and Azure AD to automatically provision and de-provision user accounts from Azure AD to LucidChart. 
+This tutorial describes the steps you need to perform in both Lucidchart and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Lucidchart](https://www.lucidchart.com/user/117598685#/subscriptionLevel) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## Capabilities supported
+> [!div class="checklist"]
+> * Create users in Lucidchart
+> * Remove users in Lucidchart when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and Lucidchart
+> * Provision groups and group memberships in Lucidchart
+> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/lucidchart-tutorial) to Lucidchart (recommended)
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following items:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure Active directory tenant
-* A LucidChart tenant with the [Enterprise plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) or better enabled
-* A user account in LucidChart with Admin permissions
+* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A LucidChart tenant with the [Enterprise plan](https://www.lucidchart.com/user/117598685#/subscriptionLevel) or better enabled.
+* A user account in LucidChart with Admin permissions.
 
-## Assigning users to LucidChart
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine what data to [map between Azure AD and Lucidchart](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users and groups that have been "assigned" to an application in Azure AD is synchronized.
+## Step 2. Configure Lucidchart to support provisioning with Azure AD
 
-Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your LucidChart app. Once decided, you can assign these users to your LucidChart app by following the instructions here:
+1. Login to [Lucidchart admin console](https://www.lucidchart.com). Navigate to **Team > App Integration**.
 
-[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/team1.png)
 
-### Important tips for assigning users to LucidChart
+2. Navigate to **SCIM**.
 
-* It is recommended that a single Azure AD user is assigned to LucidChart to test the provisioning configuration. Additional users and/or groups may be assigned later.
+      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/scim.png)
 
-* When assigning a user to LucidChart, you must select either the **User** role, or another valid application-specific role (if available) in the assignment dialog. The **Default Access** role does not work for provisioning, and these users are skipped.
+3. Scroll down to see the **Bearer token** and **Lucidchart Base URL**. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application in the Azure portal. 
 
-## Configuring user provisioning to LucidChart
+      ![Lucidchart token](./media/lucidchart-provisioning-tutorial/token.png)
 
-This section guides you through connecting your Azure AD to LucidChart's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in LucidChart based on user and group assignment in Azure AD.
+## Step 3. Add Lucidchart from the Azure AD application gallery
 
-> [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for LucidChart, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
+Add Lucidchart from the Azure AD application gallery to start managing provisioning to Lucidchart. If you have previously setup Lucidchart for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-### Configure automatic user account provisioning to LucidChart in Azure AD
+## Step 4. Define who will be in scope for provisioning 
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. If you have already configured LucidChart for single sign-on, search for your instance of LucidChart using the search field. Otherwise, select **Add** and search for **LucidChart** in the application gallery. Select LucidChart from the search results, and add it to your list of applications.
+* When assigning users and groups to Lucidchart, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-3. Select your instance of LucidChart, then select the **Provisioning** tab.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+
+
+## Step 5. Configure automatic user provisioning to Lucidchart 
+
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in TestApp based on user and/or group assignments in Azure AD.
+
+### To configure automatic user provisioning for Lucidchart in Azure AD:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Lucidchart**.
+
+	![The Lucidchart link in the Applications list](common/all-applications.png)
+
+3. Select the **Provisioning** tab.
+
+	![Provisioning tab](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![LucidChart Provisioning](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
+	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **Secret Token** generated by your LucidChart's account (you can find the token under your account: **Team** > **App Integration** > **SCIM**).
+5. Under the **Admin Credentials** section, input the **Bearer Token**  value retrieved earlier in **Secret Token** field. Click **Test Connection** to ensure Azure AD can connect to Lucidchart. If the connection fails, ensure your Lucidchart account has Admin permissions and try again.
 
-	![LucidChart Provisioning](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
+      ![provisioning](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
-6. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your LucidChart app. If the connection fails, ensure your LucidChart account has Admin permissions and try step 5 again.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
-7. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
+	![Notification Email](common/provisioning-notification-email.png)
 
-8. Click **Save**.
+7. Select **Save**.
 
-9. Under the Mappings section, select **Synchronize Azure Active Directory Users to LucidChart**.
+8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Lucidchart**.
 
-10. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to LucidChart. The attributes selected as **Matching** properties are used to match the user accounts in LucidChart for update operations. Select the Save button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Lucidchart in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Lucidchart for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the Lucidchart API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-11. To enable the Azure AD provisioning service for LucidChart, change the **Provisioning Status** to **On** in the **Settings** section
+   |Attribute|Type|
+   |---|---|
+   |userName|String|
+   |emails[type eq "work"].value|String|
+   |active|Boolean|
+   |name.givenName|String|
+   |name.familyName|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+   |urn:ietf:params:scim:schemas:extension:lucidchart:1.0:User:canEdit|Boolean|
 
-12. Click **Save**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Lucidchart**.
 
-This operation starts the initial synchronization of any users and/or groups assigned to LucidChart in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service.
+11. Review the group attributes that are synchronized from Azure AD to Lucidchart in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Lucidchart for update operations. Select the **Save** button to commit any changes.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |members|Reference|
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for Lucidchart, change the **Provisioning Status** to **On** in the **Settings** section.
+
+	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+
+14. Define the users and/or groups that you would like to provision to Lucidchart by choosing the desired values in **Scope** in the **Settings** section.
+
+	![Provisioning Scope](common/provisioning-scope.png)
+
+15. When you are ready to provision, click **Save**.
+
+	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## Change log
+
+* 04/30/2020 - Added support for enterprise extension attribute and custom attribute "CanEdit" for users.
 
 ## Additional resources
 

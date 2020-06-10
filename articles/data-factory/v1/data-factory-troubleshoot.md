@@ -6,13 +6,13 @@ documentationcenter: ''
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
-manager: craigg
+manager: anandsub
 robots: noindex
 ---
 # Troubleshoot Data Factory issues
@@ -56,10 +56,10 @@ The Express setup for the Data Management Gateway requires Internet Explorer or 
     Do the same for Firefox (install add-in). Click Open Menu button on the toolbar (three horizontal lines in the top-right corner), click Add-ons, search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it.
 * Use the **Manual Setup** link shown on the same blade in the portal. You use this approach to download installation file and run it manually. After the installation is successful, you see the Data Management Gateway Configuration dialog box. Copy the **key** from the portal screen and use it in the configuration manager to manually register the gateway with the service.  
 
-### Problem: Fail to connect to on-premises SQL Server
+### Problem: Fail to connect to SQL Server
 Launch **Data Management Gateway Configuration Manager** on the gateway machine and use the **Troubleshooting** tab to test the connection to SQL Server from the gateway machine. See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.   
 
-### Problem: Input slices are in Waiting state for ever
+### Problem: Input slices are in Waiting state forever
 The slices could be in **Waiting** state due to various reasons. One of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property. This property indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store.
 
 See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.

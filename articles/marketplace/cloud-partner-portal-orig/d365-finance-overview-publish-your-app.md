@@ -1,12 +1,12 @@
 ---
 title: Bring your Microsoft Dynamics 365 Business Central app into Microsoft AppSource 
 description: Deprecated article, provided links to PC articles; was "Overview of publishing a Dynamics 365 Business Central app onto Microsoft AppSource."
-services: Azure, Marketplace, Cloud Partner Portal
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Bring your Microsoft Dynamics 365 Business Central app into Microsoft AppSource

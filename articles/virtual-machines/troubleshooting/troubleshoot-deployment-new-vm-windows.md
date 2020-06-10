@@ -3,7 +3,7 @@ title: Troubleshoot Windows VM deployment in Azure | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,7 +32,7 @@ For other VM deployment issues and questions, see [Troubleshoot deploying Window
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[View deployment operations](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
 [View activity logs to manage Azure resources](../../resource-group-audit.md)
 

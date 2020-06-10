@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech, Node.js - Speech Service"
+title: "Quickstart: Convert text-to-speech, Node.js - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech using Node.js and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 04/13/2020
 ms.author: erhopf
 ---
 
@@ -16,15 +16,15 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to convert text-to-speech using Node.js and the text-to-speech REST API. The request body in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Services resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
 
 ## Prerequisites
 
 This quickstart requires:
 
-* [Node 8.12.x or later](https://nodejs.org/en/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Services. [Get one for free!](get-started.md).
+* <a href="https://nodejs.org/en/" target="_blank">Node 8.12.x or later <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
+* An Azure subscription key for the Speech service. [Get one for free!](get-started.md).
 
 ## Create a project and require dependencies
 
@@ -47,9 +47,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## Get an access token
 
-The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This function exchanges your Speech Services subscription key for an access token using the `issueToken` endpoint.
+The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This function exchanges your Speech service subscription key for an access token using the `issueToken` endpoint.
 
-This sample assumes that your Speech Services subscription is in the West US region. If you're using a different region, update the value for `uri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+This sample assumes that your Speech service subscription is in the West US region. If you're using a different region, update the value for `uri`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copy this code into your project:
 
@@ -74,7 +74,7 @@ In the next section, we'll create the function to call the text-to-speech API an
 
 ## Make a request and save the response
 
-Here you're going to build the request to the text-to-speech API and save the speech response. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `uri`. For more information, see [Speech Services regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Here you're going to build the request to the text-to-speech API and save the speech response. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `uri`. For more information, see [Speech service regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Next, you need to add required headers for the request. Make sure that you update `User-Agent` with the name of your resource (located in the Azure portal), and set `X-Microsoft-OutputFormat` to your preferred audio output. For a full list of output formats, see [Audio outputs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 

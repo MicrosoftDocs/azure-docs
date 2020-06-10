@@ -1,10 +1,10 @@
 ---
 title: Company work accounts and Partner Center 
 description: How to check whether your company has a work account set up with Microsoft, create a new work account, or set up multiple work accounts to use with Partner Center. 
-author: ChJenk
-manager: evansma
+author: dsindona
 ms.author: parthp 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ---
@@ -22,11 +22,11 @@ Follow these steps to check:
 2. Select **Azure Active Directory** from the left-navigation menu and then select **Custom domain names**.
 3. If you already have a work account, your domain name will be listed.
 
-If your company doesn’t already have a work account, one will be created for you during the Partner Center enrollment process.
+If your company doesn't already have a work account, one will be created for you during the Partner Center enrollment process.
 
 ## Set up multiple work accounts
 
-Before deciding to use an existing work account, consider how many users in the work account will need to access Partner Center. If you have users in the work account who won’t need to access Partner Center, you may want to consider creating multiple work accounts, so that only those users who will need to access Partner Center are represented on a particular account.
+Before deciding to use an existing work account, consider how many users in the work account will need to access Partner Center. If you have users in the work account who won't need to access Partner Center, you may want to consider creating multiple work accounts, so that only those users who will need to access Partner Center are represented on a particular account.
 
 ## Create a new work account
 
@@ -43,10 +43,10 @@ To learn more about adding custom domains in Azure Active Directory, see [Add or
 
 ## Troubleshoot work email sign-in
 
-If you’re having trouble signing in to your work account (also known as your Azure AD tenant), find the scenario on the diagram below that best matches your situation and follow the recommended steps.
+If you're having trouble signing in to your work account (also known as your Azure AD tenant), find the scenario on the diagram below that best matches your situation and follow the recommended steps.
 
 ![Diagram for troubleshooting work account sign-in](./media/onboarding-aad-flow.png)
 
 ## Next steps
 
-- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md) 
+- [Manage your commercial marketplace account in Partner Center](./manage-account.md) 

@@ -1,20 +1,19 @@
 ---
-title: Register personal devices on an organization's network - Azure Active Directory| Microsoft Docs
+title: Register personal devices on an organization's network - Azure AD
 description: Learn how to register your personal device on your organization's network so you can access your organization's protected resources.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/04/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 # Register your personal device on your organization's network
 Register your personal device (typically a phone or tablet) on your organization's network. After your device is registered, it will be able to access your organization's restricted resources.

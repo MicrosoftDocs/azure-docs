@@ -1,5 +1,5 @@
 ---
-title: Azure Function Activity in Azure Data Factory | Microsoft Docs
+title: Azure Function Activity in Azure Data Factory 
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
 services: data-factory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 01/09/2019
 ---
 
 # Azure Function activity in Azure Data Factory
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in a Data Factory pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
 
 For an eight-minute introduction and demonstration of this feature, watch the following video:
@@ -29,7 +29,7 @@ The return type of the Azure function has to be a valid `JObject`. (Keep in mind
 | --- | --- | --- |
 | type   | The type property must be set to: **AzureFunction** | yes |
 | function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
-| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | yes |
+| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
 |   |   |   |
 
 ## Azure Function activity

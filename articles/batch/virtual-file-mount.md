@@ -1,17 +1,8 @@
 ---
-title: Mount a virtual file system on a pool - Azure Batch | Microsoft Docs
+title: Mount a virtual file system on a pool
 description: Learn how to mount a virtual file system on a Batch pool.
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: lahugh
 ---
 
 # Mount a virtual file system on a Batch pool
@@ -68,10 +59,10 @@ new PoolAddParameter
         {
             AzureFileShareConfiguration = new AzureFileShareConfiguration
             {
-                AccountName = "AccountName",
-                AzureFileUrl = "AzureFileShareUrl",
-                AccountKey = "StorageAccountKey",
-                RelativeMountPath = "RelativeMountPath",
+                AccountName = "{storage-account-name}",
+                AzureFileUrl = "https://{storage-account-name}.file.core.windows.net/{file-share-name}",
+                AccountKey = "{storage-account-key}",
+                RelativeMountPath = "S",
                 MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp"
             },
         }
@@ -81,12 +72,9 @@ new PoolAddParameter
 
 ### Azure Blob file system
 
-Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). For more information on using blobfuse, see the blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). To get default access to the blobfuse mounted directory, run the task as an **Administrator**. Blobfuse mounts the directory at the user space, and at pool creation it is mounted as root. In Linux all **Administrator** tasks are root. All options for the FUSE module is described in the [FUSE reference page](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). For more information on using blobfuse, see the blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). To get default access to the blobfuse mounted directory, run the task as an **Administrator**. Blobfuse mounts the directory at the user space, and at pool creation it is mounted as root. In Linux all **Administrator** tasks are root. All options for the FUSE module is described in the [FUSE reference page](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 In addition to the troubleshooting guide, GitHub issues in the blobfuse repository are a helpful way to check on current blobfuse issues and resolutions. For more information, see [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
-
-> [!NOTE]
-> Blobfuse is not currently supported on Debian. See [Supported SKUs](#supported-skus) for more information.
 
 ```csharp
 new PoolAddParameter
@@ -170,7 +158,8 @@ To get the log files for debugging, use [OutputFiles](batch-task-output-files.md
 |---|---|---|---|---|---|---|
 | batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Note: Compatible with CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Note: Compatible with CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Note: Supports A_8 or 9 storage</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

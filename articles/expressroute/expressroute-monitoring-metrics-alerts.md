@@ -1,14 +1,14 @@
 ---
-title: Monitoring, Metrics, and Alerts - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: This page provides information about ExpressRoute monitoring
 services: expressroute
-author: cherylmc
+author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # ExpressRoute monitoring, metrics, and alerts
@@ -21,7 +21,7 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## ExpressRoute metrics
 
-To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filer by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
@@ -68,9 +68,41 @@ You can view near to real-time availability of [ARP](https://docs.microsoft.com/
 
 ![ARP availability per peer](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## ExpressRoute Direct Metrics
+
+### Admin State - Split by link
+You can view the admin state for each link of the ExpressRoute Direct port pair.
+
+![er direct admin state](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### Bits In Per Second - Split by link
+You can view the bits in per second across both links of the ExpressRoute Direct port pair. 
+
+![er direct bits in per second](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### Bits Out Per Second - Split by link
+You can also view the bits out per second across both links of the ExpressRoute Direct port pair. 
+
+![er direct bits out per second](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### Line Protocol - Split by link
+You can view the line protocol across each link of the ExpressRoute Direct port pair.
+
+![er direct line protocol](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### Rx Light Level - Split by link
+You can view the Rx light level (the light level that the ExpressRoute Direct port is **receiving**) for each port. Healthy Rx light levels generally fall within a range of -10 to 0 dBm
+
+![er direct line Rx Light Level](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### Tx Light Level - Split by link
+You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 to 0 dBm
+
+![er direct line Rx Light Level](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## ExpressRoute gateway connections in bits/seconds
 
-![gateway connections](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![gateway connections](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## Alerts for ExpressRoute gateway connections
 

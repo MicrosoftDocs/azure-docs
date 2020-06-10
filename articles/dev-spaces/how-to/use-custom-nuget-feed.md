@@ -1,8 +1,6 @@
 ---
-title: "How to use a custom NuGet feed in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
+title: "Use a custom NuGet feed"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: "zr-msft"
 ms.author: "zarhoads"
 ms.date: "07/17/2019"
@@ -11,7 +9,7 @@ description: "Use a custom NuGet feed to access and use NuGet packages in an Azu
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 manager: gwallace
 ---
-#  Use a custom NuGet feed in an Azure Dev Space
+# Use a custom NuGet feed with Azure Dev Spaces
 
 A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces needs to access this feed in order for dependencies to be properly installed in the Docker container.
 
@@ -58,7 +56,7 @@ If you are using Git, you should not have the credentials for your NuGet feed in
 build:
 useGitIgnore: true
 ignore:
-- “!NuGet.Config”
+- "!NuGet.Config"
 ```
 
 If you are not using Git, you can skip this step.

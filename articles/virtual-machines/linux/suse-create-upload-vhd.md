@@ -1,30 +1,21 @@
 ---
 title: Create and upload a SUSE Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a SUSE Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
+author: gbowerman
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: szark
+ms.author: guybo
 
 ---
 # Prepare a SLES or openSUSE virtual machine for Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Prerequisites
+
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
-### SLES / openSUSE installation notes
+## SLES / openSUSE installation notes
 * Please see also [General Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 * When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
@@ -32,7 +23,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Use SUSE Studio
-[SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
+[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -43,7 +34,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 4. Update the system with the latest patches:
    
         # sudo zypper update
-5. Install the Azure Linux Agent from the SLES repository:
+5. Install the Azure Linux Agent from the SLES repository (SLE11-Public-Cloud-Module):
    
         # sudo zypper install python-azure-agent
 6. Check if waagent is set to "on" in chkconfig, and if not, enable it for autostart:
@@ -81,8 +72,10 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
      DHCLIENT_SET_HOSTNAME="no"
 12. In "/etc/sudoers", comment out or remove the following lines if they exist:
     
+	```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
 13. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 14. Do not create swap space on the OS disk.
     
@@ -142,9 +135,12 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
    
      DHCLIENT_SET_HOSTNAME="no"
 8. **Important:** In "/etc/sudoers", comment out or remove the following lines if they exist:
-   
+     
+	 ```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
+	 ```
+
 9. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 10. Do not create swap space on the OS disk.
     

@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Skillport, perform the following steps
 
 ### Configure Skillport Single Sign-On
 
-To configure single sign-on on **Skillport** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Skillport support team](https://www.skillsoft.com/contact.asp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Skillport** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Skillport support team](https://www.skillsoft.com/about/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Skillport test user
 
-In order to create Skillport test user, you need to contact [Skillport support team](https://www.skillsoft.com/contact.asp) as they have multiple business scenarios according to the requirement of end user. They will configure it after discussion with the users.
+In order to create Skillport test user, you need to contact [Skillport support team](https://www.skillsoft.com/about/contact-us) as they have multiple business scenarios according to the requirement of end user. They will configure it after discussion with the users.
 
 ### Test single sign-on
 

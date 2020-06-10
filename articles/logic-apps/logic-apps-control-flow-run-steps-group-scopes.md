@@ -1,18 +1,14 @@
 ---
-title: Add scopes that run actions based on group status - Azure Logic Apps | Microsoft Docs
-description: How to create scopes that run workflow actions based on group action status in Azure Logic Apps
+title: Group and run actions by scope
+description: Create scoped actions that run based on group status in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ---
 
-# Run actions based on group status with scopes in Azure Logic Apps
+# Run actions based on group status by using scopes in Azure Logic Apps
 
 To run actions only after another group of actions succeed or fail, 
 group those actions inside a *scope*. This structure is useful when 
@@ -453,7 +449,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
 ## Get support
 
 * For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, 
 visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 

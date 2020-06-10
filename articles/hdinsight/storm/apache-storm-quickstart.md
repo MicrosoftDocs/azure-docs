@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and monitor Apache Storm topology in Azure HDInsight'
+title: 'Quickstart: Create/manage Apache Storm topology - Azure HDInsight'
 description: In the quickstart, learn how to create and monitor an Apache Storm topology in Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh

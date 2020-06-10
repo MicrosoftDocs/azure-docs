@@ -12,21 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/13/2018
+ms.date: 02/03/2020
 ms.author: spelluru
 
 ---
 # An introduction to Azure Lab Services
-Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
+There are two services on Azure that allows you to set up lab environments in the cloud. 
 
-> [!IMPORTANT]
-> **Azure DevTest Labs** is being expanded with new types of labs (Azure Lab Services)!
->  
-> Azure Lab Services lets you create managed lab types, such as classroom labs. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors, and scaling the infrastructure. For now, [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) and [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) will continue to be separate services in the Azure Portal. 
+- **Azure DevTest Labs** - This service enables you to quickly set up an environment for your team (for example: development environment, or test environment in the cloud). A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
+- **Azure Lab Services** - This service lets you create managed lab types. Currently, classroom labs is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors, and scaling the infrastructure. After an IT admin creates a lab account in Azure Lab Services, an instructor can quickly set up a lab for his class, specify the number and type of VMs that are need to exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.  
 
 ## Key capabilities
 
-Azure Lab Services supports the following key capabilities/features:
+These services (Azure DevTest Labs and Azure Lab Services)supports the following key capabilities/features:
 
 - **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly set up a lab for their needs. The service offers the option to take care of all Azure infrastructure work for managed lab types, or to enable lab owners to self-manage and customize infrastructure in the lab owner’s subscription. The service provides built-in scaling and resiliency of infrastructure for labs that the service manages for you.
 - **Simplified experience for lab users**. In a managed lab type, such as a classroom lab, lab users can register to a lab with a registration code, and access the lab anytime to use the lab’s resources. In a lab created in DevTest Labs, a lab owner can give permissions for lab users to create and access virtual machines, manage and reuse data disks, and set up reusable secrets.  
@@ -34,12 +32,9 @@ Azure Lab Services supports the following key capabilities/features:
 - **Embedded security**. A lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN. (currently available in DevTest Labs only)
 - **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
 
-> [!NOTE]
-> Currently Azure Lab Services supports only VMs created from Azure Marketplace images. If you want to use custom images or create other PaaS resources in a lab environment, use DevTest Labs. For more information, see [Create a custom image in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create lab environments using Resource Manager templates](devtest-lab-create-environment-from-arm.md).
-
 ## Scenarios
 
-Here are some of the scenarios that Azure Lab Services supports:
+Here are some of the scenarios that Azure DevTest Labs and Azure Lab Services support:
 
 ### Set up a resizable computer lab in the cloud for your classroom  
 

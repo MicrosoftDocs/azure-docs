@@ -1,19 +1,9 @@
 ---
 title: Create an Azure Load Balancer rule for a cluster
 description: Configure an Azure Load Balancer to open ports for your Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: na
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
 ---
 
 # Open ports for a Service Fabric cluster
@@ -66,7 +56,7 @@ The Azure CLI command has a few parameters that are described in the following t
 
 
 >[!NOTE]
->For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>For more information on how to create a load balancer with the Azure CLI, see [Create a load balancer with the Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## PowerShell
 
@@ -102,7 +92,7 @@ $lb | Set-AzLoadBalancer
 Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` represents the port the load balancer exposes for external connections, and the `-BackendPort` represents the port the service fabric app is listening to.
 
 >[!NOTE]
->For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>For more information on how to create a load balancer with PowerShell, see [Create a load balancer with PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## Next steps
 

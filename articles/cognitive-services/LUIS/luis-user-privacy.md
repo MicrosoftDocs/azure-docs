@@ -1,21 +1,21 @@
 ---
 title: Export & delete data - LUIS
-titleSuffix: Azure Cognitive Services 
-description: Delete customer data to ensure privacy and compliance. 
+titleSuffix: Azure Cognitive Services
+description: You have full control over viewing, exporting, and deleting their data. Delete customer data to ensure privacy and compliance.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
 ---
 
 # Export and delete your customer data in Language Understanding (LUIS) in Cognitive Services
 
-Delete customer data to ensure privacy and compliance. 
+Delete customer data to ensure privacy and compliance.
 
 ## Summary of customer data request features​
 Language Understanding Intelligent Service (LUIS) preserves customer content to operate the service, but the LUIS user has full control over viewing, exporting, and deleting their data. This can be done through the LUIS web [portal](luis-reference-regions.md) or the [LUIS Authoring (also known as Programmatic) APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -53,7 +53,7 @@ To enable [active learning](luis-how-to-review-endpoint-utterances.md#enable-act
 * [Australia](#australia)
 * [United States](#united-states)
 
-With the exception of active learning data (detailed below), LUIS follows the [data storage practices for regional services](https://azuredatacentermap.azurewebsites.net/). 
+With the exception of active learning data (detailed below), LUIS follows the [data storage practices for regional services](https://azuredatacentermap.azurewebsites.net/).
 
 ### Europe
 
@@ -63,7 +63,7 @@ The [eu.luis.ai](https://eu.luis.ai) portal and Europe Authoring (also known as 
 * France
 * United Kingdom
 
-When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Europe geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Europe geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### Australia
 
@@ -71,7 +71,7 @@ The [au.luis.ai](https://au.luis.ai) portal and Australia Authoring (also known 
 
 * Australia
 
-When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Australia geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's Australia geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### United States
 
@@ -79,7 +79,7 @@ The [luis.ai](https://www.luis.ai) portal and United States Authoring (also know
 
 * Azure geographies not supported by the Europe or Australia authoring regions
 
-When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+When deploying to these Azure geographies, the utterances received by the endpoint from end users of your app will be stored in Azure's United States geography for active learning. You can disable active learning, see [Disable active learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). To manage stored utterances, see [Delete utterance](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## Next steps

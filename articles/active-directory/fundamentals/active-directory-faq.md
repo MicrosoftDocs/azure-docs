@@ -23,16 +23,17 @@ For more information, see [What is Azure Active Directory?](active-directory-wha
 
 
 ## Access Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure portal?**
+**Q: Why do I get "No subscriptions found" when I try to access Azure AD in the Azure portal?**
 
-**A:** To access the Azure portal, each user needs permissions with an Azure subscription. If you have a paid Office 365 or Azure AD subscription, go to [https://aka.ms/accessAAD](https://aka.ms/accessAAD) for a one-time activation step. Otherwise, you will need to activate a free [Azure account](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription.
+**A:** To access the Azure portal, each user needs permissions with an Azure subscription. If you don't have a paid Office 365 or Azure AD subscription, you will need to activate a free [Azure account](https://azure.microsoft.com/free/
+) or a paid subscription.
 
 For more information, see:
 
 * [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**Q: What’s the relationship between Azure AD, Office 365, and Azure?**
+**Q: What's the relationship between Azure AD, Office 365, and Azure?**
 
 **A:** Azure AD provides you with common identity and access capabilities to all web services. Whether you are using Office 365, Microsoft Azure, Intune, or others, you're already using Azure AD to help turn on sign-on and access management for all these services.
 
@@ -134,9 +135,9 @@ For Azure AD accounts, admins can reset passwords by using one of the following:
 
 We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
-**Q:  Certain (common) passwords get rejected with the messages ‘this password has been used to many times’, does this refer to passwords used in the current active directory?**
+**Q:  Certain (common) passwords get rejected with the messages 'this password has been used to many times', does this refer to passwords used in the current active directory?**
 
-This refers to passwords that are globally common, such as any variants of “Password” and “123456”.
+This refers to passwords that are globally common, such as any variants of "Password" and "123456".
 
 **Q: Will a sign-in request from dubious sources (botnets, tor endpoint) be blocked in a B2C tenant or does this require a Basic or Premium edition tenant?**
 
@@ -148,17 +149,17 @@ We do have a gateway that filters requests and provides some protection from bot
 
 **A:** Azure AD has more than 2,600 pre-integrated applications from Microsoft, application service providers, and partners. All pre-integrated applications support single sign-on (SSO). SSO lets you use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning.
 
-For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ---
 **Q: What if the application I need is not in the Azure AD marketplace?**
 
-**A:** With Azure AD Premium, you can add and configure any application that you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
+**A:** With Azure AD Premium, you can add and configure any application that you want. Depending on your application's capabilities and your preferences, you can configure SSO and automated provisioning.  
 
 For more information, see:
 
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---
 **Q: How do users sign in to applications by using Azure AD?**
@@ -184,7 +185,7 @@ For more information, see:
 * [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
-**Q: Can I add applications I’m running on-premises?**
+**Q: Can I add applications I'm running on-premises?**
 
 **A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way that you access your software as a service (SaaS) apps in Azure AD. There is no need for a VPN or to change your network infrastructure.  
 
@@ -195,16 +196,16 @@ For more information, see [How to provide secure remote access to on-premises ap
 
 **A:** With Azure AD Conditional Access, you can assign a unique access policy for each application. In your policy, you can require multi-factor authentication always, or when users are not connected to the local network.  
 
-For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+For more information, see [Securing access to Office 365 and other apps connected to Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **Q: What is automated user provisioning for SaaS apps?**
 
 **A:** Use Azure AD to automate the creation, maintenance, and removal of user identities in many popular cloud SaaS apps.
 
-For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ---
 **Q:  Can I set up a secure LDAP connection with Azure AD?**
 
-**A:**  No. Azure AD does not support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Azure AD Domain Services (Azure AD DS) instance on your Azure AD tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**A:**  No. Azure AD does not support the Lightweight Directory Access Protocol (LDAP) protocol or Secure LDAP directly. However, it's possible to enable Azure AD Domain Services (Azure AD DS) instance on your Azure AD tenant with properly configured network security groups through Azure Networking to achieve LDAP connectivity. For more information, see [Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../../active-directory-domain-services/tutorial-configure-ldaps.md)

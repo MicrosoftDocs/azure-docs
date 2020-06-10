@@ -1,12 +1,12 @@
 ---
-title: What are service dependencies in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Conditional Access service dependencies - Azure Active Directory 
 description: Learn how conditions are used in Azure Active Directory Conditional Access to trigger a policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,10 @@ ms.collection: M365-identity-device-management
 
 With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
 
-When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
+When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires multi-factor authentication (MFA) for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy. 
+
+> [!TIP]
+> Using the [Office 365 (preview)](concept-conditional-access-cloud-apps.md#office-365-preview) app will target all Office apps to avoid issues with service dependencies in the Office stack.
 
 ## Policy enforcement 
 
@@ -34,6 +37,8 @@ The diagram below illustrates MS Teams service dependencies. Solid arrows indica
 ![MS Teams service dependencies](./media/service-dependencies/01.png)
 
 As a best practice, you should set common policies across related apps and services whenever possible. Having a consistent security posture provides you with the best user experience. For example, setting a common policy across Exchange Online, SharePoint Online, Microsoft Teams, and Skype for business significantly reduces unexpected prompts that may arise from different policies being applied to downstream services. 
+
+A great way to accomplish this with applications in the Office stack is to use the [Office 365 (preview)](concept-conditional-access-cloud-apps.md#office-365-preview) instead of targeting individual applications.
 
 The below table lists additional service dependencies, where the client apps must satisfy  
 

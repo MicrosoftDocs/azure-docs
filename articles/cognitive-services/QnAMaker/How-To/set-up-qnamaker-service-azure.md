@@ -1,31 +1,17 @@
 ---
 title: Set up a QnA Maker service - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 ms.topic: conceptual
-ms.date: 09/13/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 05/28/2020
 ---
 # Manage QnA Maker resources
 
 Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 
-## Types of keys in QnA Maker
+A solid understanding of the following concepts is helpful before creating your resource:
 
-Your QnA Maker service deals with two kinds of keys: **subscription keys** and **endpoint keys**.
-
-![Key management](../media/qnamaker-how-to-key-management/key-management.png)
-
-|Name|Location|Purpose|
-|--|--|--|
-|Subscription key|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|These keys are used to access the [QnA Maker management service APIs](https://go.microsoft.com/fwlink/?linkid=2092179). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new QnA Maker service.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys** page.|
-|Endpoint key|[QnA Maker portal](http://www.qnamaker.ai)|These keys are used to access the published knowledge base endpoint to get a response for a user question. You typically use this endpoint in your chat bot or in the client application code that connects to the QnA Maker service. These keys are created when you publish your QnA Maker knowledge base.<br><br>Find these keys in the **Service settings** page. Find this page from the user's menu in the upper right of the page on the drop-down menu.|
+* [QnA Maker resources](../Concepts/azure-resources.md)
+* [Authoring and publishing keys](../Concepts/azure-resources.md#keys-in-qna-maker)
 
 ## Create a new QnA Maker service
 
@@ -46,18 +32,18 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     * Select the **Pricing tier** for the QnA Maker management services (portal and management APIs). See [more details about SKU pricing](https://aka.ms/qnamaker-pricing).
     * Create a new **Resource group** (recommended) or use an existing one in which to deploy this QnA Maker resource. QnA Maker creates several Azure resources. When you create a resource group to hold these resources, you can easily find, manage, and delete these resources by the resource group name.
     * Select a **Resource group location**.
-    * Choose the **Search pricing tier** of the Azure Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a Free Azure Search tier deployed through your subscription. In that case, you'll need to start with the Basic Azure Search tier. See [Azure Search pricing details](https://azure.microsoft.com/pricing/details/search/).
-    * Choose the **Search location** where you want Azure Search data to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Search.
+    * Choose the **Search pricing tier** of the Azure Cognitive Search service. If the Free tier option is unavailable (appears dimmed), it means you already have a free service deployed through your subscription. In that case, you'll need to start with the Basic tier. See [Azure Cognitive Search pricing details](https://azure.microsoft.com/pricing/details/search/).
+    * Choose the **Search location** where you want Azure Cognitive Search indexes to be deployed. Restrictions on where customer data must be stored will help determine the location you choose for Azure Cognitive Search.
     * In the **App name** field, enter a name for your Azure App Service instance.
     * By default, App Service defaults to the standard (S1) tier. You can change the plan after creation. Learn more about [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
     * Choose the **Website location** where App Service will be deployed.
 
         > [!NOTE]
-	    > The **Search Location** can differ from the **Website Location**.
+        > The **Search Location** can differ from the **Website Location**.
 
     * Choose whether or not you want to enable **Application Insights**. If **Application Insights** is enabled, QnA Maker collects telemetry on traffic, chat logs, and errors.
     * Choose the **App insights location** where the Application Insights resource will be deployed.
-    * For cost savings measures, you can [share](#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker. 
+    * For cost savings measures, you can [share](#configure-qna-maker-to-use-different-cognitive-search-resource) some but not all Azure resources created for QnA Maker.
 
 1. After all the fields are validated, select **Create**. The process can take a few minutes to complete.
 
@@ -66,6 +52,7 @@ This procedure creates the Azure resources needed to manage the knowledge base c
    ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
+
 
 ## Find subscription keys in the Azure portal
 
@@ -91,41 +78,13 @@ Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
 2. View or reset your keys:
 
-    ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Endpoint key manager](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
     >Refresh your keys if you think they've been compromised. This may require corresponding changes to your client application or bot code.
 
-## Share existing services with QnA Maker
-
-QnA Maker creates several Azure resources. To reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
-
-|Service|Share|Reason|
-|--|--|--|
-|Cognitive Services|X|Not possible by design|
-|App Service plan|✔|Fixed disk space allocated for an App Service plan. If other apps that sharing the same App Service plan use significant disk space, the QnAMaker App Service instance will encounter problems.|
-|App Service|X|Not possible by design|
-|Application Insights|✔|Can be shared|
-|Search service|✔|1. `testkb` is a reserved name for the QnAMaker service; it can’t be used by others.<br>2. Synonym map by the name `synonym-map` is reserved for the QnAMaker service.<br>3. The number of published knowledge bases is limited by Search service tier. If there are free indexes available, other services can use them.|
-
-Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
-
-### Using a single Search service
-
-If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
-
-If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
-
-## Upgrade QnA Maker
-
-|Upgrade|Reason|
-|--|--|
-|[Upgrade](#upgrade-qna-maker-sku) QnA Maker management SKU|You want to have more questions and answers in your knowledge base.|
-|[Upgrade](#upgrade-app-service) App Service SKU|Your knowledge base needs to serve more requests from your client app, such as a chat bot.|
-|[Upgrade](#upgrade-the-azure-search-service) Azure Search service|You plan to have many knowledge bases.|
-
-
-### Upgrade QnA Maker SKU
+## Upgrade QnA Maker SKU
 
 When you want to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
 
@@ -139,7 +98,7 @@ To upgrade the QnA Maker management SKU:
 
     ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-### Upgrade App Service
+## Upgrade App Service
 
  When your knowledge base needs to serve more requests from your client app, upgrade your App Service pricing tier.
 
@@ -149,9 +108,9 @@ Go to the App Service resource in the Azure portal, and select the **Scale up** 
 
 ![QnA Maker App Service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### Upgrade the Azure Search service
+## Upgrade the Azure Cognitive Search service
 
-If you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
+If you plan to have many knowledge bases, upgrade your Azure Cognitive Search service pricing tier.
 
 Currently, you can't perform an in-place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack. To do this, follow these steps:
 
@@ -185,23 +144,102 @@ You can check your current version at https://www.qnamaker.ai/UserSettings. If y
 
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com).
 
-    ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    > [!div class="mx-imgBorder"]
+    > ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
 1. Select the App Service instance and open the **Overview** section.
 
-    ![QnAMaker App Service instance](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+    > [!div class="mx-imgBorder"]
+    > ![QnAMaker App Service instance](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
+
 
 1. Restart App Service. The update process should finish in a couple of seconds. Any dependent applications or bots that use this QnAMaker service will be unavailable to end users during this restart period.
 
     ![Restart of the QnAMaker App Service instance](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## Management service region
+## Configure QnA Maker to use different Cognitive Search resource
 
-The management service of QnA Maker is used only for the QnA Maker portal and for initial data processing. This service is available only in the West US region. No customer data is stored in this West US service.
+If you create a QnA service and its dependencies (such as Search) through the portal, a Search service is created for you and linked to the QnA Maker service. After these resources are created, you can update the App Service setting to use a previously existing Search service and remove the one you just created.
+
+QnA Maker's **App Service** resource uses the Cognitive Search resource. In order to change the Cognitive Search resource used by QnA Maker, you need to change the setting in the Azure portal.
+
+1. Get the **Admin key** and **Name** of the Cognitive Search resource you want QnA Maker to use.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and find the **App Service** associated with your QnA Maker resource. Both with have the same name.
+
+1. Select **Settings**, then **Configuration**. This will display all existing settings for the QnA Maker's App Service.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Azure portal showing App Service configuration settings](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+
+1. Change the values for the following keys:
+
+    * **AzureSearchAdminKey**
+    * **AzureSearchName**
+
+1. To use the new settings, you need to restart the App service. Select **Overview**, then select **Restart**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Azure portal restarting App Service after configuration settings change](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+
+If you create a QnA service through Azure Resource Manager templates, you can create all resources and control the App Service creation to use an existing Search service.
+
+Learn more about how to configure the App Service [Application settings](../../../app-service/configure-common.md#configure-app-settings).
+
+## Configure App service idle setting to avoid timeout
+
+The app service, which serves the QnA Maker prediction runtime for a published knowledge base, has an idle timeout configuration, which defaults to automatically timeout if the service is idle. For QnA Maker, this means your prediction runtime generateAnswer API occasionally times out after periods of no traffic.
+
+In order to keep the prediction endpoint app loaded even when there is no traffic, set the idle to always on.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select your QnA Maker resource's app service. It will have the same name as the QnA Maker resource but it will have a different **type** of App Service.
+1. Find **Settings** then select **Configuration**.
+1. On the Configuration pane, select **General settings**, then find **Always on**, and select **On** as the value.
+
+    > [!div class="mx-imgBorder"]
+    > ![On the Configuration pane, select **General settings**, then find **Always on**, and select **On** as the value.](../media/qnamaker-how-to-upgrade-qnamaker/configure-app-service-idle-timeout.png)
+
+1. Select **Save** to save the configuration.
+1. You are asked if you want to restart the app to use the new setting. Select **Continue**.
+
+Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
+## Configure App Service Environment to host Qna Maker App Service
+The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
+1. Create an app service and an azure search service.
+2. Expose the app service on a public DNS and whitelist QnA Maker service tag: CognitiveServicesManagement, or keep it internet facing.
+3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment. 
+
+## Business continuity with traffic manager
+
+The primary objective of the business continuity plan is to create a resilient knowledge base endpoint, which would ensure no down time for the Bot or the application consuming it.
+
+> [!div class="mx-imgBorder"]
+> ![QnA Maker bcp plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+The high-level idea as represented above is as follows:
+
+1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/web-sites-restore.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
+
+1. Keep the primary and secondary Azure search indexes in sync. Use the GitHub sample [here](https://github.com/pchoudhari/QnAMakerBackupRestore) to see how to backup-restore Azure indexes.
+
+1. Back up the Application Insights using [continuous export](../../../application-insights/app-insights-export-telemetry.md).
+
+1. Once the primary and secondary stacks have been set up, use [traffic manager](../../../traffic-manager/traffic-manager-overview.md) to configure the two endpoints and set up a routing method.
+
+1. You would need to create a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate for your traffic manager endpoint. [Bind the TLS/SSL certificate](../../../app-service/configure-ssl-bindings.md) in your App services.
+
+1. Finally, use the traffic manager endpoint in your Bot or App.
+
+## Delete Azure resources
+
+If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page.
 
 ## Next steps
 
 Learn more about the [App service](../../../app-service/index.yml) and [Search service](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Create and publish a knowledge base](../Quickstarts/create-publish-knowledge-base.md)
+> [Learn how to author with others](../how-to/collaborate-knowledge-base.md)

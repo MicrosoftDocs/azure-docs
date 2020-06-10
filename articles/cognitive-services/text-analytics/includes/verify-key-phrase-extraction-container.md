@@ -3,12 +3,12 @@ title: Verify the Key Phrase Extraction container instance
 titleSuffix: Azure Cognitive Services
 description: Learn how to verify the Key Phrase Extraction container instance.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/12/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ### Verify the Key Phrase Extraction container instance

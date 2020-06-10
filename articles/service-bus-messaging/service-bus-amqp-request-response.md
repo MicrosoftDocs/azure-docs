@@ -1,10 +1,9 @@
 ---
-title: AMQP 1.0 in Azure Service Bus request-response-based operations | Microsoft Docs
-description: List of Microsoft Azure Service Bus request/response-based operations.
+title: AMQP 1.0 request/response operations in Azure Service Bus
+description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/23/2020
 ms.author: aschhab
 
 ---

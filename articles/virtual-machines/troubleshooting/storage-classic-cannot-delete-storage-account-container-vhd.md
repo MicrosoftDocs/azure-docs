@@ -26,6 +26,10 @@ A "Disk" resource is used to mount a *.vhd page blob file to a virtual machine, 
 
 
 ## Steps while deleting a classic virtual machine 
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 1. Delete the classic virtual machine.
 2. If the “Disks” checkbox is selected, the **disk lease** (shown in image above) associated with the page blob *.vhd is broken. The actual page blob *.vhd file will still exist in the storage account.
 ![Screenshot of the portal, with the virtual machine (classic) "Delete" error pane open](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 

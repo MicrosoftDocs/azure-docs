@@ -1,9 +1,9 @@
----
+﻿---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Investigate incidents with Azure Sentinel
@@ -40,7 +40,7 @@ You'll only be able to investigate the incident if you used the entity mapping f
 
 ## How to investigate incidents
 
-1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have, how many are open, how many you've set to **In progress**, and how many are closed. For each incident, you can see the time it occurred, and the status of the incident. Look at the severity to decide which incidents to handle first.
+1. Select **Incidents**. The **Incidents** page lets you know how many incidents you have, how many are open, how many you've set to **In progress**, and how many are closed. For each incident, you can see the time it occurred, and the status of the incident. Look at the severity to decide which incidents to handle first.
 
     ![View incident severity](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -74,14 +74,14 @@ The investigation graph provides you with:
 
 To use the investigation graph:
 
-1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
+1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
    > [!IMPORTANT] 
    > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
 
    ![View map](media/tutorial-investigate-cases/map1.png)
 
-1. Select an entity to open the **Entities** pane so you can review information on that entity.
+1. Select an entity to open the **Entities** pane so you can review information on that entity.
 
     ![View entities in map](media/tutorial-investigate-cases/map-entities.png)
   
@@ -103,7 +103,21 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+## Closing an incident
 
+Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
+
+- True Positive - suspicious activity
+- Benign Positive - suspicious but expected
+- False Positive - incorrect alert logic
+- False Positive - incorrect data
+- Undetermined
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+
+After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## Next steps
 In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).

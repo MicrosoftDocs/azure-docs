@@ -1,33 +1,20 @@
 ---
 title: How to disable functions in Azure Functions
-description: Learn how to disable and enable functions in Azure Functions 1.x and 2.x.
-services: functions
-documentationcenter: 
-author: ggailey777
-manager: jeconnoc
-
-ms.service: azure-functions
+description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.author: glenga
+ms.date: 04/08/2020
 ---
 
 # How to disable functions in Azure Functions
 
-This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that is defined for the function. The way you do that depends on the runtime version and the programming language:
+This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
-* Functions 2.x:
-  * One way for all languages
-  * Optional way for C# class libraries
-* Functions 1.x:
-  * Scripting languages
-  * C# class libraries
+The recommended way to disable a function is by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
-## Functions 2.x - all languages
+> [!NOTE]  
+> When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
 
-In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
-
-### Azure CLI
+## Use the Azure CLI
 
 In the Azure CLI, you use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create and modify the app setting. The following command disables a function named `QueueTrigger` by creating an app setting named `AzureWebJobs.QueueTrigger.Disabled` set it to `true`. 
 
@@ -45,52 +32,22 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-### Portal
+## Use the Portal
 
-You can also use the **Function State** switch on the function's **Manage** tab. The switch works by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
-
-![Function state switch](media/disable-function/function-state-switch.png)
-
-## Functions 2.x - C# class libraries
-
-In a Functions 2.x class library, we recommend that you use the method that works for all languages. But if you prefer, you can [use the Disable attribute as in Functions 1.x](#functions-1x---c-class-libraries).
-
-## Functions 1.x - scripting languages
-
-For scripting languages such as C# script and JavaScript, you use the `disabled` property of the *function.json* file to tell the runtime not to trigger a function. This property can be set to `true` or to the name of an app setting:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "queueTrigger",
-            "direction": "in",
-            "name": "myQueueItem",
-            "queueName": "myqueue-items",
-            "connection":"MyStorageConnectionAppSetting"
-        }
-    ],
-    "disabled": true
-}
-```
-or 
-
-```json
-    "bindings": [
-        ...
-    ],
-    "disabled": "IS_DISABLED"
-```
-
-In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
-
-You can edit the file in the Azure portal or use the **Function State** switch on the function's **Manage** tab. The portal switch works by changing the *function.json* file.
+You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
-## Functions 1.x - C# class libraries
+> [!NOTE]  
+> The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
 
-In a Functions 1.x class library, you use a `Disable` attribute to prevent a function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
+## Other methods
+
+While the application setting method is recommended for all languages and all runtime versions, there are several other ways to disable functions. These methods, which vary by language and runtime version, are maintained for backward compatibility. 
+
+### C# class libraries
+
+In a class library function, you can also use the `Disable` attribute to prevent the function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
 
 ```csharp
 public static class QueueFunctions
@@ -130,6 +87,39 @@ This method lets you enable and disable the function by changing the app setting
 > The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
 >
 > Also, note that the portal may indicate the function is disabled when it isn't.
+
+### Functions 1.x - scripting languages
+
+In version 1.x, you can also use the `disabled` property of the *function.json* file to tell the runtime not to trigger a function. This method only works for scripting languages such as C# script and JavaScript. The `disabled` property can be set to `true` or to the name of an app setting:
+
+```json
+{
+    "bindings": [
+        {
+            "type": "queueTrigger",
+            "direction": "in",
+            "name": "myQueueItem",
+            "queueName": "myqueue-items",
+            "connection":"MyStorageConnectionAppSetting"
+        }
+    ],
+    "disabled": true
+}
+```
+or 
+
+```json
+    "bindings": [
+        ...
+    ],
+    "disabled": "IS_DISABLED"
+```
+
+In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
+
+>[!IMPORTANT]  
+>The portal now uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
+
 
 ## Next steps
 

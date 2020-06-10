@@ -1,5 +1,5 @@
 ---
-title: FAQs and known issues with managed identities for Azure resources
+title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -45,27 +46,7 @@ The security boundary of the identity is the resource to which it is attached to
 - If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity. 
 - If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
 
-### Should I use the managed identities for Azure resources IMDS endpoint or the VM extension endpoint?
 
-When using managed identities for Azure resources with VMs, we recommend using the IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. 
-
-Some of the benefits of using managed identities for Azure resources over IMDS are:
-- All Azure IaaS supported operating systems can use managed identities for Azure resources over IMDS.
-- No longer need to install an extension on your VM to enable managed identities for Azure resources. 
-- The certificates used by managed identities for Azure resources are no longer present in the VM.
-- The IMDS endpoint is a well-known non-routable IP address, only available from within the VM.
-- 1000 user-assigned managed identities can be assigned to a single VM. 
-
-The managed identities for Azure resources VM extension is still available; however, we are no longer developing new functionality on it. We recommend switching to use the IMDS endpoint. 
-
-Some of the limitations of using the VM extension endpoint are:
-- Limited support for Linux distributions: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-- Only 32 user-assigned managed identities can be assigned to the VM.
-
-
-Note: The managed identities for Azure resources VM extension will be out of support in January 2019. 
-
-For more information on Azure Instance Metadata Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
@@ -82,16 +63,7 @@ No. Managed identities do not currently support cross-directory scenarios.
 - System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 - User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
 
-### How do you restart the managed identities for Azure resources extension?
-On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:
 
-```powershell
-Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
-```
-
-Where: 
-- Extension name and type for Windows is: ManagedIdentityExtensionForWindows
-- Extension name and type for Linux is: ManagedIdentityExtensionForLinux
 
 ## Known issues
 
@@ -127,12 +99,7 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### VM extension provisioning fails
 
-Provisioning of the VM extension might fail due to DNS lookup failures. Restart the VM, and try again.
- 
-> [!NOTE]
-> The VM extension is planned for deprecation by January 2019. We recommend you move to using the IMDS endpoint.
 
 ### Transferring a subscription between Azure AD directories
 
@@ -145,4 +112,4 @@ Workaround for managed identities in a subscription that has been moved to anoth
 
 ### Moving a user-assigned managed identity to a different resource group/subscription
 
-Moving a user-assigned managed identity to a different resource group will cause the identity to break. As a result, resources (e.g. VM) using that identity will not be able to request tokens for it. 
+Moving a user-assigned managed identity to a different resource group is not supported.

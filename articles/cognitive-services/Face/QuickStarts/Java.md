@@ -9,20 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 09/06/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As a Java developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the REST API and Java
 
-In this quickstart, you will use the Azure Face REST API with Java to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Java to detect human faces in an image.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
 - Any Java IDE of your choice.
 
 ## Create the Java project
@@ -245,7 +245,7 @@ Compile the code and run it. A successful response will display Face data in eas
 
 ## Next steps
 
-In this quickstart, you created a simple Java console application that uses REST calls with the Azure Face API to detect faces in an image and return their attributes. Next, learn how to do more with this functionality in an Android application.
+In this quickstart, you created a simple Java console application that uses REST calls to the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more about the supported scenarios.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create an Android app to detect and frame faces](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

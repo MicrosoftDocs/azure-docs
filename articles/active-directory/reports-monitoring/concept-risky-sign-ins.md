@@ -1,9 +1,9 @@
 ---
 
-title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
+title: Risky sign-ins report in portal | Microsoft Docs
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 03/04/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -49,15 +49,15 @@ To learn how to assign administrative roles to a user in Azure Active Directory,
 
 All editions of Azure AD provide you with risky sign-ins reports. However, the level of report granularity varies between the editions: 
 
-- In the **Azure Active Directory Free and Basic editions**, you get a list of risky sign-ins. 
+- In the **Azure Active Directory Free edition**, you get a list of risky sign-ins. 
 
 - In addition, the **Azure Active Directory Premium 1** edition allows you to examine some of the underlying risk detections that have been detected for each report. 
 
 - The **Azure Active Directory Premium 2** edition provides you with the most detailed information about all underlying risk detections and it also enables you to configure security policies that automatically respond to configured risk levels.
 
-## Risky sign-ins report for Azure AD free and basic edition
+## Risky sign-ins report for Azure AD free edition
 
-The Azure AD free and basic editions provide you with a list of risky sign-ins that have been detected for your users. Each record contains the following attributes:
+The Azure AD free edition provide you with a list of risky sign-ins that have been detected for your users. Each record contains the following attributes:
 
 - **User** - The name of the user that was used during the sign-in operation.
 - **IP** - The IP address of the device that was used to connect to Azure Active Directory.

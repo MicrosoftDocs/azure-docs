@@ -1,12 +1,8 @@
 ---
-title: Create a function app from the Azure Portal | Microsoft Docs
+title: Create a function app from the Azure portal 
 description: Create a new function app in Azure from the portal. 
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/29/2019
-ms.author: glenga
 ms.custom: mvc
 
 ---
@@ -17,10 +13,6 @@ This topic shows you how to use Azure Functions to create a function app in the 
 ## Create a function app
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
-
-When you create a function app, supply a valid **App name**, which can contain only letters, numbers, and hyphens. Underscore (**_**) is not an allowed character.
-
-Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. Your storage account name must be unique within Azure. 
 
 After the function app is created, you can create individual functions in one or more different languages. Create functions [by using the portal](functions-create-first-azure-function.md#create-function), [continuous deployment](functions-continuous-deployment.md), or by [uploading with FTP](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp).
 
@@ -39,7 +31,7 @@ When creating a function app, you must create or link to a general-purpose Azure
 >[!NOTE]
 >When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#azure-storage-services). 
+To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## Next steps
 

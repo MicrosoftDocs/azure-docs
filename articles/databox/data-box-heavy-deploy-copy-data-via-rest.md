@@ -1,6 +1,6 @@
 ---
-title: Tutorial to copy data to Azure Data Box Blob storage via REST APIs| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box Blob storage via REST APIs
+title: "Tutorial: Copy data to Azure Data Box Blob storage via REST APIs"
+description: Learn how to copy data to your Azure Data Box Heavy Blob storage via REST APIs
 services: databox
 author: alkohli
 
@@ -95,7 +95,7 @@ Use the Azure portal to download certificate.
  
 ### Import certificate 
 
-Accessing Data Box Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
+Accessing Data Box Blob storage over HTTPS requires a TLS/SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
 
 Specific information for some applications is mentioned in this section. For more information on other applications, consult the documentation for the application and the operating system used.
 

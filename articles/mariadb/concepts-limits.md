@@ -1,36 +1,14 @@
 ---
-title: Limitations in Azure Database for MariaDB
+title: Limitations - Azure Database for MariaDB
 description: This article describes limitations in Azure Database for MariaDB, such as number of connection and storage engine options.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 6/8/2020
 ---
 # Limitations in Azure Database for MariaDB
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
-
-## Maximum connections
-The maximum number of connections per pricing tier and vCores are as follows:
-
-|**Pricing Tier**|**vCore(s)**| **Max Connections**|
-|---|---|---|
-|Basic| 1| 50|
-|Basic| 2| 100|
-|General Purpose| 2| 300|
-|General Purpose| 4| 625|
-|General Purpose| 8| 1250|
-|General Purpose| 16| 2500|
-|General Purpose| 32| 5000|
-|General Purpose| 64| 10000|
-|Memory Optimized| 2| 600|
-|Memory Optimized| 4| 1250|
-|Memory Optimized| 8| 2500|
-|Memory Optimized| 16| 5000|
-|Memory Optimized| 32| 10000|
-
-When connections exceed the limit, you may receive the following error:
-> ERROR 1040 (08004): Too many connections
 
 ## Storage engine support
 
@@ -52,6 +30,9 @@ Many server parameters and settings can inadvertently degrade server performance
 Similarly [SUPER privilege](https://mariadb.com/kb/en/library/grant/#global-privileges) is also restricted.
 - DEFINER: 
 Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
+
+## Server parameters
+Azure Database for MariaDB supports tuning the values of server parameters. The min and max value of some parameters is determined by the pricing tier and vCores of the server. Refer to [server parameters](./concepts-server-parameters.md) for more information about these limits. 
 
 ## Data manipulation statement support
 
@@ -87,5 +68,5 @@ Requires super privileges to create and is restricted. If importing data using a
 - MariaDB server instance displays the incorrect server version after connection is established. To get the correct server instance engine version, use the `select version();` command.
 
 ## Next steps
-- [What’s available in each service tier](concepts-pricing-tiers.md)
+- [What's available in each service tier](concepts-pricing-tiers.md)
 - [Supported MariaDB database versions](concepts-supported-versions.md)

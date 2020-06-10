@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IEvangelist
   ms.author: dapine
-  ms.date: 08/29/2019
+  ms.date: 01/23/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,33 +24,45 @@ landingContent:
         links:
           - text: What is Immersive Reader?
             url: overview.md
+      - linkListType: video
+        links:
+          - text: Getting started - short engineering videos
+            url: https://aka.ms/ImmersiveReaderSDKVideos
 
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: ASP.NET Core
-            url: quickstart.md
-          - text: Swift (iOS)
-            url: ios-quickstart.md
+        - text: Use C# (ASP.NET Core)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Node.js
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Swift (iOS)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
-          - text: Node.js
-            url: tutorial-nodejs.md
           - text: Python
             url: tutorial-python.md
-          - text: Swift (iOS)
-            url: tutorial-ios-picture-immersive-reader.md
+          - text: Use multiple Immersive Reader resources
+            url: tutorial-multiple-resources.md
 
   - title: Explore Immersive Reader
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Authenticate with Azure Active Directory
-            url: azure-active-directory-authentication.md
+          - text: Create an Immersive Reader Resource
+            url: how-to-create-immersive-reader.md
+          - text: Set the cookie policy
+            url: how-to/set-cookie-policy.md
+          - text: Display math
+            url: how-to/display-math.md
+          - text: Launch the Immersive Reader with HTML content
+            url: how-to-launch-with-html.md
+          - text: Customize Immersive Reader button
+            url: how-to-customize-launch-button.md
+          - text: Cache the authentication token
+            url: how-to-cache-token.md
       - linkListType: reference
         links:
           - text: JavaScript SDK
             url: reference.md
-          - text: iOS SDK
-            url: ios-reference.md

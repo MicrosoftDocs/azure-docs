@@ -1,11 +1,6 @@
 ---
-title: Improve availability of your application with Azure Advisor | Microsoft Docs
+title: Improve availability of your application with Azure Advisor
 description: Use Azure Advisor to improve high availability of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 
@@ -89,7 +84,7 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 
@@ -120,5 +115,4 @@ For more information about Advisor recommendations, see:
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational excellence recommendations](advisor-operational-excellence-recommendations.md)
-
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center Tutorial - Protect your resources with Azure Security Center | Microsoft Docs
-description: This tutorial shows you how to configure a just in time VM access policy and an application control policy.
+title: Access & application controls tutorial - Azure Security Center
+description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -17,15 +17,13 @@ ms.author: memildin
 
 ---
 # Tutorial: Protect your resources with Azure Security Center
-Security Center limits your exposure to threats by using access and application controls to block malicious activity. Just-in-Time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
+Security Center limits your exposure to threats by using access and application controls to block malicious activity. Just-in-time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Configure a just in time VM access policy
+> * Configure a just-in-time VM access policy
 > * Configure an application control policy
-
-If you don’t have an Azure subscription, create a  [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
@@ -33,25 +31,25 @@ To step through the features covered in this tutorial, you must be on Security C
 ## Manage VM access
 JIT VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
-1. In the Security Center main menu, select **Just-in-Time VM access** under **ADVANCED CLOUD DEFENSE**.
+1. In the Security Center main menu, select **Just-in-time VM access** under **ADVANCED CLOUD DEFENSE**.
 
-   ![Just in time VM access][1]
+   ![Just-in-time VM access][1]
 
-   **Just-in-Time VM access** provides information on the state of your VMs:
+   **Just-in-time VM access** provides information on the state of your VMs:
 
-   - **Configured** - VMs that have been configured to support just in time VM access.
-   - **Recommended** - VMs that can support just in time VM access but have not been configured to.
+   - **Configured** - VMs that have been configured to support just-in-time VM access.
+   - **Recommended** - VMs that can support just-in-time VM access but have not been configured to.
    - **No recommendation** - Reasons that can cause a VM not to be recommended are:
 
-     - Missing NSG - The just in time solution requires an NSG to be in place.
-     - Classic VM - Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager.
-     - Other - A VM is in this category if the just in time solution is turned off in the security policy of the subscription or the resource group, or that the VM is missing a public IP and doesn't have an NSG in place.
+     - Missing NSG - The just-in-time solution requires an NSG to be in place.
+     - Classic VM - Security Center just-in-time VM access currently supports only VMs deployed through Azure Resource Manager.
+     - Other - A VM is in this category if the just-in-time solution is turned off in the security policy of the subscription or the resource group, or that the VM is missing a public IP and doesn't have an NSG in place.
 
-2. Select a recommended VM and click **Enable JIT on 1 VM** to configure a just in time policy for that VM:
+2. Select a recommended VM and click **Enable JIT on 1 VM** to configure a just-in-time policy for that VM:
 
-   You can save the default ports that Security Center recommends or you can add and configure a new port on which you want to enable the just in time solution. In this tutorial, let’s add a port by selecting **Add**.
+   You can save the default ports that Security Center recommends or you can add and configure a new port on which you want to enable the just-in-time solution. In this tutorial, let’s add a port by selecting **Add**.
 
    ![Add port configuration][2]
 
@@ -91,7 +89,7 @@ Adaptive application controls help you define a set of applications that are all
 4. Once you finish your selections, select **Create**.
 
 ## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
 1. Return to the Security Center main menu and select **Security Policy**.
 2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
@@ -107,14 +105,14 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps
 In this tutorial, you learned how to limit your exposure to threats by:
 
 > [!div class="checklist"]
-> * Configuring a just in time VM access policy to provide controlled and audited access to VMs only when needed
+> * Configuring a just-in-time VM access policy to provide controlled and audited access to VMs only when needed
 > * Configuring an adaptive application controls policy to control which applications can run on your VMs
 
 Advance to the next tutorial to learn about responding to security incidents.

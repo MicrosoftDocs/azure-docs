@@ -1,13 +1,12 @@
 ---
 title: What is Test Drive? | Azure Marketplace
 description: Explanation of Marketplace Test Drive feature
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 What is Test Drive?

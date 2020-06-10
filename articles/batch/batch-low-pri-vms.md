@@ -1,16 +1,9 @@
 ---
-title: Run workloads on cost-effective low-priority VMs - Azure Batch | Microsoft Docs
+title: Run workloads on cost-effective low-priority VMs
 description: Learn how to provision low-priority VMs to reduce the cost of Azure Batch workloads.
-services: batch
 author: mscurrell
-manager: gwallace
-
-ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
-ms.service: batch
-ms.topic: article
-ms.workload: na
-ms.date: 03/19/2018
-ms.author: markscu
+ms.topic: how-to
+ms.date: 03/19/2020
 ms.custom: seodec18
 
 ---
@@ -18,13 +11,20 @@ ms.custom: seodec18
 # Use low-priority VMs with Batch
 
 Azure Batch offers low-priority virtual machines (VMs) to reduce the cost of Batch workloads. Low-priority VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a very low cost.
- 
+
 Low-priority VMs take advantage of surplus capacity in Azure. When you specify low-priority VMs in your pools, Azure Batch can use this surplus, when available.
- 
+
 The tradeoff for using low-priority VMs is that those VMs may not be available to be allocated or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs are most suitable for certain types of workloads. Use low-priority VMs for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
- 
+
 Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, 
  see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+
+> [!NOTE]
+> [Spot VMs](https://azure.microsoft.com/pricing/spot/) are now available for [single instance VMs](https://docs.microsoft.com/azure/virtual-machines/linux/spot-vms) and [VM scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot). Spot VMs are an evolution of low-priority VMs, but differ in that pricing can vary and an optional maximum price can be set when allocating Spot VMs.
+>
+> Azure Batch pools will start supporting Spot VMs within a few months of them being generally available, with new versions of the [Batch APIs and tools](https://docs.microsoft.com/azure/batch/batch-apis-tools). Once Spot VM support is available, low-priority VMs will be deprecated - they will continue to be supported using current APIs and tool versions for at least 12 months, to allow sufficient time for migration to Spot VMs. 
+>
+> Spot VMs will not be supported for [Cloud Service Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pools. To use Spot VMs, Cloud Service pools will need to be migrated to [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 
 ## Use cases for low-priority VMs
 
@@ -108,8 +108,7 @@ benefit from low-priority VMs:
     low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> Low-priority VMs are not currently supported for Batch accounts created in [user subscription mode](batch-api-basics.md#account).
->
+> Low-priority VMs are not currently supported for Batch accounts created in [user subscription mode](accounts.md).
 
 ## Create and update pools
 
@@ -243,5 +242,6 @@ To view metrics in the Azure portal:
 
 ## Next steps
 
-* Read the [Batch feature overview for developers](batch-api-basics.md), essential information for anyone preparing to use Batch. The article contains more detailed information about Batch service resources like pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application.
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
+* Start to plan the move from low-priority VMs to Spot VMs. If you use low-priority VMs with **Cloud Service configuration** pools, then plan to move to **Virtual Machine configuration** pools.

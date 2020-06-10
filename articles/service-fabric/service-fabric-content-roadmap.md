@@ -1,21 +1,9 @@
 ---
-title: Learn more about Azure Service Fabric | Microsoft Docs
+title: Learn more about Azure Service Fabric 
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: 
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-
 ---
 # So you want to learn about Service Fabric?
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices.  Service Fabric has a large surface area, however, and there's a lot to learn.  This article provides a synopsis of Service Fabric and describes the core concepts, programming models, application lifecycle, testing, clusters, and health monitoring. Read the [Overview](service-fabric-overview.md) and [What are microservices?](service-fabric-overview-microservices.md) for an introduction and how Service Fabric can be used to create microservices. This article does not contain a comprehensive content list, but does link to overview and getting started articles for every area of Service Fabric. 
@@ -143,7 +131,7 @@ The cluster security scenarios are:
 For more information, read [Secure a cluster](service-fabric-cluster-security.md).
 
 ### Scaling
-If you add new nodes to the cluster, Service Fabric rebalances the partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node. You can scale clusters on Azure either [manually](service-fabric-cluster-scale-up-down.md) or [programmatically](service-fabric-cluster-programmatic-scaling.md). Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
+If you add new nodes to the cluster, Service Fabric rebalances the partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node. You can scale clusters on Azure either [manually](service-fabric-cluster-scale-in-out.md) or [programmatically](service-fabric-cluster-programmatic-scaling.md). Standalone clusters can be scaled [manually](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### Cluster upgrades
 Periodically, new versions of the Service Fabric runtime are released. Perform runtime, or fabric, upgrades on your cluster so that you are always running a [supported version](service-fabric-support.md). In addition to fabric upgrades, you can also update cluster configuration such as certificates or application ports.

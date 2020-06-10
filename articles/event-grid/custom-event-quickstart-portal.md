@@ -1,11 +1,11 @@
 ---
-title: Send custom events to web endpoint - Event Grid, Azure portal
-description: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application. 
+title: 'Quickstart: Send custom events to web endpoint - Event Grid, Azure portal'
+description: 'Quickstart: Use Azure Event Grid and Azure portal to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 03/27/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
@@ -124,7 +124,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure PowerShell
 The second example uses PowerShell to perform similar steps.
 
-1. In the Azure portal, select **Cloud Shell** (alternatively go to https://shell.azure.com/). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
+1. In the Azure portal, select **Cloud Shell** (alternatively go to `https://shell.azure.com/`). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell

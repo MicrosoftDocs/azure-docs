@@ -1,17 +1,8 @@
 ---
-title: Introduction to Azure Service Fabric networking | Microsoft Docs
+title: Introduction to Azure Service Fabric networking 
 description: Learn about networks, gateways, and intelligent traffic routing in Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
-ms.assetid: 
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter 

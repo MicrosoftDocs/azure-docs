@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Design an Azure Database for MariaDB using Azure CLI'
+title: 'Tutorial: Design an Azure Database for MariaDB - Azure CLI'
 description: This tutorial explains how to create and manage Azure Database for MariaDB server and database using Azure CLI from the command line.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/10/2018
+ms.date: 3/18/2020
 ms.custom: mvc
 ---
 
@@ -117,7 +117,7 @@ mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
 ```
 
 ## Create a blank database
-Once you’re connected to the server, create a blank database.
+Once you're connected to the server, create a blank database.
 ```sql
 mysql> CREATE DATABASE mysampledb;
 ```
@@ -133,9 +133,9 @@ Now that you know how to connect to the Azure Database for MariaDB database, com
 First, create a table and load it with some data. Let's create a table that stores inventory information.
 ```sql
 CREATE TABLE inventory (
-	id serial PRIMARY KEY, 
-	name VARCHAR(50), 
-	quantity INTEGER
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
 );
 ```
 

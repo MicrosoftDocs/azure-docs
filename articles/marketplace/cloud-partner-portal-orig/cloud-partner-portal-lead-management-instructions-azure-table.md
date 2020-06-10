@@ -1,12 +1,12 @@
 ---
 title: Azure Table storage | Azure Marketplace
 description: Configure lead management in Azure Table storage.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Lead-management instructions for Table storage
@@ -44,7 +44,7 @@ You can use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
 ## Use Microsoft Flow with Table storage (*optional*)
 
-You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automatically send notifications when a lead is added to your table storage. If you don’t have a Microsoft Flow account, [sign up for a free account](https://flow.microsoft.com/).
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automatically send notifications when a lead is added to your table storage. If you don't have a Microsoft Flow account, [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
@@ -87,13 +87,13 @@ In the next set of steps, you connect to your storage table and set up the proce
 1. Under **Actions**, select **Get entities**, and then select **Show advanced options**.
 1. In the **Get entities** window, fill in the following fields:
 
-   - **Table**: the name of your table storage. The following image shows “MarketPlaceLeads” entered:
+   - **Table**: the name of your table storage. The following image shows "MarketPlaceLeads" entered:
 
      ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
    - **Filter Query**: When you select this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Set up the filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -119,7 +119,7 @@ In the next set of steps, you connect to your storage table and set up the proce
 
      ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-1. If the condition resolves to "If no," don’t do anything.
+1. If the condition resolves to "If no," don't do anything.
 
     If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
    1. Select **Add an action**.
@@ -135,7 +135,7 @@ In the next set of steps, you connect to your storage table and set up the proce
 
       ![Set up email for lead notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-1. Select **Save** to save the flow. Microsoft Flow will automatically test it for errors. If there aren’t any errors, your flow starts running after it’s saved.
+1. Select **Save** to save the flow. Microsoft Flow will automatically test it for errors. If there aren't any errors, your flow starts running after it's saved.
 
     The following image shows an example of how the final flow should look.
 
@@ -151,7 +151,7 @@ It's easy to manage your flow after it's running. You have complete control over
 
 The flow keeps running until you select **Turn flow off**.
 
-If you’re not getting any lead email notifications, no new leads have been added to your table storage.
+If you're not getting any lead email notifications, no new leads have been added to your table storage.
 You'll get an email like the following example if a flow failure occurs:
 
  ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)

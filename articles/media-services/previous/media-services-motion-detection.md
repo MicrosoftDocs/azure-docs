@@ -18,7 +18,12 @@ ms.reviewer: milanga
 
 ---
 # Detect Motions with Azure Media Analytics
+
+> [!NOTE]
+> The **Azure Media Motion Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
+ 
 ## Overview
+
 The **Azure Media Motion Detector** media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video. Motion detection can be used on static camera footage to identify sections of the video where motion occurs. It generates a JSON file containing a metadata with timestamps and the bounding region where the event occurred.
 
 Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from long surveillance videos.

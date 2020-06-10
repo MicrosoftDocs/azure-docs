@@ -57,7 +57,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      
      ![Create gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-4. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machines\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+4. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
      
@@ -97,6 +97,8 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
       * remove gpt.ini (if gpt.ini existed before, and you renamed it to gpt.ini.bak, rename the .bak file back to gpt.ini)
 
 ## Detailed steps for Classic VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 > [!NOTE]
 > The steps do not apply to Windows domain controllers. It only works on standalone server or a server that is a member of a domain.

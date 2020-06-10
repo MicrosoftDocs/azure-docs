@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Create app and deploy continuously from Azure Repos | Microsoft Docs
-description: Azure CLI Script Sample - Create an app with continuous deployment from Azure Repos
-services: app-service\web
-documentationcenter: 
+title: 'Continuous deployment from Azure Repos'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to set up CI/CD from Azure Repos.
 author: msangapu-msft
-manager: jeconnoc
-editor: 
 tags: azure-service-management
 
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 # Create an App Service app with continuous deployment using Azure CLI
 

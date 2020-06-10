@@ -1,22 +1,14 @@
 ---
-title: Share VM images with Shared Galleries | Microsoft Docs
+title: Share VM images with Shared Galleries 
 description: Learn how to use shared image galleries to share VM images across your organization.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: axayjo
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+author: cynthn
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/06/2019
-ms.author: akjosh
-ms.reviewer: cynthn
-ms.custom: 
+ms.date: 05/04/2020
+ms.author: cynthn
+ms.reviewer: akjosh
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---

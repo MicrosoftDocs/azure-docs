@@ -1,16 +1,14 @@
 ---
-title: Quickstart - Create a Unity HoloLens app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a HoloLens app with Unity'
 description: In this quickstart, you learn how to build a HoloLens app with Unity using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want to learn how to use Azure Spatial Anchors in my Unity HoloLens app that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
 
@@ -30,7 +28,7 @@ You'll learn how to:
 
 To complete this quickstart:
 
-- You need a Windows computer on which <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1</a> or later and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+- You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 or 2019.2</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
@@ -75,7 +73,7 @@ In the folder, double-click **HelloAR U3D.sln** to open the project in Visual St
 
 Change the **Solution Configuration** to **Release**, change the **Solution Platform** to **x86**, and select **Device** from the deployment target options.
 
-If using HoloLens 2, use **ARM** as the **Solution Platform**, instead of **x86**.
+If using HoloLens 2, use **ARM64** as the **Solution Platform**, instead of **x86**.
 
    ![Visual Studio configuration](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
@@ -86,6 +84,12 @@ Select **Debug** > **Start debugging** to deploy your app and start debugging.
 Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
+
+## Troubleshooting
+
+### Unity 2019.3
+
+Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

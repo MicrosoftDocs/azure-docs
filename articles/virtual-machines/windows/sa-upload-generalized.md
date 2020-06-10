@@ -1,22 +1,14 @@
 ---
-title: Upload a generalize VHD to create multiple VMs in Azure | Microsoft Docs
+title: Upload a generalize VHD to create multiple VMs in Azure 
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
+ms.custom: storage-accounts
 ---
 
 # Upload a generalized VHD to Azure to create a new VM
@@ -27,7 +19,7 @@ If you want to create a VM from a specialized VHD in a storage account, see [Cre
 
 This topic covers using storage accounts, but we recommend customers move to using Managed Disks instead. For a complete walk-through of how to prepare, upload and create a new VM using managed disks, see [Create a new VM from a generalized VHD uploaded to Azure using Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Prepare the VM
 
@@ -178,7 +170,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
     ```    
 
 ### Create a public IP address and network interface
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
    

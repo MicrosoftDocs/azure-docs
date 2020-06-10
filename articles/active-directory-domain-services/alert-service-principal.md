@@ -98,7 +98,7 @@ To recreate the Azure AD application used for credential synchronization, use Az
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
 After you delete both applications, the Azure platform automatically recreates them and tries to resume password synchronization. The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.

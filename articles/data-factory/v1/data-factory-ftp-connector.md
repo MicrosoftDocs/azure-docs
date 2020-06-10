@@ -1,16 +1,16 @@
 ---
-title: Move data from an FTP server by using Azure Data Factory | Microsoft Docs
+title: Move data from an FTP server by using Azure Data Factory 
 description: Learn about how to move data from an FTP server using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 05/02/2018
@@ -72,7 +72,7 @@ The following table describes JSON elements specific to an FTP linked service.
 | gatewayName |Specify the name of the gateway in Data Management Gateway to connect to an on-premises FTP server. |No |&nbsp; |
 | port |Specify the port on which the FTP server is listening. |No |21 |
 | enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
 
 >[!NOTE]
 >The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn’t support implicit SSL/TLS encryption.

@@ -1,67 +1,64 @@
 ---
-title: Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
+title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
-author: roaror
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: roaror
-
+ms.date: 06/04/2020
+ms.author: lbosq
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
 
-Before you migrate your data from MongoDB (either on-premises or in the cloud (IaaS)) to Azure Cosmos DB’s API for MongoDB, you should:
+Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 
-1. [Create an Azure Cosmos DB account](#create-account)
-2. [Estimate the throughput needed for your workloads](#estimate-throughput)
-3. [Pick an optimal partition key for your data](#partitioning)
-4. [Understand the indexing policy that you can set on your data](#indexing)
+1. [Read the key considerations about using Azure Cosmos DB's API for MongoDB](#considerations)
+2. [Choose an option to migrate your data](#options)
+3. [Estimate the throughput needed for your workloads](#estimate-throughput)
+4. [Pick an optimal partition key for your data](#partitioning)
+5. [Understand the indexing policy that you can set on your data](#indexing)
 
-If you have already completed the above pre-requisites for migration, see the [Migrate MongoDB data to Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md) for the actual data migration instructions. If not, this document provides instructions to handle these pre-requisites. 
+If you have already completed the above pre-requisites for migration, you can [Migrate MongoDB data to Azure Cosmos DB's API for MongoDB using the Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md). Additionally, if you haven't created an account, you can browse any of the [Quickstarts](create-mongodb-dotnet.md) that show the steps to create an account.
 
-## <a id="create-account"></a> Create an Azure Cosmos DB account 
+## <a id="considerations"></a>Considerations when using Azure Cosmos DB's API for MongoDB
 
-Before starting the migration, you need to [create an Azure Cosmos account using Azure Cosmos DB’s API for MongoDB](create-mongodb-dotnet.md). 
+The following are specific characteristics about Azure Cosmos DB's API for MongoDB:
 
-At the account creation, you can choose settings to [globally distribute](distribute-data-globally.md) your data. You also have the option to enable multi-region writes (or multi-master configuration), that allows each of your regions to be both a write and read region.
+- **Capacity model**: Database capacity on Azure Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can be provisioned on an allocation model, or using the [autoscale provisioned throughput](provision-throughput-autoscale.md).
 
-![Account-Creation](./media/mongodb-pre-migration/account-creation.png)
+- **Request Units**: Every database operation has an associated Request Units (RUs) cost in Azure Cosmos DB. When executed, this is subtracted from the available request units level on a given second. If a request requires more RUs than the currently allocated RU/s there are two options to solve the issue - increase the amount of RUs, or wait until the next second starts and then retry the operation.
+
+- **Elastic capacity**: The capacity for a given collection or database can change at any time. This allows for the database to elastically adapt to the throughput requirements of your workload.
+
+- **Automatic sharding**: Azure Cosmos DB provides an automatic partitioning system that only requires a shard (or a partition key). The [automatic partitioning mechanism](partition-data.md) is shared across all the Azure Cosmos DB APIs and it allows for seamless data and throughout scaling through horizontal distribution.
+
+## <a id="options"></a>Migration options for Azure Cosmos DB's API for MongoDB
+
+The [Azure Database Migration Service for Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md) provides a mechanism that simplifies data migration by providing a fully managed hosting platform, migration monitoring options and automatic throttling handling. The full list of options are the following:
+
+|**Migration type**|**Solution**|**Considerations**|
+|---------|---------|---------|
+|Offline|[Data Migration Tool](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Easy to set up and supports multiple sources <br/>&bull; Not suitable for large datasets.|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; Easy to set up and supports multiple sources <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process <br/>&bull; Needs custom code to increase read throughput for certain data sources|
+|Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Easy to set up and integration <br/>&bull; Needs custom handling for throttles|
+|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Fully managed migration service.<br/>&bull; Provides hosting and monitoring solutions for the migration task. <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
+
 
 ## <a id="estimate-throughput"></a> Estimate the throughput need for your workloads
 
-Before starting the migration by using the [Database Migration Service (DMS)](../dms/dms-overview.md), you should estimate the amount of throughput to provision for your Azure Cosmos databases and collections.
+In Azure Cosmos DB, the throughput is provisioned in advance and is measured in Request Units (RU's) per second. Unlike VMs or on-premises servers, RUs are easy to scale up and down at any time. You can change the number of provisioned RUs instantly. For more information, see [Request units in Azure Cosmos DB](request-units.md).
 
-Throughput can be provisioned on either:
-
-- Collection
-
-- Database
-
-> [!NOTE]
-> You can also have a combination of the above, where some collections in a database may have dedicated provisioned throughput and others may share the throughput. For details, please see the [set throughput on a database and a container](set-throughput.md) page.
->
-
-You should first decide whether you want to provision database or collection level throughput, or a combination of both. In general, it is recommended to configure a dedicated throughput at the collection level. Provisioning throughput at the database-level enables collections in your database to share the provisioned throughput . With shared throughput, however, there is no guarantee for a specific throughput on each individual collection, and you don’t get predictable performance on any specific collection.
-
-If you are not sure about how much throughput should be dedicated to each individual collection, you can choose database-level throughput. You can think of the provisioned throughput configured on your Azure Cosmos database as a logical equivalent to that of the compute capacity of a MongoDB VM or a physical server, but more cost-effective with the ability to elastically scale. For more information, see [Provision throughput on Azure Cosmos containers and databases](set-throughput.md).
-
-If you provision throughput at the database level, all collections created within that database must be created with a partition/shard key. For more information on partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](partition-data.md). If you do not specify a partition/shard key during the migration, the Azure Database Migration Service automatically populates the shard key field with an *_id* attribute that is automatically generated for each document.
-
-### Optimal number of Request Units (RUs) to provision
-
-In Azure Cosmos DB, the throughput is provisioned in advance and is measured in Request Units (RU's) per second. If you have workloads that run MongoDB on a VM or on-premises, think of RU's as a simple abstraction for physical resources, such as for the size of a VM or on-an premises server and the resources they possess, e.g., memory, CPU, IOPs. 
-
-Unlike VMs or on-premises servers, RUs are easy to scale up and down at any time. You can change the number of provisioned RUs within seconds, and you are billed only for the maximum number of RUs that you provision for a given one-hour period. For more information, see [Request units in Azure Cosmos DB](request-units.md).
+You can use the [Azure Cosmos DB Capacity Calculator](https://cosmos.azure.com/capacitycalculator/) to determine the amount of Request Units based on your database account configuration, amount of data, document size, and required reads and writes per second.
 
 The following are key factors that affect the number of required RUs:
-- **Item (i.e., document) size**: As the size of an item/document increases, the number of RUs consumed to read or write the item/document also increases.
-- **Item property count**: Assuming the [default indexing](index-overview.md) on all properties, the number of RUs consumed to write an item increases as the item property count increases. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](index-policy.md).
-- **Concurrent operations**: Request units consumed also depends on the frequency with which different CRUD operations (like writes, reads, updates, deletes) and more complex queries are executed. You can use [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) to output the concurrency needs of your current MongoDB data.
-- **Query patterns**: The complexity of a query affects how many request units are consumed by the query.
+- **Document size**: As the size of an item/document increases, the number of RUs consumed to read or write the item/document also increases.
 
-If you export JSON files using [mongoexport](https://docs.mongodb.com/manual/reference/program/mongoexport/) and understand how many writes, reads, updates, and deletes that take place per second, you can use the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to estimate the initial number of RUs to provision. The capacity planner does not factor in the cost of more complex queries. So, if you have complex queries on your data, additional RUs will be consumed. The calculator also assumes that all fields are indexed, and session consistency is used. The best way to understand the cost of queries is to migrate your data (or sample data) to Azure Cosmos DB, [connect to the Cosmos DB’s endpoint](connect-mongodb-account.md) and run a sample query from the MongoDB Shell using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
+- **Document property count**:The number of RUs consumed to create or update a document is related to the number, complexity and length of its properties. You can reduce the request unit consumption for write operations by [limiting the number of indexed properties](mongodb-indexing.md).
+
+- **Query patterns**: The complexity of a query affects how many request units are consumed by the query. 
+
+The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-mongodb-account.md) using the `getLastRequestStastistics` command to get the request charge, which will output the number of RUs consumed:
 
 `db.runCommand({getLastRequestStatistics: 1})`
 
@@ -69,13 +66,18 @@ This command will output a JSON document similar to the following:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-After you understand the number of RUs consumed by a query and the concurrency needs for that query, you can adjust the number of provisioned RUs. Optimizing RUs is not a one-time event - you should continually optimize or scale up the RUs provisioned, depending on whether you are not expecting a heavy traffic, as opposed to a heavy workload or importing data.
+You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
 
 ## <a id="partitioning"></a>Choose your partition key
-Partitioning is a key point of consideration before migrating to a globally distributed Database like Azure Cosmos DB. Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of your application. In partitioning, the items in a container are divided into distinct subsets called logical partitions. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key section](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
+
+In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a id="indexing"></a>Index your data
-By default, Azure Cosmos DB indexes all your data fields upon ingestion. You can modify the [indexing policy](index-policy.md) in Azure Cosmos DB at any time. In fact, it is often recommended to turn off indexing when migrating data, and then turn it back on when the data is already in Cosmos DB. For more details on indexing, you can read more about it in the [Indexing in Azure Cosmos DB](index-overview.md) section. 
+
+The Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+
+The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the `createIndex()` command. Learn more at [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)article.
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
 

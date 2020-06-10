@@ -1,23 +1,16 @@
 ---
-title: Azure CLI Script Sample - Create an app and deploy files with FTP | Microsoft Docs
-description: Azure CLI Script Sample - Create an App Service app and deploy files with FTP
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Deploy app files with FTP'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to create an app and deploy files with FTP.
+author: msangapu-msft
 tags: azure-service-management
 
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Create an App Service app and deploy files with FTP using Azure CLI
 
 This sample script creates an app in App Service with its related resources, and then deploys a static HTML page using FTP. For FTP upload, the script uses [cURL](https://en.wikipedia.org/wiki/CURL) as an example. You can use whatever FTP tool to upload your files.

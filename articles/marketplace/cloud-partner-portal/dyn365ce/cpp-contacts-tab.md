@@ -1,42 +1,16 @@
 ---
 title: Dynamics 365 for Customer Engagement offer Contacts tab | Azure Marketplace 
-description: Configure contact information for Dynamics 365 for Customer Engagement offer on the AppSource Marketplace.
-services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+description: Deprecated this CPP article, linked to PC article; Was "Configure contact information for Dynamics 365 for Customer Engagement offer on the AppSource Marketplace."
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
+ms.date: 09/30/2019
+ms.author: dsindona
 ---
 
 # Azure application Contacts tab
 
-Use the **Contacts** tab to provide engineering and customer support information for your Dynamics 365 for Customer Engagement offer.
+The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Dynamics 365 Customer Engagement offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-![Contacts tab for offer](./media/dynce-contacts-tab.png)
-
-
-## Specify customer and engineering contacts
-
-Supply the following values to define the primary **Engineering Contact** and for your offer. Required fields are indicted by an asterisk (*).
-
-|    Field        |  Description                    |
-|    ---------    |  ---------------                |
-|  **Name\***       |  Name of the engineering contact for your app. This contact will receive technical communications from Microsoft.   |
-|  **Email\***      |  Email address of the engineering contact  |
-|  **Phone\***      |  Phone number of the engineering contact  |
-|  |  |
-
-Supply the following values to define the primary **Support Contact** and for your offer.
-
-|    Field        |   Description                   |
-|    ---------    |  ---------------                |
-|  **Name\***       |  Name of the customer support contact for your app. This contact will receive support-related communications from Microsoft.   |
-|  **Email\***      |  Email address of the customer support contact  |
-|  **Phone\***      |  Phone number of the customer support contact  |
-|  |  |
-
-
-## Next steps
-
-After you verify that you have required [technical assets](./cpp-create-technical-assets.md) for your offer, you are ready to [publish the Dynamics 365 for Customer Engagement offer](./cpp-publish-offer.md).
+Before you create a new Dynamics 365 for Customer Engagement offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) to create your offer.

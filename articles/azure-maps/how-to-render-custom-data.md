@@ -1,9 +1,9 @@
 ---
-title: How to render custom data on a raster map in Azure Maps | Microsoft Docs
-description: Render custom data on a raster map in Azure Maps.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 07/29/2019
+title: Render custom data on a raster map | Microsoft Azure Maps
+description: In this article, you'll learn how to render custom data on a raster map by using Microsoft Azure Maps static image Service.
+author: philmea
+ms.author: philmea
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,16 +13,18 @@ ms.custom: mvc
 
 # Render custom data on a raster map
 
-This article explains how to use the [static image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage) with image composition functionality to allow overlays on top of a raster map. Image composition includes the ability to get a raster tile back, with additional data like custom pushpins, labels, and geometry overlays.
+This article explains how to use the [static image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage), with image composition functionality, to allow overlays on top of a raster map. Image composition includes the ability to get a raster tile back, with additional data like custom pushpins, labels, and geometry overlays.
 
 To render custom pushpins, labels, and geometry overlays, you can use the Postman application. You can use Azure Maps [Data Service APIs](https://docs.microsoft.com/rest/api/maps/data) to store and render overlays.
 
+> [!Tip]
+> It is often much more cost effective to use the Azure Maps Web SDK to show a simple map on a web page than to use the static image service. The web SDK uses map tiles and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. Note that the Azure Maps web SDK has options for disabling panning and zooming. Additionally, the Azure Maps web SDK provides a richer set of data visualization options than a static map web service does.  
 
 ## Prerequisites
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to create an Azure Maps account by following instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to retrieve a primary subscription key for your account.
+To complete the procedures in this article, you first need to create an Azure Maps account and get your maps account key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 
 ## Render pushpins with labels and a custom image
@@ -36,14 +38,14 @@ To render pushpins with labels and a custom image, complete these steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button. 
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins, select the collection you created in the previous step as the location in which to save the request, and then select **Save**.
+2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins. Select the collection you created in the previous step, as the location to save the request. Then, select **Save**.
     
     ![Create a request in Postman](./media/how-to-render-custom-data/postman-new.png)
 
 3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request.
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     Here's the resulting image:
 
@@ -135,13 +137,13 @@ You can also obtain the path and pin location information by using the [Data Upl
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Copy your status URI and append the subscription-key parameter to it with its value being your Azure Maps account subscription key that you used to upload the data. The status URI format should look like the one below:
+5. Copy your status URI and append the subscription-key parameter to it with the value of your Azure Maps account subscription key. Use the same account subscription key that you used to upload the data. The status URI format should look like the one below:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. To get the, udId open a new tab in the Postman app and select GET HTTP method on the builder tab and make a GET request at the status URI. If your data upload was successful, you will receive a udId in the response body. Copy the udId.
+6. To get the udId, open a new tab in the Postman app. Select GET HTTP method on the builder tab. Make a GET request at the status URI. If your data upload was successful, you'll receive a udId in the response body. Copy the udId.
 
    ```JSON
    {
@@ -149,7 +151,7 @@ You can also obtain the path and pin location information by using the [Data Upl
    }
    ```
 
-7. Use the `udId` value received from the Data Upload API to render features on the map. To do so, open a new tab in the collection you created in the preceding section. Select the GET HTTP method on the builder tab and enter this URL to make a GET request:
+7. Use the `udId` value received from the Data Upload API to render features on the map. To do so, open a new tab in the collection you created in the preceding section. Select the GET HTTP method on the builder tab, replace the {subscription-key} and {udId} with your values, and enter this URL to make a GET request:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -185,7 +187,7 @@ You can modify the appearance of a polygon by using style modifiers with the [pa
 > The procedure in this section requires an Azure Maps account in pricing tier S1.
 
 
-You can make pushpins and their labels larger or smaller by using the `sc` scale style modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information about style modifiers, see [static image service path parameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 will make the pins larger, and values smaller than 1 will make them smaller. For more information about style modifiers, see [static image service path parameters](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Follow these steps to render a circle and pushpins with custom labels:
@@ -199,6 +201,18 @@ Follow these steps to render a circle and pushpins with custom labels:
     Here's the response image:
 
     ![Render a circle with custom pushpins](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. To change the color of the pushpins from the last step, change the "co" style modifier. Look at `pins=default|la15+50|al0.66|lc003C62|co002D62|`, the current color would be specified as #002D62 in CSS. Let's say you want to change it to #41d42a. Write the new color value after the "co" specifier, like this: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Make a new GET request:
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Here's the response image after changing the colors of the pins:
+
+    ![Render a circle with updated pushpins](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+Similarly, you can change, add, and remove other style modifiers.
 
 ## Next steps
 

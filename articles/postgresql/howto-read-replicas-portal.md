@@ -1,11 +1,11 @@
 ---
-title: Manage read replicas for Azure Database for PostgreSQL - Single Server from the Azure portal
+title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/09/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
@@ -16,36 +16,43 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 ## Prerequisites
 An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the master server.
 
+## Azure replication support
+
+[Read replicas](concepts-read-replicas.md) and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
+
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
+
 ## Prepare the master server
-These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers. The master server is prepared for replication by setting the azure.replication_support parameter. When the replication parameter is changed, a server restart is required for the change to take effect. In the Azure portal, these two steps are encapsulated by a single button, **Enable Replication Support**.
 
-1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
+1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a master.
 
-2. On the server sidebar, under **SETTINGS**, select **Replication**.
+2. From the server's menu, select **Replication**. If Azure replication support is set to at least **Replica**, you can create read replicas. 
 
-3. Select **Enable Replication Support**. 
+3. If Azure replication support is not set to at least **Replica**, set it. Select **Save**.
 
-   ![Enable replication support](./media/howto-read-replicas-portal/enable-replication-support.png)
+   ![Azure Database for PostgreSQL - Replication - Set replica and save](./media/howto-read-replicas-portal/set-replica-save.png)
 
-4. Confirm you want to enable replication support. This operation will restart the master server. 
+4. Restart the server to apply the change by selecting **Yes**.
 
-   ![Confirm enable replication support](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
+   ![Azure Database for PostgreSQL - Replication - Confirm restart](./media/howto-read-replicas-portal/confirm-restart.png)
+
 5. You will receive two Azure portal notifications once the operation is complete. There is one notification for updating the server parameter. There is another notification for the server restart that follows immediately.
 
-   ![Success notifications - enable](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Success notifications](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Refresh the Azure portal page to update the Replication toolbar. You can now create read replicas for this server.
-
-   ![Updated toolbar](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Enabling replication support is a one-time operation per master server. A **Disable Replication Support** button is provided for your convenience. We don't recommend disabling replication support, unless you are certain you will never create a replica on this master server. You cannot disable replication support while your master server has existing replicas.
-
 
 ## Create a read replica
 To create a read replica, follow these steps:
 
-1. Select the existing Azure Database for PostgreSQL server to use as the master server. 
+1. Select an existing Azure Database for PostgreSQL server to use as the master server. 
 
 2. On the server sidebar, under **SETTINGS**, select **Replication**.
 

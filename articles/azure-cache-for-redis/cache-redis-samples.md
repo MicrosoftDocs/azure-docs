@@ -1,21 +1,11 @@
 ---
-title: Azure Cache for Redis samples | Microsoft Docs
-description: Learn how to use Azure Cache for Redis
-services: cache
-documentationcenter: ''
+title: Azure Cache for Redis samples
+description: 'Learn how to use Azure Cache for Redis with these code samples: connecting to a cache, reading and writing data in a cache, ASP.NET Azure Cache for Redis providers.'
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: multiple
-ms.topic: article
-ms.date: 01/23/2017
 ms.author: yegu
-
+ms.service: cache
+ms.topic: sample
+ms.date: 01/23/2017
 ---
 # Azure Cache for Redis samples
 This topic provides a list of Azure Cache for Redis samples, covering scenarios such as connecting to a cache, reading and writing data to and from a cache, and using the ASP.NET Azure Cache for Redis providers. Some of the samples are downloadable projects, and some provide step-by-step guidance and include code snippets but do not link to a downloadable project.
@@ -65,4 +55,3 @@ The [Retwis](https://github.com/SyntaxC4-MSFT/retwis) sample is the Redis Hello 
 
 ## Bandwidth monitor
 The [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) sample allows you to monitor the bandwidth used on the client. To measure the bandwidth, run the sample on the cache client machine, make calls to the cache, and observe the bandwidth reported by the bandwidth monitor sample.
-

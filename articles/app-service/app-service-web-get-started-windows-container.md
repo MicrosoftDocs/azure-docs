@@ -1,22 +1,11 @@
 ---
-title: Run custom Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 'QuickStart: Windows container (Preview)'
+description: Deploy your first custom Windows container to Azure App Service. Take advantage of containerization, customize the Windows container the way you like it. 
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Run a custom Windows container in Azure (Preview)
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
@@ -151,7 +140,7 @@ The streamed logs looks like this:
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
@@ -169,7 +158,7 @@ The streamed logs looks like this:
 
 ## Use a different parent image
 
-You're free to use a different custom Docker image to run your app. However, you must choose the right [parent image](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
+You're free to use a different custom Docker image to run your app. However, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
 
 - To deploy .NET Framework apps, use a parent image based on the Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
 - To deploy .NET Core apps, use a parent image based on the Windows Server Nano 1809 [Semi-Annual Servicing Channel (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
@@ -177,7 +166,7 @@ You're free to use a different custom Docker image to run your app. However, you
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - this image is the base container used across Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet) Microsoft Windows Nano Server images.
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 - this image is the base container used across Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/) Microsoft Windows Nano Server images.
 
 ## Next steps
 

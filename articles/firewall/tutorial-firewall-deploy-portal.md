@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Deploy and configure Azure Firewall using the Azure portal'
+title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
 description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -22,7 +22,7 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended. The firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -53,10 +53,10 @@ First, create a resource group to contain the resources needed to deploy the fir
 The resource group contains all the resources for the tutorial.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. On the Azure portal home page, select **Resource groups** > **Add**.
-3. For **Resource group name**, type **Test-FW-RG**.
+2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
+3. For **Resource group name**, enter *Test-FW-RG*.
 4. For **Subscription**, select your subscription.
-5. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
+5. For **Resource group location**, select a location. All other resources that you create must be in the same location.
 6. Select **Create**.
 
 ### Create a VNet
@@ -66,22 +66,22 @@ This VNet will contain three subnets.
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. From the Azure portal home page, select **Create a resource**.
-2. Under **Networking**, select **Virtual network**.
-4. For **Name**, type **Test-FW-VN**.
-5. For **Address space**, type **10.0.0.0/16**.
-6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Test-FW-RG**.
-8. For **Location**, select the same location that you used previously.
-9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.0.1.0/26**.
-11. Accept the other default settings, and then select **Create**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. Select **Networking** > **Virtual network**.
+1. For **Name**, type **Test-FW-VN**.
+1. For **Address space**, type **10.0.0.0/16**.
+1. For **Subscription**, select your subscription.
+1. For **Resource group**, select **Test-FW-RG**.
+1. For **Location**, select the same location that you used previously.
+1. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Address range**, type **10.0.1.0/26**.
+1. Accept the other default settings, and then select **Create**.
 
 ### Create additional subnets
 
 Next, create subnets for the jump server, and a subnet for the workload servers.
 
-1. On the Azure portal home page, select **Resource groups** > **Test-FW-RG**.
+1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Test-FW-RG**.
 2. Select the **Test-FW-VN** virtual network.
 3. Select **Subnets** > **+Subnet**.
 4. For **Name**, type **Workload-SN**.
@@ -94,7 +94,7 @@ Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
 
 Now create the jump and workload virtual machines, and place them in the appropriate subnets.
 
-1. On the Azure portal, select **Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
 3. Enter these values for the virtual machine:
 
@@ -129,7 +129,7 @@ Use the information in the following table to configure another virtual machine 
 
 Deploy the firewall into the VNet.
 
-1. From the portal home page, select **Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Type **firewall** in the search box and press **Enter**.
 3. Select **Firewall** and then select **Create**.
 4. On the **Create a Firewall** page, use the following table to configure the firewall:
@@ -141,7 +141,7 @@ Deploy the firewall into the VNet.
    |Name     |**Test-FW01**|
    |Location     |Select the same location that you used previously|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Create new**. The Public IP address must be the Standard SKU type.|
+   |Public IP address     |**Add new**. The Public IP address must be the Standard SKU type.|
 
 5. Select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
@@ -154,7 +154,7 @@ Deploy the firewall into the VNet.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
-1. From the Azure portal home page, select **All services**.
+1. On the Azure portal menu, select **All services** or search for and select *All services* from any page.
 2. Under **Networking**, select **Route tables**.
 3. Select **Add**.
 4. For **Name**, type **Firewall-route**.
@@ -189,10 +189,11 @@ This is the application rule that allows outbound access to www.google.com.
 6. For **Priority**, type **200**.
 7. For **Action**, select **Allow**.
 8. Under **Rules**, **Target FQDNs**, for **Name**, type **Allow-Google**.
-9. For **Source Addresses**, type **10.0.2.0/24**.
-10. For **Protocol:port**, type **http, https**.
-11. For **Target FQDNS**, type **www.google.com**
-12. Select **Add**.
+9. For **Source type**, select **IP address**.
+10. For **Source**, type **10.0.2.0/24**.
+11. For **Protocol:port**, type **http, https**.
+12. For **Target FQDNS**, type **www.google.com**
+13. Select **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
@@ -205,19 +206,21 @@ This is the network rule that allows outbound access to two IP addresses at port
 3. For **Name**, type **Net-Coll01**.
 4. For **Priority**, type **200**.
 5. For **Action**, select **Allow**.
-
-6. Under **Rules**, for **Name**, type **Allow-DNS**.
+6. Under **Rules**, **IP addresses**, for **Name**, type **Allow-DNS**.
 7. For **Protocol**, select **UDP**.
-8. For **Source Addresses**, type **10.0.2.0/24**.
-9. For Destination address, type **209.244.0.3,209.244.0.4**
-10. For **Destination Ports**, type **53**.
-11. Select **Add**.
+9. For **Source type**, select **IP address**.
+1. For **Source**, type **10.0.2.0/24**.
+2. For **Destination address**, type **209.244.0.3,209.244.0.4**
+
+   These are public DNS servers operated by CenturyLink.
+1. For **Destination Ports**, type **53**.
+2. Select **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
 For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
-1. From the Azure portal, open the **Test-FW-RG** resource group.
+1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Select the **Test-FW-RG** resource group.
 2. Select the network interface for the **Srv-Work** virtual machine.
 3. Under **Settings**, select **DNS servers**.
 4. Under **DNS servers**, select **Custom**.
@@ -231,7 +234,6 @@ Now, test the firewall to confirm that it works as expected.
 
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
-
 3. Open Internet Explorer and browse to https://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 

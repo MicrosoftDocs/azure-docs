@@ -1,27 +1,31 @@
 ---
-title: Azure Table in commercial marketplace program| Azure Marketplace
-description: Configure lead management for Azure Blob
-services: Azure, Marketplace, commercial marketplace, Partner Center
+title: Lead management with Azure Blob storage  - Microsoft commercial marketplace
+description: Learn how to use Azure Blob to configure leads for Microsoft AppSource and Azure Marketplace
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
-ms.author: evansma
+ms.date: 05/01/2020
+ms.author: dsindona
 ---
 
-# Lead management instructions for Azure Blob
+# Use Azure Blob storage to manage commercial marketplace leads
 
 >[!Caution]
->The Azure Blob option to process leads from your marketplace offer has been deprecated. If you currently have an offer published with lead management configuration for Azure Blob, you are no longer receiving customer leads. Please update your lead management configuration to any of the other lead management options. Learn about the other options on the [lead management landing page](./commercial-marketplace-get-customer-leads.md).”
+>Commercial marketplace support for Azure Blob storage has been deprecated and is no longer an option to process leads from your offer. If you currently have a commercial marketplace offer with lead management configured for Azure Blob, you will no longer receive customer leads. Please update your lead management configuration to any of the other lead management options. Learn about the other options on the [lead management landing page](./commercial-marketplace-get-customer-leads.md)."
 
-If your Customer Relationship Management (CRM) system is not explicitly supported in Partner Center for receiving Azure Marketplace and AppSource leads, you can use an Azure Blob to handle these leads. You can then choose to export the data and import it into your CRM system. The instructions in this article will give you through the process of creating an Azure Storage account, and an Azure Blob under that account. In addition, you can create a new flow using Microsoft Flow to send an email notification when your offer receives a lead.
+ If your Customer Relationship Management (CRM) system is not explicitly supported in Partner Center for receiving Microsoft AppSource and Azure Marketplace leads, you can use Azure Blob storage. You can then choose to export the data and import it into your CRM system. The instructions in this article will give you through the process of creating an Azure Storage account, and a blob under that account. In addition, you can create a new flow using Power Automate to send an email notification when your offer receives a lead.
 
+>[!NOTE]
+>The Power Automate connector used in these instructions requires a paid subscription to Power Automate. Make sure you account for this before you follow the instructions in this article.
 
-## How to configure Azure Blob
+## Configure Azure Blob storage
 
 1. If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
-1. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
-1. In the Azure portal, create a storage account using the following procedure.  
+
+2. After your Azure account is active, sign in to the [Azure portal](https://portal.azure.com).
+
+3. In the Azure portal, create a storage account using the following procedure.  
     1. Select **+Create a resource** in the left menu bar.  The **New** pane (blade) will be displayed to the right.
     2. Select **Storage** in the **New** pane.  A **Featured** list is displayed to the right.
     3. Select the **Storage Account** to begin account creation.  Follow the instructions in the article [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
@@ -60,14 +64,14 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
 
     ![New Container](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## Configure your offer to send leads to the Azure Blob
+## Configure your offer to send leads to Azure Blob storage
 
 When you are ready to configure the lead management information for your offer in the publishing portal, follow the below steps:
 
 1. Navigate to the **Offer setup** page for your offer.
-2. Select **Connect** under the Lead Management section.
+2. Under the **Customer leads** section, select **Connect**.
 
-    ![Connect Offer](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Customer leads":::
 
 3. On the Connection details pop-up window, select **Azure Blob** for the Lead Destination.
 

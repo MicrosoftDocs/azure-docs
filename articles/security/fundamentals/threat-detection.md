@@ -7,7 +7,7 @@ author: UnifyCloud
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
@@ -132,7 +132,7 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 ## Azure Security Center
 
-Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](../../azure-resource-manager/manage-resources-portal.md) for greater granularity.
+Azure Security Center helps protect your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. Within the service, you can define polices against both your Azure subscriptions and [resource groups](../../azure-resource-manager/management/manage-resources-portal.md) for greater granularity.
 
 ![Azure Security Center diagram](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -265,7 +265,7 @@ SQL Database threat detectors use one of the following detection methodologies:
 
 ### Application Gateway Web Application Firewall
 
-[Web Application Firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Web Application Firewall (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) is a feature of [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) that provides protection to web applications that use an application gateway for standard [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers) functions. Web Application Firewall does this by protecting them against most of the [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/).
 
 ![Application Gateway Web Application Firewall diagram](./media/threat-detection/azure-threat-detection-fig13.png)
 

@@ -1,19 +1,10 @@
 ---
-title: Operating system functionality in App Service - Azure
-description: Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: Operating system functionality
+description: Learn about the OS functionality in Azure App Service on Windows. Find out what types of file, network, and registry access your app gets. 
 
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
 
 ---

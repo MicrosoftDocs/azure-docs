@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Mount operating system disk | Microsoft Docs
+title: Azure CLI Script Sample - Mount operating system disk 
 description: Azure CLI Script Sample - Mount operating system disk
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:

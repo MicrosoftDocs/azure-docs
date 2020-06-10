@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Create two VMs with an internal and external NSG | Microsoft Docs
-description: Azure CLI Script Sample - Create two VMs with internal and external NSG
+title: "CLI Sample: Create two VMs with an internal and external NSG"
+description: Create two VMs with internal and external NSG to secure network traffic using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Secure network traffic between virtual machines
+# Secure network traffic between virtual machines using an NSG
 
 This script creates two virtual machines and secures incoming traffic to both. One virtual machine is accessible on the internet and has a network security group (NSG) configured to allow traffic on port 22 and port 80. The second virtual machine is not accessible on the internet, and has an NSG configured to only allow traffic from the first virtual machine.
 

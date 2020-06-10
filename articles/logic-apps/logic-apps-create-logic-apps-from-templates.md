@@ -1,14 +1,12 @@
 ---
-title: Create workflows from templates - Azure Logic Apps | Microsoft Docs
-description: Build workflows faster by using logic app templates in Azure Logic Apps
+title: Create logic app workflows faster by using prebuilt templates
+description: Quickly build logic app workflows by using prebuilt templates provided by Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
 ---
 
@@ -51,9 +49,9 @@ If you don't have an Azure subscription,
    | ------- | ----- | ----------- | 
    | **Name** | *your-logic-app-name* | Provide a unique logic app name. | 
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
-   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
+   | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/management/overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
-   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
+   | **Log Analytics** | **Off** (default) or **On** | Set up [diagnostic logging](../logic-apps/monitor-logic-apps-log-analytics.md) for your logic app by using [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
    |||| 
 
 4. When you're ready, select **Pin to dashboard**. 
@@ -195,7 +193,7 @@ On the designer toolbar, choose **Save**.
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps

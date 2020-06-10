@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: has-adal-ref
 ---
 
 # Security Frame: Session Management
@@ -218,7 +218,7 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
 | **References**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
+| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether Transport Layer Security (TLS), previously known as SSL (Secure Sockets Layer), is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.
@@ -434,7 +434,7 @@ void Page_Init (object sender, EventArgs e) {
 ### Example
 Also the ADFS issued SAML claim token's lifetime should be set to 15 minutes, by executing the following powershell command on the ADFS server:
 ```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implement proper logout from the application

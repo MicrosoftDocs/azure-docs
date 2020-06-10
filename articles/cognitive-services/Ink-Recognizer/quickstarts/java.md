@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Use the Ink Recognizer API to start recognizing digital ink strokes.
+description: Use the Ink Recognizer API to start recognizing digital ink strokes in this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 09/23/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 
@@ -34,36 +34,19 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 - The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+### Create an Ink Recognizer resource
+
+[!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
 ## Create a new application
 
 1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
-
-    ```java
-    import org.apache.http.HttpEntity;
-    import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPost;
-    import org.apache.http.entity.StringEntity;
-    import org.apache.http.impl.client.CloseableHttpClient;
-    import org.apache.http.impl.client.HttpClients;
-    import org.apache.http.util.EntityUtils;
-    import java.io.IOException;
-    import java.nio.file.Files;
-    import java.nio.file.Paths;
-    ```
-
-2. Create variables for your subscription key and your endpoint. Replace the endpoint below with the one generated for your Ink Recognizer resource. Append it to the Ink recognizer URI to connect to the API.
-
-    ```java
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static final String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-    // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
-    static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-    static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
-    ```
+    [!code-java[import statements](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=imports)]
+
+2. Create variables for your subscription key, endpoint and JSON file. The endpoint will later be appended to the Ink recognizer URI.
+
+    [!code-java[initial vars](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=vars)]
 
 ## Create a function to send requests
 
@@ -79,41 +62,13 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
     
-    ```java
-    static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpPut request = new HttpPut(endpoint + apiAddress);
-            // Request headers.
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request.setEntity(new StringEntity(requestData));
-            try (CloseableHttpResponse response = client.execute(request)) {
-                HttpEntity respEntity = response.getEntity();
-                if (respEntity != null) {
-                    return EntityUtils.toString(respEntity, "utf-8");
-                }
-            } catch (Exception respEx) {
-                respEx.printStackTrace();
-            }
-        } catch (IOException ex) {
-            System.err.println("Exception recognizing ink: " + ex.getMessage());
-            ex.printStackTrace();
-        }
-        return null;
-    }
-    ```
+    [!code-java[send a request](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
 
 ## Send an ink recognition request
 
 Create a method called `recognizeInk()` to recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
-```java
-static void recognizeInk(String requestData) {
-    System.out.println("Sending an ink recognition request");
-    String result = sendRequest(inkRecognitionUrl, endpoint, subscriptionKey, requestData);
-    System.out.println(result);
-}
-```
+[!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 
 ## Load your digital ink data and send the request
 
@@ -121,12 +76,8 @@ static void recognizeInk(String requestData) {
 
 2. Call the ink recognition function created above.
     
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        recognizeInk(requestData);
-    }
-    ```
+    [!code-java[main method](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
+
 
 ## Run the application and view the response
 

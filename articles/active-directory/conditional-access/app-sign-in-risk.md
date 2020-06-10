@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Block access when a session risk is detected with Azure Active Directory Conditional Access | Microsoft Docs
+title: Use risk detections with Azure Active Directory Conditional Access
 description: In this quickstart, you learn how you can configure an Azure Active Directory (Azure AD) Conditional Access policy to block sign-ins based on session risks.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart 
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Quickstart: Block access when a session risk is detected with Azure Active Directory Conditional Access  
 
-To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a Conditional Access policy to respond to specific sign-in risk levels.
+To keep your environment protected, you might want to block suspicious users from sign-in. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyzes each sign-in and calculates the likelihood that a sign-in attempt was not performed by the legitimate owner of a user account. The likelihood (low, medium, high) is indicated in form of a calculated value called [sign-in risk levels](concept-conditional-access-conditions.md#sign-in-risk). By setting the sign-in risk condition, you can configure a Conditional Access policy to respond to specific sign-in risk levels.
 
 This quickstart shows how to configure a [Conditional Access policy](../active-directory-conditional-access-azure-portal.md) that blocks a sign-in when a configured sign-in risk level has been detected.
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete the scenario in this tutorial, you need:
 
 - **Access to an Azure AD Premium P2 edition** - While Conditional Access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection.
-- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/enable.md).
+- **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 - **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as sign-ins from anonymous IP addresses, which have a medium risk level. For more information, see [Azure Active Directory risk detections](../reports-monitoring/concept-risk-events.md).  
 - **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 

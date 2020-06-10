@@ -1,33 +1,17 @@
 ---
-title: Run tasks under user accounts - Azure Batch | Microsoft Docs
-description: Configure user accounts for running tasks in Azure Batch
-services: batch
-author: laurenhughes
-manager: gwallace
-editor: ''
-tags: 
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm:
-ms.workload: big-compute
-ms.date: 05/22/2017
-ms.author: lahugh
+title: Run tasks under user accounts
+description: Learn the types of user accounts and how to configure them.
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.custom: seodec18
-
 ---
+# Run tasks under user accounts in Batch
 
 > [!NOTE] 
 > The user accounts discussed in this article are different from users accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons. 
 >
 > To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
->
->
-
-
-# Run tasks under user accounts in Batch
 
 A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. These default user account settings are typically sufficient. For certain scenarios, however, it's useful to be able to configure the user account under which you want a task to run. This article discusses the types of user accounts and how you can configure them for your scenario.
 
@@ -50,7 +34,7 @@ Both an auto-user account and a named user account have read/write access to the
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the respective directory.
 
-For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#files-and-directories).
+For more information on accessing files and directories from a task, see [Files and directories](files-and-directories.md).
 
 ## Elevated access for tasks 
 
@@ -277,7 +261,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -326,10 +310,11 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 | If your code uses...                      | Update it to....                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user`, where <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated` not specified | No update required                                                                                                                                  |
 
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about [files and directories](files-and-directories.md) in Azure Batch.

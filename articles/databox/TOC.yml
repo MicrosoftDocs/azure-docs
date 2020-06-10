@@ -56,6 +56,10 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Use self-managed shipping
+        href: data-box-portal-customer-managed-shipping.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md 
       - name: Move data to a blob tier
         href: data-box-how-to-set-data-tier.md
       - name: Cable the device
@@ -70,6 +74,8 @@
           href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
+        - name: To Azure backup
+          href: ../backup/offline-backup-azure-data-box.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
       - name: Troubleshoot
         items:
         - name: Data Box issues
@@ -114,6 +120,8 @@
       items:
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
+      - name: Use self-managed shipping
+        href: data-box-disk-portal-customer-managed-shipping.md     
       - name: Troubleshoot
         items:
         - name: Unlock issues
@@ -173,6 +181,8 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Enable customer managed key
+        href: data-box-customer-managed-encryption-key-portal.md
       - name: Troubleshoot device issues
         href: data-box-troubleshoot.md 
       - name: Move data to a blob tier
@@ -187,14 +197,18 @@
           href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+  - name: Reference
+    items:
+    - name: Azure CLI
+      href: /cli/azure/ext/databox/databox
   - name: Resources
     items:
     - name: Data Box product
       href: https://azure.microsoft.com/services/storage/databox/data/
     - name: Data Box pricing
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
+      href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
+      href: https://azure.microsoft.com/pricing/details/databox/disk/
 
 
 

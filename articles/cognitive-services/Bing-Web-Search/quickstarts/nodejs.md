@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Node.js.
@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 # Quickstart: Search the web using the Bing Web Search REST API and Node.js
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Node.js application sends a search request to the API, and shows the response. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -29,8 +29,7 @@ Here are a few things that you'll need before running this quickstart:
 
 ## Create a project and declare required modules
 
-Create a new Node.js project in your favorite IDE or editor.
-Then copy the code snippet below into your project in a file named `search.js`.
+Create a new Node.js project in your favorite IDE or editor. Then, copy the following code snippet to your project in a file named search.js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -40,9 +39,9 @@ const https = require('https')
 
 ## Set the subscription key
 
-This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, a good practice to prevent the accidental exposure of your keys when deploying code. Go to the [Your APIs page](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) to look up your subscription key.
+This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, which is a good practice to prevent the accidental exposure of your keys when deploying code. To look up your subscription key, see [Your APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
 
-If you're unfamiliar with using environment variables, or looking to run this app as fast as possible, then you can replace `process.env['AZURE_SUBSCRIPTION_KEY']` with your subscription key set as a string.
+If you're unfamiliar with the use of environment variables, or you want to run this app as fast as possible, replace `process.env['AZURE_SUBSCRIPTION_KEY']` with your subscription key set as a string.
 
 ```javascript
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
@@ -53,7 +52,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## Create a function to make the request
 
-This function will make a secure GET request, saving the search query as a query parameter in the path. `encodeURIComponent` is used to escape invalid characters, and the subscription key is passed in a header. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. When complete, the app will print the interesting headers and message body. You can play with the colors and set the depth to suit your preference, a depth of `1` gives a nice summary of the response.
+This function makes a secure GET request and saves the search query as a query parameter in the path. 
+
+1. For the `hostname` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.  
+
+2. Use `encodeURIComponent` to escape invalid characters. The subscription key is passed in a header. 
+
+3. The callback receives a [response](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) that subscribes to the `data` event to aggregate the JSON body, the `error` event to log any issues, and the `end` event to know when the message should be considered complete. 
+
+4. When the app is complete, it prints the relevant headers and message body. You can adjust the colors and set the depth to suit your preference. A depth of `1` gives a nice summary of the response.
 
 ```javascript
 function bingWebSearch(query) {
@@ -83,7 +90,7 @@ function bingWebSearch(query) {
 
 ## Get the query
 
-Let's look at the program's arguments to find the query. The first argument is the path to node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Cognitive Services" is used.
+Let's look at the program's arguments to find the query. The first argument is the path to the node, the second is our filename, and the third is your query. If the query is absent, a default query of "Microsoft Cognitive Services" is used.
 
 ```javascript
 const query = process.argv[2] || 'Microsoft Cognitive Services'
@@ -91,7 +98,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 
 ## Make a request and print the response
 
-And now that everything is defined, let's call our function!
+Now that everything is defined, let's call our function.
 
 ```javascript
 bingWebSearch(query)
@@ -99,7 +106,7 @@ bingWebSearch(query)
 
 ## Put it all together
 
-The last step is to run your code: `node search.js "<your query>"`.
+The last step is to run your code with the command: `node search.js "<your query>"`.
 
 If you'd like to compare your code with ours, here's the complete program:
 
@@ -136,7 +143,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 bingWebSearch(query)
 ```
 
-## Sample response
+## Example JSON response
 
 Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -158,9 +165,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
@@ -265,6 +272,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

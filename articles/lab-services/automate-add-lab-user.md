@@ -1,6 +1,6 @@
 ---
 title: Automate adding a lab user in Azure DevTest Labs | Microsoft Docs
-description: Learn how to automate adding a lab user to a lab in Azure DevTest Labs. 
+description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/23/2020
 ms.author: spelluru
 
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs
-Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. However, if you have several teams and several DevTest Labs instances, automating the creation process can save time. [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) allow you to create labs, lab VMs, custom images, formulas, and add users in an automated fashion. This article specifically focuses on adding users to a DevTest Labs instance.
+Azure DevTest Labs allows you to quickly create self-service dev-test environments by using the Azure portal. However, if you have several teams and several DevTest Labs instances, automating the creation process can save time. [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/Environments) allow you to create labs, lab VMs, custom images, formulas, and add users in an automated fashion. This article specifically focuses on adding users to a DevTest Labs instance.
 
 To add a user to a lab, you add the user to the **DevTest Labs User** role for the lab. This article shows you how to automate adding a user to a lab using one of the following ways:
 
@@ -82,7 +82,7 @@ The following sample Resource Manager template specifies a user to be added to t
 
 ```
 
-If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/resource-group-define-dependencies.md) article.
+If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/templates/define-resource-dependency.md) article.
 
 ### Role Assignment Resource Information
 The role assignment resource needs to specify the type and name.
