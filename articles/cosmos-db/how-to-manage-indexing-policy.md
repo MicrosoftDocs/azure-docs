@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
+ms.custom: tracking-python
 ---
 
 # Manage indexing policies in Azure Cosmos DB

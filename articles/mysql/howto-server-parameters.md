@@ -24,42 +24,6 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 ![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
 
-## List of configurable server parameters
-
-The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements.
-
-## Non-configurable server parameters
-
-The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
-
-|**Pricing Tier**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
-|:---|---:|---:|---:|
-|Basic| 1| 832| |
-|Basic| 2| 2560| |
-|General Purpose| 2| 3584| 7168|
-|General Purpose| 4| 7680| 15360|
-|General Purpose| 8| 15360| 30720|
-|General Purpose| 16| 31232| 62464|
-|General Purpose| 32| 62976| 125952|
-|General Purpose| 64| 125952| 251904|
-|Memory Optimized| 2| 7168| 14336|
-|Memory Optimized| 4| 15360| 30720|
-|Memory Optimized| 8| 30720| 61440|
-|Memory Optimized| 16| 62464| 124928|
-|Memory Optimized| 32| 125952| 251904|
-
-These additional server parameters are not configurable in the system:
-
-|**Parameter**|**Fixed value**|
-| :------------------------ | :-------- |
-|innodb_file_per_table in Basic tier|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256MB|
-|innodb_log_files_in_group|2|
-
-Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
-
 ## Working with the time zone parameter
 
 ### Populating the time zone tables
