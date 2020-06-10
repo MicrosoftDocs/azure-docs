@@ -57,16 +57,16 @@ Create or add diagnostic settings for your data factory.
     * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables.
     * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
 
+   ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
     > [!NOTE]
     > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
-
-   ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
 1. Select **Save**.
 
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
-### Install Azure Data Factory Analytics solution from Azure Marketplace
+## Install Azure Data Factory Analytics solution from Azure Marketplace
 
 This solution provides you a summary of overall health of your Data Factory, with options to drill into details and to troubleshoot unexpected behavior patterns. With rich, out of the box views you can get insights into key processing including:
 
@@ -78,7 +78,9 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
    ![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
-1. Details about **Azure Data Factory Analytics (Preview)**![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
+1. Details about **Azure Data Factory Analytics (Preview)**
+
+   ![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
 
 1. Select **Create** and then create or select the **Log Analytics Workspace**.
 
