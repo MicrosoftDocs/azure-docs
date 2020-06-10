@@ -28,9 +28,9 @@ This how-to will cover:
 ### Prerequisites
 
 1. Follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md).
-    1. We'll be extending this twin with an additional endpoint and route. We will also be adding another function to your function app from that tutorial. 
+    1. You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
 2. Follow the Azure Maps [Tutorial: Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
-    1. [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that we will be displaying on a map.
+    1. [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
     1. You will need your feature *stateset ID* and Azure Maps *subscription ID*.
 
 ### Topology
@@ -41,13 +41,13 @@ The image below illustrates where the indoor maps integration elements in this t
 
 ## Create a function to update a map using twin update notifications
 
-We'll be first creating a route in Azure Digital Twins to forward all twin update events to an Event Grid topic. Then, we'll be using an Azure function to read those update messages and update a feature stateset in Azure Maps. 
+First, you'll create a route in Azure Digital Twins to forward all twin update events to an Event Grid topic. Then, you'll use an Azure function to read those update messages and update a feature stateset in Azure Maps. 
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. We'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
 
-This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, we can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
+This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
 
 1. Create an Event Grid topic, which will receive events from our Azure Digital Twins instance.
 ```azurecli
@@ -67,7 +67,7 @@ az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <
 
 ## Create an Azure function to update maps
 
-We're going to create an Event Grid-triggered function inside our function app from the [end-to-end tutorial.](./tutorial-end-to-end.md) This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an Event Grid-triggered function inside our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
 See the following document for reference info: [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)
 
