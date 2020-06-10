@@ -10,7 +10,13 @@ ms.custom: mvc
 
 This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
-This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure. In this tutorial, you learn how to:
+This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure. 
+
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. 
+
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare VMs for migration.
@@ -161,20 +167,15 @@ If this is the first VM you're replicating in the project, Server Migration auto
 
 ## Track and monitor
 
+1. Track job status in the portal notifications.
+2. Monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
 
-1. Click **Replicate** to kick off a Start Replication job. 
-2. Track job status in the portal notifications. You can also 
+     ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
 Replication occurs as follows:
 - When the Start Replication job finishes successfully, the machines begin their initial replication to Azure.
 - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure.
 - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure.
-
-You can monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
-![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
-
-
-
 
 ## Run a test migration
 
