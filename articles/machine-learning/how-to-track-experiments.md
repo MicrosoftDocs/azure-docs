@@ -204,9 +204,11 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history from the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. In this case, we logged MSE and the alpha values.
+Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. 
 
-  ![Run details in the Azure Machine Learning studio](./media/how-to-track-experiments/experiment-dashboard.png)
+You can edit the run list table to display either the last, minimum or maximum logged value for your runs. You can select or deselect multiple runs in the run list and the selected runs will populate the charts with your data. You can also add new charts or edit charts to compare the logged metrics (minimum, maximum, last or all values) across multiple runs. To explore your data more effectively, you can also maximize your charts.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 

@@ -41,7 +41,7 @@ The Subnet where you plug the Private Endpoint can have other resources in it, y
 You can also deploy the Private Endpoint in a different region than the Web App. 
 
 > [!Note]
->The VNet integration feature cannot use the same subnet than Private Endpoint, this is a limitation of the VNet integration feature.
+>The VNet integration feature cannot use the same subnet as Private Endpoint, this is a limitation of the VNet integration feature.
 
 From a security perspective:
 
