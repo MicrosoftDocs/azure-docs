@@ -16,13 +16,56 @@ ms.subservice: B2C
 
 # Tutorial for integrating Trusona and Azure Active Directory B2C
 
-In this tutorial, you will learn how to add Trusona as an Identity Provider on Azure AD B2C to enable passwordless authentication.
+Trusona is an ISV provider. It allows you to log in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning. In this tutorial, you'll learn how to add Trusona as an Identity Provider on Azure AD B2C to enable passwordless authentication.
+
+## Prerequisites
+
+To get started, you need the following items:
+
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A [trial account](https://www.twilio.com/try-twilio) at Twilio
+
+## Scenario description
+
+There are multiple components, which create the solution. 
+
+- Azure AD B2C combined sign in and sign up policy 
+
+- Adding Trusona as an identity provider.  
+
+- Trusona App downloaded 
+
+    ![Trusona architecture diagram](media/partner-trusona/trusona-architecture-diagram.png)
+
+1. User requests to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign up and sign in policy. At sign up the user's previously verified email address from the Trusona App is used.
+
+2. Azure B2C redirects the user to the Trusona OIDC ID provider using the implicit flow. 
+
+3. For Desktop PC based logins, Trusona displays a unique, stateless, animated, and dynamic QR code for scanning with the Trusona app. For mobile based logins, Trusona uses a "deep link" to open the Trusona app. These two methods are used for device and ultimately user discovery, to answer the question "who is knocking on the door?" 
+
+4. The user scans the displayed QR code with the Trusona app.
+
+5. The user's account is found in the Trusona cloud service and the authentication is prepared. 
+
+6. The Trusona cloud service issues an authentication challenge to the user via a push notification sent to the Trusona app. 
+
+   a. The user is prompted with the authentication challenge.
+
+   b. The user chooses to accept or reject the challenge.
+
+   c. The user is asked to use OS security (for example, biometric, passcode, PIN, or pattern) to confirm and sign the challenge with a private key in the Secure Enclave/Trusted Execution environment.
+
+   d. The Trusona app generates a dynamic anti-replay payload based on the parameters of the authentication, in real-time.
+
+   e. The entire response is signed (for a second time) by a private key in the Secure Enclave/Trusted Execution environment and returned to the Trusona cloud service for verification.
+
+7. The Trusona cloud service redirects the user back to the initiating application with an id_token. Azure AD B2C verifies the id_token using Trusona's published OpenID configuration as configured during identity provider setup.
 
 ## Onboarding with Trusona
 
 1. Fill-out the [form](https://www.trusona.com/aadb2c) to create a Trusona account and get started. 
 
-2. Download the Trusona mobile app from the App store. Install the app and register your email.
+2. Download the Trusona mobile app from the app store. Install the app and register your email.
 
 3. Verify your email through the secure magic link sent by the software.  
 
@@ -52,7 +95,7 @@ In this tutorial, you will learn how to add Trusona as an Identity Provider on A
 
 2. In the search bar, enter **Azure Active Directory B2C**.  
 
-3. Select **Create a new Azure AD B2C Tenant** from the dropdown.  
+3. Select **Create a new Azure Active Directory B2C Tenant** from the dropdown.  
 
 4. Enter **Organization name** and **Initial Domain Name**.
 
@@ -63,7 +106,7 @@ In this tutorial, you will learn how to add Trusona as an Identity Provider on A
 
 ### Adding a new Identity provider
 
-1. Navigate to **Dashboard** > **Azure AD B2C** > **Identity providers**
+1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**
 
 2. Select **Identity providers**
 
@@ -135,8 +178,6 @@ In this tutorial, you will learn how to add Trusona as an Identity Provider on A
 
 ## Additional resources  
 
-1. Refer to GitHub for code samples
+- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
-2. [Custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
-
-3. [Get started with custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
