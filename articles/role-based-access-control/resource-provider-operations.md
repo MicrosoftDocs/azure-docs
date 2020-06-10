@@ -12,7 +12,7 @@ ms.date: 05/04/2020
 
 # Azure resource providers operations
 
-This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](../custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Click the resource provider name in the following table to see the list of operations.
 
@@ -7097,7 +7097,7 @@ Azure service: [Azure Advisor](../advisor/index.yml)
 
 ### Microsoft.Authorization
 
-Azure service: [Azure Policy](../governance/policy/overview.md), [Azure RBAC](../overview.md), [Azure Resource Manager](../azure-resource-manager/index.yml)
+Azure service: [Azure Policy](../governance/policy/overview.md), [Azure RBAC](overview.md), [Azure Resource Manager](../azure-resource-manager/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -8006,6 +8006,6 @@ Azure service: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 
 ## Next steps
 
-- [Match resource provider to service](../../azure-resource-manager/management/azure-services-resource-providers.md)
-- [Azure built-in roles](../built-in-roles.md)
+- [Match resource provider to service](../azure-resource-manager/management/azure-services-resource-providers.md)
+- [Azure built-in roles](built-in-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
