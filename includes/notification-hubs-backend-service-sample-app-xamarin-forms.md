@@ -406,7 +406,7 @@
     ```
 
     > [!NOTE]
-    > The **Begin** method will be called by each platform when the app launches passing in a platform-specific implementation of **IDeviceInstallationService****.
+    > The **Begin** method will be called by each platform when the app launches passing in a platform-specific implementation of **IDeviceInstallationService**.
     >
     > The **NotificationRegistrationService** **apiKey** constructor argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
