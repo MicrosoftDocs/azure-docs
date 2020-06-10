@@ -74,7 +74,6 @@ The system property names vary based on the endpoint to which the messages are b
 |System property name|Event Hubs|Azure Storage|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |Message ID|message-id|messageId|MessageId|message-id|
-|Iot hub enqueued time|iothub-enqueuedtime|enqueuedTime|iothub-enqueuedtime|iothub-enqueuedtime|
 |User id|user-id|userId|UserId|user-id|
 |Connection device id|iothub-connection-device-id| connectionDeviceId|iothub-connection-device-id|iothub-connection-device-id|
 |Connection module id|iothub-connection-module-id|connectionModuleId|iothub-connection-module-id|iothub-connection-module-id|

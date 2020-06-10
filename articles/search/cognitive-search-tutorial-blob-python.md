@@ -10,6 +10,7 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
+ms.custom: tracking-python
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
