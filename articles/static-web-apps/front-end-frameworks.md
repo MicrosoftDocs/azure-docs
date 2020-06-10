@@ -19,11 +19,11 @@ The intent of the table columns is explained by the following items:
 
 - **App artifact location**: Lists the value for `app_artifact_location`, which is the [folder for built versions of application files](github-actions-workflow.md#build-and-deploy).
 
-- **Custom build command**: By default, the build process runs `npm run build` or `npm run azure:build`. When the default command doesn't work with a given framework, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
+- **Custom build command**: When the framework requires  a command different from `npm run build` or `npm run azure:build`, you can define a [custom build command](github-actions-workflow.md#custom-build-commands).
 
 | Framework | App artifact location | Custom build command |
 |--|--|--|
-| [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a |
+| [Alpine.js](https://github.com/alpinejs/alpine/) | `/` | n/a<sup>2</sup> |
 | [Angular](https://angular.io/) | `dist/<APP_NAME>` | `npm run build -- --prod` |
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
@@ -50,6 +50,7 @@ The intent of the table columns is explained by the following items:
 | [Vue](http://vuejs.com/) | `dist` | n/a |
 
 <sup>1</sup> The above table is not meant to be an exhaustive list of frameworks and libraries that work with Azure Static Web Apps.
+<sub>2</sup>Not applicable
 
 ## Next steps
 
