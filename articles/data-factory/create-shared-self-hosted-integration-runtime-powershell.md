@@ -11,7 +11,7 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -32,11 +32,11 @@ To create a shared self-hosted IR using Azure Data Factory UI, you can take foll
          
 3. In the data factory to which the permissions were granted, create a new self-hosted IR (linked) and enter the resource ID.
       
-    ![Button for creating a self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedIR_1.png)
+    ![Button for creating a self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
    
-    ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedIR_2.png) 
+    ![Button for creating a linked self-hosted integration runtime](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
 
-    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/create-linkedIR_3.png)
+    ![Boxes for name and resource ID](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## Create a shared self-hosted IR using Azure PowerShell
 
