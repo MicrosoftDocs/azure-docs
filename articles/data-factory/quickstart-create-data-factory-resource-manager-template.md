@@ -11,7 +11,7 @@ manager: anandsub
 ms.reviewer: maghan
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/05/2020
+ms.date: 06/10/2020
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure Resource Manager template
@@ -271,13 +271,20 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
 }
 ```
 
+There are Azure resources defined in the template:
+
+* Microsoft.DataFactory/factories: Create an Azure Data Factory.
+* Microsoft.DataFactory/factories/linkedServices: Create an Azure Data Factory linked service.
+* Microsoft.DataFactory/factories/datasets: Create an Azure Data Factory dataset.
+* Microsoft.DataFactory/factories/pipelines: Create an Azure Data Factory pipeline.
+container.
+
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
 
-> [!IMPORTANT]
-> - Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage.
-> - Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017.
-> - For the **triggerStartTime**, specify the current day in the format: `2019-09-08T00:00:00`.
-> - For the **triggerEndTime**, specify the next day in the format: `2019-09-09T00:00:00`. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify `2019-09-09:03:00:00` as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
+- Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage.
+- Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017.
+- For the **triggerStartTime**, specify the current day in the format: `2019-09-08T00:00:00`.
+- For the **triggerEndTime**, specify the next day in the format: `2019-09-09T00:00:00`. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify `2019-09-09:03:00:00` as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
 
 ```json
 {  
@@ -308,6 +315,8 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 > [!IMPORTANT]
 > You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
+
+More Azure Cosmos DB template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
 ### Deploy Data Factory entities
 
@@ -382,8 +391,9 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
     RuntimeState      : Stopped
     ```
-    
+
     Notice that the runtime state of the trigger is **Stopped**.
+
 5. **Start the trigger**. The trigger runs the pipeline defined in the template at the hour. That's, if you executed this command at 2:25 PM, the trigger runs the pipeline at 3 PM for the first time. Then, it runs the pipeline hourly until the end time you specified for the trigger.
 
     ```powershell
@@ -442,8 +452,6 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     ```powershell
     Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
-
-[!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
 
 ### <a name="data-factory-entities-in-the-template"></a> JSON definitions for entities
 
@@ -666,6 +674,20 @@ You define a trigger that runs the pipeline once an hour. The deployed trigger i
 }
 ```
 
+## Review deployed resources
+
+The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+
+1. In the Azure portal, on the **adftutorial** container page, select **Refresh** to see the output folder. 
+    
+    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+
+2. Select **output** in the folder list. 
+
+3. Confirm that the **emp.txt** is copied to the output folder. 
+
+    ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+
 ## Reuse the template
 
 In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
@@ -686,24 +708,21 @@ You can also reuse the template to perform repeated tasks. For example, create m
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent and tutorials, you may wish to leave these resources in place.
-When no longer needed, delete the resource group, which deletes the Azure Cosmos account and the related resources. To delete the resource group by using Azure CLI or Azure Powershell:
+You can clean up the resources that you created in the Quickstart in two ways. You can delete the [Azure resource group](../articles/azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the data factory you created in this tutorial.
 
-# [CLI](#tab/CLI)
+Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
 
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+```powershell
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-# [PowerShell](#tab/PowerShell)
+> [!Note]
+> Dropping a resource group may take some time. Please be patient with the process
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
+If you want to delete just the data factory, not the entire resource group, run the following command: 
+
+```powershell
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Next steps
