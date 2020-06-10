@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ---
 
-# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Spark pools (preview)
+# Tutorial: Create an Apache Spark applications with IntelliJ using a Synapse workspace
 
 This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Spark pool (preview) directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
