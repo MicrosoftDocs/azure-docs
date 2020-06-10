@@ -1001,14 +1001,12 @@
           href: performance-tips-java-sdk-v4-sql.md  
         - name: Troubleshoot Java SDK v4
           href: troubleshoot-java-sdk-v4-sql.md  
-        - name: Older Java SDKs
-          items:
-          - name: Async Java SDK v2
-            href: performance-tips-async-java.md          
-          - name: Sync Java SDK v2
-            href: performance-tips-java.md
-          - name: Async Java SDK v2
-            href: troubleshoot-java-async-sdk.md
+        - name: Async Java SDK v2
+          href: performance-tips-async-java.md          
+        - name: Sync Java SDK v2
+          href: performance-tips-java.md
+        - name: Async Java SDK v2
+          href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md
       - name: Cost-effective reads and writes
@@ -1195,30 +1193,30 @@
         href: how-to-migrate-from-bulk-executor-library.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-  - name: Reference
+  - name: References for SQL API SDKs
     items:
-    - name: .NET Standard SDK v3
-      href: sql-api-sdk-dotnet-standard.md
-    - name: Java bulk executor library
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Java SDK v4 for Core
-      href: sql-api-sdk-java-v4.md
-    - name: Older .NET SDKs
+    - name: .NET SDKs
       items:
+      - name: .NET SDK v3
+        href: sql-api-sdk-dotnet-standard.md
       - name: .NET SDK v2
         href: sql-api-sdk-dotnet.md
       - name: .NET Core SDK v2
         href: sql-api-sdk-dotnet-core.md
-      - name: .NET change feed library
+      - name: .NET change feed library v2
         href: sql-api-sdk-dotnet-changefeed.md
-      - name: .NET bulk executor library
+      - name: .NET bulk executor library v2
         href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Older Java SDKs for Core
+    - name: Java SDKs
       items:
+      - name: Java SDK v4
+        href: sql-api-sdk-java-v4.md
       - name: Async Java SDK v2
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
-        href: sql-api-sdk-java.md        
+        href: sql-api-sdk-java.md  
+      - name: Java bulk executor library v2
+        href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
