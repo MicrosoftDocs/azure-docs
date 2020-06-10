@@ -4,7 +4,6 @@ description: This tutorial shows how to create a Windows virtual machine with SQ
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 
