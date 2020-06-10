@@ -57,7 +57,7 @@ This document will cover:
 
 3. (Optional) Administrator configures the Azure Key Vault Firewall.
 
-![IMAGE](../media/authentication-1.jpg)
+![IMAGE](../media/authentication-1.png)
 
 ## Understand the Key Vault authentication flow
 
@@ -78,7 +78,7 @@ This document will cover:
 6. Key Vault checks if the service principal has sufficient access policy permissions to perform the requested operation, in this example, the operation is get secret.
 7. Key Vault provides the secret to the service principal.
 
-![IMAGE](../media/authentication-2.jpg)
+![IMAGE](../media/authentication-2.png)
 
 ## Grant a service principal access to Key Vault
 
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     main()
 ```
 
-![IMAGE](../media/authentication-3.jpg)
+![IMAGE](../media/authentication-3.png)
 
 
 ## Next Steps
