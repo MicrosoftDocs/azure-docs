@@ -87,7 +87,7 @@ SmsClient.send('message', {recipients: [bobPhoneIdentity]});
 callingClient.call([bobUserIdentity, bobPhoneIdentity]);
 ```
 
-## ACS Identity resolution
+## ACS Identity to real identity resolution
 ACS will not provide a way for customers to provide customer specific identities and will not store any type of data that would map an ACS Identity to a customer specific identity. Therefore, ACS will have no knowledge of how customer has assigned the ACS Identity.
 
 You as a customer have to maintain map of ACS identities to entities in your system, in a way that is suitable to satisfy requirements of the system you're building, for example by storing this mapping in a (non)persistent database.
