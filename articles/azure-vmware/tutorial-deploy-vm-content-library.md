@@ -1,11 +1,11 @@
 ---
-title: Create a Content Library to deploy a VM in Azure VMware Solution (AVS)
-description: In this Azure VMware Solution (AVS) tutorial, you create a Content Library to deploy a VM in a private cloud.
+title: Create a content library for deploying a VM in Azure VMware Solution (AVS)
+description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
 ms.topic: tutorial
 ms.date: 06/16/2020
 ---
 
-# Tutorial: Create a Content Library to deploy a VM in Azure VMware Solution (AVS)
+# Tutorial: Create a content library for deploying a VM in Azure VMware Solution (AVS)
 
 In this tutorial, you learn how to:
 
@@ -19,7 +19,7 @@ You learn how to:
 
 An NSX-T logical switch segment created in a [previous tutorial]() is required to complete this tutorial.
 
-## Create Content Library
+## Create a content library
 
 1. From the on-premises vSphere Client, select **Menu > Content Libraries**.
 
