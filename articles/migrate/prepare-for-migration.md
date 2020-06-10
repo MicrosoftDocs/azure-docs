@@ -121,7 +121,7 @@ For other versions, prepare machines as summarized in the table.
 **Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
-**Enable ssh** |	Ensure ssh is enabled and the sshd service is set to start automatically on reboot.
+**Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.
 Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
