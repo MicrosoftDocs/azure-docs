@@ -4,7 +4,6 @@ description: This topic describes how Azure configures storage for SQL Server VM
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
