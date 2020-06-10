@@ -30,22 +30,21 @@ Use these selected comparisons to help you decide which method to use. You can a
 **UEFI boot** | Not supported | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 
 
-## Deployment steps comparison
+## Compare deployment steps
 
 After reviewing the limitations, understanding the steps involved in deploying each solution might help you decide which option to choose.
 
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
-**Assessment** | Assess servers before migration.  Assessment is optional. We suggest that you assess machines before you migrate them, but you don't have to. <br/><br/> For assessment, Azure Migrate sets up a lightweight appliance to discover and assess VMs. | If you run an agentless migration after assessment, the same Azure Migrate appliance set up for assessment is used for agentless migration.  |  If you run an agent-based migration after assessment, the appliance set up for assessment isn't used during agent-based migration. You can leave the appliance in place, or remove it if you don't want to do further discovery and assessment.
-**Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
-**Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
-**Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
-**Install the Mobility service on VMs** | Install the Mobility service on each VM you want to replicate | Not required | Required
-**Deploy the Azure Migrate Server Migration replication appliance** | Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
+**Deploy the Azure Migrate appliance** | A lightweight appliance that runs on a VMware VM.<br/><br/> The appliance is used to discover and assess machines, and to migrate machines using agentless migration. | Required.<br/><br/> If you've already set up the appliance for assessment,  you can use the same appliance for agentless migration. | Not required.<br/><br/> If you've set up an appliance for assessment, you can leave it in place, or remove it if you're done with assessment.
+**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | You can assess machines before you migrate them, but you don't have to. | Assessment is optional | Assessment is optional.
+**Use the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
+**Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
+**Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required
+**Deploy the replication appliance** | The [replication appliance](migrate-replication-appliance) is used for agent-based migration. It connects between the Mobility service running on VMs, and Server Migration. | Not required | Required
 **Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
 **Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
 **Run a full migration** | Migrate the VMs. | Required | Required
-
 
 
 
