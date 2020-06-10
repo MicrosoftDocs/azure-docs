@@ -45,6 +45,8 @@ cd helloworld
 
 ## Configure the Maven plugin
 
+The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
+
 You can run the following maven command in the Command Prompt to configure the deployment, choose  **'2'** for the **windows** OS in the first step, then accept the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
 
 ```bash
