@@ -61,7 +61,7 @@ However, there are limitations to consider:
 ## Create a replica
 
 > [!IMPORTANT]
-> The read replica feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
+> The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
 
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 
