@@ -128,9 +128,6 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
 
-## Set up an Azure Migrate project
-
-If yo
 
 ## Add the Azure Migrate:Server Migration tool
 
@@ -236,6 +233,14 @@ Finish setting up and registering the replication appliance.
 
 After the replication appliance is registered, Azure Migrate Server Assessment connects to VMware servers using the specified settings, and discovers VMs. You can view discovered VMs in **Manage** > **Discovered items**, in the **Other** tab.
 
+## Prepare VMs for migration
+
+There are some changes needed on VMs before you migrate them to Azure.
+
+- For some operating systems, Azure Migrate makes these changes automatically. 
+- It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+
+Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ## Replicate VMs
 
