@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
@@ -53,7 +53,7 @@ This article shows how to set and manage immutability policies and legal holds f
 
     !["Tag name" box under the policy type](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. To clear a legal hold, simply remove the applied legal hold identifier tag.
+9. To clear a legal hold, remove the applied legal hold identifier tag.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -70,7 +70,7 @@ The Az.Storage module supports immutable storage.  To enable the feature, follow
 2. Remove any previous installation of Azure PowerShell.
 3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
+The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create, and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
 
 First, create an Azure Storage account:
 
@@ -88,7 +88,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -113,10 +113,10 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -Name $container -Tag <tag3>
 ```
 
-Create or update immutability policies:
+Create or update time-based immutability policies:
 
 ```powershell
-# Create an immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -159,6 +159,27 @@ $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $resourceGroup -StorageAccountName $storageAccount -ContainerName $container
 
 Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+```
+
+---
+
+## Enabling allow protected append blobs writes
+
+### [Portal](#tab/azure-portal)
+
+![Allow additional append writes](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+The feature is included in the following command groups:
+`az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
+
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+# Create an immutability policy with appends allowed
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```
 
 ---

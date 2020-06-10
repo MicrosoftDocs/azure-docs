@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Application Level Monitoring | Microsoft Docs
+title: Azure Service Fabric Application Level Monitoring 
 description: Learn about application and service level events and logs used to monitor and diagnose Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-
 ---
 
 # Application logging

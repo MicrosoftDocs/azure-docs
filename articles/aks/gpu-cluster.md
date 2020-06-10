@@ -2,13 +2,8 @@
 title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
-author: zr-msft
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: zarhoads
+ms.date: 03/27/2020
 
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
@@ -54,7 +49,7 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Install nVidia drivers
+## Install NVIDIA drivers
 
 Before the GPUs in the nodes can be used, you must deploy a DaemonSet for the NVIDIA device plugin. This DaemonSet runs a pod on each node to provide the required drivers for the GPUs.
 
@@ -67,12 +62,15 @@ kubectl create namespace gpu-resources
 Create a file named *nvidia-device-plugin-ds.yaml* and paste the following YAML manifest. This manifest is provided as part of the [NVIDIA device plugin for Kubernetes project][nvidia-github].
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nvidia-device-plugin-daemonset
   namespace: gpu-resources
 spec:
+  selector:
+    matchLabels:
+      name: nvidia-device-plugin-ds
   updateStrategy:
     type: RollingUpdate
   template:
@@ -109,7 +107,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Now use the [kubectl apply][kubectl-apply] command to create the DaemonSet and confirm the nVidia device plugin is created successfully, as shown in the following example output:
+Now use the [kubectl apply][kubectl-apply] command to create the DaemonSet and confirm the NVIDIA device plugin is created successfully, as shown in the following example output:
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -187,7 +185,7 @@ To see the GPU in action, schedule a GPU-enabled workload with the appropriate r
 Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest. The following job manifest includes a resource limit of `nvidia.com/gpu: 1`:
 
 > [!NOTE]
-> If you receive a version mismatch error when calling into drivers, such as, CUDA driver version is insufficient for CUDA runtime version, review the nVidia driver matrix compatibility chart - [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> If you receive a version mismatch error when calling into drivers, such as, CUDA driver version is insufficient for CUDA runtime version, review the NVIDIA driver matrix compatibility chart - [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

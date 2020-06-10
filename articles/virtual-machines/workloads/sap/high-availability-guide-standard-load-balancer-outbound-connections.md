@@ -1,5 +1,5 @@
 ---
-title: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
+title: Public endpoint connectivity for Azure VMs&Standard ILB in SAP HA scenarios
 description: Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios
 services: virtual-machines-windows,virtual-network,storage, 
 documentationcenter: saponazure
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/28/2019
+ms.date: 05/12/2020
 ms.author: radeltch
 
 ---
@@ -32,7 +32,7 @@ When implementing high availability for SAP solutions via clustering, one of the
 
 Standard Azure load balancer offers some advantages over the Basic load balancer. For instance, it works across Azure Availability zones, it has better monitoring and logging capabilities for easier troubleshooting, reduced latency. The “HA ports” feature covers all ports, that is, it is no longer necessary to list all individual ports.  
 
-There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there is no outbound connectivity to public end points, unless additional configuration is done.  
 
@@ -99,11 +99,11 @@ The configuration would look like:
    1. Select the VMs and their IP addresses and add them to the backend pool  
 3. [Create outbound rules](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-cli#create-outbound-rule). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).  
 
-   ```
+   ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to for allow access only to the Azure management API: 
+4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to enable access to the Azure management API: 
    1. Navigate to the Network Security Group
    1. Click Outbound Security Rules
    1. Add a rule to **Deny** all outbound Access to **Internet**.
@@ -174,7 +174,7 @@ You could use proxy to allow Pacemaker calls to the Azure management API public 
 ### Important considerations
 
   - If there is already corporate proxy in place, you could route outbound calls to public end points through it. Outbound calls to public end points will go through the corporate control point.  
-  - Make sure the proxy configuration allows outbound connectivity to Azure management API: https://management.azure.com  
+  - Make sure the proxy configuration allows outbound connectivity to Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`  
   - Make sure there is a route from the VMs to the Proxy  
   - Proxy will handle only HTTP/HTTPS calls. If there is additional need to make outbound calls to public end point over different protocols (like RFC), alternative solution will be needed  
   - The Proxy solution must be highly available, to avoid instability in the Pacemaker cluster  
@@ -186,8 +186,9 @@ You could use proxy to allow Pacemaker calls to the Azure management API public 
 There are many different Proxy options available in the industry. Step-by-step instructions for the proxy deployment are outside of the scope of this document. In the example below, we assume that your proxy is responding to **MyProxyService** and listening to port **MyProxyPort**.  
 To allow pacemaker to communicate with the Azure management API, perform the following steps on all cluster nodes:  
 
-1. Edit the pacemaker configuration file /etc/sysconfig/pacemaker and add the following lines (all cluster nodes):  
-   ```
+1. Edit the pacemaker configuration file /etc/sysconfig/pacemaker and add the following lines (all cluster nodes):
+
+   ```console
    sudo vi /etc/sysconfig/pacemaker
    # Add the following lines
    http_proxy=http://MyProxyService:MyProxyPort
@@ -195,8 +196,20 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
    ```
 
 2. Restart the pacemaker service on **all** cluster nodes.  
-  - SUSE  
+  - SUSE
+ 
+     ```console
+     # Place the cluster in maintenance mode
+     sudo crm configure property maintenance-mode=true
+     #Restart on all nodes
+     sudo systemctl restart pacemaker
+     # Take the cluster out of maintenance mode
+     sudo crm configure property maintenance-mode=true
      ```
+
+  - Red Hat  
+
+     ```console
      # Place the cluster in maintenance mode
      sudo pcs property set maintenance-mode=true
      #Restart on all nodes
@@ -205,15 +218,9 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
      sudo pcs property set maintenance-mode=false
      ```
 
-  - Red Hat  
-     ```
-     # Place the cluster in maintenance mode
-     sudo pcs property set maintenance-mode=true
-     #Restart on all nodes
-     sudo systemctl restart pacemaker
-     # Take the cluster out of maintenance mode
-     sudo pcs property set maintenance-mode=false
-     ```
+## Other solutions
+
+If outbound traffic is routed via third party firewall, make sure the firewall configuration allows outbound connectivity to the Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`.  
 
 ## Next steps
 

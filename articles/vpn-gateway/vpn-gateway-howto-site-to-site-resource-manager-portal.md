@@ -1,12 +1,13 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: Portal | Microsoft Docs'
+title: 'Connect on-premises network to Azure virtual network: Site-to-Site VPN: Portal'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 03/03/2020
 ms.author: cherylmc
 
 ---
@@ -46,7 +47,7 @@ The examples in this article use the following values. You can use these values 
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Virtual network gateway name:** VNet1GW
-* **Public IP address name:** VNet1GWIP
+* **Public IP address name:** VNet1GWpip
 * **VPN type:** Route-based
 * **Connection type:** Site-to-site (IPsec)
 * **Gateway type:** VPN
@@ -56,7 +57,7 @@ The examples in this article use the following values. You can use these values 
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. Create the VPN gateway
 
@@ -72,7 +73,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 * **Instance details > Gateway type:** VPN
 * **Instance details > VPN type:** Route-based
 * **Virtual Network > Gateway subnet address range:** 10.1.255.0/27
-* **Public IP address > Public IP address name:** VNet1GWIP
+* **Public IP address > Public IP address name:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

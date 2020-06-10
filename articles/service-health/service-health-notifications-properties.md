@@ -1,13 +1,9 @@
 ---
 title: What are Azure service health notifications?
 description: Service health notifications allow you to view service health messages published by Microsoft Azure.
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
+
 ---
 
 # View service health notifications by using the Azure portal

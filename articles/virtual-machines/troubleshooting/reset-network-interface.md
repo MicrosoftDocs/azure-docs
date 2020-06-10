@@ -17,8 +17,6 @@ ms.author: genli
 ---
 # How to reset network interface for Azure Windows VM 
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 This article shows how to reset the network interface for Azure Windows VM to resolve issues when you cannot connect to Microsoft Azure Windows Virtual Machine (VM) after:
 
 * You disable the default Network Interface (NIC). 
@@ -69,6 +67,8 @@ This article shows how to reset the network interface for Azure Windows VM to re
 3. Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it.
 
 ### For Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 To reset network interface, follow these steps:
 

@@ -5,8 +5,8 @@ author: Philmea
 manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
-ms.topic: conceptual
-ms.date: 06/12/2019
+ms.topic: how-to
+ms.date: 12/26/2019
 ms.author: philmea
 ---
 

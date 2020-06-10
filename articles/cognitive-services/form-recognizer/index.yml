@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
 title: Form Recognizer documentation # < 60 chars
-summary: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.  # < 160 chars
+summary: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # < 160 chars
 
 metadata:
   title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and field data without manual data labeling or intensive coding. You can also do supervised learning with manually labeled data. Models trained with labeled data can perform better and can work with more complicated documents. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Form Recognizer?
             url: overview.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Form Recognizer?
+            url: whats-new.md
       - linkListType: video
         links:
           - text: AI-powered process automation with Form Recognizer
@@ -36,18 +40,19 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/dotnet-sdk.md
-          - text: Using the REST API (Python)
-            url: quickstarts/python-train-extract.md
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
-
-  - title: Extract data from receipts
-    linkLists:
-      - linkListType: quickstart
+      - linkListType: tutorial
         links:
-          - text: Using the .NET SDK
-            url: quickstarts/dotnet-sdk.md
+          - text: Use Form Recognizer with Logic Apps
+            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:
@@ -55,6 +60,53 @@ landingContent:
         links:
           - text: Build a training data set
             url: build-training-data-set.md
+
+  - title: Train a custom model using labels
+    linkLists:
+      - linkListType: concept
+        links:
+            - text: Labeled data
+              url: overview.md#train-with-labels
+      - linkListType: quickstart
+        links:
+            - text: Train using the sample labeling tool
+              url: quickstarts/label-tool.md
+            - text: Train with labels using the REST API and Python
+              url: quickstarts/python-labeled-data.md
+
+  - title: Extract data from receipts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-receipts.md
+
+  - title: Get text layout information
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/client-library.md?pivots=programming-language-csharp
+          - text: Using the Python SDK
+            url: quickstarts/client-library.md?pivots=programming-language-python
+          - text: Using the Java SDK
+            url: quickstarts/client-library.md?pivots=programming-language-java
+          - text: Using the JavaScript SDK
+            url: quickstarts/client-library.md?pivots=programming-language-javascript
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
+          - text: Using the REST API (Python)
+            url: quickstarts/python-layout.md
 
   - title: Use containers
     linkLists:
@@ -75,8 +127,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API
-            url: https://aka.ms/form-recognizer/api
+          - text: Form Recognizer API v2.0
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+          - text: Form Recognizer API v1.0
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
           - text: .NET SDK
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
           - text: Azure PowerShell

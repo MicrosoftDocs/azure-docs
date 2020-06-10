@@ -1,5 +1,5 @@
 ---
-title: Protect your content with Media Services dynamic encryption
+title: Protect your content with Media Services v3 dynamic encryption
 titleSuffix: Azure Media Services
 description: Learn about content protection with dynamic encryption, streaming protocols, and encryption types in Azure Media Services.
 services: media-services
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
 #Customer intent: As a developer who works on subsystems of online streaming/multiscreen solutions that need to deliver protected content, I want to make sure that delivered content is protected with DRM or AES-128.
 ---
 # Protect your content with Media Services dynamic encryption
 
-Use Azure Media Services to help secure your media from the time it leaves your computer all the way through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients.  
+Use Azure Media Services to help secure your media from the time it leaves your computer all the way through storage, processing, and delivery. With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. If content is encrypted with an AES clear key and is sent over HTTPS, it is not in clear until it reaches the client. 
 
 In Media Services v3, a content key is associated with Streaming Locator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you can let Azure Media Services generate the content key for you. The content key should be generated yourself if you're using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two data centers.
 

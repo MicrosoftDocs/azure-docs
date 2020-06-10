@@ -1,21 +1,10 @@
 ---
-title: Azure Service Fabric cluster scaling | Microsoft Docs
-description: Learn about scaling Azure Service Fabric clusters in or out and up or down.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
+title: Azure Service Fabric cluster scaling 
+description: Learn about scaling Azure Service Fabric clusters in or out and up or down. As application demands change, so can Service Fabric clusters.
 
-
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/13/2018
 ms.author: atsenthi
-
 ---
 # Scaling Azure Service Fabric clusters
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
@@ -35,13 +24,13 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 - non-primary node types running stateful production workloads should always have five or more nodes.
 - non-primary node types running stateless production workloads should always have two or more nodes.
 - Any node type of [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Gold or Silver should always have five or more nodes.
-- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale down feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
+- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale in feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
 - If using autoscale rules, set the rules so that scaling in (removing VM instances) is done one node at a time. Scaling down more than one instance at a time is not safe.
 
-Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-up-down.md) each node type/virtual machine scale set.
+Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-in-out.md) each node type/virtual machine scale set.
 
 ### Programmatic scaling
-In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-up-down.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
+In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-in-out.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
 - Manually scaling requires you to sign in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
 - When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.

@@ -21,7 +21,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.  When complete, the output is shown in the JSON format. Look for `provisioningState` and verify it's `Succeeded`.
@@ -34,4 +34,4 @@ See [Azure Dev Spaces](/azure/dev-spaces/) for links to full tutorials.
 > Many of the Azure Dev Spaces quickstarts and tutorials use the Azure Dev Spaces CLI to perform operations. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

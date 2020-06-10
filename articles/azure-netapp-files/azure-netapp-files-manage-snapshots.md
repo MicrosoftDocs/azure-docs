@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/03/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
-You can use Azure NetApp Files to create an on-demand snapshot for a volume or restore from a snapshot to a new volume.
+You can use Azure NetApp Files to manually create an on-demand snapshot for a volume or restore from a snapshot to a new volume. The Azure NetApp Files service does not automatically create volume snapshots.  
 
 ## Create an on-demand snapshot for a volume
 

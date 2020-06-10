@@ -1,0 +1,145 @@
+### YamlMime:Landing
+
+title: Welcome to the commercial marketplace
+summary: Learn about the commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
+metadata:
+  title: Welcome to the commercial marketplace
+  description: Learn about the commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
+  ms.service: marketplace 
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: landing-page
+  author: marleva
+  ms.author: maevan
+  ms.date: 04/02/2020
+
+landingContent:
+  - title: Working in the commercial marketplace
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Create a new account
+        url: ./partner-center-portal/create-account.md
+      - text: Determine your publishing option
+        url: ./determine-your-listing-type.md
+      - text: Policies and terms
+        url: ./policies-terms.md
+      - text: Microsoft commercial marketplace FAQs
+        url: ./marketplace-faq-publisher-guide.md
+      - text: Release notes
+        url: ./marketplace-roadmap.md
+      - text: Microsoft Publisher Agreement
+        url: https://go.microsoft.com/fwlink/?LinkID=699560
+
+  - title: Common scenarios and tasks
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: Create a new SaaS offer
+        url: ./partner-center-portal/create-new-saas-offer.md
+      - text: Marketing best practices
+        url: ./gtm-marketing-best-practices.md  
+      - text: Cloud solution providers
+        url: ./cloud-solution-providers.md
+      - text: Offer listing best practices
+        url: ./gtm-offer-listing-best-practices.md
+    - linkListType: get-started
+      links:
+      - text: Customer leads from your marketplace offer
+        url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+      - text: Co-sell option in Partner Center
+        url: ./partner-center-portal/commercial-marketplace-co-sell.md
+      - text: Co-sell partner engagement
+        url: ./marketplace-co-sell.md
+      - text: Make solutions available in Microsoft AppSource and within Office
+        url: https://docs.microsoft.com/office/dev/store/submit-to-appsource-via-partner-center
+      - text: Participate in the Azure Marketplace and AppSource community forum
+        url: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
+      - text: Register to join webinars for discussion or watch later on demand
+        url: https://microsoftcloudpartner.eventbuilder.com/AllWebinars
+
+  - title: Analyze your offer and customer data
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Summary dashboard
+        url: ./partner-center-portal/summary-dashboard.md
+      - text: Marketplace Insights dashboard
+        url: ./partner-center-portal/insights-dashboard.md
+      - text: Usage dashboard
+        url: ./partner-center-portal/usage-dashboard.md
+      - text: Customer dashboard
+        url: ./partner-center-portal/customer-dashboard.md
+      - text: Orders dashboard
+        url: ./partner-center-portal/orders-dashboard.md
+      - text: Downloads dashboard
+        url: ./partner-center-portal/downloads-dashboard.md
+      - text: Ratings and reviews dashboard
+        url: ./partner-center-portal/ratings-reviews.md
+
+  - title: Manage your offers
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: SaaS offers
+        url: ./partner-center-portal/create-new-saas-offer.md
+      - text: Virtual machines offers
+        url: ./marketplace-virtual-machines.md
+      - text: Azure application offers
+        url: ./partner-center-portal/create-new-azure-apps-offer.md
+      - text: Dynamics 365 for Customer Engagement & PowerApps offers
+        url: ./partner-center-portal/create-new-customer-engagement-offer.md
+      - text: Dynamics 365 Business Central offers
+        url: ./partner-center-portal/create-new-business-central-offer.md
+      - text: Dynamics 365 for Operations offers
+        url: ./partner-center-portal/create-new-operations-offer.md
+      - text: More offer types
+        url: ./cloud-partner-portal/cpp-marketplace-offers.md
+
+  - title: Get paid
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Payout reporting
+        url: ./partner-center-portal/payout-summary-overview.md
+      - text: Payment thresholds, methods and time frames
+        url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+      - text: Set up your payout account and tax forms
+        url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+      - text: Tax details
+        url: ./partner-center-portal/tax-details-paid-transactions.md
+      - text: Commercial marketplace billing
+        url: ./partner-center-portal/billing-details.md
+
+  - title: API reference
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: SaaS fulfillment APIs
+        url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      - text: Marketplace metering service APIs
+        url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+      - text: Cloud Partner Portal API Reference
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+      - text: API prerequisites
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+      - text: Retrieve offers
+        url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+      - text: Create or modify an offer
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+      - text: Pricing for virtual machine offers
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+      - text: Go live
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+
+  - title: Get support
+    linkLists:
+    - linkListType: get-started
+      links:
+      - text: Support options
+        url: ./partner-center-portal/support.md
+      - text: Troubleshoot authentication errors
+        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      - text: Geographic availability and currencies
+        url: ./marketplace-geo-availability-currencies.md
+
+

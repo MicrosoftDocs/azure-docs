@@ -64,18 +64,30 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Log Analytics
+  - name: AMD GPU Drivers
     items:
-    - name: Linux
-      href: oms-linux.md
     - name: Windows
-      href: oms-windows.md
-  - name: Azure Monitor for VMs
+      href: hpccompute-amd-gpu-windows.md
+  - name: Azure Monitor
     items:
-    - name: Linux Dependency agent
-      href: agent-dependency-linux.md
-    - name: Windows Dependency agent
-      href: agent-dependency-windows.md
+    - name: Diagnostics extension
+      items:
+      - name: Linux
+        href: diagnostics-linux.md
+      - name: Windows
+        href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+    - name: Log Analytics
+      items:
+      - name: Linux
+        href: oms-linux.md
+      - name: Windows
+        href: oms-windows.md
+    - name: Azure Monitor for VMs
+      items:
+      - name: Linux Dependency agent
+        href: agent-dependency-linux.md
+      - name: Windows Dependency agent
+        href: agent-dependency-windows.md
   - name: PowerShell DSC
     href: dsc-overview.md
     items:
@@ -89,14 +101,6 @@
       href: dsc-template.md
   - name: Virtual machine access
     href: vmaccess.md
-  - name: Virtual machine diagnostics
-    items:
-    - name: Linux
-      href: diagnostics-linux.md
-    - name: Windows
-      href: diagnostics-windows.md
-    - name: Use templates
-      href: diagnostics-template.md
   - name: Third-party extensions
     items:
     - name: Chef
@@ -125,3 +129,5 @@
     href: export-templates.md
   - name: Troubleshoot
     href: troubleshoot.md
+  - name: Issues with Python 3-enabled Linux systems
+    href: issues-using-vm-extensions-python-3.md

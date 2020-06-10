@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.author: aahi
 ---
 # Tutorial: Single-page Video Search app
@@ -115,7 +115,7 @@ function bingSearchOptions(form) {
 
     var options = [];
     options.push("mkt=" + form.where.value);
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
 
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -133,7 +133,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-For example, the `SafeSearch` parameter in an actual API call can be `strict`, `moderate`, or `off`, with `moderate` being the default. Our form, however, uses a checkbox, which has only two states. The JavaScript code converts this setting to either `strict` or `off` (`moderate` is not used).
+For example, the `SafeSearch` parameter in an actual API call can be `strict`, or `moderate`, with `moderate` being the default.
 
 ## Performing the request
 Given the query, the options string, and the API key, the `BingWebSearch` function uses an `XMLHttpRequest` object to make the request to the Bing Search endpoint. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.

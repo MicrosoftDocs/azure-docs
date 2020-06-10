@@ -47,7 +47,7 @@ Before you begin, make sure that you have a running Data Box Gateway device. Fol
     - If using Azure PowerShell, follow these [steps](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) to move the data to Archive tier.
     - If using Azure Lifecycle Management, follow these steps to move the data to Archive tier.
         - [Register](/azure/storage/common/storage-lifecycle-management-concepts) for the preview of Blob Lifecycle management service to use Archive tier.
-        - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
+        - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to archive tier.
 - To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
 
@@ -73,7 +73,7 @@ This bulk transfer completes the initial seeding phase.
 
 ### Ongoing feed with Data Box Gateway
 
-Follow these steps for ongoing ingestion by Data Box Gateway.
+Follow these steps for ongoing ingestion by Data Box Gateway. 
 
 1. Create a cloud share on Data Box Gateway. This share automatically uploads any data to the Azure Storage account. Go to **Shares** in your Data Box Gateway resource and click **+ Add share**.
 

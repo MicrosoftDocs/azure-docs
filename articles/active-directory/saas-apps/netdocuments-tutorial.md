@@ -137,49 +137,48 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into your NetDocuments company site as an administrator.
 
-2. Go to **Admin**.
+2. In the upper-right corner, select your name>**Admin**.
 
-3. Click **Add and remove users and groups**.
+3. Select **Security Center**.
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Repository")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-4. Click **Configure advanced authentication options**.
+4. Select **Advanced Authentication**.
     
-    ![Configure advanced authentication options](./media/netdocuments-tutorial/ic795048.png "Configure advanced authentication options")
+    ![Configure advanced authentication options](./media/netdocuments-tutorial/advance-authentication.png "Configure advanced authentication options")
 
-5. On the **Federated Identity** dialog, perform the following steps:
+5.	On the **Federated ID** tab, perform the following steps:   
    
-    ![Federated Identity](./media/netdocuments-tutorial/ic795049.png "Federated Identity")
+    ![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")
    
     a. As **Federated identity server type**, select **Active Directory Federation Services**.
-   
-    b. Click **Choose file**, to upload the downloaded metadata file which you have downloaded from Azure portal.
-   
-    c. Click **OK**.
+    
+    b.	Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
+    
+    c.	Select **SAVE**.
 
 ### Create NetDocuments test user
 
-To enable Azure AD users to sign in to NetDocuments, they must be provisioned into NetDocuments.  
-In the case of NetDocuments, provisioning is a manual task.
+To enable Azure AD users to sign in to NetDocuments, they must be provisioned into NetDocuments. In the case of NetDocuments, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
 1. Sign on to your **NetDocuments** company site as administrator.
 
-2. In the menu on the top, click **Admin**.
+2. In the upper-right corner, select your name>**Admin**.
    
-    ![Admin](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![Admin](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-3. Click **Add and remove users and groups**.
+3. Select **Users and groups**.
    
-    ![Repository](./media/netdocuments-tutorial/ic795047.png "Repository")
+    ![Repository](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    
-    ![Email Address](./media/netdocuments-tutorial/ic795053.png "Email Address")
+    ![Email Address](./media/netdocuments-tutorial/user-mail.png "Email Address")
    
-    >[!NOTE]
-    >The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
+    > [!NOTE]
+    > The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active. 
     You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision Azure Active Directory user accounts.
 
 ## Test SSO 
@@ -197,4 +196,3 @@ When you click the NetDocuments tile in the Access Panel, you should be automati
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try NetDocuments with Azure AD](https://aad.portal.azure.com/)
-

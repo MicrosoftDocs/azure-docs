@@ -1,21 +1,22 @@
 ---
-title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
-services: vpn-gateway
+title: 'Azure AD tenant for User VPN connections: Azure AD authentication'
+description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Azure AD authentication
+titleSuffix: Azure Virtual WAN
+services: virtual-wan
 author: anzaman
 
-ms.service: vpn-gateway
+ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 03/19/2020
 ms.author: alzam
 
 ---
-# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
+# Create an Azure Active Directory tenant for User VPN OpenVPN protocol connections
 
-When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
+When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for Virtual WAN User VPN (point-to-site) Open VPN authentication.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 ## <a name="tenant"></a>1. Create the Azure AD tenant
@@ -86,31 +87,8 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Enable Azure AD authentication on the VPN gateway by running the following commands, being sure to modify the command to reflect your own environment:
-
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
-    ```
-
-9. Create and download the profile by running the following commands. Change the -ResourcGroupName and -Name values to match your own.
-
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
-
-10. After running the commands, you see a result similar to the one below. Copy the result URL to your browser to download the profile zip file.
-
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/profile.png)
-
-11. Extract the downloaded zip file.
-
-12. Browse to the unzipped “AzureVPN” folder.
-
-13. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
+8. Configure Azure AD authentication for User VPN and assign it to a Virtual Hub by following the steps in [Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md)
 
 ## Next steps
 
-In order to connect to your virtual network, you must create and configure a VPN client profile. See [Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).
+In order to connect to your virtual network, you must create and configure a VPN client profile and associate it to a Virtual Hub. See [Configure Azure AD authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).

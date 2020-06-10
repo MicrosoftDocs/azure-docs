@@ -18,7 +18,7 @@ Shared access signature (SAS) gives you granular control over the type of access
 - The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
 - Only clients that present valid credentials can send data to an event hub.
 - A client can't impersonate another client.
-- A rouge client can be blocked from sending data to an event hub.
+- A rogue client can be blocked from sending data to an event hub.
 
 This article covers authenticating the access to Event Hubs resources using SAS. To learn about **authorizing** access to Event Hubs resources using SAS, see [this article](authorize-access-shared-access-signature.md). 
 
@@ -29,7 +29,7 @@ This article covers authenticating the access to Event Hubs resources using SAS.
 
 
 ## Configuring for SAS authentication
-You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an Event Hubs for Kafka enabled namespace). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
+You can configure the EventHubs shared access authorization rule on an Event Hubs namespace, or an entity (event hub instance or Kafka Topic in an event hub). Configuring a shared access authorization rule on a consumer group is currently not supported, but you can use rules configured on a namespace or entity to secure access to consumer group. 
 
 The following image shows how the authorization rules apply on sample entities. 
 

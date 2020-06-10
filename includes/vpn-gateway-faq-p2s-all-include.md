@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/17/2019
+ ms.date: 02/19/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -23,18 +23,13 @@ The following client operating systems are supported:
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
+* Windows Server 2019 (64-bit only)
 * Windows 10
 * Mac OS X version 10.11 or above
 * Linux (StrongSwan)
 * iOS
 
 [!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
-
-### What should I do if I am getting a certificate mismatch when connecting?
-
-Un-check **"Verify the server's identity by validating the certificate"** or **add the server FQDN along with the certificate** when creating a profile manually. You can do this by running **rasphone** from a command prompt and picking the profile from the drop down list.
-
-![point-to-site](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Server Certificate")
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
@@ -58,9 +53,13 @@ Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 Yes. For the Resource Manager deployment model, you must have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or PolicyBased VPN gateways.
 
+### Can I configure a Point-to-Site client to connect to multiple virtual network gateways at the same time?
+
+Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to do not have conflicting address spaces between them or the network from with the client is connecting from.  While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
+
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-No. A Point-to-Site client can only connect to resources in the VNet in which the virtual network gateway resides.
+Yes, Point-to-Site connections to a Virtual Network Gateway deployed in a VNet that is peered with other VNets may have access to other peered VNets.  Provided the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features, the Point-to-Site client will be able to connect to those peered VNets.  For more information please reference [this](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) article.
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
@@ -98,3 +97,21 @@ Azure supports Windows, Mac and Linux for P2S VPN.
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
 Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.
+
+### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
+
+A P2S configuration can be removed using Azure CLI and PowerShell using the following commands:
+
+#### Azure PowerShell
+
+```azurepowershell-interactive
+$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+$gw.VPNClientConfiguration = $null`  
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+```
+
+#### Azure CLI
+
+```azurecli-interactive
+az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"
+```

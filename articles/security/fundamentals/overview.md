@@ -66,7 +66,7 @@ The [Security and Audit solution](../../security-center/security-center-intro.md
 In addition, you can configure Security & Compliance to [automatically carry out specific actions](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) when a specific event is detected.
 
 ### Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use an [Azure Resource Manager template](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment.
 
 Azure Resource Manager template-based deployments help improve the security of solutions deployed in Azure because standard security control settings and can be integrated into standardized template-based deployments. This reduces the risk of security configuration errors that might take place during manual deployments.
 
@@ -78,7 +78,7 @@ Application Insights creates charts and tables that show you, for example, what 
 If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service sends you emails if there are any changes in the availability and performance of your app. Application Insight thus becomes a valuable security tool because it helps with the availability in the confidentiality, integrity, and availability security triad.
 
 ### Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure ([Activity Log](../../azure-monitor/platform/activity-logs-overview.md)) and each individual Azure resource ([Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offers visualization, query, routing, alerting, auto scale, and automation on data both from the Azure infrastructure ([Activity Log](../../azure-monitor/platform/platform-logs-overview.md)) and each individual Azure resource ([Diagnostic Logs](../../azure-monitor/platform/platform-logs-overview.md)). You can use Azure Monitor to alert you on security-related events that are generated in Azure logs.
 
 ### Azure Monitor logs
 [Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics/) – Provides an IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources. Data from Azure Monitor can be routed directly to Azure Monitor logs so you can see metrics and logs for your entire environment in one place.
@@ -139,16 +139,16 @@ In Application Diagnostics, you can view events grouped in these ways:
 The section provides additional information regarding key features in Azure storage security and summary information about these capabilities.
 
 ### Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/common/storage-security-guide.md) model can be controlled through Role-Based Access Control (RBAC).
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md) model can be controlled through Role-Based Access Control (RBAC).
 
 ### Shared Access Signature
 A [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
 
 ### Encryption in Transit
 Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage, you can secure data using:
--	[Transport-level encryption](../../storage/common/storage-security-guide.md), such as HTTPS when you transfer data into or out of Azure Storage.
+-	[Transport-level encryption](../../storage/blobs/security-recommendations.md), such as HTTPS when you transfer data into or out of Azure Storage.
 
--	[Wire encryption](../../storage/common/storage-security-guide.md), such as [SMB 3.0 encryption](../../storage/common/storage-security-guide.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
+-	[Wire encryption](../../storage/blobs/security-recommendations.md), such as [SMB 3.0 encryption](../../storage/blobs/security-recommendations.md) for [Azure File shares](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -	Client-side encryption, to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
 
@@ -230,11 +230,11 @@ Microsoft [Azure Application Gateway](../../application-gateway/overview.md) pro
 
 ![Application Gateway](./media/overview/azure-security-fig2.png)
 
-It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway (also known as “SSL offload” or “SSL bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
+It allows you to optimize web farm productivity by offloading CPU intensive TLS termination to the Application Gateway (also known as “TLS offload” or “TLS bridging”). It also provides other Layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Azure Application Gateway is a layer-7 load balancer.
 
 It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 
-Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [Secure Sockets Layer (SSL)](../../application-gateway/tutorial-restrict-web-traffic-powershell.md) offload, custom health probes, support for multi-site, and many others.
+Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, [TLS offload](../../application-gateway/tutorial-restrict-web-traffic-powershell.md), custom health probes, support for multi-site, and many others.
 
 ### Web Application Firewall
 Web Application Firewall is a feature of [Azure Application Gateway](../../application-gateway/overview.md) that provides protection to web applications that use application gateway for standard Application Delivery Control (ADC) functions. Web application firewall does this by protecting them against most of the OWASP top 10 common web vulnerabilities.
@@ -263,9 +263,9 @@ Traffic Manager provides a range of traffic-routing methods to suit different ap
 ### Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy instances of services defined in a load-balanced set. Azure Load Balancer can be configured to:
 
--	Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-	Load balance incoming Internet traffic to virtual machines. This configuration is known as [public load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
--	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-	Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Forward external traffic to a specific virtual machine
 
@@ -292,7 +292,7 @@ The section provides additional information regarding key features in this area 
 With Azure IaaS, you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, McAfee, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats. [Microsoft Antimalware](antimalware.md) for Azure Cloud Services and Virtual Machines is a protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems. Microsoft Antimalware can also be deployed using Azure Security Center
 
 ### Hardware Security Module
-Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/key-vault-overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Encryption and authentication do not improve security unless the keys themselves are protected. You can simplify the management and security of your critical secrets and keys by storing them in [Azure Key Vault](../../key-vault/general/overview.md). Key Vault provides the option to store your keys in hardware Security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### Virtual machine backup
 [Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
@@ -305,7 +305,7 @@ An important part of your organization's [business continuity/disaster recovery 
 
 The Azure Key Vault (AKV) service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
 
-If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server machine. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
+If you are running SQL Server with on-premises machines, there are steps you can follow to access Azure Key Vault from your on-premises SQL Server instance. But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. With a few Azure PowerShell cmdlets to enable this feature, you can automate the configuration necessary for a SQL VM to access your key vault.
 
 ### VM Disk Encryption
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) is a new capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. It applies the industry standard BitLocker feature of Windows and the DM-Crypt feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with Azure Key Vault to help you control and manage the disk-encryption keys and secrets in your Key Vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.

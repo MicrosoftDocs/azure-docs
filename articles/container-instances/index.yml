@@ -5,7 +5,7 @@ summary: Run Docker containers on-demand in a managed, serverless Azure environm
 
 metadata:
   title: Azure Container Instances documentation - serverless containers, on demand # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Run Docker containers in a managed, serverless Azure environment.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Container Instances (ACI) allows you to run Docker containers in a managed, serverless cloud environment, without having to set up VMs, clusters, or orchestrators.  # Required; article description that is displayed in search results. < 160 chars.
   services: 
   ms.service: container-instances 
   ms.topic: landing-page 
@@ -34,6 +34,8 @@ landingContent:
             url: container-instances-quickstart.md
           - text: Deploy container instance - Portal
             url: container-instances-quickstart-portal.md
+          - text: Deploy container instance - ARM template
+            url: container-instances-quickstart-template.md
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
@@ -44,7 +46,7 @@ landingContent:
         links:
           - text: Deploy container group - YAML 
             url : container-instances-multi-container-yaml.md
-          - text: Deploy container group - template
+          - text: Deploy container group - ARM template
             url: container-instances-multi-container-group.md 
   - title: Deployment scenarios
     linkLists:

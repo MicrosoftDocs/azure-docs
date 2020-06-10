@@ -1,7 +1,6 @@
 ---
 title: Splunk to Azure Monitor log query | Microsoft Docs
 description: Help for users who are familiar with Splunk in learning Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

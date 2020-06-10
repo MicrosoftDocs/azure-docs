@@ -1,16 +1,16 @@
 ---
-title: Configure containers - FACE API
+title: Configure containers - Face
 titleSuffix: Azure Cognitive Services
 description: The Face container runtime environment is configured using the `docker run` command arguments. There are both required and optional settings.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Configure Face Docker containers

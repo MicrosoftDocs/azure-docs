@@ -9,8 +9,8 @@ ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/26/2019
+ms.topic: how-to
+ms.date: 03/30/2020
 ms.author: iainfou
 
 ---
@@ -31,7 +31,7 @@ If you no longer need a managed domain, you can delete an Azure Active Directory
 To delete an Azure AD DS managed domain, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
-1. Select the name of your Azure AD DS managed domain, such as *aadds.contoso.com*.
+1. Select the name of your Azure AD DS managed domain, such as *aaddscontoso.com*.
 1. On the **Overview** page, select **Delete**. To confirm the deletion, type the domain name of the managed domain again, then select **Delete**.
 
 It can take 15-20 minutes or more to delete the Azure AD DS managed domain.

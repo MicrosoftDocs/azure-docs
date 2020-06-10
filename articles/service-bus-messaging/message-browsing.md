@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus message browsing | Microsoft Docs
-description: Browse and peek Service Bus messages
+title: Azure Service Bus - message browsing
+description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages that reside in a queue or subscription.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 
 ---
@@ -31,7 +31,7 @@ Peek also returns messages that were locked and are currently being processed by
 
 ## Peek APIs
 
-The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist in all .NET and Java client libraries and on all receiver objects: **MessageReceiver**, **MessageSession**, **QueueClient**, and **SubscriptionClient**. Peek works on all queues and subscriptions and their respective dead-letter queues.
+The [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) and [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) methods exist in all .NET and Java client libraries and on all receiver objects: **MessageReceiver**, **MessageSession**. Peek works on all queues and subscriptions and their respective dead-letter queues.
 
 When called repeatedly, the Peek method enumerates all messages that exist in the queue or subscription log, in sequence number order, from the lowest available sequence number to the highest. This is the order in which messages were enqueued and isn't the order in which messages might eventually be retrieved.
 

@@ -5,191 +5,156 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 06/03/2020
 ms.author: diberry
 ---
 
+[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/LanguageUnderstanding/csharp-model-with-rest/Program.cs)
+
 ## Prerequisites
 
-* Starter key.
-* Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
-* The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
-* The version ID within the application that receives the utterances. The default ID is "0.1".
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [.NET Core 3.1](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## Get LUIS key
+## Create Pizza app
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+[!INCLUDE [Create pizza app](get-started-get-model-create-pizza-app.md)]
 
 ## Change model programmatically
 
-Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
-
-1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`. 
+1. Create a new console application targeting the C# language, with a project and folder name of `csharp-model-with-rest`.
 
     ```console
-    dotnet new console -lang C# -n model-with-rest
+    dotnet new console -lang C# -n csharp-model-with-rest
     ```
 
-1. Install required dependencies with the following dotnet CLI commands.
+1. Change to the `csharp-model-with-rest` directory you created, and install required dependencies with these commands:
 
     ```console
+    cd csharp-model-with-rest
     dotnet add package System.Net.Http
     dotnet add package JsonFormatterPlus
     ```
+
 1. Overwrite Program.cs with the following code:
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net.Http;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Collections.Generic;
-    using System.Linq;
-    
-    // 3rd party NuGet packages
-    using JsonFormatterPlus;
-    
-    namespace AddUtterances
-    {
-        class Program
-        {
-            // NOTE: use your starter key value
-            static string authoringKey = "YOUR-KEY";
-    
-            // NOTE: Replace this endpoint with your starter key endpoint
-            // for example, westus.api.cognitive.microsoft.com
-            static string endpoint = "YOUR-ENDPOINT";
-    
-            // NOTE: Replace this with the ID of your LUIS application
-            static string appID = "YOUR-APP-ID";
-    
-            // NOTE: Replace this your version number
-            static string appVersion = "0.1";
-    
-            static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
-    
-            // GET request with authentication
-            async static Task<HttpResponseMessage> SendGet(string uri)
-            {
-                using (var client = new HttpClient())
-                using (var request = new HttpRequestMessage())
-                {
-                    request.Method = HttpMethod.Get;
-                    request.RequestUri = new Uri(uri);
-                    request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
-                    return await client.SendAsync(request);
-                }
-            }
-            // POST request with authentication
-            async static Task<HttpResponseMessage> SendPost(string uri, string requestBody)
-            {
-                using (var client = new HttpClient())
-                using (var request = new HttpRequestMessage())
-                {
-                    request.Method = HttpMethod.Post;
-                    request.RequestUri = new Uri(uri);
-    
-                    if (!String.IsNullOrEmpty(requestBody))
-                    {
-                        request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
-                    }
-    
-                    request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
-                    return await client.SendAsync(request);
-                }
-            }        
-            // Add utterances as string with POST request
-            async static Task AddUtterances(string utterances)
-            {
-                string uri = host + "examples";
-    
-                var response = await SendPost(uri, utterances);
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Added utterances.");
-                Console.WriteLine(JsonFormatter.Format(result));
-            }
-            // Train app after adding utterances
-            async static Task Train()
-            {
-                string uri = host  + "train";
-    
-                var response = await SendPost(uri, null);
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Sent training request.");
-                Console.WriteLine(JsonFormatter.Format(result));
-            }    
-            // Check status of training
-            async static Task Status()
-            {
-                var response = await SendGet(host  + "train");
-                var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Requested training status.");
-                Console.WriteLine(JsonFormatter.Format(result));
-            }    
-            // Add utterances, train, check status
-            static void Main(string[] args)
-            {
-                string utterances = @"
-                [
-                    {
-                    'text': 'go to Seattle today',
-                    'intentName': 'BookFlight',
-                    'entityLabels': [
-                        {
-                        'entityName': 'Location::LocationTo',
-                        'startCharIndex': 6,
-                        'endCharIndex': 12
-                        }
-                    ]
-                    },
-                    {
-                        'text': 'a barking dog is annoying',
-                        'intentName': 'None',
-                        'entityLabels': []
-                    }
-                ]
-                ";            
-                AddUtterances(utterances).Wait();
-                Train().Wait();
-                Status().Wait();
-            }
-        }
-    }
-    ```
+    [!code-csharp[Code snippet](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/csharp-model-with-rest/Program.cs)]
 
-1. Replace the following values:
+1. Replace the values starting with `YOUR-` with your own values.
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` with your app's ID
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-APP-ID`| Your LUIS app ID. |
+    |`YOUR-AUTHORING-KEY`|Your 32 character authoring key.|
+    |`YOUR-AUTHORING-ENDPOINT`| Your authoring URL endpoint. For example, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. You set your resource name when you created the resource.|
 
-1. Build the console application. 
+    Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
+
+1. Build the console application.
 
     ```console
     dotnet build
     ```
 
-1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
+1. Run the console application.
 
     ```console
     dotnet run
     ```
 
-## LUIS keys
+1. Review the authoring response:
 
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```console
+    Added utterances.
+    [
+        {
+            "value": {
+                "ExampleId": 1137150691,
+                "UtteranceText": "order a pizza"
+            },
+            "hasError": false
+        },
+        {
+            "value": {
+                "ExampleId": 1137150692,
+                "UtteranceText": "order a large pepperoni pizza"
+            },
+            "hasError": false
+        },
+        {
+            "value": {
+                "ExampleId": 1137150693,
+                "UtteranceText": "i want two large pepperoni pizzas on thin crust"
+            },
+            "hasError": false
+        }
+    ]
+    Sent training request.
+    {
+        "statusId": 9,
+        "status": "Queued"
+    }
+    Requested training status.
+    [
+        {
+            "modelId": "edb46abf-0000-41ab-beb2-a41a0fe1630f",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        },
+        {
+            "modelId": "a5030be2-616c-4648-bf2f-380fa9417d37",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        },
+        {
+            "modelId": "3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        },
+        {
+            "modelId": "e4b6704b-1636-474c-9459-fe9ccbeba51c",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        },
+        {
+            "modelId": "031d3777-2a00-4a7a-9323-9a3280a30000",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        },
+        {
+            "modelId": "9250e7a1-06eb-4413-9432-ae132ed32583",
+            "details": {
+                "statusId": 9,
+                "status": "Queued",
+                "exampleCount": 0
+            }
+        }
+    ]
+    ```
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the project folder from the file system.
 
 ## Next steps
 

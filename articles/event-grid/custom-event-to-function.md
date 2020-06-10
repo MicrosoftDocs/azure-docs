@@ -3,8 +3,8 @@ title: 'Quickstart: Send custom events to Azure Function - Event Grid'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.' 
 services: event-grid 
 keywords: 
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
@@ -118,7 +118,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 ### Azure PowerShell
 The second example uses PowerShell to perform similar steps.
 
-1. In the Azure portal, select **Cloud Shell** (alternatively go to https://shell.azure.com/). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
+1. In the Azure portal, select **Cloud Shell** (alternatively go to `https://shell.azure.com/`). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell
@@ -178,7 +178,6 @@ If you plan to continue working with this event, don't clean up the resources cr
     ![Resource groups](./media/custom-event-to-function/delete-resource-groups.png)
 
     The other resource group you see in the image was created and used by the Cloud Shell window. Delete it if you don't plan to use the Cloud Shell window later. 
-```
 
 ## Next steps
 

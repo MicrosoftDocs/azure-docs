@@ -6,8 +6,6 @@ summary: Azure Advisor scans your Azure configuration and recommends changes to 
 metadata:
   title: Azure Advisor documentation
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
-  services: advisor
-  ms.service: advisor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
@@ -45,7 +43,7 @@ landingContent:
           - text: Common Language Interface (CLI)
             url: /cli/azure/advisor?view=azure-cli-latest
           - text: PowerShell
-            url: /powershell/module/az.advisor/?view=azps-1.2.0"
+            url: /powershell/module/az.advisor/?view=azps-1.2.0
           - text: REST API
             url: /rest/api/advisor/
 

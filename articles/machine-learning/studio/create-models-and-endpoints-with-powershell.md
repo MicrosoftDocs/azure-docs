@@ -1,5 +1,5 @@
 ---
-title: Create multiple endpoints for a model
+title: Create multiple model and endpoints
 titleSuffix: ML Studio (classic) - Azure
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
@@ -7,12 +7,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
 ---
-# Use PowerShell to create Studio (classic) models and web service endpoints from one experiment
+# Create multiple web service endpoints from one experiment with ML Studio (classic) and PowerShell
 
 Here's a common machine learning problem: You want to create many models that have the same training workflow and use the same algorithm. But you want them to have different training datasets as input. This article shows you how to do this at scale in Azure Machine Learning Studio (classic) using just a single experiment.
 
@@ -20,7 +20,7 @@ For example, let's say you own a global bike rental franchise business. You want
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in the classic version of Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio (classic) with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
 Fortunately, you can accomplish this by using the [Azure Machine Learning Studio (classic) retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) and automating the task with [Azure Machine Learning Studio (classic) PowerShell](powershell-module.md).
 
@@ -45,7 +45,7 @@ Note that a **Web Service Output** module has been added to the **Train Model** 
 When this experiment is deployed as a web service, the endpoint associated with that output returns the trained model in the format of an .ilearner file.
 
 Also note that you set up a web service parameter that defines the URL that the **Import Data** module uses. This allows you to use the parameter to specify individual training datasets to train the model for each location.
-There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a SQL Azure database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
+There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a database in Azure SQL Database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
 
 ![A Trained Model module outputs to a Web service output module](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

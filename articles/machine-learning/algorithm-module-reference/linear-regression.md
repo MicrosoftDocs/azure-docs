@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 # Linear Regression module
 This article describes a module in Azure Machine Learning designer (preview).
@@ -46,17 +46,15 @@ For years statisticians have been developing increasingly advanced methods for r
 
 This module supports two methods for fitting a regression model, with different options:
 
-+ [Create a regression model using online gradient descent](#bkmk_GradientDescent)
++ [Fit a regression model using ordinary least squares](#create-a-regression-model-using-ordinary-least-squares)
+
+    For small datasets, it is best to select ordinary least squares. This should give similar results to Excel.
+    
++ [Create a regression model using online gradient descent](#create-a-regression-model-using-online-gradient-descent)
 
     Gradient descent is a better loss function for models that are more complex, or that have too little training data given the number of variables.
 
-
-
-+ [Fit a regression model using ordinary least squares](#bkmk_OrdinaryLeastSquares)
-
-    For small datasets, it is best to select ordinary least squares. This should give similar results to Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a> Create a regression model using ordinary least squares
+### Create a regression model using ordinary least squares
 
 1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
@@ -79,18 +77,17 @@ This module supports two methods for fitting a regression model, with different 
 
 7. Add the [Train Model](./train-model.md) module to your pipeline, and connect a labeled dataset.
 
-8. Run the pipeline.
+8. Submit the pipeline.
 
-## Results for ordinary least squares model
+### Results for ordinary least squares model
 
 After training is complete:
 
-+ To view the model's parameters, right-click the trainer output and select **Visualize**.
 
 + To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
 
 
-## <a name="bkmk_GradientDescent"></a> Create a regression model using online gradient descent
+### Create a regression model using online gradient descent
 
 1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
@@ -101,6 +98,8 @@ After training is complete:
 3. For **Create trainer mode**, indicate whether you want to train the model with a predefined set of parameters, or if you want to optimize the model by using a parameter sweep.
 
     + **Single Parameter**: If you know how you want to configure the linear regression network, you can provide a specific set of values as arguments.
+    
+    + **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.  
 
    
 4. For **Learning rate**, specify the initial learning rate for the stochastic gradient descent optimizer.
@@ -123,13 +122,23 @@ After training is complete:
 10. For **Random number seed**, you can optionally type a value to seed the random number generator used by the model. Using a seed value is useful if you want to maintain the same results across different runs of the same pipeline.
 
 
-12. Add a labeled dataset and one of the training modules.
+12. Train the model:
 
-    If you are not using a parameter sweep, use the [Train Model](train-model.md) module.
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
-13. Run the pipeline.
+13. Submit the pipeline.
 
-## Results for online gradient descent
+### Results for online gradient descent
 
 After training is complete:
 

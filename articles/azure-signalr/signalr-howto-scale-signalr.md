@@ -76,7 +76,7 @@ Make a note of the actual name generated for the new resource group. You will us
 
 For detailed information, such as included messages and connections for each pricing tier, see [SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-For a table of service limits, quotas, and constraints in each tier, see [SignalR Service limits](../azure-subscription-service-limits.md#azure-signalr-service-limits).
+For a table of service limits, quotas, and constraints in each tier, see [SignalR Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## Next steps
 

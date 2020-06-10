@@ -15,7 +15,7 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 - **On-premises** - Back up files, folders, system state using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md). Or use the DPM or Azure Backup Server (MABS) agent to protect on-premises VMs ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) and [VMWare](backup-azure-backup-server-vmware.md)) and other [on-premises workloads](backup-mabs-protection-matrix.md)
 - **Azure VMs** - [Back up entire Windows/Linux VMs](backup-azure-vms-introduction.md) (using backup extensions) or back up files, folders, and system state using the [MARS agent](backup-azure-manage-mars.md).
-- **Azure Files shares** - [Back up and restore Azure File shares to storage account](backup-azure-files.md)
+- **Azure Files shares** - [Back up Azure File shares to a storage account](backup-afs.md)
 - **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md)
 - **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
 

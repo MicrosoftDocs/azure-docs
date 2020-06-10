@@ -1,7 +1,7 @@
 ---
-title: 'How to: Add a one-step correction to a custom command (Preview) - Speech service'
+title: 'Add one-step correction in Custom Commands Preview - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, we explain how to implement one-step corrections for a command in Custom Commands.
+description: Learn how to add a one-step correction for a command in a Custom Commands Preview app.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -12,58 +12,60 @@ ms.date: 12/05/2019
 ms.author: encorona
 ---
 
-# How To: Add a one-step correction to a Custom Command (Preview)
+# Add a one-step correction to a custom command in a Custom Commands Preview application
 
-In this article, you'll learn how to add one-step confirmation to a command.
+In this article, you'll learn how to add one-step confirmation to a command in a Custom Commands Preview app.
 
-One-step correction is used to update a command that was just completed.
-
-I.e. if you just set up an alarm, you can change your mind and update the time of the alarm.
+One-step correction is used to update a command that was just completed. When you add a one-step correction to an alarm command, you can change your mind and update the time of the alarm. For example:
 
 - Input: Set alarm for tomorrow at noon
-- Output: "Ok, alarm set for 12/06/2019 12:00:00"
+- Output: Ok, alarm set for 2020-05-02 12:00:00
 - Input: No, tomorrow at 1pm
-- Output: "Ok
+- Output: Ok
 
-Keep in mind that this implies that you as a developer have a mechanism to update the alarm in your backend application.
+> [!NOTE]
+> In a real-world scenario, the client executes an action as a result of command completion. This article assumes that you have a mechanism to update the alarm in your back-end application.
 
 ## Prerequisites
 
-You must have completed the steps in the following articles:
+Complete the steps in the following articles:
+> [!div class="checklist"]
 
-- [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
-- [How To: Add a confirmation to a Custom Command (Preview)](./how-to-custom-speech-commands-confirmations.md)
+> * [Quickstart: Create a Custom Commands Preview app](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Commands Preview app with parameters](./quickstart-custom-speech-commands-create-parameters.md)
+> * [How To: Add confirmations to a command in a Custom Commands Preview app](./how-to-custom-speech-commands-confirmations.md)
 
-## Add the advanced rules for one-step correction 
+## Add interaction rules for one-step correction
 
-To demonstrate one-step correction, let's extend the **SetAlarm** command created in the [Confirmations How To](./how-to-custom-speech-commands-confirmations.md).
- 
-1. Add an advanced rule to update the previous alarm. 
+To demonstrate one-step correction, extend the **SetAlarm** command that you created in [How To: Add a confirmation to a command in Custom Commands Preview](./how-to-custom-speech-commands-confirmations.md).
 
-    This rule will ask the user to confirm the date and time of the alarm and is expecting a confirmation (yes/no) for the next turn.
+1. Add an interaction rule to update your **SetAlarm** command.
+
+    This rule asks the user to confirm the date and time of the alarm and expects a confirmation (yes/no) for the next turn.
 
    | Setting               | Suggested value                                                  | Description                                        |
    | --------------------- | ---------------------------------------------------------------- | -------------------------------------------------- |
-   | Rule Name             | Update previous alarm                                            | A name describing the purpose of the rule          |
-   | Conditions            | UpdateLastCommand & Required Parameter - DateTime                | Conditions that determine when the rule can run    |   
-   | Actions               | SpeechResponse - "- Updating previous alarm to {DateTime}"       | The action to take when the rule condition is true |
-   | State after execution | Complete command                                                 | State of the user after the turn                   |
+   | **Rule Name**             | **Update previous alarm**                                            | A name describing the purpose of the rule          |
+   | **Conditions**            | **Previous command needs to be updated & Required Parameter -> DateTime**                | Conditions that determine when the rule can run    |   
+   | **Actions**               | **Send speech response -> Simple editor -> Updating previous alarm to {DateTime}**      | The action to take when the rule conditions are true |
+   | **Post-execution state** | **Command completed**        | State of the user after the turn                   |
 
-1. Move the rule you just created to the top of advanced rules (scroll over the rule in the panel and click the UP arrow).
+1. In the pane, select the interaction rule you just created. Select the ellipsis (**...**) button in the upper-left corner of the pane. Then use the **Move up** arrow to move the rule to the top of the **Interaction rules** list.
    > [!div class="mx-imgBorder"]
    > ![Add a range validation](media/custom-speech-commands/one-step-correction-rules.png)
 
-> [!NOTE]
-> In a real application, in the Actions section of this rule you'll also send back an activity to the client or call an HTTP endpoint to update the alarm in your system.
+    > [!NOTE]
+    > In a real-world application, use the **Actions** section to send back an activity to the client or call an HTTP endpoint to update the alarm in your system.
 
 ## Try it out
 
-Select the Test panel and try a few interactions.
+1. Select **Train**.
 
-- Input: Set alarm for tomorrow at noon
-- Output: "Are you sure you want to set an alarm for 12/07/2019 12:00:00?"
-- Input: Yes
-- Output: "Ok, alarm set for 12/07/2019 12:00:00"
-- Input: No, tomorrow at 1pm
-- Output: "Updating previous alarm to 12/07/2019 13:00:00"
+1. After training is done, select **Test**, and then try these interactions:
+
+   - Input: Set alarm for tomorrow at noon
+   - Output: Are you sure you want to set an alarm for 2020-05-02 12:00:00
+   - Input: Yes
+   - Output: Ok, alarm set for 2020-05-02 12:00:00
+   - Input: No, tomorrow at 2pm
+   - Output: Updating previous alarm to 2020-05-02 14:00:00

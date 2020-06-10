@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 
 # Add Rows module
@@ -28,11 +28,11 @@ Concatenation of rows is useful in scenarios such as these:
 
 To concatenate rows from two datasets, the rows must have exactly  the same schema. This means, the same number of columns, and the same type of data in the columns.
 
-1.  Drag the **Add Rows** module into your pipeline, You can find it under **Data Transformation**,  in the **Manipulate** category.
+1.  Drag the **Add Rows** module into your pipeline, You can find it under **Data Transformation**.
 
 2. Connect the datasets to the two input ports. The dataset that you want to append should be connected to the second (right) port. 
   
-3.  Run the pipeline. The number of rows in the output dataset should equal the sum of the rows of both input datasets.
+3.  Submit the pipeline. The number of rows in the output dataset should equal the sum of the rows of both input datasets.
 
     If you add the same dataset to both inputs of the **Add Rows** module, the dataset is duplicated. 
 

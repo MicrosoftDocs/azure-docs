@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
 ---
 # Module: Assign Data to Clusters
@@ -38,9 +38,9 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
     If you clear this check box, only the results are returned. This option might be useful when you create predictions as part of a web service.
   
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
   
 ### Results
 
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and then select **Visualize**.
++  To view the values in the dataset, right-click the module, and then select **Visualize**. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
 

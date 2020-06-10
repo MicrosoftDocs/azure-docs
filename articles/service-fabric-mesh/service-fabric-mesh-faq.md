@@ -1,14 +1,9 @@
 ---
-title: Common questions for Azure Service Fabric Mesh | Microsoft Docs
+title: Common questions for Azure Service Fabric Mesh 
 description: Learn about commonly asked questions and answers for Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: 
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
 ---
 # Commonly asked Service Fabric Mesh questions
 
@@ -46,8 +41,11 @@ If you see this happen, you can validate that the system shut it down by running
 
 For example: 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -81,7 +79,6 @@ If you are developing on a Windows Fall Creators Update (version 1709) machine, 
 If you are developing on a Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or Windows version 1803 docker images.
 
 The following container OS images can be used to deploy services:
-
 - Windows - windowsservercore and nanoserver
     - Windows Server 1709
     - Windows Server 1803

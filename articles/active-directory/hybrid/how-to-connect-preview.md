@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -22,24 +22,9 @@ ms.collection: M365-identity-device-management
 # More details about features in preview
 This topic describes how to use features currently in preview.
 
-## Group writeback
-The option for group writeback in optional features allows you to writeback **Office 365 Groups** to a forest with Exchange installed. This is a group that is always mastered in the cloud. If you have Exchange on-premises, then you can write back these groups to on-premises so users with an on-premises Exchange mailbox can send and receive emails from these groups.
+## Azure AD Connect sync V2 endpoint API (public preview) 
 
-More information about Office 365 Groups and how to use them can be found [here](https://aka.ms/O365g).
-
-An Office 365 group is represented as a distribution group in on-premises AD DS. Your on-premises Exchange server must be on Exchange 2013 cumulative update 8 (released in March 2015) or Exchange 2016 to recognize this new group type.
-
-**Notes during the preview**
-
-* The address book attribute is currently not populated in the preview. Without this attribute, the group is not visible in the GAL. The easiest way to populate this attribute is to use the Exchange PowerShell cmdlet `update-recipient`.
-* Only forests with the Exchange schema are valid targets for groups. If no Exchange was detected, then group writeback is not possible to enable.
-* Only single-forest Exchange organization deployments are currently supported. If you have more than one Exchange organization on-premises, then you need an on-premises GALSync solution for these groups to appear in your other forests.
-* The Group writeback feature does not handle security groups or distribution groups.
-
-> [!NOTE]
-> A subscription to Azure AD Premium is required for group writeback.
-> 
->
+We have deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint also supports syncing groups with up to 250k members. Using this endpoint also allows you to write back O365 unified groups, with no maximum membership limit, to your on-premises Active Directory, when group writeback is enabled.   For more information see [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## User writeback
 > [!IMPORTANT]

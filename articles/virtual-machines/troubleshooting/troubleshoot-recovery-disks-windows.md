@@ -257,4 +257,4 @@ Update-AzVM -ResourceGroup "myResourceGroup" -VM $myVM
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).

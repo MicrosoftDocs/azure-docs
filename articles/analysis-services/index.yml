@@ -73,4 +73,4 @@ landingContent:
           - text: REST API
             url: /rest/api/analysisservices/
           - text: Tabular Model Scripting Language (TMSL)
-            url: /bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+            url: /analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference

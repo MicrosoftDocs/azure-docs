@@ -1,21 +1,9 @@
 ---
-title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
+title: Manage certificates in an Azure Service Fabric cluster 
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
 
-ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/13/2018
-ms.author: atsenthi
-
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
 It is recommended that you familiarize yourself with how Service Fabric uses X.509 certificates and be familiar with the [Cluster security scenarios](service-fabric-cluster-security.md). You must understand what a cluster certificate is and what is used for, before you proceed further.
@@ -42,9 +30,7 @@ To remove an unused cluster security certificate, Navigate to the Security secti
 
 If your intent is to remove the certificate that is marked primary, then you will need to deploy a secondary certificate with an expiring date further into the future than the primary certificate, enabling the auto rollover behavior; delete the primary certificate after the auto rollover has completed.
 
-## Add a secondary certificate using Resource Manager Powershell
-> [!TIP]
-> There is now a better and easier way to add a secondary certificate using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+## Add a secondary certificate using Azure Resource Manager
 
 These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 

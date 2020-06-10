@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
 ---
 # Train Model module
 
@@ -34,7 +34,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
 3. After training is completed, use the trained model with one of the [scoring modules](./score-model.md), to make predictions on new data.
 
-## How to use **Train Model**  
+## How to use Train Model 
   
 1.  In Azure Machine Learning, configure a classification model or regression model.
     
@@ -44,7 +44,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
     The training dataset must contain a label column. Any rows without labels are ignored.
   
-4.  For **Label column**, click **Launch column selector**, and choose a single column that contains outcomes the model can use for training.
+4.  For **Label column**, click **Edit column** in the right panel of module, and choose a single column that contains outcomes the model can use for training.
   
     - For classification problems, the label column must contain either **categorical** values or **discrete** values. Some examples might be a yes/no rating, a disease classification code or name, or an income group.  If you pick a noncategorical column, the module will return an error during training.
   
@@ -57,16 +57,15 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-5.  Run the pipeline. If you have a lot of data, this can take a while.
+5.  Submit the pipeline. If you have a lot of data, this can take a while.
 
-## <a name="bkmk_results"></a> Results
+## Results
 
 After the model is trained:
 
-+ To view the model parameters and feature weights, right-click the output and select **Visualize**.
-+ To use the model in other pipelines, right-click the model and select **Save Model**. Type a name for the model. 
 
-    This saves the model as a snapshot that is not updated by repeated runs of the pipeline.
++ To use the model in other pipelines, select the module and select the **Register dataset** icon under the **Outputs** tab in right panel. You can access saved models in the module palette under **Datasets**.
+
 + To use the model in predicting new values, connect it to the [Score Model](./score-model.md) module, together with new input data.
 
 

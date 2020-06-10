@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/23/2020
 
 ms.author: mimart
 author: msmimart

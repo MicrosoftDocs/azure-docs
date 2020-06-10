@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
@@ -19,7 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for MySQL server.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## Terminology and description
 
@@ -39,7 +39,7 @@ A virtual network rule tells your Azure Database for MySQL server to accept comm
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## Benefits of a virtual network rule
 
@@ -63,7 +63,7 @@ If your **Microsoft.Sql** server was a node on a subnet in your virtual network,
 
 However as of August 2018, the Azure Database for MySQL service is not yet among the services that can be assigned directly to a subnet.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Details about virtual network rules
 
@@ -140,7 +140,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for MySQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -154,4 +154,4 @@ For articles on creating VNet rules, see:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

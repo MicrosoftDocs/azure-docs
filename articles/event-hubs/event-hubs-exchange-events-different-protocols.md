@@ -1,9 +1,9 @@
 ---
-title: Exchange events between apps that use different protocols - Azure Event Hubs| Microsoft Docs
+title: Azure Event Hubs - Exchange events using different protocols
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: femila
 manager: 
 
 ms.service: event-hubs
@@ -12,8 +12,8 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
-ms.author: bahariri
+ms.date: 12/20/2019
+ms.author: femila
 
 ---
 
@@ -338,10 +338,10 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ```
 
 ## Next steps
-In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
 
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Kafka enabled Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
-* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Learn how to stream into Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

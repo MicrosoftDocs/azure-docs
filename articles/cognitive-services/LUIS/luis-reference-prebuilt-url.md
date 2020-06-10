@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ---
 
 # URL prebuilt entity for a LUIS app
-URL entity extracts URLs with domain names or IP addresses. Because this entity is already trained, you do not need to add example utterances containing URLs to the application. URL entity is supported in `en-us` culture only. 
+URL entity extracts URLs with domain names or IP addresses. Because this entity is already trained, you do not need to add example utterances containing URLs to the application. URL entity is supported in `en-us` culture only.
 
 ## Types of URLs
 Url is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml) GitHub repository
@@ -77,7 +77,7 @@ The following example shows the resolution of the https://www.luis.ai is a great
 ]
 ```
 
-* * * 
+* * *
 
 ## Next steps
 

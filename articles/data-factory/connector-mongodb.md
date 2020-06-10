@@ -16,6 +16,8 @@ ms.date: 08/12/2019
 
 # Copy data from MongoDB using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
@@ -163,4 +165,4 @@ You can use this MongoDB connector to export JSON documents as-is from a MongoDB
 To copy data from MongoDB to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

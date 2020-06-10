@@ -42,7 +42,7 @@ integration and business-to-business (B2B) solutions.
 
   * [Azure storage account](../storage/common/storage-account-overview.md) 
   where you create a blob container for your schema. Learn how to 
-  [create a storage account](../storage/common/storage-quickstart-create-account.md). 
+  [create a storage account](../storage/common/storage-account-create.md). 
 
   * Blob container for storing your schema. Learn how to 
   [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 

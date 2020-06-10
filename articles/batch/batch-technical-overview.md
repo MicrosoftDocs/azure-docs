@@ -1,22 +1,10 @@
 ---
-title: Azure Batch runs large parallel jobs in the cloud | Microsoft Docs
+title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
-services: batch
-documentationcenter: ''
-author: mscurrell
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: markscu
-ms.custom: mvc
-
 ---
+
 # What is Azure Batch?
 
 Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. 
@@ -81,7 +69,7 @@ The following diagram shows steps in a common Batch workflow, with a client appl
 
 Keep in mind this is just one way to use Batch, and this scenario describes just some of its features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node. Or, use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward. 
 
-See the [Batch feature overview for developers](batch-api-basics.md) for more detailed information about pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
+See [Batch service workflow and primary resources](batch-service-workflow-features.md) for an overview of features such as pools, nodes, jobs, and tasks. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## Next steps
 

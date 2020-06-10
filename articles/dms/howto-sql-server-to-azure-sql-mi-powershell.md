@@ -1,20 +1,22 @@
 ---
-title: Migrate SQL Server to Azure SQL Database Managed Instance with Database Migration Service and PowerShell | Microsoft Docs
-description: Learn to migrate from on-premises SQL Server to Azure SQL DB Managed Instance by using Azure PowerShell.
+title: "PowerShell: Migrate SQL Server to SQL managed instance"
+titleSuffix: Azure Database Migration Service
+description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019,fasttrack-edit"
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 02/20/2020
 ---
 
-# Migrate SQL Server on-premises to an Azure SQL Database managed instance using Azure PowerShell
-In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL Database managed instance by using Microsoft Azure PowerShell. You can migrate databases from an on-premises SQL Server instance to an Azure SQL Database managed instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+# Migrate SQL Server to SQL Managed Instance with PowerShell & Azure Database Migration Service
+
+In this article, you migrate the **Adventureworks2016** database restored to an on-premises instance of SQL Server 2005 or above to an Azure SQL SQL Managed Instance by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to an SQL Managed Instance by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -37,16 +39,16 @@ To complete these steps, you need:
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure SQL Database managed instance. You can create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+* A SQL Managed Instance. You can create a SQL Managed Instance by following the detail in the article [Create a ASQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 * To download and install [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
-* An Azure Virtual Network (VNet) created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* A Microsoft Azure Virtual Network created using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * A completed assessment of your on-premises database and schema migration using Data Migration Assistant, as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem).
 * To download and install the `Az.DataMigration` module (version 0.7.2 or later) from the PowerShell Gallery by using [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
 * To ensure that the credentials used to connect to source SQL Server instance have the [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) permission.
-* To ensure that the credentials used to connect to target Azure SQL Database managed instance has the CONTROL DATABASE permission on the target Azure SQL Database managed instance databases.
+* To ensure that the credentials used to connect to target SQL Managed Instance has the CONTROL DATABASE permission on the target SQL Managed Instance databases.
 
     > [!IMPORTANT]
-    > For online migrations, you must alread have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+    > For online migrations, you must already have set up your Azure Active Directory credentials. For more information, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 ## Sign in to your Microsoft Azure subscription
 
@@ -114,7 +116,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for an Azure SQL Database managed instance server named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
+The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
@@ -183,7 +185,7 @@ $backupFileShare = New-AzDmsFileShare -Path $backupFileSharePath -Credential $ba
 
 The next step is to select the source and target databases by using the `New-AzDmsSelectedDB` cmdlet.
 
-The following example is for migrating a single database from SQL Server to an Azure SQL Database managed instance:
+The following example is for migrating a single database from SQL Server to a Azure SQL Managed Instance:
 
 ```powershell
 $selectedDbs = @()
@@ -193,7 +195,7 @@ $selectedDbs += New-AzDmsSelectedDB -MigrateSqlServerSqlDbMi `
   -BackupFileShare $backupFileShare `
 ```
 
-If an entire SQL Server instance needs a lift-and-shift into an Azure SQL Database managed instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
+If an entire SQL Server instance needs a lift-and-shift into a Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
 
 ```powershell
 $Query = "(select name as Database_Name from master.sys.databases where Database_id>4)";
@@ -219,6 +221,9 @@ Create variable containing the SAS URI that provides the Azure Database Migratio
 ```powershell
 $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
 ```
+
+> [!NOTE]
+> Azure Database Migration Service does not support using an account level SAS token. You must use a SAS URI for the storage account container. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
 
 ### Additional configuration requirements
 
@@ -275,13 +280,13 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 Regardless of whether you're performing an offline or online migration, the `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
-* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
 * *ServiceName*. Azure Database Migration Service instance in which to create the task.
 * *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
-* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Database Managed Instance connection.
+* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
 * *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to source server.
 * *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
@@ -387,7 +392,7 @@ To monitor the migration, perform the following tasks.
 
 With an online migration, a full backup and restore of databases is performed, and then work proceeds on restoring the Transaction Logs stored in the BackupFileShare.
 
-When the database in an Azure SQL Database managed instance is updated with latest data and is in sync with the source database, you can perform a cutover.
+When the database in a Azure SQL Managed Instance is updated with latest data and is in sync with the source database, you can perform a cutover.
 
 The following example will complete the cutover\migration. Users invoke this command at their discretion.
 

@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Text-to-speech documentation
+summary: Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech.
+metadata:
+  title: Text-to-speech documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: trevorbye
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 03/10/2020
+  ms.author: trbye
+
+landingContent:
+- title: About text-to-speech
+  linkLists:
+    - linkListType: overview
+      links:
+      - text: What is text-to-speech?
+        url: text-to-speech.md
+      - text: Speech synthesis basics
+        url: text-to-speech-basics.md
+      - text: Use the Speech CLI for text-to-speech with no code
+        url: spx-overview.md
+    - linkListType: quickstart
+      links:
+        - text: Synthesize speech to a speaker
+          url: quickstarts/text-to-speech.md
+        - text: Synthesize speech into an audio file
+          url: quickstarts/text-to-speech-audio-file.md
+        - text: Synthesize speech with long-form audio
+          url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+- title: Develop with text-to-speech
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md
+        - text: Get a list of voices with REST (Python)
+          url: quickstart-python-get-text-to-speech-voices.md
+        - text: Convert text-to-speech with REST (Python)
+          url: quickstart-python-text-to-speech.md
+    - linkListType: concept
+      links:
+        - text: Get started with Custom Voice
+          url: how-to-custom-voice.md
+        - text: Create and use Custom Voice models
+          url: how-to-custom-voice-create-voice.md
+        - text: Gating of Custom Voice
+          url: concepts-gating-overview.md
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Standard voice support
+          url: language-support.md#standard-voices
+        - text: Neural voice support
+          url: language-support.md#neural-voices
+        - text: SSML phonetic sets
+          url: speech-ssml-phonetic-sets.md
+        - text: Text-to-speech pricing
+          url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

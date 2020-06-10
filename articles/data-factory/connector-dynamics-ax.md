@@ -16,6 +16,8 @@ ms.date: 08/01/2019
 
 # Copy data from Dynamics AX by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Dynamics AX source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 ## Supported capabilities
@@ -176,4 +178,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

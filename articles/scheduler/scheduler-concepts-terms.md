@@ -1,13 +1,12 @@
 ---
-title: Concepts, terms, and entities - Azure Scheduler  | Microsoft Docs
+title: Concepts, terms, and entities
 description: Learn the concepts, terminology, and entity hierarchy, including jobs and job collections, in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ---
@@ -18,7 +17,11 @@ ms.date: 08/18/2016
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
 ## Entity hierarchy
 
@@ -75,7 +78,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler supports multiple job types: 
 
-* HTTP jobs, including HTTPS jobs that support SSL, 
+* HTTP jobs, including HTTPS jobs that support TLS, 
 for when you have the endpoint for an existing service or workload
 * Storage queue jobs for workloads that use Storage queues, 
 such as posting messages to Storage queues
@@ -362,11 +365,9 @@ For example:
 }
 ```
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
-* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
-* [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)
 * [Azure Scheduler REST API reference](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+* [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

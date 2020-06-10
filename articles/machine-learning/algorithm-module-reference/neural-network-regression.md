@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 # Neural Network Regression module
 
@@ -51,7 +51,9 @@ Neural networks can be extensively customized. This section describes how to cre
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.  
+    -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
+
+    -   **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.   
 
 3.  In **Hidden layer specification**, select **Fully connected case**. This option creates a model using the default neural network architecture, which for a neural network regression model, has these attributes:  
   
@@ -67,7 +69,6 @@ Neural networks can be extensively customized. This section describes how to cre
 
 6.  For **Number of learning iterations**, specify the maximum number of times the algorithm processes the training cases.
 
-7.  For **The initial learning weights diameter, type a value that determines the node weights at the start of the learning process.
 
 8.  For **The momentum**, type a value to apply during learning as a weight on nodes from previous iterations.
 
@@ -75,21 +76,28 @@ Neural networks can be extensively customized. This section describes how to cre
   
 11. For **Random number seed**, you can optionally type a value to use as the seed. Specifying a seed value is useful when you want to ensure repeatability across runs of the same pipeline.
   
-13. Connect a training dataset and one of the [training modules](module-reference.md): 
+13. Connect a training dataset and train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, use [Train Model](./train-model.md).  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
    
-14. Run the pipeline.  
+14. Submit the pipeline.  
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md), and select **Visualize**.  
-
-+ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
-
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 ## Next steps
 

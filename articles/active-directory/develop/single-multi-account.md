@@ -2,21 +2,16 @@
 title: Single and multiple account public client apps | Azure
 description: An overview of single and multiple account public client apps.
 services: active-directory
-documentationcenter: ''
 author: shoatman
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Single and multiple account public client apps

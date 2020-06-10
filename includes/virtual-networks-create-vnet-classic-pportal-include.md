@@ -21,7 +21,7 @@ To create a classic VNet based on the preceding scenario, follow these steps.
 4. On the **Virtual network** pane, type the **Name** of the VNet, and then click **Address space**. Configure your address space settings for the VNet and its first subnet, then click **OK**. The following figure shows the CIDR block settings for our scenario.
    
     ![Address space pane](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-5. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The following figure shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+5. Click **Resource Group** and select a resource group to add the VNet to, or click **Create new resource group** to add the VNet to a new resource group. The following figure shows the resource group settings for a new resource group called **TestRG**. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
    
     ![Create resource group pane](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 6. If necessary, change the **Subscription** and **Location** settings for your VNet. 

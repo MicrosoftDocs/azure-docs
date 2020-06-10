@@ -1,9 +1,8 @@
 ---
 title: Metered billing using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

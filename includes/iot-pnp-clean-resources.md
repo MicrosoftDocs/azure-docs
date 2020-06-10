@@ -27,4 +27,4 @@ To delete just the device identity you registered with your IoT hub, run the fol
 az iot hub device-identity delete --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-You may also want to remove the cloned SDK files from your development machine.
+You may also want to remove the cloned sample files from your development machine.

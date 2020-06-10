@@ -40,6 +40,10 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
 
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+
 ## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)

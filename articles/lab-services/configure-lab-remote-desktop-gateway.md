@@ -1,5 +1,5 @@
 ---
-title: Configure a lab to use Remote Desktop Gateway in Azure DevTest Labs | Microsoft Docs
+title: Configure a lab to use Remote Desktop Gateway in Azure DevTest Labs
 description: Learn how to configure a lab in Azure DevTest Labs with a remote desktop gateway to ensure secure access to the lab VMs without having to expose the RDP port. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
 
 ---
@@ -40,7 +40,7 @@ This approach is more secure because the lab user authenticates directly to the 
 To work with the DevTest Labs token authentication feature, there are a few configuration requirements for the gateway machines, domain name services (DNS), and functions.
 
 ### Requirements for remote desktop gateway machines
-- SSL certificate must be installed  on the gateway machine to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the load balancer for the gateway farm or the FQDN of the machine itself if there's only one machine. Wild-card SSL certificates don't work.  
+- TLS/SSL certificate must be installed  on the gateway machine to handle HTTPS traffic. The certificate must match the fully qualified domain name (FQDN) of the load balancer for the gateway farm or the FQDN of the machine itself if there's only one machine. Wild-card TLS/SSL certificates don't work.  
 - A signing certificate installed on gateway machine(s). Create a signing certificate by using [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1) script.
 - Install the [Pluggable Authentication](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) module that supports token authentication for the remote desktop gateway. One example of such a module is `RDGatewayFedAuth.msi` that comes with [System Center Virtual Machine Manager (VMM) images](/system-center/vmm/install-console?view=sc-vmm-1807). For more information about System Center, see [System Center documentation](https://docs.microsoft.com/system-center/) and [pricing details](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - The gateway server can handle requests made to `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
@@ -55,13 +55,13 @@ Azure function handles request with format of `https://{function-app-uri}/app/ho
 
 ## Requirements for network
 
-- DNS for the FQDN associated with the SSL certificate installed on the gateway machines must direct traffic to the gateway machine or the load balancer of the gateway machine farm.
+- DNS for the FQDN associated with the TLS/SSL certificate installed on the gateway machines must direct traffic to the gateway machine or the load balancer of the gateway machine farm.
 - If the lab machine uses private IPs, there must be a network path from the gateway machine to the lab machine, either through sharing the same virtual network or using peered virtual networks.
 
 ## Configure the lab to use token authentication 
 This section shows how to configure a lab to use a remote desktop gateway machine that supports token authentication. This section doesn't cover how to set up a remote desktop gateway farm itself. For that information, See the [Sample to create a remote desktop gateway](#sample-to-create-a-remote-desktop-gateway) section at the end of this article. 
 
-Before you update the lab settings, store the key needed to successfully execute the function to return an authentication token in the lab’s key vault. You can get the function key value in the **Manage** page for the function in the Azure portal. For more information on how to save a secret in a key vault, see [Add a secret to Key Vault](../key-vault/quick-create-portal.md#add-a-secret-to-key-vault). Save the name of the secret for later use.
+Before you update the lab settings, store the key needed to successfully execute the function to return an authentication token in the lab’s key vault. You can get the function key value in the **Manage** page for the function in the Azure portal. For more information on how to save a secret in a key vault, see [Add a secret to Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault). Save the name of the secret for later use.
 
 To find the ID of the lab’s key vault, run the following Azure CLI command: 
 
@@ -76,7 +76,7 @@ Configure the lab to use the token authentication by using these steps:
 1. From the list of labs, select your **lab**.
 1. On the lab's page, select **Configuration and policies**.
 1. On the left menu, in the **Settings** section, select **Lab settings**.
-1. In the **Remote desktop** section, enter the fully qualified domain name (FQDN) or IP address of the remote desktop services gateway machine or farm for the **Gateway hostname** field. This value must match the FQDN of the SSL certificate used on gateway machines.
+1. In the **Remote desktop** section, enter the fully qualified domain name (FQDN) or IP address of the remote desktop services gateway machine or farm for the **Gateway hostname** field. This value must match the FQDN of the TLS/SSL certificate used on gateway machines.
 
     ![Remote desktop options in lab settings](./media/configure-lab-remote-desktop-gateway/remote-desktop-options-in-lab-settings.png)
 1. In the **Remote desktop** section, for **Gateway token** secret, enter the name of the secret created earlier. This value isn't the function key itself, but the name of the secret in the lab’s key vault that holds the function key.
@@ -107,7 +107,7 @@ The [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtes
 Follow these steps to set up a sample solution for the remote desktop gateway farm.
 
 1. Create a signing certificate.  Run [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Save the thumbprint, password, and Base64 encoding of the created certificate.
-2. Get an SSL certificate. FQDN associated with the SSL certificate must be for the domain you control. Save the thumbprint, password, and Base64 encoding for this certificate. To get thumbprint using PowerShell, use the following commands.
+2. Get a TLS/SSL certificate. FQDN associated with the TLS/SSL certificate must be for the domain you control. Save the thumbprint, password, and Base64 encoding for this certificate. To get thumbprint using PowerShell, use the following commands.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -129,9 +129,9 @@ Follow these steps to set up a sample solution for the remote desktop gateway fa
     - instanceCount – Number of gateway machines to create.  
     - alwaysOn – Indicates whether to keep the created Azure Functions app in a warm state or not. Keeping the Azure Functions app will avoid delays when users first try to connect to their lab VM, but it does have cost implications.  
     - tokenLifetime – The length of time the created token will be valid. Format is HH:MM:SS.
-    - sslCertificate – The Base64 encoding of the SSL certificate for the gateway machine.
-    - sslCertificatePassword – The password of the SSL certificate for the gateway machine.
-    - sslCertificateThumbprint - The certificate thumbprint for identification in the local certificate store of the SSL certificate.
+    - sslCertificate – The Base64 encoding of the TLS/SSL certificate for the gateway machine.
+    - sslCertificatePassword – The password of the TLS/SSL certificate for the gateway machine.
+    - sslCertificateThumbprint - The certificate thumbprint for identification in the local certificate store of the TLS/SSL certificate.
     - signCertificate – The Base64 encoding for signing certificate for the gateway machine.
     - signCertificatePassword – The password for signing certificate for the gateway machine.
     - signCertificateThumbprint - The certificate thumbprint for identification in the local certificate store of the signing certificate.
@@ -154,7 +154,7 @@ Follow these steps to set up a sample solution for the remote desktop gateway fa
         - The {utc-expiration-date} is the date, in UTC, at which the SAS token will expire and the SAS token can no longer be used to access the storage account.
 
     Record the values for gatewayFQDN and gatewayIP from the template deployment output. You'll also need to save the value of the function key for the newly created function, which can be found in the [Function app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md) tab.
-5. Configure DNS so that FQDN of SSL cert directs to IP address of gatewayIP from previous step.
+5. Configure DNS so that FQDN of TLS/SSL cert directs to IP address of gatewayIP from previous step.
 
     After the Remote Desktop Gateway farm is created and appropriate DNS updates are made, it's ready to be used by a lab in DevTest Labs. The **gateway hostname** and **gateway token secret** settings must be configured to use the gateway machine(s) you deployed. 
 

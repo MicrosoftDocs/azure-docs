@@ -1,18 +1,15 @@
 ---
-title: Use Azure Pipelines to build and deploy HPC solutions - Azure Batch | Microsoft Docs
+title: Use Azure Pipelines to build & deploy HPC solutions
 description: Learn how to deploy a build/release pipeline for an HPC application running on Azure Batch.
-author: christianreddington
+author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
+ms.topic: how-to
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions
 
-Azure DevOps services provide a range of tools used by development teams when building a custom application. Tools provided by Azure DevOps can translate into automated building and testing of high performance compute solutions. This article demonstrates how to set up a continuous integration (CI) and continuous deployment (CD) using Azure Pipelines for a high performance compute solution deployed on Azure Batch.
+Azure DevOps Services provide a range of tools used by development teams when building a custom application. Tools provided by Azure DevOps can translate into automated building and testing of high performance compute solutions. This article demonstrates how to set up a continuous integration (CI) and continuous deployment (CD) using Azure Pipelines for a high performance compute solution deployed on Azure Batch.
 
 Azure Pipelines provides a range of modern CI/CD processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
 
@@ -47,7 +44,7 @@ The codebase structure used in this sample resembles the following;
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
 
 * [What is source control?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 #### Azure Resource Manager templates
 
@@ -187,7 +184,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
 
 Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the capability templates.
 
-You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) in a separate article.
+You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) in a separate article.
 
 ```json
 {
@@ -363,7 +360,7 @@ Azure Pipelines also used to deploy your application and underlying infrastructu
 
 ### Deploying your application and underlying infrastructure
 
-There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/resource-group-linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
+There are a number of steps involved in deploying the infrastructure. As we have used [linked templates](../azure-resource-manager/templates/linked-templates.md), those templates will need to be accessible from a public endpoint (HTTP or HTTPS). This could be a repository on GitHub, or an Azure Blob Storage Account, or another storage location. The uploaded template artifacts can remain secure, as they can be held in a private mode but accessed using some form of shared access signature (SAS) token. The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
 1. Create a **New Release Definition**, and select an empty definition. We then need to rename the newly created environment to something relevant for our pipeline.
 

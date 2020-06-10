@@ -31,13 +31,6 @@ productDirectory:
           text: What is Azure Blockchain Workbench?
         - url: ./workbench/index.yml
           text: See more >
-    - title: Azure Blockchain Tokens
-      imageSrc: ./media/index/blockchain-tokens.svg
-      links:
-        - url: ./tokens/overview.md
-          text: What is Azure Blockchain Tokens?
-        - url: ./tokens/index.yml
-          text: See more >
 conceptualContent:
   title: Get started
   items:
@@ -69,17 +62,6 @@ conceptualContent:
         - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
           itemType: video
           text: Watch how to build your first application
-    - title: Create and manage tokens
-      links:
-        - url: ./tokens/templates.md
-          itemType: concept
-          text: Define your token using a pre-built template
-        - url: ./tokens/account-management.md
-          itemType: concept
-          text: Manage tokens using Azure Blockchain Tokens
-        - url: https://aka.ms/ABTokensPartI
-          itemType: video
-          text: Watch an introduction to Azure Blockchain Tokens
     - title: Publish blockchain data using Blockchain Data Manager
       links:
         - url: ./service/data-manager.md
@@ -96,9 +78,9 @@ conceptualContent:
         - url: ./templates/ethereum-poa-deployment.md
           itemType: how-to-guide
           text: Deploy a multi-member consortium Proof-of-authority Ethereum network on Azure
-        - url: ./templates/hyperledger-fabric-consortium-blockchain.md
+        - url: ./templates/hyperledger-fabric-consortium-azure-kubernetes-service.md
           itemType: how-to-guide
-          text: Deploy a Hyperledger Fabric consortium network on Azure
+          text: Deploy a Hyperledger Fabric consortium network on Azure Kubernetes Service
 additionalContent:
   sections:
     - title: Development tools and samples

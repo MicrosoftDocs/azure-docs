@@ -253,7 +253,7 @@ Use this cmdlet to retrieve or list a consortium member's invitation status.
 [Establish a Web3 connection](#establish-a-web3-connection) to set the $ContractConnection variable.
 
 ```powershell-interactive
-$ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
+$ContractConnection | Get-BlockchainMemberInvitation –SubscriptionId <Azure subscription ID>
 ```
 
 #### Example output

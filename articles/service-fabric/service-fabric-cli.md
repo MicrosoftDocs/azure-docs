@@ -1,15 +1,11 @@
 ---
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
-services: service-fabric
 author: jeffj6123
-manager: chackdan
 
-ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 9/17/2019
+ms.date: 5/19/2020
 ms.author: jejarry
-
 ---
 # Azure Service Fabric CLI
 
@@ -29,7 +25,9 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=8)  | Latest (~=6.5)            |
+| Latest (~=10) | Latest (~=7.1)            |
+| 9.0.0         | 7.1                       |
+| 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
@@ -39,7 +37,7 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -65,14 +63,14 @@ For Windows 10, Windows Server 2016, and Windows Server 2012 R2, use the standar
 
 Now you can open a new command window and get the version of both Python and pip.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
 Then run the following command to install the Azure Service Fabric CLI (sfctl) and view the CLI help page:
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -101,7 +99,7 @@ Be sure that `~/.local/bin` is accessible from the `$PATH`:
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 If the installation on Windows subsystem for Linux fails with incorrect folder permissions, it may be necessary to try again with elevated permissions:
@@ -146,7 +144,7 @@ Commands are always prefixed with `sfctl`. For general information about all the
 
 Commands follow a repeatable structure, with the target of the command preceding the verb or the action.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -159,7 +157,7 @@ Before you perform any operations, you must select a cluster to connect to. For 
 > [!WARNING]
 > Do not use unsecured Service Fabric clusters in a production environment.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -167,7 +165,7 @@ The cluster endpoint must be prefixed by `http` or `https`. It must include the 
 
 For clusters that are secured with a certificate, you can specify a PEM-encoded certificate. The certificate can be specified as a single file or as a cert and a key pair. If it is a self-signed certificate that is not CA signed, you can pass the `--no-verify` option to bypass CA verification.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -180,7 +178,7 @@ Cluster connection information persists across multiple Service Fabric CLI sessi
 
 For example, to get the Service Fabric cluster health state, use the following command:
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -217,13 +215,13 @@ Here are some suggestions and tips for solving common problems.
 
 The Service Fabric CLI supports client-side certificates as PEM (.pem extension) files. If you use PFX files from Windows, you must convert those certificates to PEM format. To convert a PFX file to a PEM file, use the following command:
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 Similarly, to convert from a PEM file to a PFX file, you can use the following command (no password is being provided here):
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -245,13 +243,13 @@ Detailed logs often are helpful when you debug or report a problem. The `--debug
 
 For help with a specific command or a group of commands, use the `-h` flag.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 Here is another example:
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -259,7 +257,7 @@ sfctl application create -h
 
 To update the Service Fabric CLI, run the following commands (replace `pip` with `pip3` depending on what you chose during your original install):
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

@@ -15,6 +15,8 @@ ms.date: 09/16/2019
 
 # Copy data to and from Azure Database for PostgreSQL by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article describes how to use the copy activity feature in Azure Data Factory to copy data from Azure Database for PostgreSQL. It builds on the [Copy activity in Azure Data Factory](copy-activity-overview.md) article, which presents a general overview of copy activity.
 
 This connector is specialized for the [Azure Database for PostgreSQL service](../postgresql/overview.md). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).

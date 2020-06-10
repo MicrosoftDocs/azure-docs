@@ -3,8 +3,8 @@ title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Do
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,8 +31,8 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -146,7 +146,7 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -195,7 +195,7 @@ These SAP Notes are related to the topic of SAP in Azure:
 | [1999351] |Virtualization on Windows: Enhanced Monitoring |
 | [2243692] |Use of Azure Premium SSD Storage for SAP DBMS Instance |
 
-Learn more about the [limitations of Azure subscriptions][azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
+Learn more about the [limitations of Azure subscriptions][azure-resource-manager/management/azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the Azure classic deployment model
 The Azure Resource Manager and Azure classic deployment models are different in the following areas:
@@ -205,7 +205,7 @@ The Azure Resource Manager and Azure classic deployment models are different in 
 - Support for SAP multi-SID scenarios
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resource groups
-In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. An integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and they are deleted at the same time. Learn more about [resource groups](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. An integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and they are deleted at the same time. Learn more about [resource groups](../../../azure-resource-manager/management/overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure internal load balancer dependency on the Azure resource group
 
@@ -236,7 +236,7 @@ You can choose from four quorum modes when you use Windows Server Failover Clust
 * **Node and Disk Majority**. Each node and a designated disk (a disk witness) in the cluster storage can vote when they are available and in communication. The cluster functions only with a majority of the votes, that is, with more than half the votes. This mode makes sense in a cluster environment with an even number of nodes. If half the nodes and the disk are online, the cluster remains in a healthy state.
 * **Node and File Share Majority**. Each node plus a designated file share (a file share witness) that the administrator creates can vote, regardless of whether the nodes and file share are available and in communication. The cluster functions only with a majority of the votes, that is, with more than half the votes. This mode makes sense in a cluster environment with an even number of nodes. It's similar to the Node and Disk Majority mode, but it uses a witness file share instead of a witness disk. This mode is easy to implement, but if the file share itself is not highly available, it might become a single point of failure.
 * **No Majority: Disk Only**. The cluster has a quorum if one node is available and in communication with a specific disk in the cluster storage. Only the nodes that also are in communication with that disk can join the cluster. We recommend that you do not use this mode.
- 
+
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server Failover Clustering on-premises
 Figure 1 shows a cluster of two nodes. If the network connection between the nodes fails and both nodes stay up and running, a quorum disk or file share determines which node will continue to provide the cluster's applications and services. The node that has access to the quorum disk or file share is the node that ensures that services continue.
@@ -395,9 +395,9 @@ The three-tier templates in Azure Resource Manager also support high-availabilit
 
 Here's where you can get Azure Resource Manager templates for the example scenario we describe in this article:
 
-* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace image using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/)
 * [Custom image using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
 To prepare the infrastructure for Architectural Template 1:
@@ -441,7 +441,7 @@ _**Figure 11:** Set SAP high-availability Azure Resource Manager parameters_
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Deploy virtual machines with corporate network connectivity (cross-premises) to use in production
-For production SAP systems, deploy Azure virtual machines with [corporate network connectivity (cross-premises)][planning-guide-2.2] by using Azure Site-to-Site VPN or Azure ExpressRoute.
+For production SAP systems, deploy Azure virtual machines with corporate network connectivity by using Azure Site-to-Site VPN or Azure ExpressRoute.
 
 > [!NOTE]
 > You can use your Azure Virtual Network instance. The virtual network and subnet have already been created and prepared.
@@ -488,9 +488,9 @@ You can use this Azure Resource Manager template for SAP to help simplify deploy
 
 Here's where you can get Azure Resource Manager templates for this deployment scenario:
 
-* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/)  
 * [Azure Marketplace image using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/)
 * [Custom image using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
@@ -588,7 +588,7 @@ To set the required DNS IP addresses, do the following steps.
 
 1. In the Azure portal, on the **DNS servers** blade, make sure that your virtual network **DNS servers** option is set to **Custom DNS**.
 2. Select your settings based on the type of network you have. For more information, see the following resources:
-   * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
+   * Add the IP addresses of the on-premises DNS servers.  
    You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
    * For VM deployments isolated in Azure: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
 

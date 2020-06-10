@@ -8,6 +8,7 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -354,7 +355,7 @@ The storage service only calculates the metric **AverageE2ELatency** for success
 #### Investigating client performance issues
 Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
-For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
+For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -412,7 +413,7 @@ If you are experiencing a delay between the time an application adds a message t
 * Examine the Storage Logging logs for any queue operations that have higher than expected **E2ELatency** and **ServerLatency** values over a longer period of time than usual.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metrics show an increase in PercentThrottlingError
-Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
+Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
 
 If the **PercentThrottlingError** metric show an increase in the percentage of requests that are failing with a throttling error, you need to investigate one of two scenarios:
 
@@ -511,24 +512,24 @@ Log entries:
 
 | Request ID | Operation Text |
 | --- | --- |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
-| de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparing to write request data. |
 | e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found.. |
@@ -536,7 +537,7 @@ Log entries:
 | e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | e2d06d78-... |Downloading response body. |
 | e2d06d78-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
 | de8b1c3c-... |Writing request data. |
@@ -561,12 +562,12 @@ The following table shows a sample server-side log message from the Storage Logg
 | --- | --- |
 | Request start time | 2014-05-30T06:17:48.4473697Z |
 | Operation type     | GetBlobProperties            |
-| Request status     | SASAuthorizationError		|
-| HTTP status code   | 404							|
+| Request status     | SASAuthorizationError        |
+| HTTP status code   | 404                            |
 | Authentication type| Sas                          |
-| Service type       | Blob 						|
-| Request URL		 | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| &nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Service type       | Blob                         |
+| Request URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Client request ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 

@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
 
 ---
@@ -125,19 +125,19 @@ Your choice of `PartitionKey` and `RowKey` is fundamental to good table design. 
 A table is made up of one or more partitions, and many of the design decisions you make will be around choosing a suitable `PartitionKey` and `RowKey` to optimize your solution. A solution can consist of just a single table that contains all your entities organized into partitions, but typically a solution has multiple tables. Tables help you to logically organize your entities, and help you manage access to the data by using access control lists. You can drop an entire table by using a single storage operation.  
 
 ### Table partitions
-The account name, table name, and `PartitionKey` together identify the partition within the storage service where Table storage stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see the section later in this article, [Entity group transactions](#entity-group-transactions)), and form the basis of how Table storage scales. For more information on partitions, see [Azure Storage scalability and performance targets](../storage/common/storage-scalability-targets.md).  
+The account name, table name, and `PartitionKey` together identify the partition within the storage service where Table storage stores the entity. As well as being part of the addressing scheme for entities, partitions define a scope for transactions (see the section later in this article, [Entity group transactions](#entity-group-transactions)), and form the basis of how Table storage scales. For more information on table partitions, see [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).  
 
 In Table storage, an individual node services one or more complete partitions, and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, Table storage can split the range of partitions serviced by that node onto different nodes. When traffic subsides, Table storage can merge the partition ranges from quiet nodes back onto a single node.  
 
 For more information about the internal details of Table storage, and in particular how it manages partitions, see [Microsoft Azure Storage: A highly available
-cloud storage service with strong consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+cloud storage service with strong consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### Entity group transactions
 In Table storage, entity group transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions*. EGTs can only operate on entities stored in the same partition (sharing the same partition key in a particular table), so anytime you need atomic transactional behavior across multiple entities, ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition), and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it's important to ensure that those EGTs don't operate on entities that are common across EGTs. Otherwise, you risk delaying processing.
 
 EGTs also introduce a potential trade-off for you to evaluate in your design. Using more partitions increases the scalability of your application, because Azure has more opportunities for load-balancing requests across nodes. But this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node.
 
-For more information about the scalability targets for Azure storage accounts and Table storage, see [Azure Storage scalability and performance targets](../storage/common/storage-scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
+For more information about scalability targets for Azure storage accounts, see [Scalability targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md). For more information about scalability targets for Table storage, see [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
 
 ### Capacity considerations
 The following table includes some of the key values to be aware of when you're designing a Table storage solution:  
@@ -208,7 +208,7 @@ Here are some general guidelines for designing Table storage queries. The filter
   `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * A *table scan* doesn't include the `PartitionKey`, and is inefficient because it searches all of the partitions that make up your table for any matching entities. It performs a table scan regardless of whether or not your filter uses the `RowKey`. For example:
   `$filter=LastName eq 'Jones'`.  
-* Azure Table storage queries that return multiple entities sort them in `PartitionKey` and `RowKey` order. To avoid resorting the entities in the client, choose a `RowKey` that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Azure Table storage queries that return multiple entities sort them in `PartitionKey` and `RowKey` order. To avoid resorting the entities in the client, choose a `RowKey` that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](table-api-faq.md#table-api-vs-table-storage).
 
 Using an "**or**" to specify a filter based on `RowKey` values results in a partition scan, and isn't treated as a range query. Therefore, avoid queries that use filters such as:
 `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
@@ -251,7 +251,7 @@ Many designs must meet requirements to enable lookup of entities based on multip
 Table storage returns query results sorted in ascending order, based on `PartitionKey` and then by `RowKey`.
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](table-api-faq.md#table-api-vs-table-storage).
 
 Keys in Table storage are string values. To ensure that numeric values sort correctly, you should convert them to a fixed length, and pad them with zeroes. For example, if the employee ID value you use as the `RowKey` is an integer value, you should convert employee ID **123** to **00000123**. 
 
@@ -738,7 +738,7 @@ The following patterns and guidance might also be relevant when implementing thi
 Retrieve the *n* entities most recently added to a partition by using a `RowKey` value that sorts in reverse date and time order.  
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. Thus, while this pattern is suitable for Table storage, it isn't suitable for Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. Thus, while this pattern is suitable for Table storage, it isn't suitable for Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 #### Context and problem
 A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a `$top` query operation to return the first *n* entities from a set. There's no equivalent query operation to return the last *n* entities in a set.  

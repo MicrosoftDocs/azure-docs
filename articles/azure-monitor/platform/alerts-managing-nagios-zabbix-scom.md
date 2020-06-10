@@ -1,13 +1,9 @@
 ---
 title: Manage alerts from System Center Operations Manager, Zabbix and Nagios in Azure Monitor
 description: Manage alerts from System Center Operations Manager, Zabbix and Nagios in Azure Monitor
-ms.service:  azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 09/24/2018
-
+ms.subservice: alerts
 ---
 
 # Manage alerts from System Center Operations Manager, Zabbix and Nagios in Azure Monitor

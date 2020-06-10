@@ -123,8 +123,8 @@ This section provides steps for
    * **Tenant URL –** Enter the name of the SuccessFactors OData API services endpoint. Only enter the host name of server without http or https. This value should look like: **api-server-name.successfactors.com**.
 
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and URL are valid.
     >[!div class="mx-imgBorder"]
@@ -177,8 +177,8 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
+* [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)
 

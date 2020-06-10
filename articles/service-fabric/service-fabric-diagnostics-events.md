@@ -1,18 +1,9 @@
 ---
-title: Azure Service Fabric Events | Microsoft Docs
+title: Azure Service Fabric Events 
 description: Learn about the Service Fabric events provided out of the box to help you monitor your Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ---

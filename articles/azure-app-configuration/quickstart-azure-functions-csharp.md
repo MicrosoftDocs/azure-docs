@@ -2,21 +2,15 @@
 title: Quickstart for Azure App Configuration with Azure Functions | Microsoft Docs
 description: A quickstart for using Azure App Configuration with Azure Functions.
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
+author: lisaguthrie
 
-ms.assetid: 
+
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: Azure Functions
-ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
+ms.date: 1/9/2019
+ms.author: lcozzens
 
-#Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place.
+#Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 # Quickstart: Create an Azure Functions app with Azure App Configuration
 
@@ -32,7 +26,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -40,17 +34,15 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
     Leave **Label** and **Content Type** empty for now.
 
+7. Select **Apply**.
+
 ## Create a Functions app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## Connect to an App Configuration store
 
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
-
-    ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
-    ```
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search for and add the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package to your project. If you can't find it, select the **Include prerelease** check box.
 
 2. Open *Function1.cs*, and add the namespaces of the .NET Core configuration and the App Configuration configuration provider.
 
@@ -58,7 +50,8 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Add a `static` property `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Functions calls later.
+
+3. Add a `static` property named `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Functions calls later.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -70,6 +63,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
         Configuration = builder.Build();
     }
     ```
+
 4. Update the `Run` method to read values from the configuration.
 
     ```csharp
@@ -80,7 +74,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];
-            
+
         return message != null
             ? (ActionResult)new OkObjectResult(message)
             : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
@@ -91,17 +85,23 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
+    ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
+    ```azurepowershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use macOS or Linux, run the following command:
 
+    ```bash
         export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
-2. To test your function, press F5. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
+2. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.
 
 3. Copy the URL of your function from the Azure Functions runtime output.
 

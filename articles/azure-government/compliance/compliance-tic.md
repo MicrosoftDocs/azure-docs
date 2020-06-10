@@ -2,13 +2,13 @@
 title: Trusted Internet Connections guidance for Azure
 description: Trusted Internet Connections guidance for Azure and SaaS services
 services: azure-government
-author: dlapiduz
+author: femila
 
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
 ms.service: azure-government
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: dlap
+ms.author: femila
 ---
 
 # Trusted Internet Connections guidance
@@ -146,7 +146,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 |Service                               |Availability      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Public preview   |
+|Azure SQL Managed Instance   | Public preview   |
 |Azure Kubernetes Service (AKS)        | Public preview   |
 |Azure Service Fabric                  | GA               |
 |Azure API Management                  | GA               |
@@ -204,19 +204,7 @@ Azure Policy is targeted at the subscription level. The service provides a centr
 - Enforce compliance
 - Manage exceptions
 
-Along with many built-in definitions, administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
-
-The following sample policies can be used for TIC compliance scenarios:
-
-|Policy  |Sample scenario  |Template  |
-|---------|---------|---------|
-|Enforce user-defined route table. | Ensure that the default route on all virtual networks points to an approved virtual network gateway for routing to on-premises.	| Get started with this [template](../../governance/policy/samples/no-user-defined-route-table.md). |
-|Audit if Network Watcher isn't enabled for a region.  | Ensure that Network Watcher is enabled for all used regions.  | Get started with this [template](../../governance/policy/samples/network-watcher-not-enabled.md). |
-|NSG x on every subnet.  | Ensure that an NSG (or a set of approved NSGs) with internet traffic blocked is applied to all subnets in every virtual network. | Get started with this [template](../../governance/policy/samples/nsg-on-subnet.md). |
-|NSG x on every NIC. | Ensure that an NSG with internet traffic blocked is applied to all NICs on all virtual machines. | Get started with this [template](../../governance/policy/samples/nsg-on-nic.md). |
-|Use an approved virtual network for virtual machine network interfaces.  | Ensure that all NICs are on an approved virtual network. | Get started with this [template](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
-|Allowed locations. | Ensure that all resources are deployed to regions with compliant virtual networks and Network Watcher configuration.  | Get started with this [template](../../governance/policy/samples/allowed-locations.md). |
-|Not allowed resource types, such as **PublicIPs**. | Prohibit the deployment of resource types that don't have a compliance plan. Use this policy to prohibit the deployment of public IP address resources. While NSG rules can be used to effectively block inbound internet traffic, preventing the use of public IPs further reduces the attack surface.	| Get started with this [template](../../governance/policy/samples/not-allowed-resource-types.md).  |
+Along with many [built-in policy definitions](../../governance/policy/samples/built-in-policies.md), administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
 
 ### Network Watcher traffic analytics
 
@@ -255,7 +243,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Web and mobile | API applications | | App Service Environment | |
 | Containers | Azure Container Service | | | Yes |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
+| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |

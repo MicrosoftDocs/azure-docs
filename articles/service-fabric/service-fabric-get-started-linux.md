@@ -1,22 +1,9 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux 
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -28,7 +15,7 @@ ms.author: atsenthi
 
 To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
 
-The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`.
+The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `mcr.microsoft.com/service-fabric/onebox:latest`.
 
 Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. You can manage Service Fabric entities hosted elsewhere in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI), which is supported. For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
@@ -37,7 +24,7 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
 
 These operating system versions are supported for development.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
 
     Make sure that the `apt-transport-https` package is installed.
          
@@ -68,46 +55,41 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Ubuntu
 
 1. Open a terminal.
-2. Add the Service Fabric repo to your sources list.
+
+2. Add the `dotnet` repo to your sources list.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Add the `dotnet` repo to your sources list.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+3. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
     curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Add the official Docker GPG key to your APT keyring.
+4. Add the official Docker GPG key to your APT keyring.
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Set up the Docker repository.
+5. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Add Azul JDK Key to your APT keyring and setup its repository.
+6. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Refresh your package lists based on the newly added repositories.
+7. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
@@ -187,7 +169,7 @@ Start a local cluster after the installation finishes.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again.
+2. Open a web browser and go to **Service Fabric Explorer** (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
@@ -274,7 +256,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https:\//dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 

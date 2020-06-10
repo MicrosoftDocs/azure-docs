@@ -1,6 +1,6 @@
 ---
-title: Add authentication to custom APIs
-description: Set up authentication for calling custom APIs from Azure Logic Apps
+title: Add authentication for securing calls to custom APIs
+description: How to set up authentication to improve security for calls to custom APIs from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 09/22/2017
 ---
 
-# Secure calls to custom APIs from Azure Logic Apps
+# Increase security for calls to custom APIs from Azure Logic Apps
 
-To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
+To improve security for calls to your APIs, you can set up Azure Active Directory (Azure AD) 
 authentication through the Azure portal so you don't have to update your code. 
 Or, you can require and enforce authentication through your API's code.
 
 ## Authentication options for your API
 
-You can secure calls to your custom API in these ways:
+You can improve security for calls to your custom API in these ways:
 
 * [No code changes](#no-code): Protect your API with 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 
@@ -305,7 +305,7 @@ In the **Authorization** section, include these properties:
 
 | Property | Required | Description |
 | -------- | -------- | ----------- |
-| `type` | Yes | The authentication type. For SSL client certificates, the value must be `ClientCertificate`. |
+| `type` | Yes | The authentication type. For TLS/SSL client certificates, the value must be `ClientCertificate`. |
 | `password` | No | The password for accessing the client certificate (PFX file) |
 | `pfx` | Yes | The base64-encoded contents of the client certificate (PFX file) |
 ||||

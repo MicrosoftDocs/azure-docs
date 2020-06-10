@@ -27,14 +27,14 @@ This article provides instructions for developing and debugging modules in multi
 
 ## Prerequisites
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extension(s) specific to the language you're developing in:
-  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   - Python: [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
@@ -63,6 +63,7 @@ Unless you're developing your module in C, you also need the Python-based [Azure
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
 >

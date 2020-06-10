@@ -53,11 +53,17 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
 * An email account that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the [connectors list here](https://docs.microsoft.com/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
 
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
 <a name="create-resource-group-project"></a>
 
 ## Create Azure resource group project
 
-To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+To get started, create an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio. Sign in with your Azure account.
 

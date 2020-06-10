@@ -113,7 +113,7 @@ In this example client certificate is identified by resource name.
 ### Example  
 #### Use managed identity to authenticate with a backend service
 ```xml  
-<authentication-managed-identity resource="https://graph.windows.net"/> 
+<authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->
@@ -130,7 +130,21 @@ In this example client certificate is identified by resource name.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### Use managed identity and set header manually
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### Use managed identity in send-request policy
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -150,7 +164,7 @@ In this example client certificate is identified by resource name.
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
+|resource|String. The App ID of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
 |output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`. |No|N/A|  
 |ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
   

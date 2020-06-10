@@ -76,7 +76,7 @@ $TriggerMetadata.sys
 | MethodName | The name of the Function that was triggered     | string   |
 | RandGuid   | a unique guid to this execution of the function | string   |
 
-Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](functions-bindings-storage-queue.md#trigger---message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
+Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](functions-bindings-storage-queue-trigger.md#message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
 
 ## Bindings
 
@@ -173,7 +173,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### Push-OutputBinding example: Queue output binding
 
-`Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue.md#output). In the following example, the message written to the queue has a value of "output #1":
+`Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue-output.md). In the following example, the message written to the queue has a value of "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"

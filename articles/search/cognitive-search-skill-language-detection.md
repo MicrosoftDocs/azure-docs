@@ -28,7 +28,7 @@ Language detection leverages Bing's natural language processing libraries, which
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the language detection skill, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill inputs
 

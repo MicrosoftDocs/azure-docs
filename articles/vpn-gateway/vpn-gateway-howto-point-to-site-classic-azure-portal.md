@@ -2,19 +2,11 @@
 title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication: Azure Portal classic | Microsoft Docs'
 description: Create a classic a Point-to-Site VPN gateway connection using the Azure portal.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management
 
-ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 01/09/2020
 ms.author: cherylmc
 
 ---
@@ -98,7 +90,7 @@ If you don't already have a virtual network (VNet), create one. Screenshots are 
 
 5. Select the **Subscription** you want to use from the drop-down list.
 
-6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Select a **Location** for your VNet. This setting determines the geographical location of the resources that you deploy to this VNet.
 

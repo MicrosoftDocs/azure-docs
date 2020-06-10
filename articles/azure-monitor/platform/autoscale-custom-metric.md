@@ -1,18 +1,15 @@
 ---
 title: Autoscale in Azure using a custom metric
 description: Learn how to scale your resource by custom metric in Azure.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
 ---
 # Get started with auto scale by custom metric in Azure
 This article describes how to scale your resource by a custom metric in Azure portal.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/services/data-explorer/) , 	
+Integration Service Environment and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## Lets get started
 This article assumes that you have a web app with application insights configured. If you don't have one already, you can [set up Application Insights for your ASP.NET website][1]

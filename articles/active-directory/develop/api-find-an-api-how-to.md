@@ -5,14 +5,12 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
 ---
 
 # How to find a specific API needed for a custom-developed application

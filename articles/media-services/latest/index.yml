@@ -1,10 +1,10 @@
 ### YamlMime:Landing
  
-title: Azure Media Services v3 documentation
+title: Azure Media Services v3 cloud-based platform documentation
 summary: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
  
 metadata:
-  title: Azure Media Services v3 documentation
+  title: Azure Media Services v3 cloud-based platform documentation
   description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3.
   services: media-services
   ms.service: media-services
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: Juliako
   ms.author: juliako
-  ms.date: 10/07/2019 #Required; mm/dd/yyyy format.
+  ms.date: 21/16/2020 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -66,7 +66,7 @@ landingContent:
           - text: Azure CLI
             url: https://aka.ms/ams-v3-cli-ref
           - text: REST
-            url: https://aka.ms/ams-v3-rest-ref
+            url: https://docs.microsoft.com/rest/api/media/
           - text: .NET
             url: https://aka.ms/ams-v3-dotnet-ref
           - text: Java
@@ -121,6 +121,8 @@ landingContent:
         links:
           - text: Media analytics
             url: analyzing-video-audio-files-concept.md
+          - text: Compliance, Privacy and Security
+            url: analyzing-video-audio-files-concept.md#compliance-privacy-and-security
       - linkListType: tutorial
         links:
           - text: Analyze videos

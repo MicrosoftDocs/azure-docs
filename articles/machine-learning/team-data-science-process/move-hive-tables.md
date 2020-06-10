@@ -3,12 +3,12 @@ title: Create Hive tables and load data from Blob storage - Team Data Science Pr
 description: Use Hive queries to create Hive tables and load data from Azure blob storage. Partition Hive tables and use the Optimized Row Columnar (ORC) formatting to improve query performance.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -19,12 +19,12 @@ This article presents generic Hive queries that create Hive tables and load data
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [About Azure storage accounts](../../storage/common/storage-introduction.md).
+* Created an Azure Storage account. If you need instructions, see [About Azure Storage accounts](../../storage/common/storage-introduction.md).
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Setup Clusters in HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 * Enabled remote access to the cluster, logged in, and opened the Hadoop Command-Line console. If you need instructions, see [Manage Apache Hadoop clusters](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## Upload data to Azure blob storage
-If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you plug in your own data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
+If you created an Azure virtual machine by following the instructions provided in [Set up an Azure virtual machine for advanced analytics](../../machine-learning/data-science-virtual-machine/overview.md), this script file should have been downloaded to the *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* directory on the virtual machine. These Hive queries only require that you provide a data schema and Azure blob storage configuration in the appropriate fields to be ready for submission.
 
 We assume that the data for Hive tables is in an **uncompressed** tabular format, and that the data has been uploaded to the default (or to an additional) container of the storage account used by the Hadoop cluster.
 
@@ -32,20 +32,20 @@ If you want to practice on the **NYC Taxi Trip Data**, you need to:
 
 * **download** the 24 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) files (12 Trip files and 12 Fare files),
 * **unzip** all files into .csv files, and then
-* **upload** them to the default (or appropriate container) of the Azure storage account; options for such an account appear at [Use Azure storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
+* **upload** them to the default (or appropriate container) of the Azure Storage account; options for such an account appear at [Use Azure Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) topic. The process to upload the .csv files to the default container on the storage account can be found on this [page](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>How to submit Hive queries
 Hive queries can be submitted by using:
 
-1. [Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster](#headnode)
-2. [Submit Hive queries with the Hive Editor](#hive-editor)
-3. [Submit Hive queries with Azure PowerShell Commands](#ps)
+* [Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster](#headnode)
+* [Submit Hive queries with the Hive Editor](#hive-editor)
+* [Submit Hive queries with Azure PowerShell Commands](#ps)
 
 Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
 
 When submitting a Hive query, you can also control the destination of the output from Hive queries, whether it be on the screen or to a local file on the head node or to an Azure blob.
 
-### <a name="headnode"></a> 1. Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster
+### <a name="headnode"></a>Submit Hive queries through Hadoop Command Line in headnode of Hadoop cluster
 If the Hive query is complex, submitting it directly in the head node of the Hadoop cluster typically leads to faster turn around than submitting it with a Hive Editor or Azure PowerShell scripts.
 
 Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node, and enter command `cd %hive_home%\bin`.
@@ -53,7 +53,7 @@ Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on t
 You have three ways to submit Hive queries in the Hadoop Command Line:
 
 * directly
-* using .hql files
+* using '.hql' files
 * with the Hive command console
 
 #### Submit Hive queries directly in Hadoop Command Line.
@@ -61,18 +61,18 @@ You can run command like `hive -e "<your hive query>;` to submit simple Hive que
 
 ![Command to submit Hive query with output from Hive query](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### Submit Hive queries in .hql files
-When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument as follows:
+#### Submit Hive queries in '.hql' files
+When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a '.hql' file in a local directory of the head node. Then the Hive query in the '.hql' file can be submitted by using the `-f` argument as follows:
 
-    hive -f "<path to the .hql file>"
+    hive -f "<path to the '.hql' file>"
 
-![Hive query in a .hql file](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive query in a '.hql' file](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suppress progress status screen print of Hive queries**
 
 By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job is printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
 
-    hive -S -f "<path to the .hql file>"
+    hive -S -f "<path to the '.hql' file>"
     hive -S -e "<Hive queries>"
 
 #### Submit Hive queries in Hive command console.
@@ -105,10 +105,10 @@ If you open the default container of the Hadoop cluster using Azure Storage Expl
 
 ![Azure Storage Explorer showing output of the Hive query](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a> 2. Submit Hive queries with the Hive Editor
+### <a name="hive-editor"></a>Submit Hive queries with the Hive Editor
 You can also use the Query Console (Hive Editor) by entering a URL of the form *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* into a web browser. You must be logged in the see this console and so you need your Hadoop cluster credentials here.
 
-### <a name="ps"></a> 3. Submit Hive queries with Azure PowerShell Commands
+### <a name="ps"></a>Submit Hive queries with Azure PowerShell Commands
 You can also use PowerShell to submit Hive queries. For instructions, see [Submit Hive jobs using PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Create Hive database and tables
@@ -131,11 +131,11 @@ Here is the Hive query that creates a Hive table.
 
 Here are the descriptions of the fields that you need to plug in and other configurations:
 
-* **\<database name\>**: the name of the database that you want to create. If you just want to use the default database, the query *create database...* can be omitted.
+* **\<database name\>**: the name of the database that you want to create. If you just want to use the default database, the query "*create database...*" can be omitted.
 * **\<table name\>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *\<table name\>* without \<database name\>.
 * **\<field separator\>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
 * **\<line separator\>**: the separator that delimits lines in the data file.
-* **\<storage location\>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION \<storage location\>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///\<directory 1>/'* or *'wasb:///\<directory 1>/\<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
+* **\<storage location\>**: the Azure Storage location to save the data of Hive tables. If you do not specify *LOCATION \<storage location\>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///\<directory 1>/'* or *'wasb:///\<directory 1>/\<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: If the data file has a header line, you have to add this property **at the end** of the *create table* query. Otherwise, the header line is loaded as a record to the table. If the data file does not have a header line, this configuration can be omitted in the query.
 
 ## <a name="load-data"></a>Load data to Hive tables
@@ -143,7 +143,7 @@ Here is the Hive query that loads data into a Hive table.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb://\<directory in this container>/\<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://\<container name>\<storage account name>.blob.core.windows.net/\<blob file name>'*.
+* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb://\<directory in this container>/\<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://\<container name>@\<storage account name>.blob.core.windows.net/\<blob file name>'*.
 
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.
@@ -168,7 +168,7 @@ Here is the Hive query that creates a partitioned table and loads data into it.
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-When querying partitioned tables, it is recommended to add the partition condition in the **beginning** of the `where` clause as this improves the efficacy of searching significantly.
+When querying partitioned tables, it is recommended to add the partition condition in the **beginning** of the `where` clause, which improves the search efficiency.
 
     select
         field1, field2, ..., fieldN
@@ -219,7 +219,7 @@ Select data from the external table in step 1 and insert into the ORC table
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-It is safe to drop the *\<external textfile table name\>* when using the following query after all data has been inserted into *\<database name\>.\<ORC table name\>*:
+It is safe to drop the *\<external text file table name\>* when using the following query after all data has been inserted into *\<database name\>.\<ORC table name\>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

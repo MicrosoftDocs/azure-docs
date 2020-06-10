@@ -1,6 +1,6 @@
 ---
-title: Errors and solutions for B2B scenarios
-description: Find errors and solutions for B2B scenarios in Azure Logic Apps
+title: Solutions for common errors and problems in B2B scenarios
+description: Find solutions for common errors and problems when troubleshooting B2B scenarios in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar

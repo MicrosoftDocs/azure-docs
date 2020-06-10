@@ -1,12 +1,11 @@
 ---
 title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.custom: tracking-python
 
 ---
 
@@ -35,9 +34,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
     ```python
     OPENCENSUS = {
         'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
+            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
+                connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
         }
     }
@@ -50,9 +49,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
         'TRACE': {
             'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
+                connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
         }
     }
     ```
@@ -91,9 +90,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
         'TRACE': {
             'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1.0)',
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
+                connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent to it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -118,9 +117,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
             'TRACE': {
                 'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1.0)',
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                    service_name='foobar',
+                    connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent to it.
+                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }

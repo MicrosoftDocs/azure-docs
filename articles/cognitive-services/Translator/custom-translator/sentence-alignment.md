@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
@@ -46,8 +46,8 @@ For a training to succeed, the table below shows the minimum number of sentences
 | Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|
 | Training   | 10,000                                     | No upper limit                 |
-| Tuning     | 5,000                                      | 2,500                          |
-| Testing    | 5,000                                      | 2,500                          |
+| Tuning     | 500                                      | 2,500       |
+| Testing    | 500                                      | 2,500  |
 | Dictionary | 0                                          | No upper limit                 |
 
 > [!NOTE]

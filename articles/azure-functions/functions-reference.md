@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 
 ---
-# Azure Functions developers guide
+# Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
 
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
@@ -97,4 +97,4 @@ For more information, see the following resources:
 * [Code and test Azure Functions locally](./functions-develop-local.md)
 * [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions C# developer reference](functions-dotnet-class-library.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
+* [Azure Functions Node.js developer reference](functions-reference-node.md)

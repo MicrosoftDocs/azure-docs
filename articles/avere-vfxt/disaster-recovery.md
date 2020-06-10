@@ -55,7 +55,7 @@ This section gives tips on how to further protect your data in Blob storage from
 Best practices for protecting data in Azure Blob storage include:
 
 * Copy your critical data to another storage account in another region frequently (as often as determined by your disaster recovery plan).
-* Control access to data on all target systems to prevent accidental deletion or corruption. Consider using [resource locks](../azure-resource-manager/resource-group-lock-resources.md) on data storage.
+* Control access to data on all target systems to prevent accidental deletion or corruption. Consider using [resource locks](../azure-resource-manager/management/lock-resources.md) on data storage.
 * Enable the Avere vFXT for Azure [cloud snapshot](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) feature for your Blob core filers.
 
 ### Copy Avere vFXT core filer data to a backup account
@@ -99,7 +99,7 @@ To access the backup container from an Avere vFXT for Azure cluster, follow this
 1. If needed, create a new Avere vFXT for Azure cluster in an unaffected region.
 
    > [!TIP]
-   > When you create an Avere vFXT for Azure cluster, you can save a copy of its creation template and parameters. If you save this information when creating your primary cluster, you can use it to create a replacement cluster with the same properties. On the [validation and summary](avere-vfxt-deploy.md#validation-and-purchase) page, click the **Download template and parameters** link. Save the information to a file before you click the **OK** button to create the cluster.
+   > When you create an Avere vFXT for Azure cluster, you can save a copy of its creation template and parameters. If you save this information when creating your primary cluster, you can use it to create a replacement cluster with the same properties. On the [summary](avere-vfxt-deploy.md#validation-and-purchase) page, click the **Download template and parameters** link. Save the information to a file before you create the cluster.
 
 1. Add a new cloud core filer that points to the duplicate Blob container.
 

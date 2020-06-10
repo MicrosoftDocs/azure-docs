@@ -33,23 +33,23 @@ There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/cl
 
 To connect to Azure Germany, set the cloud:
 
-```
+```azurecli
 az cloud set --name AzureGermanCloud
 ```
 
 After the cloud is set, you can log in:
 
-```
+```azurecli
 az login --username your-user-name@your-tenant.onmicrosoft.de
 ```
 
 To confirm that the cloud is correctly set to AzureGermanCloud, run either of the following commands and then verify that the `isActive` flag is set to `true` for the AzureGermanCloud item:
 
-```
+```azurecli
 az cloud list
 ```
 
-```
+```azurecli
 az cloud list --output table
 ```
 
@@ -74,13 +74,13 @@ sudo npm install -g azure-cli
 
 After Azure CLI is installed, log in to Azure Germany:
 
-```
+```console
 azure login --username your-user-name@your-tenant.onmicrosoft.de  --environment AzureGermanCloud
 ```
 
 After you're logged in, you can run Azure CLI commands as you normally would:
 
-```
+```console
 azure webapp list my-resource-group
 ```
 
