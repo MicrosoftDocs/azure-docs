@@ -9,7 +9,6 @@ ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
