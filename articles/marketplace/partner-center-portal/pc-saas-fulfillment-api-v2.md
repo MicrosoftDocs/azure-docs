@@ -5,7 +5,7 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ms.author: dsindona
 ---
 
@@ -39,7 +39,7 @@ An example of such call is `https://contoso.com/signup?token=<blob>`, whereas th
 
 The landing page url must be up and running 24x7, and ready to receive new calls from Microsoft at all times. If the landing page becomes unavailable, customers won't be able to sign up for the SaaS service and start using it.
 
-Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer id, purchased plan id, etc.
+Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, purchased plan ID, etc.
 
 On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (AAD) Single Sign On (SSO). 
 
@@ -132,7 +132,7 @@ Only a Suspended subscription can be reinstated.  While a SaaS subscription is b
 
 #### Renewed (*Subscribed*)
 
-At the end of subscription term (after a month or a year), the SaaS subscription is being automatically renewed by Microsoft.  The default for auto renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with regular cadence. Microsoft does not notify the publisher when a subscription is being renewed. A customer can turn off automatic renewal for a SaaS subscription via the M365 Admin Portal or via Azure portal.  In this case, the SaaS subscription will be automatically cancelled at the end of the current billing term.  Customers can also cancel the SaaS subscription at any point in time.
+At the end of subscription term (after a month or a year), the SaaS subscription is being automatically renewed by Microsoft.  The default for auto renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with regular cadence. Microsoft does not notify the publisher when a subscription is being renewed. A customer can turn off automatic renewal for a SaaS subscription via the M365 Admin Portal or via Azure portal.  In this case, the SaaS subscription will be automatically canceled at the end of the current billing term.  Customers can also cancel the SaaS subscription at any point in time.
 
 Only active subscriptions are automatically renewed.  Subscriptions stay active during the renewal process, and if automatic renewal succeeds.  After renewal, the start and end dates of the subscription term will be updated to new term's dates.
 
@@ -216,13 +216,13 @@ Response body example:
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-"pid": "<id of the user>"
+"pid": "<ID of the user>"
     },
     "purchaser": {
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-"pid": "<id of the user>"
+"pid": "<ID of the user>"
     },
     "planId": "silver",
     "term": {
@@ -348,23 +348,23 @@ Returns the list of all existing subscriptions for all offers of this publisher,
 {
   "subscriptions": [
       {
-          "id": "<guid>", // purchased SaaS subscription id
+          "id": "<guid>", // purchased SaaS subscription ID
           "name": "Contoso Cloud Solution", // SaaS subscription name
           "publisherId": "contoso", // publisher ID
           "offerId": "offer1", // purchased offer ID
-          "planId": "silver", // purchased plan id
+          "planId": "silver", // purchased plan ID
           "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
           "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription was purchased.
               "emailId": " test@contoso.com",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-              "pid": "<id of the user>"
+              "pid": "<ID of the user>"
           },
           "purchaser": { // email address, user ID and tenant ID that purchased the SaaS subscription. These could be different from beneficiary information for reseller (CSP) purchase
               "emailId": " test@contoso.com",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-              "pid": "<id of the user>"
+              "pid": "<ID of the user>"
           },
             "term": { // The period for which the subscription was purchased. 
                 "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
@@ -392,13 +392,13 @@ Returns the list of all existing subscriptions for all offers of this publisher,
               "emailId": " test@contoso.com",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-              "pid": "<id of the user>"
+              "pid": "<ID of the user>"
           },
           "purchaser": { 
               "emailId": "purchase@csp.com ",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-               "pid": "<id of the user>"
+               "pid": "<ID of the user>"
           },
             "term": { 
                 "startDate": "2019-05-31",
@@ -464,19 +464,19 @@ Returns details for a SaaS subscription based on the `subscriptionId` provided.
         "name":"Contoso Cloud Solution", // SaaS subscription name
          "publisherId": "contoso", // publisher ID
           "offerId": "offer1", // purchased offer ID
-          "planId": "silver", // purchased plan id
+          "planId": "silver", // purchased plan ID
           "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
          "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription is purchased.
               "emailId": "test@contoso.com",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-              "pid": "<id of the user>"
+              "pid": "<ID of the user>"
           },
           "purchaser": { // email address ,user ID and tenant ID that purchased the SaaS subscription.  These could be different from beneficiary information for reseller (CSP) scenario
               "emailId": "test@test.com",
               "objectId": "<guid>",
               "tenantId": "<guid>",
-              "pid": "<id of the user>"
+              "pid": "<ID of the user>"
           },
         "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary.  For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
         "sessionMode": "None", // not relevant
@@ -794,12 +794,12 @@ Returns pending Reinstate operation on the specified SaaS subscription.
 
 ```json
 {"operations": [{
-    "id": "<guid>",  //Operation id, should be provided in the operations patch API call
+    "id": "<guid>",  //Operation ID, should be provided in the operations patch API call
     "activityId": "<guid>", //not relevant
     "subscriptionId": "<guid>", // subscriptionId of the SaaS subscription that is being reinstated
-    "offerId": "offer1",  // purchased offer id
+    "offerId": "offer1",  // purchased offer ID
     "publisherId": "contoso",  
-    "planId": "silver",  // purchased plan id
+    "planId": "silver",  // purchased plan ID
     "quantity": "20", // purchased amount of seats, will be empty is not relevant
     "action": "Reinstate", 
     "timeStamp": "2018-12-01T00:00:00",  // UTC
@@ -859,12 +859,12 @@ Gets details for the specified SaaS operation.
 ```json
 Response body:
 {
-    "id  ": "<guid>", //Operation id, should be provided in the patch operation API call
+    "id  ": "<guid>", //Operation ID, should be provided in the patch operation API call
     "activityId": "<guid>", //not relevant
     "subscriptionId":"<guid>", // subscriptionId of the SaaS subscription for which this operation is relevant
-    "offerId": "offer1", // purchased offer id
+    "offerId": "offer1", // purchased offer ID
     "publisherId": "contoso",  
-    "planId": "silver", // purchased plan id
+    "planId": "silver", // purchased plan ID
     "quantity": "20", // purchased amount of seats 
     "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
     "timeStamp": "2018-12-01T00:00:00", // UTC
@@ -973,7 +973,7 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "subscriptionId": "guid", // The GUID identifier for the SaaS resource which status changes
   "publisherId": "contoso", // A unique string identifier for each publisher
   "offerId": "offer1", // A unique string identifier for each offer
-  "planId": "silver", // the most up-to-date plan id
+  "planId": "silver", // the most up-to-date plan ID
   "quantity": " 25", // the most up-to-date number of seats, can be empty if not relevant
   "timeStamp": "2019-04-15T20:17:31.7350641Z", // UTC time when the webhook was called
   "action": "ChangeQuantity", // the operation the webhook notifies about

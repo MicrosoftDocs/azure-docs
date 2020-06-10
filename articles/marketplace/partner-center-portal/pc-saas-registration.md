@@ -5,13 +5,13 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ms.author: dsindona
 ---
 
 # Register a SaaS application
 
-This article explains how to register a SaaS application using the Microsoft [Azure Portal](https://portal.azure.com/) and how to get publisher's access token (Azure Active Directory access token). The publisher will use this token to authenticate the SaaS application by calling the SaaS Fulfillment APIs.  The Fulfillment APIs use the OAuth 2.0 client credentials to grant flow on Azure Active Directory (v1.0) endpoints to make a service-to-service access token request.
+This article explains how to register a SaaS application using the Microsoft [Azure portal](https://portal.azure.com/) and how to get publisher's access token (Azure Active Directory access token). The publisher will use this token to authenticate the SaaS application by calling the SaaS Fulfillment APIs.  The Fulfillment APIs use the OAuth 2.0 client credentials to grant flow on Azure Active Directory (v1.0) endpoints to make a service-to-service access token request.
 
 Azure Marketplace does not impose any constraints on the authentication method your SaaS service uses for end users. The flow below is required only for authenticating the SaaS Service in Azure Marketplace.
 
@@ -39,7 +39,7 @@ Any application that wants to use the capabilities of Azure AD must first be reg
         and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         The same application can also expose both a client and resource/API.
 
-        For specific examples of web applications, check out the quick start guided setups that are available in the [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).
+        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).
 
 5. When finished, click **Register**.  Azure AD assigns a unique *Application ID* to your new application. We recommend registering one app that accesses the API only, and as single tenant.
 
