@@ -21,14 +21,14 @@ This article walks through the steps required to use Azure Digital Twins data to
 
 This how-to will cover:
 
-1. Configuring your Azure Digital Twins instance to send twin update events to an Azure Function.
-2. Creating an Azure Function to update an Azure Maps indoor maps feature stateset.
+1. Configuring your Azure Digital Twins instance to send twin update events to a function in [Azure Functions](../azure-functions/functions-overview.md).
+2. Creating an Azure function to update an Azure Maps indoor maps feature stateset.
 3. How to store your maps ID and feature stateset ID in the Twins graph.
 
 ### Prerequisites
 
 1. [Follow the Azure Digital Twins end to end tutorial](./tutorial-end-to-end.md)
-    1. We'll be extending this twin with an additional endpoint and route. We will also be adding another function to your Function app from that tutorial. 
+    1. We'll be extending this twin with an additional endpoint and route. We will also be adding another function to your function app from that tutorial. 
 2. [Create an Azure Maps indoor map with a feature stateset.](../azure-maps/tutorial-creator-indoor-maps.md)
     1. You will need your feature stateset ID and maps subscription ID.
     1. [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that we will be displaying on a map.
@@ -38,9 +38,9 @@ This how-to will cover:
 
 :::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="An office map showing room 121 colored orange":::
 
-## Create a Function to update a map using twin update notifications
+## Create a function to update a map using twin update notifications
 
-We'll be first creating a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, we'll be using an Azure Function to read those update messages and update a feature stateset in Azure Maps. 
+We'll be first creating a route in Azure Digital Twins to forward all twin update events to an event grid topic. Then, we'll be using an Azure function to read those update messages and update a feature stateset in Azure Maps. 
 
 ## Create a route and filter to twin update notifications
 
@@ -64,9 +64,9 @@ az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eve
 az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "{ "endpointId": "<endpoint-ID>","filter": "type = 'Microsoft.DigitalTwins.Twin.Update'"}"
 ```
 
-## Create an Azure Function to update maps
+## Create an Azure function to update maps
 
-We're going to create an EventGrid triggered Function inside our function app from the [end-to-end tutorial.](./tutorial-end-to-end.md) This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+We're going to create an EventGrid triggered function inside our function app from the [end-to-end tutorial.](./tutorial-end-to-end.md) This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
 See the following document for reference info: [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger)
 
@@ -127,7 +127,7 @@ namespace SampleFunctionsApp
 }
 ```
 
-You'll need to set two environment variables in your Function App. One for your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) and one for your [Azure Maps stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
+You'll need to set two environment variables in your function app. One for your [Azure Maps primary subscription key](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account) and one for your [Azure Maps stateset ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
