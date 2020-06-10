@@ -40,8 +40,8 @@ The following table displays roles and allowed actions in Security Center.
 |Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edit security policy|-|✔|-|-|✔|
-|Change subscription pricing tier|-|✔|-|-|-|
-|Enable / disable auto-provisioning|-|✔|-|-|-|
+|Change subscription pricing tier|-|✔|-|-|✔|
+|Enable / disable auto-provisioning|-|✔|-|-|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Dismiss alerts|-|✔|-|✔|✔|
 |View alerts and recommendations|✔|✔|✔|✔|✔|
