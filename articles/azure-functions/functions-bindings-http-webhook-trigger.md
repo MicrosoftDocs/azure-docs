@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Functions HTTP trigger
