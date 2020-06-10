@@ -85,21 +85,27 @@ Once you have upgraded the version of SQL Server By Using the installation media
 
 Backup system (except tempdb) and user databases before you start the process. Make sure that you are not using any feature that is available in the later version only.
 
-To downgrade the version of SQL Server, you need to completely uninstall SQL Server, and reinstall it again with the desired version. This will act as a fresh new install of SQL server as you will not be able to restore the earlier database from a later version to the newly installed earlier version. If you had also changed the edition of SQL server while upgrading, then, after the SQL Server version is upgraded, change the edition property of the SQL Server virtual machine in the Azure portal to the new edition. This will update the metadata and billing associated with this VM.
+To downgrade the version of SQL Server, you need to completely uninstall SQL Server, and reinstall it again with the desired version. This will act as a fresh new install of SQL server as you will not be able to restore the earlier database from a later version to the newly installed earlier version. The databases will need to be recreated from scratch. If you had also changed the edition of SQL server while upgrading, then, after the SQL Server version is upgraded, change the edition property of the SQL Server virtual machine in the Azure portal to the new edition. This will update the metadata and billing associated with this VM.
 
 > [!WARNING]
 > In-place downgrade of SQL server is not supported.
 
-You can downgrade the edition of SQL Server by following these steps:
+You can downgrade the version of SQL Server by following these steps:
 
 1. Back up all databases, including the system databases.
-1. Move system databases (master, model, and msdb) to a new location.
+1. Export all the necessary server-level objects (such as server triggers, roles, logins, linked servers, jobs, credentials, and certificates).
+1. If you do not have scripts to re-create your user databases on the earlier version, you will need to script out all objects and export all data by using BCP.exe, SSIS, or DACPAC. 
+
+   Make sure that you select the correct options when scripting such as the target version, several dependent objects, advanced options.
+
+   :::image type="content" source="./media/change-sql-server-version/scripting-options.png" alt-text="Scripting options":::
+
 1. Completely uninstall SQL Server and all associated services.
 1. Restart the virtual machine.
-1. Install SQL Server by using the media with the desired edition of SQL Server.
+1. Install SQL Server by using the media with the desired version of SQL Server.
 1. Install the latest service packs and cumulative updates.
-1. Replace the new system databases that were created during installation with the system databases that you previously moved to a different location.
-1. After the SQL Server edition is downgraded, change the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
+1. Import all the necessary server-level objects (which were exported in Step 2).
+1. Re-create all the necessary user databases from scratch (using create scripts and/or the files from Step 3).
 
 ## Remarks
 
