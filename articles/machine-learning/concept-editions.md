@@ -29,9 +29,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ## What is in each edition
 
-| Capability                                                                         | Edition                 |
-|------------------------------------------------------------------------------------|-------------------------|
-| Data for Machine Learning                                                          |                         |
+| Data for Machine Learning Capability                     | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
+|                                                          |                         |
 | Labelling Project Management Portal                                                | All                     |
 | Labeller Portal                                                                    | All                     |
 | Labelling using private workforce                                                  | All                     |
@@ -40,7 +40,10 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | Create, view or edit datasets and datastores from the UI                           | All                     |
 | View, edit or delete dataset drift monitors from the SDK                           | All                     |
 | View, edit or delete dataset drift monitors from the UI                            | Enterprise edition only |
-| Build and Train                                                                    |                         |
+
+
+| Build & Train Capabilities                              | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
 | Automated Machine Learning - Create and run experiments in notebooks               | All                     |
 | Automated Machine Learning - Create and run experiments in studio web experience   | Enterprise edition only |
 | Automated Machine Learning - Industry-leading forecasting capabilities             | Enterprise edition only |
@@ -63,7 +66,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | Jupyter, JupyterLab Integration                                                    | All                     |
 | R SDK support                                                                      | All                     |
 | Python SDK support                                                                 | All                     |
-| Deploy and Manage                                                                  |                         |
+
+| Deploy & Model Management Capabilities                            | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
 | Event Grid integration                                                             | All                     |
 | Integrate Azure Stream Analytics with Azure Machine Learning                       | All                     |
@@ -72,7 +77,10 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | FPGA based Hardware Accelerated Models                                             | All                     |
 | Model profiling                                                                    | All                     |
 | Explainability in UI                                                               | Enterprise edition only |
-| Security, Governance, and Control                                                  |                         |
+
+
+| Security, Governance, and Control Capabilities                                    | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
 | Role-based Access Control (RBAC) support                                           | All                     |
 | Virtual Network (VNet) support for compute                                         | All                     |
 | Scoring endpoint authentication                                                    | All                     |
