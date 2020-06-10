@@ -36,7 +36,7 @@ Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you
 
 You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
 
-### Configure diagnostic settings and workspace
+## Configure diagnostic settings and workspace
 
 Create or add diagnostic settings for your data factory.
 
@@ -54,49 +54,55 @@ Create or add diagnostic settings for your data factory.
 
 1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
 
+  * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables.
+  * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
+
     ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
 1. Select **Save**.
 
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
-* In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables
-* In _Azure-Diagnostics_ mode, diagnostic logs flow into _AzureDiagnostics_ table
-
 > [!NOTE]
 > Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
-![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
+This solution provides you a summary of overall health of your Data Factory, with options to drill into details and to troubleshoot unexpected behavior patterns. With rich, out of the box views you can get insights into key processing including:
 
-![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
+* At a glance summary of data factory pipeline, activity and trigger runs
+* Ability to drill into data factory activity runs by type
+* Summary of data factory top pipeline, activity errors
 
-Select **Create** and then create or select the **Log Analytics Workspace**.
+1. ![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
 
-![Creating a new solution](media/data-factory-monitor-oms/monitor-loganalytics-image5.png)
+1. ![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+1. Select **Create** and then create or select the **Log Analytics Workspace**.
+
+   ![Creating a new solution](media/data-factory-monitor-oms/monitor-loganalytics-image5.png)
 
 ### Monitor Data Factory metrics
 
 Installing Azure Data Factory Analytics creates a default set of views so that the following metrics become enabled:
 
-- ADF Runs - 1) Pipeline Runs by Data Factory
+* ADF Runs - 1) Pipeline Runs by Data Factory
  
-- ADF Runs- 2) Activity Runs by Data Factory
+* ADF Runs- 2) Activity Runs by Data Factory
 
-- ADF Runs - 3) Trigger Runs by Data Factory
+* ADF Runs - 3) Trigger Runs by Data Factory
 
-- ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
+* ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
 
-- ADF Errors - 2) Top 10 Activity Runs by Data Factory
+* ADF Errors - 2) Top 10 Activity Runs by Data Factory
 
-- ADF Errors - 3) Top 10 Trigger Errors by Data Factory
+* ADF Errors - 3) Top 10 Trigger Errors by Data Factory
 
-- ADF Statistics - 1) Activity Runs by Type
+* ADF Statistics - 1) Activity Runs by Type
 
-- ADF Statistics - 2) Trigger Runs by Type
+* ADF Statistics - 2) Trigger Runs by Type
 
-- ADF Statistics - 3) Max Pipeline Runs Duration
+* ADF Statistics - 3) Max Pipeline Runs Duration
 
 ![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
@@ -108,7 +114,7 @@ You can visualize the preceding metrics, look at the queries behind these metric
 > Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
 
 
-## Metrics
+## Data Factory Metrics
 
 With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
@@ -128,7 +134,7 @@ To access the metrics, complete the instructions in [Azure Monitor data platform
 > [!NOTE]
 > Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
 
-## Alerts
+## Data Factory Alerts
 
 Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts.
 
