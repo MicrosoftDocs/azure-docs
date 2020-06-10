@@ -84,22 +84,17 @@ az mariadb server create \
 ## Create the Private Endpoint 
 Create a private endpoint for the MariaDB server in your Virtual Network: 
 
-Get the resource id of the server
 ```azurecli-interactive
-$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id")
-```
-
-```azurecli-interactive
-#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $resourceid \  
-    --group-id mariadbServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMariaDB/servers" --query "id") \    
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
+
 
 ## Configure the Private DNS Zone 
 Create a Private DNS Zone for MariDB server domain and create an association link with the Virtual Network. 

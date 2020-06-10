@@ -1,12 +1,12 @@
 ---
- title: Fsv2-series - Azure Virtual Machines
- description: Specifications for the Fsv2-series VMs.
- services: virtual-machines
- author: brbell
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: Fsv2-series
+description: Specifications for the Fsv2-series VMs.
+author: brbell
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # Fsv2-series
