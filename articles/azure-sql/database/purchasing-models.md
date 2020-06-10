@@ -48,7 +48,7 @@ The cost of backup storage is the same for the Business Critical service tier an
 
 ### Serverless compute costs
 
-For a description of how to compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless tier](serverless-tier-overview.md).
+For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless tier](serverless-tier-overview.md).
 
 ## Storage costs
 

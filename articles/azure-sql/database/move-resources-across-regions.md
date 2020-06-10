@@ -1,7 +1,7 @@
 ---
 title: Move resources to new region
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Learn how to move your instance of Azure SQL Database or Azure SQL Managed Instance to another region.
+description: Learn how to move your database or managed instance to another region.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -17,11 +17,11 @@ ms.date: 06/25/2019
 # Move resources to new region - Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article teaches you a generic workflow for how to move your instance of Azure SQL Database or Azure SQL Managed Instance to a new region.
+This article teaches you a generic workflow for how to move your database or managed instance to a new region.
 
 ## Overview
 
-There are various scenarios in which you'd want to move your existing instance of Azure SQL Database or Managed Instance from one region to another. For example, you're expanding your business to a new region and want to optimize it for the new customer base. Or you need to move the operations to a different region for compliance reasons. Or Azure released a new region that provides a better proximity and improves the customer experience.  
+There are various scenarios in which you'd want to move your existing database or managed instance from one region to another. For example, you're expanding your business to a new region and want to optimize it for the new customer base. Or you need to move the operations to a different region for compliance reasons. Or Azure released a new region that provides a better proximity and improves the customer experience.  
 
 This article provides a general workflow for moving resources to a different region. The workflow consists of the following steps:
 
@@ -37,7 +37,7 @@ This article provides a general workflow for moving resources to a different reg
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## Move an instance of SQL Database
+## Move a database
 
 ### Verify prerequisites
 
@@ -141,7 +141,7 @@ Once the move completes, remove the resources in the source region to avoid unne
 1. Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver).
 1. Remove the key vault, audit storage containers, event hub, Azure AD instance, and other dependent resources to stop being billed for them.
 
-## Move an instance of SQL Managed Instance
+## Move a managed instance
 
 ### Verify prerequisites
 
@@ -190,4 +190,4 @@ Once the move finishes, remove the resources in the source region to avoid unnec
 
 ## Next steps
 
-[Manage](manage-data-after-migrating-to-database.md) your instance of Azure SQL Database once it has been migrated.
+[Manage](manage-data-after-migrating-to-database.md) your database after it has been migrated.

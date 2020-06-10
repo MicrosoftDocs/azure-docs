@@ -1,7 +1,7 @@
 ---
 title: What's new? 
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn about the new features and improvements for the Azure SQL Database & SQL Managed Instance services and documentation.
+description: Learn about the new features and documentation improvements for Azure SQL Database & SQL Managed Instance.
 services: sql-database
 author: stevestein
 ms.service: sql-database

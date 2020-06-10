@@ -1,7 +1,7 @@
 ---
 title: Restore a database from a backup
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn about point-in-time restore, which enables you to roll back an instance of Azure SQL Database or an Azure SQL Managed Instance database up to 35 days.
+description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Database or an instance in Azure SQL Managed Instance up to 35 days.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -120,7 +120,7 @@ Use the following sample scripts to restore a deleted database for either SQL Da
 
 #### SQL Database
 
-For a sample PowerShell script showing how to restore a deleted database in Azure SQL Database, see [Restore an instance of SQL Database using PowerShell](scripts/restore-database-powershell.md).
+For a sample PowerShell script showing how to restore a deleted database in Azure SQL Database, see [Restore a database using PowerShell](scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
@@ -143,7 +143,7 @@ From the Azure portal, you create a new single or managed instance database and 
 
 #### SQL Database
 
-To geo-restore a single instance of SQL Database from the Azure portal in the region and server of your choice, follow these steps:
+To geo-restore a single database from the Azure portal in the region and server of your choice, follow these steps:
 
 1. From **Dashboard**, select **Add** > **Create SQL Database**. On the **Basics** tab, enter the required information.
 2. Select **Additional settings**.
@@ -171,7 +171,7 @@ Complete the process of creating a new database. When you create the instance da
 
 #### SQL Database
 
-For a PowerShell script that shows how to perform geo-restore for a single instance of SQL Database, see [Use PowerShell to restore a single instance of Azure SQL Database to an earlier point in time](scripts/restore-database-powershell.md).
+For a PowerShell script that shows how to perform geo-restore for a single database, see [Use PowerShell to restore a single database to an earlier point in time](scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
@@ -207,10 +207,10 @@ To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powersh
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Gets one or more databases. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Gets a deleted database that you can restore. |
   | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) |Gets a geo-redundant backup of a database. |
-  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restores a SQL Database instance. |
+  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restores a database. |
 
   > [!TIP]
-  > For a sample PowerShell script that shows how to perform a point-in-time restore of a database, see [Restore a SQL Database instance using PowerShell](scripts/restore-database-powershell.md).
+  > For a sample PowerShell script that shows how to perform a point-in-time restore of a database, see [Restore a database by using PowerShell](scripts/restore-database-powershell.md).
 
 #### SQL Managed Instance
 
