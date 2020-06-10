@@ -2,7 +2,6 @@
 title: Azure classic CLI commands
 description: Azure command line interface (CLI) commands to manage resources.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
