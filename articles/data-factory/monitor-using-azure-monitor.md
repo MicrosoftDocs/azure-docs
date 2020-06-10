@@ -91,7 +91,7 @@ This solution provides you a summary of overall health of your Data Factory, wit
 Installing Azure Data Factory Analytics creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. This results in the following metrics become enabled:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
-* ADF Runs- 2) Activity Runs by Data Factor
+* ADF Runs - 2) Activity Runs by Data Factor
 * ADF Runs - 3) Trigger Runs by Data Factor
 * ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
 * ADF Errors - 2) Top 10 Activity Runs by Data Factory
