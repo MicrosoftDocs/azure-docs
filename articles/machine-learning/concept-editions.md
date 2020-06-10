@@ -13,7 +13,12 @@ ms.date: 06/11/2020
 # Enterprise & Basic Editions of Azure Machine Learning 
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
-+ **Basic**: Great for open-source development at cloud scale with a code-first experience.
+
+| Basic Edition | Enterprise Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
+|Great for open-source development at cloud scale with a code-first experience.|All of Basic + the studio web interface + secure, comprehensive ML lifecycle management for all skill levels.|
+
++ **Basic**: 
 
 + **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
 
@@ -31,7 +36,6 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 | Data for Machine Learning Capability                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-|                                                          |                         |
 | Labelling Project Management Portal                                                | All                     |
 | Labeller Portal                                                                    | All                     |
 | Labelling using private workforce                                                  | All                     |
@@ -41,6 +45,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | View, edit or delete dataset drift monitors from the SDK                           | All                     |
 | View, edit or delete dataset drift monitors from the UI                            | Enterprise edition only |
 
+<br/>
 
 | Build & Train Capabilities                              | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
@@ -67,6 +72,9 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | R SDK support                                                                      | All                     |
 | Python SDK support                                                                 | All                     |
 
+
+<br/>
+
 | Deploy & Model Management Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
@@ -78,6 +86,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 | Model profiling                                                                    | All                     |
 | Explainability in UI                                                               | Enterprise edition only |
 
+<br/>
 
 | Security, Governance, and Control Capabilities                                    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
