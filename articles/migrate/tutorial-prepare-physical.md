@@ -133,10 +133,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 Azure Migrate needs permissions to discover on-premises servers.
 
-- **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery. The user account needs to be added to the following groups:
-        - Remote Management Users
-        - Performance Monitor Users
-        - Performance Log users
+- **Windows:** You need to be a domain admin, or local admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - **Linux:** You need a root account on the Linux servers that you want to discover.
 
 ## Prepare for physical server migration
