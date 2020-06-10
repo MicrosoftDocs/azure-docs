@@ -12,37 +12,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
 ---
-# Alert and monitor data factories by using Azure Monitor
+# Monitor and Alert Data Factory by using Azure Monitor
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones. You can use monitoring data to gain deep insights about your applications. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
 
-Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory writes diagnostic logs in Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
+Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory can write diagnostic logs in Azure Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
 For further details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
-## Keeping Azure Data Factory data
+## Keeping Azure Data Factory metrics and pipeline-run data
 
-Data Factory stores pipeline-run data for only 45 days. Use Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis. You can also keep them in a storage account so that you have factory information for your chosen duration, or stream them to an Event Hub to ingest the information into other custom solutions.
+Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets.
 
-### Diagnostic logs
+* **Storage Account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
+* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
+* **Log Analytics**: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
+  * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
+  * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
 
-* Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
-* Analyze the logs with Log Analytics.
-
-You can use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
-
-## Monitor Data Factory metrics with Azure Monitor
-
-You can use Data Factory integration with Monitor to route data to Monitor. This integration is useful in the following scenarios:
-
-* You want to write complex queries on a rich set of metrics that is published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
-
-* You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
+You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
 
 ### Configure diagnostic settings and workspace
 
