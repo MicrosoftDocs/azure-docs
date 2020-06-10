@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 11/19/2019
+ms.date: 06/10/2020
 ---
 
 # Resource limits for Azure SQL Database and Azure Synapse Analytics servers
@@ -48,13 +48,13 @@ For single databases resource storage sizes, refer to either [DTU-based resource
 
 ## What happens when database resource limits are reached
 
-### Compute (DTUs and eDTUs / vCores)
+### Compute CPU
 
-When database compute utilization (measured by DTUs and eDTUs, or vCores) becomes high, query latency increases, and queries can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resources become free.
+When database compute CPU utilization becomes high, query latency increases, and queries can even time out. Under these conditions, queries may be queued by the service and are provided resources for execution as resources become free.
 When encountering high compute utilization, mitigation options include:
 
 - Increasing the compute size of the database or elastic pool to provide the database with more compute resources. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
-- Optimizing queries to reduce resource utilization of each query. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
+- Optimizing queries to reduce CPU resource utilization of each query. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 
 ### Storage
 
@@ -76,6 +76,27 @@ When encountering high session or worker utilization, mitigation options include
 - Optimizing queries to reduce the resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 - Reducing the [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maximum degree of parallelism) setting.
 - Optimizing query workload to reduce number of occurrences and duration of query blocking.
+
+### Memory
+
+Unlike other resources (CPU, workers, storage), reaching the memory limit does not negatively impact query performance, and does not cause errors and failures. As described in detail in [Memory Management Architecture Guide](https://docs.microsoft.com/sql/relational-databases/memory-management-architecture-guide), the SQL Server database engine often uses all available memory, by design. Memory is used primarily for caching data, to avoid more expensive disk access. Higher memory utilization generally improves query performance due to faster reads from memory, rather than slower reads from disk.
+
+After database engine startup, as the workload starts to read data from storage, the database engine aggressively caches data in memory. Thus, it is common and expected to see the average memory utilization metric to be close or equal to 100%, particularly for databases that are not idle, and do not fully fit in memory.
+
+Besides the data cache, memory is used in other components of the database engine. When there is demand for memory and all available memory has been used by the data cache, the database engine will dynamically shrink data cache size to make memory available to other components, and will dynamically grow data cache when other components release memory.
+
+In rare cases, a sufficiently demanding query workload may cause an insufficient memory condition, leading to out-of-memory errors. This is more likely to occur on smaller compute sizes that have proportionally smaller memory limits, and/or with workloads using more memory for query processing, such as in [dense elastic pools](elastic-pool-resource-management.md).
+
+When encountering out-of-memory errors, mitigation options include:
+- Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
+- Optimizing queries and configuration to reduce memory utilization. Common solutions are described in the following table.
+
+|Solution|Description|
+|:-- | :---- |
+|Reduce the size of memory grants|For more information about memory grants, see the [Understanding SQL Server memory grant](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) blog post. A common solution for avoiding excessively large memory grants is keeping [statistics](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) up to date. This results in more accurate estimates of memory consumption by the query engine, avoiding unnecessarily large memory grants.</br></br>In databases using compatibility level 140 and later, the database engine may automatically adjust memory grant size using [Batch mode memory grant feedback](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#batch-mode-memory-grant-feedback). In databases using compatibility level 150 and later, the database engine similarly uses [Row mode memory grant feedback](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#row-mode-memory-grant-feedback), for more common row mode queries. This built-in functionality helps avoid out-of-memory errors due to unnecessarily large memory grants.|
+|Reduce the size of query plan cache|The database engine caches query plans in memory, to avoid compiling a query plan for every query execution. To avoid query plan cache bloat caused by caching plans that are only used once, enable the OPTIMIZE_FOR_AD_HOC_WORKLOADS [database-scoped configuration](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|
+|Reduce the size of lock memory|The database engine uses memory for [locks](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Lock_Engine). When possible, avoid large transactions that may acquire a large number of locks and cause high lock memory consumption.|
+
 
 ### Resource consumption by user workloads and internal processes
 
