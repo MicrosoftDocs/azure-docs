@@ -45,7 +45,7 @@ Anomaly detection functions on a per-meter and per-customer level. This means ea
 
 The model works by generating retrospective confidence intervals. The time series forecast is a generalized additive model consisting of a trend prediction part and a seasonality part. Because the model is formulated as a regression task, it can gracefully handle long periods of missing data. If an observation falls outside of the predicted confidence intervals, it means that observation cannot be explained based on historical patterns of the metered billing and therefore may be an anomaly.
 
-## How am I notified that an anomaly is detected?
+## Anomaly detection notification
 
 We email anomaly detection notices on a weekly basis. It includes all the anomalies detected that week for all meters and customers. This email is sent to the **Engineering** and **Support** contacts provided when you created the offer.
 
