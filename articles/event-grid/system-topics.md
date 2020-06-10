@@ -11,7 +11,7 @@ ms.author: spelluru
 ---
 
 # System topics in Azure Event Grid
-
+This article explains what system topics are, how they are created and managed, and where they are created. 
 
 ## What are system topics? 
 Azure services like Storage, Media services, and Event Hubs publish events to the Event Grid service when activities are performed against those services. For example, when a blob is uploaded to an Azure Storage account, the Azure Storage service publishes a **blob created** event to the Event Grid service. A **system topic** represents some or all of these events from an Azure source. For example, a system topic may represent all blob events or some blob events (for example: only blob created event) published for a specific storage account. You can create one or more subscriptions for these system topics.  
@@ -19,12 +19,17 @@ Azure services like Storage, Media services, and Event Hubs publish events to th
 The system topics are different from custom topics or domains in that only internal Azure services can publish to them. Therefore, you don't see an endpoint or a Shared Access Signature (SAS) key for a system topic. 
 
 ## Why system topic is an Azure resource now? 
-Previously, the system topic resource was implicit and was not exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can view and manage system topics yourself, set up diagnostic logs, set up alerts etc. for them. 
+Previously, the system topic resource was implicit and was not exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can:
+
+- Manage system topics
+- Manage event subscriptions for system topics
+- Set up diagnostic logs for system topics
+- Set up alerts on publish and delivery failures 
 
 ## How can I create, manage, and delete system topics? 
 You can create a system topic in two ways: 
 
-- Create an event subscription on an Azure resource, which internally creates a system topic for you. The system topic is automatically deleted when the last event subscription is deleted. The Event Grid service automatically created a system topic with a **randomly generated name** (`<Azure resource name>-<GUID>`). 
+- Create an event subscription on an Azure resource, which internally creates a system topic for you. The system topic is automatically deleted when the last event subscription is deleted. The Event Grid service automatically creates a system topic with a **randomly generated name** (`<Azure resource name>-<GUID>`). 
 
     When you use the [Azure portal](create-view-manage-system-topics.md), you are always using this approach. The system topic is created first whether you are using the **Events** page of an Azure resource to create an event subscription or the **Event Grid System Topics** page. 
 - Create a system topic for an Azure resource, and then create an event subscription for that system topic. You can specify a name for the system topic. The system topic isn't deleted automatically when the last event subscription is deleted. You need to manually delete it. 
