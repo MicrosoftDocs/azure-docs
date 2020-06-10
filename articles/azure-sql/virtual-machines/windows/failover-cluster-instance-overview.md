@@ -33,7 +33,7 @@ The rest of the article focuses on the differences for failover cluster instance
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using a disk witness, a cloud witness, or a file share witness for cluster quorum.
 
-To learn more, see [Quorum with SQL Server VMs in Azure](hadr-high-availability-disaster-recovery-supported-configurations.md#quorum). 
+To learn more, see [Quorum with SQL Server VMs in Azure](hadr-supported-cluster-configurations.md#quorum). 
 
 
 ## Storage
@@ -110,26 +110,24 @@ For third-party shared storage and data replication solutions, you should contac
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
 
-To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-high-availability-disaster-recovery-supported-configurations.md#route-connections). 
+To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-supported-cluster-configurations.md#route-connections). 
+
+Using the DNN with FCI has additional considerations when used with other SQL Server features: 
 
 ### DNN Feature interoperability 
 
 Consider the following when using the distributed network name (DNN) resource with SQL Server FCI and these features: 
 
-#### Client access
-
+**Client access**   
 For drivers ODBC, OLEDB, Ado.Net, JDBC, PHP, Node.JS, users need to explicitly specify the DNN DNS name as the server name in the connection string. 
 
-#### Tools
-
+**Tools**   
 [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is) and [SQL Server Data Tools (SSDT)](/sql/ssdt/sql-server-data-tools) users need to explicitly specify the DNN DNS name as the server name in the connection string. 
 
-#### Availability group + FCI
-
+**Availability group + FCI**   
 Always On availability groups can be configured with a failover cluster instance (FCI) as one of the replicas. In this configuration, the mirroring endpoint URL for the FCI replica needs to use the FCI DNN. Likewise, if the FCI is used as a read-only replica, the read-only routing to the FCI replica needs to use the FCI DNN. 
 
-#### Replication
-
+**Replication**   
 Replication has three components: Publisher, Distributor, Subscriber. Any of these three components can be a failover cluster instance (FCI). Since the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN may be necessary for replication to work. 
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
@@ -150,34 +148,28 @@ This is text to present the same information as the table, not sure which is bet
 - If subscriber is an FCI using DNN and the distributor is remote, define a network alias to map the subscriber's VNN to subscriber's DNN name on the distributor SQL server.
 - If distributor is an FCI using DNN and the subscriber is remote, define a network alias to map the distributor's VNN name to distributor's DNN name in the subscriber SQL Server.
 
-#### Database mirroring
-
+**Database mirroring**   
 Database mirroring can be configured with an FCI as either database mirroring partner. Configure database mirroring using [Transact-SQL (T-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) rather than the SSMS GUI to ensure the database mirroring endpoint is created using the DNN instead of the VNN. 
 
 For client access, the **Failover Partner** property can only handle database mirroring failover, but not FCI failover. 
 
-
-#### MS DTC 
-
+**MS DTC**   
 The FCI can participate in distributed transactions coordinated by MS DTC. Though both clustered MSDTC and local MSDTC is supported with FCI DNN, in Azure, a load balancer is still necessary for clustered MS DTC. The DNN defined in the FCI does not replace Azure Load Balancer required for the clustered MS DTC in Azure. 
 
-#### Filestream 
-
+**Filestream**   
 Though Filestream is supported for a database in an FCI, accessing the FileStream or FileTable using File System APIs with DNN is not supported. 
 
-#### Linked servers
-
+**Linked servers**   
 Using a linked server with an FCI DNN is supported. Either use the DNN directly to configure a linked server, or use a network alias to map the VNN to the DNN. 
 
 ## Limitations
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines: 
 
-### Lightweight resource provider
-
+**Lightweight resource provider**   
 At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL virtual machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
-### MS DTC 
+**MS DTC**   
 Azure Virtual Machines supports Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
 On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
@@ -188,7 +180,7 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Be sure to review the [high availability and disaster recover best practices](hadr-high-availability-disaster-recovery-supported-configurations.md), and then [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review [supported cluster configurations](hadr-supported-cluster-configurations.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

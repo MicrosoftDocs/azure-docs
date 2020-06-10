@@ -1,6 +1,6 @@
 ---
-title: Supported HADR configurations
-description: "Learn the high availability and disaster recovery features supported on SQL Server on Azure Virtual Machines, such as options for Quorum, or appropriately routing traffic in Azure." 
+title: Supported cluster configurations for HADR
+description: "Learn about the different supported cluster configurations when you configure high availability and disaster recovery (HADR) for your SQL Server on Azure Virtual Machines, such as supported quorum or connection routing options. " 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,12 +15,12 @@ ms.author: mathoma
 
 ---
 
-# Supported high availability & disaster recovery configurations
+# Supported cluster configurations for HADR (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article provides details about which options to use with which high availability and disaster option for SQL Server on Azure Virtual Machines. 
+A cluster is used for high availability and disaster recovery (HADR) with SQL Server on Azure VMs. 
 
-For greater detail about specific options, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md). 
+This article provides details about supported cluster configurations used by both [failover cluster instances](failover-cluster-instance-overview.md), and [availability groups](availability-group-overview.md). 
 
 
 ## Networking
@@ -138,7 +138,7 @@ To get started, learn how to [configure a distributed network name (DNN) resourc
 
 1. Does DNN support multi-subnet clusters?
 
-   Yes. WSFC binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of subnet. 
+   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of subnet. 
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Configure distributed network name (DNN) connect to an FCI 
-description: Learn how to configure a distributed network name (DNN) to route traffic to your SQL Server on Azure VM failover cluster instance (FCI). 
+title: Configure distributed network name (DNN)
+description: Learn how to configure a distributed network name (DNN) to route traffic to your SQL Server on Azure VM failover cluster instance (FCI) or your availability group listener. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,19 +16,19 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure a DNN for an FCI (SQL Server on Azure VMs)
+# Configure a DNN for an FCI (SQL Server on Azure VMs) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article teaches you to configure a distributed network name to connect to SQL Server failover cluster instance (FCI) in Azure. 
+On Azure Virtual Machines, the distributed network name (DNN) replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate clustered resource without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 and Windows Server 2019. 
 
-On Azure Virtual Machines, the distributed network name (DNN) replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate cluster node without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 and Windows Server 2019. 
+This article teaches you to configure a distributed network name (DNN) to route traffic to your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
 ## Prerequisites
 
 Before you complete the steps in this article, you should already have:
 
-- Decided the distributed network name is the appropriate [connectivity option for your FCI](failover-cluster-instance-overview.md#connectivity).
-- Configured your FCI using either [a Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md), [a Shared Managed Disk](failover-cluster-instance-azure-shared-disks-manually-configure.md), or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
+- Decided the distributed network name (DNN) is the appropriate [connectivity option for your HADR solution](hadr-supported-cluster-configurations.md#connectivity).
+- Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md). 
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
@@ -39,7 +39,7 @@ Use the following PowerShell command to create the DNN resource and set the DNS 
 
 ```powershell
 Add-ClusterResource -Name <dnnResourceName> `
--ResourceType "Distributed Network Name" -Group "<WSFC role of SQL server instance>"
+-ResourceType "Distributed Network Name" -Group "<WSFC role of SQL server instance or listener>"
 ```
 
 This command adds a DNN resource to the cluster with the resource name as `<dnnResourceName>`. The resource name is used by the cluster to uniquely identify a cluster resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
@@ -169,17 +169,34 @@ Yes. WSFC binds DNN DNS name with the physical IP addresses of all nodes in the 
 ## Test failover
 
 
-Test failover of the FCI to validate cluster functionality. Take the following steps:
+Test failover of the clustered resource to validate cluster functionality. 
 
-1. Connect to one of the SQL Server FCI cluster nodes by using RDP.
+# [Failover cluster instance](#tab/fci)
 
+Take the following steps:
+
+1. Connect to one of the SQL Server cluster nodes by using RDP.
 1. Open **Failover Cluster Manager**. Select **Roles**. Notice which node owns the SQL Server FCI role.
-
-1. Right-click the SQL Server FCI role.
-
+1. Right-click the SQL Server FCI role. 
 1. Select **Move**, and then select **Best Possible Node**.
 
 **Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
+
+
+
+# [AG Listener](#tab/ag)
+
+Take the following steps:
+
+1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) and connect to your availability group listener. 
+
+1. Expand **Always On Availability Group** in the **Object Explorer**. 
+1. Right-click the availability group and choose **Failover**. 
+1. Follow the Wizard prompts to fail the availability group over to a secondary replica. 
+
+Failover succeeds when the replicas switch roles and are both synchronized. 
+
+---
 
 ### Test connectivity
 
@@ -194,7 +211,7 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 If you haven't already, register your SQL Server FCI with the SQL VM resource provider in [lightweight management mode](sql-vm-resource-provider-register.md#lightweight-management-mode). Alternatively, unregistered SQL Server VMs participating in an availability group can register in [full mode][lightweight management mode](sql-vm-resource-provider-register.md#full-management-mode). 
 
-To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-high-availability-disaster-recovery-supported-configurations.md) for configuring your environment for high availability and disaster recovery. 
+To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-supported-cluster-configurations.md) for configuring your environment for high availability and disaster recovery. 
 
 
 
