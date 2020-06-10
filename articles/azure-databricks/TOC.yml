@@ -1257,6 +1257,18 @@
       - name: Apache Spark UI show less than total node memory
         href: /azure/databricks/kb/clusters/spark-shows-less-memory
         maintainContext: true
+      - name: CPU core limit prevents cluster creation
+        href: /azure/databricks/kb/clusters/azure-core-limit
+        maintainContext: true
+      - name: IP address limit prevents cluster creation
+        href: /azure/databricks/kb/clusters/azure-ip-limit
+        maintainContext: true
+      - name: Slow cluster launch and missing nodes
+        href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
+        maintainContext: true
+      - name: Configure a cluster to use a custom NTP server
+        href: /azure/databricks/kb/clusters/use-internal-ntp
+        maintainContext: true
     - name: Data management
       items:
       - name: Append to a DataFrame
@@ -1332,6 +1344,9 @@
         maintainContext: true
       - name: Optimize read performance from JDBC data sources
         href: /azure/databricks/kb/data-sources/jdbc-optimize-read
+        maintainContext: true
+      - name: ADLS and WASB writes throttled
+        href: /azure/databricks/kb/data-sources/azure-storage-throttling
         maintainContext: true
     - name: DBFS
       items:
@@ -1499,6 +1514,9 @@
         maintainContext: true
       - name: Troubleshoot cancel command
         href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
+        maintainContext: true
+      - name: Retrieve the current username for the notebook
+        href: /azure/databricks/kb/notebooks/get-notebook-username
         maintainContext: true
     - name: Security and permissions
       items:
