@@ -137,6 +137,32 @@ For more information:
 - Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
 - Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) from an unmanaged blob.
 
+## Tables
+
+You can migrate tables in Azure using Storage Explorer. Storage Explorer is a tool to manage your Azure cloud storage resources. Using Storage Explorer, you can connect to the source Germany storage account and copy tables to the target Azure global storage account.
+
+To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+### Connect to source
+
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. 
+
+You can [sign in to access resources in your subscription](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+
+### Connect to target
+
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+
+
+### Migrate tables
+
+Copy tables from Germany source to global storage table
+![Copy table menu selected from Azure Germany subscription](./media/germany-migration-storage/copy-table.png)
+
+Paste table
+![Paste table menu selected from target Azure Storage](./media/germany-migration-storage/paste-table.png)
+
+Verify migration
 
 ## Next steps
 
