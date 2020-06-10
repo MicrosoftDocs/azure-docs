@@ -157,13 +157,10 @@
     href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
 - name: Resources
   items:
-  - name: Release Notes
-    href: https://github.com/Azure/azure-spatial-anchors-samples/releases
+  - name: Roadmap
+    href: roadmap.md
   - name: FAQ
-    href: spatial-anchor-faq.md
+    href: faq.md
   - name: Provide Product Feedback
-    href: https://feedback.azure.com/forums/919252-azure-spatial-anchors
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
-  - name: Support
-    href: spatial-anchor-support.md
+    href: product-feedback.md
+
