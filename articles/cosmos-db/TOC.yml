@@ -993,7 +993,7 @@
           href: performance-tips-dotnet-sdk-v3-sql.md
         - name: Performance tips for .NET SDK v2
           href: performance-tips.md
-        - name: Troubleshoot .NET SDK v2
+        - name: Troubleshoot .NET SDK
           href: troubleshoot-dot-net-sdk.md
       - name: Java
         items: 
