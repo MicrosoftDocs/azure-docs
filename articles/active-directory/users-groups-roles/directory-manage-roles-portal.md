@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 06/15/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -23,7 +23,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 Search for and select **Azure Active Directory**. Select **Roles and administrators** to see the list of all available roles.
 
-Click the ellipsis on the right of each row to open the detailed description of the role.
+Select the ellipsis on the right of each row to open the detailed description of the role.
 
 ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
@@ -44,6 +44,9 @@ If you are a Global Administrator or a Privileged Role Administrator, you can ea
 When you're viewing a role's members, select **Description** to see the complete list of permissions granted by the role assignment. The page includes links to relevant documentation to help guide you through managing directory roles.
 
 ![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
+
+## Assign a role
+
 
 
 ## Next steps
