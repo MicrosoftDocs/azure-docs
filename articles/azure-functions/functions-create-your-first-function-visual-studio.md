@@ -34,7 +34,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 1. In the code, rename the Function1 class to `HttpExample'.
 
-1. In the `HttpTrigger` method named `run`, rename the `FunctionName` method attribute to `HttpExample`.
+1. In the `HttpTrigger` method named `Run`, rename the `FunctionName` method attribute to `HttpExample`.
 
 Now that you've renamed the function, you can test it on your local computer.
 

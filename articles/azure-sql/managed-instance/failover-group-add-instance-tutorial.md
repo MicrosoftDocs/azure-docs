@@ -452,7 +452,7 @@ Create the secondary SQL Managed Instance using the Azure portal.
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
-1. Select **Create** on the **SQL SQL Managed Instances** tile. 
+1. Select **Create** on the **SQL Managed Instances** tile. 
 
     ![Select SQL Managed Instance](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
