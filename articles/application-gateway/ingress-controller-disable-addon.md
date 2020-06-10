@@ -14,8 +14,8 @@ Application Gateway Ingress Controller (AGIC) deployed as an AKS add-on allows y
 
 ## Disabling AGIC add-on with associated Application Gateway 
 If the AGIC add-on automatically deployed the Application Gateway for you when you first set everything up, then disabling the AGIC add-on will by default delete the Application Gateway based on a couple criteria. There are two criteria that the AGIC add-on looks for to determine if it should delete the associated Application Gateway when you disable it:
-1. Is the Application Gateway that the AGIC add-on is associated with deployed in the MC_* node resource group? 
-2. Does the Application Gateway that the AGIC add-on is associated with have the tag "created-by: ingress-appgw"? The tag is used by AGIC to determine if the Application Gateway was deployed by the add-on or not. 
+- Is the Application Gateway that the AGIC add-on is associated with deployed in the MC_* node resource group? 
+- Does the Application Gateway that the AGIC add-on is associated with have the tag "created-by: ingress-appgw"? The tag is used by AGIC to determine if the Application Gateway was deployed by the add-on or not. 
 
 If both criteria are met, then the AGIC add-on will delete the Application Gateway it created when the add-on is disabled; however, it won't delete the public IP or the subnet in which the Application Gateway was deployed with/in. If the first criteria is not met, then it won't matter if the Application Gateway has the "created-by: ingress-appgw" tag - disabling the add-on won't delete the Application Gateway. Likewise, if the second criteria is not met, i.e. the Application Gateway lacks that tag, then disabling the add-on won't delete the Application Gateway in the MC_* node resource group. 
 
