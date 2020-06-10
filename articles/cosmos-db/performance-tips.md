@@ -23,11 +23,11 @@ Azure Cosmos DB is a fast and flexible distributed database that scales seamless
 So, if you're trying to improve your database performance, consider these options:
 
 ## Upgrade to the .NET V3 SDK
-The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you are using the .NET v3 SDK please use the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md)
-1. Defaults to Direct TCP mode
-2. Stream API support
-3. Support custom serializer to allow System.Text.JSON usage
-4. Integrated batch and bulk support
+The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you use the .NET v3 SDK, see the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md) for the following information:
+- Defaults to Direct TCP mode
+- Stream API support
+- Support custom serializer to allow System.Text.JSON usage
+- Integrated batch and bulk support
 
 ## Hosting recommendations
 
