@@ -18,7 +18,7 @@ A private endpoint is a network interface that connects you privately and secure
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> This feature is supported for both **standard** and **dedicated** tiers. 
 
 >[!WARNING]
 > Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.
