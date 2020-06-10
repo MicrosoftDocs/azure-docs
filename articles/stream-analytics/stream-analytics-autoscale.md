@@ -61,8 +61,8 @@ Azure Automation allows you to configure a schedule to trigger your runbooks.
 ## Autoscale based on load
 There might be cases where you cannot predict input load. In such cases, it is more optimal to scale up/down in steps within a minimum and maximum bound. You can configure alert rules in your Stream Analytics jobs to trigger runbooks when job metrics go above or below a threshold.
 1. In your Azure Automation account, create two more Integer variables called **minSU** and **maxSU**. This sets the bounds within which your job will scale in steps.
-2. Create two new runbooks. You can use the [StepScaleUp PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/Autoscaleup.ps1) that 
- increases the SUs of your job in increments until **maxSU** value. You can also use the [StepScaleDown PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/autoscaledown.ps1) that decreases the SUs of your job in steps until **minSU** value is reached. Alternatively, you can use the runbooks from the previous section if you have specific SU values you want to scale to.
+2. Create two new runbooks. You can use the [StepScaleUp PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) that 
+ increases the SUs of your job in increments until **maxSU** value. You can also use the [StepScaleDown PowerShell script](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) that decreases the SUs of your job in steps until **minSU** value is reached. Alternatively, you can use the runbooks from the previous section if you have specific SU values you want to scale to.
 3. In your Stream Analytics job, select **Alert rules** under **Monitoring**. 
 4. Create two action groups. One to be used for scale up operation and another for scale down operation. Select **Manage Actions** and then click on **Add action group**. 
 5. Fill out the required fields. Choose **Automation Runbook** when you select the **Action Type**. Select the runbook you want to trigger when the alert fires. Then, create the action group.
