@@ -72,15 +72,20 @@ This topic provides a reference for the following API Management policies. For i
 
 ### Examples
 
-In this example client certificate is identified by its thumbprint.
+In this example, the client certificate is identified by its thumbprint:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-In this example client certificate is identified by resource name.
+
+In this example, the client certificate is identified by the resource name:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
-In this example client certificate is set in the policy rather than retrieved from the built-in certificate store.
+
+In this example, the client certificate is set in the policy rather than retrieved from the built-in certificate store:
+
 ```xml
 <authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
 ```
