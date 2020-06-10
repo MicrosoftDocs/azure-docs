@@ -1,6 +1,6 @@
 ---
 title: Configure managed identities on an Azure VM using PowerShell - Azure AD
-description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
+description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, using PowerShell, you learn how to perform the following managed identities for Azure resources operations on an Azure VM.
 
@@ -40,7 +40,7 @@ In this section, you will learn how to enable and disable the system-assigned ma
 
 ### Enable system-assigned managed identity during creation of an Azure VM
 
-To create an Azure VM with the system-assigned managed identity enabled,your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 1. Refer to one of the following Azure VM Quickstarts, completing only the necessary sections ("Sign in to Azure", "Create resource group", "Create networking group", "Create the VM").
     

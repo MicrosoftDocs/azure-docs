@@ -1,6 +1,6 @@
 ---
 title: Use managed identities on an Azure VM for sign-in - Azure ADV
-description: Step-by-step instructions and examples for using an Azure VM managed identities for Azure resources service principal for script client sign-in and resource access.
+description: Step-by-step instructions and examples for using an Azure VM-managed identities for Azure resources service principal for script client sign-in and resource access.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -37,7 +37,7 @@ If you plan to use the Azure PowerShell or Azure CLI examples in this article, b
 
 ## Overview
 
-Managed identities for Azure resources provides a [service principal object](../develop/developer-glossary.md#service-principal-object) 
+Managed identities for Azure resources provide a [service principal object](../develop/developer-glossary.md#service-principal-object) 
 , which is [created upon enabling managed identities for Azure resources](overview.md) on the VM. The service principal can be given access to Azure resources, and used as an identity by script/command-line clients for sign-in and resource access. Traditionally, in order to access secured resources under its own identity, a script client would need to:  
 
    - be registered and consented with Azure AD as a confidential/web client application
