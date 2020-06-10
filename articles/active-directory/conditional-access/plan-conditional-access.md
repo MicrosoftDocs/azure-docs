@@ -284,7 +284,7 @@ EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require 
 
 ### Exclude countries from which you never expect a sign-in.
 
-Azure active directory allows you to create [named locations](location-condition). Create a named location that includes all of the countries from which you would never expect a sign-in to occur. Then create a policy for All apps that blocks sign in from that named location. **Be sure to exempt your administrators from this policy**.
+Azure active directory allows you to create [named locations](location-condition.md). Create a named location that includes all of the countries from which you would never expect a sign-in to occur. Then create a policy for All apps that blocks sign in from that named location. **Be sure to exempt your administrators from this policy**.
 
 ### Plan your policy deployment
 
@@ -382,7 +382,7 @@ The test plan is important to have a comparison between the expected results and
 | [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while on a trusted location / work| User is not prompted to MFA |
 | [Require MFA when not at work](untrusted-networks.md)| Authorized user signs into App while not on a trusted location / work| User is prompted to MFA and can sign in successfully |
 | [Require MFA (for admin)](howto-baseline-protect-administrators.md)| Global Admin signs into App| Admin is prompted to MFA |
-| [Risky sign-ins](..identity-protection/howto-sign-in-risk-policy.md)| User signs into App using a [Tor browser](../azure/active-directory/active-directory-identityprotection-playbook.md)| Admin is prompted to MFA |
+| [Risky sign-ins](../identity-protection/howto-sign-in-risk-policy.md)| User signs into App using a [Tor browser](../azure/active-directory/active-directory-identityprotection-playbook.md)| Admin is prompted to MFA |
 | [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an authorized device| Access Granted |
 | [Device management](require-managed-devices.md)| Authorized user attempts to sign in from an unauthorized device| Access blocked |
 | [Password change for risky users](../identity-protection/howto-user-risk-policy.md)| Authorized user attempts to sign in with compromised credentials (high risk sign in)| User is prompted to change password or access is blocked based on your policy |
@@ -496,8 +496,8 @@ Once you have collected the information, See the following resources:
 
 ## Next Steps
 
-[Learn more about Multi-factor authentication](..y/authentication/concept-mfa-howitworks.md)
+[Learn more about Multi-factor authentication](../authentication/concept-mfa-howitworks.md)
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage CA policies with Microsoft Graph API](../graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Manage CA policies with Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
