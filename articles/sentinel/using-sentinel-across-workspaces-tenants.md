@@ -59,7 +59,7 @@ This model offers significant advantages over a fully centralized model in which
 
 - Fewer challenges regarding data ownership, data privacy and regulatory compliance.
 
-- Minimal network latency and data ingestion charges.
+- Minimal network latency and charges.
 
 - Easy onboarding and offboarding of new subsidiaries or customers.
 
