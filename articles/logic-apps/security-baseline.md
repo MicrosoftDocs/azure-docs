@@ -1,10 +1,10 @@
 ---
-title: Azure security baseline for Azure Logic Apps
-description: Azure security baseline for Azure Logic Apps
+title: Azure security baseline for Logic Apps
+description: Azure security baseline for Logic Apps
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/10/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,9 +12,9 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Azure Logic Apps
+# Azure security baseline for Logic Apps
 
-The Azure Security Baseline for Azure Logic Apps contains recommendations that will help you improve the security posture of your deployment.
+The Azure Security Baseline for Logic Apps contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
