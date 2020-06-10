@@ -4,7 +4,6 @@ description: Provides guidelines for optimizing SQL Server performance in Micros
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
