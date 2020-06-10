@@ -407,8 +407,8 @@ To write data into lookup field with multiple targets, e.g. *Customer* and *Owne
 
  For example, the source has two columns:
 
-1. `CustomerField` column of type *GUID*, which is the primary key value of the target entity in Dynamics.
-2. `Target` column of type *String*, which is the logical name of the target entity. 
+- `CustomerField` column of type *GUID*, which is the primary key value of the target entity in Dynamics.
+- `Target` column of type *String*, which is the logical name of the target entity. 
 
 And you want to copy such data to sink Dynamics entity field `CustomerField` of type *Customer*. 
 
