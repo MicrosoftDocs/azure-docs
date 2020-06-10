@@ -12,15 +12,10 @@ ms.service: azure-project-spool
 
 ---
 
-# ACS Identity
-
-ACS Identity is a the formatted identity that will be provided to the ACS customer from the ACS Identity Service.
-ACS Identity 
-
 
 # Identity model
 
-Every addressable entitiy in ACS world, a user, bot, pstn number, short code, application ... is represented by special type :
+Every addressable entity in ACS world, a user, bot, pstn number, short code, application ... is represented by special type :
 * user - UserIdentity represents an object in ACS world that maps ACS Identity to a to an entity in your system
 * pstn numbers - PhoneNumberIdentity represents an entity in ACS world that maps to a phone number.
 * bot | server application - BotIdentity represents an entity in ACS world that maps to a particular bot or server application, identified by ACS Identity or bot APP ID
