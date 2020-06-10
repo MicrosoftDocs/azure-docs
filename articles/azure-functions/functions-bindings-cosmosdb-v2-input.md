@@ -1013,7 +1013,6 @@ Here's the *function.json* file:
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```
