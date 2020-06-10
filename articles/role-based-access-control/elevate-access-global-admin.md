@@ -1,19 +1,19 @@
 ---
 title: Elevate access to manage all Azure subscriptions and management groups
-description: Describes how to temporarily elevate access for a Global Administrator to manage all subscriptions and management groups in Azure Active Directory using the Azure portal or REST API.
+description: Describes how to elevate access for a Global Administrator to manage all subscriptions and management groups in Azure Active Directory using the Azure portal or REST API.
 services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/05/2020
+ms.date: 06/09/2020
 ms.author: rolyon
 
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
-As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can temporarily elevate your access to all subscriptions and management groups.
+As a Global Administrator in Azure Active Directory (Azure AD), you might not have access to all subscriptions and management groups in your directory. This article describes the ways that you can elevate your access to all subscriptions and management groups.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -40,7 +40,7 @@ You should remove this elevated access once you have made the changes you need t
 
 ### Elevate access for a Global Administrator
 
-Follow these steps to temporarily elevate access for a Global Administrator using the Azure portal.
+Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
 
