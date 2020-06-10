@@ -209,7 +209,7 @@ The image source is replaced with that of the background image and banner logo. 
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
