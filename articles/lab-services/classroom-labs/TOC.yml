@@ -42,6 +42,8 @@
         href: class-type-ethical-hacking.md
       - name: Database management
         href: class-type-database-management.md
+      - name: Azure Sql Database management and development
+        href: class-type-sql-server.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
       - name: Mobile app development with Android Studio
@@ -74,6 +76,8 @@
       href: allow-lab-creator-pick-lab-location.md
     - name: Connect to a peer virtual network
       href: how-to-connect-peer-virtual-network.md
+    - name: How to create a lab with a shared resource
+      href: how-to-create-a-lab-with-shared-resource.md
     - name: Attach or detach a shared image gallery
       href: how-to-attach-detach-shared-image-gallery.md
     - name: Add additional owners to a classroom lab
