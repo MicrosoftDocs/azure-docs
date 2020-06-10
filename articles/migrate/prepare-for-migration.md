@@ -12,11 +12,12 @@ This article describes how to prepare on-premises machines before you migrate th
 
 In this article, you:
 > [!div class="checklist"]
-> * Verify migration limitations.
-> * Check operating system requirements and support limitations.
+> * Review migration limitations.
+> * Select a method for migrating VMware VMs
+> * Check hypervisor and operating system requirements for machines you want to migrate.
 > * Review URL and port access for machines you want to migrate.
 > * Review changes you might need to make before you begin migration.
-> * Configure settings so drive letters are preserved after migration.
+> * Check Azure VMs requirements for migrated machines
 > * Prepare machines so you can connect to the Azure VMs after migration.
 
 
@@ -27,9 +28,9 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware VMs**| Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | For agentless migration, you can simultaneously replicate a maximum of 100 VMs. For best performance, we recommend creating multiple batches of VMs if you  have more than 50.<br/><br/> For agent-based migration, you can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the replication appliance to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance for Hyper-V | For Hyper-V migration, an appliance isn't used. Instead, the Hyper-V Replication Provider runs on each Hyper-V host that contains VMs you want to migrate. Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | For migration of physical machines, you can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the replication appliance to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 100 VMs. For best performance, we recommend creating multiple batches of VMs if you  have more than 50.<br/><br/> **Agent-based migration**: you can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
 ## Select a VMware migration method
 
@@ -37,7 +38,8 @@ If you're migrating VMware VMs to Azure, [compare](server-migrate-overview.md#co
 
 ## Verify hypervisor requirements
 
-If you're migrating VMware VMs or Hyper-V VMs, verify [VMware agentless](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless), [VMware agent-based](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agent-based), or [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) requirements.
+- Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless), or [VMware agent-based](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agent-based) requirements.
+- Verify [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) requirements.
 
 
 ## Verify operating system requirements
@@ -61,37 +63,35 @@ Review which URLs and ports are accessed during migration.
 
 ## Verify required changes before migrating
 
-Some VMs might require changes so they can run in Azure. Azure Migrate makes these changes automatically for VMs that are running these operating systems:
+There are some changes needed on VMs before you migrate them to Azure.
 
-- Red Hat Enterprise Linux 7.0+, 6.5+
-- CentOS 7.0+, 6.5+
-- SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
-- Debian 8, 7
+- For some operating systems, Azure Migrate makes changes automatically during the replication/migration process.
+- For other operating systems, you need to configure settings manually.
+- It's important to configure settings manually before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 
-For other operating systems, you must manually prepare machines before migration. 
+Review the tables to identify the changes you need to make.
 
-### Prepare Windows machines for migration
+## Windows machines
 
-Some Windows machines require changes so that they can run in Azure. Azure Migrate:Server Migration makes these changes automatically for some operating systems, as summarized in the table. 
+Required changes are summarized in the table.
 
-**Action** | **Windows on VMware** | **Windows on Hyper-V** | **Windows on physical machines**
+**Action** | **VMware (agentless migration)** | **VMware (agent-based)/physical machines** | **Windows on Hyper-V** 
 --- | --- | --- | ---
-**Configure the SAN policy as Online All**<br/><br/> This ensures that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Automatic | Follow the instructions in the next section to preserve drive letters after migration. |
-Install Hyper-V Guest Integration | For Windows Server 2003, [install Hyper-V Integration Services](prepare-windows-server-2003-migration.md#install-on-vmware-vms). | or Windows Server 2003, [install Hyper-V Integration Services](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms). | 
-[Enable Azure Serial Console](../virtual-machines/troubleshooting/serial-console-windows.md) for the Azure VM. | Enable the console to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable the console to help with troubleshooting | Enable the console to help with troubleshooting.
-Prepare to connect after migration<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | Follow [these instructions](#prepare-to-connect-to-azure-windows-vms).
+**Configure the SAN policy as Online All**<br/><br/> This ensures that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Set automatically for machines running Windows Server 2008 R2 or later.<br/><br/> Configure manually for earlier operating systems. | Set automatically in most cases. | Configure manually.
+**Install Hyper-V Guest Integration** | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-vmware-vms) on machines running Windows Server 2003. | [Install manually](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) on machines running Windows Server 2003.
+**Enable Azure Serial Console**.<br/><br/>[Enable the console](../virtual-machines/troubleshooting/serial-console-windows.md) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
+**Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
 
-### Preserve drive letters (Hyper-V migration)
+### Configure SAN policy
 
-When you migrate an on-premises Hyper-V VM to Microsoft Azure, the drive letters of additional data disks might change from their original values. 
+By default, Azure VMs are assigned drive D to use as temporary storage.
 
-- By default, Azure VMs are assigned drive D to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter.
+- This drive assignment causes all other attached storage drive assignments to increment by one letter.
 - For example, if your on-premises installation uses a data disk that is assigned to drive D for application installations, the assignment for this drive increments to drive E after you migrate the VM to Azure. 
+- To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll:
 
-
-To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll**:
+Configure this setting manually as follows:
 
 1. On the on-premises machine (not the host server), open an elevated command prompt.
 2. Enter **diskpart**.
@@ -100,23 +100,38 @@ To prevent this automatic assignment, and to ensure that Azure assigns the next 
 5. During the test migration, you can verify that the drive letters are preserved.
 
 
-## Prepare Linux machines for migration
+## Linux machines
 
-1. Install Hyper-V Linux Integration Services. Most new versions of Linux distributions include Hyper-V Linux Integration Services by default.
-2. Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure (required only on some distributions).
-3. [Enable Azure Serial Console logging](../virtual-machines/troubleshooting/serial-console-linux.md). Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.
-4. Update the device map file with the device name-to-volume associations, so you use persistent device identifiers.
-5. Update entries in the fstab file to use persistent volume identifiers.
-6. Remove any udev rules that reserve interface names based on MAC address, and so on.
-7. Update network interfaces to receive an IP address from DHCP.
+Azure Migrate completes these actions automatically for these versions
 
-Learn more about the [steps to run a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
+- Red Hat Enterprise Linux 7.0+, 6.5+
+- CentOS 7.0+, 6.5+
+- SUSE Linux Enterprise Server 12 SP1+
+- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
+- Debian 8, 7
 
+For other versions, prepare machines as summarized in the table.  
+
+### Prepare Windows machines for migration
+**Action** | **Details** | **Linux version**
+--- | --- | ---
+**Install Hyper-V Linux Integration Services** | Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
+**Enable Azure Serial Console logging** | Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](../virtual-machines/troubleshooting/serial-console-linux.md) to enable.
+**Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above.
+**Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
+**Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
+**Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
+**Enable ssh** |	Ensure ssh is enabled and the sshd service is set to start automatically on reboot.
+Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+
+Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
 
 ## Check Azure VM requirements
 
-On-premises machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming. Before migrating, review the Azure VMs requirements for [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements), and [physical server](migrate-support-matrix-physical-migration.md#azure-vm-requirements) migration.
+On-premises machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming.
+
+Before migrating, review the Azure VMs requirements for [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements), and [physical server](migrate-support-matrix-physical-migration.md#azure-vm-requirements) migration.
 
 
 
