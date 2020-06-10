@@ -54833,6 +54833,21 @@
       "source_path": "articles/mobile-apps/index.yml",
       "redirect_url": "/azure/developer/mobile-apps",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risk-events.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risky-sign-ins.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
     }
   ]
 }
