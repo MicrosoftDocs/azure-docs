@@ -171,7 +171,7 @@ Add the connection string into the app so it can access the storage account.
 
 Create a new method to send a message into the queue.
 
-1. Add the following **SendMessageAsync** method to your **Program** class.
+1. Add the following **AddMessageToQueueAsync** method to your **Program** class.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -185,7 +185,7 @@ Create a new method to send a message into the queue.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_SendMessage":::
 
-1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that *doesn't* expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**. The following code snippet adds a message that doesn't expire.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -197,7 +197,7 @@ Create a new method to send a message into the queue.
 
 1. Save the file.
 
-A queue message must be in a format that can be included in an XML request with UTF-8 encoding. A message may be up to 64 KB in size. If a message contains binary data, [Base64-encode](/dotnet/api/system.convert.tobase64string) the message.
+A queue message must be in a format compatible with an XML request using UTF-8 encoding. A message may be up to 64 KB in size. If a message contains binary data, [Base64-encode](/dotnet/api/system.convert.tobase64string) the message.
 
 ## Dequeue messages
 
@@ -209,13 +209,13 @@ Create a new method to retrieve a message from the queue. Once the message is su
 
    Add a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing 1 in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialReceiveMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
    # [\.NET v11](#tab/dotnetv11)
 
    Add a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialReceiveMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
 1. Save the file.
 
@@ -227,11 +227,11 @@ It's a best practice at the end of a project to identify whether you still need 
 
    # [\.NET v12](#tab/dotnet)
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_ReceiveMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
    # [\.NET v11](#tab/dotnetv11)
 
-   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_ReceiveMessage":::
+   :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
 1. Save the file.
 
