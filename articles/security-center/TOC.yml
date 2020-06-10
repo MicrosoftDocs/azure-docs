@@ -141,7 +141,7 @@
     href: security-center-enable-data-collection.md
   - name: Set up advanced threat protection for Azure Key Vault
     href: advanced-threat-protection-key-vault.md
-  - name: Set up email notifications
+  - name: Set up email notifications for security alerts
     href: security-center-provide-security-contact-details.md
   - name: Pricing
     href: security-center-pricing.md

@@ -27,7 +27,6 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 - a maximum of **two** emails per day for **medium-severity** alerts
 - a maximum of **one** email per day for **low-severity** alerts
 
-
 ## Availability
 
 - Release state: **Generally Available**
@@ -36,7 +35,6 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
   ✔ Commercial clouds
   ✔ US Gov (partial)
   ✘ National/Sovereign (China Gov, Other Gov)
-
 
 
 ## Set up email notifications for alerts <a name="email"></a>
