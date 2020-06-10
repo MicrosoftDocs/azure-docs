@@ -87,28 +87,28 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-### Java V4 SDK
+# Java V4 SDK
 
-### <a id="override-default-consistency-javav4"></a>
-### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
-[Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
+Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
+[!code-java](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)
 
-### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
-[Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
+Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)]
+[!code-java](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySync)
 
 --- 
 
 ### Java V2 SDKs
 
+## <a id="override-default-consistency-javav4"></a>
 # [Async](#tab/asyncjava)
 
-[Async Java V2 SDK](sql-api-sdk-async-java.md) (Maven [com.microsoft.azure::azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Override consistency at the client level
@@ -124,7 +124,7 @@ AsyncDocumentClient client =
 
 # [Sync](#tab/syncjava)
 
-[Sync Java V2 SDK](sql-api-sdk-java.md) (Maven [com.microsoft.azure::azure-documentdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Override consistency at the client level
@@ -189,9 +189,11 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a id="utilize-session-tokens-java"></a>Java SDK
+### <a id="utilize-session-tokens-java"></a>Java V2 SDKs
 
 # [Java Async SDK](#tab/javaasync)
+
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -214,6 +216,8 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 ```
 
 # [Java sync SDK](#tab/javasync)
+
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response
