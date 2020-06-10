@@ -174,7 +174,7 @@ associated with the `BatchNodeManagement` service tag (or the regional variant t
 ### Honoring DNS
 
 Ensure that your systems are honoring DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure
-that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses (or [create a pool with static public IP addresses](create-pool-public-ip) as described below).
+that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses (or [create a pool with static public IP addresses](create-pool-public-ip.md) as described below).
 
 If your requests receive 5xx level HTTP responses and there is a "Connection: close" header in the response, your
 Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the
