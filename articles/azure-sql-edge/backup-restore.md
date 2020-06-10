@@ -1,5 +1,5 @@
 ---
-title: Backup and restore databases - Azure SQL Edge (Preview)
+title: Back up and restore databases - Azure SQL Edge (Preview)
 description: Learn about backup and restore capabilities in Azure SQL Edge (Preview).
 keywords: 
 services: sql-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Backup and restore databases in Azure SQL Edge (Preview) 
+# Back up and restore databases in Azure SQL Edge (Preview) 
 
 Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Database Engine on Linux. It provides similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. The backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. 
 
@@ -38,7 +38,7 @@ In the following example, you use the `BACKUP DATABASE` Transact-SQL command to 
     sudo docker exec -it <AzureSQLEdge_Container_Name> mkdir /var/opt/mssql/backup
     ```
 
-2. Connect to the Azure SQL Edge instance by using SQL Server Management Studio (SSMS), or by using Azure Data Studio (ADS). Run the `BACKUP DATABASE` command to take the backup of your user database. In the following example, you're taking the backup of the *IronOreSilicaPrediction* database.
+2. Connect to the Azure SQL Edge instance by using SQL Server Management Studio (SSMS), or by using Azure Data Studio. Run the `BACKUP DATABASE` command to take the backup of your user database. In the following example, you're taking the backup of the *IronOreSilicaPrediction* database.
 
     ```sql
     BACKUP DATABASE [IronOreSilicaPrediction] 
@@ -48,7 +48,7 @@ In the following example, you use the `BACKUP DATABASE` Transact-SQL command to 
     GO
     ```
 
-3. After you run the command, if the backup of the database is successful, you'll see messages similar to the following in the results section of SSMS or ADS.
+3. After you run the command, if the backup of the database is successful, you'll see messages similar to the following in the results section of SSMS or Azure Data Studio.
 
     ```txt
     10 percent processed.
@@ -106,7 +106,7 @@ Azure SQL Edge supports backups to both page blobs and block blobs. For more inf
 
     After successfully running the script, copy the `CREATE CREDENTIAL` command to a query tool. Then connect to an instance of SQL Server, and run the command to create the credential with the SAS.
 
-2. Connect to the Azure SQL Edge instance by using SSMS or ADS, and create the credential by using the command from the previous step. Make sure to replace the `CREATE CREDENTIAL` command with the actual output from the previous step.
+2. Connect to the Azure SQL Edge instance by using SSMS or Azure Data Studio, and create the credential by using the command from the previous step. Make sure to replace the `CREATE CREDENTIAL` command with the actual output from the previous step.
 
     ```sql
     IF NOT EXISTS  
@@ -140,7 +140,7 @@ This example uses the *IronOreSilicaPrediction* backup that you made in the prev
     sudo docker cp IronOrePredictDB.bak sql1:/var/opt/mssql/backup
     ```
 
-2. Connect to the Azure SQL Edge instance by using SSMS or ADS to run the restore command. In the following example, **IronOrePredictDB.bak** is restored to create a new database, **IronOreSilicaPrediction_2**.
+2. Connect to the Azure SQL Edge instance by using SSMS or Azure Data Studio to run the restore command. In the following example, **IronOrePredictDB.bak** is restored to create a new database, **IronOreSilicaPrediction_2**.
 
     ```sql
     Restore FilelistOnly from disk = N'/var/opt/mssql/backup/IronOrePredictDB.bak'
