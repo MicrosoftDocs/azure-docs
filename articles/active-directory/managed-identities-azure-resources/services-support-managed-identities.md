@@ -225,9 +225,9 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Not Available | Not Available | Not Available | Not Available | 
-| User assigned | [Available in supported regions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview#regions) | Not Available | Not Available | Not Available |
+| User assigned | [Available in supported regions](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Not Available | Not Available | Not Available |
 
-Refer to the Image Builder [documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview#permissions) to configure managed identity for Azure VM Image Builder (in regions where available).
+To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
 
 ## Azure services that support Azure AD authentication
 
