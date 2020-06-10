@@ -1,29 +1,41 @@
 ---
 title: Reduce service costs using Azure Advisor
-description: Use Azure Advisor to optimize the cost of your Azure deployments.
+description: Use Azure Advisor to optimize the cost of your Azure deployments by identifying idle and underutilized resources.
 ms.topic: article
 ms.date: 01/29/2019
 
 ---
 
-# Reduce service costs using Azure Advisor
+# Reduce service costs by using Azure Advisor
 
-Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
+Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
-Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor advanced evaluation models considers virtual machines for shut-down when P95th of the max of max value of CPU utilization is less than 3% and network utilization is less than 2% over a 7 day period. Virtual machines are considered for right size when it is possible to fit the current load in a smaller SKU (within the same SKU family) or a smaller number # of instance such that the current load doesn’t go over 80% utilization when non-user facing workloads and not above 40% when user-facing workload. Here, the type of workload is determined by analyzing the CPU utilization characteristics of the workload.
+Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. 
 
-The recommended actions are shut-down or resize, specific to resource being recommended for. Advisor shows you the estimated cost savings for either recommended actions - resize or shut-down. Also, for resize recommended action, Advisor provides current and target SKU information. 
+The recommended actions are shut down and resize, specific to resource being evaluated.
 
-If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
+The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
+- P95th of the maximum of maximum value of CPU utilization is less than 3%. 
+- Network utilization is less than 2% over a seven day period.
 
-## Optimize spend for MariaDB, MySQL and PostgreSQL servers by right sizing 
-Advisor analyses your usage and recommends if your MariaDB/MySQL/PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+Advisor considers resizing virtual machines when it's possible to fit the current load in a smaller SKU (within the same SKU family) or a smaller number number of instances such that:
+- The current load doesn’t go above 80% utilization for workloads that aren't user facing. 
+- The load doesn't go above 40% for user-facing workloads. 
+
+Here, Advisor determines the type of workload by analyzing the CPU utilization characteristics of the workload.
+
+Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU information.
+
+If you want to be more aggressive about identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per-subscription basis.
+
+## Optimize spend for MariaDB, MySQL, and PostgreSQL servers by right-sizing 
+Advisor analyses your usage and evaluates whether your MariaDB, MySQL, or PostgreSQL database server resources have been underutilized for an extended period of time over the past seven days. Low resource utilization results in unwanted expenditure that you can fix without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend that you reduce the compute size (vCores) by half.
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
-Advisor identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month, and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
+Advisor identifies Azure ExpressRoute circuits that have been in the provider status of **Not provisioned** for more than one month. It recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
 
 ## Reduce costs by deleting or reconfiguring idle virtual network gateways
 
