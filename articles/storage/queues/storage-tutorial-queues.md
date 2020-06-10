@@ -297,7 +297,7 @@ Here is the complete code listing for this project.
    dotnet run First queue message
    ```
 
-You should see this output:
+   You should see this output:
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
