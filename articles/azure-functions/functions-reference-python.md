@@ -3,6 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 12/13/2019
+ms.custom: tracking-python
 ---
 
 # Azure Functions Python developer guide
@@ -635,7 +636,7 @@ CORS is fully supported for Python function apps.
 
 ## Known issues and FAQ
 
-Thanks to your valuable feedback, we are able to maintain a list of troubleshooting guides for common issues:
+Following is a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-module-not-found.md)
 

@@ -90,7 +90,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
-    --group-ids mariadbServer \  
+    --group-id mariadbServer \  
     --connection-name myConnection  
  ```
 
