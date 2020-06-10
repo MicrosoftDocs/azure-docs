@@ -86,11 +86,6 @@ To improve your secure score, remediate security recommendations from your recom
 > Only built-in recommendations have an impact on the secure score.
 
 
-## Tracking your secure score over time
-
-
-
-
 ## Security controls and their recommendations
 
 The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
