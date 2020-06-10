@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Use Azure Digital Twins to update an Azure Map indoor map
+title: Use Azure Digital Twins to update an Azure Maps indoor map
 titleSuffix: Azure Digital Twins
 description: See how to create an Azure function that can use the twin graph and Azure Digital Twins notifications to update information shown in Azure Maps.
 author: alexkarcher-msft
@@ -15,21 +15,21 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins to update an Azure Map indoor map
+# Use Azure Digital Twins to update an Azure Maps indoor map
 
 This article walks through the steps required to use Azure Digital Twins data to update information displayed on an indoor map using Azure Maps. Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it is the perfect service for updating informational overlays on maps.
 
 This how-to will cover:
 
 1. Configuring your Azure Digital Twins instance to send twin update events to an Azure Function.
-2. Creating an Azure Function to update an Azure Maps Indoor maps feature stateset.
+2. Creating an Azure Function to update an Azure Maps indoor maps feature stateset.
 3. How to store your maps ID and feature stateset ID in the Twins graph.
 
 ### Prerequisites
 
 1. [Follow the Azure Digital Twins end to end tutorial](./tutorial-end-to-end.md)
     1. We'll be extending this twin with an additional endpoint and route. We will also be adding another function to your Function app from that tutorial. 
-2. [Create an Azure Maps Indoor map with a feature stateset.](../azure-maps/tutorial-creator-indoor-maps.md)
+2. [Create an Azure Maps indoor map with a feature stateset.](../azure-maps/tutorial-creator-indoor-maps.md)
     1. You will need your feature stateset ID and maps subscription ID.
     1. [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that we will be displaying on a map.
 
