@@ -115,7 +115,7 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 | [Change configured performance of a collection](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java#L116-124) | CosmosContainer.replaceProvisionedThroughput |
 | [Get a collection by ID](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java#L127-134) | CosmosDatabase.getContainer |
 | [Read all the collections in a database](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java#L137-151) | CosmosDatabase.readAllContainers |
-| [Delete a collection](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java#L154-162) | CosmosContainer.delete |
+| [Delete a collection](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/containercrud/sync/ContainerCRUDQuickstart.java#L153-161) | CosmosContainer.delete |
 
 ## Autoscale collection examples
 
