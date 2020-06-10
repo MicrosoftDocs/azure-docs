@@ -35,7 +35,7 @@ Configure IP ACLing for your backends to accept traffic from Azure CDN from Micr
 * Azure CDN from Microsoft's IPv4 backend IP space: 147.243.0.0/16
 * Azure CDN from Microsoft's IPv6 backend IP space: 2a01:111:2050::/44
 
-IP Ranges and Service tags for Microsoft services can be found [here](https://www.microsoft.com/download/details.aspx?id=56519)
+To use Service tags with Azure CDN from Microsoft, please use the Azure Front Door tag. IP Ranges and Service tags for Microsoft services can be found [here](https://www.microsoft.com/download/details.aspx?id=56519)
 
 
 ## Typical use case
