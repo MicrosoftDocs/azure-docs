@@ -14,7 +14,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 ### June 2020
 
 * [Preview 3.0 Authoring](luis-migration-authoring-entities.md) SDK -
-    * Version 3.2.0-preview.3 - [.Net - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Version 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Version 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
 
 ### May 2020 - //Build
