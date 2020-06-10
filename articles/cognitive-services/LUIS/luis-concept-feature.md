@@ -2,7 +2,7 @@
 title: Features - LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/10/2020
 ---
 # Machine-learning (ML) features
 
@@ -26,7 +26,7 @@ Features should be considered a necessary part of your schema design.
 
 Because LUIS is a language-based application, the features will be text-based. Choose text that indicates the trait you want to distinguish. For LUIS, the text-based smallest unit is the token. For the english language, a token is a contiguous span, with no spaces or punctuation, of letters and numbers. A space is not a token.
 
-Because spaces and punctuation are not tokens, focus on the text clues that you can use as features. Remember to include variations of a token such:
+Because spaces and punctuation are not tokens, focus on the text clues that you can use as features. Remember to include variations of word such:
 * plural forms
 * verb tense
 * abbreviation
