@@ -302,6 +302,8 @@
       href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
+    - name: Excel format
+      href: format-excel.md
     - name: File System
       href: connector-file-system.md
     - name: FTP

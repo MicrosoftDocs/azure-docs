@@ -4,7 +4,6 @@ description: This article introduces SQL Server Always On availability groups on
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 

@@ -6,12 +6,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
-ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-manager: craigg
 ms.date: 06/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
