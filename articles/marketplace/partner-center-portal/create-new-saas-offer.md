@@ -134,7 +134,7 @@ Here's an example of how offer information appears in Microsoft AppSource:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Offer name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Summary
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Description
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Screenshots/videos
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Screenshots/videos
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Documents
 
 <br>Here's an example of how offer information appears in Azure Portal:
