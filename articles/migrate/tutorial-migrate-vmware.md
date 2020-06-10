@@ -61,16 +61,6 @@ Azure Migrate Server Migration runs a lightweight VMware VM appliance that's use
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
-
-## Prepare VMs for migration
-
-There are some changes needed on VMs before you migrate them to Azure.
-
-- For some operating systems, Azure Migrate makes these changes automatically. 
-- It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
-
-Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
-
 ## Replicate VMs
 
 After setting up the appliance and completing discovery, you can begin replication of VMware VMs to Azure. 

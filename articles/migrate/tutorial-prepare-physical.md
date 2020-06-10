@@ -146,12 +146,14 @@ Review the requirements for migration of physical servers.
 > [!NOTE]
 > When migrating physical machines, Azure Migrate:Server Migration uses the same replication architecture as agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
 
-- [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
-- Azure Migrate:Server Migration uses a replication server for physical server migration:
+1. [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
+2. Azure Migrate:Server Migration uses a replication server for physical server migration:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
     - Review the [Azure URLs](migrate-appliance.md#url-access) required for the replication appliance to access public and government clouds.
     - Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
-
+3. There are some changes needed on VMs before you migrate them to Azure.
+    - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+    - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 
 
