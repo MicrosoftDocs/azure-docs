@@ -14,7 +14,7 @@
       href: use-gitops-connected-cluster.md
     - name: Use GitOps with Helm
       href: use-gitops-with-helm.md
-    - name: Azure Policy enforcing GitOps
+    - name: Enforce GitOps using Azure Policy
       href: use-azure-policy.md
     - name: Azure Monitor for containers
       href: deploy-azure-monitor-for-containers.md
