@@ -151,9 +151,11 @@ Here's how to install OneDrive in per-machine mode:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## Teams and Skype
+## Microsoft Teams and Skype for Business
 
-Windows Virtual Desktop doesn't support Skype for Business and Teams.
+Windows Virtual Desktop doesn't support Skype for Business.
+
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md).
 
 ## Next steps
 
