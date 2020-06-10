@@ -132,16 +132,16 @@ Replication has three components: Publisher, Distributor, Subscriber. Any of the
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-|Replication component FCI with DNN | Remote component | Network alias map| Server with network map| 
+| Replication component (FCI w/ DNN) | Remote component | Network alias map| Server with network map| 
 |---------|---------|---------|-------- | 
 |Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
 |Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
 |Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
 |Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
 
-For example, if you have an FCI using a DNN as a Distributor, and the Publisher is remote, create a network alias map from the Distributor VNN to the Distributor VNN on the Publisher server. 
+For example, if you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN. 
 
-This is text to present the same information as the table, not sure which is better, leave in both for now: 
+This is text to present the same information as the table, not sure which is better, leaving both for now: 
 
 - If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to the publisher's DNN name on the distributor SQL Server.
 - If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL Server.

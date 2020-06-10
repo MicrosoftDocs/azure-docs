@@ -138,6 +138,7 @@ The following table describes the values that you need to update:
 |"SubnetMask"| The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.| 
 
 
+This is text to present the same information as the table, not sure which is better, leaving both for now: 
 
 The following list describes the values that you need to update:
 
@@ -148,6 +149,21 @@ The following list describes the values that you need to update:
    - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.  
 
    - `<nnnnn>`: The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
+
+Same text, different format, comparing styles: 
+
+`<Cluster Network Name>`   
+The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
+
+`<SQL Server FCI/AG listener IP Address Resource Name>`   
+The SQL Server IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
+
+`<ILBIP>`   
+ The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.  
+
+`<nnnnn>`   
+ The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
+
 
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
