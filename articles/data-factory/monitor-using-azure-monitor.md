@@ -84,7 +84,7 @@ This solution provides you a summary of overall health of your Data Factory, wit
 
 1. Select **Create** and then create or select the **Log Analytics Workspace**.
 
-   ![Creating a new solution](media/data-factory-monitor-oms/monitor-loganalytics-image5.png)
+   ![Creating a new solution](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
 
 ### Monitor Data Factory metrics
 
