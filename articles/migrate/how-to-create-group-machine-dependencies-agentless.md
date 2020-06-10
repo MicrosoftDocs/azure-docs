@@ -99,8 +99,7 @@ You can visualize dependencies around six hours after starting dependency discov
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all machines enabled for dependency analysis. 
 
-    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
-
+![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
 ## Stop dependency discovery
 
