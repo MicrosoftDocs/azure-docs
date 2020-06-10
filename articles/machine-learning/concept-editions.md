@@ -10,7 +10,7 @@ ms.author: jmartens
 ms.date: 06/11/2020
 ---
 
-# Azure Machine Learning Enterprise and Basic Editions
+# Enterprise & Basic Editions of Azure Machine Learning 
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
 + **Basic**: Great for open-source development at cloud scale with a code-first experience.
