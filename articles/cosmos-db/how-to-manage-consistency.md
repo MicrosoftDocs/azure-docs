@@ -188,9 +188,25 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 ```
 ---
 
-### <a id="utilize-session-tokens-java"></a>Java V2 SDKs
+### <a id="override-default-consistency-javav4"></a> Java V4 SDK
 
-# [Java Async SDK](#tab/javaasync)
+# [Async](#tab/asyncjava)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencySessionAsync)]
+
+# [Sync](#tab/syncjava)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConsistencySessionSync)]
+
+--- 
+
+### <a id="utilize-session-tokens-javav2"></a>Java V2 SDKs
+
+# [Async](#tab/asyncjava)
 
 Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -214,7 +230,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-# [Java sync SDK](#tab/javasync)
+# [Sync](#tab/asyncjava)
 
 Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
