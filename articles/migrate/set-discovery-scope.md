@@ -8,23 +8,24 @@ ms.date: 06/09/2020
 
 # Set discovery scope for VMware VMs
 
-This article describes how to limit the scope of discovery for VMware VMs that are discovered by the [Azure Migrate appliance](migrate-appliance-architecture.md), using the Azure Migrate:Server Assessment tool.
+This article describes how to limit the scope of VMware VMs that you discover when you're:
 
-The Azure Migrate appliance is used when you discover and assess VMware VMs, and when you migrate VMware VMs to Azure using [agentless migration](tutorial-migrate-vmware.md). After you set up the appliance, it connects to vCenter Server and starts discovering VMs. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.
+- Discovering VMs with the [Azure Migrate appliance](migrate-appliance-architecture.md) when you're using the Azure Migrate:Server Assessment tool.
+- Discovering VMs with the [Azure Migrate appliance](migrate-appliance-architecture.md) when you're using the Azure Migrate:Server Migration tool, for agentless migration of VMware VMs to Azure.
 
-To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
+When you set up the appliance, it connects to vCenter Server and starts discovery. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs. To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
 
 ## Before you start
 
-If you haven't already set up a vCenter user account do that now for [assessment](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
+If you haven't set up a vCenter user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) or [agentless migration](tutorial-prepare-vmware.md#set-up-permissions-for-agentless-migration).
 
 
-## Assign roles
+## Assign permissions and roles
 
 You can assign permissions on VMware inventory objects using one of two methods:
 
-- On the account that the appliance uses, you can assign a role with the required permissions on the inventory objects you want to scope.
-- Alternatively, you can assign a role to the account at the datacenter level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want to in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
+- On the account used by the appliance, assign a role with the required permissions on the objects you want to scope.
+- Alternatively, assign a role to the account at the datacenter level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
 - You can't scope inventory discovery at the vCenter VM folder level. If you need to scope discover to VMs in a VM folder, create a user and grant access individually to each required VM. Host and cluster folders are supported.
 
 
@@ -54,4 +55,4 @@ The role-based access control setup ensures that the corresponding vCenter user 
 
 ## Next steps
 
-[Set up the appliance](how-to-set-up-appliance-vmware.md) and [start continuous discovery](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
+[Set up the appliance](how-to-set-up-appliance-vmware.md), and [start continuous discovery](how-to-set-up-appliance-vmware.md#start-continuous-discovery-by-providing-vcenter-server-and-vm-credential).
