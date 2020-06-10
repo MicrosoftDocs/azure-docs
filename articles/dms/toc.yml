@@ -7,13 +7,26 @@
     href: dms-overview.md
 
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create service - Portal
     href: quickstart-create-data-migration-service-portal.md
   - name: Create service in hybrid mode - Portal
     href: quickstart-create-data-migration-service-hybrid-portal.md
 
+- name: Concepts
+  items:
+  - name: Overview of prerequisites
+    href: pre-reqs.md  
+  - name: Database migration scenario status
+    href: resource-scenario-status.md
+  - name: Network topologies SQL MI migration
+    href: resource-network-topologies.md
+  - name: Custom roles (SQL Server to SQL MI)
+    href: resource-custom-roles-sql-db-managed-instance.md
+
 - name: Tutorials
+  expanded: true
   items:
   - name: Migrate SQL Server
     items: 
@@ -79,16 +92,30 @@
 
 
 - name: Resources
-  expanded: true
-  items:
-  - name: Database migration scenario status
-    href: resource-scenario-status.md
-  - name: Overview of prerequisites
-    href: pre-reqs.md
-  - name: Network topologies SQL MI migration
-    href: resource-network-topologies.md
-  - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
-    href: resource-custom-roles-sql-db-managed-instance.md
+  - name: Frequently Asked Questions
+    href: faq.md
+  - name: Feedback
+    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
+  - name: Pricing
+    href: https://aka.ms/dms-pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=database-migration
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Tools and guidance
+    items:
+    - name: Services and tools available for data migration scenarios
+      href: dms-tools-matrix.md
+    - name: Azure Database Migration Guide
+      href: https://aka.ms/datamigration
+    - name: Data Migration Assistant
+      href: https://aka.ms/dma
+    - name: SQL Server Migration Assistant
+      href: https://aka.ms/ssma
+    - name: Database Experimentation Assistant
+      href: https://aka.ms/dea-docs
+    - name: Data Access Migration Toolkit
+      href: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
   - name: Troubleshooting and known issues
     items:
     - name: Troubleshoot
@@ -134,27 +161,5 @@
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-  - name: Tools and guidance
-    items:
-    - name: Services and tools available for data migration scenarios
-      href: dms-tools-matrix.md
-    - name: Azure Database Migration Guide
-      href: https://aka.ms/datamigration
-    - name: Data Migration Assistant
-      href: https://aka.ms/dma
-    - name: SQL Server Migration Assistant
-      href: https://aka.ms/ssma
-    - name: Database Experimentation Assistant
-      href: https://aka.ms/dea-docs
-    - name: Data Access Migration Toolkit
-      href: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
-  - name: Frequently Asked Questions
-    href: faq.md
-  - name: User Voice Feedback
-    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
-  - name: Pricing
-    href: https://aka.ms/dms-pricing
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=database-migration
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+
+
