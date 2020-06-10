@@ -87,17 +87,15 @@ var response = await client.GetContainer(databaseName, containerName)
 ```
 ---
 
-<a id="override-default-consistency-javav4"></a>
+##<a id="override-default-consistency-javav4"></a>Java V4 SDK
 
-## Java V4 SDK
-
-#### [Async](#tab/asyncjava)
+# [Async](#tab/asyncjava)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConsistencyAsync)]
 
-#### [Sync](#tab/syncjava)
+# [Sync](#tab/syncjava)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 
