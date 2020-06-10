@@ -146,7 +146,7 @@ Since the app uses cloud resources, the code runs asynchronously.
 
 ## Create a queue
 
-Before making any calls into Azure APIs, you must get your credentials from the Azure portal. The credentials authorize access to your Azure resources.
+Before making any calls into Azure APIs, you must get your credentials from the Azure portal.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -182,7 +182,7 @@ Add the connection string into the app so it can access the storage account.
 
 Create a new method to send a message into the queue.
 
-1. Add the following **AddMessageToQueueAsync** method to your **Program** class.
+1. Add the following **InsertMessageAsync** method to your **Program** class.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -196,13 +196,17 @@ Create a new method to send a message into the queue.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. To add a message that *doesn't* expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**. The following code snippet adds a message that doesn't expire.
+1. **Optional** By default, the maximum time-to-live for a message is set to seven days. You can specify any positive number for the message time-to-live. The following code snippet adds a message that *never* expires.
 
    # [\.NET v12](#tab/dotnet)
+
+    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **SendMessageAsync**.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
    # [\.NET v11](#tab/dotnetv11)
+
+    To add a message that doesn't expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
@@ -214,17 +218,17 @@ A queue message must be in a format compatible with an XML request using UTF-8 e
 
 Create a new method to retrieve a message from the queue. Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once.
 
-1. Add the following **ReceiveMessageAsync** method to your **Program** class.
+1. Add a new method called **RetrieveNextMessageAsync** to your **Program** class.
 
    # [\.NET v12](#tab/dotnet)
 
-   Add a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing 1 in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+   This method receives a message from the queue by calling [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing 1 in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
    # [\.NET v11](#tab/dotnetv11)
 
-   Add a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
+   This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
@@ -234,7 +238,7 @@ Create a new method to retrieve a message from the queue. Once the message is su
 
 It's a best practice at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. If the queue exists but is empty, ask the user if they would like to delete it.
 
-1. Expand the **ReceiveMessageAsync** method to include a prompt to delete the empty queue.
+1. Expand the **RetrieveNextMessageAsync** method to include a prompt to delete the empty queue.
 
    # [\.NET v12](#tab/dotnet)
 
@@ -248,9 +252,9 @@ It's a best practice at the end of a project to identify whether you still need 
 
 ## Check for command-line arguments
 
-If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the **SendMessageAsync** method we added earlier.
+If there are any command-line arguments passed into the app, assume they're a message to be added to the queue. Join the arguments together to make a string. Add this string to the message queue by calling the **InsertMessageAsync** method we added earlier.
 
-If there are no command-line arguments, execute a retrieve operation. Call the **ReceiveMessageAsync** method to retrieve the first message in the queue.
+If there are no command-line arguments, execute a retrieve operation. Call the **RetrieveNextMessageAsync** method to retrieve the next message in the queue.
 
 Finally, wait for user input before exiting by calling **Console.ReadLine**.
 
