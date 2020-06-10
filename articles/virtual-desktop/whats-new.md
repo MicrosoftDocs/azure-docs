@@ -32,7 +32,7 @@ Windows Virtual Desktop is now integrated into Azure Resource Manager. In the Sp
 
 Here's what this change does for you:
 
-- Windows Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required. To get started, check out our tutorial at [Create a host pool with the Azure Portal](create-host-pools-azure-marketplace.md).
+- Windows Virtual Desktop is now integrated with the Azure portal. This means you can manage everything directly in the portal, no PowerShell, web apps, or third-party tools required. To get started, check out our tutorial at [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 - Before the Spring 2020 update, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
