@@ -50,7 +50,7 @@ The intent of the table columns is explained by the following items:
 | [Vue](http://vuejs.com/) | `dist` | n/a |
 
 <sup>1</sup> The above table is not meant to be an exhaustive list of frameworks and libraries that work with Azure Static Web Apps.
-<sub>2</sup>Not applicable
+<sup>2</sup>Not applicable
 
 ## Next steps
 
