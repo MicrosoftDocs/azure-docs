@@ -64,8 +64,8 @@ To configure and test Azure AD SSO with Ally.io, complete the following building
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Ally.io SSO](#configure-ally.io-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Ally.io test user](#create-ally.io-test-user)** - to have a counterpart of B.Simon in Ally.io that is linked to the Azure AD representation of user.
+1. **[Configure Ally.io SSO](#configure-allyio-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Ally.io test user](#create-allyio-test-user)** - to have a counterpart of B.Simon in Ally.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
