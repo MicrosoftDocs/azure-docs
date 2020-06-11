@@ -1,7 +1,6 @@
 ---
 title: Back up SQL Server databases in Azure VMs
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup.
-ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
 ---
@@ -28,9 +27,10 @@ In this article, you'll learn how to:
 Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
-2. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-3. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
-4. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
+1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
+1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
+1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
