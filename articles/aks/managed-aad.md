@@ -84,7 +84,9 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 ## Webhook and API server
 
-As shown in the graphic below, the API server calls the AKS webhook server and performs the following steps:
+:::image type="content" source="media/aad-integration/auth_flow.png" alt-text="Webhook and API server authentication flow":::
+
+As shown in the graphic above, the API server calls the AKS webhook server and performs the following steps:
 
 1. The Azure AD client application is used by kubectl to log in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
 2. Azure AD provides an access_token, id_token, and a refresh_token.
@@ -98,7 +100,6 @@ As shown in the graphic below, the API server calls the AKS webhook server and p
 10. Once authorized, the API server returns a response to kubectl.
 11. Kubectl provides feedback to the user.
 
-:::image type="content" source="media/aad-integration/auth_flow.png" alt-text="Webhook and API server authentication flow":::
 
 ## Create an AKS cluster with Azure AD enabled
 
@@ -167,6 +168,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
+Configure [Role Based Access Control (RGAC)](https://review.docs.microsoft.com/azure/aks/azure-ad-rbac?branch=pr-en-us-117564) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
