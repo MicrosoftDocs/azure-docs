@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/08/2020
 ms.topic: conceptual
 ---
 
@@ -28,26 +28,29 @@ Change Tracking and Inventory obtains its data from Azure Monitor. Virtual machi
 
 Change Tracking and Inventory currently doesn't support the following items:
 
-* Recursion for Windows registry tracking
-* Network filesystems
-* Different installation methods
-* ***.exe** files for Windows
+- Recursion for Windows registry tracking
+- Network filesystems
+- Different installation methods
+- ***.exe** files for Windows
 
 Other limitations:
 
-* The **Max File Size** column and values are unused in the current implementation.
-* If you collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
-* When network traffic is high, change records can take up to six hours to display.
-* If you modify a configuration while a computer is shut down, the computer might post changes belonging to the previous configuration.
+- The **Max File Size** column and values are unused in the current implementation.
+- If you collect more than 2500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
+- When network traffic is high, change records can take up to six hours to display.
+- If you modify a configuration while a computer is shut down, the computer might post changes belonging to the previous configuration.
 
 Change Tracking and Inventory currently is experiencing the following issues:
 
-* Hotfix updates aren't collected on Windows Server 2016 Core RS3 machines.
-* Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) log is captured.
+- Hotfix updates aren't collected on Windows Server 2016 Core RS3 machines.
+
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) log is captured.
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## Network requirements
 
@@ -70,12 +73,12 @@ Dropdowns are available at the top of the dashboard to limit the change tracking
 
 You can click on a change or event to bring up its details. The available change types are:
 
-* Events
-* Daemons
-* Files
-* Registry
-* Software
-* Microsoft services
+- Events
+- Daemons
+- Files
+- Registry
+- Software
+- Microsoft services
 
 You can add, modify, or remove each change. The example below shows a change in the startup type of a service from Manual to Auto.
 
@@ -130,10 +133,13 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 
 Change Tracking and Inventory supports recursion, which allows you to specify wildcards to simplify tracking across directories. Recursion also provides environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list includes common information you should know when configuring recursion:
 
-* Wildcards are required for tracking multiple files.
-* You can use wildcards only in the last segment of a file path, for example, **c:\folder\\file*** or **/etc/*.conf**.
-* If an environment variable has an invalid path, validation succeeds but the path fails during execution.
-* You should avoid general path names when setting the path, as this type of setting can cause too many folders to be traversed.
+- Wildcards are required for tracking multiple files.
+
+- You can use wildcards only in the last segment of a file path, for example, **c:\folder\\file*** or **/etc/*.conf**.
+
+- If an environment variable has an invalid path, validation succeeds but the path fails during execution.
+
+- You should avoid general path names when setting the path, as this type of setting can cause too many folders to be traversed.
 
 ## Change Tracking and Inventory data collection
 
@@ -160,7 +166,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### Microsoft service data
 
@@ -175,13 +181,13 @@ To optimize performance, the Log Analytics agent only tracks changes. Setting a 
 
 ## Support for alerts on configuration state
 
-A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table. 
+A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table.
 
 |Query  |Description  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Useful for tracking changes to system-critical files.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Useful for tracking modifications to key configuration files.|
-|ConfigurationChange <br>&#124; where ConfigChangeType == "Microsoft services" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system-critical services.|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system-critical services.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState!= "Running"|Useful for tracking changes to system-critical services.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Useful for environments that need locked-down software configurations.|
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion!= "8.0.11081.0"|Useful for seeing which machines have outdated or noncompliant software version installed. This query reports the last reported configuration state, but doesn't report changes.|
@@ -190,7 +196,10 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-* To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
-* To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-onboard-solutions-from-browse.md).
-* To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
-* To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
+- To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+
+- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-onboard-solutions-from-browse.md).
+
+- To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
+
+- To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).

@@ -54,7 +54,7 @@ To create and modify DNS records in Azure AD DS, you need to install the DNS Ser
 
     ![Choose to install the DNS Server Tools from the list of available role administration tools](./media/manage-dns/install-dns-tools.png)
 
-1. On the **Confirmation** page, select **Install**. It may take a minute or two to install the Group Policy Management tools.
+1. On the **Confirmation** page, select **Install**. It may take a minute or two to install the dnsGroup Policy Management tools.
 1. When feature installation is complete, select **Close** to exit the **Add Roles and Features** wizard.
 
 ## Open the DNS management console to administer DNS
@@ -92,7 +92,7 @@ To create a conditional forwarder in your Azure AD DS managed domain, complete t
 
 1. Check the box for **Store this conditional forwarder in Active Directory, and replicate it as follows**, then select the option for *All DNS servers in this domain*, as shown in the following example:
 
-    ![DNS Console - administer domain](./media/manage-dns/store-in-domain.png)
+    ![DNS Console - select All DNS servers in this domain](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
     > If the conditional forwarder is stored in the *forest* instead of the *domain*, the conditional forwarder fails.
