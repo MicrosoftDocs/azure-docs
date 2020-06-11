@@ -95,7 +95,6 @@ Create a virtual network named **myVnetsource** with a subnet named **mySubnetso
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location eastus2 \
     --name myVnetsource \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetsource \
@@ -201,7 +200,6 @@ Create a virtual network named **myVnetdestination** with a subnet named **mySub
 ```azurecli-interactive
   az network vnet create \
     --resource-group myResourceGroupNAT \
-    --location westus \
     --name myVnetdestination \
     --address-prefix 192.168.0.0/16 \
     --subnet-name mySubnetdestination \
@@ -216,8 +214,7 @@ We create a public IP to be used to access the source VM. Use [az network public
   az network public-ip create \
   --resource-group myResourceGroupNAT \
   --name myPublicIPdestinationVM \
-  --sku standard \
-  --location westus
+  --sku standard
 ```
 
 ### Create an NSG for destination VM
@@ -227,8 +224,7 @@ Standard Public IP addresses are 'secure by default', you'll need to create an N
 ```azurecli-interactive
     az network nsg create \
     --resource-group myResourceGroupNAT \
-    --name myNSGdestination \
-    --location westus
+    --name myNSGdestination
 ```
 
 ### Expose SSH endpoint on destination VM
@@ -276,8 +272,7 @@ Create a network interface with [az network nic create](/cli/azure/network/nic#a
     --vnet-name myVnetdestination \
     --subnet mySubnetdestination \
     --public-ip-address myPublicIPdestinationVM \
-    --network-security-group myNSGdestination \
-    --location westus
+    --network-security-group myNSGdestination
 ```
 
 ### Create a destination VM
@@ -291,8 +286,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --nics myNicdestination \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --no-wait \
-    --location westus
+    --no-wait
 ```
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
 
