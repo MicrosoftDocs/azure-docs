@@ -50,10 +50,10 @@ On Linux:
 telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
-### Verify that IP addresses are whitelisted in your corporate firewall
-When you are working with Azure, sometimes you have to whitelist specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) and [Service tag - EventHub](network-security.md#service-tags).
+### Verify that IP addresses are allowed in your corporate firewall
+When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Hubs. For IP addresses used by Azure Event Hubs: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - EventHub](network-security.md#service-tags).
 
-Also, verify that the IP address for your namespace is whitelisted. To find the right IP addresses to white list for your connections, follow these steps:
+Also, verify that the IP address for your namespace is allowed. To find the right IP addresses to allow for your connections, follow these steps:
 
 1. Run the following command from a command prompt: 
 
