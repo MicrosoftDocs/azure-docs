@@ -4,7 +4,7 @@ description: In this learning path, get started protecting private DNS zones and
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
 ---
