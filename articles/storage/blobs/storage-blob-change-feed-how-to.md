@@ -32,10 +32,10 @@ dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartif
 > [!NOTE]
 > The change feed is an immutable and read-only entity in your storage account. Any number of applications can read and process the change feed simultaneously and independently at their own convenience. Records aren't removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
 
-This example iterates through all records in the change feed, and then prints to the console a few values from each record. 
+This example iterates through all records in the change feed, adds them to a list and returns that list to the caller.
  
 ```csharp
-public async Task ChangeFeedAsync(string connectionString)
+public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
 {
     // Get a new blob service client.
     BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
@@ -43,16 +43,32 @@ public async Task ChangeFeedAsync(string connectionString)
     // Get a new change feed client.
     BlobChangeFeedClient changeFeedClient = blobServiceClient.GetChangeFeedClient();
 
-    // Get all the events in the change feed. Print a few values to the console.
+    List<BlobChangeFeedEvent> changeFeedEvents = new List<BlobChangeFeedEvent>();
+
+    // Get all the events in the change feed. 
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync())
+    {
+        changeFeedEvents.Add(changeFeedEvent);
+    }
+
+    return changeFeedEvents;
+}
+```
+
+This example prints to the console a few values from each record in the list. 
+
+```csharp
+public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
+{
+    foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedEvents)
     {
         string subject = changeFeedEvent.Subject;
         string eventType = changeFeedEvent.EventType.ToString();
         string api = changeFeedEvent.EventData.Api;
 
         Console.WriteLine("Subject: " + subject + "\n" +
-            "Event Type: " + eventType + "\n" +
-            "Api: " + api);
+        "Event Type: " + eventType + "\n" +
+        "Api: " + api);
     }
 }
 ```
@@ -61,9 +77,11 @@ public async Task ChangeFeedAsync(string connectionString)
 
 You can choose to save your read position in your change feed and resume iterating the records at a future time. You can save the state of your iteration of the change feed at any time getting the change feed cursor. The cursor is a **string** and your application can save that state based on your application's design (For example: to a database or a file).
 
+This example iterates through all records in the change feed, adds them to a list. The cursor is saved to a string. The list and the curser are returned to the caller. 
+
 ```csharp
-public async Task<string> ChangeFeedResumeWithCursorAsync
-    (string connectionString, string cursor)
+public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
+    (string connectionString,  string cursor)
 {
     // Get a new blob service client.
     BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
@@ -81,13 +99,14 @@ public async Task<string> ChangeFeedResumeWithCursorAsync
 
     foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
     {
-        changeFeedEvents.Add(changeFeedEvent);
+    
+        changeFeedEvents.Add(changeFeedEvent);             
     }
     
     // Update the change feed cursor.  The cursor is not required to get each page of events,
     // it is intended to be saved and used to resume iterating at a later date.
     cursor = enumerator.Current.ContinuationToken;
-    return cursor;
+    return (cursor, changeFeedEvents);
 }
 ```
 
@@ -95,10 +114,10 @@ public async Task<string> ChangeFeedResumeWithCursorAsync
 
 You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
 
-This example periodically polls for changes. If change records exist, those records are processed and the change feed cursor is saved.
+This example periodically polls for changes. If change records exist, those records are processed and the change feed cursor is saved. That way if the process is stopped and then started again, the application can use the curser to resume processing records where it last left off. This example saves the curser to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
 
 ```csharp
-public async Task<string> ChangeFeedStreamAsync
+public async Task ChangeFeedStreamAsync
     (string connectionString, int waitTimeMs, string cursor)
 {
     // Get a new blob service client.
@@ -107,13 +126,11 @@ public async Task<string> ChangeFeedStreamAsync
     // Get a new change feed client.
     BlobChangeFeedClient changeFeedClient = blobServiceClient.GetChangeFeedClient();
 
+    IAsyncEnumerator<Page<BlobChangeFeedEvent>> enumerator = changeFeedClient
+        .GetChangesAsync(continuation: cursor).AsPages().GetAsyncEnumerator();
+
     while (true)
     {
-        IAsyncEnumerator<Page<BlobChangeFeedEvent>> enumerator = changeFeedClient
-            .GetChangesAsync(continuation: cursor)
-            .AsPages(pageSizeHint: 10)
-            .GetAsyncEnumerator();
-
         await enumerator.MoveNextAsync();
 
         if (enumerator.Current.Values != null) 
@@ -128,24 +145,36 @@ public async Task<string> ChangeFeedStreamAsync
                     "Event Type: " + eventType + "\n" +
                     "Api: " + api);
             }
-
-            cursor = enumerator.Current.ContinuationToken;
+            
+            // helper method to save cursor. 
+            SaveCursor(enumerator.Current.ContinuationToken);
         }
 
         await Task.Delay(waitTimeMs);
     }
 
 }
+
+public void SaveCursor(string cursor)
+{
+    System.Configuration.Configuration config = 
+        ConfigurationManager.OpenExeConfiguration
+        (ConfigurationUserLevel.None);
+
+    config.AppSettings.Settings.Clear();
+    config.AppSettings.Settings.Add("Cursor", cursor);
+    config.Save(ConfigurationSaveMode.Modified);
+}
 ```
 
 ## Reading records within a time range
 
-You can read records from change feed segments that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on February 3 2017 and 2:00 AM on July 7th 2020.
+You can read records from change feed segments that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list and returns that list to the caller.
 
 ### Selecting segments for a time range
 
 ```csharp
-public async Task ChangeFeedBetweenDatesAsync(string connectionString)
+public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string connectionString)
 {
     // Get a new blob service client.
     BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
@@ -167,6 +196,8 @@ public async Task ChangeFeedBetweenDatesAsync(string connectionString)
     {
         changeFeedEvents.Add(changeFeedEvent);
     }
+
+    return changeFeedEvents;
 }
 ```
 
