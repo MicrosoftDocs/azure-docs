@@ -22,7 +22,7 @@ ms.author: memildin
 
 Azure Security Center has two main goals: to help you understand your current security situation, and to help you efficiently and effectively improve your security. The central aspect of Security Center that enables you to achieve those goals is secure score.
 
-Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization. 
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
 The secure score page of Security Center includes:
 
@@ -34,7 +34,7 @@ The secure score page of Security Center includes:
 
     To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-    For more information, see [How the secure score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below. 
+    For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
 
 >[!TIP]
@@ -43,11 +43,25 @@ The secure score page of Security Center includes:
 > While this enhanced version is still in preview, the earlier secure score experience is available as an option from the Azure Portal. 
 
 
-## Locating your secure score
+## Accessing your secure score
 
-Security Center displays your score prominently: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically with the Azure Security Center REST API.
 
-## How the secure score is calculated 
+### Getting your secure score from the portal
+
+Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+
+![Overall secure score as shown in the portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### Getting your secure score from the REST API
+
+You can access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
+
+For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
 
@@ -81,6 +95,7 @@ To improve your secure score, remediate security recommendations from your recom
 
 >[!IMPORTANT]
 > Only built-in recommendations have an impact on the secure score.
+
 
 ## Security controls and their recommendations
 
