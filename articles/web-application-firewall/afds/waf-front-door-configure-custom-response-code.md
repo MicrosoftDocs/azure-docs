@@ -12,7 +12,7 @@ ms.reviewer: tyao
 
 # Configure a custom response for Azure Web Application Firewall (WAF)
 
-By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor) for the request.  You can configure a custom response status code and a custom message with reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
+By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with **The request is blocked** message. The default message also includes the tracking reference string that can be used to link to [log entries](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) for the request.  You can configure a custom response status code and a custom message with reference string for your use case. This article describes how to configure a custom response page when a request is blocked by WAF.
 
 ## Configure custom response status code and message use portal
 
