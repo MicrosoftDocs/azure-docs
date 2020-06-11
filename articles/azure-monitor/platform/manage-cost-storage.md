@@ -209,7 +209,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 	
-The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described [here](https://docs.microsoft.com/en-us/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described [here](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping).
 
 ### Alert when Daily Cap reached
 
