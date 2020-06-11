@@ -44027,6 +44027,51 @@
       "redirect_document_id": true
     },
     {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
