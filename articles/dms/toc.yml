@@ -93,6 +93,7 @@
       href: how-to-migrate-ssis-packages-managed-instance.md
 
 - name: Resources
+  items: 
   - name: Frequently asked questions
     href: faq.md
   - name: Feedback
