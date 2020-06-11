@@ -145,6 +145,9 @@ Redirects also work with paths that don't define distinct files.
 
 Users may encounter a number of different situations that may result in an error. Using the `platformErrorOverrides` array, you can provide a custom experience in response to these errors. Refer to the [example route file](#example-route-file) for placement of the array in the _routes.json_ file.
 
+> [!NOTE]
+> Once a request makes it to the platform overrides level, route rules not revaluated.
+
 The following table lists the available platform error overrides:
 
 | Error type  | HTTP status code | Description |
@@ -209,7 +212,7 @@ The following example shows how to build route rules for static content and APIs
     },
     {
       "errorType": "Unauthenticated",
-      "statusCode": "301",
+      "statusCode": "302",
       "serve": "/login"
     }
   ]
