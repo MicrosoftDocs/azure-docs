@@ -16,7 +16,7 @@ A YAML file is a convenient way to configure a container group for reproducible 
 
 ## Schema 
 
-The schema for the YAML file follows, including comments to highlight key properties. For a description of the properties in this schema, see the [Property values](#property-values-object) section.
+The schema for the YAML file follows, including comments to highlight key properties. For a description of the properties in this schema, see the [Property values](#property-values) section.
 
 ```yml
 name: string  # Name of the container group
