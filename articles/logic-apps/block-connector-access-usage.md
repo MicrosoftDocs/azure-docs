@@ -24,7 +24,7 @@ This topic shows how to set up a policy in the Azure portal for blocking specifi
 
 ## Find connector reference ID
 
-If you already have a logic app with the connection that you want to block, follow the steps in this section for the [Azure portal](#find-connector-portal). Otherwise, follow these steps:
+If you already have a logic app with the connection that you want to block, follow the steps in this section for the [Azure portal](#connector-ID-portal). Otherwise, follow these steps:
 
 1. Visit the [Logic Apps connectors list](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
 
