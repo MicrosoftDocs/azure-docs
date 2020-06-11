@@ -34,7 +34,7 @@ The secure score page of Security Center includes:
 
     To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-    For more information, see [How the secure score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below. 
+    For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
 
 >[!TIP]
