@@ -41,7 +41,7 @@ Choose one of the following tabs, follow the link, and complete the section to c
 
 ---
 
-After you have created your project locally, you create the resources required to run your new function in Azure. 
+After you've created your project locally, you create the resources required to run your new function in Azure. 
 
 ## Create a serverless function app in Azure
 
@@ -126,7 +126,7 @@ To publish your local code to a function app in Azure, use the `publish` command
 func azure functionapp publish <FUNCTION_APP_NAME>
 ```
 
-In this example, replace `<FUNCTION_APP_NAME>` with the name of your function app. You may need to sign-in again by using `az login`. 
+In this example, replace `<FUNCTION_APP_NAME>` with the name of your function app. You may need to sign in again by using `az login`. 
 
 In the output, copy the URL of the HTTP trigger. You use this to test your function running in Azure.
 
