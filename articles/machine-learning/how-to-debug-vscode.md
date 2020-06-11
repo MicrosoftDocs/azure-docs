@@ -17,7 +17,12 @@ ms.date: 06/11/2020
 
 Learn how to interactively debug Azure Machine Learning code, pipelines and deployments using Visual Studio Code
 
-## Connect to remote compute instance
+## Edit and debug code on a remote compute instance
+
+Connecting VS Code to a remote compute instance, allows you to perform tasks like editing and debugging just like you would normally do locally.
+
+> [!NOTE]
+> On Windows, consider using the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10) for SSH operations
 
 ### Get IP and SSH port
 
