@@ -279,9 +279,9 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Select **Linked**
 1. Navigate to **Storage accounts > myworkspace (Primary - contosolake)**
 1. Select **users (Primary)"**
-1. You should see a folder called `NYCTaxi`. Inside you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
-1. Navigate into the `PassengerCountStats.parquet` folder.
-1. Right-click on the `.parquet` file inside, and select **new notebook**, it will create a notebook with a cell like this:
+1. You should see a folder called `NYCTaxi`. Inside `NYCTaxi` you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
+1. Navigate into the `PassengerCountStats.parquet` folder, inside you'll see a parquent file with a name like `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`
+1. Right-click on the `.parquet`, and select **new notebook**, it will create a notebook with a cell like this:
 
     ```py
     %%pyspark

@@ -40,11 +40,15 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
-For example, a complete reference with Version would look like the following:
+> [!NOTE] 
+> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
+
+For example, a complete reference would look like the following:
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 Alternatively:
 
 ```
