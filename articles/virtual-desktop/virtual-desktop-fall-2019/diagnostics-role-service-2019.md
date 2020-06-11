@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -134,6 +134,7 @@ The following table lists common errors your admins might run into.
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Azure Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |3|UnauthorizedAccess|The user who tried to run the administrative PowerShell cmdlet either doesn't have permissions to do so or mistyped their username.|
 |1000|TenantNotFound|The tenant name you entered doesn't match any existing tenants. Review the tenant name for typos and try again.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|You can't delete a tenant as long it contains objects. Delete the session host pools first, then try again.|
@@ -155,6 +156,7 @@ The following table lists common errors your admins might run into.
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|The user isn't a member of Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|The session host is not correctly joined to the Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|The connections failed because the session host is unavailable. Check the session host's health.|
 |-2146233088|ConnectionFailedClientDisconnect|If you see this error frequently, make sure the user's computer is connected to the network.|
@@ -165,6 +167,7 @@ The following table lists common errors your admins might run into.
 |8|ConnectionBroken|The connection between Client and Gateway or Server dropped. No action needed unless it happens unexpectedly.|
 |14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
 |24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|The user isn't a member of Active Directory. Follow the instructions in [Active Directory Administrative Center](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) to add them.|
 
 ## Next steps
 

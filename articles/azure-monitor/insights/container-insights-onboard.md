@@ -2,7 +2,7 @@
 title: How to enable Azure Monitor for containers | Microsoft Docs
 description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 05/28/2020
 
 ---
 
@@ -62,7 +62,6 @@ The information in the following table lists the proxy and firewall configuratio
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -72,7 +71,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Data ingestion |
 | *.oms.opinsights.azure.cn | 443 | OMS onboarding |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
@@ -81,7 +79,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Data ingestion |
 | *.oms.opinsights.azure.us | 443 | OMS onboarding |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components

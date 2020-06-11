@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
 ---
@@ -27,7 +27,7 @@ LUIS understands utterances in the following languages:
 
 | Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
-| American English |`en-US` | ✔ | ✔  |✔|✔|
+| English (United States) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabic (preview - modern standard Arabic) |`ar-AR`|-|-|-|-|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Dutch |`nl-NL` |✔|-|-|✔|

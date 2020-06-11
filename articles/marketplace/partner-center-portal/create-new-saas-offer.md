@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/10/2020
 ---
 
 # Create a new SaaS offer in the commercial marketplace
@@ -115,7 +115,7 @@ List your offer to customers with a link to a free trial by providing a valid ad
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management).
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 #### Example marketplace offer listing
 
@@ -135,7 +135,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
-### Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
@@ -222,28 +222,13 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 - **Search keywords** – Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required) – Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field.
 
-#### **Description**
+#### Description
 
-This field is a required. Items to include in **Description**:
+This field is required.
 
-* Clearly describe your offer's value proposition in the first few sentences of your description.  
-* Keep in mind that the first few sentences might be displayed in search engine results.  
-* Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-* Use industry-specific vocabulary or benefit-based wording as much as possible.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Core components of your value proposition should include:
-
-* Description of the product
-* Type of user that benefits from the product
-* Customer needs or pain that the product addresses
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### Links
 
@@ -300,18 +285,26 @@ Select **Save draft** before continuing.
 
 ## Technical configuration
 
-This page defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it. Diagrams describing the usage of the collected fields are available in documentation for [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+The **Technical configuration** tab defines the technical details used by marketplace to communicate to your SaaS service. This connection enables us to provision your offer for the end customer if they choose to acquire and manage it. 
 
-- **Landing page URL** (required) – Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
+>[!Note]
+>You must implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-api-v2.md) before configuring these details in offer's details.
 
-- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you on behalf of the customer (for example, SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for [the APIs](./pc-saas-fulfillment-api-v2.md).
+
+- **Landing page URL** (required) – Define the SaaS site URL (for example: `https://contoso.com/signup`) that end customers will land on after acquiring your offer from the marketplace and triggering the configuration process from the newly created SaaS subscription.  This URL will be called with the marketplace purchase identification token parameter which uniquely identifies the specific end customer's SaaS purchase.  You must exchange this token for the corresponding SaaS subscription details using the [resolve](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) API.  Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete end customer registration and activate their purchase.  On this page the user should sign up through one-click authentication by using Azure Active Directory (Azure AD). <br> <br> This URL with marketplace purchase identification token parameter will also be called when end customer launches Managed SaaS experience from Azure portal or M365 Admin Center. You should handle both flows, when the token is provided first time after purchase for new customers and when it's provided for existing customer managing his SaaS. <br> <br> The Landing page you configure here should be up and running 24/7. This is the only way you will be notified about new purchases of your SaaS offers made in the marketplace, or configuration requests of an active subscription of an offer.
+
+- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event. <br> <br> The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions purchased via the marketplace.  If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, `https://prod-1westus.logic.azure.com:443/work`). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD tenant ID** (required) – Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required) – You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure AD app ID** (required) – You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To get its value, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
 >[!Note]
->The Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
+>The Azure AD app ID is associated to your publisher ID in your Partner Center account.  Make sure that the same application ID is used in all your offers.
+
+>[!Note]
+>If the publisher has two or more different accounts in Partner Center, two or more different Azure AD app IDs should be used, each for one of the accounts. Each partner account in Partner Center should use unique Azure AD app ID for all the SaaS offers that are published via this account.
 
 Select **Save draft** before continuing.
 
@@ -350,7 +343,7 @@ This page lets you configure the markets this plan will be available in, the des
 
 #### Markets (optional)
 
-Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
+Every plan must be available in at least one market. Select **Edit markets** and select the check box for any market location where you would like to make this plan available. This page includes a search box and option for selecting "Tax Remitted" countries/regions, in which Microsoft remits sales and use tax on your behalf.
 
 If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. Review the price for each market before publishing. View pricing using the "Export prices (xlsx)" link after saving your changes.
 
@@ -360,7 +353,7 @@ Select **Save** before continuing.
 
 ##### Pricing model
 
-**Flat rate** – Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).
+**Flat rate** – Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).  You should also use this option if the usage behavior is in bursts for your SaaS service.  We do not recommend the customer to frequently switch plans on daily or hourly basis.
 
 **Per user** – Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 

@@ -8,6 +8,7 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
+ms.custom: tracking-python
 ---
 
 # What is Azure Machine Learning?
@@ -40,6 +41,8 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
+
++ + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 + [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 

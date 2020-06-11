@@ -37,6 +37,8 @@ landingContent:
             url: ./create-blueprint-portal.md
           - text: Create a new blueprint (PowerShell)
             url: ./create-blueprint-powershell.md
+          - text: Create a new blueprint (Azure CLI)
+            url: ./create-blueprint-azurecli.md
           - text: Create a new blueprint (REST API)
             url: ./create-blueprint-rest-api.md
       - linkListType: tutorial
@@ -82,10 +84,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Microsoft Q&A for Azure Blueprints
+            url: /answers/topics/azure-blueprints.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance
+            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 

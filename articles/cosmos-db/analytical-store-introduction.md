@@ -25,7 +25,7 @@ The ETL pipelines also become complex when handling updates to the operational d
 
 ## Column-oriented analytical store
 
-Azure Cosmos DB analytical store addresses the complexity and latency challenges that occur with the  traditional ETL pipelines. Azure Cosmos DB analytical store can automatically sync your operational data into a separate column store. Column store format is suitable for large scale analytical queries to be performed in an optimized manner, resulting in improving the latency of such queries.
+Azure Cosmos DB analytical store addresses the complexity and latency challenges that occur with the traditional ETL pipelines. Azure Cosmos DB analytical store can automatically sync your operational data into a separate column store. Column store format is suitable for large scale analytical queries to be performed in an optimized manner, resulting in improving the latency of such queries.
 
 Using Azure Synapse Link, you can now build no-ETL HTAP solutions by directly linking to Azure Cosmos DB analytical store from Synapse Analytics. It enables you to run near real-time large-scale analytics on your operational data.
 
@@ -43,7 +43,7 @@ For example, if your operational tables are in the following format:
 
 The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and operational queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
 
-Analytical store, which is a column store, is better suited for such queries because it serializes similar fields of data together and reduced the disk IOPS.
+Analytical store, which is a column store, is better suited for such queries because it serializes similar fields of data together and reduces the disk IOPS.
 
 The following image shows transactional row store vs. analytical column store in Azure Cosmos DB:
 

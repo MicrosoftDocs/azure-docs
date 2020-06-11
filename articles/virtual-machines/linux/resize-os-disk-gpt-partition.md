@@ -1,6 +1,6 @@
 ---
-title: Resize an OS disk with a GPT partition | Microsoft Docs
-description: This article provides instructions on resizing an OS Disk with GPT Partition.
+title: Resize an OS disk that has a GPT partition | Microsoft Docs
+description: This article provides instructions on resizing an OS disk that has a GPT partition.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -17,20 +17,20 @@ ms.author: kaib
 ms.custom: seodec18
 ---
 
-# Resize an OS Disk with a GPT Partition
+# Resize an OS disk that has a GPT partition
 
 > [!NOTE]
-> This scenario applies only to OS Disk with a GPT Partition.
+> This scenario applies only to OS disks that have a GUID Partition Table (GPT) partition.
 
-This article describes how to increase the size of the OS Disk with a GPT partition in Linux.
+This article describes how to increase the size of an OS disk that has a GPT partition in Linux. 
 
-## Identify whether the OS Disk has an MBR or GPT Partition
+## Identify whether the OS disk has an MBR or GPT partition
 
-Use the **parted** command to identify if the disk partition has been created with either a master boot record (MBR) partition, or a GUID Partition Table (GPT) partition.
+Use the **parted** command to identify if the disk partition has been created with either a master boot record (MBR) partition or a GPT partition.
 
 ### MBR partition
 
-In the following output, the **Partition Table** shows a value of **msdos**, identifying an **MBR** Partition.
+In the following output, **Partition Table** shows a value of **msdos**. This value identifies an MBR partition.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -46,7 +46,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### GPT partition
 
-In the following output, the **Partition Table** shows a value of **gpt**, identifying a GPT partition.
+In the following output, **Partition Table** shows a value of **gpt**. This value identifies a GPT partition.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -63,25 +63,25 @@ Number  Start   End     Size    File system  Name                  Flags
 4       1052MB  68.7GB  67.7GB                                     lvm
 ```
 
-If your virtual machine (VM) has a GPT Partition on your OS disk, increase the size of the OS Disk.
+If your virtual machine (VM) has a GPT partition on your OS disk, increase the size of the OS disk.
 
-## Increase the size of the OS Disk
+## Increase the size of the OS disk
 
 The following instructions apply to Linux-endorsed distributions.
 
 > [!NOTE]
-> Before you proceed further, make a backup copy of your VM, or take a snapshot of your OS Disk.
+> Before you proceed, make a backup copy of your VM, or take a snapshot of your OS disk.
 
-### Ubuntu 16.x and 18.x
+### Ubuntu
 
-To increase the size of the OS Disk in Ubuntu 16.x and 18.x:
+To increase the size of the OS disk in Ubuntu 16.x and 18.x:
 
 1. Stop the VM.
-1. Increase the size of the OSDisk from the portal.
-1. Restart the VM, then log into the VM as a **root** user.
-1. The OSDisk will now display an increased file system size.
+1. Increase the size of the OS disk from the portal.
+1. Restart the VM, and then log in to the VM as a **root** user.
+1. Verify that the OS disk now displays an increased file system size.
 
-As shown in the following example, the OS Disk has been resized from the portal to 100 GB, as the **/dev/sda1** file system mounted on **/** now displays 97 GB.
+As shown in the following example, the OS disk has been resized from the portal to 100 GB. The **/dev/sda1** file system mounted on **/** now displays 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -98,21 +98,21 @@ tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
 user@myvm:~#
 ```
 
-### SUSE 12 SP4,SUSE SLES 12 for SAP, SUSE SLES 15, and SUSE SLES 15 for SAP
+### SUSE
 
-To increase the size of the OS Disk in SUSE 12 SP4, SUSE SLES 15, and SUSE SLES 15 for SAP:
+To increase the size of the OS disk in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15, and SUSE SLES 15 for SAP:
 
 1. Stop the VM.
-1. Increase the size of the OSDisk from the portal.
+1. Increase the size of the OS disk from the portal.
 1. Restart the VM.
 
 When the VM has restarted, perform the following steps:
 
-   1. Access your VM as a **root user** using the following command:
+   1. Access your VM as a **root** user by using the following command:
    
       `#sudo su`
 
-   1. Use the following command to install the **gptfdisk** package, which is required for increasing the size of the OS Disk:
+   1. Use the following command to install the **gptfdisk** package, which is required for increasing the size of the OS disk:
 
       `#zypper install gptfdisk -y`
 
@@ -120,11 +120,11 @@ When the VM has restarted, perform the following steps:
 
       `#sgdisk -e /dev/sda`
 
-   1. Resize the partition without deleting it using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after resizepart indicates resizing the fourth (4th) partition.
+   1. Resize the partition without deleting it by using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after **resizepart** indicates resizing the fourth partition.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
 
-   1. Run the `#lsblk` command to check whether the partition has been increased.
+   1. Run the **#lsblk** command to check whether the partition has been increased.
 
       The following output shows that the **/dev/sda4** partition has been resized to 98.5 GB.
 
@@ -139,7 +139,7 @@ When the VM has restarted, perform the following steps:
       └─sdb1   8:17   0   20G  0 part /mnt/resource
       ```
       
-   1. Identify the type of file system on the OSDisk using the following command:
+   1. Identify the type of file system on the OS disk by using the following command:
 
       `blkid`
 
@@ -183,7 +183,7 @@ When the VM has restarted, perform the following steps:
 
       ```#resize2fs /dev/sda4```
 
-   1. Verify the increased file system size for **df -Th**, using the following command:
+   1. Verify the increased file system size for **df -Th**, by using the following command:
 
       `#df -Th`
 
@@ -204,21 +204,23 @@ When the VM has restarted, perform the following steps:
 	  user@myvm:~ #
       ```
 
-As shown in the preceding example, we can see the file system size for the OSDisk has been increased.
+In the preceding example, we can see that the file system size for the OS disk has been increased.
 
-### RHEL 7.x with LVM
+### RHEL
+
+To increase the size of the OS disk in RHEL 7.x with LVM:
 
 1. Stop the VM.
-1. Increase the size of the OSDisk from the portal.
+1. Increase the size of the OS disk from the portal.
 1. Start the VM.
 
 When the VM has restarted, perform the following steps:
 
-   1. Access your VM as a **root user** using the following command:
+   1. Access your VM as a **root** user by using the following command:
    
       `#sudo su`
 
-   1. Install the **gptfdisk** package, which is required to increase the size of the OS Disk.
+   1. Install the **gptfdisk** package, which is required to increase the size of the OS disk.
 
       `#yum install gdisk -y`
 
@@ -226,7 +228,7 @@ When the VM has restarted, perform the following steps:
 
       `#sgdisk -e /dev/sda`
 
-   1. Resize the partition without deleting it using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after resizepart indicates resizing the fourth (4th) partition.
+   1. Resize the partition without deleting it by using the following command. The **parted** command has an option named **resizepart** to resize the partition without deleting it. The number 4 after **resizepart** indicates resizing the fourth partition.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
     
@@ -255,7 +257,7 @@ When the VM has restarted, perform the following steps:
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. Use the following command to resize the **physical volume (PV)**:
+   1. Use the following command to resize the physical volume (PV):
 
       `#pvresize /dev/sda4`
 
@@ -271,7 +273,7 @@ When the VM has restarted, perform the following steps:
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
 
-   1. In the following example, `/dev/mapper/rootvg-rootlv` is being resized from 2GB to 12GB (an increase of 10GB) using the following command, which will also resize the file system:
+   1. In the following example, **/dev/mapper/rootvg-rootlv** is being resized from 2 GB to 12 GB (an increase of 10 GB) through the following command. This command will also resize the file system.
 
       `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
 
@@ -293,7 +295,7 @@ When the VM has restarted, perform the following steps:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Verify whether `/dev/mapper/rootvg-rootlv` has increased the file system size or not using the following command:
+   1. Verify whether **/dev/mapper/rootvg-rootlv** has an increased file system size by using the following command:
 
       `#df -Th /`
 
@@ -306,9 +308,9 @@ When the VM has restarted, perform the following steps:
       [user@myvm ~]#
       ```
 
-      > [!NOTE]
-      > To use the same procedure to resize any other logical volume, change the **lv** name in step 7
+   > [!NOTE]
+   > To use the same procedure to resize any other logical volume, change the **lv** name in step 7.
 
-## Next Steps
+## Next steps
 
-- [Resize Disk](expand-disks.md)
+- [Resize disk](expand-disks.md)

@@ -164,9 +164,9 @@ To add a claim condition:
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
 
-For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
 
-First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
+First, Azure AD verifies if Britta's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Britta's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
 ![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

@@ -1,12 +1,12 @@
 ---
-title: View Azure Automation Update Management update assessments
-description: This article describes how to view update assessments for update deployments.
+title: View Azure Automation update assessments
+description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
 ---
-# View Azure Automation Update Management update assessments
+# View update assessments
 
 In your Azure Automation account, select **Update Management** to view the status of your machines.
 
@@ -22,7 +22,7 @@ Select **Missing updates** to view the list of updates that are missing from you
 
 ![Missing Updates](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## Update classifications
+## Work with update classifications
 
 The following tables list the supported update classifications in Update Management, with a definition for each classification.
 
@@ -58,4 +58,4 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Next steps
 
-After you view any update assessments, you can schedule an update deployment by following the steps at [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+For general information, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).

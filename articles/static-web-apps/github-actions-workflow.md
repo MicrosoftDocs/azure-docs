@@ -100,7 +100,7 @@ In the Static Web Apps workflow file, there are two available jobs.
 | Name  | Description |
 |---------|---------|
 |`build_and_deploy_job` | Executes when you push commits or open a pull request against the branch listed in the `on` property. |
-|`close_pull_request_job` | Executes ONLY when you close a pull request. |
+|`close_pull_request_job` | Executes ONLY when you close a pull request which removes the staging environment created from pull requests. |
 
 ## Steps
 
@@ -145,7 +145,7 @@ The deployment always calls `npm install` before any custom command.
 
 | Command            | Description |
 |---------------------|-------------|
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build -prod`. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
+| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application enter `ng build --prod`. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
 ## Route file location

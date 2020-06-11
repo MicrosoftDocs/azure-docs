@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
 
 ---
 
 # Learn text moderation concepts
 
-Use Content Moderator's machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
+Use Content Moderator's text moderation models to analyze text content.
 
-You either block, approve or review the content based on your policies and thresholds. Use it to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents. 
+You can block, approve or review the content based on your policies and thresholds (see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews). Use the text moderation models to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents.
 
 The service response includes the following information:
 
@@ -152,4 +152,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the Text moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you're familiar with Visual Studio and C#.
+Test out the APIs with the [Text moderation API console](try-text-api.md). Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.

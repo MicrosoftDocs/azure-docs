@@ -5,10 +5,11 @@ description: Learn how to use Azure Machine Learning Reinforcement Learning (RL)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
+ms.custom: tracking-python
 
 ---
 
@@ -45,7 +46,7 @@ Run this code in either of the following environments. We recommend that you try
  - Your own Jupyter Notebook server
 
     - Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Install the [Azure Machine Learning RL SDK](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Install the [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
     - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
 
@@ -206,7 +207,7 @@ else:
 
 ## Create a reinforcement learning estimator
 
-In this section, you learn how to use the [ReinforcementLearningEstimator](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&branch=harnvirdebug) to submit a training job to Azure Machine Learning.
+In this section, you learn how to use the [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) to submit a training job to Azure Machine Learning.
 
 Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you easily specify how to configure a script execution. For more information on the Azure Machine Learning estimator pattern, see [How to train models using estimators](how-to-train-ml-models.md).
 

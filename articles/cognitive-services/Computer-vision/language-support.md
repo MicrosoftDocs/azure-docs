@@ -18,9 +18,7 @@ Some features of Computer Vision support multiple languages; any features not me
 
 ## Text recognition
 
-Computer Vision can recognize text in many languages.The [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API  and the [Read](https://aka.ms/computer-vision-v3-ref) API (v3.0) support several languages, and [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API only support English. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
-
-The OCR and Read APIs automatically detect the language of the input material, so there is no need to specify a language code. Additionally, the language code for the detected language is always returned in the JSON response.
+Computer Vision can recognize text in many languages. The OCR and Read APIs do not require you to specify a language code. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
 
 |Language| Language code | OCR API | Read API |
 |:-----|:----:|:-----:|:---:|

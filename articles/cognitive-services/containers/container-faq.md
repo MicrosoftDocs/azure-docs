@@ -17,7 +17,7 @@ ms.author: aahi
 
 **Q: What is available?**
 
-**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a [gated preview](../cognitive-services-gating-process.md), which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. 
+**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. 
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 

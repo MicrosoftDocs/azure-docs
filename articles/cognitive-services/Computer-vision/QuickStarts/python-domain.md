@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 # Quickstart: Use a domain model using the REST API and Python in Computer Vision
 
@@ -58,7 +58,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-landmark_analyze_url = endpoint + "vision/v2.1/models/landmarks/analyze"
+landmark_analyze_url = endpoint + "vision/v3.0/models/landmarks/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \

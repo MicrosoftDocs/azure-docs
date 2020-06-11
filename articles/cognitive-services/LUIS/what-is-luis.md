@@ -41,7 +41,7 @@ Your LUIS app contains a domain-specific natural language model. You can start t
 
 * **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly.
 
-* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learning entities, specific or literal entities, and a combination of machine-learning and literal.
 
 ## Build the LUIS model
 Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the [LUIS portal](https://www.luis.ai).

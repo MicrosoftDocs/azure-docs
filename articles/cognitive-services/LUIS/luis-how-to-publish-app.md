@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
 ---
 
@@ -52,7 +52,7 @@ For example, for an app created on [www.luis.ai](https://www.luis.ai), if you cr
 After you select the slot, configure the publish settings for:
 
 * Sentiment analysis
-* Spelling correction - v2 prediction endpoint only
+* [Spelling correction](luis-tutorial-bing-spellcheck.md) - v2 prediction endpoint only
 * Speech priming
 
 After you publish, these settings are available for review from the **Manage** section's **Publish settings** page. You can change the settings with every publish. If you cancel a publish, any changes you made during the publish are also canceled.
@@ -73,7 +73,7 @@ You do not have to provide a Text Analytics key and there is no billing charge f
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels.
 
-For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
+For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-reference-prebuilt-sentiment.md)
 
 ## Spelling correction
 

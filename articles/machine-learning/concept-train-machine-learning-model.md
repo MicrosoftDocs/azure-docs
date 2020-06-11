@@ -8,7 +8,8 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/13/2020
+ms.custom: tracking-python
 ---
 
 # Train models with Azure Machine Learning
@@ -106,6 +107,18 @@ The designer lets you to train models using a drag and drop interface in your we
 + [Classification: Predict churn, appetency, and up-selling](how-to-designer-sample-classification-churn.md)
 + [Classification with custom R script: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 + [Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+
+## Many models solution accelerator
+
+The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
+
+For example, building a model __for each instance or individual__ in the following scenarios can lead to improved results:
+
+* Predicting sales for each individual store
+* Predictive maintenance for hundreds of oil wells
+* Tailoring an experience for individual users.
+
+For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
 
 ## CLI
 

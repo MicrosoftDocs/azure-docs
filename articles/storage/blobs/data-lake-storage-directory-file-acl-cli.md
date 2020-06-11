@@ -5,8 +5,8 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -22,18 +22,18 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 > * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
-> * Azure CLI version `2.5.1` or higher.
+> * Azure CLI version `2.6.0` or higher.
 
 ## Ensure that you have the correct version of Azure CLI installed
 
 1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Verify that the version of Azure CLI that have installed is `2.5.1` or higher by using the following command.
+2. Verify that the version of Azure CLI that have installed is `2.6.0` or higher by using the following command.
 
    ```azurecli
     az --version
    ```
-   If your version of Azure CLI is lower than `2.5.1`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Connect to the account
 

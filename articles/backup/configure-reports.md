@@ -12,15 +12,16 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). Data for Azure File Share backup is currently not visible in Backup Reports.
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File Share backup, data is displayed for all records created on or after Jun 1, 2020.
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
 - If you're an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
+- Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
 - Data for log backup jobs currently isn't displayed in the reports.
 
 ## Get started
@@ -75,6 +76,9 @@ The report contains various tabs:
 
    ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
+> [!NOTE]
+> For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery services vault overview tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which is not surfaced as an artifact for reporting.
+
 - **Jobs**: Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
    ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
@@ -121,7 +125,7 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 - The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
 
-- * In addition, the [V1 schema](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
+- In addition, the [V1 schema](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
 

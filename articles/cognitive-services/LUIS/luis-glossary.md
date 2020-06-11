@@ -134,9 +134,9 @@ The entity schema is the structure you define for machine learned entities with 
 
 ### Entity's subentity
 
-A subentity is a child entity of a machine-learned entity.
+A subentity is a child entity of a machine-learning entity.
 
-### Non-machine-learned entity
+### Non-machine-learning entity
 
 An entity that uses text matching to extract data:
 * List entity
@@ -159,7 +159,7 @@ See Prebuilt model's entry for [prebuilt entity](#prebuilt-entity)
 
 In machine learning, a feature is a characteristic that helps the model recognize a particular concept. It is a hint that LUIS can use, but not a hard rule.
 
-This term is also referred to as a **[machine-learned feature](luis-concept-feature.md)**.
+This term is also referred to as a **[machine-learning feature](luis-concept-feature.md)**.
 
 These hints are used in conjunction with the labels to learn how to predict new data. LUIS supports both phrase lists and using other models as features.
 
@@ -194,6 +194,10 @@ A (machine learned) model is a function that makes a prediction on input data. I
 ## Normalized value
 
 You add values to your [list](#list-entity) entities. Each of those values can have a list of one or more synonyms. Only the normalized value is returned in the response.
+
+## Overfitting
+
+Overfitting happens when the model is fixated on the specific examples and is not able to generalize well.
 
 ## Owner
 
@@ -255,7 +259,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 
 ## Schema
 
-Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances. 
+Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
 Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).

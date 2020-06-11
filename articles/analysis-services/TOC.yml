@@ -71,6 +71,8 @@
       href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
     - name: Add a service principal to server administrator role
       href: analysis-services-addservprinc-admins.md
+    - name: Move between regions
+      href: move-between-regions.md
   - name: Model
     items:
     - name: Tabular modeling
@@ -121,8 +123,8 @@
     href: analysis-services-samples.md
   - name: Analysis Services team blog
     href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
+  - name: Microsoft Q&A question page for Azure Analysis Services
+    href: https://docs.microsoft.com/answers/topics/azure-analysis-services.html
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Azure status

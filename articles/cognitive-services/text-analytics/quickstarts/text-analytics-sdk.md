@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 06/11/2020
 ms.author: aahi
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
@@ -27,6 +28,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
+
 > * The latest version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.

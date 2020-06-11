@@ -51,13 +51,17 @@ After you've created a managed identity, you select an Active Directory admin.
 
    ![Active Directory admin page](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. On the Active Directory admin page, search for a user or group to be an administrator for the SQL Server and click **Select**.  
+1. On the Active Directory admin page, search for a user or group to be an administrator for the SQL Server and click **Select**.
 
    ![Add Active Directory admin](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.  
+   The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out can't be selected because they're not supported as Azure AD administrators. See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server. Also, the selected user or group is the user who will be able to create the **Contained Database User** in the next section.
 
-## Create a database user
+1. Select **Save** on the **Active Directory admin** page. The process for changing admin takes a few minutes.
+
+   When you set up the Azure AD admin, the new admin name (user or group) can't be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail and roll back its creation, indicating that an admin (name) already exists. Since the SQL Server authentication user is not part of Azure AD, any effort to connect to the server using Azure AD authentication as that user fails. 
+
+## Create a contained database user
 
 Next, you create a contained database user in your SQL Database that is mapped to the Azure Active Directory identity. The contained database user doesn't have a login for the master database, but it maps to an identity in the directory that is associated with the database. The Azure Active Directory identity can be an individual user account or a group. In this case, you want to create a contained database user for your Stream Analytics job. 
 
@@ -87,15 +91,27 @@ Next, you create a contained database user in your SQL Database that is mapped t
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. For Microsoft's Azure Active Directory to verify if the Stream Analytics job has access to the SQL Database, we need to give Azure Active Directory permission to communicate with the database. To do this, go to the "Firewalls and virtual network" page in Azure Portal again, and enable "Allow Azure services and resources to access this server." 
+
+   ![Firewall and virtual network](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## Grant Stream Analytics job permissions
 
-The Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource. Most likely, it would be efficient to allow the Stream Analytics job to run commands such as **SELECT**. You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) reference.
+Once you've created a contained database user and given access to Azure services in the portal as described in the previous section, your Stream Analytics job has permission from Managed Identity to **CONNECT** to your SQL Database resource via managed identity. We recommend that you grant the SELECT and INSERT permissions to the Stream Analytics job as those will be needed later in the Stream Analytics workflow. The **SELECT** permission allows the job to test its connection to the table in the SQL Database. The **INSERT** permission allows testing end-to-end Stream Analytics queries once you have configured an input and the SQL Database output.You can grant those permissions to the Stream Analytics job using SQL Server Management Studio. For more information, see the [GRANT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) reference.
+
+To only grant permission to a certain table or object in the database, use the following T-SQL syntax and run the query. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 Alternatively, you can right-click on your SQL database in SQL Server Management Studio and select **Properties > Permissions**. From the permissions menu, you can see the Stream Analytics job you added previously, and you can manually grant or deny permissions as you see fit.
 
 ## Create an Azure SQL Database output
 
 Now that your managed identity is configured, you're ready to add the Azure SQL Database as output to your Stream Analytics job.
+
+Ensure you have created a table in your SQL Database with the appropriate output schema. The name of this table is one of the required properties that has to be filled out when you add the SQL Database output to the Stream Analytics job. Also, ensure that the job has **SELECT** and **INSERT** permissions to test the connection and run Stream Analytics queries. Refer to the [Grant Stream Analytics job permissions](#grant-stream-analytics-job-permissions) section if you haven't already done so. 
 
 1. Go back to your Stream Analytics job, and navigate to the **Outputs** page under **Job Topology**. 
 
