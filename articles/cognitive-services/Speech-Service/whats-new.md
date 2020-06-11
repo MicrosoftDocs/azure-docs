@@ -75,7 +75,7 @@ This table is updated monthly and only reflects issues opened in May.
 |[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronounciation Score|2020-05-08|closed|Issue|
 |[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML file template|2020-05-07|closed|Issue|
 |[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# Sample Code does not prompt user to speak.|2020-05-06|closed|Issue|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS from v1.3 to v1.4|2020-05-05T22:01:00Z|closed|Pull Request|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS from v1.3 to v1.4|2020-05-05|closed|Pull Request|
 |[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Update custom STT latest version to v2.2.0|2020-05-05|closed|Pull Request|
 |[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|links to github projects are broken|2020-05-03|open|Issue|
 |[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Property to define: Max Audio Recognition time for Android Microphone. Stopping Audio Recognition after 15 seconds|2020-05-02|closed|Issue|
