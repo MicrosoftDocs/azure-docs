@@ -112,7 +112,7 @@ Instantiate the initializer in the `Program.cs` `Main()` method below setting th
 
 ## Override transmission of computer name
 
-If you aren't on the [Legacy Enterprise (Per Node) pricing tier](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier)and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
+If you aren't on the [Legacy Enterprise (Per Node) pricing tier](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier) and wish to completely prevent any telemetry containing computer name from being sent, you need to use a telemetry processor.
 
 ### Telemetry processor
 
@@ -168,7 +168,7 @@ namespace WindowsFormsApp2
 ```
 
 > [!NOTE]
-> While you can technically use a telemetry processor as described above even if you are on the [Legacy Enterprise (Per Node) pricing tier](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier, this will result in the potential for you to be over-billed due to the inability to properly distinguish nodes for per node pricing.
+> While you can technically use a telemetry processor as described above even if you are on the [Legacy Enterprise (Per Node) pricing tier](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier), this will result in the potential for over-billing due to the inability to properly distinguish nodes for per node pricing.
 
 ## Next steps
 * [Create a dashboard](../../azure-monitor/app/overview-dashboard.md)
