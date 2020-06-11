@@ -331,7 +331,7 @@ Save the `ip_address` value. It is used in the next section.
     > [!NOTE]
     > If the log displays an entry stating `Debugger attached = False`, then the timeout has expired and the script continued without the debugger. Submit the pipeline again and connect the debugger after the `Timeout for debug connection` message, and before the timeout expires.
 
-## Debug deployments
+## Debug and troubleshoot deployments
 
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the Python Tools for Visual Studio (PTVSD), you can attach to the code running inside the Docker container.
 
