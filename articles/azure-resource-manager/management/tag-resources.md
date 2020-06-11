@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 06/11/2020
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -257,7 +257,7 @@ To append a tag to the existing tags on a resource group, use:
 az group update -n examplegroup --set tags.'Status'='Approved'
 ```
 
-Currently, Azure CLI doesn't support applying tags to subscriptions.
+Currently, Azure CLI doesn't have a command for applying tags to subscriptions. However, you can use CLI to deploy an ARM template that applies the tags to a subscription. See [Apply tags to resource groups or subscriptions](#apply-tags-to-resource-groups-or-subscriptions).
 
 ### List tags
 
@@ -516,6 +516,8 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 ```azurecli-interactive
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
+
+For more information about subscription deployments, see [Create resource groups and resources at the subscription level](../templates/deploy-to-subscription.md).
 
 The following template adds the tags from an object to either a resource group or subscription.
 
