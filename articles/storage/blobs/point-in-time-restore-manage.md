@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -160,6 +160,12 @@ $job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 # Check the state of the job.
 $job.State
+```
+
+To wait on the completion of the restore operation after it is running, call the [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job) command, as shown in the following example:
+
+```powershell
+$job | Wait-Job
 ```
 
 ## Next steps
