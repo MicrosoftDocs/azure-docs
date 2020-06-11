@@ -1,5 +1,5 @@
 ---
-title: ARM template test toolkit
+title: Test cases for test toolkit
 description: Describes how to run the ARM template test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
 ms.date: 06/11/2020
@@ -7,7 +7,7 @@ ms.author: tomfitz
 author: tfitzmac
 ---
 
-# Use ARM template test toolkit
+# Default test cases for ARM template test toolkit
 
 The following sections of this article provide a description of each test including its name.
 

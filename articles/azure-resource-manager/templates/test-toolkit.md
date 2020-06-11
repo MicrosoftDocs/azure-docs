@@ -105,3 +105,29 @@ Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Locat
 
 The following sections of this article provide a description of each test including its name.
 
+## Customize tests
+
+The toolkit runs all of the tests in the folder **\arm-ttk\testcases\deploymentTemplate**. If you want to permanently remove a test, delete that file from the folder.
+
+To add your own test, create a file with the naming convention: **Your-Custom-Test-Name.test.ps1**.
+
+The file needs to have the following format:
+
+```powershell
+param(
+    [Parameter(Mandatory=$true,Position=0)]
+    [PSObject]
+    $TemplateObject
+)
+
+# Implement test logic
+# Output error with: Write-Error -Message
+```
+
+To learn more about implementing the test, look at the other tests in that folder.
+
+## Next steps
+
+* To learn about the default tests, see [Test cases for toolkit](test-cases.md).
+
+* You can add the test toolkit to your Azure Pipeline through third-party extensions. For more information, see [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension) or [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
