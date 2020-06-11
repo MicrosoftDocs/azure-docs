@@ -5,7 +5,7 @@ description: You can use Azure Machine Learning Studio (classic) to deploy machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
