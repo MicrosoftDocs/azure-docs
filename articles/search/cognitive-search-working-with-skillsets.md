@@ -17,80 +17,70 @@ This article is for developers who need a deeper understanding of how the enrich
 
 ## Introducing skillsets
 
-A skillset is a reusable resource in Azure Cognitive Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures that flow into a search index or a knowledge store.
+A skillset is a reusable resource in Azure Cognitive Search that is attached to an indexer, and specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Skills are backed by Cognitive Services APIs that perform text and image analysis. An indexer that pulls in a JPEG file, for example, can leverage an Optical Character Recognition (OCR) skill in a skillset to extract text from the image. The end result this additional processing is new information and structures that can be used in a search index or a knowledge store.
 
 A skillset has three main properties:
 
-+ ```skills```, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill.
-+ ```cognitiveServices```, a Cognitive Services resource that performs image and text processing.
-+ ```knowledgeStore```, (optional) an Azure Storage account where your enriched documents will be projected. Enriched documents are also consumed by search indexes.
++ `skills`, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill.
++ `cognitiveServices`, a Cognitive Services resource that performs image and text processing.
++ `knowledgeStore`, (optional) an Azure Storage account where your enriched documents will be projected. Enriched documents are also consumed by search indexes.
 
-Skillsets are authored in JSON. The following example is an abbreviated version of a skillset created in a tutorial. Two skills are shown: 
+Skillsets are authored in JSON. The following example is an abbreviated version of an [example hotels reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) used to illustrate concepts in this article. 
+
+The first two skills are shown: 
 
 + Skill #1 is a Split skill that accepts a "reviews_text" field as input, and splits the content into "pages" of 5000 characters as output.
-+ Skill #2 is a Key Phrase Extraction skill accepts "pages" as input, and produces a new field called "keyPhrases" as output.
++ Skill #2 is a Sentiment Detection skill accepts "pages" as input, and produces a new field called "Sentiment" as output.
 
 
 ```json
 {
-  "name": "hotel-reviews-ss",
-  "description": "Skillset created from the portal",
-  "skills": [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "name": "#1",
-      "description": null,
-      "context": "/document/reviews_text",
-      "defaultLanguageCode": "en",
-      "textSplitMode": "pages",
-      "maximumPageLength": 5000,
-      "inputs": [
+    "skills": [
         {
-          "name": "text",
-          "source": "/document/reviews_text"
-        }
-      ],
-      "outputs": [
+            "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+            "name": "#1",
+            "description": null,
+            "context": "/document/reviews_text",
+            "defaultLanguageCode": "en",
+            "textSplitMode": "pages",
+            "maximumPageLength": 5000,
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "textItems",
+                    "targetName": "pages"
+                }
+            ]
+        },
         {
-          "name": "textItems",
-          "targetName": "pages"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "name": "#2",
-      "description": null,
-      "context": "/document/reviews_text/pages/*",
-      "defaultLanguageCode": "en",
-      "maxKeyPhraseCount": null,
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/reviews_text/pages/*"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "keyPhrases",
-          "targetName": "keyphrases"
-        }
-      ]
-    }
-  ],
+            "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+            "name": "#2",
+            "description": null,
+            "context": "/document/reviews_text/pages/*",
+            "defaultLanguageCode": "en",
+            "inputs": [
+                {
+                    "name": "text",
+                    "source": "/document/reviews_text/pages/*",
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "score",
+                    "targetName": "Sentiment"
+                }
+            ]
+        },
   "cognitiveServices": null,
   "knowledgeStore": {  }
 }
 ```
 You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. Later in this article, we'll use an example to illustrate the syntax. 
-
-> [!TIP]
-> For the rest of this document, we'll reference the [hotel reviews sample](knowledge-store-create-portal.md) skillset to explain key concepts. You can view the skillset in the portal:
->
-> 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in the Azure portal. Select the service. 
-> 
-> 1. On the overview page, click the **Skillsets** link in the middle of the page. If you used the suggested naming conventions, you should see the `hotel-reviews-ss` skillset. Select the skillset. If you don't see it, follow the steps in [this quickstart](knowledge-store-create-portal.md) to create it.
-> 
 
 ### Enrichment tree
 
