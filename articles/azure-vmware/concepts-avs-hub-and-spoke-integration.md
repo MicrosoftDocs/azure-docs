@@ -106,7 +106,7 @@ As a security best practice, deploy [Azure Bastion](https://docs.microsoft.com/a
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub VNET":::
 
 
-## DNS Resolution
+## DNS resolution considerations
 
 For DNS resolution there are two options available:
 
