@@ -30,7 +30,7 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 VMware Horizon Cloud on Microsoft Azure is a native cloud service that lets organizations quickly deploy remote desktops and applications from their existing Microsoft Azure subscriptions while leveraging all the features of VMware Horizon. Horizon Cloud uses the Horizon Control Plane to provide a single management interface for all Horizon environments, on-premises or in the cloud. This enables hybrid desktop virtualization and lets customers move their workloads to Azure at their own pace.
 
-As a Windows Virtual Desktop approved provider, VMware can help customers that want to use Windows Virtual Desktop benefit while still enjoying the additional functionality that comes with VMware Horizon, such as integrated and easy-to-use power management, cloud-based monitoring, and the Blast Extreme protocol. These features adapt to changing network conditions on the fly to provide a consistently excellent user experience. VMware Horizon Cloud also comes with VMware App Volumes and Dynamic Environment Manager, which add advanced application and user environment management capabilities that work with MSIX app attach and FSLogix.
+As a Windows Virtual Desktop approved provider, VMware can help customers that want to use Windows Virtual Desktop while still enjoying the additional functionality that comes with VMware Horizon, such as integrated and easy-to-use power management, cloud-based monitoring, and the Blast Extreme protocol. These features adapt to changing network conditions on the fly to provide a consistently excellent user experience. VMware Horizon Cloud also comes with VMware App Volumes and Dynamic Environment Manager, which add advanced application and user environment management capabilities that work with MSIX app attach and FSLogix.
 
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
 - [Read VMWare Horizon Cloud technical documentation](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
@@ -105,6 +105,7 @@ Ekran System is a Windows Virtual Desktop value-add partner that lets IT teams m
 
 The unique floating endpoint licensing of Ekran System clients is automated to support dynamically changing virtual desktops. Ekran System lets you automatically unassign licenses from deleted non-persistent virtual desktops and remove them from your database. Ekran System seamlessly integrates with Azure Active Directory and Azure Sentinel.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
 - [Go to the partner page](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
 
 ## Flexxible IT
@@ -115,6 +116,7 @@ Flexxible IT is a Windows Virtual Desktop value-add partner that offers organiza
  
 Flexxible IT's technology extends the value of both native Windows Virtual Desktop and Citrix Workspace by automating common processes to simplify infrastructure configuration, desktop provisioning, and day-to-day management. With no need for complex PowerShell scripts or time-consuming manual processes, SUITE provides scalable desktop deployment, extensive monitoring and reporting, and secure delegated management. These features allow you to focus on delivering enhanced levels of service and a quality Windows Virtual Desktop experience for your users.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
 - [Go to the partner website](https://www.flexxible.com/suite-for-windows-virtual-desktop).
 
 ## HP
@@ -178,6 +180,7 @@ Liquit application aggregation and delivery software enables enterprises and ser
 
 As a certified integration partner, Liquit helps accelerate transition to the cloud without a rip-and-replace delay. Windows Virtual Desktop can easily connect to an existing environment, create a workspace, and deliver the desktop. You can then take your time migrating off of old platforms and make changes on the back-end without your users noticing. Gain a consistent end-user experience, flexible infrastructure, and maintain control of your applications no matter where they are.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Go to the partner website](https://www.liquit.com/wvd/).
 
 ## Login VSI
@@ -259,6 +262,7 @@ Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment
 
 Rimo3 offers an easy-to-use, scalable, automated application testing platform. This platform includes capabilities for all three application testing fundamentals: compatibility, functionality, and performance. It allows organizations, leaders, and teams to improve business continuity, adopt change faster, and optimize user experience.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
 - [Go to the partner website](https://rimo3.com/outcomes/).
 
 ## sepago
