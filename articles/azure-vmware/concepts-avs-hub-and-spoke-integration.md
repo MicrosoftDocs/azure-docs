@@ -17,9 +17,9 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 ## Architecture
 
-The Hub is a virtual network in Azure that acts as a central point of connectivity to your on-premises and AVS private cloud. The Spokes are virtual networks that run the peering with the Hub to enable cross VNET and used to isolate workloads.
+The Hub is a virtual network in Azure that acts as a central point of connectivity to your on-premises and AVS private cloud. The Spokes are virtual networks peered with the Hub to enable cross VNET communication.
 
-Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke VNETs usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md). App Service Environment has direct integration with Azure VNETs or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled.
+Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke VNETs usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Azure VNETs, or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled. 
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and AVS through ExpressRoute.
 
@@ -83,12 +83,12 @@ Set routes for specific networks on the corresponding route table. For example, 
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Set routes for specific networks on the corresponding route table":::
 
+A second level of traffic segmentation using the Network Security Groups within the Spokes and the Hub to create a more granular traffic policy. Application Gateway is currently the only supported method to expose AVS running web app to the internet.
+
 
 ### Application Gateway
 
 Azure Application Gateway V1 and V2 have been tested with web apps that run on AVS virtual machines as a backend pool. Azure Application Gateway is currently the only supported method to expose web apps running on AVS virtual machines to the internet. It can also expose the apps to internal users securely.
-
-The diagram shows a second level of traffic segmentation using the Network Security Groups within the Spokes and the Hub to create a more granular traffic policy. To expose AVS running applications to the internet, Application Gateway is the only supported method of the writing of this solution guide.
 
 :::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups":::
 
