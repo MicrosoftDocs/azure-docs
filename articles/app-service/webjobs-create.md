@@ -126,7 +126,7 @@ when making changes in one don't forget the other two.
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
 
-7. To run the WebJob, right-click its name in the list and click **Run**.
+7. To run the WebJob, right-click its name in the list and select **Run**.
    
     ![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
