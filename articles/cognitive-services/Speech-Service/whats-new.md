@@ -51,7 +51,7 @@ These documents were updated in May 2020.
 * [What is a keyword?](custom-keyword-overview.md) - Updated get started content and links.
 * [Specify source language for speech-to-text](how-to-specify-source-language.md) - Added JavaScript and Objective-C instructions to documentation.
 
-## GitHub issues opened in May
+### GitHub issues opened in May
 
 These issues were opened in June. This table lists the user that opened the issue, when it was opened, and it's status.  
 
