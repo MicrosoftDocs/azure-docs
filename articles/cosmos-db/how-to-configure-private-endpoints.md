@@ -641,6 +641,8 @@ You can use the same steps when you remove a region. After removing the region, 
 
 The following limitations apply when you're using Private Link with an Azure Cosmos account:
 
+* You can't have more than 200 private endpoints on a single Azure Cosmos account.
+
 * When you're using Private Link with an Azure Cosmos account through a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
 
 * When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
