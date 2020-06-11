@@ -197,7 +197,7 @@ Content-type: application/json
 
 
 ## Next steps
-- Learn [how your API should respond](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api)
+<!-- - Learn [how your API should respond](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) -->
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow)
 - Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
 <!-- - Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing) -->

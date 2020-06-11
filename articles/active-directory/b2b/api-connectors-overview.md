@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Use API connectors to customize and extend self-service sign-up 
 
 ## Overview 
-As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems by leveraging Web APIs. For example, you can use API connectors to:
+As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems by leveraging web APIs. For example, you can use API connectors to:
 
 - [**Integrate with a custom approval workflows**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing account creation.
 <!-- - [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions. -->
@@ -62,7 +62,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 ## Frequently asked questions (FAQ)
 
 ### How do I integrate with an existing API endpoint?
-You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) as a simple way to call and invoke other Web APIs.
+You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) as a simple way to call and invoke other web APIs.
 
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
