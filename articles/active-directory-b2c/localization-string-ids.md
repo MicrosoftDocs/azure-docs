@@ -231,7 +231,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 ## Restful service error messages
 
-The following are the IDs for a [Restful service technical profile](restful-technical-profile.md) error messages:
+The following are the IDs for [Restful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |
@@ -247,7 +247,7 @@ The following are the IDs for a [Restful service technical profile](restful-tech
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
   </LocalizedStrings>

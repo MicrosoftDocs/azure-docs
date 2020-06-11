@@ -129,9 +129,9 @@ The following metadata can be used to configure the error messages displayed upo
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | DefaultUserMessageIfRequestFailed | No | A default customized error message for all REST API exceptions.|
-| UserMessageIfCircuitOpen | No | Error message when the REST API is not reachable. If not specified, the DefaultUserMessageIfRequestFailed will be return. |
-| UserMessageIfDnsResolutionFailed | No | Error message for the DNS resolution exception. If not specified, the DefaultUserMessageIfRequestFailed will be return. | 
-| UserMessageIfRequestTimeout | No | Error message when the connection is timed out. If not specified, the DefaultUserMessageIfRequestFailed will be return. | 
+| UserMessageIfCircuitOpen | No | Error message when the REST API is not reachable. If not specified, the DefaultUserMessageIfRequestFailed will be returned. |
+| UserMessageIfDnsResolutionFailed | No | Error message for the DNS resolution exception. If not specified, the DefaultUserMessageIfRequestFailed will be returned. | 
+| UserMessageIfRequestTimeout | No | Error message when the connection is timed out. If not specified, the DefaultUserMessageIfRequestFailed will be returned. | 
 
 ## Cryptographic keys
 
