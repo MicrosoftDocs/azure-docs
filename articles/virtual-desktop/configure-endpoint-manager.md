@@ -1,16 +1,16 @@
 ---
-title: Configure Microsoft Endpoint Manager - Azure
-description: How to configure Microsoft Endpoint Manager to deploy software updates to Windows 10 Enterprise multi-session on Windows Virtual Desktop.
+title: Configure Microsoft Endpoint Configuration Manager - Azure
+description: How to configure Microsoft Endpoint Configuration Manager to deploy software updates to Windows 10 Enterprise multi-session on Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/11/2020
 ms.author: helohr
 manager: lizross
 ---
-# Configure Microsoft Endpoint Manager
+# Configure Microsoft Endpoint Configuration Manager
 
 This article explains how to configure Microsoft Endpoint Configuration Manager to automatically apply updates to a Windows Virtual Desktop host running Windows 10 Enterprise multi-session.
 
@@ -33,13 +33,13 @@ To receive updates:
 4. Select the **Products** tab.
 5. Select the check box that says **Windows Server, version 1903 and later**.
 6. Go to **Software Library** > **Overview** > **Software Updates** > **All Software Updates** and select **Synchronize Software Updates**.
-7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved.
+7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved. It may take a few minutes to syncrhonize the updates.
 
-## Create a Microsoft Endpoint Configuration Manager collection
+## Create a query-based collection
 
 To create a collection of Windows 10 Enterprise multi-session virtual machines, a query-based collection can be used to identify the specific operating system SKU.
 
-To make a collection:
+To create a collection:
 
 1. Select **Assets and Compliance**.
 2. Go to **Overview** > **Device Collections** and right-click **Device collections** and select **Create Device Collection** from the drop-down menu.
