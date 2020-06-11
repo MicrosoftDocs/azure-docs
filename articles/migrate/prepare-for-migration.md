@@ -121,8 +121,7 @@ For other versions, prepare machines as summarized in the table.
 **Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
-**Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.
-Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+**Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
@@ -166,8 +165,6 @@ After migration, complete these steps on the Azure VMs that are created:
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
 3. Check [boot diagnostics](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 
-> [!NOTE]
-> The Azure Bastion service offers private RDP and SSH access to Azure VMs. [Learn more](../bastion/bastion-overview.md) about this service.
 
 ## Next steps
 
