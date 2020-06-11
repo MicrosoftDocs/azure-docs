@@ -84,7 +84,7 @@ The following diagram shows the on-demand streaming with dynamic packaging workf
 
 ![Diagram of a workflow for on-demand streaming with dynamic packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-The MP4 is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. 
+The download path is present in the above image just to show you that you can download an MP4 file directly through the *streaming endpoint* (origin) (you specify the downloadable [streaming policy](streaming-policy-concept.md) on the streaming locator).<br/>The dynamic packager is not altering the file. 
 
 ### Encode to adaptive bitrate MP4s
 
