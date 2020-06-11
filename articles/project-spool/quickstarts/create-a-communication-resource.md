@@ -117,8 +117,6 @@ This should get the response in the format
 }
 ```
 
-
-
 ## Powershell
 
 Create a new communication resource or update an existing Spool service.
@@ -150,7 +148,14 @@ Location Name     Type
 westus2  MySpool  Microsoft.SpoolService/spools
 ```
 
+## C#
 
+## Javascript
 
+## Java
+
+## Go
+
+## Related content
 
 
