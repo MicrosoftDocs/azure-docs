@@ -2,7 +2,7 @@
 title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 06/11/2020
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
