@@ -162,7 +162,7 @@ Follow the instructions to sign in.
 
 If you are permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
 
-To perform these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin]((https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
+To perform these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
