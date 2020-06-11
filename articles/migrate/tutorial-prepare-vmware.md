@@ -117,7 +117,7 @@ Azure Migrate needs to access the vCenter Server so that the Azure Migrate appli
     [Analyze dependencies on VMs (agentless)](how-to-create-group-machine-dependencies-agentless.md) | If you want to analyze dependencies, the read-only account used for assessment needs privileges enabled for **Virtual machines** > **Guest Operations**.
     
 > [!NOTE]
-> If you want to limit VM discovery for assessment to a specific scope, review [this article]((set-discovery-scope.md#assign-a-role-for-assessment).
+> If you want to limit VM discovery for assessment to a specific scope, review [this article](set-discovery-scope.md#assign-a-role-for-assessment).
 
 ### Verify appliance settings for assessment
 
