@@ -24,6 +24,7 @@ The tutorial shows you how to:
 > * Create a key vault.
 > * Import a certificate in Key vault using portal.
 > * Import a certificate in Key vault using CLI.
+> * Import a certificate in Key vault using PowerShell.
 
 
 Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md). 
@@ -116,6 +117,23 @@ az keyvault certificate show [--id]
 
 
 Now, you have created a Key vault, imported a certificate and viewed Certificate's properties.
+
+## Import a certificate using Azure PowerShell
+
+```
+Import-AzureKeyVaultCertificate
+      [-VaultName] <String>
+      [-Name] <String>
+      -FilePath <String>
+      [-Password <SecureString>]
+      [-Tag <Hashtable>]
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+```
+Learn more about the parameters [here](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)
+
 
 ## Clean up resources
 
