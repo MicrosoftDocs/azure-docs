@@ -6,14 +6,14 @@ ms.date: 06/11/2020
 ---
 Use the QnA Maker client library for .NET to:
 
-* Create a knowledge base
-* Update a knowledge base
-* Publish a knowledge base
-* Get published endpoint key
-* Wait for long-running task
-* Delete knowledge base
+ * Create a knowledgebase
+ * Update a knowledgebase
+ * Publish a knowledgebase, waiting for publishing to complete
+ * Get prediction runtime endpoint key
+ * Download a knowledgebase
+ * Delete a knowledgebase
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -27,25 +27,22 @@ Use the QnA Maker client library for .NET to:
 
 ## Setting up
 
-### Create a QnA Maker Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine.
+#### [Visual Studio IDE](#tab/visual-studio)
 
-After getting a key and endpoint for your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `QNAMAKER_SUBSCRIPTION_KEY`. The resource name is used as custom subdomain of the endpoint URL.
+Using Visual Studio, create a .NET Core application and install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `(package-name)`. Select version `(version)`, and then **Install**.
 
-### Create a new C# application
+#### [CLI](#tab/cli)
 
-Create a new .NET Core application in your preferred editor or IDE.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*.
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-```dotnetcli
+```console
 dotnet new console -n qna-maker-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```dotnetcli
+```console
 dotnet build
 ```
 
@@ -59,16 +56,42 @@ Build succeeded.
 ...
 ```
 
-### Install the SDK
-
 Within the application directory, install the QnA Maker client library for .NET with the following command:
 
-```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.1.0
 ```
 
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
+---
+
+> [!TIP]
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/QnAMaker/SDK-based-quickstart/Program.cs), which contains the code examples in this quickstart.
+
+From the project directory, open the *program.cs* file and add the following `using` directives:
+
+[!code-csharp[Dependencies](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Dependencies&highlight=1-2)]
+
+In the application's `Program` class, create variables for your resource's key and endpoint.
+
+[!code-csharp[Dependencies](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevalues)]
+
+> [!IMPORTANT]
+> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+
+[!code-csharp[Dependencies](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Authorization)]
+
+In the application's `Main` method, add code to use the common tasks in this quickstart.
+
+```csharp
+static void Main(string[] args){
+
+    // You will create the below methods later in the quickstart
+    exampleTask1();
+}
+```
 
 ## Object model
 
@@ -189,7 +212,9 @@ All of the code snippets in this article are [available](https://github.com/Azur
 dotnet run
 ```
 
-The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs) is available in the QnA Maker C# samples GitHub repository.
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
+
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart) is available in the QnA Maker C# samples GitHub repository.
 
 ## Clean up resources
 
