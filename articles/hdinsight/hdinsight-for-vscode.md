@@ -244,6 +244,10 @@ The tool also supports the **Spark SQL** query:
    ![run ipynb results](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
+> [!NOTE]
+>
+>Python on 2020.5.80290 version is not supported on this extention is a [known issue](#Known-Issues).
+
 ## Submit PySpark batch job
 
 1. Reopen the **HDexample** folder that you discussed [earlier](#open-a-work-folder), if closed.  
