@@ -318,7 +318,7 @@ def run(data):
         return error
 ```
 
-##### Power BI compatible endpoint
+##### Power BI compatible endpoint 
 
 The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
