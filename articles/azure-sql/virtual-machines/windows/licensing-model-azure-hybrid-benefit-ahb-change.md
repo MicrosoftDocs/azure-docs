@@ -4,7 +4,6 @@ description: Learn how to switch licensing for a SQL Server VM in Azure from pay
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na

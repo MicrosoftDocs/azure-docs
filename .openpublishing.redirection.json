@@ -7922,6 +7922,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-ingress-controller-add-on.md",
+      "redirect_url": "/azure/application-gateway/tutorial-ingress-controller-add-on-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostics-extension-to-application-insights",
       "redirect_document_id": false
@@ -54832,6 +54837,21 @@
     {
       "source_path": "articles/mobile-apps/index.yml",
       "redirect_url": "/azure/developer/mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risk-events.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risky-sign-ins.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": false
     }
   ]
