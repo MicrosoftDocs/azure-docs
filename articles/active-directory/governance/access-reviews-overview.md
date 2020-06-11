@@ -57,21 +57,15 @@ Depending on what you want to review, you will create your access review in Azur
 | Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 
-## Create access reviews
+## Create an access review
 
-To create an access reviews, follow these steps:
+1. To get started with access reviews, go to the [Azure portal](https://portal.azure.com) signed in as a Global administrator or User administrator. 
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage access reviews and sign in as a Global administrator or User administrator.
-
-1. Search for and select **Azure Active Directory**.
-
-      ![Azure portal search for Azure Active Directory](media/access-reviews-overview/search-azure-active-directory.png)
-
-1. Select **Identity Governance**.
+1. Once you are in Azure Active Directory, select **Identity Governance**.
 
 1. On the Getting started page, click the **Create an access review** button.
 
-   ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
+For further guidance on creating specific types of access reviews (e.g., users in admin roles or access packages), use the how-to guides found in the Identity Governance documenation.
 
 ### Creating access review on a group that can be assigned to Azure AD role
 If you are on the newest version of Access Reviews (your reviewers are directed to **My Access** by default) , then only Global Administrator can create access review on role-assignable groups. However, if you are on older version of Access Reviews (your reviewers are directed to the **Access Panel** by default), then both Global Administrator and User Administrator can create access review on role-assignable groups.  
