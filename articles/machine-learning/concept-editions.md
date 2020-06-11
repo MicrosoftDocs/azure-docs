@@ -122,7 +122,6 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | [Virtual Network (VNet)](how-to-enable-virtual-network.md) support for compute                                         | All                     |
 | Scoring endpoint authentication                                                    | All                     |
 | [Workspace Private link](how-to-configure-private-link.md)                                                            | All                     |
-| Managed Identity for AML Compute                                                   | All                     |
 | [Quota management](how-to-manage-quotas.md) across workspaces                                                 | Enterprise edition only |
 
 ## Next steps
