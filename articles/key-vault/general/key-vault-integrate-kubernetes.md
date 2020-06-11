@@ -10,7 +10,7 @@ ms.date: 06/04/2020
 
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
 
-In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount into Kubernetes pods.
+In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
 
 In this tutorial, you learn how to:
 
@@ -38,11 +38,11 @@ Create a service principal to control which resources can be accessed from your 
 ```azurecli
 az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
 ```
-This operation returns a series of key/values pairs:
+This operation returns a series of key values pairs:
 
-![Screenshot showing the appID and password for contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
+![Screenshot showing the appId and password for contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
-Copy the **appID** and **password** credentials for later use.
+Copy the **appId** and **password** credentials for later use.
 
 ## Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure CLI
 
@@ -51,14 +51,14 @@ You don't need to use Azure Cloud Shell. Your command prompt (terminal) with the
 Complete the "Create a resource group," "Create AKS cluster," and "Connect to the cluster" sections in [Deploy an Azure Kubernetes Service cluster by using the Azure CLI](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
 
 > [!NOTE] 
-> If you plan to use pod identity instead of a service principal, be sure to enable it when you create the Kubernetes cluster, as shown in the following command:
+> If you plan to use a pod identity instead of a service principal, be sure to enable it when you create the Kubernetes cluster, as shown in the following command:
 
 ```azurecli
 az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
 ```
 
-1. [Set your PATH environment variable](https://www.java.com/en/download/help/path.xml) to the *kubectl.exe* file that was downloaded.
-1. Check your Kubernetes version by using the following command. This command outputs the client and server version. The client version is the "kubectl.exe" that you installed, and the server version is the Azure Kubernetes Services that your cluster is running on.
+1. [Set your PATH environment variable](https://www.java.com/en/download/help/path.xml) to the *kubectl.exe* file that you downloaded.
+1. Check your Kubernetes version by using the following command, which outputs the client and server version. The client version is the *kubectl.exe* file that you installed, and the server version is the Azure Kubernetes Services (AKS) that your cluster is running on.
     ```azurecli
     kubectl version
     ```
@@ -66,13 +66,13 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. To display the metadata of the AKS cluster you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use.
+1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use.
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
 
-    This is the output with both parameters highlighted.
+    The output shows both parameters highlighted:
     
     ![Screenshot of the Azure CLI with principalId and clientId values highlighted](../media/kubernetes-key-vault-2.png)
     ![Screenshot of the Azure CLI with subscriptionId and nodeResourceGroup values highlighted](../media/kubernetes-key-vault-3.png)
@@ -81,7 +81,7 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
 
 To install the Secrets Store CSI driver, you first need to install [Helm](https://helm.sh/docs/intro/install/).
 
-With the [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) driver interface, you can get secret contents that are stored in an Azure key vault instance and then use the driver interface to mount the secret contents into Kubernetes pods.
+With the [Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) driver interface, you can get the secrets that are stored in your Azure key vault instance and then use the driver interface to mount the secret contents into Kubernetes pods.
 
 1. Check to ensure that the Helm version is v3 or later:
     ```azurecli
@@ -105,7 +105,7 @@ To create your own key vault and set your secrets, follow the instructions in [S
 
 To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass.yaml). This object will provide identity access to your key vault.
 
-In the sample SecretProviderClass YAML file provided, fill in the missing parameters. The following parameters are required:
+In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
 * **userAssignedIdentityID**: The client ID of the service principal
 * **keyvaultName**: The name of your key vault
@@ -154,13 +154,13 @@ spec:
     subscriptionId: "subscriptionID"          # [REQUIRED] the subscription ID of the key vault
     tenantId: "tenantID"                      # [REQUIRED] the tenant ID of the key vault
 ```
-The following image shows the console output for "az keyvault show --name contosoKeyVault5" with the relevant highlighted metadata:
+The following image shows the console output for **az keyvault show --name contosoKeyVault5** with the relevant highlighted metadata:
 
 ![Screenshot showing the console output for "az keyvault show --name contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
 ## Assign your service principal or use managed identities
 
-### Use a service principal
+### Assign a service principal
 
 If you're using a service principal, grant permissions for it to access your key vault and retrieve secrets. Assign the *Reader* role, and grant the service principal permissions to *get* secrets from your key vault by doing the following:
 
@@ -178,13 +178,13 @@ If you're using a service principal, grant permissions for it to access your key
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
     ```
 
-1. You've now configured your service principal with permissions to read secrets from your key vault. The **$AZURE_CLIENT_SECRET** is the **password** of your service principal. Add your service principal credentials as a Kubernetes secret that's accessible by the Secrets Store CSI driver:
+1. You've now configured your service principal with permissions to read secrets from your key vault. The **$AZURE_CLIENT_SECRET** is the password of your service principal. Add your service principal credentials as a Kubernetes secret that's accessible by the Secrets Store CSI driver:
     ```azurecli
     kubectl create secret generic secrets-store-creds --from-literal clientid=$AZURE_CLIENT_ID --from-literal clientsecret=$AZURE_CLIENT_SECRET
     ```
 
 > [!NOTE] 
-> If you're deploying the Kubernetes pod and you receive an error about an invalid Client Secret ID, you might have an older Client Secret ID that was expired or reset. To resolve this issue, delete your secrets *secrets-store-creds* and create a new one with the current Client Secret ID. To delete your *secrets-store-creds*, run the following command:
+> If you're deploying the Kubernetes pod and you receive an error about an invalid Client Secret ID, you might have an older Client Secret ID that was expired or reset. To resolve this issue, delete your *secrets-store-creds* secret and create a new one with the current Client Secret ID. To delete your *secrets-store-creds*, run the following command:
 
 ```azurecli
 kubectl delete secrets secrets-store-creds
@@ -273,7 +273,7 @@ Run the following command to execute the binding:
 kubectl apply -f podIdentityAndBinding.yaml
 ```
 
-Next, you deploy the pod. The following code is the deployment YAML file, which will use the pod identity binding from the preceding step. Save this file as *podBindingDeployment.yaml*.
+Next, you deploy the pod. The following code is the deployment YAML file, which uses the pod identity binding from the preceding step. Save this file as *podBindingDeployment.yaml*.
 
 ```yml
 kind: Pod
@@ -321,22 +321,22 @@ kubectl describe pod/nginx-secrets-store-inline
 
 In the output window, the deployed pod should be in the *Running* state. In the **Events** section at the bottom, all event types are displayed as *Normal*.
 
-After you've verified that the pod is running, you can verify that pod contains the secrets from your key vault.
+After you've verified that the pod is running, you can verify that the pod contains the secrets from your key vault.
 
 To display all the secrets that are contained in the pod, run the following command:
 ```azurecli
 kubectl exec -it nginx-secrets-store-inline -- ls /mnt/secrets-store/
 ```
 
-To display the content of a specific secret, run the following command:
+To display the contents of a specific secret, run the following command:
 ```azurecli
 kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 ```
 
-Verify that the content of the secret is displayed.
+Verify that the contents of the secret are displayed.
 
 ## Next steps
 
-Make sure that your key vault is recoverable:
+To help ensure that your key vault is recoverable, see:
 > [!div class="nextstepaction"]
 > [Turn on soft delete](https://docs.microsoft.com/azure/key-vault/general/soft-delete-clid)
