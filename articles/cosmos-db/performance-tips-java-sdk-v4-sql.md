@@ -247,34 +247,15 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     ### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub.subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
     ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below.
+    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below (requires `import reactor.core.scheduler.Schedulers`).
 
     ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
-    import reactor.core.scheduler.Schedulers;
-    Mono<CosmosAsyncItemResponse<CustomPOJO>> createItemPub = asyncContainer.createItem(item);
-    createItemPub
-        .subscribeOn(Schedulers.elastic())
-        .subscribe(
-        itemResponse -> {
-            //this is executed on eventloop IO netty thread.
-            //the eventloop thread is shared and is meant to return back quickly.
-            //
-            // DON'T do this on eventloop IO netty thread.
-            veryCpuIntensiveWork();                
-        });
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
     ```
 
     Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
