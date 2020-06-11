@@ -2,12 +2,15 @@
 title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 06/01/2020
 ---
 
-# Conditional deployment in Resource Manager templates
+# Conditional deployment in ARM templates
 
-Sometimes you need to optionally deploy a resource in a template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource in an Azure Resource Manager (ARM) template. Use the `condition` element to specify whether the resource is deployed. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+
+> [!NOTE]
+> Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
 
 ## New or existing resource
 
@@ -76,11 +79,11 @@ Use the [if](template-functions-logical.md#if) function to make sure the functio
 
 You set a [resource as dependent](define-resource-dependency.md) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
-## Condition with complete mode
+## Complete mode
 
 If you deploy a template with [complete mode](deployment-modes.md) and a resource isn't deployed because condition evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource when condition is false.
 
 ## Next steps
 
-* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* To create multiple instances of a resource, see [Resource, property, or variable iteration in Azure Resource Manager templates](create-multiple-instances.md).
+* For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
+* To create multiple instances of a resource, see [Resource iteration in ARM templates](copy-resources.md).

@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 10/21/2019
+ms.date: 03/02/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -20,10 +20,10 @@ In this documentation, you'll go over each feature in detail.
 
 > [!NOTE]
 > Azure Resource Graph powers Azure portal's search bar, the new browse 'All resources' experience,
-> and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## How does Resource Graph complement Azure Resource Manager
 
@@ -33,11 +33,8 @@ facilities for calling individual resource providers for detailed properties one
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
-look for a **Yes** in the
-[Resources for complete mode deployments](../../azure-resource-manager/templates/complete-mode-deletion.md)
-table. Additional resource types are found in the related
-[Resource Graph tables](./concepts/query-language.md#resource-graph-tables). An alternative way to
-see supported resource types is through the
+review the [table and resource type reference](./reference/supported-tables-resources.md). An
+alternative way to see supported resource types is through the
 [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:
@@ -66,7 +63,7 @@ updated outside of Resource Manager.
 Now that you have a better understanding of what Azure Resource Graph is, let's dive into how to
 construct queries.
 
-It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](../../data-explorer/data-explorer-overview.md)
+It's important to understand that Azure Resource Graph's query language is based on the [Kusto query language](/azure/data-explorer/data-explorer-overview)
 used by Azure Data Explorer.
 
 First, for details on operations and functions that can be used with Azure Resource Graph, see [Resource Graph query language](./concepts/query-language.md).
@@ -115,17 +112,18 @@ For more information, see
 
 Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
 in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
-portal workflow. For more information, see [First query with Azure Resource Graph Explorer](first-query-portal.md).
+portal workflow. For more information, see [First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
-Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for .NET, and more. The query is
+Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is
 structured the same for each language. Learn how to enable Resource Graph with:
 
-- [Azure portal and Resource Graph Explorer](first-query-portal.md) 
-- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure portal and Resource Graph Explorer](./first-query-portal.md) 
+- [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## Next steps
 
-- Run your first query by using the [Azure portal](first-query-portal.md).
-- Run your first query with [Azure CLI](first-query-azurecli.md).
-- Run your first query with [Azure PowerShell](first-query-powershell.md).
+- Learn more about the [query language](./concepts/query-language.md).
+- See the language in use in [Starter queries](./samples/starter.md).
+- See advanced uses in [Advanced queries](./samples/advanced.md).

@@ -8,8 +8,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 06/21/2019
+ms.custom: [mvc, mqtt]
+ms.date: 06/01/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -23,11 +23,11 @@ The quickstart uses two pre-written C# applications, one to send the telemetry a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 2.1.0 or greater on your development machine.
+The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.0 or greater on your development machine.
 
 You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
 
@@ -37,13 +37,20 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
+> [!NOTE]
+> .NET Core SDK 3.0 or greater is recommended to compile the Event Hubs service code used to read telemetry in this quickstart. You can use .NET Core SDK 2.1 if you set the language version for the service code to preview as noted in the [Read the telemetry from your hub](#read-the-telemetry-from-your-hub) section.
+
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
+Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
+
+Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -115,7 +122,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Run the simulated device](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## Read the telemetry from your hub
 
@@ -127,9 +134,12 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
-    | `s_eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
-    | `s_iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+    | `EventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `EventHubName`                | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `IotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+
+    > [!NOTE]
+    > If you're using .NET Core SDK 2.1, you must set the language version to preview to compile the code. To do this, open the **read-d2c-messages.csproj** file and set the value of the`<LangVersion>` element to `preview`.
 
 3. In the local terminal window, run the following commands to install the required libraries for the back-end application:
 
@@ -145,7 +155,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     The following screenshot shows the output as the back-end application receives telemetry sent by the simulated device to the hub:
 
-    ![Run the back-end application](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Run the back-end application](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## Clean up resources
 

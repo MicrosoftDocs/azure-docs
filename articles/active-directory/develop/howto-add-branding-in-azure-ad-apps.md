@@ -6,7 +6,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -15,7 +14,6 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.collection: M365-identity-device-management
 ---
 
 # Branding guidelines for applications

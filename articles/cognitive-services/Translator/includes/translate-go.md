@@ -30,7 +30,7 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
@@ -62,7 +62,7 @@ func main() {
 
 ## Create a function to translate text
 
-Let's create a function to translate text. This function will take a single argument, your Translator Text subscription key.
+Let's create a function to translate text. This function will take a single argument, your Translator subscription key.
 
 ```go
 func translate(subscriptionKey string, uri string) {
@@ -87,7 +87,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ## Create a struct for your request body
 
@@ -105,7 +105,7 @@ b, _ := json.Marshal(body)
 
 ## Build the request
 
-Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator Text API.
+Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator.
 
 ```go
 // Build the HTTP POST request
@@ -117,7 +117,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -143,7 +143,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 go run translate-text.go
@@ -178,7 +178,7 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Connection Monitor (Preview)
+    href: connection-monitor-preview.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
@@ -101,6 +103,8 @@
         href: network-watcher-nsg-flow-logging-cli.md
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
+      - name: Azure Resoure Manager
+        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Analyze NSG flow logs
@@ -114,6 +118,8 @@
           href: traffic-analytics-faq.md
         - name: Schema and Data Aggregation
           href: traffic-analytics-schema.md
+        - name: Schema update (August 2019)
+          href: traffic-analytics-schema-update.md
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
@@ -167,7 +173,7 @@
   - name: .NET
     href: /dotnet/api/overview/azure/virtual-network
   - name: Node.js
-    href: /javascript/api/azure-arm-network
+    href: /javascript/api/@azure/arm-network
   - name: REST
     href: /rest/api/network-watcher/
 - name: Resources
@@ -176,8 +182,8 @@
     href: frequently-asked-questions.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates

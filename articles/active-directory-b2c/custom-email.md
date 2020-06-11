@@ -3,14 +3,14 @@ title: Custom email verifications
 titleSuffix: Azure AD B2C
 description: Learn how to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/18/2019
-ms.author: marsma
+ms.date: 03/05/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -295,10 +295,6 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessage.VerificationHasExpired">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessage.MaxRetryAttemped">You have exceed the number of retries allowed.</Item>
-        <Item Key="UserMessage.InvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessage.ServerError">Cannot verify the code, please try again later.</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
@@ -359,6 +355,12 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
         <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
         <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
         <Item Key="language.button_continue">Create</Item>
+        
+        <!--OTP validation error messages-->
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
+        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
@@ -385,6 +387,36 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+```
+
+## [Optional] Localize your email
+
+To localize the email, you must send localized strings to SendGrid, or your email provider. For example to localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. In the `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
+
+1. In your policy define the following string claims: subject, message, codeIntro and signature.
+1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
+1. Change the `GenerateSendGridRequestBody` claims transformation to use input claims with the following XML snippet.
+1. Update your SendGrind template to use dynamic parameters in place of all the strings which will be localized by Azure AD B2C.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
 ```
 
 ## Next steps

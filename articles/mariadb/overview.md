@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 
 # What is Azure Database for MariaDB?

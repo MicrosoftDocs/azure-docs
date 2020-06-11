@@ -1,13 +1,13 @@
 ---
-title: Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers | Microsoft Docs
-description: This article describes how to configure monitoring of a Kubernetes cluster with Azure Monitor hosted on Azure Red Hat OpenShift.
+title: Configure Azure Red Hat OpenShift v3.x with Azure Monitor for containers | Microsoft Docs
+description: This article describes how to configure monitoring of a Kubernetes cluster with Azure Monitor hosted on Azure Red Hat OpenShift version 3 and higher.
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 04/02/2020
 ---
 
-# Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers
+# Configure Azure Red Hat OpenShift v3 with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 and latest supported version of version 3, to achieve a similar monitoring experience.
 
 >[!NOTE]
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
@@ -15,8 +15,8 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat OpenShift using the following supported methods:
 
-- For an existing cluster from the Azure portal or using Azure Resource Manager template
-- For a new cluster using Azure Resource Manager template
+- For an existing cluster from the Azure portal or using Azure Resource Manager template.
+- For a new cluster using Azure Resource Manager template, or while creating a new cluster using the [Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create).
 
 ## Supported and unsupported features
 
@@ -33,7 +33,7 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as desc
 
 ## Enable for a new cluster using an Azure Resource Manager template
 
-Perform the following steps to deploy an Azure Red Hat OpenShift cluster with monitoring enabled. Before proceeding, review the tutorial [Create an Azure Red Hat OpenShift cluster](../../openshift/tutorial-create-cluster.md#prerequisites) to understand the dependencies that you need to configure so your environment is set up correctly.
+Perform the following steps to deploy an Azure Red Hat OpenShift cluster with monitoring enabled. Before proceeding, review the tutorial [Create an Azure Red Hat OpenShift cluster](../../openshift/tutorial-create-cluster.md) to understand the dependencies that you need to configure so your environment is set up correctly.
 
 This method includes two JSON templates. One template specifies the configuration to deploy the cluster with monitoring enabled, and the other contains parameter values that you configure to specify the following:
 
@@ -108,7 +108,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -192,12 +192,16 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
     The output resembles the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
 ## Next steps
 
 - With monitoring enabled to collect health and resource utilization of your RedHat OpenShift cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+
+- By default, the containerized agent collects the stdout/ stderr container logs of all the containers running in all the namespaces except kube-system. To configure container log collection specific to particular namespace or namespaces, review [Container Insights agent configuration](container-insights-agent-config.md) to configure desired data collection settings to your ConfigMap configurations file.
+
+- To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
 - To learn how to stop monitoring your cluster with Azure Monitor for containers, see [How to Stop Monitoring Your Azure Red Hat OpenShift cluster](container-insights-optout-openshift.md).

@@ -1,18 +1,17 @@
 ---
-title: Monitor Azure Cosmos DB with Azure Monitor for Cosmos DB (preview)| Microsoft Docs
+title: Monitor Azure Cosmos DB with Azure Monitor for Cosmos DB| Microsoft Docs
 description: This article describes the Azure Monitor for Cosmos DB feature that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: mrbullwinkle    
 ms.author: mbullwin
-ms.date: 10/27/2019
+ms.date: 05/11/2020
 
 ---
 
-# Explore Azure Monitor for Azure Cosmos DB (preview)
+# Explore Azure Monitor for Azure Cosmos DB
 
-Azure Monitor for Azure Cosmos DB (preview) provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
+Azure Monitor for Azure Cosmos DB provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. This article will help you understand the benefits of this new monitoring experience, and how you can modify and adapt the experience to fit the unique needs of your organization.   
 
 ## Introduction
 
@@ -31,8 +30,7 @@ This feature does not require you to enable or configure anything, these Azure C
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
-
-## Accessing Azure Monitor for Azure Cosmos DB
+## View utilization and performance metrics for Azure Cosmos DB
 
 To view the utilization and performance of your storage accounts across all of your subscriptions, perform the following steps.
 
@@ -42,7 +40,7 @@ To view the utilization and performance of your storage accounts across all of y
 
     ![Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer style image](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Select **Cosmos DB (preview)**.
+3. Select **Cosmos DB**.
 
     ![Screenshot of Cosmos DB overview workbook](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -109,7 +107,7 @@ To expand or collapse all drop-down views in the workbook, select the expand ico
 
 ![Expand workbook icon](./media/cosmosdb-insights-overview/expand.png)
 
-## Customize Azure Monitor for Azure Cosmos DB (preview)
+## Customize Azure Monitor for Azure Cosmos DB
 
 Since this experience is built on top of Azure Monitor workbook templates, you have the ability to **Customize** > **Edit** and **Save** a copy of your modified version into a custom workbook. 
 
@@ -123,4 +121,4 @@ Workbooks are saved within a resource group, either in the **My Reports** sectio
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

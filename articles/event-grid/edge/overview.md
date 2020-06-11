@@ -2,20 +2,20 @@
 title: Event driven architectures on edge — Azure Event Grid on IoT Edge
 description: Use Azure Event Grid as a module on IoT Edge for forward events between modules, edge devices, and the cloud.
 services: event-grid
-author: banisadr
+author: femila
 
 ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
-ms.author: babanisa
+ms.author: femila
 ---
 
 # What is Azure Event Grid on Azure IoT Edge?
-Event Grid on IoT Edge brings the power and flexibility of Azure Event Grid to the edge for all pub/sub and event driven scenarios. Create topics, publish events, and subscribe multiple destinations whether they're modules on the same device, other edge devices, or services in the cloud.
+Event Grid on IoT Edge brings the power and flexibility of Azure Event Grid to the edge. Create topics, publish events, and subscribe multiple destinations whether they're modules on the same device, other edge devices, or services in the cloud.
 
-As in the cloud, the Event Grid on IoT Edge module handles routing, filtering, and reliable delivery of events at scale. Filter events to ensure that only relevant events are sent to different event handlers using advanced string, numerical, and boolean filters. Retry logic makes sure that the event reaches the target module, edge device, or cloud service even if it's not available at the time of publish. It allows you to use Event Grid on IoT Edge as a powerful store and forward mechanism.
+As in the cloud, the Event Grid on IoT Edge module handles routing, filtering, and reliable delivery of events at scale. Filter events to ensure that only relevant events are sent to different event handlers using advanced string, numerical, and boolean filters. Retry logic makes sure that the event reaches the target destination even if it's not available at the time of publish. It allows you to use Event Grid on IoT Edge as a powerful store and forward mechanism.
 
-Event Grid on IoT Edge supports both CloudEvents v1.0 and custom event schemas. It also supports the same publishing and subscribing semantics as Event Grid in the cloud for easy interoperability with Azure and third parties.
+Event Grid on IoT Edge supports both CloudEvents v1.0 and custom event schemas. It also supports the same Pub/Sub semantics as Event Grid in the cloud for easy interoperability.
 
 This article provides an overview of Azure Event Grid on IoT Edge. For step-by-step instructions to use this module on edge, see [Publish, subscribe to events locally](pub-sub-events-webhook-local.md). 
 
@@ -25,7 +25,7 @@ This image shows some of the ways you can use Event Grid on IoT Edge, and isn't 
 
 ## When to use Event Grid on IoT Edge
 
-Event Grid on IoT Edge is built to provide a uniform, easy to use, and reliable eventing model for building event driven architectures between the edge and the cloud.
+Event Grid on IoT Edge provides an easy to use, reliable eventing model for between the edge and the cloud.
 
 Event Grid on IoT Edge is built with a symmetrical runtime surface area to the Azure cloud service, so you can use the same events and API calls wherever you need. Whether you do pub/sub in the cloud, on the edge, or between the two, Event Grid on IoT Edge can now be your one go-to solution.
 
@@ -51,8 +51,12 @@ Event Grid on IoT Edge is built to send events to anywhere you want. Currently, 
 
 * Other modules including IoT Hub, functions, and custom modules
 * Other edge devices
-* Services hosted in the cloud including Azure Event Grid and Azure Functions
-* Web hooks
+* WebHooks
+* Azure Event Grid cloud service
+* Event Hubs
+* Service Bus Queues
+* Service Bus Topics
+* Storage Queues
 
 ## Supported environments
 Currently, Windows 64-bit, Linux 64-bit, and ARM 32-bit environments are supported.

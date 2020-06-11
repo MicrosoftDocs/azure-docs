@@ -5,17 +5,19 @@ description: Learn how to use an Azure Resource Manager template to create a new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/04/2019
+ms.date: 05/19/2020
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+<br>
 
 In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
@@ -52,18 +54,107 @@ The example template has two parameters:
 
 * The **workspace name**, which is the friendly name of the Azure Machine Learning workspace.
 
+    > [!NOTE]
+    > The workspace name is case-insensitive.
+
     The names of the other services are generated randomly.
 
 > [!TIP]
-> While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. If on container registry is present in the workspace, one will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
+> While the template associated with this document creates a new Azure Container Registry, you can also create a new workspace without creating a container registry. One will be created when you perform an operation that requires a container registry. For example, training or deploying a model.
 >
 > You can also reference an existing container registry or storage account in the Azure Resource Manager template, instead of creating a new one.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 For more information on templates, see the following articles:
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+
+### Advanced template
+
+The following example template demonstrates how to create a workspace with three settings:
+
+* Enable high confidentiality settings for the workspace
+* Enable encryption for the workspace
+* Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+
+> [!IMPORTANT]
+> There are some specific requirements your subscription must meet before using this template:
+> * The __Azure Machine Learning__ application must be a __contributor__ for your Azure subscription.
+> * You must have an existing Azure Key Vault that contains an encryption key.
+> * You must have an access policy in the Azure Key Vault that grants __get__, __wrap__, and __unwrap__ access to the __Azure Cosmos DB__ application.
+> * The Azure Key Vault must be in the same region where you plan to create the Azure Machine Learning workspace.
+
+__To add the Azure Machine Learning app as a contributor__, use the following commands:
+
+1. To authenticate to Azure from the CLI, use the following command:
+
+    ```azurecli-interactive
+    az login
+    ```
+    
+    [!INCLUDE [subscription-login](../../includes/machine-learning-cli-subscription.md)]
+
+1. To get the object ID of the Azure Machine Learning app, use the following command. The value may be different for each of your Azure subscriptions:
+
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
+
+    This command returns the object ID, which is a GUID.
+
+1. To add the object ID as a contributor to your subscription, use the following command. Replace `<object-ID>` with the GUID from the previous step. Replace `<subscription-ID>` with the name or ID of your Azure subscription:
+
+    ```azurecli-interactive
+    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
+    ```
+
+__To add a key to your Azure Key Vault__, use the information in the [Adding a key, secret, or certificate to the key vault](../key-vault/general/manage-with-cli2.md#adding-a-key-secret-or-certificate-to-the-key-vault) section of the __Manage Key Vault using Azure CLI__ article.
+
+__To add an access policy to the key vault, use the following commands__:
+
+1. To get the object ID of the Azure Cosmos DB app, use the following command. The value may be different for each of your Azure subscriptions:
+
+    ```azurecli-interactive
+    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
+    ```
+    
+    This command returns the object ID, which is a GUID.
+
+1. To set the policy, use the following command. Replace `<keyvault-name>` with the name of the existing Azure Key Vault. Replace `<object-ID>` with the GUID from the previous step:
+
+    ```azurecli-interactive
+    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
+    ```
+
+__To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:
+
+1. To get the Key Vault ID, use the following command:
+
+    ```azurecli-interactive
+    az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
+    ```
+
+    This command returns a value similar to `/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault`.
+
+1. To get the value for the URI for the customer managed key, use the following command:
+
+    ```azurecli-interactive
+    az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
+    ```
+
+    This command returns a value similar to `https://mykeyvault.vault.azure.net/keys/mykey/{guid}`.
+
+__Example template__
+
+:::code language="json" source="~/quickstart-templates/201-machine-learning-encrypted-workspace/azuredeploy.json":::
+
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 ## Use the Azure portal
 
@@ -90,7 +181,7 @@ new-azresourcegroupdeployment -name exampledeployment `
 
 For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [Deploy private Resource Manager template with SAS token and Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## Use Azure CLI
+## Use the Azure CLI
 
 This example assumes that you have saved the template to a file named `azuredeploy.json` in the current directory:
 
@@ -190,7 +281,7 @@ To avoid this problem, we recommend one of the following approaches:
         }
         ```
 
-    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then re-use the Key Vault by setting the `keyVault` property of the workspace to its ID.
+    After these changes, you can specify the ID of the existing Key Vault resource when running the template. The template will then reuse the Key Vault by setting the `keyVault` property of the workspace to its ID.
 
     To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 

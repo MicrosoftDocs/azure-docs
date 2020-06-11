@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
 ---
 
 # Connect HDInsight to your on-premises network
@@ -23,12 +23,12 @@ Learn how to connect HDInsight to your on-premises network by using Azure Virtua
 
 To allow HDInsight and resources in the joined network to communicate by name, you must perform the following actions:
 
-* Create Azure Virtual Network.
-* Create a custom DNS server in the Azure Virtual Network.
-* Configure the virtual network to use the custom DNS server instead of the default Azure Recursive Resolver.
-* Configure forwarding between the custom DNS server and your on-premises DNS server.
+1. Create Azure Virtual Network.
+1. Create a custom DNS server in the Azure Virtual Network.
+1. Configure the virtual network to use the custom DNS server instead of the default Azure Recursive Resolver.
+1. Configure forwarding between the custom DNS server and your on-premises DNS server.
 
-This configuration enables the following behavior:
+These configurations enable the following behavior:
 
 * Requests for fully qualified domain names that have the DNS suffix __for the virtual network__ are forwarded to the custom DNS server. The custom DNS server then forwards these requests to the Azure Recursive Resolver, which returns the IP address.
 * All other requests are forwarded to the on-premises DNS server. Even requests for public internet resources such as microsoft.com are forwarded to the on-premises DNS server for name resolution.
@@ -60,11 +60,13 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
   
-2. From the left menu, navigate to **+ Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**.
+1. From the top menu, select **+ Create a resource**.
 
-    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
+    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-3. From the __Basics__ tab, enter the following information:  
+1. Select **Compute** > **Virtual machine** to go to the **Create a virtual machine** page.
+
+1. From the __Basics__ tab, enter the following information:  
   
     | Field | Value |
     | --- | --- |
@@ -118,35 +120,35 @@ Once the virtual machine has been created, you'll receive a **Deployment succeed
 2. To install Bind, use the following commands from the SSH session:
 
     ```bash
-	sudo apt-get update -y
-	sudo apt-get install bind9 -y
+    sudo apt-get update -y
+    sudo apt-get install bind9 -y
     ```
 
 3. To configure Bind to forward name resolution requests to your on premises DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
-		acl goodclients {
-			10.0.0.0/16; # Replace with the IP address range of the virtual network
-			10.1.0.0/16; # Replace with the IP address range of the on-premises network
-			localhost;
-			localnets;
-		};
+        acl goodclients {
+            10.0.0.0/16; # Replace with the IP address range of the virtual network
+            10.1.0.0/16; # Replace with the IP address range of the on-premises network
+            localhost;
+            localnets;
+        };
 
-		options {
-				directory "/var/cache/bind";
+        options {
+                directory "/var/cache/bind";
 
-				recursion yes;
+                recursion yes;
 
-				allow-query { goodclients; };
+                allow-query { goodclients; };
 
-				forwarders {
-				192.168.0.1; # Replace with the IP address of the on-premises DNS server
-				};
+                forwarders {
+                192.168.0.1; # Replace with the IP address of the on-premises DNS server
+                };
 
-				dnssec-validation auto;
+                dnssec-validation auto;
 
-				auth-nxdomain no;    # conform to RFC1035
-				listen-on { any; };
-		};
+                auth-nxdomain no;    # conform to RFC1035
+                listen-on { any; };
+        };
 
     > [!IMPORTANT]  
     > Replace the values in the `goodclients` section with the IP address range of the virtual network and on-premises network. This section defines the addresses that this DNS server accepts requests from.
@@ -173,15 +175,15 @@ Once the virtual machine has been created, you'll receive a **Deployment succeed
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it is used later.
+    The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it's used later.
 
 5. To configure Bind to resolve DNS names for resources within the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
         // Replace the following with the DNS suffix for your virtual network
-		zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-			type forward;
-			forwarders {168.63.129.16;}; # The Azure recursive resolver
-		};
+        zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
+            type forward;
+            forwarders {168.63.129.16;}; # The Azure recursive resolver
+        };
 
     > [!IMPORTANT]  
     > You must replace the `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` with the DNS suffix you retrieved earlier.
@@ -250,9 +252,9 @@ A conditional forward only forwards requests for a specific DNS suffix. In this 
 The following text is an example of a conditional forwarder configuration for the **Bind** DNS software:
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-		type forward;
-		forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
-	};
+        type forward;
+        forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
+    };
 
 For information on using DNS on **Windows Server 2016**, see the [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentation...
 
@@ -301,25 +303,25 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 1. To discover the internal fully qualified domain names of the HDInsight cluster nodes, use one of the following methods:
 
-	```powershell
-	$resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    ```powershell
+    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-	$clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
-	$nodes = @()
-	foreach($nic in $clusterNICs) {
-		$node = new-object System.Object
-		$node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
-		$node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
-		$node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
-		$nodes += $node
-	}
-	$nodes | sort-object Type
-	```
+    $nodes = @()
+    foreach($nic in $clusterNICs) {
+        $node = new-object System.Object
+        $node | add-member -MemberType NoteProperty -name "Type" -value $nic.Name.Split('-')[1]
+        $node | add-member -MemberType NoteProperty -name "InternalIP" -value $nic.IpConfigurations.PrivateIpAddress
+        $node | add-member -MemberType NoteProperty -name "InternalFQDN" -value $nic.DnsSettings.InternalFqdn
+        $nodes += $node
+    }
+    $nodes | sort-object Type
+    ```
 
-	```azurecli
-	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
-	```
+    ```azurecli
+    az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
+    ```
 
 2. To determine the port that a service is available on, see the [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 

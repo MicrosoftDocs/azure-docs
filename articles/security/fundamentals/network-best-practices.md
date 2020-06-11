@@ -45,13 +45,13 @@ Azure virtual networks are similar to LANs on your on-premises network. The idea
 
 Best practices for logically segmenting subnets include:
 
-**Best practice**: Don’t assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).  
+**Best practice**: Don't assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).  
 **Detail**: Ensure troubleshooting procedures discourage or ban setting up these types of rules. These allow rules lead to a false sense of security and are frequently found and exploited by red teams.
 
 **Best practice**: Segment the larger address space into subnets.   
 **Detail**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
 
-**Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don’t need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
+**Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
 **Detail**: Use a [network security group](/azure/virtual-network/virtual-networks-nsg) to protect against unsolicited traffic into Azure subnets. Network security groups are simple, stateful packet inspection devices that use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
@@ -63,14 +63,14 @@ When you use network security groups for network access control between subnets,
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
-Perimeter-based networks operate on the assumption that all systems within a network can be trusted. But today’s employees access their organization’s resources from anywhere on a variety of devices and apps, which makes perimeter security controls irrelevant. Access control policies that focus only on who can access a resource are not enough. To master the balance between security and productivity, security admins also need to factor in *how* a resource is being accessed.
+Perimeter-based networks operate on the assumption that all systems within a network can be trusted. But today's employees access their organization's resources from anywhere on a variety of devices and apps, which makes perimeter security controls irrelevant. Access control policies that focus only on who can access a resource are not enough. To master the balance between security and productivity, security admins also need to factor in *how* a resource is being accessed.
 
 Networks need to evolve from traditional defenses because networks might be vulnerable to breaches: an attacker can compromise a single endpoint within the trusted boundary and then quickly expand a foothold across the entire network. [Zero Trust](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) networks eliminate the concept of trust based on network location within a perimeter. Instead, Zero Trust architectures use device and user trust claims to gate access to organizational data and resources. For new initiatives, adopt Zero Trust approaches that validate trust at the time of access.
 
 Best practices are:
 
 **Best practice**: Give Conditional Access to resources based on device, identity, assurance, network location, and more.  
-**Detail**: [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../role-based-access-control/conditional-access-azure-management.md).
+**Detail**: [Azure AD Conditional Access](../../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Azure Security Center](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
@@ -78,7 +78,7 @@ Best practices are:
 **Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
 **Detail**: Use just-in-time access in Azure AD Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 
-Zero Trust is the next evolution in network security. The state of cyberattacks drives organizations to take the “assume breach” mindset, but this approach shouldn’t be limiting. Zero Trust networks protect corporate data and resources while ensuring that organizations can build a modern workplace by using technologies that empower employees to be productive anytime, anywhere, in any way.
+Zero Trust is the next evolution in network security. The state of cyberattacks drives organizations to take the "assume breach" mindset, but this approach shouldn't be limiting. Zero Trust networks protect corporate data and resources while ensuring that organizations can build a modern workplace by using technologies that empower employees to be productive anytime, anywhere, in any way.
 
 ## Control routing behavior
 When you put a virtual machine on an Azure virtual network, the VM can connect to any other VM on the same virtual network, even if the other VMs are on different subnets. This is possible because a collection of system routes enabled by default allows this type of communication. These default routes allow VMs on the same virtual network to initiate connections with each other, and with the internet (for outbound communications to the internet only).
@@ -107,7 +107,7 @@ Azure network security appliances can deliver better security than what network-
 * Antivirus
 * Botnet protection
 
-To find available Azure virtual network security appliances, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security.”
+To find available Azure virtual network security appliances, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for "security" and "network security."
 
 ## Deploy perimeter networks for security zones
 A [perimeter network](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an additional layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
@@ -118,24 +118,24 @@ Although this is the basic design of a perimeter network, there are many differe
 
 Based on the Zero Trust concept mentioned earlier, we recommend that you consider using a perimeter network for all high security deployments to enhance the level of network security and access control for your Azure resources. You can use Azure or a third-party solution to provide an additional layer of security between your assets and the internet:
 
-- Azure native controls. [Azure Firewall](/azure/firewall/overview) and the [web application firewall in Application Gateway](/azure/application-gateway/overview#web-application-firewall) offer basic security with a fully stateful firewall as a service, built-in high availability, unrestricted cloud scalability, FQDN filtering, support for OWASP core rule sets, and simple setup and configuration.
+- Azure native controls. [Azure Firewall](/azure/firewall/overview) and the [web application firewall in Application Gateway](../../application-gateway/features.md#web-application-firewall) offer basic security with a fully stateful firewall as a service, built-in high availability, unrestricted cloud scalability, FQDN filtering, support for OWASP core rule sets, and simple setup and configuration.
 - Third-party offerings. Search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for next-generation firewall (NGFW) and other third-party offerings that provide familiar security tools and significantly enhanced levels of network security. Configuration might be more complex, but a third-party offering might allow you to use existing capabilities and skillsets.
 
 ## Avoid exposure to the internet with dedicated WAN links
-Many organizations have chosen the hybrid IT route. With hybrid IT, some of the company’s information assets are in Azure, and others remain on-premises. In many cases, some components of a service are running in Azure while other components remain on-premises.
+Many organizations have chosen the hybrid IT route. With hybrid IT, some of the company's information assets are in Azure, and others remain on-premises. In many cases, some components of a service are running in Azure while other components remain on-premises.
 
 In a hybrid IT scenario, there is usually some type of cross-premises connectivity. Cross-premises connectivity allows the company to connect its on-premises networks to Azure virtual networks. Two cross-premises connectivity solutions are available:
 
-* [Site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). It’s a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 1.25 Gbps. Site-to-site VPN is a desirable option in some scenarios.
-* **Azure ExpressRoute**. We recommend that you use [ExpressRoute](../../expressroute/expressroute-introduction.md) for your cross-premises connectivity. ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Azure, Office 365, and Dynamics 365. ExpressRoute is a dedicated WAN link between your on-premises location or a Microsoft Exchange hosting provider. Because this is a telco connection, your data doesn’t travel over the internet, so it isn’t exposed to the potential risks of internet communications.
+* [Site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). It's a trusted, reliable, and established technology, but the connection takes place over the internet. Bandwidth is constrained to a maximum of about 1.25 Gbps. Site-to-site VPN is a desirable option in some scenarios.
+* **Azure ExpressRoute**. We recommend that you use [ExpressRoute](../../expressroute/expressroute-introduction.md) for your cross-premises connectivity. ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services like Azure, Office 365, and Dynamics 365. ExpressRoute is a dedicated WAN link between your on-premises location or a Microsoft Exchange hosting provider. Because this is a telco connection, your data doesn't travel over the internet, so it isn't exposed to the potential risks of internet communications.
 
-The location of your ExpressRoute connection can affect firewall capacity, scalability, reliability, and network traffic visibility. You’ll need to identify where to terminate ExpressRoute in existing (on-premises) networks. You can:
+The location of your ExpressRoute connection can affect firewall capacity, scalability, reliability, and network traffic visibility. You'll need to identify where to terminate ExpressRoute in existing (on-premises) networks. You can:
 
-- Terminate outside the firewall (the perimeter network paradigm) if you require visibility into the traffic, if you need to continue an existing practice of isolating datacenters, or if you’re solely putting extranet resources on Azure.
+- Terminate outside the firewall (the perimeter network paradigm) if you require visibility into the traffic, if you need to continue an existing practice of isolating datacenters, or if you're solely putting extranet resources on Azure.
 - Terminate inside the firewall (the network extension paradigm). This is the default recommendation. In all other cases, we recommend treating Azure as an nth datacenter.
 
 ## Optimize uptime and performance
-If a service is down, information can’t be accessed. If performance is so poor that the data is unusable, you can consider the data to be inaccessible. From a security perspective, you need to do whatever you can to make sure that your services have optimal uptime and performance.
+If a service is down, information can't be accessed. If performance is so poor that the data is unusable, you can consider the data to be inaccessible. From a security perspective, you need to do whatever you can to make sure that your services have optimal uptime and performance.
 
 A popular and effective method for enhancing availability and performance is load balancing. Load balancing is a method of distributing network traffic across servers that are part of a service. For example, if you have front-end web servers as part of your service, you can use load balancing to distribute the traffic across your multiple front-end web servers.
 
@@ -149,17 +149,17 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 - Accepts only a secure connection, so unencrypted communication to the server is not an acceptable option.
 - Requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-**Load-balancing option**: Use [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), an HTTP web traffic load balancer. Application Gateway supports end-to-end SSL encryption and [SSL termination](/azure/application-gateway/application-gateway-introduction) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic flowing unencrypted to the back-end servers.
+**Load-balancing option**: Use [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction), an HTTP web traffic load balancer. Application Gateway supports end-to-end TLS encryption and [TLS termination](/azure/application-gateway/application-gateway-introduction) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic flowing unencrypted to the back-end servers.
 
 **Scenario**: You need to load balance incoming connections from the internet among your servers located in an Azure virtual network. Scenarios are when you:
 
 - Have stateless applications that accept incoming requests from the internet.
-- Don’t require sticky sessions or SSL offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
+- Don't require sticky sessions or TLS offload. Sticky sessions is a method used with Application Load Balancing, to achieve server-affinity.
 
-**Load-balancing option**: Use the Azure portal to [create an external load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
+**Load-balancing option**: Use the Azure portal to [create an external load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 
 **Scenario**: You need to load balance connections from VMs that are not on the internet. In most cases, the connections that are accepted for load balancing are initiated by devices on an Azure virtual network, such as SQL Server instances or internal web servers.   
-**Load-balancing option**: Use the Azure portal to [create an internal load balancer](../../load-balancer/quickstart-create-basic-load-balancer-powershell.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
+**Load-balancing option**: Use the Azure portal to [create an internal load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) that spreads incoming requests across multiple VMs to provide a higher level of availability.
 
 **Scenario**: You need global load balancing because you:
 
@@ -171,7 +171,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 For example, if the user makes a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
 ## Disable RDP/SSH Access to virtual machines
-It’s possible to reach Azure virtual machines by using [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
+It's possible to reach Azure virtual machines by using [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
 
 The potential security problem with using these protocols over the internet is that attackers can use [brute force](https://en.wikipedia.org/wiki/Brute-force_attack) techniques to gain access to Azure virtual machines. After the attackers gain access, they can use your VM as a launch point for compromising other machines on your virtual network or even attack networked devices outside Azure.
 
@@ -183,12 +183,12 @@ We recommend that you disable direct RDP and SSH access to your Azure virtual ma
 Point-to-site VPN is more secure than direct RDP or SSH connections because the user has to authenticate twice before connecting to a VM. First, the user needs to authenticate (and be authorized) to establish the point-to-site VPN connection. Second, the user needs to authenticate (and be authorized) to establish the RDP or SSH session.
 
 **Scenario**: Enable users on your on-premises network to connect to VMs on your Azure virtual network.   
-**Option**: A [site-to-site VPN](/azure/vpn-gateway/vpn-gateway-site-to-site-create) connects an entire network to another network over the internet. You can use a site-to-site VPN to connect your on-premises network to an Azure virtual network. Users on your on-premises network connect by using the RDP or SSH protocol over the site-to-site VPN connection. You don’t have to allow direct RDP or SSH access over the internet.
+**Option**: A [site-to-site VPN](/azure/vpn-gateway/vpn-gateway-site-to-site-create) connects an entire network to another network over the internet. You can use a site-to-site VPN to connect your on-premises network to an Azure virtual network. Users on your on-premises network connect by using the RDP or SSH protocol over the site-to-site VPN connection. You don't have to allow direct RDP or SSH access over the internet.
 
 **Scenario**: Use a dedicated WAN link to provide functionality similar to the site-to-site VPN.   
 **Option**: Use [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). It provides functionality similar to the site-to-site VPN. The main differences are:
 
-- The dedicated WAN link doesn’t traverse the internet.
+- The dedicated WAN link doesn't traverse the internet.
 - Dedicated WAN links are typically more stable and perform better.
 
 ## Secure your critical Azure service resources to only your virtual networks
@@ -206,4 +206,4 @@ Service endpoints provide the following benefits:
 To learn more about service endpoints and the Azure services and regions that service endpoints are available for, see [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Next steps
-See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
+See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.

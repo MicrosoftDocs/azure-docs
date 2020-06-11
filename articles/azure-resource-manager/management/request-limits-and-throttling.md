@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 03/24/2020
 ms.custom: seodec18
 ---
 # Throttling Resource Manager requests
@@ -60,10 +60,6 @@ For checking virtual machine instances within a virtual machine scale set, use t
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
 
-## Request increase
-
-Sometimes, throttle limits can be increased. To see if the throttling limits for your scenario can be increased, create a support request. The details of your calling pattern will be evaluated.
-
 ## Error code
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
@@ -118,7 +114,7 @@ Get-AzResourceGroup -Debug
 
 Which returns many values, including the following response value:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -137,7 +133,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 Which returns many values, including the following values:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -156,7 +152,7 @@ az group list --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -176,7 +172,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

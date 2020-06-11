@@ -1,7 +1,7 @@
 ---
 title: Deploy CIS Microsoft Azure Foundations Benchmark blueprint sample
 description: Deploy steps for the CIS Microsoft Azure Foundations Benchmark blueprint sample including blueprint artifact parameter details.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
 ---
 # Deploy the CIS Microsoft Azure Foundations Benchmark blueprint sample
@@ -120,8 +120,8 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|\[Preview\]: Audit CIS Microsoft Azure Foundations Benchmark 1.1.0 recommendations and deploy specific supporting VM Extensions|Policy assignment|List of regions where Network Watcher should be enabled|A semicolon-separated list of regions. To see a complete list of regions use Get-AzLocation. Ex: eastus; eastus2|
-|\[Preview\]: Audit CIS Microsoft Azure Foundations Benchmark 1.1.0 recommendations and deploy specific supporting VM Extensions|Policy assignment|List of virtual machine extensions that are approved for use|A semicolon-separated list of extensions .To see a complete list of virtual machine extensions, use Get-AzVMExtensionImage. Ex: AzureDiskEncryption; IaaSAntimalware|
+|Audit CIS Microsoft Azure Foundations Benchmark 1.1.0 recommendations and deploy specific supporting VM Extensions|Policy assignment|List of regions where Network Watcher should be enabled|A semicolon-separated list of regions. To see a complete list of regions use Get-AzLocation. Ex: eastus; eastus2|
+|Audit CIS Microsoft Azure Foundations Benchmark 1.1.0 recommendations and deploy specific supporting VM Extensions|Policy assignment|List of virtual machine extensions that are approved for use|A semicolon-separated list of extensions. To see a complete list of virtual machine extensions, use Get-AzVMExtensionImage. Ex: AzureDiskEncryption; IaaSAntimalware|
 
 ## Next steps
 

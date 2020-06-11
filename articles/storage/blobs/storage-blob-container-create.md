@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
@@ -13,7 +13,7 @@ ms.subservice: blobs
 
 # Create or delete a container in Azure Storage with .NET
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## Name a container
 

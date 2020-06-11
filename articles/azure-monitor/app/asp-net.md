@@ -1,11 +1,7 @@
 ---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
 
 ---
@@ -93,7 +89,7 @@ The portal opens on a view of the telemetry from your app.
 In the portal, click any tile or chart to see more detail.
 
 ## Step 4: Publish your app
-Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
+Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/live-stream.md) to make sure everything is running smoothly.
 
 Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry. You can also use the powerful [Kusto query language](/azure/kusto/query/) to analyze usage and performance, or to find specific events.
 
@@ -115,10 +111,6 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
-
-## Video
-
-* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 
@@ -143,7 +135,7 @@ There are alternative topics to look at if you are interested in:
 
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../../azure-monitor/platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 

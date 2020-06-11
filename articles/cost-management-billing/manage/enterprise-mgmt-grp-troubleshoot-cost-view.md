@@ -2,13 +2,10 @@
 title: Troubleshoot Azure enterprise cost views
 description: Learn how to resolve any issues you might have with organizational cost views within the Azure portal.  
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.topic: conceptual
+ms.date: 02/13/2019
 ms.author: banders
 ms.custom: seodec18
 ---

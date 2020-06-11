@@ -2,11 +2,11 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 04/27/2020
 ---
-# Deployment functions for Azure Resource Manager templates 
+# Deployment functions for ARM templates
 
-Resource Manager provides the following functions for getting values related to the current deployment:
+Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager (ARM) template:
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -23,7 +23,12 @@ Returns information about the current deployment operation.
 
 ### Return value
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
+This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
+
+* deploying a template that is a local file or deploying a template that is a remote file accessed through a URI.
+* deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
+
+When deploying a local template to a resource group: the function returns the following format:
 
 ```json
 {
@@ -38,6 +43,7 @@ This function returns the object that is passed during deployment. The propertie
             ],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -45,7 +51,7 @@ This function returns the object that is passed during deployment. The propertie
 }
 ```
 
-When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format: 
+When deploying a remote template to a resource group: the function returns the following format:
 
 ```json
 {
@@ -62,6 +68,7 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
             "resources": [],
             "outputs": {}
         },
+        "templateHash": "",
         "parameters": {},
         "mode": "",
         "provisioningState": ""
@@ -69,17 +76,36 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
-When you [deploy to an Azure subscription](deploy-to-subscription.md), instead of a resource group, the return object includes a `location` property. The location property is included when deploying either a local template or an external template.
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The location property is included when deploying either a local template or an external template. The format is:
+
+```json
+{
+    "name": "",
+    "location": "",
+    "properties": {
+        "template": {
+            "$schema": "",
+            "contentVersion": "",
+            "resources": [],
+            "outputs": {}
+        },
+        "templateHash": "",
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+    }
+}
+```
 
 ### Remarks
 
 You can use deployment() to link to another template based on the URI of the parent template.
 
 ```json
-"variables": {  
-    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+"variables": {
+    "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
 }
-```  
+```
 
 If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
 
@@ -89,11 +115,11 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
             "value": "[deployment()]",
             "type" : "object"
         }
@@ -108,24 +134,23 @@ The preceding example returns the following object:
   "name": "deployment",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "resources": [],
       "outputs": {
-        "subscriptionOutput": {
+        "deploymentOutput": {
           "type": "Object",
           "value": "[deployment()]"
         }
       }
     },
+    "templateHash": "13135986259522608210",
     "parameters": {},
     "mode": "Incremental",
     "provisioningState": "Accepted"
   }
 }
 ```
-
-For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
 
 ## environment
 
@@ -246,7 +271,7 @@ The value of the specified parameter.
 Typically, you use parameters to set resource values. The following example sets the name of web site to the parameter value passed in during deployment.
 
 ```json
-"parameters": { 
+"parameters": {
   "siteName": {
       "type": "string"
   }
@@ -267,13 +292,13 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"stringParameter": {
-			"type" : "string",
-			"defaultValue": "option 1"
-		},
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stringParameter": {
+            "type" : "string",
+            "defaultValue": "option 1"
+        },
         "intParameter": {
             "type": "int",
             "defaultValue": 1
@@ -290,31 +315,31 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type": "string",
             "defaultValue": "[parameters('stringParameter')]"
         }
-	},
-	"variables": {},
-	"resources": [],
-	"outputs": {
-		"stringOutput": {
-			"value": "[parameters('stringParameter')]",
-			"type" : "string"
-		},
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "stringOutput": {
+            "value": "[parameters('stringParameter')]",
+            "type" : "string"
+        },
         "intOutput": {
-			"value": "[parameters('intParameter')]",
-			"type" : "int"
-		},
+            "value": "[parameters('intParameter')]",
+            "type" : "int"
+        },
         "objectOutput": {
-			"value": "[parameters('objectParameter')]",
-			"type" : "object"
-		},
+            "value": "[parameters('objectParameter')]",
+            "type" : "object"
+        },
         "arrayOutput": {
-			"value": "[parameters('arrayParameter')]",
-			"type" : "array"
-		},
+            "value": "[parameters('arrayParameter')]",
+            "type" : "array"
+        },
         "crossOutput": {
-			"value": "[parameters('crossParameter')]",
-			"type" : "string"
-		}
-	}
+            "value": "[parameters('crossParameter')]",
+            "type" : "string"
+        }
+    }
 }
 ```
 
@@ -376,37 +401,37 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"variables": {
-		"var1": "myVariable",
-		"var2": [ 1,2,3,4 ],
-		"var3": "[ variables('var1') ]",
-		"var4": {
-			"property1": "value1",
-			"property2": "value2"
-  		}
-	},
-	"resources": [],
-	"outputs": {
-		"exampleOutput1": {
-			"value": "[variables('var1')]",
-			"type" : "string"
-		},
-		"exampleOutput2": {
-			"value": "[variables('var2')]",
-			"type" : "array"
-		},
-		"exampleOutput3": {
-			"value": "[variables('var3')]",
-			"type" : "string"
-		},
-		"exampleOutput4": {
-			"value": "[variables('var4')]",
-			"type" : "object"
-		}
-	}
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "var1": "myVariable",
+        "var2": [ 1,2,3,4 ],
+        "var3": "[ variables('var1') ]",
+        "var4": {
+            "property1": "value1",
+            "property2": "value2"
+          }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput1": {
+            "value": "[variables('var1')]",
+            "type" : "string"
+        },
+        "exampleOutput2": {
+            "value": "[variables('var2')]",
+            "type" : "array"
+        },
+        "exampleOutput3": {
+            "value": "[variables('var3')]",
+            "type" : "string"
+        },
+        "exampleOutput4": {
+            "value": "[variables('var4')]",
+            "type" : "object"
+        }
+    }
 }
 ```
 
@@ -422,8 +447,5 @@ The output from the preceding example with the default values is:
 For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## Next steps
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge several templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 
+* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

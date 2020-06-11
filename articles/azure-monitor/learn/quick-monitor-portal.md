@@ -1,7 +1,6 @@
 ---
 title: Monitor your ASP.NET Web App  with Azure Application Insights | Microsoft Docs
 description: Provides instructions to quickly set up an ASP.NET Web App for monitoring with Application Insights
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -24,7 +23,7 @@ analyzing live statistics, which is just one of the various methods you can use 
 ## Prerequisites
 To complete this quickstart:
 
-- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
+- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
 
@@ -103,10 +102,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 To learn more, visit the GitHub repository for our [open-source JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS).
-
-## Video
-
-* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.

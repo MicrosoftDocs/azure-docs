@@ -29,7 +29,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To sign into your local installation of the CLI, run the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command:
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -151,7 +151,7 @@ az cognitiveservices account create \
 
 To log into your local installation of the Command-Line Interface(CLI), use the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -190,7 +190,7 @@ If you want to clean up and remove a Cognitive Services resource, you can delete
 To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## See also

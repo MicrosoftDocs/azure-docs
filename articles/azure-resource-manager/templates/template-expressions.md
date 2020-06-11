@@ -2,7 +2,7 @@
 title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/17/2020
 ---
 
 # Syntax and expressions in Azure Resource Manager templates
@@ -13,7 +13,7 @@ A template expression can't exceed 24,576 characters.
 
 ## Use functions
 
-The following example shows an expression in the default value of a parameter:
+Azure Resource Manager provides [functions](template-functions.md) that you can use in a template. The following example shows an expression that uses a function in the default value of a parameter:
 
 ```json
 "parameters": {
@@ -33,6 +33,12 @@ To pass a string value as a parameter to a function, use single quotes.
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+Most functions work the same whether deployed to a resource group, subscription, management group, or tenant. The following functions have restrictions based on the scope:
+
+* [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
+* [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [subscription](template-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
 
 ## Escape characters
 
@@ -58,6 +64,65 @@ To escape double quotes in an expression, such as adding a JSON object in the te
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+When passing in parameter values, the use of escape characters depends on where the parameter value is specified. If you set a default value in the template, you need the extra left bracket.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "demoParam1":{
+            "type": "string",
+            "defaultValue": "[[test value]"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "exampleOutput": {
+            "type": "string",
+            "value": "[parameters('demoParam1')]"
+        }
+    }
+}
+```
+
+If you use the default value, the template returns `[test value]`.
+
+However, if you pass in a parameter value through the command line, the characters are interpreted literally. Deploying the previous template with:
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
+```
+
+Returns `[[test value]`. Instead, use:
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
+```
+
+The same formatting applies when passing values in from a parameter file. The characters are interpreted literally. When used with the preceding template, the following parameter file returns `[test value]`:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "demoParam1": {
+            "value": "[test value]"
+        }
+   }
+}
+```
+
+## Null values
+
+To set a property to null, you can use **null** or **[json('null')]**. The [json function](template-functions-object.md#json) returns an empty object when you provide `null` as the parameter. In both cases, Resource Manager templates treat it as if the property isn't present.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## Next steps

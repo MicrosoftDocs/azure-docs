@@ -11,8 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 5/8/2019
+ms.date: 02/05/2020
 ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -37,7 +36,7 @@ Microsoft has partnered with Gemalto to deliver the Azure Dedicated HSM service.
 
 ### Q: What is an HSM used for?
 
-HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as SSL (secure socket layer), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
+HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as TLS (transport layer security), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
 
 ### Q: How does Dedicated HSM work?
 
@@ -45,7 +44,7 @@ Customers can provision HSMs in specific regions using PowerShell or command-lin
 
 ### Q: What software is provided with the Dedicated HSM service?
 
-Gemalto supplies all software for the HSM device once provisioned by Microsoft. The software is available at the [Gemalto customer support portal](https://supportportal.gemalto.com/csm/). Customers using the Dedicated HSM service are required to be registered for Gemalto support and have a Customer ID that enables access and download of relevant software. The supported client software is version 7.2 which is compatible with the FIPS 140-2 Level 3 validated firmware version 7.0.3. 
+Gemalto supplies all software for the HSM device once provisioned by Microsoft. The software is available at the [Gemalto customer support portal](https://supportportal.gemalto.com/csm/). Customers using the Dedicated HSM service are required to be registered for Gemalto support and have a Customer ID that enables access and download of relevant software. The supported client software is version 7.2, which is compatible with the FIPS 140-2 Level 3 validated firmware version 7.0.3. 
 
 ### Q: Does Azure Dedicated HSM offer Password-based and PED-based authentication?
 
@@ -57,7 +56,7 @@ Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM
 
 ### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future,  pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
@@ -66,9 +65,14 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * East US
 * East US 2
 * West US
+* West US 2
 * South Central US
 * Southeast Asia
 * East Asia
+* India Central
+* India South
+* Japan East
+* Japan West
 * North Europe
 * West Europe
 * UK South
@@ -77,6 +81,10 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * Canada East
 * Australia East
 * Australia Southeast
+* Switzerland North
+* Switzerland West
+* US Gov Virginia
+* US Gov Texas
 
 ## Interoperability
 
@@ -103,7 +111,7 @@ Yes, if you have on-premises Gemalto SafeNet HSMs. There are multiple methods. R
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
 
@@ -119,19 +127,19 @@ PKCS#11, Java (JCA/JCE), Microsoft CAPI, and CNG, OpenSSL
 
 ### Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
 
-Yes. Please refer to the Gemalto migration guide. 
+Yes. Refer to the Gemalto migration guide. 
 
 ## Using your HSM
 
 ### Q: How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?
 
-Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless SSL, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for “born-in-cloud” applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
+Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
 
 ### Q: What usage scenarios best suit Azure Dedicated HSM?
 
 Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSMs. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as:
 
-* Application gateway or traffic manager for keyless SSL
+* Application gateway or traffic manager for keyless TLS
 * ADCS (Active Directory Certificate Services)
 * Similar PKI tools
 * Tools/applications used for document signing
@@ -140,7 +148,7 @@ Azure Dedicated HSM is most suitable for migration scenarios. This means that if
 
 ### Q: Can Dedicated HSM be used with Office 365 Customer Key, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage encryption, Azure SQL TDE?
 
-No. Dedicated HSM is provisioned directly into a customer’s private IP Address space so it does not accessible by other Azure or Microsoft services.
+No. Dedicated HSM is provisioned directly into a customer's private IP Address space so it does not accessible by other Azure or Microsoft services.
 
 ## Administration, access, and control
 
@@ -150,11 +158,11 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 ### Q: What level of access does Microsoft have to my HSM?
 
-Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If required, the customer can disable this account.
+Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If necessary, the customer can disable this account.
 
 ### Q: What is the "tenantadmin" account Microsoft uses, I am used to the admin user being "admin" on SafeNet HSMs?
 
-The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password, which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
 
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
@@ -162,7 +170,7 @@ No. Microsoft does not have any access to the keys stored in customer allocated 
 
 ### Q: Can I upgrade software/firmware on HSMs allocated to me?
 
-To get best support, Microsoft strongly recommends not to upgrade software/firmware on the HSM. However, the customer does have full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes, the implications must be understood as this could, for example, effect FIPS validated status. 
+To get best support, Microsoft strongly recommends not to upgrade software/firmware on the HSM. However, the customer does have full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes, the implications must be understood as this could, for example, affect FIPS validated status. 
 
 ### Q: How do I manage Dedicated HSM?
 
@@ -196,7 +204,7 @@ No.
 
 ### Q: How many HSMs can I add to the same high availability configuration from one single application?
 
-16 members of an HA group has under-gone, full-throttle testing with excellent results.
+16 members of an HA group have under-gone, full-throttle testing with excellent results.
 
 ## Support
 
@@ -218,7 +226,7 @@ It is highly recommended to use an on-premises HSM backup device to perform regu
 
 ### Q: How do I get support for Dedicated HSM?
 
-Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software and application development please raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
+Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software, and application development raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
 
 ### Q: How do I get the client software, documentation and access to integration guidance for the SafeNet Luna 7 HSM?
 
@@ -230,7 +238,7 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ### Q: What if I need to reboot my HSM?
 
-The HSM has a command line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
+The HSM has a command-line reboot option, however, we are experiencing issues where the reboot stops responding intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 

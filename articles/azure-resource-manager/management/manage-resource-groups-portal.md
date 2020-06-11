@@ -23,7 +23,6 @@ A resource group is a container that holds related resources for an Azure soluti
 
 The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored.
 
 ## Create resource groups
 

@@ -1,20 +1,8 @@
 ---
-title: Azure CLI Examples - Batch
+title: Azure CLI Examples
 description: Azure CLI examples for Azure Batch service. Learn how to create a Batch account and add an application.
-services: batch
-documentationcenter: batch
-author: ju-shim
-manager: gwallace
-editor: 
-tags: 
-
-ms.assetid:
-ms.service: batch
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
 ms.date: 01/29/2018
-ms.author: jushiman
 ms.custom: mvc
 
 ---

@@ -29,19 +29,18 @@ After you create the lab account, enable following settings in the lab account:
 
 | Lab account setting | Instructions |
 | ----------- | ------------ |  
-| Marketplace images | Enable the [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) image for use within your lab account. For more information, see [Specify Marketplace images available to lab creators](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators) | 
+| Marketplace images | Enable the Ubuntu Server 18.04 LTS image for use within your lab account. For more information, see [Specify Marketplace images available to lab creators](specify-marketplace-images.md). | 
 
 Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and apply the following settings:
 
 | Lab settings | Value/instructions | 
 | ------------ | ------------------ |
 | Virtual machine (VM) size | Small  |
-| VM image | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
-| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| VM image | Ubuntu Server 18.04 LTS|
+| Enable remote desktop connection | Enable. <p>Enabling this setting will allow teachers and students to connect to their VMs using the remote desktop (RDP). For more information, see [Enable remote desktop for Linux virtual machines in a lab in Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
-
-## Install desktop and xrdp
-The [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) image doesn't have remote desktop server installed by default. Follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md) article to install the packages that are needed on the template machine to connect via remote desktop protocol.
+## Install desktop and RDP
+The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. Follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../../virtual-machines/linux/use-remote-desktop.md) article to install the packages that are needed on the template machine to connect via remote desktop protocol (RDP).
 
 ## Install Ruby
 Ruby is an open-source dynamic language that can be combined with bash scripts. This section shows how to use `apt-get` to install the latest version of [Ruby](https://www.ruby-lang.org/).

@@ -4,7 +4,7 @@ description: Describes how to set one resource as dependent on another resource 
 ms.topic: conceptual
 ms.date: 12/03/2019
 ---
-# Define the order for deploying resources in Azure Resource Manager templates
+# Define the order for deploying resources in ARM templates
 
 When deploying a resource, you may need to make sure other resources exist before it's deployed. For example, you need a SQL server before deploying a SQL database. You define this relationship by marking one resource as dependent on the other resource. You define a dependency with the **dependsOn** element, or by using the **reference** function.
 
@@ -12,7 +12,7 @@ Resource Manager evaluates the dependencies between resources, and deploys them 
 
 ## dependsOn
 
-Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value is a comma-separated list of resource names. The list can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value is a JSON array of strings, each of which is a resource name. The array can include resources that are [conditionally deployed](conditional-resource-deployment.md). When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
 The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources aren't shown in the following example, but they would need to exist elsewhere in the template.
 
@@ -34,7 +34,7 @@ The following example shows a virtual machine scale set that depends on a load b
 }
 ```
 
-In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 When defining dependencies, you can include the resource provider namespace and resource type to avoid ambiguity. For example, to clarify a load balancer and virtual network that may have the same names as other resources, use the following format:
 

@@ -1,6 +1,6 @@
 ---
 title: Coarse relocalization in Objective-C
-description: In-depth explanation of how to create and locate anchors using on-device sensors in Objective-C.
+description: In-depth explanation of how to create and locate anchors using coarse relocalization in Objective-C.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# How to create and locate anchors using on-device sensors in Objective-C
+# How to create and locate anchors using coarse relocalization in Objective-C
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)

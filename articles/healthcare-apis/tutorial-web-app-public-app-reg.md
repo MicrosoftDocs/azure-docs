@@ -11,7 +11,7 @@ author: caitlinv39
 ms.date: 01/03/2020
 ---
 
-# Client Application Registration
+# Client application registration
 In the previous tutorial, you deployed and set up your Azure API for FHIR. Now that you have your Azure API for FHIR setup, we will register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting, but we have called out the major steps for this tutorial below.
 
 1. Navigate to Azure Active Directory
@@ -21,7 +21,7 @@ In the previous tutorial, you deployed and set up your Azure API for FHIR. Now t
 
 ![Client Application Registration](media/tutorial-web-app/reg-public-app.png)
 
-## Client Application Settings
+## Client application settings
 Once your client application is registered, copy the Application (client) ID from the Overview Page. You will need this value later when accessing the client.
 
 ![Copy App ID](media/tutorial-web-app/app-id.png)

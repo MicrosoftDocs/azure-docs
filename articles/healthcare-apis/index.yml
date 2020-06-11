@@ -25,14 +25,10 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-          - text: What is FHIR Server for Azure?
-            url: overview-open-source-server.md
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
             url: fhir-paas-portal-quickstart.md 
-          - text: Deploy open source FHIR Server
-            url: fhir-oss-portal-quickstart.md
 
   - title: Set-up tutorials
     linkLists:

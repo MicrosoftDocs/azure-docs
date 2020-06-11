@@ -2,12 +2,12 @@
 title: Tasks for the project lead in the Team Data Science Process
 description: A detailed walkthrough of the tasks for a project lead on a Team Data Science Process team
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -40,7 +40,7 @@ This tutorial assumes that your [group manager](group-manager-tasks.md) and [tea
 - Team template and utilities **repositories**
 - **Permissions** on your organization account for you to create and edit repositories for your project
 
-To clone repositories and modify content on your local machine or Data Science Virtual Machine (DSVM), or set up Azure file storage and mount it to your DSVM, you also need the following:
+To clone repositories and modify content on your local machine or Data Science Virtual Machine (DSVM), or set up Azure file storage and mount it to your DSVM, you also need to consider this checklist:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).

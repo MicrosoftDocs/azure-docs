@@ -15,7 +15,7 @@ Azure Backup enables the recovery of individual items from backups of your Windo
 > * Select a recovery point
 > * Restore items from a recovery point
 
-This tutorial assumes you have already performed the steps to [Back up a Windows Server to Azure](backup-configure-vault.md) and have at least one backup of your Windows Server files in Azure.
+This tutorial assumes you have already performed the steps to [Back up a Windows Server to Azure](backup-windows-with-mars-agent.md) and have at least one backup of your Windows Server files in Azure.
 
 ## Initiate recovery of individual items
 

@@ -1,14 +1,14 @@
 ---
-title: Define custom R modules
+title: Create & deploy custom R modules
 titleSuffix: ML Studio (classic) - Azure
-description: This topic describes how to author and deploy a custom R Studio (classic). It explains what custom R modules are and what files are used to define them. 
+description: Learn how to author and deploy a custom R modules in ML Studio (classic). 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ---
@@ -16,9 +16,6 @@ ms.date: 11/29/2017
 
 This topic describes how to author and deploy a custom R Studio (classic). It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
 
-
-
-## What is a custom R module?
 A **custom module** is a user-defined module that can be uploaded to your workspace and executed as part of Azure Machine Learning Studio (classic) experiment. A **custom R module** is a custom module that executes a user-defined R function. **R** is a programming language for statistical computing and graphics that is widely used by statisticians and data scientists for implementing algorithms. Currently, R is the only language supported in custom modules, but support for additional languages is scheduled for future releases.
 
 Custom modules have **first-class status** in Azure Machine Learning Studio (classic) in the sense that they can be used just like any other module. They can be executed with other modules, included in published experiments or in visualizations. You have control over the algorithm implemented by the module, the input and output ports to be used, the modeling parameters, and other various runtime behaviors. An experiment that contains custom modules can also be published into the Azure AI Gallery for easy sharing.
@@ -196,7 +193,7 @@ For example, if you want to modify the **Custom Add Rows** module to output the 
     </Ports> 
 
 
-And return the list of objects in a list in the correct order in ‘CustomAddRows.R’:
+And return the list of objects in a list in the correct order in 'CustomAddRows.R':
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -330,11 +327,11 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in the Azure Machine Learning Studio (classic) execution. 
 
 > [!NOTE]
-> Notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
+> Notice that all files are extracted to 'src' directory so all paths should have 'src/' prefix.
 > 
 > 
 
-For example, say you want to remove any rows with NAs from the dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
+For example, say you want to remove any rows with NAs from the dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you've already written an R function that does that in a file RemoveDupNARows.R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -356,7 +353,7 @@ You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows functio
         return (dataset)
     }
 
-Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.
+Next, upload a zip file containing 'CustomAddRows.R', 'CustomAddRows.xml', and 'RemoveDupNARows.R' as a custom R module.
 
 ## Execution Environment
 The execution environment for the R script uses the same version of R as the **Execute R Script** module and can use the same default packages. You can also add additional R packages to your custom module by including them in the custom module zip package. Just load them in your R script as you would in your own R environment. 

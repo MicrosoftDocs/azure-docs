@@ -50,7 +50,7 @@ with security best practices on Azure:
     started using the Azure platform for their development needs.
 
   - [SDKs and
-    tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+    tools](https://docs.microsoft.com/azure/index?pivot=sdkstools)
     describes the tools that are available on Azure.
 
   - [Azure DevOps
@@ -227,7 +227,7 @@ environments (IDEs) and editors that have advanced debugging
 capabilities and built-in Azure support.
 
 Microsoft offers a variety of [languages, frameworks, and
-tools](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all)
+tools](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all)
 that you can use to develop applications on Azure. An example is [Azure
 for .NET and .NET Core
 developers](https://docs.microsoft.com/dotnet/azure/). For each language
@@ -437,14 +437,13 @@ privilege](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/securit
 throughout its access patterns.
 
 > [!NOTE]
->  The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much
-access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
+> The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
 
 #### Implement just-in-time access
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity)
+Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity)
 to:
 
 - Give users the permissions they need only JIT.
@@ -484,7 +483,7 @@ Always put your keys, certificates, secrets, and connection strings in a
 key management solution. You can use a centralized solution in which
 keys and secrets are stored in hardware security modules (HSMs). Azure
 provides you with an HSM in the cloud with [Azure Key
-Vault](../../key-vault/key-vault-overview.md).
+Vault](../../key-vault/general/overview.md).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -550,7 +549,7 @@ public knowledge when it is deployed. Avoid including sensitive data of
 any kind in the project.
 
 Earlier, we discussed [Azure Key
-Vault](../../key-vault/key-vault-overview.md). You
+Vault](../../key-vault/general/overview.md). You
 can use Key Vault to store secrets like keys and passwords instead of
 hard-coding them. When you use Key Vault in combination with managed
 identities for Azure resources, your Azure web app can access secret

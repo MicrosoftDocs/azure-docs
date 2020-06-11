@@ -1,6 +1,6 @@
 ---
-title: Use Classroom Labs for trainings - Azure Lab Services| Microsoft Docs
-description: Learn how to use Azure DevTest Labs for training scenarios.
+title: Use Classroom Labs for trainings - Azure Lab Services
+description: This article describes how to use Azure DevTest Labs for creating labs on Azure for training scenarios.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 05/08/2020
 ms.author: spelluru
 
 ---
 # Use Classroom Labs for trainings
-You can set up a lab for trainings. Classroom Labs of Azure Lab Services allow you to create a lab for your training where each trainee uses identical and isolated environments for training. You can apply policies to ensure that training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. 
+Azure Labs Services allows educators (teachers, professors, trainers, or teaching assistants, etc.) to quickly and easily create an online lab to provision pre-configured learning environments for the trainees. Each trainee would be able use identical and isolated environments for the training. Policies can be applied to ensure that the training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. 
 
 ![Classroom lab](../media/classroom-labs-scenarios/classroom.png)
 
@@ -33,10 +33,10 @@ Classroom Labs meets the following requirements that are required to conduct tra
 In this article, you learn about various Azure Lab Services features that can be used to meet the previously described training requirements and detailed steps that you can follow to set up a lab for training.  
 
 ## Create the lab account as a lab account administrator
-The first step in using Azure Lab Services is to create a lab account in the Azure portal. After a lab account administrator creates the lab account, the admin adds users who want to create labs to the **Lab Creator** role. The trainers create labs with virtual machines for students to do exercises for the course they are teaching. For details, see [Create and manage lab account](how-to-manage-lab-accounts.md).
+The first step in using Azure Lab Services is to create a lab account in the Azure portal. After a lab account administrator creates the lab account, the admin adds users who want to create labs to the **Lab Creator** role. The educators create labs with virtual machines for students to do exercises for the course they are teaching. For details, see [Create and manage lab account](how-to-manage-lab-accounts.md).
 
 ## Create and manage classroom labs
-A trainer, who is a member of the Lab Creator role in a lab account, can create one or more labs in the lab account. You create and configure a template VM with all the required software for doing exercises in your course. You pick a ready-made image from the available images for creating a classroom lab and then customize it by installing the software required for the lab. For details, see [Create and manage classroom labs](how-to-manage-classroom-labs.md).
+An educator, who is a member of the Lab Creator role in a lab account, can create one or more labs in the lab account. You create and configure a template VM with all the required software for doing exercises in your course. You pick a ready-made image from the available images for creating a classroom lab and then customize it by installing the software required for the lab. For details, see [Create and manage classroom labs](how-to-manage-classroom-labs.md).
 
 ## Configure usage settings and policies
 The lab creator can add or remove users to the lab, get registration link to send to lab users, set up policies such as setting individual quotas per user, update the number of VMs available in the lab, and more. For details, see [Configure usage settings and policies](how-to-configure-student-usage.md).

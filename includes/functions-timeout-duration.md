@@ -18,6 +18,9 @@ The timeout duration of a function app is defined by the `functionTimeout` prope
 | Consumption | 1.x | 5 | 10 |
 | Consumption | 2.x | 5 | 10 |
 | Consumption | 3.x | 5 | 10 |
+| Premium | 1.x | 30 | Unlimited |
+| Premium | 2.x | 30 | Unlimited |
+| Premium | 3.x | 30 | Unlimited |
 | App Service | 1.x | Unlimited | Unlimited |
 | App Service | 2.x | 30 | Unlimited |
 | App Service | 3.x | 30 | Unlimited |

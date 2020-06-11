@@ -1,11 +1,11 @@
 ---
 title: WHERE clause in Azure Cosmos DB
 description: Learn about SQL WHERE clause for Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
+ms.date: 03/06/2020
+ms.author: tisande
 
 ---
 # WHERE clause in Azure Cosmos DB
@@ -30,10 +30,11 @@ WHERE <filter_condition>
   
    Expression representing the value to be computed. See [Scalar expressions](sql-query-scalar-expressions.md) for details.  
   
-
 ## Remarks
   
-  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition. 
+  In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value `true` will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.
+
+  If you include your partition key in the `WHERE` clause as part of an equality filter, your query will automatically filter to only the relevant partitions.
 
 ## Examples
 
@@ -99,10 +100,10 @@ You can also use the unary operators +,-, ~, and NOT in queries, as shown in the
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result. 
+You can also use property references in queries. For example, `SELECT * FROM Families f WHERE f.isRegistered` returns the JSON item containing the property `isRegistered` with value equal to `true`. Any other value, such as `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, or `<array>`, excludes the item from the result.
 
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [IN keyword](sql-query-keywords.md#in)
 - [FROM clause](sql-query-from.md)

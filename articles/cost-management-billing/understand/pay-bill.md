@@ -2,17 +2,13 @@
 title: Pay your bill for Microsoft Azure | Microsoft Docs
 description: Describes how to pay an invoice in the Azure portal
 keywords: billing, past due, balance, pay now,
-author: jureid
-manager: jureid
+author: banders
+ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-
 ---
 
 # How to pay your bill for Microsoft Azure
@@ -31,21 +27,12 @@ You must be a billing profile owner, contributor, or invoice manager to pay for 
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
-1. In the **Overview** blade, click the *Summary* tab.
-
-    ![screenshot that shows summary tab](./media/pay-bill/billing-account-overview.png)
-
-1. If you have a due or past due invoice, you'll see the total amount due.
-1. Click the blue **Pay now** button.
-
-    ![screenshot that shows pay now button](./media/pay-bill/paynow-button-overview.png)
-
-1. In the new blade, click **Select a payment method** to choose an existing credit card or add a new one.<!-- screenshot of select payment method link -->
+1. In the left menu, select **Invoices** under 'Billing'.
+1. If any of your invoices are due or past due, you'll see a blue **Pay now** link for that invoice. Select **Pay now**.
+1. In the new blade, click **Select a payment method** to choose an existing credit card or add a new one.
 1. Once the payment method is selected, click **Pay now**.
 
 The status of the invoice will be updated to paid in the invoices blade.
-
-<!-- pay now from invoice blade -->
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

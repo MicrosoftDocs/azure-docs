@@ -1,17 +1,10 @@
 ---
 title: Create an additional Azure subscription
 description: Learn how to add a new Azure subscription in the Azure portal.
-services: 'billing'
-documentationcenter: ''
-author: amberb
-manager: amberb
-editor: ''
+author: amberbhargava
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/12/2020
 ms.author: banders
 
 ---

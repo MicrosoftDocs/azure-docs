@@ -19,6 +19,8 @@ ms.date: 11/27/2018
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Current version](transform-data-using-stored-procedure.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 You use data transformation activities in a Data Factory [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
 
 > [!NOTE]

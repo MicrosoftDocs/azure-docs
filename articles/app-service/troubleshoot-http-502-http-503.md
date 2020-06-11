@@ -34,7 +34,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service](overview.md) gives you various options at each step.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
@@ -58,7 +58,7 @@ For more information, see:
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### 2. Collect data
 #### Use the diagnostics tool
@@ -83,7 +83,7 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### 3. Mitigate the issue
 #### Scale the app

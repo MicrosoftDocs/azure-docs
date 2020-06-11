@@ -179,6 +179,7 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -682,3 +683,93 @@ SasKey:
 TopicName:
 - If the Subscription.EventDeliverySchema is set to EventGridSchema, the value from this field is put into every event's Topic field before being forwarded to Event Grid in the cloud.
 - If the Subscription.EventDeliverySchema is set to CustomEventSchema, this property is ignored and the custom event payload is forwarded exactly as it was received.
+
+## Set up Event Hubs as a destination
+
+To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
+
+* connectionString: Connection string for the specific Event Hub you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Event Hub you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Service Bus Queues as a destination
+
+To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` and provide:
+
+* connectionString: Connection string for the specific Service Bus Queue you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Queue you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Service Bus Topics as a destination
+
+To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` and provide:
+
+* connectionString: Connection string for the specific Service Bus Topic you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Topic you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Storage Queues as a destination
+
+To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and provide:
+
+* queueName: Name of the Storage Queue you're publishing to.
+* connectionString: Connection string for the Storage Account the Storage Queue is in.
+
+    >[!NOTE]
+    > Unline Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must but the connection string for the Storage Account.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

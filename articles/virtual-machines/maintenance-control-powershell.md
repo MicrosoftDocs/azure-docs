@@ -1,60 +1,36 @@
 ---
 title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control and PowerShell.
-services: virtual-machines-linux
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
 author: cynthn
-
 ms.service: virtual-machines
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/06/2019
+ms.date: 01/31/2020
 ms.author: cynthn
+#pmcontact: shants
 ---
 
-# Preview: Control updates with Maintenance Control and Azure PowerShell
+# Control updates with Maintenance Control and Azure PowerShell
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
-
-Maintenance control lets you decide when to apply updates to your isolated VMs.
-
-With maintenance control, you can:
-- Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
-- Maintenance configurations work across subscriptions and resource groups. 
-
-> [!IMPORTANT]
-> Maintenance Control is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## Limitations
-
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
-- After 35 days, an update will automatically be applied.
-- User must have **Resource Owner** access.
-
-
+Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+ 
 ## Enable the PowerShell module
 
-Make sure `PowerShellGet` is up to date.
+Make sure `PowerShellGet` is up to date.	
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive	
+Install-Module -Name PowerShellGet -Repository PSGallery -Force	
+```	
 
-The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation.   
+Install the `Az.Maintenance` PowerShell module.   	
 
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
+```azurepowershell-interactive	
+Install-Module -Name Az.Maintenance
+```	
 
 If you are installing locally, make sure you open your PowerShell prompt as an administrator.
 
 You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
-
 
 
 ## Create a maintenance configuration
@@ -128,7 +104,19 @@ New-AzConfigurationAssignment `
 
 Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into.
 
-If there are no updates, the command will return an error message: `Resource not found...StatusCode: 404`.
+If there are no updates to show, this command will return nothing. Otherwise, it will return a PSApplyUpdate object:
+
+```json
+{
+   "maintenanceScope": "Host",
+   "impactType": "Freeze",
+   "status": "Pending",
+   "impactDurationInSec": 9,
+   "notBefore": "2020-02-21T16:47:44.8728029Z",
+   "properties": {
+      "resourceId": "/subscriptions/39c6cced-4d6c-4dd5-af86-57499cd3f846/resourcegroups/Ignite2019/providers/Microsoft.Compute/virtualMachines/MCDemo3"
+} 
+```
 
 ### Isolated VM
 
@@ -141,6 +129,7 @@ Get-AzMaintenanceUpdate `
   -ResourceType VirtualMachines `
   -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ### Dedicated host
 
@@ -155,6 +144,7 @@ Get-AzMaintenanceUpdate `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ## Apply updates
 
@@ -171,6 +161,8 @@ New-AzApplyUpdate `
    -ResourceType VirtualMachines `
    -ProviderName Microsoft.Compute
 ```
+
+On success, this command will return a `PSApplyUpdate` object. You can use the Name attribute in the `Get-AzApplyUpdate` command to check the update status. See [Check update status](#check-update-status).
 
 ### Dedicated host
 
@@ -189,7 +181,17 @@ New-AzApplyUpdate `
 ## Check update status
 Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) to check on the status of an update. The commands shown below show the status of the latest update by using `default` for the `-ApplyUpdateName` parameter. You can substitute the name of the update (returned by the [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) command) to get the status of a specific update.
 
-If there are no updates to show, the command will return an error message: `Resource not found...StatusCode: 404`.
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance control it will show default value.
 
 ### Isolated VM
 
@@ -216,14 +218,14 @@ Get-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute `
-   -ApplyUpdateName default
+   -ApplyUpdateName myUpdateName
 ```
 
 ## Remove a maintenance configuration
 
 Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
 
-```azurecli-interactive
+```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `
    -ResourceGroupName myResourceGroup `
    -Name $config.Name

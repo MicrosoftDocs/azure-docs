@@ -118,7 +118,7 @@ The **Overview** blade has a status bar at the top. When you select the bar, a n
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
-* Configure [SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

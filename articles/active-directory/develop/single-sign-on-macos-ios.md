@@ -3,22 +3,17 @@ title: Configure SSO on macOS and iOS
 titleSuffix: Microsoft identity platform
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
-ms.author: twhitney
+ms.date: 02/03/2020
+ms.author: marsma
 ms.reviewer: 
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure SSO on macOS and iOS
@@ -68,9 +63,9 @@ For the Microsoft identity platform to know which applications can share tokens,
 
 The way the Microsoft identity platform tells apps that use the same Application ID apart is by their **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. For example:
 
-App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`
-App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`
-App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`
+App1 Redirect URI: `msauth.com.contoso.mytestapp1://auth`  
+App2 Redirect URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 Redirect URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > The format of redirect uris must be compatible with the format MSAL supports, which is documented in [MSAL Redirect URI format requirements](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -95,6 +90,18 @@ When you have the entitlements set up correctly, you'll see a `entitlements.plis
 </plist>
 ```
 
+#### Add a new keychain group
+
+Add a new keychain group to your project **Capabilities**. The keychain group should be:
+* `com.microsoft.adalcache` on iOS 
+* `com.microsoft.identity.universalstorage` on macOS.
+
+![keychain example](media/single-sign-on-macos-ios/keychain-example.png)
+
+For more information, see [keychain groups](howto-v2-keychain-objc.md).
+
+## Configure the application object
+
 Once you have the keychain entitlement enabled in each of your applications, and you're ready to use SSO, configure `MSALPublicClientApplication` with your keychain access group as in the following example:
 
 Objective-C:
@@ -112,16 +119,14 @@ Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-	let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > When you share a keychain across your applications, any application can delete users or even all of the tokens across your application.
@@ -205,7 +210,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
-    
+
 ## Next steps
 
 Learn more about [Authentication flows and application scenarios](authentication-flows-app-scenarios.md)

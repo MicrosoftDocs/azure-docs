@@ -1,7 +1,6 @@
 ---
 title: Collect resource logs from an Azure Resource and analyze with Azure Monitor
 description: Tutorial to configure diagnostic settings to collect resource logs from an Azure resource into a Log Analytics workspace where they can be analyzed with a log query.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: tutorial
 author: bwren
@@ -42,7 +41,7 @@ A Log Analytics workspace in Azure Monitor collects and indexes log data from a 
    - **Subscription**: Select the subscription to store the workspace. This does not need to be the same subscription same as the resource being monitored.
    - **Resource Group**: Select an existing resource group or click **Create new** to create a new one. This does not need to be the same resource group same as the resource being monitored.
    - **Location**: Select an Azure region or create a new one. This does not need to be the same location same as the resource being monitored.
-   - **Pricing tier**: Select *Free* which will retain 7 days of data. You can change this pricing tier later. Click the **Log Analytics pricing** link to learn more about different pricing tiers.
+   - **Pricing tier**: Select *Pay-as-you-go* as the pricing tier. You can change this pricing tier later. Click the **Log Analytics pricing** link to learn more about different pricing tiers.
 
     ![New workspace](media/tutorial-resource-logs/new-workspace.png)
 

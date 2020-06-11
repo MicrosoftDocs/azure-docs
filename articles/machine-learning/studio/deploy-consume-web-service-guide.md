@@ -5,10 +5,10 @@ description: You can use Azure Machine Learning Studio (classic) to deploy machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
 ---
@@ -75,7 +75,6 @@ Here's an example:
 See the following articles and sample code for additional details:
 
 * [Azure Machine Learning Studio (classic) Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) reference on MSDN
-* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
 
 ## Consume the web services
 

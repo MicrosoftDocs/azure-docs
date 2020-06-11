@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 05/27/2020
 ms.author: pafarley
+ms.custom: tracking-python
 ---
 
 # Quickstart: Extract text and layout information using the Form Recognizer REST API with Python
@@ -21,9 +22,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A form document. You can download an image from the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+
+> [!NOTE]
+> This quickstart uses a locally stored document. To use learn how to use remote files accessed by URL, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync).
+
 
 ## Create a Form Recognizer resource
 
@@ -52,7 +56,7 @@ To start analyzing the layout, you call the **[Analyze Layout](https://westus2.d
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -82,7 +86,7 @@ https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-
 
 ## Get the layout results
 
-After you've called the **Analyze Layout** API, you call the **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Layout** API, you call the **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This code uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
 n_tries = 10

@@ -36,8 +36,8 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Advanced settings](#advanced-settings)
 	* [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 	* [Scale](#scale)
-	* [Redis cluster size](#cluster-size)
-	* [Redis data persistence](#redis-data-persistence)
+	* [Cluster size](#cluster-size)
+	* [Data persistence](#redis-data-persistence)
 	* [Schedule updates](#schedule-updates)
 	* [Geo-replication](#geo-replication)
 	* [Virtual Network](#virtual-network)
@@ -88,8 +88,8 @@ The **Settings** section allows you to access and configure the following settin
 * [Advanced settings](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 * [Scale](#scale)
-* [Redis cluster size](#cluster-size)
-* [Redis data persistence](#redis-data-persistence)
+* [Cluster size](#cluster-size)
+* [Data persistence](#redis-data-persistence)
 * [Schedule updates](#schedule-updates)
 * [Geo-replication](#geo-replication)
 * [Virtual Network](#virtual-network)
@@ -113,10 +113,10 @@ The following settings are configured on the **Advanced settings** blade.
 * [Keyspace notifications (advanced settings)](#keyspace-notifications-advanced-settings)
 
 #### Access Ports
-By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
+By default, non-TLS/SSL access is disabled for new caches. To enable the non-TLS port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
 > [!NOTE]
-> SSL  access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon.  Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
+> TLS access to Azure Cache for Redis supports TLS 1.0, 1.1 and 1.2 currently, but versions 1.0 and 1.1 are being retired soon.  Please read our [Remove TLS 1.0 and 1.1 page](cache-remove-tls-10-11.md) for more details.
 
 ![Azure Cache for Redis Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -197,14 +197,9 @@ Click **Scale** to view or change the pricing tier for your cache. For more info
 <a name="cluster-size"></a>
 
 ### Redis Cluster Size
-Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
+Click **Cluster Size** to change the cluster size for a running premium cache with clustering enabled.
 
-> [!NOTE]
-> Note that while the Azure Cache for Redis Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
->
->
-
-![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
@@ -215,7 +210,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Redis data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 

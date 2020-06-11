@@ -72,14 +72,23 @@ This topic provides a reference for the following API Management policies. For i
 
 ### Examples
 
-In this example client certificate is identified by its thumbprint.
+In this example, the client certificate is identified by its thumbprint:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-In this example client certificate is identified by resource name.
+
+In this example, the client certificate is identified by the resource name:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+In this example, the client certificate is set in the policy rather than retrieved from the built-in certificate store:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### Elements  
   
@@ -91,8 +100,10 @@ In this example client certificate is identified by resource name.
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
-|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|  
+|thumbprint|The thumbprint for the client certificate.|Either `thumbprint` or `certificate-id` must be present.|N/A|
+|certificate-id|The certificate resource name.|Either `thumbprint` or `certificate-id` must be present.|N/A|
+|body|Client certificate as a byte array.|No|N/A|
+|password|Password for the client certificate.|Used if certificate specified in `body` is password protected.|N/A|
   
 ### Usage  
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -113,7 +124,7 @@ In this example client certificate is identified by resource name.
 ### Example  
 #### Use managed identity to authenticate with a backend service
 ```xml  
-<authentication-managed-identity resource="https://graph.windows.net"/> 
+<authentication-managed-identity resource="https://graph.microsoft.com"/> 
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->
@@ -130,7 +141,21 @@ In this example client certificate is identified by resource name.
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
 ```
-  
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+```
+
+#### Use managed identity and set header manually
+
+```xml
+<authentication-managed-identity resource="api://Client_id_of_Backend"
+   output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
+<set-header name="Authorization" exists-action="override">
+   <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>
+</set-header>
+```
+
 #### Use managed identity in send-request policy
 ```xml  
 <send-request mode="new" timeout="20" ignore-error="false">
@@ -150,7 +175,7 @@ In this example client certificate is identified by resource name.
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
+|resource|String. The App ID of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
 |output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`. |No|N/A|  
 |ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
   

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 ---
 
@@ -34,11 +34,11 @@ Before you can deploy your tenant model, you need to be enrolled in the Tenant M
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
-1. In the left pane, select **Settings**, select **Apps**, and then select **Azure Speech Services**.
+1. In the left pane, select **Settings**, then select **Settings** from the nested menu, then select **Azure Speech Services** from the main window.
 
    ![The "Services & add-ins" pane](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Select the **Allow the organization-wide language model** check box, and then select **Save changes**. 
+1. Select the **Allow the organization-wide language model** check box, and then select **Save changes**.
 
    ![The Azure Speech Services pane](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -74,11 +74,11 @@ After your admin has enabled Tenant Model for your organization, you can create 
 
    > [!NOTE]
    > Office 365 enterprise customers in North America are eligible to create a tenant model (English). If you're a Customer Lockbox, Customer Key, or Office 365 Government customer, this feature isn't available. To determine whether you're a Customer Lockbox or Customer Key customer, see:
-   > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
-1. Select **Opt in**. 
+1. Select **Opt in**.
 
    When your tenant model is ready, you'll receive a confirmation email message with further instructions.
 
