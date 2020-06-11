@@ -1,7 +1,7 @@
 ﻿---
 title: Run background tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
-author: LauraKellerGitHub
+author: ggailley777
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -15,7 +15,9 @@ ms.custom: seodec18
 
 # Run background tasks with WebJobs in Azure App Service
 
-Deploy WebJobs by using the [Azure portal](https://portal.azure.com/?feature.customportal=false) to upload an executable or script. If instead, you are using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+Deploy WebJobs by using the [Azure portal](https://portal.azure.com/?feature.customportal=false) to upload an executable or script. You can run background tasks in the Azure App Service.
+
+If instead of the Azure App Service you are using Visual Studio 2019 to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## Overview
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
@@ -80,13 +82,13 @@ when making changes in one don't forget the other two.
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-5. Select **OK**. If you see a message that says the WebJob was added, but you don't see it, **select Refresh**.
+5. Select **OK**. 
 
-   The new WebJob appears on the **WebJobs** page.
+   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page.
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listcontinuouswebjob.png)
 
-6. To stop or restart a continuous WebJob, right-click the WebJob in the list and click **Stop** or **Start**.
+6. To stop or restart a continuous WebJob, right-click the WebJob in the list and select **Stop** or **Start**.
 
     ![Stop a continuous WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -120,7 +122,7 @@ when making changes in one don't forget the other two.
 
 4. Select **OK**.
 
-   The new WebJob appears on the **WebJobs** page.
+   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
 
@@ -159,7 +161,7 @@ when making changes in one don't forget the other two.
 
 4. Select **OK**.
 
-   The new WebJob appears on the **WebJobs** page.
+   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
 
@@ -179,7 +181,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 ## <a name="ViewJobHistory"></a> View the job history
 
-1. Select the WebJob you want to see history for, and then select the **Logs** button.
+1. Select the WebJob and then to see the history, select the **Logs** button.
    
    ![Logs button](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
