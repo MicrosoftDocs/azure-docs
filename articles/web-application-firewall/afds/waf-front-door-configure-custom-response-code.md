@@ -16,7 +16,7 @@ By default, when Azure Web Application Firewall (WAF) with Azure Front Door bloc
 
 ## Configure custom response status code and message use portal
 
-You can configure a custom response status code and body under "Policy settings" from the WAF portal
+You can configure a custom response status code and body under "Policy settings" from the WAF portal.
 
 :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="WAF Policy settings":::
 
