@@ -1,10 +1,26 @@
 ---
-title: Deploy Azure Security Benchmark blueprint sample
-description: Deploy steps for the Azure Security Benchmark blueprint sample including blueprint artifact parameter details.
-ms.date: 05/01/2020
+title: Azure Security Benchmark blueprint sample overview
+description: Overview of the Azure Security Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
+ms.date: 06/02/2020
 ms.topic: sample
 ---
-# Deploy the Azure Security Benchmark blueprint sample
+# Azure Security Benchmark blueprint sample
+
+The Azure Security Benchmark blueprint sample provides governance guard-rails using
+[Azure Policy](../../policy/overview.md) that help you assess specific
+[Azure Security Benchmark](../../../security/benchmarks/overview.md) controls. This blueprint
+helps customers deploy a core set of policies for any Azure-deployed architecture where they intend
+to implement Azure Security Benchmark controls.
+
+## Control mapping
+
+The [Azure Policy control mapping](../../policy/samples/azure-security-benchmark.md) provides
+details on policy definitions included within this blueprint and how these policy definitions map to
+the **compliance domains** and **controls** in the Azure Security Benchmark. When assigned to an
+architecture, resources are evaluated by Azure Policy for non-compliance with assigned policy
+definitions. For more information, see [Azure Policy](../../policy/overview.md).
+
+## Deploy
 
 To deploy the Azure Blueprints Azure Security Benchmark blueprint sample, the following steps must
 be taken:
@@ -17,7 +33,7 @@ be taken:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
 
-## Create blueprint from sample
+### Create blueprint from sample
 
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
@@ -44,7 +60,7 @@ sample as a starter.
    parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
    blueprint sample.
 
-## Publish the sample copy
+### Publish the sample copy
 
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
@@ -61,7 +77,7 @@ it away from alignment with Azure Security Benchmark recommendations.
    modification later. Provide **Change notes** such as "First version published from the Azure
    Security Benchmark blueprint sample." Then select **Publish** at the bottom of the page.
 
-## Assign the sample copy
+### Assign the sample copy
 
 Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a
 subscription within the management group it was saved to. This step is where parameters are
@@ -85,13 +101,14 @@ provided to make each deployment of the copy of the blueprint sample unique.
        Change as needed or leave as is.
      - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
-       [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
+       [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
        sample.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -100,9 +117,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
-     parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since
-     they're defined during the assignment of the blueprint. For a full list or artifact parameters
-     and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
+     parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) since they're
+     defined during the assignment of the blueprint. For a full list or artifact parameters and
+     their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
 1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
    assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
@@ -110,17 +127,17 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
-## Artifact parameters table
+### Artifact parameters table
 
 The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|
-List of users excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
+|Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users that must be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of users that Windows VM Administrators group must *only* include|A semicolon-separated list of all the expected members of the Administrators local group. Ex: Administrator; myUser1; myUser2|
 |Audit Azure Security Benchmark recommendations and deploy specific supporting VM Extensions|Policy assignment|List of regions where Network Watcher should be enabled|To see a complete list of regions use Get-AzLocation|
@@ -135,17 +152,10 @@ List of users excluded from Windows VM Administrators group|A semicolon-separate
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the Azure Security Benchmark blueprint
-sample, visit the following articles to learn about the blueprint and control mapping:
+Additional articles about blueprints and how to use them:
 
-> [!div class="nextstepaction"]
-> [Azure Security Benchmark blueprint - Overview](./index.md)
-> [Azure Security Benchmark blueprint - Control mapping](./control-mapping.md)
-
-Addition articles about blueprints and how to use them:
-
-- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
-- Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).
-- Learn how to [update existing assignments](../../how-to/update-existing-assignments.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
