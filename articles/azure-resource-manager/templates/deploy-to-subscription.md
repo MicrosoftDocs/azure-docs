@@ -204,8 +204,8 @@ The following example creates a resource group, and deploys a storage account to
     {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2019-10-01",
-      "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
@@ -219,7 +219,7 @@ The following example creates a resource group, and deploys a storage account to
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "variables": {},
