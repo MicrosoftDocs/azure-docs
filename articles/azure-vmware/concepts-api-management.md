@@ -1,11 +1,11 @@
 ---
-title: Concepts - API Management
-description: Learn about the API management of Azure VMware Solution (AVS)
+title: Concepts - API Management 
+description: Learn how API Management protects APIs running on Azure VMware Solution (AVS) virtual machines (VMs)
 ms.topic: conceptual
 ms.date: 06/16/2020
 ---
 
-# Use API Management to publish and protect APIs running on AVS-based VMs
+# API Management to publish and protect APIs running on AVS-based VMs
 
 [API Management](https://azure.microsoft.com/services/api-management/) lets developers and DevOps teams securely publish either to internal or external consumers.
 

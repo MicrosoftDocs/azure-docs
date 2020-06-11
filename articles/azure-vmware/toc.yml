@@ -29,7 +29,7 @@
   - name: Private cloud upgrades
     href: concepts-upgrades.md
   - name: API management for AVS VMs
-    href: concept-api-management.md
+    href: concepts-api-management.md
 - name: How-to guides
   items:
   - name: Set up HCX
