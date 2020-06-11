@@ -4,7 +4,6 @@ description: Learn about the high availability, disaster recovery (HADR), and bu
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 
