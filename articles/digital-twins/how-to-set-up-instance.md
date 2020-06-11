@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Set up an Azure Digital Twins instance
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This article will walk you through the basic steps to set up a new Azure Digital Twins instance. This includes creating the instance, and assigning [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to the instance for yourself.
 
