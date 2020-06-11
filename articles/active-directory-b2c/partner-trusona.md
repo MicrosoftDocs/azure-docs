@@ -37,31 +37,18 @@ There are multiple components, which create the solution.
 
     ![Trusona architecture diagram](media/partner-trusona/trusona-architecture-diagram.png)
 
-1. User requests to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign up and sign in policy. At sign up the user's previously verified email address from the Trusona App is used.
+|      |      |
+|------|------|
+|1     | User requests to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign up and sign in policy. At sign up the user's previously verified email address from the Trusona App is used. |
+| 2     | Azure B2C redirects the user to the Trusona OIDC ID provider using the implicit flow.     |
+| 3     | For Desktop PC based logins, Trusona displays a unique, stateless, animated, and dynamic QR code for scanning with the Trusona app. For mobile based logins, Trusona uses a "deep link" to open the Trusona app. These two methods are used for device and ultimately user discovery, to answer the question "who is knocking on the door?"     |
+| 4     | The user scans the displayed QR code with the Trusona app.     |
+| 5     | The user's account is found in the Trusona cloud service and the authentication is prepared.     |
+| 6     | The Trusona cloud service issues an authentication challenge to the user via a push notification sent to the Trusona app.<br>a. The user is prompted with the authentication challenge.<br>b. The user chooses to accept or reject the challenge.<br>c. The user is asked to use OS security (for example, biometric, passcode, PIN, or pattern) to confirm and sign the challenge with a private key in the Secure Enclave/Trusted Execution environment.<br>d. The Trusona app generates a dynamic anti-replay payload based on the parameters of the authentication, in real-time.<br>e. The entire response is signed (for a second time) by a private key in the Secure Enclave/Trusted Execution environment and returned to the Trusona cloud service for verification.<br>     |
+| 7     | The Trusona cloud service redirects the user back to the initiating application with an id_token. Azure AD B2C verifies the id_token using Trusona's published OpenID configuration as configured during identity provider setup.     |
+|       |      |
 
-2. Azure B2C redirects the user to the Trusona OIDC ID provider using the implicit flow. 
-
-3. For Desktop PC based logins, Trusona displays a unique, stateless, animated, and dynamic QR code for scanning with the Trusona app. For mobile based logins, Trusona uses a "deep link" to open the Trusona app. These two methods are used for device and ultimately user discovery, to answer the question "who is knocking on the door?" 
-
-4. The user scans the displayed QR code with the Trusona app.
-
-5. The user's account is found in the Trusona cloud service and the authentication is prepared. 
-
-6. The Trusona cloud service issues an authentication challenge to the user via a push notification sent to the Trusona app. 
-
-   a. The user is prompted with the authentication challenge.
-
-   b. The user chooses to accept or reject the challenge.
-
-   c. The user is asked to use OS security (for example, biometric, passcode, PIN, or pattern) to confirm and sign the challenge with a private key in the Secure Enclave/Trusted Execution environment.
-
-   d. The Trusona app generates a dynamic anti-replay payload based on the parameters of the authentication, in real-time.
-
-   e. The entire response is signed (for a second time) by a private key in the Secure Enclave/Trusted Execution environment and returned to the Trusona cloud service for verification.
-
-7. The Trusona cloud service redirects the user back to the initiating application with an id_token. Azure AD B2C verifies the id_token using Trusona's published OpenID configuration as configured during identity provider setup.
-
-## Onboarding with Trusona
+## Onboard with Trusona
 
 1. Fill-out the [form](https://www.trusona.com/aadb2c) to create a Trusona account and get started. 
 
@@ -84,9 +71,9 @@ There are multiple components, which create the solution.
 
 9. Follow the instructions mentioned in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). Use the initial domain name (for example, Contoso) referred in the previous section when prompted.  
 
-## Integrating Trusona with Azure AD B2C
+## Integrate Trusona with Azure AD B2C
 
-### Creating an Azure Active Directory B2C tenant
+### Create an Azure Active Directory B2C tenant
 
 > [!NOTE]
 > If you already have a B2C tenant set-up, skip these steps.  
@@ -104,7 +91,7 @@ There are multiple components, which create the solution.
 > [!NOTE]
 > It may take a few minutes for the tenant to be created.
 
-### Adding a new Identity provider
+### Add a new Identity provider
 
 1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**
 
@@ -112,7 +99,7 @@ There are multiple components, which create the solution.
 
 3. Select **Add**
 
-### Configuring an Identity provider  
+### Configure an Identity provider  
 
 1. Select **Identity provider type** > **OpenID Connect (Preview)**
 
@@ -142,7 +129,7 @@ There are multiple components, which create the solution.
 
 6. Select **Ok** to complete the setup for your new OIDC Identity Provider.
 
-### Creating a user flow policy
+### Create a user flow policy
 
 1. You should now see Trusona as a **new OpenID Connect Identity Provider** listed within your B2C Identity Providers.
 
@@ -150,7 +137,7 @@ There are multiple components, which create the solution.
 
 3. Select **Add** > **New user flow** > **Sign up and sign in**
 
-### Configuring the Policy
+### Configure the Policy
 
 1. Name your policy
 
@@ -164,7 +151,7 @@ There are multiple components, which create the solution.
 
 6. Select **OK**.  
 
-### Testing the Policy
+### Test the Policy
 
 1. Select your newly created policy
 
@@ -176,7 +163,7 @@ There are multiple components, which create the solution.
 
 5. After scanning the Secure QR code, you should be redirected to the Reply URL you defined in step 3.
 
-## Additional resources  
+## Next steps  
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 

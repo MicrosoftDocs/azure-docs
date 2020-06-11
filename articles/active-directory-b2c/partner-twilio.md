@@ -36,18 +36,15 @@ There are multiple components which create the solution.
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-
-1. The user requests to sign in or up to the PSD2 Demo app. The user is authenticated via the Azure AD B2C combined sign in and sign up policy. A token is returned to the applications. At sign up, the users phone number is verified using SMS/Phone, and recorded on their Azure AD B2C account.
-
-2. The user requests to make a high risk transaction, such as transfer $50.00. The users current access token is evaluated for the PolicyId to determine if the user has already authenticated via a Step-Up custom policy.
-
-3. The application records the transaction value and payee, $50.00; John Doe, and generates a signed token. This token is called an `id_token_hint` and contains the claim `amount:$500, payee:john doe`. The `id_token_hint` is sent along with the request to the Azure AD B2C custom policy which has integration with Twilio.
-
-4. Azure AD B2C verifies the signature of the id_token_hint by checking the applications `/.well-known` OpenId Connect endpoint. After verifying, it extracts the claims from this token, notably `amount` and `payee`. The user will see a page to verify their mobile phone number via SMS.
-
-5. The user requests to verify their phone number via SMS, and Azure AD B2C makes a REST API request to Twilio's Verify API endpoint. Notably it also sends the transaction `amount` and `payee` as part of the PSD2 process to generate the One-Time-Passcode. Twilio sends an SMS to the users registered phone number.
-
-6. The user enters the One-Time-Passcode received in their SMS, and submits this to Azure AD B2C. Azure AD B2C makes an API request with this OTP to Twilio's verify API to verify the OTP is correct. Finally a token is issued to the application, with a new PolicyId signifying the user has stepped-up their authentication.
+|      |      |
+|------|------|
+| 1     | The user requests to sign in or up to the PSD2 Demo app. The user is authenticated via the Azure AD B2C combined sign in and sign up policy. A token is returned to the applications. At sign up, the users phone number is verified using SMS/Phone, and recorded on their Azure AD B2C account.     |
+| 2     | The user requests to make a high risk transaction, such as transfer $50.00. The users current access token is evaluated for the PolicyId to determine if the user has already authenticated via a Step-Up custom policy.     |
+| 3     | The application records the transaction value and payee, $50.00; John Doe, and generates a signed token. This token is called an `id_token_hint` and contains the claim `amount:$500, payee:john doe`. The `id_token_hint` is sent along with the request to the Azure AD B2C custom policy which has integration with Twilio.     |
+| 4     | Azure AD B2C verifies the signature of the id_token_hint by checking the applications `/.well-known` OpenId Connect endpoint. After verifying, it extracts the claims from this token, notably `amount` and `payee`. The user will see a page to verify their mobile phone number via SMS.     |
+| 5     | The user requests to verify their phone number via SMS, and Azure AD B2C makes a REST API request to Twilio's Verify API endpoint. Notably it also sends the transaction `amount` and `payee` as part of the PSD2 process to generate the One-Time-Passcode. Twilio sends an SMS to the users registered phone number.     |
+| 6     |  The user enters the One-Time-Passcode received in their SMS, and submits this to Azure AD B2C. Azure AD B2C makes an API request with this OTP to Twilio's verify API to verify the OTP is correct. Finally a token is issued to the application, with a new PolicyId signifying the user has stepped-up their authentication.    |
+|      |      |
 
 ## Onboard with Twilio
 
@@ -91,7 +88,9 @@ There are multiple components which create the solution.
 
 7. Find the Twilio REST API technical profiles, **TwilioRestAPI-Verify-Step1** and **TwilioRestAPI-Verify-Step2**, and update the ServiceURL with your Twilio AccountSID.
 
-## Add the policy files to Azure AD B2C 
+## Integrate Twilio with Azure AD B2C
+
+Add the policy files to Azure AD B2C by doing the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as [admin role].
  
@@ -111,7 +110,7 @@ There are multiple components which create the solution.
 1. Browse to your application and test the sign in/up and Send Money action.
 2. 
 
-## Additional resources  
+## Next steps  
 
 - Refer to GitHub for [Twilio integration code samples](https://github.com/azure-ad-b2c/samples/tree/master/policies/twilio-mfa-psd2)  
 

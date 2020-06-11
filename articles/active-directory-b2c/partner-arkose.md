@@ -20,9 +20,11 @@ In this tutorial, learn how to integrate Azure AD B2C authentication with Arkose
 
 ## Scenario description
 
-[screenshot for arkose-arch-dig]
+Arkose architecture diagram
 
-## Onboarding with Arkose
+![Arkose architecture diagram](media/partner-arkose/arkose-architecture-diagram.png)
+
+## Onboard with Arkose
 
 1. Start by contacting [Arkose](https://www.arkoselabs.com/book-a-demo/) and creating an account.
 
@@ -30,9 +32,9 @@ In this tutorial, learn how to integrate Azure AD B2C authentication with Arkose
 
 3. Within the dashboard, navigate to site settings to find your public key and private key. This will be needed later to configure Azure AD B2C
 
-## Configuring Arkose with Azure AD B2C
+## Integrate Arkose with Azure AD B2C
 
-### Part 1 – Creating blob storage to store the custom HTML
+### Part 1 – Create blob storage to store the custom HTML
 
 To create a storage, follow these steps:  
 
@@ -54,13 +56,13 @@ To create a storage, follow these steps:
 
 9. After the storage account is created, select  **Go to resource**.
 
-### Create a container
+#### Create a container
 
 1. On the overview page of the storage account, select  **Blobs**.
 
 2. Select  **Container**, enter a name for the container, choose  **Blob** (anonymous read access for blobs only), and then select **Ok**.
 
-### Enable Cross-origin resource sharing (CORS)
+#### Enable Cross-origin resource sharing (CORS)
 
 Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a user flow. CORS allows restricted resources on a web page to be requested from other domains.
 
@@ -76,13 +78,13 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 6. For  **Max age**, enter 200.
 
-[screenshot for signup-signin Arkose]
+   ![Arkose sign-up and sign-in](media/partner-arkose/signup-signin-arkose.png)
 
 7. Select **Save**
 
-### Part 2 – Setting up back-end server
+### Part 2 – Set up a back-end server
 
-### Pre-requisite
+#### Prerequisites
 
 Download Git Bash and follow the steps below:
 
@@ -104,14 +106,15 @@ Download Git Bash and follow the steps below:
 
 ### Part 3 –  Final setup
 
-### Storing the custom HTML
+#### Store the custom HTML
 
 1. Open the index.html file stored in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C)
 
 2. Replace all instances of <tenantname> with your b2C tenant name (i.e., tenantname.b2clogin.com). There should be 4 instances 
 
 3. Replace <*appname*> with the app name that you created in Part 2 – step 1.
-[Screenshot with Arkose Azure CLI]
+
+   ![Screenshot showing Arkose Azure CLI](media/partner-arkose/arkose-azure-cli.png)
 
 4. Replace *<public_key*> on line 64 with the public key you obtained from Arkose dashboard.
 
@@ -119,7 +122,7 @@ Download Git Bash and follow the steps below:
 
 6. Go to **Storage** > **Container** > **Upload**
 
-## Setting up Azure AD B2C
+#### Set up Azure AD B2C
 
 1. Create a **B2C Directory + subscription** as mentioned [here](https://azure.microsoft.com/services/active-directory/external-identities/b2c/)
 
@@ -129,9 +132,9 @@ Download Git Bash and follow the steps below:
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
 This custom page URL is obtained from the location of the index.html file inside the blob storage  
 
-[screenshot of arkose-blob]
+   ![Screenshot showing Arkose storage url](media/partner-arkose/arkose-storage-url.png)
 
-### Part 4 - Trying a user flow
+## Test the user flow
 
 1. Open the B2C tenant and choose under policies **User flows**.
 
@@ -153,7 +156,7 @@ This custom page URL is obtained from the location of the index.html file inside
 
 7. Arkose puzzle will pop up after you enter **continue**.
 
-## Additional Resources
+## Next steps
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 

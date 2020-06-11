@@ -25,11 +25,11 @@ Our partner network extends our solution capabilities to help you build seamless
 
 | Partner | Azure AD B2C onboarding to  ISV partner  |
 | :--- | :--- |
-| ![logo](./media/partner-gallery/twilio-logo.png) | [Twilio](./partner-twilio.md)|
-| ![logo](./media/partner-gallery/itsme-logo.png) | [Itsme](./partner-itsme.md)||
-| ![logo](./media/partner-gallery/ipification-logo.png) | [IPification](./partner-ipification.md) |
-| ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md)|
-
+| ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose.md) integration helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
+| ![logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with multiple solutions.|
+| ![logo](./media/partner-gallery/itsme-logo.png) | [Itsme](./partner-itsme.md) is a digital ID app that helps you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes|
+| ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you log in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning.|
+| ![logo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) is a sample online payment app that provides dynamic linking and strong customer authentication.|
 ## Additional resources
 
 - [B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/)

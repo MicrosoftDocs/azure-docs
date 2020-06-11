@@ -30,7 +30,7 @@ To get started, you need the following items:
 
 - Your client secret for your itsme account 
 
-## Onboarding with itsme
+## Onboard with itsme
 
 1. To create an account with itsme, visit Itsme at Azure Marketplace.
 
@@ -42,9 +42,9 @@ To get started, you need the following items:
 
 5. Follow instructions available at [itsme](https://business.itsme.be/en) to complete the configuration.
 
-## Configuring itsme OIDC with Azure AD
+## Integrate itsme OIDC with Azure AD B2C
 
-### Setup a new Identity Provider in Azure AD B2C
+### Set up a new Identity Provider in Azure AD B2C
 
 1. Open the B2C tenant and under Manage select **Identity providers**.
 
@@ -101,7 +101,7 @@ Adjust the following values:
 
    b. Select **Save**.
 
-## Trying a user flow 
+## Test the user flow 
 
 1. Open the B2C tenant and under Policies select **User flows**. 
 
@@ -119,7 +119,7 @@ Adjust the following values:
 
 6. Confirm the action in the itsme app.
 
-## Additional Resources
+## Next steps
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 
