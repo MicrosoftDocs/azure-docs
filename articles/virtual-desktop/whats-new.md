@@ -46,12 +46,6 @@ Here's what this change does for you:
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
-### Service metadata storage location
-
-With the Spring 2020 update, Windows Virtual Desktop now lets you select additional US geographies to store your metadata in.
-
-Learn more about data locations at [Data locations](data-locations.md).
-
 ### PowerShell support
 
 We've added new AzWvd cmdlets to the Azure PowerShell Az Module with the Spring 2020 update. This new module is supported in PowerShell Core, which runs on .NET Core.
