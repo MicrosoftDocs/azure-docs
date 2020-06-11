@@ -45,7 +45,7 @@ An NSX-T logical switch segment created in a [previous tutorial]() is required t
 
    ![Verify your Settings, click Finish.](./media/content-library/new-content-library-step4.png)
 
-## Upload an ISO image to the content library
+## Upload ISO image to the content library
 
 Now that the content library has been created, you can add the ISO image to deploy a VM to a private cloud cluster. 
 
