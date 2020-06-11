@@ -20,7 +20,7 @@ ms.author: aschhab
 There are two ways to authenticate and authorize access to Azure Service Bus resources: Azure Activity Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms. 
 
 ## Azure Active Directory
-Azure AD integration for Service Bus resources provides role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use role-based access control (RBAC) to grant permissions to security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Service Bus resource (queue, topic, etc.).
+Azure AD integration for Service Bus resources provides role-based access control (RBAC) for fine-grained control over a client’s access to resources. You can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Service Bus resource (queue, topic, etc.).
 
 For more information about authenticating with Azure AD, see the following articles:
 
