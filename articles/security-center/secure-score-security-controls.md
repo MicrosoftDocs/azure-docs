@@ -55,7 +55,7 @@ Security Center displays your score prominently in the portal: it's the first th
 
 ### Getting your secure score from the REST API
 
-You can access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). For example, you can use the **Secure Score Controls** API to list the security controls and the max score available for your subscriptions. In addition, you can use the **Secure Scores** API to get the score for a specific subscription. The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time.
+You can access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions. In addition, you can use the **Secure Scores** API to get the score for a specific subscription. 
 
 ![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
