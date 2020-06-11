@@ -16,7 +16,7 @@ Azure Machine Learning offers two editions tailored for your machine learning ne
 
 | Basic edition | Enterprise edition                 |
 |------------------------------------------------------------------------------------|-----------|
-|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. |All of Basic <br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
+|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
 
 ## How to choose an edition
 
@@ -28,7 +28,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ### Data for Machine Learning capabilities  
 
-| Data capabilities                     | Edition                 |
+| Capabilities                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Labelling Project Management Portal                                                | All                     |
 | Labeller Portal                                                                    | All                     |
@@ -44,7 +44,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ### Build & train capabilities
 
-| Build & Train Capabilities    | Edition                 |
+| Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Automated Machine Learning - Create and run experiments in notebooks               | All                     |
 | Automated Machine Learning - Create and run experiments in studio web experience   | Enterprise edition only |
@@ -75,7 +75,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ### Deploy & model management capabilities
 
-| Deploy & Model Management Capabilities                            | Edition                 |
+| Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
 | Event Grid integration                                                             | All                     |
@@ -91,7 +91,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 ### Security, governance, and control capabilities
 
-| Security, Governance, and Control Capabilities     | Edition                 |
+| Capabilities     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Role-based Access Control (RBAC) support                                           | All                     |
 | Virtual Network (VNet) support for compute                                         | All                     |
