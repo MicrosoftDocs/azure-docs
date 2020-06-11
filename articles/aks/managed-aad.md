@@ -84,7 +84,7 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 ## Webhook and API server
 
-:::image type="content" source="media/aad-integration/auth_flow.png" alt-text="Webhook and API server authentication flow":::
+:::image type="content" source="media/aad-integration/auth-flow.png" alt-text="Webhook and API server authentication flow":::
 
 As shown in the graphic above, the API server calls the AKS webhook server and performs the following steps:
 
