@@ -299,31 +299,28 @@
       displayName: Platform logs, Resource logs, Activity log
       href: platform/platform-logs-overview.md 
     - name: Activity log
+      href: activity-log.md
+    - name: Resource log
+      href: resource-logs.md
+    - name: Create diagnostic setting
+      displayName: Platform logs, Resource logs, Activity log
+      href: platform/diagnostic-settings.md
       items:
-      - name: View in Azure portal
-        displayName: Platform logs, Activity log
-        href: platform/activity-log-view.md
       - name: Collect and analyze
         displayName: Platform logs, Activity log
         href: platform/activity-log-collect.md
       - name: Export (legacy)
         displayname: Activity log
         href: platform/activity-log-export.md
-    - name: Send to Log Analytics workspace
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-workspace.md
-    - name: Send to Azure storage
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-storage.md
-    - name: Send to Event Hubs
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-stream-event-hubs.md
-    - name: Create diagnostic setting
-      displayName: Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings.md
-    - name: Create diagnostic setting with Resource Manager
-      displayName: diagnostic setting, Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings-template.md
+      - name: Send to Log Analytics workspace
+        displayname: Resource logs, Activity log, Platform logs
+        href: platform/resource-logs-collect-workspace.md
+      - name: Send to Azure storage
+        displayname: Resource logs, Activity log, Platform logs
+        href: platform/resource-logs-collect-storage.md
+      - name: Send to Event Hubs
+        displayname: Resource logs, Activity log, Platform logs
+        href: platform/resource-logs-stream-event-hubs.md
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
@@ -1183,12 +1180,12 @@
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
+    - name: Activity log schema
+      href: platform/activity-log-schema.md
     - name: Supported resource log types and categories
       href: platform/resource-logs-categories.md
     - name: Resource log schemas
       href: platform/resource-logs-schema.md
-    - name: Activity log schema
-      href: platform/activity-log-schema.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension

@@ -10,28 +10,16 @@ ms.author: bwren
 ms.subservice: logs
 ---
 
-# Collect Azure platform logs in Log Analytics workspace in Azure Monitor
+# Azure resource logs
 [Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
 
 
-## What you can do with platform logs in a workspace
-Collecting platform logs into a Log Analytics workspace allows you to analyze the logs of all your Azure resources together and to take advantage of all the features available to [Azure Monitor Logs](data-platform-logs.md) which includes the following:
-
-* **Log queries** - Create [log queries](../log-query/log-query-overview.md) using a powerful query language to quickly analyze and gain insights into your diagnostic data, and to analyze it with data collected from other sources in Azure Monitor.
-* **Alerting** - Get proactive notification of critical conditions and patterns identified in your resource logs using [log alerts in Azure Monitor](alerts-log.md).
-* **Visualizations** - Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report.
-
-## Prerequisites
-You need to [create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
-
-## Create a diagnostic setting
+## Diagnostic settings
 Send platform logs to a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
 
 
-## Activity log collection
-You can send the Activity log from any single subscription to up to five Log Analytics workspaces. Resource log data collected in a Log Analytics workspace is stored in the **AzureActivity** table. 
 
-## Resource log collection mode
+## Log Analytics workspaces
 Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
@@ -115,6 +103,109 @@ If you're collecting resource logs from multiple services, _AzureDiagnostics_ ma
 Azure Data Factory, because of a very detailed set of logs, is a service that is known to write a large number of columns and potentially cause _AzureDiagnostics_ to exceed its limit. For any diagnostic settings configured before the resource-specific mode was enabled there will be a new column created for every uniquely-named user parameter against any activity. More columns will be created because of the verbose nature of activity inputs and outputs.
  
 You should migrate your logs to use the resource-specific mode as soon as possible. If you are unable to do so immediately, an interim alternative is to isolate Azure Data Factory logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces.
+
+
+## Event hub
+latform logs from event hubs are consumed in JSON format with the elements in the following table.
+
+| Element Name | Description |
+| --- | --- |
+| records |An array of all log events in this payload. |
+| time |Time at which the event occurred. |
+| category |Log category for this event. |
+| resourceId |Resource ID of the resource that generated this event. |
+| operationName |Name of the operation. |
+| level |Optional. Indicates the log event level. |
+| properties |Properties of the event. These will vary for each Azure service as described in [](). |
+
+
+Following is sample output data from Event Hubs for a resource log:
+
+```json
+{
+    "records": [
+        {
+            "time": "2016-07-15T18:00:22.6235064Z",
+            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
+            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330013509921957/ACTIONS/SEND_EMAIL",
+            "category": "WorkflowRuntime",
+            "level": "Error",
+            "operationName": "Microsoft.Logic/workflows/workflowActionCompleted",
+            "properties": {
+                "$schema": "2016-04-01-preview",
+                "startTime": "2016-07-15T17:58:55.048482Z",
+                "endTime": "2016-07-15T18:00:22.4109204Z",
+                "status": "Failed",
+                "code": "BadGateway",
+                "resource": {
+                    "subscriptionId": "df602c9c-7aa0-407d-a6fb-eb20c8bd1192",
+                    "resourceGroupName": "JohnKemTest",
+                    "workflowId": "243aac67fe904cf195d4a28297803785",
+                    "workflowName": "JohnKemTestLA",
+                    "runId": "08587330013509921957",
+                    "location": "westus",
+                    "actionName": "Send_email"
+                },
+                "correlation": {
+                    "actionTrackingId": "29a9862f-969b-4c70-90c4-dfbdc814e413",
+                    "clientTrackingId": "08587330013509921958"
+                }
+            }
+        },
+        {
+            "time": "2016-07-15T18:01:15.7532989Z",
+            "workflowId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA",
+            "resourceId": "/SUBSCRIPTIONS/DF602C9C-7AA0-407D-A6FB-EB20C8BD1192/RESOURCEGROUPS/JOHNKEMTEST/PROVIDERS/MICROSOFT.LOGIC/WORKFLOWS/JOHNKEMTESTLA/RUNS/08587330012106702630/ACTIONS/SEND_EMAIL",
+            "category": "WorkflowRuntime",
+            "level": "Information",
+            "operationName": "Microsoft.Logic/workflows/workflowActionStarted",
+            "properties": {
+                "$schema": "2016-04-01-preview",
+                "startTime": "2016-07-15T18:01:15.5828115Z",
+                "status": "Running",
+                "resource": {
+                    "subscriptionId": "df602c9c-7aa0-407d-a6fb-eb20c8bd1192",
+                    "resourceGroupName": "JohnKemTest",
+                    "workflowId": "243aac67fe904cf195d4a28297803785",
+                    "workflowName": "JohnKemTestLA",
+                    "runId": "08587330012106702630",
+                    "location": "westus",
+                    "actionName": "Send_email"
+                },
+                "correlation": {
+                    "actionTrackingId": "042fb72c-7bd4-439e-89eb-3cf4409d429e",
+                    "clientTrackingId": "08587330012106702632"
+                }
+            }
+        }
+    ]
+}
+```
+
+## Azure storage
+
+Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
+
+```
+insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+
+For example, the blob for a network security group might have a name similar to the following:
+
+```
+insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
+
+Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since resource log events are broken into individual blobs per hour.
+
+Within the PT1H.json file, each event is stored with the following format. This will use a common top level schema but be unique for each Azure services as described in [Resource logs schema](diagnostic-logs-schema.md) and [Activity log schema](activity-log-schema.md).
+
+``` JSON
+{"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}
+```
+
+> [!NOTE]
+> Platform logs are written to blob storage using [JSON lines](http://jsonlines.org/), where each event is a line and the newline character indicates a new event. This format was implemented in November 2018. Prior to this date, logs were written to blob storage as a json array of records as described in [Prepare for format change to Azure Monitor platform logs archived to a storage account](resource-logs-blob-format.md).
 
 
 ## Next steps

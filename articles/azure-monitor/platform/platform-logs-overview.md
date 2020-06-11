@@ -39,11 +39,19 @@ There are different options for viewing and analyzing the different Azure platfo
 ## Destinations
 You can send platform logs to one or more of the destinations in the following table depending on your monitoring requirements. Configure destinations for platform logs by [creating a Diagnostic setting](diagnostic-settings.md).
 
-| Destination | Scenario | References |
-|:---|:---|:---|:---|
-| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Activity log and Resource logs](resource-logs-collect-workspace.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure storage | Archive the logs for audit, static analysis, or backup. |[Activity log and Resource logs](archive-diagnostic-logs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Activity log and Resource logs](resource-logs-stream-event-hubs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+
+
+| Destination | Scenarios 
+|:---|:---|:---|
+| Log Analytics workspace | - Collecting platform logs into a Log Analytics workspace allows you to analyze the logs of all your Azure resources together and to take advantage of all the features available to [Azure Monitor Logs](data-platform-logs.md) which includes the following:<br> - Create [log queries](../log-query/log-query-overview.md) to analyze and gain insights into your diagnostic data, and to analyze it with data collected from other sources in Azure Monitor.<br>- Use [log alerts](alerts-log.md) to get proactive notification of critical conditions and patterns identified in your resource logs.<br>- Pin the results of a log query to an Azure dashboard or include it in a workbook as part of an interactive report. |  |
+| Event hub | - Stream all of your platform logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.<br>- Ingest platform logs into a custom telemetry platform.
+| Azure storage | - Archive the logs for audit, static analysis, or backup. |
+
+
+
+[Azure Active Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+[Azure Active Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
+[Azure Active Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
 
 
 
@@ -51,3 +59,12 @@ You can send platform logs to one or more of the destinations in the following t
 
 * [View the Activity log schema for different categories](activity-log-schema.md)
 * [View the resource log schema for different Azure services](diagnostic-logs-schema.md)
+
+
+## Remove section
+
+| Destination | Scenarios | References |
+|:---|:---|:---|:---|
+| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Activity log and Resource logs](resource-logs-collect-workspace.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure storage | Archive the logs for audit, static analysis, or backup. |[Activity log and Resource logs](archive-diagnostic-logs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Activity log and Resource logs](resource-logs-stream-event-hubs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
