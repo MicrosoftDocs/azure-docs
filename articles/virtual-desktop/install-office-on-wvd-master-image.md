@@ -12,7 +12,7 @@ manager: lizross
 ---
 # Install Office on a master VHD image
 
-This article tells you how to install Microsoft 365 Apps, OneDrive, and other common applications on a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
+This article tells you how to install Microsoft 365 Apps for enterprise, OneDrive, and other common applications on a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
 
 This article assumes you've already created a virtual machine (VM). If not, see [Prepare and customize a master VHD image](set-up-customize-master-image.md#create-a-vm)
 
@@ -23,12 +23,12 @@ This article also assumes you have elevated access on the VM, whether it's provi
 
 ## Install Office in shared computer activation mode
 
-Shared computer activation lets you to deploy Microsoft 365 Apps to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Microsoft 365 Apps](/deployoffice/overview-shared-computer-activation).
+Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Microsoft 365 Apps](/deployoffice/overview-shared-computer-activation).
 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
 
-   - Microsoft 365 Apps for Enterprise
-   - Microsoft 365 Apps for Business that comes with a Microsoft 365 Business subscription
+   - Microsoft 365 Apps for enterprise
+   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business subscription
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 

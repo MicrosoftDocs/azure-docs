@@ -17,7 +17,7 @@ Windows Virtual Desktop is a desktop and app virtualization service that runs on
 Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
-* Virtualize Microsoft 365 Apps and optimize it to run in multi-user virtual scenarios
+* Virtualize Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios
 * Provide Windows 7 virtual desktops with free Extended Security Updates
 * Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 * Virtualize both desktops and apps
