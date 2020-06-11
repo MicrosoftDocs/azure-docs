@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 06/11/2020
 ms.author: allensu
 ---
 # Tutorial: Create a NAT gateway using Azure PowerShell and test the NAT service
@@ -110,7 +110,7 @@ $subnetsource =
 New-AzVirtualNetworkSubnetConfig -Name $sbn -AddressPrefix $spfx -NatGateway $natGateway
 
 $vnetsource = 
-New-AzVirtualNetwork -Name $vnm -ResourceGroupName $rsg -AddressPrefix $vpfx -Subnet $subnet
+New-AzVirtualNetwork -Name $vnm -ResourceGroupName $rsg -AddressPrefix $vpfx -Subnet $subnetsource
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
