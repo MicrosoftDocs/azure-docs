@@ -511,58 +511,70 @@ This page also includes links to help you work with the offer, depending on its 
 
 Here's an example of how offer information appears in Azure Marketplace:
 
-:::image type="content" source="media/avm-create1.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Large logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Price
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Categories
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Terms and conditions
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Privacy policy address (link)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Description
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Useful links
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Screenshots/videos
+#### Call-out descriptions
+
+1. Large logo
+2. Price
+3. Categories
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Offer name
+7. Description
+8. Useful links
+9. Screenshots/videos
 
 <br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-:::image type="content" source="media/avm-create2.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Trial
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
+4. Trial
 
 <br>Here's an example of Azure Marketplace plan details:
 
-:::image type="content" source="media/avm-create3.png" alt-text="Illustrates Azure Marketplace plan details.":::
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name and summary
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Recommend VM sizes
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan pricing
+#### Call-out descriptions
+
+1. Plan name and summary
+2. Recommend VM sizes
+3. Plan pricing
 
 <br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots/videos
+#### Call-out descriptions
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots/videos
 
 <br>Here's an example of how offer information appears in the Azure portal search results:
 
-:::image type="content" source="media/avm-create5.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
 
 <br>Here's an example of the Azure portal plan details:
 
-:::image type="content" source="media/avm-create6.png" alt-text="Illustrates the Azure portal plan details.":::
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan description
+#### Call-out descriptions
+
+1. Plan name
+2. Plan description
 
 ## Next step
 

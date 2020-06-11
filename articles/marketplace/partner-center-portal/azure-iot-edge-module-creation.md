@@ -160,7 +160,7 @@ Enter the web address of your organization's privacy policy. You're responsible 
 Provide supplemental online documents about your offer. You can add up to 25 links. To add a link, select **+ Add a link** and then complete the following fields:
 
 - **Title** - Customers will see the title on your offer's details page.
-- **Link (URL)** - Enter a link for customers to view your online document. The link must start with http:// or https://.
+- **Link (URL)** - Enter a link for customers to view your online document. The link must start with `http://` or `https://`.
 
 Make sure to add at least one link to your documentation and one link to the compatible IoT Edge devices from the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/).
 
@@ -182,14 +182,14 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 ### Marketplace images
 
-Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
+Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide .png files of your offer's logo in each of the following four pixel sizes:
+Provide PNG files of your offer's logo in each of the following four pixel sizes:
 
 - **Small (48 x 48)**
 - **Medium (90 x 90)**
@@ -200,53 +200,61 @@ All four logos are required and are used in different places in the marketplace 
 
 #### Screenshots (optional)
 
-Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in .png format.
+Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in PNG format.
 
 #### Videos (optional)
 
-Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail .png image of the video at 1280 x 720 pixels in size.
+Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
 #### Marketplace  examples
 
 Here's an example of how offer information appears in Azure Marketplace:
 
-:::image type="content" source="media/example-iot-1.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Large logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Categories
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Support address (link)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Terms and conditions
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">5.</font>** Privacy policy address (link)
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">6.</font>** Name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">7.</font>** Summary
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Useful links
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Screenshots/videos
+#### Call-out descriptions
+
+1. Large logo
+2. Categories
+3. Support address (link)
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Name
+7. Summary
+8. Description
+9. Useful links
+10. Screenshots/videos
 
 <br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-:::image type="content" source="media/example-iot-2.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
 
 <br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-iot-3.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots
+#### Call-out descriptions
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots
 
 <br>Here's an example of how offer information appears in the Azure portal search results:
 
-:::image type="content" source="media/example-iot-4.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
 
 <br>Select **Save draft** before proceeding to the next section, Preview.
 
@@ -342,19 +350,23 @@ Select **Save draft** after completing these fields.
 
 Here's an example of Azure Marketplace plan details:
 
-:::image type="content" source="media/example-iot-5.png" alt-text="Illustrates Azure Marketplace plan details.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan description
+#### Call-out descriptions
+
+1. Offer name
+2. Plan name
+3. Plan description
 
 <br>Here's an example of the Azure portal plan details:
 
-:::image type="content" source="media/example-iot-6.png" alt-text="Illustrates the Azure portal plan details.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Offer name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan description
+#### Call-out descriptions
+
+1. Offer name
+2. Plan name
+3. Plan description
 
 ## Availability
 
@@ -389,17 +401,21 @@ You'll provide the following information on the **Image repository details** tab
 
 **Admin username for the Azure Container Registry**: Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
-:::image type="content" source="media/example-iot-7.png" alt-text="Illustrates the Update container registry dialog box.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustrates the Update container registry dialog box.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Admin user
+#### Call-out description
 
-**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+1. Admin user
 
-:::image type="content" source="media/example-iot-8.png" alt-text="Illustrates the access key screen in the Azure portal.":::
+<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Access keys
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Username
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Password
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Access keys
+2. Username
+3. Password
 
 **Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
 
