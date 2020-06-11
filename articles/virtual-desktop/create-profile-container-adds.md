@@ -11,7 +11,7 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Create an FSLogix profile container with Azure Files
+# Create a profile container with Azure Files and Azure AD DS
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
@@ -215,7 +215,7 @@ Now all you have to do is make sure the profile you created exists and works as 
 
 To verify your profile:
 
-1. Open a browser and go to [the Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Open a browser and go to [the Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Sign in with the user account assigned to the Remote Desktop group.
 

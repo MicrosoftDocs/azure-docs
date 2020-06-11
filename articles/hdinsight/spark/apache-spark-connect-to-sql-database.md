@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ---
 
@@ -18,13 +18,13 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 * Azure HDInsight Spark cluster.  Follow the instructions at [Create an Apache Spark cluster in HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* Azure SQL Database. Follow the instructions at [Create an Azure SQL Database](../../sql-database/sql-database-get-started-portal.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you've created your Azure SQL Database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
+* Azure SQL Database. Follow the instructions at [Create an Azure SQL Database](../../azure-sql/database/single-database-create-quickstart.md). Make sure you create a database with the sample **AdventureWorksLT** schema and data. Also, make sure you create a server-level firewall rule to allow your client's IP address to access the SQL database on the server. The instructions to add the firewall rule is available in the same article. Once you've created your Azure SQL Database, make sure you keep the following values handy. You need them to connect to the database from a Spark cluster.
 
     * Server name hosting the Azure SQL Database.
     * Azure SQL Database name.
     * Azure SQL Database admin user name / password.
 
-* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](../../sql-database/sql-database-connect-query-ssms.md).
+* SQL Server Management Studio (SSMS). Follow the instructions at [Use SSMS to connect and query data](../../azure-sql/database/connect-query-ssms.md).
 
 ## Create a Jupyter Notebook
 

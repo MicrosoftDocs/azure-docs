@@ -6,7 +6,8 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.custom: seoapr2020
+ms.date: 04/27/2020
 ---
 
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
@@ -226,7 +227,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
+2. Edit the code below to replace `<serverName>` with your [logical SQL server](../azure-sql/database/logical-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -295,9 +296,9 @@ The job definition describes where to find the workflow.xml. It also describes w
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
-    |serverName| Azure SQL database server name.|
-    |sqlLogin| Azure SQL database server login.|
-    |sqlPassword| Azure SQL database server login password.|
+    |serverName| Azure SQL Database server name.|
+    |sqlLogin| Azure SQL Database server login.|
+    |sqlPassword| Azure SQL Database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -443,7 +444,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
+6. Edit the code below to replace `<serverName>` with your server name, and `<sqlLogin>` with the server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -638,67 +639,6 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
     ![OOzie web console job info tab](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## Troubleshooting
-
-With the Oozie UI, you can view Oozie logs. The Oozie UI also contains links to the JobTracker logs for the MapReduce tasks that were started by the workflow. The pattern for troubleshooting should be:
-
-   1. View the job in Oozie web UI.
-
-   2. If there's an error or failure for a specific action, select the action to see if the **Error Message** field provides more information on the failure.
-
-   3. If available, use the URL from the action to view more details, such as the JobTracker logs, for the action.
-
-The following are specific errors you might come across and how to resolve them.
-
-### JA009: Can't initialize cluster
-
-**Symptoms**: The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. Selecting the action displays the following error message:
-
-    JA009: Cannot initialize Cluster. Please check your configuration for map
-
-**Cause**: The Azure Blob storage addresses used in the **job.xml** file doesn't contain the storage container or storage account name. The Blob storage address format must be `wasbs://containername@storageaccountname.blob.core.windows.net`.
-
-**Resolution**: Change the Blob storage addresses that the job uses.
-
-### JA002: Oozie isn't allowed to impersonate &lt;USER&gt;
-
-**Symptoms**: The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. If you select the action, it shows the following error message:
-
-    JA002: User: oozie is not allowed to impersonate <USER>
-
-**Cause**: The current permission settings don't allow Oozie to impersonate the specified user account.
-
-**Resolution**: Oozie can impersonate users in the **`users`** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user isn't a member of the **`users`** group, use the following command to add the user to the group:
-
-    sudo adduser USERNAME users
-
-> [!NOTE]  
-> It can take several minutes before HDInsight recognizes that the user has been added to the group.
-
-### Launcher ERROR (Sqoop)
-
-**Symptoms**: The job status changes to **KILLED**. Details for the job show the `RunSqoopExport` status as **ERROR**. If you select the action, it shows the following error message:
-
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
-
-**Cause**: Sqoop is unable to load the database driver required to access the database.
-
-**Resolution**: When you use Sqoop from an Oozie job, you must include the database driver with the other resources, such as the workflow.xml, the job uses. Also, reference the archive that contains the database driver from the `<sqoop>...</sqoop>` section of the workflow.xml.
-
-For example, for the job in this document, you would use the following steps:
-
-1. Copy the `mssql-jdbc-7.0.0.jre8.jar` file to the **/tutorials/useoozie** directory:
-
-    ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
-    ```
-
-2. Modify the `workflow.xml` to add the following XML on a new line above `</sqoop>`:
-
-    ```xml
-    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
-    ```
-
 ## Next steps
 
 In this article, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
@@ -706,3 +646,4 @@ In this article, you learned how to define an Oozie workflow and how to run an O
 * [Upload data for Apache Hadoop jobs in HDInsight](hdinsight-upload-data.md)
 * [Use Apache Sqoop with Apache Hadoop in HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
 * [Use Apache Hive with Apache Hadoop on HDInsight](hadoop/hdinsight-use-hive.md)
+* [Troubleshoot Apache Oozie](./troubleshoot-oozie.md)

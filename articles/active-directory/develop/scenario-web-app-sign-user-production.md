@@ -39,6 +39,8 @@ Make sure you understand possible issues with new versions of the Chrome browser
 > [!div class="nextstepaction"]
 > [How to handle SameSite cookie changes in Chrome browser](howto-handle-samesite-cookie-changes-chrome-browser.md)
 
+The Microsoft.Identity.Web NuGet package handles the most common SameSite issues.
+
 ### Scenario for calling web APIs
 
 After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:

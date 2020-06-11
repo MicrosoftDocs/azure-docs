@@ -2,7 +2,7 @@
 title: Support for physical server assessment in Azure Migrate
 description: Learn about support for physical server assessment with Azure Migrate Server Assessment
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ---
 
 # Support matrix for physical server assessment 
@@ -29,16 +29,18 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** You need a local or domain user account on all the Windows servers you want to discover. The user account should be added to these groups: Remote Desktop Users, Performance Monitor Users, and Performance Log users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure, except for Windows Server 2003, and SUSE Linux.|
+| **Permissions**           | **Windows:** You need to be a domain admin, or local admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Operating system** | All operating systems can be assessed for migration. |
 
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. You set the appliance up using a PowerShell script that you download from the Azure portal.
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. The appliance for physical servers can run on a VM or a physical machine. 
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---physical) for physical servers.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
+- You set the appliance up using a [PowerShell script](how-to-set-up-appliance-physical.md) that you download from the Azure portal.
+In Azure Government, deploy the appliance [using this script](deploy-appliance-script-government.md).
 
 ## Port access
 
@@ -47,7 +49,7 @@ The following table summarizes port requirements for assessment.
 **Device** | **Connection**
 --- | ---
 **Appliance** | Inbound connections on TCP port 3389, to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368, to remotely access the appliance management app using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
-**Physical servers** | **Windows:** Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (UDP), to pull configuration and performance metadata from Linux servers. |
+**Physical servers** | **Windows:** Inbound connections on WinRM ports 5985 (HTTP) and 5986 (HTTPS), to pull configuration and performance metadata from Windows servers. <br/><br/> **Linux:**  Inbound connections on port 22 (TCP), to pull configuration and performance metadata from Linux servers. |
 
 ## Agent-based dependency analysis requirements
 

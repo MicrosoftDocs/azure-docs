@@ -6,8 +6,9 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
@@ -16,7 +17,7 @@ You can enable Azure Arc for servers (preview) for one or a small number of Wind
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
+Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +37,7 @@ The script to automate the download and installation, and to establish the conne
     >Azure Arc for servers (preview) supports only the following regions:
     >- WestUS2
     >- WestEurope
-    >- WestAsia
+    >- SoutheastAsia
     >
     >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
 
@@ -52,7 +53,7 @@ The script to automate the download and installation, and to establish the conne
 
 ### Install manually
 
-You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. 
+You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. You can download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center. 
 
 > [!NOTE]
 > * To install or uninstall the agent, you must have *Administrator* permissions.
@@ -68,13 +69,13 @@ For example, run the installation program with the `/?` parameter to review the 
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-To install the agent silently and create a setup log file in the `C:\Support\Logs` folder, run the following command.
+To install the agent silently and create a setup log file in the `C:\Support\Logs` folder that exist, run the following command.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-Files for the Connected Machine agent are installed by default in *C:\Program Files\AzureConnectedMachineAgent*. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Install with the scripted method
 
@@ -83,6 +84,8 @@ Files for the Connected Machine agent are installed by default in *C:\Program Fi
 1. Open an elevated PowerShell command prompt.
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Configure the agent proxy setting
 
@@ -104,7 +107,7 @@ Restart-Service -Name himds
 
 After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Install and validate the agent on Linux
 
@@ -141,7 +144,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Verify the connection with Azure Arc
 

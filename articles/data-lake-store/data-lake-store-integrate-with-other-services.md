@@ -1,15 +1,9 @@
 ---
-title: Integrating Azure Data Lake Storage Gen1 with other Azure Services | Microsoft Docs
-description: Understand how Azure Data Lake Storage Gen1 integrates with other Azure services
-documentationcenter: ''
-services: data-lake-store
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Integrate Data Lake Storage Gen1 with other Azure services
+description: Understand how you can integrate Azure Data Lake Storage Gen1 with other Azure services.
 
-ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley

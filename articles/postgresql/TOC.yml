@@ -15,6 +15,9 @@
       href: quickstart-create-server-database-azure-cli.md
     - name: Create DB - Azure CLI up command
       href: quickstart-create-server-up-azure-cli.md
+    - name: Create DB - ARM template
+      href: quickstart-create-postgresql-server-database-using-arm-template.md
+      displayName: deploy azure resource manager template
     - name: Connect & query
       items:
       - name: Python
@@ -60,6 +63,9 @@
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Single server
@@ -167,6 +173,10 @@
         href: concepts-hyperscale-firewall-rules.md
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
+    - name: Business continuity
+      items:
+      - name: Backup and restore
+        href: concepts-hyperscale-backup.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -193,6 +203,8 @@
           href: howto-create-users.md
         - name: Configure Azure AD integration
           href: howto-configure-sign-in-aad-authentication.md
+        - name: Connect with Managed Identity
+          href: howto-connect-with-managed-identity.md
     - name: Optimize
       items: 
         - name: Bulk inserts
@@ -223,6 +235,10 @@
         href: howto-migrate-using-export-and-import.md
       - name: Minimal-downtime migration
         href: howto-migrate-online.md
+    - name: Connect applications
+      items:
+      - name: Configure TLS
+        href: howto-tls-configurations.md
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -273,6 +289,8 @@
         href: howto-data-encryption-portal.md
       - name: Azure CLI
         href: howto-data-encryption-cli.md
+      - name: Data encryption validation
+        href: howto-data-encryption-validation.md  
     - name: Restart server
       items:
       - name: Azure portal
@@ -327,8 +345,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/postgresql/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-database-postgresql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
   - name: Videos

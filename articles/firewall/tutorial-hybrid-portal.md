@@ -126,18 +126,6 @@ Now create a second subnet for the gateway.
 4. For **Address range (CIDR block)** type **192.168.2.0/24**.
 5. Select **OK**.
 
-### Create a public IP address
-
-This is the public IP address used for the on-premises gateway.
-
-1. From the Azure portal home page, select **Create a resource**.
-2. In the search text box, type **public IP address** and press **Enter**.
-3. Select **Public IP address** and then select **Create**.
-4. For the name, type **VNet-Onprem-GW-pip**.
-5. For the resource group, type **FW-Hybrid-Test**.
-6. For **Location**, select the same location that you used previously.
-7. Accept the other defaults, and then select **Create**.
-
 ## Configure and deploy the firewall
 
 Now deploy the firewall into the firewall hub virtual network.

@@ -1,6 +1,6 @@
 ---
-title: Cloud Solution Providers | Azure Marketplace
-description: Publishers can now sell their offers through Microsoft Cloud Solution Provider (CSP) partner channel.
+title: Cloud Solution Provider - Microsoft commercial marketplace
+description: Learn how to sell your offers through the Microsoft Cloud Solution Provider (CSP) program partner channel in the commercial marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,11 +9,11 @@ ms.date: 04/16/2020
 ms.author: dsindona
 ---
 
-# Cloud Solution Providers
+# Cloud Solution Provider program
 
-Software offers can reach millions of qualified Microsoft customers served by partners in the Cloud Solution Provider (CSP) program, in addition to public availability of offers through [Microsoft web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+This article explains how to configure your offer to be available to the Cloud Solution Provider (CSP) program. In addition to publishing your offers through [commercial marketplace web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace), you can also sell through the CSP program to reach millions of qualified Microsoft customers that the program serves.
 
-Publishers configure offers for availability in the CSP program on an opt-in basis, for a new offer or an existing one, enabling partners to sell your products and create bundled solutions for customers.
+You can configure new or existing offers for availability in the CSP program on an opt-in basis, which allows CSP partners sell your products and create bundled solutions for customers.
 
 Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for partners in the CSP program and/or customers to contact you for support. It is a best practice to provide partners in the CSP program with user documentation, training, and service health/outage notifications (as applicable) so that partners in the CSP program are equipped to handle tier 1 support requests from customers.  
 
@@ -61,7 +61,7 @@ To authorize partners, click **Select CSP Partners** and a menu appears that let
 
 You can apply search filters, such as **Country**, **Competency**, or **Skill**.
 
-![Country, competency, and skill filters for partner search](media/marketplace-publishers-guide/csp-add-resellers.png)
+![Country/region, competency, and skill filters for partner search](media/marketplace-publishers-guide/csp-add-resellers.png)
 
 Once you've chosen the list of partners, select **Add**.
 

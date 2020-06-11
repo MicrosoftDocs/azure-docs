@@ -22,7 +22,7 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: Deploy javascript application
+  - name: Deploy JavaScript application
     expanded: false
     items:
     - name: 1. Initial setup and FHIR deployment
@@ -57,7 +57,11 @@
     expanded: false
     items:
     - name: Configure additional Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md 
+      href: azure-api-for-fhir-additional-settings.md
+    - name: Configure Azure RBAC
+      href: configure-azure-rbac.md
+    - name: Configure Local RBAC
+      href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
     - name: Configure CORS
@@ -87,3 +91,7 @@
     href: fhir-features-supported.md
   - name: Partner ecosystem
     href: partner-ecosystem.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/healthcareapis/healthcareapis

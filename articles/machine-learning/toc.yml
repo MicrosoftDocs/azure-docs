@@ -56,12 +56,10 @@
             - name: Auto-train an ML model
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
-        - name: Machine Learning pipelines (advanced)
-          items: 
-            - name: Batch score a classification model
-              displayName: pipelines
-              href: tutorial-pipeline-batch-scoring-classification.md
-        - name: Go from experiment to production
+        - name: Batch score models with pipelines
+          displayName: pipelines
+          href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
     - name: R SDK
@@ -69,7 +67,12 @@
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items: 
+        - name: Train & deploy with CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Create workspaces with ARM template
+          displayName: Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
@@ -81,59 +84,66 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
-    - name: Designer datasets
-      href: sample-designer-datasets.md
-    - name: Designer sample pipelines
+    - name: 'Designer examples & datasets'
+      displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
     - name: Open Datasets (public)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
+    - name: Plan and manage costs
+      href: concept-plan-manage-cost.md
+    - name: Designer (drag-n-drop ML)
+      items:
+      - name: Designer overview 
+        displayName: studio
+        href: concept-designer.md
+      - name: Algorithm cheat sheet
+        href: /azure/machine-learning/algorithm-cheat-sheet
+      - name: How to select algorithms
+        href: /azure/machine-learning/how-to-select-algorithms
+    - name: Automated ML
+      items:
+      - name: Automated ML overview
+        displayName: automl, auto ml
+        href: concept-automated-ml.md
+      - name: Overfitting & imbalanced data
+        displayName: automl, auto ml, risks
+        href: concept-manage-ml-pitfalls.md
     - name: Workspace
       href: concept-workspace.md
     - name: Environments
       href: concept-environments.md
-    - name: Data ingestion
-      href: concept-data-ingestion.md
-    - name: Data access
-      href: concept-data.md
+    - name: Compute instance
+      displayName: resource, dsvm, Data Science Virtual Machine
+      href: concept-compute-instance.md
+    - name: Compute target
+      displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+      href: concept-compute-target.md      
+    - name: Data
+      items:
+      - name: Data access
+        href: concept-data.md
+      - name: Data ingestion
+        href: concept-data-ingestion.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Distributed training
       displayName: parallellization, deep learning, deep neural network, dnn
       href: concept-distributed-training.md
+    - name: Deep learning
+      displayName: deep learning vs machine learning, deep learning, vs, versus
+      href: concept-deep-learning-vs-machine-learning.md
     - name: Model management (MLOps)
       displayName: deploy, deployment, publish, production, operationalize, operationalization
       href: concept-model-management-and-deployment.md
-    - name: Interpretability
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
-    - name: "Designer: no-code ML"
-      displayName: studio
-      href: concept-designer.md
-    - name: Algorithm cheat sheet
-      href: /azure/machine-learning/algorithm-cheat-sheet
-    - name: How to select algorithms
-      href: /azure/machine-learning/how-to-select-algorithms
-    - name: Automated ML
-      displayName: automl, auto ml
-      href: concept-automated-ml.md
-    - name: Overfitting & imbalanced data
-      displayName: automl, auto ml, risks
-      href: concept-manage-ml-pitfalls.md
-    - name: Compute instance
-      displayName: resource, dsvm, Data Science Virtual Machine
-      href: concept-compute-instance.md
-    - name: Compute target
-      displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-      href: concept-compute-target.md
+    - name: Model portability (ONNX)
+      href: concept-onnx.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: ONNX
-      href: concept-onnx.md
     - name: Enterprise readiness & security
       items: 
         - name: Enterprise security
@@ -156,16 +166,27 @@
               href: how-to-use-azure-ad-identity.md
             - name: Regenerate storage access keys
               href: how-to-change-storage-access-key.md
+            - name: Use Azure Firewall
+              href: how-to-access-azureml-behind-firewall.md
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
-    - name: Event grid integration
-      href: concept-event-grid-integration.md
-    - name: Deep learning
-      displayName: deep learning vs machine learning, deep learning, vs, versus
-      href: concept-deep-learning-vs-machine-learning.md
+    - name: Responsible ML
+      items:
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -184,6 +205,8 @@
     - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
+    - name: Run Jupyter Notebooks
+      href: how-to-run-jupyter-notebooks.md
     - name: Set up software environments
       displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
@@ -242,6 +265,9 @@
       - name: Version & track datasets
         displayName: data, data set
         href: how-to-version-track-datasets.md
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: how-to-differential-privacy.md
   - name: Train models
     items:
     - name: Use estimators for ML
@@ -265,14 +291,16 @@
       href: how-to-train-keras.md
     - name: PyTorch
       href: how-to-train-pytorch.md
-  - name: Explain models
+    - name: Reinforcement learning
+      href: how-to-use-reinforcement-learning.md
+  - name: 'Interpret & explain models'
     displayName: interpretability
     items:
-    - name: Explain ML models
-      displayName: SDK, interpret
+    - name: Interpret ML models
+      displayName: SDK, interpret, explain, explanability, interpretability
       href: how-to-machine-learning-interpretability-aml.md
     - name: Explain automated ML models
-      displayName: SDK, interpret, automl
+      displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
       href: how-to-machine-learning-interpretability-automl.md
   - name: Automate machine learning
     displayName: automl, auto ml
@@ -286,11 +314,17 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Define ML tasks
-      displayName: machine learning, task type
+      displayName: machine learning, task type, automl
       href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Featurization in automated ML (Python)
+      displayName: automl, feature engineering, feature importance
+      href: how-to-configure-auto-features.md
+    - name: Use automated ML in ML pipelines (Python)
+      displayName: machine learning automl 
+      href: how-to-use-automlstep-in-pipelines.md
     - name: Understand charts and metrics
       href: how-to-understand-automated-ml.md
   - name: Track & monitor experiments
@@ -330,7 +364,7 @@
             displayName: functions app
             href: how-to-deploy-functions.md
           - name: Azure IoT Edge devices
-            href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+            href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
           - name: FPGA inference
             href: how-to-deploy-fpga-web-service.md
           - name: Custom Docker images
@@ -352,6 +386,9 @@
             href: how-to-monitor-data-drift.md
           - name: Monitor with Application Insights
             href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md            
 
   - name: Build & use ML pipelines
     displayName: pipelines
@@ -370,9 +407,9 @@
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-      displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: 'Designer transform data'
+      displayName: pipeline
+      href: how-to-designer-transform-data.md
     - name: 'Designer retrain using published pipelines'
       displayName: retrain, designer, published pipeline
       href: how-to-retrain-designer.md
@@ -388,6 +425,12 @@
     - name: Debug & troubleshoot parallel run step
       displayName: debug_batch consume pipeline parallelrunstep inference
       href: how-to-debug-parallel-run-step.md
+    - name: Iterating and evolving machine learning pipelines
+      displayName: modularizing testing
+      href: concept-pipeline-practices-tips.md
+  - name: 'Azure Pipelines for CI/CD'
+    displayName: continuous, integration, delivery
+    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -414,8 +457,6 @@
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: ML at scale
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference
@@ -439,7 +480,7 @@
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
     - name: What happened to Workbench
       displayName: desktop, ui, Workbench, upgrade, update, transfer
       href: overview-what-happened-to-workbench.md

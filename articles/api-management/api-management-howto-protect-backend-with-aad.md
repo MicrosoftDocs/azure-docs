@@ -75,7 +75,7 @@ Every client application that calls the API needs to be registered as an applica
     - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, such as *client-app*. 
     - In the **Supported account types** section, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
-1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`.
+1. In the **Redirect URI** section, select `Web` and leave the URL field empty for now.
 
 1. Select **Register** to create the application. 
 
@@ -145,9 +145,9 @@ In this example, the Developer Console is the client-app. The following steps de
 
 1. Select **Create**.
 
-1. Go back to your client-app and select **Authentication**.
+1. Go back to your client-app registration in Azure Active Directory and select **Authentication**.
 
-1. Under **Redirect URIs**, select the type as **Web**, paste the **redirect_url** under **Redirect URI**, and then save.
+1. Under **Platform configurations** click on **Add a platform**, and select the type as **Web**, paste the **redirect_url** under **Redirect URI**, and then click on **Configure** button to save.
 
 Now that you have configured an OAuth 2.0 authorization server, the Developer Console can obtain access tokens from Azure AD. 
 

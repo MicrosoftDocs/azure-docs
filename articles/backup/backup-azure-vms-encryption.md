@@ -97,7 +97,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 ## Provide permissions
 
-Azure VM needs read-only access to back up the keys and secrets, along with the associated VMs.
+Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault.

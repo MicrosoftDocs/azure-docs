@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
+ms.custom: has-adal-ref, tracking-python
 ---
 # Develop a secure web app
 

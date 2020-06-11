@@ -38,6 +38,12 @@ Choose the **Potential impact** tab to see the specific list of resources you ow
 
 ![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)
 
+## See emerging issues which may impact your services
+
+There are situations when widespread service issues may be posted to the [Azure Status page](https://status.azure.com) before targeted communications can be sent to impacted customers. To ensure that Azure Service Health provides a comprehensive view of issues that may affect you, active Azure Status page issues are surfaced in Service Health as *emerging issues*. When an event is active on the Azure Status page, an emerging issues banner will be present in Service Health. Click the banner to see the full details of the issue.
+
+![Emerging service issue](./media/service-health-overview/azure-service-health-emerging-issue.png)
+
 ## Get links and downloadable explanations 
 
 You can get a link for the issue to use in your problem management system. You can download PDF and sometimes CSV files to share with people who don't have access to the Azure portal.   

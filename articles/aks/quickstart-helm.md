@@ -176,7 +176,7 @@ appVersion: v1
 
 ## Run your Helm chart
 
-Use the `helm create` command to install your application using your Helm chart.
+Use the `helm install` command to install your application using your Helm chart.
 
 ```console
 helm install webfrontend webfrontend/

@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 04/16/2020
+ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
@@ -80,12 +80,15 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
 1. In the portal, navigate to your Azure Storage account that you created earlier. On the left menu, select **All resources** and select your storage account. 
-2. On the **Storage account** page, select **Events** on the left menu.
+2. On the **Storage account** page, select **Events** on the left menu. 
 1. Select **More Options**, and **Web Hook**. You are sending events to your viewer app using a web hook for the endpoint. 
 
    ![Select web hook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. On the **Create Event Subscription** page, do the following steps: 
     1. Enter a **name** for the event subscription.
+    2. Enter a **name** for the **system topic**. To learn about system topics, see [Overview of system topics](system-topics.md).
+
+       ![Enter names for event subscription and system topic](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
     2. Select **Web Hook** for **Endpoint type**. 
 
        ![Select web hook endpoint type](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

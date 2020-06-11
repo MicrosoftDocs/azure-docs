@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
-    - name: Quickstart
+    - name: Quickstarts
       items:
         - name: Recognize speech with microphone input
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
+        - name: Test a model using audio files in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
@@ -61,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
+        - name: Improve Custom Speech accuracy
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Train a model for Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Deploy a custom model
@@ -373,9 +377,11 @@
             - name: Speech SDK
               items:
                 - name: C++
-                  href: 'https://aka.ms/csspeech/cppref'
+                  href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
                 - name: 'C#'
-                  href: 'https://aka.ms/csspeech/csharpref'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                - name: 'Java'
+                  href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
 - name: Voice assistants
   items:
     - name: Voice assistants documentation
@@ -386,7 +392,7 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
@@ -424,12 +430,46 @@
           items:
             - name: Voice assistants FAQ
               href: faq-voice-assistants.md
+    - name: Voice assistants on Windows
+      items:
+        - name: Overview of voice assistants on Windows
+          href: windows-voice-assistants-overview.md
+        - name: How-to guides
+          items:
+            - name: 'Start developing your assistant with Windows'
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Resources
+          items:
+            - name: 'Privacy requirements and guidelines'
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: 'Best practices for assistant experiences'
+              href: windows-voice-assistants-best-practices.md
+            - name: 'Samples and frequently asked questions'
+              href: windows-voice-assistants-faq.md
     - name: Custom Keyword
       items:
+        - name: Custom keyword overview
+          href: custom-keyword-overview.md
         - name: Custom keyword naming guidelines
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword spotting
+        - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
+- name: Speaker Recognition
+  items:
+    - name: Overview
+      items:
+        - name: What is Speaker Recognition?
+          href: speaker-recognition-overview.md
+        - name: Speaker Recognition basics
+          href: speaker-recognition-basics.md 
+    - name: Reference
+      items:
+        - name: REST APIs
+          items:
+            - name: Speaker Recognition REST API
+              href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
     - name: Hosting documentation
@@ -519,6 +559,10 @@
           href: speech-devices-sdk-roobo-v1.md
         - name: Roobo v2 details
           href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
     - name: Quickstart
       items:
         - name: Use Speech devices SDK
@@ -531,6 +575,23 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
+- name: Tools
+  items:
+  - name: Speech CLI
+    displayName: SPX
+    items:
+      - name: What is the Speech CLI?
+        displayName: What is SPX?
+        href: spx-overview.md
+      - name: Speech CLI Basics
+        displayName: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: What is Speech Studio?
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md 
 - name: Migration
   items:
   - name: From Bing Speech

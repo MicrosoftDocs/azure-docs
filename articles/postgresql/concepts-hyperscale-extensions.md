@@ -110,7 +110,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html) | Provides a means for showing row-level locking information. |
 > | [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 > | [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. See the "dblink and postgres_fdw" section for information about this extension.|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about SSL certificates. |
+> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about TLS/SSL certificates. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | TABLESAMPLE method, which accepts number of rows as a limit. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |

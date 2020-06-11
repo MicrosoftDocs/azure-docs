@@ -279,7 +279,7 @@ Examine daemon logs:
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Run an automated check for the most common configuration and networking errors:
+Run the [troubleshooting tool](troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors:
 
 ```bash
 sudo iotedge check

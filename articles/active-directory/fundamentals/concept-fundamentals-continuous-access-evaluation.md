@@ -37,6 +37,7 @@ Continuous access evaluation is implemented by enabling services (resource provi
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
+- MFA is enabled for the user
 - Admin explicitly revokes all refresh tokens for a user
 - Elevated user risk detected by Azure AD Identity Protection
 
@@ -47,13 +48,13 @@ In the future we hope to add more events, including events like location and dev
 Before continuous access evaluation, clients would always try to replay the access token from its cache as long as it was not expired. With CAE, we are introducing a new case that a resource provider can reject a token even when it is not expired. In order to inform clients to bypass their cache even though the cached tokens have not expired, we introduce a mechanism called **claim challenge**. CAE requires a client update to understand claim challenge. The latest version of the following applications below support claim challenge:
 
 - Outlook for Windows 
-- Outlook iOS 
-- Outlook Android 
-- Outlook Mac 
+- Outlook for iOS 
+- Outlook for Android 
+- Outlook for Mac 
 - Teams for Windows
-- Teams iOS 
-- Teams Android 
-- Teams Mac 
+- Teams for iOS 
+- Teams for Android 
+- Teams for Mac 
 
 ## Token Lifetime
 
@@ -73,7 +74,7 @@ We will increase access token lifetime to 24 hours in CAE sessions. Revocation i
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
- 
+
 ## FAQs
 
 ### What is the lifetime of my Access Token?

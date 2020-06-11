@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
+ms.custom: tracking-python
 
 ---
 
@@ -43,7 +44,7 @@ In this quickstart, you:
 - An Azure storage account, a blob container in the storage account, and a connection string to the storage account. If you don't have these items, do the following:  
     1. [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
     Be sure to record the connection string and container name for later use in this quickstart.  
 - Enable the Capture feature for the event hub. To do so, follow the instructions in [Enable Event Hubs Capture using the Azure portal](event-hubs-capture-enable-through-portal.md). Select the storage account and the blob container you created in the preceding step. You can also enable the feature when you create an event hub.  

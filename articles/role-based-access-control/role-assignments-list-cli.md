@@ -1,6 +1,6 @@
 ---
-title: List role assignments using Azure RBAC and Azure CLI
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure CLI.
+title: List Azure role assignments using Azure CLI - Azure RBAC
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure CLI and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,7 +15,7 @@ ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# List role assignments using Azure RBAC and Azure CLI
+# List Azure role assignments using Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
@@ -138,4 +138,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## Next steps
 
-- [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md)
+- [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md)

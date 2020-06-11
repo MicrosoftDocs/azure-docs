@@ -13,7 +13,11 @@ ms.author: vikancha
 
 # Install AMD GPU drivers on N-series VMs running Windows
 
-To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The AMD driver extension will be available in the coming weeks. This article provides supported operating systems, drivers, and manual installation and verification steps.
+To take advantage of the GPU capabilities of the new Azure NVv4 series VMs running Windows, AMD GPU drivers must be installed. The [AMD GPU Driver Extension](../extensions/hpccompute-amd-gpu-windows.md) installs AMD GPU drivers on a NVv4-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [AMD GPU Driver Extension documentation](../extensions/hpccompute-amd-gpu-windows.md) for supported operating systems and deployment steps.
+
+If you choose to install AMD GPU drivers manually, this article provides supported operating systems, drivers, and installation and verification steps.
+
+Only GPU drivers published by Microsoft are supported on NVv4 VMs. Please DO NOT install GPU drivers from any other source.
 
 For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -30,13 +34,11 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you are a NVv4 preview customer then please stop the VM and wait for it to move to Stopped(Deallocated) state.
+2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
-3. Please start the VM and download the latest [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Uninstall the existing driver by running "amdcleanuputility-x64.exe". Please DO NOT use any existing cleanup utility that was installed with the previous driver.  
+3. Download and install the latest driver.
 
-4. Download and install the latest driver.
-
-5. Reboot the VM.
+4. Reboot the VM.
 
 ## Verify driver installation
 

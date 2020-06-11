@@ -35,7 +35,7 @@ A technical profile enables these types of scenarios:
 - [OpenID Connect](openid-connect-technical-profile.md) - Federation with any OpenID Connect protocol identity provider.
 - [Phone factor](phone-factor-technical-profile.md) - Support for enrolling and verifying phone numbers.
 - [RESTful provider](restful-technical-profile.md) - Call to REST API services, such as validate user input, enrich user data, or integrate with line-of-business applications.
-- [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
+- [SAML identity provider](saml-identity-provider-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [SAML token issuer](saml-issuer-technical-profile.md) - Emits a SAML token that is returned back to the relying party application.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - [Session management](custom-policy-reference-sso.md) - Handle different types of sessions.
@@ -45,7 +45,7 @@ A technical profile enables these types of scenarios:
 All types of technical profiles share the same concept. You send input claims, run claims transformation, and communicate with the configured party, such as an identity provider, REST API, or Azure AD directory services. After the process is completed, the technical profile returns the output claims and may run output claims transformation. The following diagram shows how the transformations and mappings referenced in the technical profile are processed. Regardless of the party the technical profile interacts with, after any claims transformation is executed, the output claims from the technical profile are immediately stored in the claims bag.
 
 ![Diagram illustrating the technical profile flow](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
- 
+
 1. **Single sign-on (SSO) session management** - Restores technical profile's session state, using [SSO session management](custom-policy-reference-sso.md).
 1. **Input claims transformation** - Input claims of every  input [claims transformation](claimstransformations.md) are picked up from the claims bag.  The output claims of an input claims transformation can be input claims of a subsequent input claims transformation.
 1. **Input claims** - Claims are picked up from the claims bag and are used for the technical profile. For example, a [self-asserted technical profile](self-asserted-technical-profile.md) uses the input claims to prepopulate the output claims that the user provides. A REST API technical profile uses the input claims to send input parameters to the REST API endpoint. Azure Active Directory uses input claim as a unique identifier to read, update, or delete an account.

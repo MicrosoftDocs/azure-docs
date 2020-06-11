@@ -60,7 +60,7 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 OPENROWSET
 (
     { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 )
 AS table_alias(column_alias,...n)
 <bulk_options> ::=
@@ -85,7 +85,7 @@ These additional parameters are introduced for working with CSV (delimited text)
 
 - ESCAPE_CHAR = 'char'
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It will not be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
 - FIELDTERMINATOR ='field_terminator'
 Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
 - ROWTERMINATOR ='row_terminator'
@@ -102,7 +102,7 @@ To specify columns that you want to read, you can provide an optional WITH claus
 OPENROWSET
 ...
 | BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 
@@ -120,11 +120,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
+
 ### Filename function
 
-This function returns the file name that the row originates from.
+This function returns the file name that the row originates from. 
 
 To query specific files, read the Filename section in the [Query specific files](query-specific-files.md#filename) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filename function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Filepath function
 
@@ -134,6 +138,8 @@ This function returns a full path or a part of path:
 - When called with parameter, it returns part of path that matches the wildcard on position specified in the parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
 
 For additional information, read the Filepath section of the [Query specific files](query-specific-files.md#filepath) article.
+
+Return data type is nvarchar(1024). For optimal performance, always cast result of filepath function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
 ### Work with complex types and nested or repeated data structures
 

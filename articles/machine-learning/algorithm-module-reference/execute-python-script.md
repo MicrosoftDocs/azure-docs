@@ -6,10 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
+ms.date: 04/27/2020
 ---
 # Execute Python Script module
 
@@ -145,6 +146,8 @@ The pre-installed packages are:
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> If your pipeline contains multiple Execute Python Script modules and need same packages which are not in the pre-installed list, please install the packages in each module respectively. 
 
 ## Upload files
 The **Execute Python Script** supports uploading files using [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -213,11 +216,11 @@ The **Execute Python Script** module contains sample Python code that you can us
 5. In the **Python script** text box, type or paste valid Python script.
 
     > [!NOTE]
-    > Please be very careful when writing your script and make sure there is no syntax error, such as using a un-declared object or a un-imported module. Also pay extra attentions to the pre-installed module list. To import modules which are not listed, install the corresponding packages in your script such as
-	>  ``` Python
-	> import os
-	> os.system(f"pip install scikit-misc")
-	> ```
+    > Please be very careful when writing your script and make sure there is no syntax error, such as using un-declared objects or un-imported modules. Also pay extra attention to the pre-installed module list. To import modules which are not listed, install the corresponding packages in your script such as
+    >  ``` Python
+    > import os
+    > os.system(f"pip install scikit-misc")
+    > ```
     
     The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Be sure to follow Python conventions about indentation and casing.
 

@@ -1,81 +1,50 @@
 ---
-title: Azure Monitor customer-managed key configuration
+title: Azure Monitor customer-managed key
 description: Information and steps to configure Customer-Managed Key (CMK) to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 04/12/2020
+ms.date: 05/20/2020
 
 ---
-# Azure Monitor customer-managed key configuration 
 
-This article provides background information and steps to configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key.
+# Azure Monitor customer-managed key 
 
-We recommend you review [Limitations and constraints](#limitations-and-constraints) below before configuration.
+This article provides background information and steps to configure customer-Managed Keys (CMK) for your Log Analytics workspaces. Once configured, any data sent to your workspaces is encrypted with your Azure Key Vault key.
 
-## Disclaimers
-
-- Azure Monitor CMK is an early access feature and enabled for registered subscriptions.
-
-- The CMK deployment described in this article is delivered in production quality and supported as such although it's an early access feature.
-
-- The CMK capability is delivered on a dedicated data-store-cluster, which is an Azure Data Explorer (ADX) cluster and suitable for customers sending 1TB per day or more. 
-
-- The CMK pricing model isn't available currently and it isn't covered in this article. A pricing model for dedicated ADX cluster is expected in the second quarter of calendar year (CY) 2020 and will apply to any existing CMK deployments.
-
-- This article describes the CMK configuration for Log Analytics workspaces. CMK for Application Insights components is also supported using this article while differences are listed in the Appendix.
-
-> [!NOTE]
-> Log Analytics and Application Insights are using the same data-store platform and query engine.
-> We are bringing these two stores together via integration of Application Insights into Log Analytics to create a single unified logs store under Azure Monitor. This change is planned for the second quarter of calendar year 2020. If you don't have to deploy CMK for your Application Insights data by then, we recommend waiting for the completion of the consolidation since such deployments will be disrupted by the consolidation and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
+We recommend you review [Limitations and constraints](#limitationsandconstraints) below before configuration.
 
 ## Customer-managed key (CMK) overview
 
-[Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-is a common privacy and security requirement in organizations. You can
-let Azure completely manage Encryption at Rest, while you have various
-options to closely manage encryption or encryption keys.
+[Encryption at Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) is a common privacy and security requirement in organizations. You can let Azure completely manage Encryption at Rest, while you have various options to closely manage encryption or encryption keys.
 
-The Azure Monitor data-store ensures that all data encrypted at
-rest using Azure-managed keys while stored in Azure Storage. Azure Monitor also
-provides an option for data encryption using your own key that is stored
-in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview),
-which is accessed using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM
-protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-The Azure Monitor use of encryption is identical to the way 
-[Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)
-operates.
+Azure Monitor ensures that all data is encrypted at rest using Azure-managed keys. Azure Monitor also provides an option for data encryption using your own key that is stored in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) and accessed by storage using system-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication. This key can be either [software or hardware-HSM protected](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
-The frequency that Azure Monitor Storage accesses Key Vault for wrap and
-unwrap operations is between 6 to 60 seconds. Azure Monitor Storage always respects changes in key permissions within an hour.
+Azure Monitor use of encryption is identical to the way [Azure Storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) operates.
 
-Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but we are working to have the SSD encrypted with CMK in the first half of 2020.
+CMK lets you control the access to your data and revoke it at any time. Azure Monitor storage always respects changes in key permissions within an hour. Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless CMK configuration, but your control over SSD data adheres to [key revocation](#cmk-kek-revocation). We are working to have SSD data encrypted with CMK in the second half of 2020.
+
+The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted before you start configuring CMK.
+
+The [Log Analytics clusters pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) uses Capacity Reservations starting at a 1000 GB/day level.
 
 ## How CMK works in Azure Monitor
 
-Azure Monitor leverages system-assigned managed identity to grant access
-to your Azure Key Vault. System-assigned managed identity can only be
-associated with a single Azure resource. The identity of Azure Monitor data-store
-(ADX cluster) is supported at the cluster level and this
-dictates that the CMK capability is delivered on a dedicated ADX
-cluster. To support CMK on multiple workspaces, a new Log Analytics
-resource (*Cluster*) performs as an intermediate identity connection
-between your Key Vault and your Log Analytics workspaces. This concept
-conforms with the System-assigned identity constraint and the identity
-is maintained between the ADX cluster and the Log Analytics *Cluster*
-resource, while the data of all associated workspaces is protected
-with your Key Vault key. The underlay ADX cluster storage uses the
-managed identity that\'s associated with the *Cluster* resource to
-authenticate and access your Azure Key Vault via Azure Active Directory.
+Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault. 
+System-assigned managed identity can only be associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level -- This dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
 
-![CMK Overview](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Customer's Key Vault.
-2.    Customer's Log Analytics *Cluster* resource having managed identity with permissions to Key Vault – The identity is supported at the data-store (ADX cluster) level.
-3.    Azure Monitor dedicated ADX cluster.
-4.    Customer's workspaces associated to *Cluster* resource for CMK encryption.
+After CMK configuration, any data ingested to workspaces associated to your *Cluster* resource gets encrypted with your key in Key Vault. You can disassociate workspaces from the *Cluster* resource at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
 
-## Encryption keys management
+
+![CMK Overview](media/customer-managed-keys/cmk-overview.png)
+
+1. Key Vault
+2. Log Analytics *Cluster* resource having managed identity with permissions to Key Vault -- The identity is propagated to the underlay dedicated Log Analytics cluster storage
+3. Dedicated Log Analytics cluster
+4. Workspaces associated to *Cluster* resource for CMK encryption
+
+## Encryption keys operation
 
 There are 3 types of keys involved in Storage data encryption:
 
@@ -85,7 +54,7 @@ There are 3 types of keys involved in Storage data encryption:
 
 The following rules apply:
 
-- The ADX storage accounts generate unique encryption key for every Storage account, which is known as the AEK.
+- The Log Analytics cluster storage accounts generate unique encryption key for every Storage account, which is known as the AEK.
 
 - The AEK is used to derive DEKs, which are the keys that are used to
     encrypt each block of data written to disk.
@@ -101,15 +70,11 @@ The following rules apply:
 
 ## CMK provisioning procedure
 
-For Application Insights CMK configuration, follow the Appendix content for steps 3 and 6.
-
-1. Subscription whitelisting -- this is required for this early access
-    feature
+1. Subscription whitelisting -- The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your Microsoft contact to get your subscription whitelisted
 2. Creating Azure Key Vault and storing key
 3. Creating a *Cluster* resource
-4. Azure Monitor data-store (ADX cluster) provisioning
-5. Granting permissions to your Key Vault
-6. Associating Log Analytics workspaces
+4. Granting permissions to your Key Vault
+5. Associating Log Analytics workspaces
 
 The procedure is not supported in the UI currently and the provisioning process is performed via REST API.
 
@@ -159,6 +124,29 @@ Operation is in progress
 }
 ```
 
+Key identifier update operation is in progress
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+*Cluster* resource delete is in progress -- When you delete a *Cluster* resource that has workspaces associated workspaces, a disassociation operation is performed for each of the workspaces in asynchronous operations that can take a while.
+This isn’t relevant when you delete a *Cluster* with no associated workspace -- In this case the *Cluster* resource is deleted immediately.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
 Operation is completed
 ```json
 {
@@ -187,7 +175,7 @@ Operation failed
 
 ### Subscription whitelisting
 
-CMK capability is an early access feature. The subscriptions where you plan to create *Cluster* resources must be whitelisted beforehand by the Azure product group. Use your contacts into Microsoft to provide your Subscriptions IDs.
+The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is whitelisted beforehand. Use your contacts into Microsoft to provide your Subscriptions IDs.
 
 > [!IMPORTANT]
 > CMK capability is regional. Your Azure Key Vault, *Cluster* resource and associated Log Analytics workspaces must be in the same region, but they can be in different subscriptions.
@@ -204,18 +192,23 @@ These settings are available via CLI and PowerShell:
 
 ### Create *Cluster* resource
 
-This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located. Application Insights and Log Analytics require separate *Cluster* resources types. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. The Cluster resource type can't be altered after.
+This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your workspaces are located.
 
-For Application Insights CMK configuration, follow the Appendix content.
+You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
-You must specify the capacity reservation level (sku) when creating a *Cluster* resource. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, reach your Microsoft contact to enable it. This property doesn't affect billing currently -- once pricing model for dedicated cluster is introduced, billing will apply to any existing CMK deployments.
+The *billingType* property determines the billing attribution for the *Cluster* resource and its data:
+- *Cluster* (default) -- The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
+- *Workspaces* -- The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
+
+> [!NOTE]
+> After you create your *Cluster* resource, you can update it with *sku*, *keyVaultProperties* or *billingType* using PATCH REST request.
 
 **Create**
 
 This Resource Manager request is asynchronous operation.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -228,26 +221,25 @@ Content-type: application/json
     "Capacity": 1000
     },
   "properties": {
-    "clusterType": "LogAnalytics",
+    "billingType": "cluster",
     },
   "location": "<region-name>",
 }
 ```
+
 The identity is assigned to the *Cluster* resource at creation time.
 
 **Response**
 
 200 OK and header.
-During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
+
+While it takes the provisioning of the Log Analytics cluster a while to complete, you can check the provisioning state in two ways:
+
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
-### Azure Monitor data-store (ADX cluster) provisioning
-
-During the early access period of the feature, the ADX cluster is provisioned manually by the product team once the previous steps are completed. Use your Microsoft channel for this step and provide the *Cluster* resource response. 
-
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 ```
 
@@ -270,7 +262,8 @@ Authorization: Bearer <token>
     },
   "properties": {
     "provisioningState": "ProvisioningAccount",
-    "clusterType": "LogAnalytics", 
+    "clusterType": "LogAnalytics",
+    "billingType": "cluster",
     "clusterId": "cluster-id"
     },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
@@ -308,11 +301,11 @@ details.
 
 This Resource Manager request is asynchronous operation when updating Key identifier details, while it is synchronous when updating Capacity value.
 
-> [!Warning]
-> You must provide a full body in *Cluster* resource update that includes *identity*, *sku*, *KeyVaultProperties* and *location*. Missing the *KeyVaultProperties* details will remove the key identifier from the *Cluster* resource and cause [key revocation](#cmk-kek-revocation).
+> [!NOTE]
+> You can provide partial body in *Cluster* resource to update a *sku*, *keyVaultProperties* or *billingType*.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -325,15 +318,17 @@ Content-type: application/json
      "capacity": 1000
      },
    "properties": {
+    "billingType": "cluster",
      "KeyVaultProperties": {
-       KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
-       KeyName: "<key-name>",
-       KeyVersion: "<current-version>"
-       },
+       "KeyVaultUri": "https://<key-vault-name>.vault.azure.net",
+       "KeyName": "<key-name>",
+       "KeyVersion": "<current-version>"
+       }
    },
    "location":"<region-name>"
 }
 ```
+
 "KeyVaultProperties" contains the Key Vault key identifier details.
 
 **Response**
@@ -358,13 +353,14 @@ A response to GET request on the *Cluster* resource should look like this when K
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
   "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
     "clusterType": "LogAnalytics", 
+    "billingType": "cluster",
     "clusterId": "cluster-id"
   },
   "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
@@ -375,7 +371,6 @@ A response to GET request on the *Cluster* resource should look like this when K
 ```
 
 ### Workspace association to *Cluster* resource
-For Application Insights CMK configuration, follow the Appendix content for this step.
 
 You need to have 'write' permissions to both your workspace and *Cluster* resource to perform this operation, which include these actions:
 
@@ -383,7 +378,7 @@ You need to have 'write' permissions to both your workspace and *Cluster* resour
 - In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
 
 > [!IMPORTANT]
-> This step should be performed only after ADX cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
+> This step should be performed only after the completion of the Log Analytics cluster provisioning. If you associate workspaces and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
 
 **Associate a workspace**
 
@@ -404,12 +399,15 @@ Content-type: application/json
 **Response**
 
 200 OK and header.
+
 Ingested data is stored encrypted with your managed key after association operation, which can take up to 90 minutes to complete. You can check the workspace association state in two ways:
+
 1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
 2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, associated workspace will have a clusterResourceId under "features".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+Authorization: Bearer <token>
 ```
 
 **Response**
@@ -424,7 +422,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
       "name": "pricing-tier-name",
       "lastSkuUpdate": "Tue, 28 Jan 2020 12:26:30 GMT"
     },
-    "retentionInDays": days,
+    "retentionInDays": 31,
     "features": {
       "legacy": 0,
       "searchVersion": 1,
@@ -446,74 +444,27 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## CMK (KEK) revocation
 
-You can revoke your access to your data by disabling your key or deleting the *Cluster* resource access policy in your Key Vault. Azure Monitor Storage will always respect changes in key permissions within an hour, normally sooner, and Storage will become unavailable. Any data ingested to workspaces associated with your *Cluster* resource is dropped and queries will fail. Previously ingested data remains inaccessible in Azure Monitor Storage as long as your your *Cluster* resource and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached.
+You can revoke access to data by disabling your key, or deleting the *Cluster* resource access policy in your Key Vault. The Log Analytics cluster storage will always respect changes in key permissions within an hour or sooner and Storage will become unavailable. Any new data ingested to workspaces associated with your *Cluster* resource gets dropped and won't be recoverable, data is inaccessible and queries to these workspaces fail. Previously ingested data remains in storage as long as your *Cluster* resource and your workspaces aren't deleted. Inaccessible data is governed by the data-retention policy and will be purged when retention is reached. 
 
-Storage will periodically poll your Key Vault to attempt to unwrap the
-encryption key and once accessed, data ingestion and query resume within
-30 minutes.
+Ingested data in last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This gets deleted on key revocation operation and becomes inaccessible as well.
+
+Storage periodically polls your Key Vault to attempt to unwrap the encryption key and once accessed, data ingestion and query resume within 30 minutes.
 
 ## CMK (KEK) rotation
 
-Rotation of CMK requires explicit update of the *Cluster* resource with the new key version in Azure Key Vault. To update Azure Monitor with your new key version, follow the instructions in "Update *Cluster* resource with Key identifier details" step. If you update your key version in Key Vault and don't update the new Key identifier details in the *Cluster* resource, Azure Monitor Storage will keep using your previous key.
-All your data is accessible after the key rotation operation including data ingested before the rotation and after it, since all data remains encrypted by the Account Encryption Key (AEK) while AEK is now being encrypted by your new Key Encryption Key (KEK) version.
+Rotation of CMK requires explicit update to the *Cluster* resource with the new key version in Azure Key Vault. Follow the instructions in "Update *Cluster* resource with Key identifier details" step. If you don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster storage will keep using your previous key for encryption. If you disable or delete your old key before updating the new key in the *Cluster* resource, you will get into [key revocation](#cmk-kek-revocation) state.
 
-## Limitations and constraints
+All your data remains accessible after the key rotation operation, since data always encrypted with Account Encryption Key (AEK) while AEK is now being encrypted with your new Key Encryption Key (KEK) version in Key Vault.
 
-- The CMK feature is supported at ADX cluster level and requires a
-    dedicated Azure Monitor ADX cluster with requirement of sending 1TB per day or more.
+## CMK manage
 
-- The max number of *Cluster* resources per subscription is limited to 2
-
-- *Cluster* resource association to workspace should be carried ONLY after you have verified that the ADX cluster provisioning was completed. Data sent to your workspace prior to the completion of the provisioning will be dropped and won't be recoverable.
-
-- CMK encryption applies to newly ingested data after the CMK
-    configuration. Data that was ingested prior to the CMK
-    configuration, remains encrypted with Microsoft key. You can query
-    data ingested before and after the CMK configuration seamlessly.
-
-- You can de-associate a workspace from a *Cluster* resource when deciding that CMK isn’t required for particular workspace. New ingested data after the de-association operation is stored in shared Log Analytics storage as it was before it was associated to the *Cluster* resource. You can query data ingested before and after the de-association seamlessly if your *Cluster* resource is provisioned and configured with valid Key Vault key.
-
-- The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:
-
-  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-    must be turned on
-  - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete
-
-- Application Insights and Log Analytics require separate *Cluster* resources. The type of the *Cluster* resource is defined at creation time by setting the "clusterType" property to either 'LogAnalytics', or 'ApplicationInsights'. The *Cluster* resource type can't be altered.
-
-- *Cluster* resource move to another resource group or subscription
-    isn't supported currently.
-
-- Your Azure Key Vault, *Cluster* resource and associated workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
-
-- Workspace association to *Cluster* resource will fail if it is
-    associated to another *Cluster* resource
-
-## Troubleshooting and management
-
-- Key Vault availability
-    - In normal operation -- Storage caches AEK for short periods of time and goes back to Key Vault to unwrap periodically.
-    
-    - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
-    
-    - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with CMK.
-
-- If you create a *Cluster* resource and specify the KeyVaultProperties immediately, the operation may fail since the
-    access policy can't be defined until system identity is assigned to the *Cluster* resource.
-
-- If you update existing *Cluster* resource with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
-
-- If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
-
-- If you get conflict error when creating a *Cluster* resource – It may be that you have deleted your *Cluster* resource in the last 14 days and it’s in a soft-delete period. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the *Cluster* resource is permanently deleted.
-
-- Get all *Cluster* resources for a resource group:
+- **Get all *Cluster* resources for a resource group**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
   Authorization: Bearer <token>
   ```
-    
+
   **Response**
   
   ```json
@@ -531,13 +482,14 @@ All your data is accessible after the key rotation operation including data inge
           "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
           },
         "properties": {
-           "KeyVaultProperties": {
-              KeyVaultUri: "https://key-vault-name.vault.azure.net",
-              KeyName: "key-name",
-              KeyVersion: "current-version"
+           "keyVaultProperties": {
+              "keyVaultUri": "https://key-vault-name.vault.azure.net",
+              "keyName": "key-name",
+              "keyVersion": "current-version"
               },
           "provisioningState": "Succeeded",
           "clusterType": "LogAnalytics", 
+          "billingType": "cluster",
           "clusterId": "cluster-id"
         },
         "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
@@ -549,7 +501,7 @@ All your data is accessible after the key rotation operation including data inge
   }
   ```
 
-- Get all *Cluster* resources for a subscription:
+- **Get all *Cluster* resources for a subscription**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -560,9 +512,60 @@ All your data is accessible after the key rotation operation including data inge
     
   The same response as for '*Cluster* resources for a resource group', but in subscription scope.
 
-- Update *capacity reservation* in *Cluster* resource -- when the data volume to your associated workspaces change and you want to update the capacity reservation level for billing considerations, follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. The capacity reservation level can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it.
+- **Update *capacity reservation* in *Cluster* resource**
 
-- Delete your *Cluster* resource -- a soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, The *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets de-associated from the *Cluster* resource on delete operation. New ingested data is stored in shared Log Analytics storage and encrypted with Microsoft key. The workspaces de-associated operation is asynchronous.
+  When the data volume to your associated workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body and should include the sku:
+
+  **body**
+  ```json
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 1000
+    }
+  }
+  ```
+
+- **Update *billingType* in *Cluster* resource**
+
+  The *billingType* property determines the billing attribution for the *Cluster* resource and its data:
+  - *cluster* (default) -- The billing is attributed to the subscription hosting your Cluster resource
+  - *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
+  
+  Follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new billingType value. Note that you don’t have to provide the full REST request body and should include the *billingType*:
+
+  **body**
+  ```json
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ``` 
+
+- **Disassociate workspace**
+
+  You need 'write' permissions on the workspace and *Cluster* resource to perform this operation. You can disassociate a workspace from your *Cluster* resource at any time. New ingested data after the de-association operation is stored in Log Analytics storage and encrypted with Microsoft key. You can query you data that was ingested to your workspace before and after the de-association seamlessly as long as the *Cluster* resource is provisioned and configured with valid Key Vault key.
+
+  This Resource Manager request is asynchronous operation.
+
+  ```rest
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  ```
+
+  **Response**
+
+  200 OK and header.
+
+  Ingested data after the disassociation operation is stored in Log Analytics storage, this can take 90 minutes to complete. You can check the workspace de-association state in two ways:
+
+  1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
+  2. Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response, disassociated workspace won't have the *clusterResourceId* under *features*.
+
+- **Delete your *Cluster* resource**
+
+  You need 'write' permissions on the *Cluster* resource to perform this operation. A soft-delete operation is performed to allow the recovery of your *Cluster* resource including its data within 14 days, whether the deletion was accidental or intentional. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. After the soft-delete period, the *Cluster* resource name is released, your *Cluster* resource and data are permanently deleted and are non-recoverable. Any associated workspace gets disassociated from the *Cluster* resource on delete operation. New ingested data is stored in Log Analytics storage and encrypted with Microsoft key. The workspaces disassociated operation is asynchronous and can take up to 90 minutes to complete.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -573,168 +576,62 @@ All your data is accessible after the key rotation operation including data inge
 
   200 OK
 
-- Recover your *Cluster* resource and your data -- 
-A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered. This is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
+- **Recover your *Cluster* resource and your data** 
+  
+  A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got disassociated from the *Cluster* resource with *Cluster* resource deletion, you need to re-associate your workspaces after the recovery for CMK encryption. The recovery operation is performed manually by the product group currently. Use your Microsoft channel for recovery requests.
 
-## Appendix
+## Limitations and constraints
 
-Application Insights Customer Managed Key (CMK) is supported as well, though you should consider the following change to help you plan the deployment of CMK for your Application Insight components.
+- The CMK is supported on dedicated Log Analytics cluster and suitable for customers sending 1TB per day or more.
 
-Log Analytics and Application Insights are using the same data-store
-platform and query engine. We are bringing these two stores together
-via integration of Application Insights into Log Analytics to provide a
-single unified logs store under Azure Monitor by the second quarter of
-2020. This change will bring your Application Insight data into Log
-Analytics workspaces and make queries, insights, and other improvements
-possible while the configuration of CMK on your workspace, will also
-apply to your Application Insights data.
+- The max number of *Cluster* resources per region and subscription is 2
 
-> [!NOTE]
-> If you don't have to deploy CMK for your Application Insight data before the integration, we recommend waiting with Application Insights CMK since such deployments will be disrupted by the integration and you will have to re-configure CMK after the migration to Log Analytics workspace. The 1TB per day minimum applies at the cluster level and until the consolidation completes during second quarter, Application Insights and Log Analytics require separate clusters.
+- You can associate a workspace to your *Cluster* resource and then disassociate it if CMK isn't required for the workspace. The number of workspace association on particular workspace in a period of 30 days is limited to 2
 
-## Application Insights CMK configuration
+- Workspace association to *Cluster* resource should be carried ONLY after you have verified that the Log Analytics cluster provisioning was completed. Data sent to your workspace prior to the completion will be dropped and won't be recoverable.
 
-The configuration of Application Insights CMK is identical to the process illustrated in this article, including constraints and troubleshooting except these steps:
+- CMK encryption applies to newly ingested data after the CMK
+    configuration. Data that was ingested prior to the CMK
+    configuration, remains encrypted with Microsoft key. You can query
+    data ingested before and after the CMK configuration seamlessly.
 
-- Create a *Cluster* resource
-- Associate a component to a *Cluster* resource
+- The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:
+  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+    must be turned on
+  - [Purge protection](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete.
 
-When configuring CMK for Application Insights, use these steps instead
-of the ones listed above.
+- *Cluster* resource move to another resource group or subscription
+    isn't supported currently.
 
-### Create a *Cluster* resource
+- Your Azure Key Vault, *Cluster* resource and associated workspaces must be in the same region and in the same Azure Active Directory (Azure AD) tenant, but they can be in different subscriptions.
 
-This resource is used as intermediate identity connection between your Key Vault and your components. AFTER you received a confirmation that your subscriptions were whitelisted, create a Log Analytics *Cluster* resource at the region where your components are located. The type of the *Cluster* resource is defined at creation time by setting the *clusterType* property to either *LogAnalytics*, or *ApplicationInsights*. It should be *ApplicationInsights* for Application Insights CMK. The *clusterType* setting can't be altered after the configuration.
+- Workspace association to *Cluster* resource will fail if it is
+    associated to another *Cluster* resource
 
-**Create**
+## Troubleshooting
 
-This Resource Manager request is asynchronous operation.
+- Behavior with Key Vault availability
+  - In normal operation -- Storage caches AEK for short periods of time and goes back to Key Vault to unwrap periodically.
+    
+  - Transient connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for a short while longer and this overcomes any small blips in availability. The query and ingestion capabilities continue without interruption.
+    
+  - Live site -- unavailability of about 30 minutes will cause the Storage account to become unavailable. The query capability is unavailable and ingested data is cached for several hours using Microsoft key to avoid data loss. When access to Key Vault is restored, query becomes available and the temporary cached data is ingested to the data-store and encrypted with CMK.
 
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-Content-type: application/json
+  - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 
-{
-  "identity": {
-    "type": "systemAssigned"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "Capacity": 1000
-    },
-  "properties": {
-    "clusterType":"ApplicationInsights"
-    },
-  "location": "<region-name>"
-}
-```
+- If you create a *Cluster* resource and specify the KeyVaultProperties immediately, the operation may fail since the
+    access policy can't be defined until system identity is assigned to the *Cluster* resource.
 
-**Response**
+- If you update existing *Cluster* resource with KeyVaultProperties and 'Get' key Access Policy is missing in Key Vault, the operation will fail.
 
-200 OK and header.
-During the early access period of the feature, the ADX cluster is provisioned manually. While it takes the provisioning of the underly ADX cluster a while to complete, you can check the provisioning state in two ways:
-1. Copy the Azure-AsyncOperation URL value from the response and follow the [asynchronous operations status check](#asynchronous-operations-and-status-check).
-2. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. It is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+- If you try to delete a *Cluster* resource that is associated to a workspace, the delete operation will fail.
 
-### Associate a component to a *Cluster* resource using [Components - Create Or Update](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+- If you get conflict error when creating a *Cluster* resource – It may be that you have deleted your *Cluster* resource in the last 14 days and it’s in a soft-delete period. The *Cluster* resource name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the *Cluster* resource is permanently deleted.
 
-You need to have 'write' permissions on both your component and *Cluster* resource to perform this operation, which include these actions:
+- If you update your *Cluster* resource while an operation is in progress, the operation will fail.
 
-- In component: Microsoft.Insights/component/write
-- In *Cluster* resource: Microsoft.OperationalInsights/clusters/write
+- If you fail to deploy your *Cluster* resource, verify that your Azure Key Vault, *Cluster* resource and associated Log Analytics workspaces are in the same region. The can be in different subscriptions.
 
-> [!IMPORTANT]
-> This step should be performed only after ADX cluster provisioning. If you associate components and ingest data prior to the provisioning, ingested data will be dropped and won't be recoverable.
-> To verify that the ADX cluster is provisioned, execute *Cluster* resource Get REST API and check that the *provisioningState* value is *Succeeded*.
+- If you update your key version in Key Vault and don't update the new key identifier details in the *Cluster* resource, the Log Analytics cluster will keep using your previous key and your data will become inaccessible. Update new key identifier details in the *Cluster* resource to resume data ingestion and ability to query data.
 
-```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
-Authorization: Bearer <token>
-```
-
-**Response**
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principal-id"
-    },
-  "sku": {
-    "name": "capacityReservation",
-    "capacity": 1000,
-    "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-    },
-  "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
-      },
-    "provisioningState": "Succeeded",
-    "clusterType": "ApplicationInsights", 
-    "clusterId": "cluster-id"
-    },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-  }
-```
-
-> [!IMPORTANT]
-> Copy and keep the response since you will need it in next steps.
-
-**Associate a component**
-
-```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01
-Authorization: Bearer <token>
-Content-type: application/json
-
-{
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-  },
-  "location": "<region-name>",
-  "kind": "<component-type>"
-}
-```
-"clusterDefinitionId" is the "clusterId" value provided in the respond from the previous step.
-"kind" example is "web".
-
-**Response**
-
-```json
-{
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
-  "name": "component-name",
-  "type": "Microsoft.Insights/components",
-  "location": "region-name",
-  "tags": "",
-  "kind": "",
-  "properties": {
-    "clusterDefinitionId": "cluster-id"
-    "ApplicationId": "",
-    "AppId": "",
-    "Application_Type": "",
-    "Flow_Type": "",
-    "Request_Source": "",
-    "InstrumentationKey": "",
-    "CreationDate": "",
-    "TenantId": "",
-    "HockeyAppId": "",
-    "HockeyAppToken": "",
-    "provisioningState": "",
-    "SamplingPercentage":,
-    "RetentionInDays":,
-    "ConnectionString": "",
-    "DisableIpMasking":,
-    "ImmediatePurgeDataOn30Days": 
-  }
-}
-```
-"clusterDefinitionId" is the *Cluster* resource ID that is associated to this component.
-
-After the association, data that is sent to your components is stored encrypted with your managed key.
+- For support and help related to customer managed key, use your contacts into Microsoft.

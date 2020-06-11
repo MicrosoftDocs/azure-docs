@@ -7,6 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -109,11 +112,13 @@
   items:
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/
-
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
     href: samples-cli.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Understand microservices
@@ -136,6 +141,8 @@
       href: service-fabric-security-controls.md
     - name: Certificate-based authentication in Service Fabric 
       href: cluster-security-certificates.md
+    - name: Certificate management in Service Fabric
+      href: cluster-security-certificate-management.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -652,7 +659,7 @@
       - name: Scale
         items:
         - name: Manually scale out
-          href: service-fabric-cluster-scale-up-down.md
+          href: service-fabric-cluster-scale-in-out.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
@@ -887,8 +894,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
     href: service-fabric-azure-resource-manager-guardrails.md
   - name: Pricing

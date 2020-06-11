@@ -49,6 +49,9 @@ If the GET operation returns an error, Resource Manager retries the GET for the 
 
 For other error codes, Resource Manager fails the deletion of the resource.
 
+> [!IMPORTANT]
+> Resource Group deletion is irreversible.
+
 ## Delete resource group
 
 Use one of the following methods to delete the resource group.

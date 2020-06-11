@@ -4,19 +4,25 @@
   items:
   - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
-  - name: Create a blueprint - PowerShell
+    href: ./create-blueprint-portal.md
+  - name: Create a blueprint - Azure PowerShell
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-powershell.md
+    href: ./create-blueprint-powershell.md
+  - name: Create a blueprint - Azure CLI
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-azurecli.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
+  - name: Create a blueprint - ARM template
+    displayName: assign, compliance, resource manager
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: Create from a blueprint sample
@@ -32,9 +38,20 @@
     href: ./samples/index.md
   - name: Azure Security Benchmark
     items:
+    - name: Overview
+      displayName: standards, azure, benchmark
+      href: ./samples/azure-security-benchmark/index.md
     - name: Control mapping
       displayName: standards, azure, benchmark
       href: ./samples/azure-security-benchmark/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, azure, benchmark
+      href: ./samples/azure-security-benchmark/deploy.md
+  - name: Australian Government ISM PROTECTED
+    items:
+    - name: Control mapping
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/control-mapping.md
   - name: Canada Federal PBMM
     items:
     - name: Overview
@@ -254,6 +271,8 @@
   href: ./troubleshoot/general.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/blueprint/blueprint
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
@@ -270,13 +289,15 @@
   items:
   - name: GitHub - Azure Blueprints samples
     href: https://github.com/Azure/azure-blueprints
+  - name: Microsoft Q&A for Azure Blueprints
+    href: /answers/topics/azure-blueprints.html
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Azure Friday - Azure Blueprints Overview
+    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Governance YouTube Channel
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure Friday - Azure Blueprints Overview
-    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058

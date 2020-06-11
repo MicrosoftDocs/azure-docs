@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 04/23/2020
+ms.date: 06/04/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -19,6 +19,10 @@ part of a **table** in Resource Graph.
 ## alertsmanagementresources
 
 - microsoft.alertsmanagement/alerts
+
+## healthresources
+
+- microsoft.resourcehealth/events
 
 ## maintenanceresources
 
@@ -58,9 +62,12 @@ part of a **table** in Resource Graph.
 - microsoft.appconfiguration/configurationstores
 - microsoft.appplatform/spring
 - microsoft.archive/collections
+- microsoft.attestation/attestationproviders
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomoussystems/workspaces
+- microsoft.avs/privateclouds
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - microsoft.azuredata/datacontrollers
@@ -68,8 +75,11 @@ part of a **table** in Resource Graph.
 - microsoft.azuredata/postgresinstances
 - microsoft.azuredata/sqlbigdataclusters
 - microsoft.azuredata/sqlinstances
+- microsoft.azuredata/sqlmanagedinstances
+- microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
 - microsoft.azurestack/registrations
+- microsoft.azurestackhci/clusters
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
@@ -85,6 +95,7 @@ part of a **table** in Resource Graph.
 - microsoft.blockchain/watchers
 - microsoft.botservice/botservices
 - microsoft.cache/redis
+- microsoft.cache/redisenterprise
 - microsoft.cdn/cdnwebapplicationfirewallpolicies
 - microsoft.cdn/profiles
 - microsoft.cdn/profiles/endpoints
@@ -100,6 +111,7 @@ part of a **table** in Resource Graph.
 - microsoft.cognition/syntheticsaccounts
 - microsoft.cognitiveservices/accounts
 - microsoft.compute/availabilitysets
+- microsoft.compute/diskaccesses
 - microsoft.compute/diskencryptionsets
 - microsoft.compute/disks
 - microsoft.compute/galleries
@@ -118,8 +130,10 @@ part of a **table** in Resource Graph.
 - microsoft.compute/sharedvmimages/versions
 - microsoft.compute/snapshots
 - microsoft.compute/sshpublickeys
+- microsoft.compute/swiftlets
 - microsoft.compute/virtualmachines
 - microsoft.compute/virtualmachines/extensions
+- microsoft.compute/virtualmachines/runcommands
 - microsoft.compute/virtualmachinescalesets
 - microsoft.containerinstance/containergroups
 - microsoft.containerregistry/registries
@@ -140,6 +154,7 @@ part of a **table** in Resource Graph.
 - microsoft.databricks/workspaces
 - microsoft.datacatalog/catalogs
 - microsoft.datacatalog/datacatalogs
+- microsoft.datadog/monitors
 - microsoft.datafactory/datafactories
 - microsoft.datafactory/factories
 - microsoft.datalakeanalytics/accounts
@@ -198,12 +213,12 @@ part of a **table** in Resource Graph.
 - microsoft.hardwaresecuritymodules/dedicatedhsms
 - microsoft.hdinsight/clusters
 - microsoft.healthcareapis/services
+- microsoft.healthcareapis/services/privateendpointconnections
 - microsoft.hybridcompute/machines
 - microsoft.hybridcompute/machines/extensions
 - microsoft.hybriddata/datamanagers
-- microsoft.hydra/components
-- microsoft.hydra/networkscopes
 - microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/derivedmodels
 - microsoft.insights/actiongroups
 - microsoft.insights/activitylogalerts
 - microsoft.insights/alertrules
@@ -341,9 +356,6 @@ part of a **table** in Resource Graph.
 - microsoft.portalsdk/rootresources
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
-- microsoft.projectarcadia/workspaces
-- microsoft.projectarcadia/workspaces/sparkcomputes
-- microsoft.projectarcadia/workspaces/sqlcomputes
 - microsoft.projectbabylon/accounts
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
@@ -353,6 +365,7 @@ part of a **table** in Resource Graph.
 - microsoft.resourcegraph/queries
 - microsoft.resources/deploymentscripts
 - microsoft.resources/templatespecs
+- microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
 - microsoft.search/searchservices
@@ -368,6 +381,7 @@ part of a **table** in Resource Graph.
 - microsoft.servicefabricmesh/networks
 - microsoft.servicefabricmesh/secrets
 - microsoft.servicefabricmesh/volumes
+- microsoft.serviceshub/connectors
 - microsoft.signalrservice/signalr
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
@@ -418,8 +432,6 @@ part of a **table** in Resource Graph.
 - microsoft.vmwarecloudsimple/virtualmachines
 - microsoft.vmwareonazure/privateclouds
 - microsoft.vmwarevirtustream/privateclouds
-- microsoft.vnfmanager/devices
-- microsoft.vnfmanager/vnfs
 - microsoft.vsonline/accounts
 - microsoft.vsonline/plans
 - microsoft.web/apimanagementaccounts/apis
@@ -468,13 +480,6 @@ part of a **table** in Resource Graph.
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## Next steps
 

@@ -6,15 +6,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/24/2020
 ---
 
 # Configure Apache Spark settings
 
-An HDInsight Spark cluster includes an installation of the [Apache Spark](https://spark.apache.org/) library.  Each HDInsight cluster includes default configuration parameters for all its installed services, including Spark.  A key aspect of managing an HDInsight Apache Hadoop cluster is monitoring workload, including Spark Jobs. To best run Spark jobs, consider the physical cluster configuration when determining the cluster's logical configuration.
+An HDInsight Spark cluster includes an installation of the Apache Spark library.  Each HDInsight cluster includes default configuration parameters for all its installed services, including Spark.  A key aspect of managing an HDInsight Apache Hadoop cluster is monitoring workload, including Spark Jobs. To best run Spark jobs, consider the physical cluster configuration when determining the cluster's logical configuration.
 
-The default HDInsight Apache Spark cluster includes the following nodes: three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes, two head nodes, and one or more worker nodes:
+The default HDInsight Apache Spark cluster includes the following nodes: three Apache ZooKeeper nodes, two head nodes, and one or more worker nodes:
 
 ![Spark HDInsight Architecture](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
@@ -97,7 +97,7 @@ Depending on your Spark workload, you may determine that a non-default Spark con
 |---|---|
 |--num-executors|Sets the number of executors.|
 |--executor-cores|Sets the number of cores for each executor. We recommend using middle-sized executors, as other processes also consume some portion of the available memory.|
-|--executor-memory|Controls the memory size (heap size) of each executor on [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), and you'll need to leave some memory for execution overhead.|
+|--executor-memory|Controls the memory size (heap size) of each executor on Apache Hadoop YARN, and you'll need to leave some memory for execution overhead.|
 
 Here is an example of two worker nodes with different configuration values:
 
@@ -124,8 +124,8 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |---|---|
 |Spark Core|Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.|
 |Anaconda|A python package manager.|
-|[Apache Livy](https://livy.incubator.apache.org/)|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
-|[Jupyter](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
+|Apache Livy|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
+|Jupyter and Apache Zeppelin notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|
 
 For applications running in the Jupyter notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
@@ -148,6 +148,5 @@ Monitor core configuration settings to ensure your Spark jobs run in a predictab
 
 * [Apache Hadoop components and versions available with HDInsight?](../hdinsight-component-versioning.md)
 * [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html)
 * [Running Apache Spark on Apache Hadoop YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

@@ -18,11 +18,11 @@ ms.reviewer: igorstan
 
 Q. What is Azure Synapse?
 
-A. Azure Synapse is a limitless analytics service that brings together data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources - at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is an analytics service that brings together data warehousing and Big Data analytics. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for BI and machine learning needs. For more information, see, [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. What happened to Azure SQL Data Warehouse?
 
-A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse and automatically benefit from the new capabilities, which are in preview. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse is Azure SQL Data Warehouse (SQL DW) evolved. We've taken the same industry-leading data warehouse to a whole new level of performance and capabilities. You can continue running your existing data warehouse workloads in production with Azure Synapse. For more information, see [What is Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. What is Synapse SQL pool?
 
@@ -38,8 +38,7 @@ A. Azure Synapse offers several solutions for protecting data such as TDE and au
 
 Q. Where can I find out what legal or business standards Azure Synapse is compliant with?
 
-A. Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO.
-First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
+A. Visit the [Microsoft Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) page for various compliance offerings by product such as SOC and ISO. First, choose by Compliance title. Then expand Azure in the Microsoft in-scope cloud services section on the right side of the page to see what services are Azure Synapse compliant.
 
 Q. Can I connect Power BI?
 
@@ -52,6 +51,10 @@ A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.
 Q. Why is my Scale/Pause/Resume taking so long?
 
 A. Several factors can influence the time for compute management operations. A common case for long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
+
+Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Synapse?
+
+A: To rename a published artifact file clone the file first and rename the new file name that you prefer. You need to manually update all the references of the artifact to the new file and delete the old one.
 
 ## User support
 

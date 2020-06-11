@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/23/2020
 ms.author: dsindona
 
 ---
@@ -14,7 +14,7 @@ ms.author: dsindona
 
 You've published to marketplace, now you want to see your offer be successful. We provide you the benefits - sales, technical, and marketing - you need to accelerate your offer's growth.
 
-When you go live with your offer, the Marketplace Rewards team will reach out to begin working with you on your eligible benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
+Once your offer is live on Azure Marketplace or AppSource, go to [Partner Center](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) to access and activate your eligible marketing, sales and technical benefits. Marketplace Rewards benefits accrue based on your commercial marketplace engagement and sales. The more you engage, the more you get back.
 
 ## Marketplace Rewards
 
@@ -28,19 +28,31 @@ You will be contacted by a member of the Rewards team when your offer goes live,
 
 For Transact partners, as you grow your billed sales through the marketplace platform, you unlock greater benefits per tier. 
 
-The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform. 
+The minimum requirement to publish in the storefronts is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Each partner is empowered to grow their business through the marketplace as a platform.
 
-You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/). 
+You will get support in understanding the resources available to you and in implementing the best practices, which you can also [review on on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Detailed descriptions of all program benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
 Your steps to get started are easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
-2. The team reaches out to the "owner" or "primary contact" per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
+2. Go to the Partner Center [dashboard](https://partner.microsoft.com/dashboard/directory), select **Sales and Marketing benefits** tab on Marketplace Rewards page to see your list of benefits.
+3. To activate sales and marketing benefit, you must first assign a company marketing contact. This contact will receive follow-up communications about your Marketplace Rewards.
+4. To add or update your marketing contact information, go to the top of the Sales and Marketing benefits tab on Marketplace Rewards page, then select **Add, update, or change**.  Next, do the following:
+
+    1. Select a user from the list. If the user you want to assign is not in the list, you can add new users in **Account settings**.
+    1. Provide an email address for the user that's different from the email address associated with your company's Partner Center account. We will email instructions for using your Marketplace Rewards benefit to your designated marketing contact's email address.
+    1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
+    1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
+
+**Technical benefits**
+
+1. You can use your technical benefit to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
+2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
 
 >[!Note]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
+>If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
@@ -92,13 +104,13 @@ Microsoft reserves the right to revoke and terminate Marketplace Rewards benefit
 * engage in illegal activity using their marketplace listing.
 * are de-listed from the commercial marketplace. 
 * use their offer to show marketing or other content that violates copyright or trademark laws.
-* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining. 
+* violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
 
 ### Offer Availability
 
 This offer is conducted in English for all partners with a live offer in Azure Marketplace or Microsoft AppSource.
 
-Transactions that are proven to be fraudulent will not count towards a publisher's [billed sales program tier](https://aka.ms/marketplacepublisherrewards), as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section, the [transact partner benefits](#marketplace-rewards-for-transact-partners) section, and the [detailed program deck](https://aka.ms/marketplacepublisherrewards). Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed. 
+Transactions that are proven to be fraudulent will not count towards a publisher's billed sales program tier, as noted in the [list, trial, consulting](#list-trial-and-consulting-benefits) section and the [transact partner benefits](#marketplace-rewards-for-transact-partners) section. Microsoft will allocate partners to eligibility tiers based on their actual billed sales, after the fraud has been removed.
 
 ## Next steps
 
@@ -106,6 +118,6 @@ If you created your offer in [Partner Center](https://partner.microsoft.com/dash
 
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222) and learn about relevant topics or join the discussion.
+Sign up for the [Microsoft AppSource and Azure Marketplace community forum](https://aka.ms/MarketplaceCommunity) and learn about relevant topics or join the discussion.
 
 ---

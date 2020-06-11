@@ -6,6 +6,7 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
+ms.custom: tracking-python
 
 ---
 
@@ -163,14 +164,9 @@ To modify the `classify` function to classify an image based on its contents, yo
     ```txt
     azure-functions
     requests
-    numpy==1.15.4
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-win_amd64.whl; sys_platform == 'win32' and python_version == '3.8'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.8'
-    torchvision==0.5.0
+    -f https://download.pytorch.org/whl/torch_stable.html
+    torch==1.5.0+cpu
+    torchvision==0.6.0+cpu
     ```
 
 1. Save *requirements.txt*, then run the following command from the *start* folder to install the dependencies.

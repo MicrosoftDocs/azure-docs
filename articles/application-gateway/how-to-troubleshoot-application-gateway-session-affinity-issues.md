@@ -70,7 +70,7 @@ If the application cannot handle cookie-based affinity, you must use an external
 
 #### Symptom
 
-You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: [http://website](http://website/) , the request is still bouncing between back-end servers.
+You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: `http://website` , the request is still bouncing between back-end servers.
 
 To identify this issue, follow the instructions:
 

@@ -76,11 +76,19 @@ The value provided as `connectTimeoutInSeconds` in the request is the amount of 
 
 #### Example
 
-See below for a barebone example using `curl`. 
+This example will allow you to securely initiate a request to invoke a Direct Method on an IoT device registered to an Azure IoT Hub.
+
+To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature. 
+
+```bash
+az iot hub generate-sas-token -n <iothubName> -du <duration>
+```
+
+Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.  
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -93,6 +101,14 @@ curl -X POST \
 }'
 ```
 
+Execute the modified command to invoke the specified Direct Method. Successful requests will return an HTTP 200 status code.
+
+> [!NOTE]
+> The above example demonstrates invoking a Direct Method on a device.  If you wish to invoke a Direct Method in an IoT Edge Module, you would need to modify the url request as shown below:
+
+```bash
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+```
 ### Response
 
 The back-end app receives a response that is made up of the following items:

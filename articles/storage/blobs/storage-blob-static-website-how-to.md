@@ -43,7 +43,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 ### [Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -71,7 +71,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 ### [PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -148,14 +148,14 @@ These instructions show you how to upload files by using the version of Storage 
 
 Upload objects to the *$web* container from a source directory.
 
-> [!NOTE]
-> If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
-
 This example assumes that you're running commands from Azure Cloud Shell session.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
+
+> [!NOTE] 
+> If the browser prompts users users to download the file instead of rendering the contents, you can append `--content-type 'text/html; charset=utf-8'` to the command. 
 
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
@@ -173,11 +173,13 @@ Upload objects to the *$web* container from a source directory.
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx
 ```
+
+> [!NOTE] 
+> If the browser prompts users users to download the file instead of rendering the contents, you can append `-Properties @{ ContentType = "text/html; charset=utf-8";}` to the command.
 
 * Replace the `<path-to-file>` placeholder value with the fully qualified path to the file that you want to upload (For example: `C:\temp\index.html`).
 
@@ -185,21 +187,19 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-## Find the website URL by using the Azure portal
+<a id="portal-find-url"></a>
+
+## Find the website URL
 
 You can view the pages of your site from a browser by using the public URL of the website.
 
 ### [Portal](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
 
 ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### [Azure CLI](#tab/azure-cli)
-
-<a id="cli-find-url" />
 
 Find the public URL of your static website by using the following command:
 
@@ -212,8 +212,6 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
 ### [PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Find the public URL of your static website by using by using the following command:
 
@@ -228,7 +226,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## Enable metrics on static website pages
 

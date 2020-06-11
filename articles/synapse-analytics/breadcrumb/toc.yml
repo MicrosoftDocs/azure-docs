@@ -46,4 +46,12 @@
     tocHref: /azure/active-directory
     topicHref: /azure/synapse-analytics/index
 
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/cosmos-db
+    topicHref: /azure/synapse-analytics/index
+
 

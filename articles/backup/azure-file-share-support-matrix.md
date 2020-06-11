@@ -2,26 +2,29 @@
 title: Support Matrix for Azure file share backup
 description: Provides a summary of support settings and limitations when backing up Azure file shares.
 ms.topic: conceptual
-ms.date: 1/26/2020
+ms.date: 5/07/2020
+ms.custom: references_regions
 ---
 
 # Support matrix for Azure file share backup
 
 You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
-## Supported GEOS
+## Supported regions
 
-Backup for Azure file shares is available in the following GEOS:
+### GA regions for Azure file shares backup
 
-| GA regions | Supported regions but not GA                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Australia East (AE), Canada Central (CNC),West Central US (WCUS), India South (INS), North Central US (NCUS), Japan East (JPE), Brazil South (BRS)                                                     |Australia South East (ASE), Canada East (CE),Central US (CUS),East Asia (EA),East US (EUS),East US 2 (EUS2), Japan West (JPW),India Central (INC), Korea Central (KRC),Korea South (KRS) ,North Europe (NE),South Central US (SCUS),South East Asia (SEA),UK South (UKS),UK West (UKW),West Europe (WE),West US (WUS), US Gov Arizona (UGA),US Gov Texas (UGT),US Gov Virginia (UGV),Australia Central (ACL),India West(INW),South Africa North(SAN),UAE North(UAN),France Central (FRC),Germany North (GN),Germany West Central (GWC),South Africa West (SAW),UAE Central (UAC),Norway East (NWE),Norway West (NWW),Switzerland North (SZN), West US 2 (WUS 2)             |
+Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
+
+### Supported regions for accidental delete protection
+
+West Central US, Australia South East , Canada Central
 
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Account  Kind            | Azure  Backup supports Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts |
+| Account  Kind            | Azure  Backup supports Azure file shares present in general-purpose v1, general-purpose v2 and file storage type storage accounts |
 | Performance              | Azure  Backup supports file shares in both standard and Premium Storage accounts |
 | Replication              | Azure  files shares in Storage Accounts with any replication type are  supported |
 
@@ -45,7 +48,7 @@ Backup for Azure file shares is available in the following GEOS:
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of on-demand backups per day | 4     |
+| Maximum  number of on-demand backups per day | 10   |
 | Maximum  number of scheduled backups per day | 1     |
 
 ## Restore limits

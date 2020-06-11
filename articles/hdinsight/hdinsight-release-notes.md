@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 05/12/2020
 ---
 # Release notes
 
@@ -42,8 +42,26 @@ No behavior changes for this release. To get ready for upcoming changes, see [Up
 ## Upcoming changes
 The following changes will happen in upcoming releases. 
 
+### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.3 on HDInsight 3.6 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+
+### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+
+### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+Starting July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Kafka workloads to Azure HDInsight 4.0](./kafka/migrate-versions.md).
+
+### HBase 2.0 to 2.1.6
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.6
+
+### Spark 2.4.0 to 2.4.4
+In the upcoming HDInsight 4.0 release, Spark version will be upgraded from version 2.4.0 to 2.4.4
+
+### Kafka 2.1.0 to 2.1.1
+In the upcoming HDInsight 4.0 release, Kafka version will be upgraded from version 2.1.0 to 2.1.1
+
 ### A minimum 4-core VM is required for Head Node 
-A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6th 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
+A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
 
 ### ESP Spark cluster node size change 
 In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
@@ -51,9 +69,6 @@ A-series VMs could cause ESP cluster issues because of relatively low CPU and me
 
 ### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
-
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 

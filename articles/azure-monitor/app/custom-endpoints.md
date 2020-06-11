@@ -3,7 +3,7 @@ title: Azure Application Insights override default SDK endpoints
 description: Modify default Azure Monitor Application Insights SDK endpoints for regions like Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-
+ms.custom: references_regions
 ---
 
 # Application Insights overriding default endpoints
@@ -72,56 +72,10 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # [Azure Functions](#tab/functions)
 
-### Azure Functions v2.x
+For Azure Functions it is now recommended to use [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) set in the Function's Application settings. To access Application settings for your function from within the functions pane select **Settings** > **Configuration** > **Application settings**. 
 
-Install the following packages in your function project:
-
-- Microsoft.ApplicationInsights version 2.10.0
-- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
-- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
-
-Then, add (or modify) the startup code for your function application:
-
-```csharp
-[assembly: WebJobsStartup(typeof(Example.Startup))]
-namespace Example
-{
-  class Startup : FunctionsStartup
-  {
-      public override void Configure(IWebJobsBuilder builder)
-      {
-          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
-                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
-          if (quickPulseFactory != null)
-          {
-              builder.Services.Remove(quickPulseFactory);
-          }
-
-          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
-          if (appIdFactory != null)
-          {
-              builder.Services.Remove(appIdFactory);
-          }
-
-          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
-          if (channelFactory != null)
-          {
-              builder.Services.Remove(channelFactory);
-          }
-
-          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
-              new QuickPulseTelemetryModule
-              {
-                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
-              });
-
-          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
-
-          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
-      }
-  }
-}
-```
+Name: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+Value: `Connection String Value`
 
 # [Java](#tab/java)
 
