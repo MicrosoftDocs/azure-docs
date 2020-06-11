@@ -84,13 +84,11 @@ The sample application runs on Windows - via an UWP app - an iOS device or simul
 5. Save your changes. 
 6. Run the project in the device emulator or a real device with the **Build and run** button or the key shortcut **F5** on Windows or **command + r** on Mac. 
 
-TK> UPDATE IMAGE
    ![Run the project](media/quickstart-send-telemetry-xamarinforms/run-sample.png)
 
 7. When the emulator opens, select **Start** in the sample app.
 
 The following screenshot shows some example output as the application sends simulated telemetry to your IoT hub:
-TK> UPDATE IMAGE
    ![Run the simulated device](media/quickstart-send-telemetry-xamarinforms/view-d2c.png)
 
 ## Read the telemetry from your hub
@@ -106,7 +104,6 @@ az iot hub monitor-events --device-id myXamarinDevice --hub-name {YourIoTHubName
 The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:
 
 The following screenshot shows the type of telemetry that you see in your local terminal window:
-TK> UPDATE IMAGE
 ![View telemetry](media/quickstart-send-telemetry-ios/view-telemetry.png)
 
 ## Clean up resources
