@@ -30,8 +30,6 @@ If you want to learn about updates to the Speech service, Speech SDK, Speech Dev
 
 ### Updated articles
 
-These documents were updated in May 2020.
-
 * [About the Speech SDK audio input stream API](how-to-use-audio-input-streams.md) - Updated allowed samples per second.
 * [Automatic language detection for speech-to-text](how-to-automatic-language-detection.md) - Added Objective-C instructions to documentation.
 * [Choose a speech recognition mode](how-to-choose-recognition-mode.md) - Added JavaScript instructions to documentation.
