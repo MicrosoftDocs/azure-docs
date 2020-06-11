@@ -14,7 +14,7 @@ tags: connectors
 Connect to Office 365 Users to get profiles, search users, and more. With Office 365 Users, you can:
 
 * Build your business flow based on the data you get from Office 365 Users. 
-* Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
+* Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a database in Azure SQL Database. 
 
 You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 

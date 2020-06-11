@@ -62,6 +62,10 @@ These libraries are installed automatically with the extension.
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
+You need to manually install the following library:
+
+- [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### Azure Active Directory
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be registered for MFA.
@@ -198,22 +202,30 @@ Repeat these steps on any additional NPS servers that you want to set up for loa
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
 > [!NOTE]
-> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**.
 
-### Microsoft Azure Government additional steps
+### Microsoft Azure Government or Azure China 21Vianet additional steps
 
-For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server.
+For customers that use the Azure Government or Azure China 21Vianet clouds, the following additional configuration steps are required on each NPS server.
 
 > [!IMPORTANT]
-> Only configure these registry settings if you're an Azure Government customer.
+> Only configure these registry settings if you're an Azure Government or Azure China 21Vianet customer.
 
-1. If you're an Azure Government customer, open **Registry Editor** on the NPS server.
-1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
+1. If you're an Azure Government or Azure China 21Vianet customer, open **Registry Editor** on the NPS server.
+1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. For Azure Government customers, set the following key values.:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. For Azure China 21Vianet customers, set the following key values:
+
+    | Registry key       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repeat the previous two steps to set the registry key values for each NPS server.
 1. Restart the NPS service for each NPS server.

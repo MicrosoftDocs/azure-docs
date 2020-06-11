@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: Your first Python query"
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
-ms.date: 05/26/2020
+ms.date: 05/27/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 ---
 # Quickstart: Run your first Resource Graph query using Python
 
@@ -57,7 +58,7 @@ installed.
    ```
 
    > [!NOTE]
-   > If Python is installed for all users, this command must be run from an elevated console.
+   > If Python is installed for all users, these commands must be run from an elevated console.
 
 1. Validate that the libraries have been installed. `azure-mgmt-resourcegraph` should be **2.0.0**
    or higher, `azure-mgmt-resource` should be **9.0.0** or higher, and `azure-cli-core` should be
@@ -65,9 +66,7 @@ installed.
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph
-   pip show azure-mgmt-resource
-   pip show azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
    ```
 
 ## Run your first Resource Graph query
@@ -91,18 +90,20 @@ Resource Graph query. The query returns the first five Azure resources with the 
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subClient = get_client_from_cli_profile(SubscriptionClient)
-       subsRaw = [sub.as_dict() for sub in subClient.subscriptions.list()]
-       subList = []
+       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       subsRaw = []
+       for sub in subsClient.subscriptions.list():
+           subsRaw.append(sub.as_dict())
+       subsList = []
        for sub in subsRaw:
-           subList.append(sub.get('subscription_id'))
+           subsList.append(sub.get('subscription_id'))
        
        # Create Azure Resource Graph client and set options
        argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
        
        # Create query
-       argQuery = arg.models.QueryRequest(subscriptions=subList, query=strQuery, options=argQueryOptions)
+       argQuery = arg.models.QueryRequest(subscriptions=subsList, query=strQuery, options=argQueryOptions)
        
        # Run query
        argResults = argClient.resources(argQuery)
@@ -147,9 +148,7 @@ the following command:
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph
-pip uninstall azure-mgmt-resource
-pip uninstall azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
 ```
 
 ## Next steps

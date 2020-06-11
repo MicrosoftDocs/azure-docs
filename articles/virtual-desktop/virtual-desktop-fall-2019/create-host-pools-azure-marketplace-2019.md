@@ -157,4 +157,4 @@ Here are the current supported clients:
 You've made a host pool and assigned users to access its desktop. You can populate your host pool with RemoteApp programs. To learn more about how to manage apps in Windows Virtual Desktop, see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](../manage-app-groups.md)
+> [Manage app groups tutorial](manage-app-groups-2019.md)

@@ -1051,7 +1051,7 @@ Azure AD Connect sync
 
 Desktop SSO
 
-* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required. 
+* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required.
 
 ## 1.1.443.0
 Released: March 2017

@@ -59,7 +59,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
     ![Attributes and claims selection page with three claims selected](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
+1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 
 ### Test the user flow
 

@@ -4,7 +4,7 @@ description: This tutorial explains how to load balance traffic using a round-ro
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
+
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial

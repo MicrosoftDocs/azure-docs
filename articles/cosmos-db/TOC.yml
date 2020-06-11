@@ -592,8 +592,12 @@
         items:
         - name: .NET
           href: create-cassandra-dotnet.md
-        - name: Java
-          href: create-cassandra-java.md
+        - name: .NET Core
+          href: create-cassandra-dotnet-core.md          
+        - name: Java v3
+          href: create-cassandra-java.md         
+        - name: Java v4        
+          href: create-cassandra-java-v4.md
         - name: Node.js
           href: create-cassandra-nodejs.md
         - name: Python
@@ -615,6 +619,8 @@
           href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
+        - name: Partitioning
+          href: cassandra-partitioning.md          
         - name: Secondary Indexes
           href: cassandra-secondary-index.md          
       - name: How-to guides
@@ -971,41 +977,40 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Best practices
+    - name: Performance & Troubleshooting
       items:
-      - name: Performance tips
-        items:
+      - name: Query
+        items: 
         - name: Get query execution metrics
-          displayName: query profile, profile
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Performance tips for .NET SDK
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+      - name: .NET
+        items: 
+        - name: Performance tips for .NET SDK v3
+          href: performance-tips-dotnet-sdk-v3-sql.md
+        - name: Performance tips for .NET SDK v2
           href: performance-tips.md
+        - name: Troubleshoot .NET SDK
+          href: troubleshoot-dot-net-sdk.md
+      - name: Java
+        items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Performance tips for older Java SDKs
-          items:
-          - name: Async Java SDK v2
-            href: performance-tips-async-java.md          
-          - name: Sync Java SDK v2
-            href: performance-tips-java.md
-        - name: Performance test - sample app
-          href: performance-testing.md
-      - name: Cost-effective reads and writes
-        href: key-value-store-cost.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot query performance
-        href: troubleshoot-query-performance.md
-      - name: Troubleshoot Java SDK v4
-        href: troubleshoot-java-sdk-v4-sql.md  
-      - name: Troubleshoot older Java SDKs
-        items:
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Async Java SDK v2
+          href: performance-tips-async-java.md          
+        - name: Sync Java SDK v2
+          href: performance-tips-java.md
         - name: Async Java SDK v2
           href: troubleshoot-java-async-sdk.md
-      - name: Troubleshoot .NET SDK
-        href: troubleshoot-dot-net-sdk.md
+      - name: Performance test - sample app
+        href: performance-testing.md
+      - name: Cost-effective reads and writes
+        href: key-value-store-cost.md
     - name: Migrate to newer SDKs
       items:
       - name: Migrate to Java V4 SDK
@@ -1188,28 +1193,30 @@
         href: how-to-migrate-from-bulk-executor-library.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-  - name: Reference
+  - name: References for SQL API SDKs
     items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: .NET change feed library
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: .NET bulk executor library
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java bulk executor library
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Java SDK v4 for Core
-      href: sql-api-sdk-java-v4.md
-    - name: Older Java SDKs for Core
+    - name: .NET SDKs
       items:
+      - name: .NET SDK v3
+        href: sql-api-sdk-dotnet-standard.md
+      - name: .NET SDK v2
+        href: sql-api-sdk-dotnet.md
+      - name: .NET Core SDK v2
+        href: sql-api-sdk-dotnet-core.md
+      - name: .NET change feed library v2
+        href: sql-api-sdk-dotnet-changefeed.md
+      - name: .NET bulk executor library v2
+        href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: Java SDKs
+      items:
+      - name: Java SDK v4
+        href: sql-api-sdk-java-v4.md
       - name: Async Java SDK v2
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
-        href: sql-api-sdk-java.md        
+        href: sql-api-sdk-java.md  
+      - name: Java bulk executor library v2
+        href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
@@ -1237,6 +1244,8 @@
       href: whitepapers.md
     - name: Partners
       href: partners-migration-cosmosdb.md
+    - name: Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

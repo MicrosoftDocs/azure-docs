@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/10/2020
 ---
 
 # Lock resources to prevent unexpected changes
@@ -30,9 +30,11 @@ Applying locks can lead to unexpected results because some operations that don't
 
 * A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting the virtual machine. These operations require a POST request.
 
-* A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+* A cannot-delete lock on a **resource group** prevents Azure Resource Manager from [automatically deleting deployments](../templates/deployment-history-deletions.md) in the history. If you reach 800 deployments in the history, your deployments will fail.
 
 * A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.md).
+
+* A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
 ## Who can create or delete locks
 
@@ -133,7 +135,7 @@ The following example shows a template that creates an app service plan, a web s
 }
 ```
 
-For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ## PowerShell
 You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.

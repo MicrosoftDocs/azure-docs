@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: references_regions
 ---
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.

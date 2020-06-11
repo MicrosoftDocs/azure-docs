@@ -49,7 +49,7 @@ The following example returns suitable offsets for splitting a CSV-formatted blo
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-<a id="data-types" />
+<a id="data-types"></a>
 
 ## Data Types
 
@@ -226,7 +226,7 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 The ``IS MISSING`` operator is the only non-standard that the query acceleration SQL language supports.  For JSON data, if a field is missing from a particular input record, the expression field ``IS MISSING`` will evaluate to the Boolean value true.
 
-<a id="table-descriptors" />
+<a id="table-descriptors"></a>
 
 ## Table Descriptors
 
@@ -297,7 +297,7 @@ SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 > [!NOTE]
 > BlobStorage and BlobStorage[\*] both refer to the whole object. However, if you have a path in the FROM clause, then you'll need to use BlobStorage[\*].path
 
-<a id="sys-split" />
+<a id="sys-split"></a>
 
 ## Sys.Split
 

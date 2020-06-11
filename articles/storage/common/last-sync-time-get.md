@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -33,13 +33,7 @@ You can use PowerShell or Azure CLI to retrieve the value of the **Last Sync Tim
 
 # [PowerShell](#tab/azure-powershell)
 
-To get the last sync time for the storage account with PowerShell, install a version of the Az.Storage module that supports getting geo-replication stats. For example:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
+To get the last sync time for the storage account with PowerShell, install version 1.11.0 or later of the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Then check the storage account's **GeoReplicationStats.LastSyncTime** property. Remember to replace the placeholder values with your own values:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
