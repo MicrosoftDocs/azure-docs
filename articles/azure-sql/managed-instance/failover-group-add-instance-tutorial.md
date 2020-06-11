@@ -13,7 +13,7 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
 ---
-# Tutorial: Add a managed instance of SQL Managed Instance to a failover group
+# Tutorial: Add SQL Managed Instance to a failover group
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Add managed instances of Azure SQL Managed Instance to a failover group. In this article, you will learn how to:
