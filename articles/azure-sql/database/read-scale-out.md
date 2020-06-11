@@ -13,7 +13,7 @@ ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
 ---
 # Use read-only replicas to load-balance read-only query workloads
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
