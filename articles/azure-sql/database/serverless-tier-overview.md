@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
+ms.date: 6/10/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,7 +60,7 @@ The following table summarizes distinctions between the serverless compute tier 
 
 | | **Serverless compute** | **Provisioned compute** |
 |:---|:---|:---|
-|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. |	More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
+|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. | More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
 | **Performance management effort** |Lower|Higher|
 |**Compute scaling**|Automatic|Manual|
 |**Compute responsiveness**|Lower after inactive periods|Immediate|
@@ -155,19 +155,8 @@ If using [customer managed transparent data encryption](transparent-data-encrypt
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
-1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
+1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. For service objective options, see [serverless resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Service objective name|Service tier|Hardware generation|Max vCores|
-   |---|---|---|---|
-   |GP_S_Gen5_1|General Purpose|Gen5|1|
-   |GP_S_Gen5_2|General Purpose|Gen5|2|
-   |GP_S_Gen5_4|General Purpose|Gen5|4|
-   |GP_S_Gen5_6|General Purpose|Gen5|6|
-   |GP_S_Gen5_8|General Purpose|Gen5|8|
-   |GP_S_Gen5_10|General Purpose|Gen5|10|
-   |GP_S_Gen5_12|General Purpose|Gen5|12|
-   |GP_S_Gen5_14|General Purpose|Gen5|14|
-   |GP_S_Gen5_16|General Purpose|Gen5|16|
 
 2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
