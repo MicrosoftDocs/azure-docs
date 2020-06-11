@@ -21,6 +21,8 @@ User access tokens enable you to build client applications that directly authent
 
 The Azure Communication Services Configuration SDK provides the functionality to create user access tokens. You should expose this functionality via a trusted web service that your users can authenticate against. Once your endpoint validates that a user should be authorized to access Azure Communication Services, you should use the configuration SDK to create a User Access Token for that user's unique identity, serialize it and return it to the user's client application so it can initialize an instance of an Azure Communication Services client SDK.
 
+#### [C#](#tab/c-sharp)
+
 ```csharp
 [HttpPost]
 [Authorize]
@@ -36,17 +38,37 @@ public async Task<ActionResult> CreateAccessToken(string userName)
     // create a user access token for the provided identity
     var tokenResult = await configurationClient.CreateUserAccessTokenAsync(userName);
     
-    // TODO: we should handle failures
-    
     // return the access token to the
     var response = new CreateAccessTokenResponse()
     {
-      token: tokenResult.UserAccessToken,
-      ttl: tokenResult.Ttl,
+      token: tokenResult.token
     }
     return Ok(response);
 }
 ```
+
+#### [Javascript](#tab/javascript)
+
+```js
+app.post('/token', (req, res) => {
+    // validate the user that sent this request is authorized to
+    // access Azure Communication Services
+    
+    // initialize the configuration client with a connection string
+    // retrieved from the Azure Portal
+    const configurationClient = new ManagementClient(CONNECTION_STRING);
+    
+    // create a user access token for the provided identity
+    const tokenResponse = configurationClient.userToken().issue(req.body.userName);
+    
+    // return the access token to the client
+    res.json({ 
+        token: tokenResponse.token,
+     })
+});
+```
+--- 
+
 
 By default, user access tokens expire after 24 hours but it is a good security practice to limit the lifetime to the minimum duration required by your application. You can use the optional `ttl` parameter of the `CreateUserAccessTokenAsync` method to limit the duration of user access tokens.
 
