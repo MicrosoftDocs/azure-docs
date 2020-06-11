@@ -93,41 +93,33 @@ Update the newly renamed *app_config.py* with values for your Azure AD B2C tenan
 1. Open the *app_config.py* file in your editor.
 1. Update the `b2c_tenant` value with the name of your Azure AD B2C tenant, for example *contosob2c*.
 1. Update each of the `*_user_flow` values to match those you created as part of the prerequisites.
-1. Update the `CLIENT_SECRET` value with the **Value** of the client secret you created in the prerequisites. Or, for better security, store it in an environment variable as recommended in the comments.
-
-    The top section of *app_config.py* should appear similar to:
-
-    ```python
-    import os
-
-    b2c_tenant = "contosob2c"
-    signupsignin_user_flow = "b2c_1_signupsignin1"
-    editprofile_user_flow = "b2c_1_profileediting1"
-    resetpassword_user_flow = "b2c_1_passwordreset1"
-    authority_template = "https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{user_flow}"
-
-    CLIENT_SECRET = "11111111-1111-1111-1111-111111111111"
-    # In your production app, we recommend you to use other ways to store your secret,
-    # such as KeyVault, or environment variable as described in Flask's documentation here
-    # https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
-    # CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-    # if not CLIENT_SECRET:
-    #     raise ValueError("Need to define CLIENT_SECRET environment variable")
-    ```
-
-   > [!WARNING]
-   > As noted in comments in the code snippet, we recommend you **do not store secrets in plaintext** in your application code. The hardcoded variable is used in the code sample for *convenience only*.
-
 1. Update the `CLIENT_ID` value with the **Application (client) ID** of the web application you registered as part of the prerequisites.
+1. Update the `CLIENT_SECRET` value with the **Value** of the client secret you created in the prerequisites. Or, for better security, store it in an **environment variable** as recommended in the comments.
 
-    ```python
-    CLIENT_ID = "22222222-2222-2222-2222-222222222222"
-    ```
-1. Update the `SCOPE` value to an empty array (`[]`) since you've not yet registered a web API in the Azure portal:
+The top section of *app_config.py* should now look similar to the following code snippet:
 
-    ```python
-    SCOPE = []
-    ```
+```python
+import os
+
+b2c_tenant = "contosob2c"
+signupsignin_user_flow = "b2c_1_signupsignin1"
+editprofile_user_flow = "b2c_1_profileediting1"
+resetpassword_user_flow = "b2c_1_passwordreset1"
+authority_template = "https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{user_flow}"
+
+CLIENT_ID = "11111111-1111-1111-1111-111111111111" # Application (client) ID of app registration
+
+CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use ONLY during testing.
+# In a production app, we recommend you use a more secure method of storing your secret,
+# like Azure Key Vault. Or, use an environment variable as described in Flask's documentation:
+# https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+# CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+# if not CLIENT_SECRET:
+#     raise ValueError("Need to define CLIENT_SECRET environment variable")
+```
+
+> [!WARNING]
+> As noted in comments in the code snippet, we recommend you **do not store secrets in plaintext** in your application code. The hardcoded variable is used in the code sample for *convenience only*.
 
 ## Run the sample
 
