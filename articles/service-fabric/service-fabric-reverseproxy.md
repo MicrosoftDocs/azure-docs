@@ -73,7 +73,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** This specifies how the target replica or instance should be selected.
   * When the target service is stateful, the TargetReplicaSelector can be one of the following:  'PrimaryReplica', 'RandomSecondaryReplica', or 'RandomReplica'. When this parameter is not specified, the default is 'PrimaryReplica'.
   * When the target service is stateless, reverse proxy picks a random instance of the service partition to forward the request to.
-* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 60 seconds. This is an optional parameter.
+* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 120 seconds. This is an optional parameter.
 
 ### Example usage
 As an example, let's take the *fabric:/MyApp/MyService* service that opens an HTTP listener on the following URL:
