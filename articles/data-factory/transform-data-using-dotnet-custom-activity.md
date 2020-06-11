@@ -17,6 +17,7 @@ ms.date: 11/26/2018
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Current version](transform-data-using-dotnet-custom-activity.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 

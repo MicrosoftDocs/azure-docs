@@ -51,7 +51,7 @@ Depending on the provider, you may get different service offerings. The table be
 | --- | --- |
 | MPLS/IPVPN Network |PCCW, China Telecom Global |
 |SDWAN| PCCW, China Telecom Global|
-| Dedicated Internet Access | PCCW, Hong Kong Telecom, China Mobil, PCCW |
+| Dedicated Internet Access | PCCW, Hong Kong Telecom, China Mobil|
 
 With your provider, you can agree on which of the following two solutions to use to reach the Microsoft global backbone:
 
@@ -134,7 +134,7 @@ The traffic that goes to the interconnected branches or from them to the locatio
 
 ![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
 
-Currently ExpressRoute Global Reach is not available in every country, but you can configure a solution using Azure Virtual WAN.
+Currently ExpressRoute Global Reach is not available in every country/region, but you can configure a solution using Azure Virtual WAN.
 
 You can, for example, configure an ExpressRoute with Microsoft Peering and connect a VPN tunnel through that peering to Azure Virtual WAN. Now you have enabled, again, the transit between VPN and ExpressRoute without Global Reach and 3rd party provider and service, such as Megaport Cloud.
 

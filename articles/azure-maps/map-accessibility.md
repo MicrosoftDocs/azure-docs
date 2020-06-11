@@ -23,6 +23,7 @@ The Azure Maps Web SDK comes prebuilt with many accessibility features such as:
 - Screen reader descriptions when the map moves and when the user focuses on a control or popup.
 - Mouse, touch, and keyboard support.
 - Accessible color contrast support in the road map style.
+- High contrast support.
 
 Full accessibility conformance details for all Microsoft products can be found [here](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK. 
 

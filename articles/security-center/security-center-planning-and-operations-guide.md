@@ -21,7 +21,7 @@ This guide covers tasks that you can follow to optimize your use of Security Cen
 * Security Roles and Access Controls
 * Security Policies and Recommendations
 * Data Collection and Storage
-* Ongoing non-Azure resources
+* Onboarding non-Azure resources
 * Ongoing Security Monitoring
 * Incident Response
 

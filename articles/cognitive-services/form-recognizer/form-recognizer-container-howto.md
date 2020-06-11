@@ -2,13 +2,13 @@
 title: How to install and run container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: This article will explain how to use the Azure Cognitive Services Form Recognizer container to parse form and table data.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Install and run Form Recognizer containers (Preview)
@@ -62,7 +62,7 @@ This key is used to start the container, and is available on the Azure portal's 
 
 ## Request access to the container registry
 
-You must first complete and submit the [Cognitive Services Form Recognizer Containers access request form](https://aka.ms/FormRecognizerContainerRequestAccess) to request access to the container. Doing so also signs you up for Computer Vision. You don't need to sign up for the Computer Vision request form separately. 
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

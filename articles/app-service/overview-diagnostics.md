@@ -28,6 +28,10 @@ In the App Service diagnostics homepage, you can choose the category that best d
 
 ![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
+> [!NOTE]
+> If your app is down or performing slow, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the issue. Profiling is light weight and is designed for production scenarios.
+>
+
 ## Interactive interface
 
 Once you select a homepage category that best aligns with your app's problem, App Service diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem with your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.

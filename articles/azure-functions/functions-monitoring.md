@@ -17,7 +17,10 @@ As the required Application Insights instrumentation is built into Azure Functio
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Function Apps for free. There's a daily limit to how much data can be processed for free. You might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
+You can try out Application Insights integration with Azure Functions for free. There's a daily limit to how much data can be processed for free. You might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](#configure-sampling).
 
 The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -25,7 +28,7 @@ The full list of Application Insights features available to your function app is
 
 With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
 
-1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab. Select **Refresh** periodically, until the list of function invocations appears.
+1. In the function app page, select a function that has run at least once after Application Insights was configured. Then, select **Monitor** from the left pane. Select **Refresh** periodically, until the list of function invocations appears.
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -36,9 +39,9 @@ With [Application Insights integration enabled](#enable-application-insights-int
 
    ![Invocation details](media/functions-monitoring/invocation-details-ai.png)
 
-1. Choose the **Run in Application Insights** link to view the source of the query that retrieves the Azure Monitor log data in Azure Log  If this is the first time using Azure Log Analytics in your subscription, you are asked to enable to.
+1. Choose **Run in Application Insights** to view the source of the query that retrieves the Azure Monitor log data in Azure Log. If this is your first time using Azure Log Analytics in your subscription, you're asked to enable it.
 
-1. When you choose that link and choose to enable Log Analytic. the following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
+1. After you enable Log Analytics, the following query is displayed. You can see that the query results are limited to the last 30 days (`where timestamp > ago(30d)`). In addition, the results show no more than 20 rows (`take 20`). In contrast, the invocation details list for your function is for the last 30 days with no limit.
 
    ![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -46,7 +49,7 @@ For more information, see [Query telemetry data](#query-telemetry-data) later in
 
 ## View telemetry in Application Insights
 
-To open Application Insights from a function app in the Azure portal, go to the function app's **Overview** page. Under **Configured features**, select **Application Insights**.
+To open Application Insights from a function app in the Azure portal, select **Application Insights** under **Settings** in the left page. If this is your first time using Application Insights with your subscription, you'll be prompted to enable it: select **Turn on Application Insights**, and then select **Apply** on the next page.
 
 ![Open Application Insights from the function app Overview page](media/functions-monitoring/ai-link.png)
 
@@ -121,7 +124,7 @@ All logs with categories that begin with `Host` are written by the Functions run
 
 The Functions runtime creates logs with a category that begin with "Host." In version 1.x, the `function started`, `function executed`, and `function completed` logs have the category `Host.Executor`. Starting in version 2.x, these logs have the category `Function.<YOUR_FUNCTION_NAME>`.
 
-If you write logs in your function code, the category is is `Function.<YOUR_FUNCTION_NAME>.User` and can be any log level. In version 1.x of the Functions runtime, the category is `Function`.
+If you write logs in your function code, the category is `Function.<YOUR_FUNCTION_NAME>.User` and can be any log level. In version 1.x of the Functions runtime, the category is `Function`.
 
 ### Log levels
 
@@ -267,9 +270,6 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
   }
 }
 ```
-
-> [!NOTE]
-> [Sampling](../azure-monitor/app/sampling.md) is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## Write logs in C# functions
 
@@ -529,7 +529,9 @@ Don't set `telemetryClient.Context.Operation.Id`. This global setting causes inc
 
 ## Log custom telemetry in JavaScript functions
 
-Here is a sample code snippet that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+Here are sample code snippets that sends custom telemetry with the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js):
+
+### Version 2.x and later
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -539,12 +541,39 @@ const client = appInsights.defaultClient;
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    client.trackEvent({name: "my custom event", tagOverrides:{"ai.operation.id": context.invocationId}, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackMetric({name: "custom metric", value: 3, tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackTrace({message: "trace message", tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
-    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+### Version 1.x
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
 
     context.done();
 };
@@ -577,7 +606,7 @@ When you choose **Create**, an Application Insights resource is created with you
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
+When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

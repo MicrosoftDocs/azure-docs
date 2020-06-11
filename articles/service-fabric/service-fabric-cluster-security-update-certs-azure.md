@@ -30,9 +30,7 @@ To remove an unused cluster security certificate, Navigate to the Security secti
 
 If your intent is to remove the certificate that is marked primary, then you will need to deploy a secondary certificate with an expiring date further into the future than the primary certificate, enabling the auto rollover behavior; delete the primary certificate after the auto rollover has completed.
 
-## Add a secondary certificate using Resource Manager Powershell
-> [!TIP]
-> There is now a better and easier way to add a secondary certificate using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+## Add a secondary certificate using Azure Resource Manager
 
 These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 

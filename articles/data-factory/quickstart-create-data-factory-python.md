@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.custom: seo-python-october2019
+ms.custom: seo-python-october2019, tracking-python
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
@@ -20,6 +20,8 @@ ms.custom: seo-python-october2019
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-python.md)
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in Azure Blob storage.
 

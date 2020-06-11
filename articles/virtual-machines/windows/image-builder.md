@@ -4,9 +4,9 @@ description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 07/31/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
+ms.subservice: imaging
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 

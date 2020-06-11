@@ -54,11 +54,11 @@ using Newtonsoft.Json;
 
 ## Create classes for the JSON response
 
-Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator Text API.
+Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -131,7 +131,7 @@ In the `Program` class, create an asynchronous function called `TranslateTextReq
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
+// Async call to the Translator
 static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
@@ -288,7 +288,7 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

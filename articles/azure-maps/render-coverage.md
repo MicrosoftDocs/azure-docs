@@ -1,8 +1,8 @@
 ---
 title: Render coverage | Microsoft Azure Maps
 description: In this article, learn about regions with Microsoft Azure Maps render coverage along with their level of rendered details.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps

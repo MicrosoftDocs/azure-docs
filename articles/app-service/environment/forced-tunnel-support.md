@@ -56,7 +56,7 @@ You can configure your ASE subnet to ignore all BGP routes.  When configured to 
 To configure your ASE subnet to ignore BGP routes:
 
 * create a UDR and assign it to your ASE subnet if you did not have one already.
-* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set BGP route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
+* In the Azure portal, open the UI for the route table assigned to your ASE subnet.  Select Configuration.  Set Virtual network gateway route propagation to Disabled.  Click Save. The documentation on turning that off is in the [Create a route table][routetable] document.
 
 After you configure the ASE subnet to ignore all BGP routes, your apps will no longer be able to reach on premises. To enable your apps to access resources on-premises, edit the UDR assigned to your ASE subnet and add routes for your on premises address ranges. The Next hop type should be set to Virtual network gateway. 
 

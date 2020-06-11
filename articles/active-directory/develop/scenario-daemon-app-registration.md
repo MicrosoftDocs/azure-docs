@@ -2,16 +2,12 @@
 title: Register daemon apps that call web APIs - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs - app registration
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur

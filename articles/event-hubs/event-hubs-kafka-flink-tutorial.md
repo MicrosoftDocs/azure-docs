@@ -7,9 +7,8 @@ author: ShubhaVijayasarathy
 manager: timlt
 
 ms.service: event-hubs
-ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 04/02/2020
 ms.author: shvija
 
 ---
@@ -121,22 +120,11 @@ If the event hub has events (for example, if your producer is also running), the
 Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) for more detailed information about connecting Flink to Kafka.
 
 ## Next steps
-In this tutorial, your learned how to connect Apache Flink to Event Hubs without changing your protocol clients or running your own clusters. You performed the following steps as part of this tutorial: 
+To learn more about Event Hubs for Kafka, see the following articles:  
 
-> [!div class="checklist"]
-> * Create an Event Hubs namespace
-> * Clone the example project
-> * Run Flink producer 
-> * Run Flink consumer
-
-To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
-
-- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Create an event hub](event-hubs-create.md)
-- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
 - [Integrate Kafka Connect with an event hub](event-hubs-kafka-connect-tutorial.md)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)

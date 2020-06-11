@@ -8,7 +8,7 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
 
 # Tutorial: Build a custom image and run in App Service from a private registry
@@ -119,7 +119,7 @@ az acr credential show --name <azure-container-registry-name>
 
 The output reveals two passwords along with the user name.
 
-```json
+<pre>
 {
   "passwords": [
     {
@@ -131,9 +131,9 @@ The output reveals two passwords along with the user name.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 From your local terminal window, sign in to the Azure Container Registry using the `docker login` command, as shown in the following example. Replace *\<azure-container-registry-name>* and *\<registry-username>* with values for your registry. When prompted, type in one of the passwords from the previous step.
 
@@ -164,11 +164,11 @@ az acr repository list -n <azure-container-registry-name>
 
 You should get the following output.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### Create App Service plan
 
@@ -184,7 +184,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -192,12 +192,12 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### Configure registry credentials in web app
 

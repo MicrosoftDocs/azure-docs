@@ -50,7 +50,7 @@ To enable KMSI, set the content definition `DataUri` element to [page identifier
 
 ## Add the metadata to the self-asserted technical profile
 
-To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enableRememberMe` metadata to false. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
+To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enableRememberMe` metadata to true. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
 
 1. Find the ClaimsProviders element. If the element doesn't exist, add it.
 1. Add the following claims provider to the ClaimsProviders element:

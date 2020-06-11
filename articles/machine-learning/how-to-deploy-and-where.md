@@ -5,13 +5,13 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 02/27/2020
+ms.date: 04/28/2020
+ms.custom: seoapril2019, tracking-python
 
-ms.custom: seoapril2019
 ---
 
 # Deploy models with Azure Machine Learning
@@ -318,6 +318,8 @@ def run(data):
         return error
 ```
 
+##### Power BI compatible endpoint 
+
 The following example demonstrates how to define the input data as a `<key: value>` dictionary by using a DataFrame. This method is supported for consuming the deployed web service from Power BI. ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
 
 ```python
@@ -354,8 +356,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
-
-@input_schema('data', PandasParameterType(input_sample))
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
@@ -922,13 +925,18 @@ output = service.run(input_payload)
 print(output)
 ```
 
-NOTE: These dependencies are included in the prebuilt sklearn inference container:
+NOTE: These dependencies are included in the prebuilt scikit-learn inference container:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## Package models
@@ -1119,6 +1127,16 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
+The `AMLRequest` class only allows you to access the raw posted data in the score.py, there is no client-side component. From a client, you post data as normal. For example, the following Python code reads an image file and posts the data:
+
+```python
+import requests
+# Load image data
+data = open('example.jpg', 'rb').read()
+# Post raw data to scoring URI
+res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+```
+
 <a id="cors"></a>
 
 ### Cross-origin resource sharing (CORS)
@@ -1130,11 +1148,13 @@ To configure your model deployment to support CORS, use the `AMLResponse` class 
 The following example sets the `Access-Control-Allow-Origin` header for the response from the entry script:
 
 ```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
     print("This is init()")
 
+@rawhttp
 def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))

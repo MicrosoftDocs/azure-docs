@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service limits
 description: Overview of the service and functional limits in Azure Blockchain Service
-ms.date: 03/30/2020
+ms.date: 04/02/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 #Customer intent: As an operator or architect, I want to understand service and functional limits for Azure Blockchain Service.
@@ -31,7 +31,6 @@ Changing the pricing tier between basic and standard after member creation is no
 The maximum amount of storage that can be used per node for ledger data and logs is 1.8 terabytes.
 
 Decreasing ledger and log storage size is not supported.
-
 ## Consortium limits
 
 * **Consortium and member names must be unique** from other consortium and member names in the Azure Blockchain Service.
@@ -55,6 +54,12 @@ Decreasing ledger and log storage size is not supported.
 * **All members in a consortium must be using the same ledger version**
 
     For more information on the patching, updates, and ledger versions available in Azure Blockchain Service, see [Patching, updates, and versions](ledger-versions.md).
+
+## Performance
+
+Do not use *eth.estimate* gas function for each transaction submission. The *eth.estimate* function is memory intensive. Calling the function multiple times reduces transactions per second drastically.
+
+If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimate*.
 
 ## Next steps
 

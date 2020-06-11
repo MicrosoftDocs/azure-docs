@@ -20,7 +20,7 @@ The following figure shows a cluster that has two node types, named *FrontEnd* a
 
 As shown in the preceding figure, scale set instances start at instance 0, and then increase by 1. The numbering is reflected in the node names. For example, node BackEnd_0 is instance 0 of the BackEnd scale set. This particular scale set has five instances, named BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3, and BackEnd_4.
 
-When you scale up a scale set, a new instance is created. The new scale set instance name typically is the scale set name plus the next instance number. In our example, it is BackEnd_5.
+When you scale out a scale set, a new instance is created. The new scale set instance name typically is the scale set name plus the next instance number. In our example, it is BackEnd_5.
 
 ## Map scale set load balancers to node types and scale sets
 

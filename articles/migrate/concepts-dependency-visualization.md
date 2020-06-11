@@ -2,7 +2,7 @@
 title: Dependency analysis in Azure Migrate Server Assessment
 description: Describes how to use dependency analysis for assessment using Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 04/15/2020
 ---
 
 # Dependency analysis
@@ -25,7 +25,7 @@ There are two options for deploying dependency analysis
 - **Agentless**: With agentless analysis, you don't need to install agents on machines you want to cross-check. This option is currently in preview, and is only available for VMware VMs.
 
 > [!NOTE]
-> Dependency analysis isn't available in Azure Government.
+> Agent-based dependency analysis isn't available in Azure Government. You can use agentless dependency analysis.
 
 ## Agentless analysis
 
@@ -46,7 +46,7 @@ For agent-based analysis, Server Assessment uses the [Service Map solution](../a
 
 ### Collected data
 
-For agent-based visualization, the following data is collected:
+For agent-based analysis, the following data is collected:
 
 - Source machine server name, process, application name.
 - Destination machine server name, process, application name, and port.
@@ -65,7 +65,7 @@ Log Analytics | Not required. | Azure Migrate uses the [Service Map](https://doc
 How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
 Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
 Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
-Data export | Can't currently be downloaded in tabular format. | Data can be queried with Log Analytics.
+Data export | Last 30 days data can be downloaded in a CSV format. | Data can be queried with Log Analytics.
 
 
 

@@ -1,12 +1,10 @@
 ---
-title: Render manager support - Azure Batch
+title: Render manager support
 description: Using Azure Batch render manager integration. Learn about built-in support or add-ons for popular render managers.
-services: batch
-ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Using Azure Batch with render farm managers

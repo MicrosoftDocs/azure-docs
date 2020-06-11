@@ -4,7 +4,7 @@ description: Learn how to use MongoDB Compass to store and manage data in Azure 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 06/05/2020
 author: LuisBosquez
 ms.author: lbosq
 ---
@@ -17,10 +17,13 @@ Cosmos DB is Microsoft's globally distributed multi-model database service. You 
 
 ## Pre-requisites
 
-To connect to your Cosmos DB account using Robo 3T, you must:
+To connect to your Cosmos DB account using MongoDB Compass, you must:
 
 * Download and install [Compass](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Have your Cosmos DB [connection string](connect-mongodb-account.md) information
+
+> [!NOTE]
+> Currently, Azure Cosmos DB's API for MongoDB Server version 3.2 is supported with latest version of MongoDB Compass. MongoDB Compass isn't yet supported with the 3.6 server version. 
 
 ## Connect to Cosmos DB's API for MongoDB
 

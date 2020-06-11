@@ -6,15 +6,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc
-ms.date: 03/02/2020
+ms.custom: hdinsightactive,mvc,seoapr2020
+ms.date: 04/21/2020
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---
 
 # Tutorial: Analyze Apache Spark data using Power BI in HDInsight
 
-In this tutorial, you learn how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
+In this tutorial, you learn how to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -67,9 +67,6 @@ In this section, you use Power BI to create visualizations, reports, and dashboa
 ### Create a report in Power BI Desktop
 
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
-
-> [!NOTE]  
-> The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Open Power BI Desktop. Close the start-up splash screen if it opens.
 
@@ -177,7 +174,7 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 
 ## Next steps
 
-In this tutorial, you learned how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Advance to the next article to see you can create a machine learning application.
+In this tutorial, you learned how to use Microsoft Power BI to visualize data in an Apache Spark cluster in Azure HDInsight. Advance to the next article to see you can create a machine learning application.
 
 > [!div class="nextstepaction"]
 > [Create a machine learning application](./apache-spark-ipython-notebook-machine-learning.md)

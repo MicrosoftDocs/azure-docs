@@ -12,7 +12,7 @@
 
 ### Azure regions within a geopolitical region
 
-Site-to-site based VPN connectivity and Virtual WAN architecture is available for the following regions:
+Virtual WAN is available for the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
@@ -32,10 +32,10 @@ Site-to-site based VPN connectivity and Virtual WAN architecture is available fo
 
 ### Azure regions and geopolitical boundaries for national clouds
 
-Site-to-site based VPN connectivity and Virtual WAN architecture is available for the following regions:
+Virtual WAN is available for the following regions:
 
 |Geopolitical region | Azure regions|
 |---|---|
 | US Government cloud | US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East |
-| China East | China East, China East2|
-| China North | China North, China North2 |
+| China East | China East2|
+| China North | China North2 |

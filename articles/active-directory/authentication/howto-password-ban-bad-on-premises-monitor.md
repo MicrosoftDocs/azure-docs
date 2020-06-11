@@ -5,7 +5,7 @@ description: Learn how to monitor and review logs for Azure AD Password Protecti
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -91,7 +91,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
+The scope of the cmdlet's reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event ID:
 
@@ -114,7 +114,7 @@ Note that the `Get-AzureADPasswordProtectionSummaryReport` cmdlet is shipped in 
 > This cmdlet works by opening a PowerShell session to each domain controller. In order to succeed, PowerShell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on PowerShell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a PowerShell window.
 
 > [!NOTE]
-> This cmdlet works by remotely querying each DC agent service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
+> This cmdlet works by remotely querying each DC agent service's Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
 
 ### Sample event log message for Event ID 10014 (successful password change)
 
@@ -262,7 +262,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
 
@@ -354,7 +354,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 The various properties are updated by each Proxy service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
 

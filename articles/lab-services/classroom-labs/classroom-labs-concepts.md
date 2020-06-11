@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/15/2020
 ms.author: spelluru
 
 ---
@@ -23,13 +23,13 @@ The following list contains key Lab Services concepts and definitions:
 
 ## Quota
 
-Quota is the time limit (in hours) that a teacher can set for a student to use a lab VM. It can be set to 0, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when a teacher manually turns on the virtual machine for the student.  
+Quota is the time limit (in hours) that an educator can set for a student to use a lab VM. It can be set to 0, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when an educator manually turns on the virtual machine for the student.  
 
-Quota hours are counted when the student starts the lab VM themselves.  If a teacher manually starts the lab VM for a student, quota hours aren't used for that student.
+Quota hours are counted when the student starts the lab VM themselves.  If an educator manually starts the lab VM for a student, quota hours aren't used for that student.
 
 ## Schedules
 
-Schedules are the time slots that a teacher can create for the class so the student VMs are available for class time.  Schedules can be one-time or recurring.  Quota hours aren't used when a schedule is running.
+Schedules are the time slots that an educator can create for the class so the student VMs are available for class time.  Schedules can be one-time or recurring.  Quota hours aren't used when a schedule is running.
 
 There are three types of schedules: Standard, Start only and Stop only.
 
@@ -47,13 +47,13 @@ This article describes different user profiles in Azure Lab Services.
 
 ### Lab account owner
 
-Typically, and IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:
+Typically, an IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:
 
 - Sets up a lab account for your organization.
 - Manages and configures policies across all labs.
 - Gives permissions to people in the organization to create a lab under the lab account.
 
-### Professor
+### Educator
 
 Typically, users such as a teacher or an online trainer creates classroom labs under a lab account. An educator does the following tasks:
 

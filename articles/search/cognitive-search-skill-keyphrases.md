@@ -34,17 +34,35 @@ Parameters are case-sensitive.
 
 | Inputs	            | Description |
 |---------------------|-------------|
-| defaultLanguageCode | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | (Optional) The maximum number of key phrases to produce. |
+| `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
 
 ## Skill inputs
 
-| Inputs	 | Description |
+| Input	 | Description |
 |--------------------|-------------|
-| text | The text to be analyzed.|
-| languageCode	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `text` | The text to be analyzed.|
+| `languageCode`	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## Skill outputs
+
+| Output	 | Description |
+|--------------------|-------------|
+| `keyPhrases` | A list of key phrases extracted from the input text. The key phrases are returned in order of importance. |
+
 
 ##	Sample definition
+
+Consider a SQL record that has the following fields:
+
+```json
+{
+    "content": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
+    "language": "en"
+}
+```
+
+Then your skill definition may look like this:
 
 ```json
  {
@@ -56,7 +74,7 @@ Parameters are case-sensitive.
       },
       {
         "name": "languageCode",
-        "source": "/document/languagecode" 
+        "source": "/document/language" 
       }
     ],
     "outputs": [
@@ -68,33 +86,12 @@ Parameters are case-sensitive.
   }
 ```
 
-##	Sample input
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
-             "language": "en"
-           }
-      }
-    ]
-```
-
-
 ##	Sample output
 
+For the example above, the output of your skill will be written to a new node in the enriched tree called "document/myKeyPhrases" since that is the `targetName` that we specified. If you don’t specify a `targetName`, then it would be "document/keyPhrases".
+
+#### document/myKeyPhrases 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-            "keyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
@@ -103,12 +100,9 @@ Parameters are case-sensitive.
               "Mount Everest region",
               "Continued warming"
             ]
-           }
-      }
-    ]
-}
 ```
 
+You may use "document/myKeyPhrases" as input into other skills, or as a source of an [output field mapping](cognitive-search-output-field-mapping.md).
 
 ## Errors and warnings
 If you provide an unsupported language code, an error is generated and key phrases are not extracted.
@@ -119,3 +113,4 @@ If your text is larger than 50,000 characters, only the first 50,000 characters 
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [How to define output fields mappings](cognitive-search-output-field-mapping.md)

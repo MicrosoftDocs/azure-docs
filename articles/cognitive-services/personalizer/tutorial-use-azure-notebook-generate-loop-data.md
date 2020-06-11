@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/27/2020
 ms.author: diberry
+ms.custom: tracking-python
 #Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
@@ -293,7 +294,7 @@ def add_event_id(rankjsonobj):
 
 This function selects a unique user, weather, and time of day, then adds those items to the JSON object to send to the Rank request.
 
-The cell has no output. When the function is called it returns the random user's name, random weather, and random time of day.
+The cell has no output. When the function is called, it returns the random user's name, random weather, and random time of day.
 
 The list of 4 users and their preferences - only some preferences are shown for brevity:
 

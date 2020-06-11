@@ -13,13 +13,13 @@ ms.reviewer: igorstan
 ---
 # Source Control Integration for SQL pool
 
-This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the SQL pool resource in Azure Synapse Analytics. 
+This tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the SQL pool resource in Azure Synapse Analytics.
 
 ## Before you begin
 
 - Sign up for an [Azure DevOps organization](https://azure.microsoft.com/services/devops/)
-- Go through the [Create and Connect](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal) tutorial
--  [Install Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/) 
+- Go through the [Create and Connect](create-data-warehouse-portal.md) tutorial
+- [Install Visual Studio 2019](https://visualstudio.microsoft.com/vs/older-downloads/)
 
 ## Set up and connect to Azure DevOps
 
@@ -27,7 +27,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Create Project](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Create Project")
 
-2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting “Manage Connections”
+2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting "Manage Connections"
 
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
@@ -47,7 +47,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Import Project](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "Import Project")  
 
-3. In team explorer in Visual Studio, commit your all changes to your local Git repository 
+3. In team explorer in Visual Studio, commit your all changes to your local Git repository
 
    ![Commit](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 

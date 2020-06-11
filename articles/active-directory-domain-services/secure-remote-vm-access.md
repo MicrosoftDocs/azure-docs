@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
 
@@ -57,6 +57,7 @@ The RD environment deployment contains a number of steps. The existing RD deploy
 
 1. Sign in to VMs created for the RD environment with an account that's part of the *Azure AD DC Administrators* group, such as *contosoadmin*.
 1. To create and configure RDS, use the existing [Remote Desktop environment deployment guide][deploy-remote-desktop]. Distribute the RD server components across your Azure VMs as desired.
+    * Specific to Azure AD DS - when you configure RD licensing, set it to **Per Device** mode, not **Per User** as noted in the deployment guide.
 1. If you want to provide access using a web browser, [set up the Remote Desktop web client for your users][rd-web-client].
 
 With RD deployed into the Azure AD DS managed domain, you can manage and use the service as you would with an on-premises AD DS domain.
