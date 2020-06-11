@@ -104,51 +104,7 @@ Code running in the VM can now get a token using its system-assigned managed ide
 
 This section shows how to get an access token using the VM's system-assigned managed identity and use it to call Azure SQL. Azure SQL natively supports Azure AD authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. You use the **access token** method of creating a connection to SQL. This is part of Azure SQL's integration with Azure AD, and is different from supplying credentials on the connection string.
 
-Here's a .NET code example of opening a connection to SQL using an access token. This code must run on the VM to be able to access the VM's system-assigned managed identity's endpoint. **.NET Framework 4.6** or higher or **.NET Core 2.2** or higher is required to use the access token method. Replace the values of AZURE-SQL-SERVERNAME and DATABASE accordingly. Note the resource ID for Azure SQL is `https://database.windows.net/`.
-
-```csharp
-using System.Net;
-using System.IO;
-using System.Data.SqlClient;
-using System.Web.Script.Serialization;
-
-//
-// Get an access token for SQL.
-//
-HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://database.windows.net/");
-request.Headers["Metadata"] = "true";
-request.Method = "GET";
-string accessToken = null;
-
-try
-{
-    // Call managed identities for Azure resources endpoint.
-    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-    // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
-    string stringResponse = streamResponse.ReadToEnd();
-    JavaScriptSerializer j = new JavaScriptSerializer();
-    Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
-    accessToken = list["access_token"];
-}
-catch (Exception e)
-{
-    string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
-}
-
-//
-// Open a connection to the server using the access token.
-//
-if (accessToken != null) {
-    string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>;";
-    SqlConnection conn = new SqlConnection(connectionString);
-    conn.AccessToken = accessToken;
-    conn.Open();
-}
-```
-
-Alternatively, a quick way to test the end to end setup without having to write and deploy an app on the VM is using PowerShell.
+Test the end to end setup without having to write and deploy an app on the VM by using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM.
@@ -193,6 +149,82 @@ Alternatively, a quick way to test the end to end setup without having to write 
     ```
 
 Examine the value of `$DataSet.Tables[0]` to view the results of the query.
+
+## Modify your project
+
+The steps you follow for your project depends on whether it's an ASP.NET project or an ASP.NET Core project.
+
+- [Modify ASP.NET](#modify-aspnet)
+- [Modify ASP.NET Core](#modify-aspnet-core)
+
+> [!NOTE]
+> The steps covered in this tutorial support the following versions:
+> 
+> - .NET Framework 4.7.2 and above
+> - .NET Core 2.2 and above
+>
+
+### Modify ASP.NET
+
+In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
+
+```powershell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
+```
+
+In *Web.config*, working from the top of the file and make the following changes:
+
+- In `<configSections>`, add the following section declaration in it:
+
+    ```xml
+    <section name="SqlAuthenticationProviders" type="System.Data.SqlClient.SqlAuthenticationProviderConfigurationSection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    ```
+
+- below the closing `</configSections>` tag, add the following XML code for `<SqlAuthenticationProviders>`.
+
+    ```xml
+    <SqlAuthenticationProviders>
+      <providers>
+        <add name="Active Directory Interactive" type="Microsoft.Azure.Services.AppAuthentication.SqlAppAuthenticationProvider, Microsoft.Azure.Services.AppAuthentication" />
+      </providers>
+    </SqlAuthenticationProviders>
+    ```    
+
+- Find the connection string and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name.
+
+> [!NOTE]
+> The SqlAuthenticationProvider you just registered is based on top of the AppAuthentication library you installed earlier. By default, it uses a system-assigned identity. To leverage a user-assigned identity, you will need to provide an additional configuration. Please see [connection string support](../key-vault/general/service-to-service-authentication.md#connection-string-support) for the AppAuthentication library.
+
+That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app.
+
+### Modify ASP.NET Core
+
+In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
+
+```powershell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
+```
+
+In *appsettings.json*, replace the connection string value with:
+
+```json
+"Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
+```
+
+Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
+
+```csharp
+var conn = (Microsoft.Data.SqlClient.SqlConnection)Database.GetDbConnection();
+conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceTokenProvider()).GetAccessTokenAsync("https://database.windows.net/").Result;
+```
+
+> [!NOTE]
+> This demonstration code is synchronous for clarity and simplicity.
+
+That's every thing you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Enable Azure AD authentication](#enable-azure-ad-authentication). The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
+
+> [!TIP]
+> If the Azure AD user you configured has access to multiple tenants, call `GetAccessTokenAsync("https://database.windows.net/", tenantid)` with the desired tenant ID to retrieve the proper access token.
 
 ## Disable
 
