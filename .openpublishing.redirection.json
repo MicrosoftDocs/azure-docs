@@ -51636,7 +51636,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/sql/data-loading-overview.md",
+      "source_path": "articles/synapse-analytics/sql/data-loading-overview.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading",
       "redirect_document_id": true
     },
