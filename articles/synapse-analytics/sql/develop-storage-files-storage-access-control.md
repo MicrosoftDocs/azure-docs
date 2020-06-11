@@ -28,8 +28,8 @@ A user that has logged into a SQL on-demand resource must be authorized to acces
 
 ### [User Identity](#tab/user-identity)
 
-**User Identity**, also known as "pass-through", is an authorization type where the identity of the Azure AD user that logged into
-SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table above, it's not supported for the SQL user type.
+**User Identity**, also known as "Azure AD pass-through", is an authorization type where the identity of the Azure AD user that logged into
+SQL on-demand is used to authorize data access. Before accessing the data, the Azure Storage administrator must grant permissions to the Azure AD user. As indicated in the table below, it's not supported for the SQL user type.
 
 > [!IMPORTANT]
 > You need to have a Storage Blob Data Owner/Contributor/Reader role to use your identity to access the data.
@@ -117,7 +117,7 @@ GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
 
 > [!NOTE]
-> The FOR CRYPTOGRAPHIC PROVIDER argument is not supported.
+> The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
 
 Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`. Storage account paths are described in the following table:
 
@@ -182,7 +182,8 @@ The following script creates a credential that is used to access files on storag
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
 
@@ -220,14 +221,17 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples',
 Use the following script to create a table that accesses publicly available data source.
 
 ```sql
-CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+       WITH ( FORMAT_TYPE = PARQUET)
 GO
 CREATE EXTERNAL DATA SOURCE publicData
 WITH (    LOCATION   = 'https://****.blob.core.windows.net/public-access' )
 GO
 
 CREATE EXTERNAL TABLE dbo.userPublicData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [publicData], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [publicData],
+       FILE_FORMAT = [SynapseParquetFormat] )
 ```
 
 Database user can read the content of the files from the data source using external table or [OPENROWSET](develop-openrowset.md) function that references the data source:
@@ -235,7 +239,9 @@ Database user can read the content of the files from the data source using exter
 ```sql
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
+                                DATA_SOURCE = [mysample],
+                                FORMAT=PARQUET) as rows;
 GO
 ```
 
@@ -250,9 +256,11 @@ GO
 
 -- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
 
-CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity WITH IDENTITY = 'Managed Identity'
+CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
+WITH IDENTITY = 'Managed Identity'
 GO
-CREATE DATABASE SCOPED CREDENTIAL SasCredential WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
+CREATE DATABASE SCOPED CREDENTIAL SasCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
 
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
@@ -267,7 +275,9 @@ WITH (    LOCATION   = 'https://*******.blob.core.windows.net/samples'
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )
-WITH ( LOCATION = 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FILE_FORMAT = [SynapseParquetFormat] )
+WITH ( LOCATION = 'parquet/user-data/*.parquet',
+       DATA_SOURCE = [mysample],
+       FILE_FORMAT = [SynapseParquetFormat] );
 
 ```
 
