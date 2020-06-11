@@ -1,12 +1,10 @@
 ---
 title: We’re retiring Azure Classic VMs on March 1, 2023 
 description: Article provides a high-level overview of Classic VM retirement
-services: virtual-machines
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
