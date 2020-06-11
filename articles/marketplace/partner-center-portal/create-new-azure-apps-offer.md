@@ -177,9 +177,9 @@ Here's an example of how offer information appears in Azure Marketplace:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">8.</font>** Description
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">9.</font>** Screenshots/videos
 
-<br>Here's an example of how offer information appears in Azure Portal:
+<br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
@@ -283,7 +283,7 @@ Select **Save draft** before continuing.
 
 The technical configuration defines the details (tenant ID, and app ID) used to identity your service, which will emit metering events for a managed application using the [Marketplace metering service APIs](./marketplace-metering-service-apis.md).  Enter the identity that your service will use when emitting metering events.
 
-* **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure AD tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
 >[!Note]

@@ -52,7 +52,7 @@ The **Offer overview** menu contains a list of links for performing operations o
 - If the offer is a draft - Delete draft
 - If the offer is live - Stop sell offer
 - If the offer is in preview - Go-live
-- If you haven't completed publisher sign out - Cancel publish
+- If you haven't completed publisher sign-out - Cancel publish
 
 ## Offer setup
 
@@ -75,7 +75,7 @@ In order to list Software as a Service (SaaS) offers with Commercial Marketplace
 
 #### SaaS pricing and billing options
 
-With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers should bundle Azure infrastructure usage fees into their software license pricing.
 
 SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
@@ -125,7 +125,12 @@ Here's an example of how offer information appears in Microsoft AppSource:
 
 :::image type="content" source="media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Logo
+![1](media/callout-01.png) Logo
+
+![2](media/callout-02.png) Industries 
+
+![3](media/callout-03.png) Support address (link)
+
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Categories
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Industries
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Support address (link)
@@ -137,9 +142,9 @@ Here's an example of how offer information appears in Microsoft AppSource:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">10.</font>** Screenshots/videos
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">11.</font>** Documents
 
-<br>Here's an example of how offer information appears in Azure Portal:
+<br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Title
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
@@ -214,7 +219,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 >[!NOTE]
 > These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
 
-**Universal amendment terms to the Standard Contract for Microsoft's commercial marketplace** – Enter the universal amendment terms in this box. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
+**Universal amendment terms to the Standard Contract for Microsoft's commercial marketplace** – Enter the universal amendment terms in this box. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or the Azure portal during the discovery and purchase flow.
 
 **Custom amendment terms to the Standard Contract for Microsoft's commercial marketplace** – Start by selecting **Add custom amendment terms**. You can provide up to 10 custom amendment terms per offer.
 
@@ -316,7 +321,7 @@ This page defines the technical details (URL path, webhook, tenant ID, and app I
 
 - **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you on behalf of the customer (for example, SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, https:\//prod-1westus.logic.azure.com:443/work). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD tenant ID** (required) – Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required) – Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **Azure AD app ID** (required) – You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
@@ -395,7 +400,7 @@ Review your prices carefully before publishing, as there are some restrictions o
 
 #### Free Trial
 
-SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
+SaaS offers through the commercial marketplace let you provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
 
 >[!NOTE]
 >If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately. Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
@@ -456,8 +461,8 @@ If this is your first time publishing this offer, you can:
     - **Not started** – The section has not been touched and needs to be completed.
     - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. You'll need to go back to the section and update it.
     - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
-- Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
+- Provide testing instructions to the certification team to ensure your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** to publish your offer to the public (or if a private offer, to the private audience).
 
 ## Next step
 

@@ -231,18 +231,18 @@ Here's an example of how offer information appears in Azure Marketplace:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
 
-<br>Here's an example of how offer information appears in Azure Portal:
+<br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-iot-3.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+:::image type="content" source="media/example-iot-3.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots
 
-<br>Here's an example of how offer information appears in Azure Portal search results:
+<br>Here's an example of how offer information appears in the Azure portal search results:
 
-:::image type="content" source="media/example-iot-4.png" alt-text="Illustrates how this offer appears in Azure Portal search results.":::
+:::image type="content" source="media/example-iot-4.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
@@ -326,7 +326,7 @@ This tab displays specific information for each different plan within the same o
 
 ### Plan name
 
-This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and Azure portal. It's used as the default module name after the plan is ready to be used.
+This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and the Azure portal. It's used as the default module name after the plan is ready to be used.
 
 ### Plan summary
 
@@ -348,9 +348,9 @@ Here's an example of Azure Marketplace plan details:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan description
 
-<br>Here's an example of Azure Portal plan details:
+<br>Here's an example of the Azure portal plan details:
 
-:::image type="content" source="media/example-iot-6.png" alt-text="Illustrates Azure Portal plan details.":::
+:::image type="content" source="media/example-iot-6.png" alt-text="Illustrates the Azure portal plan details.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Offer name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan name
@@ -395,7 +395,7 @@ You'll provide the following information on the **Image repository details** tab
 
 **Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-8.png" alt-text="Illustrates the access key screen in Azure portal.":::
+:::image type="content" source="media/example-iot-8.png" alt-text="Illustrates the access key screen in the Azure portal.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Access keys
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Username

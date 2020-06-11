@@ -540,26 +540,26 @@ Here's an example of how offer information appears in Azure Marketplace:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Recommend VM sizes
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Plan pricing
 
-<br>Here's an example of how offer information appears in Azure Portal:
+<br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in Azure Portal.":::
+:::image type="content" source="media/avm-create4.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Description
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Useful links
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">4.</font>** Screenshots/videos
 
-<br>Here's an example of how offer information appears in Azure Portal search results:
+<br>Here's an example of how offer information appears in the Azure portal search results:
 
-:::image type="content" source="media/avm-create5.png" alt-text="Illustrates how this offer appears in Azure Portal search results.":::
+:::image type="content" source="media/avm-create5.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Small logo
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Offer name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">3.</font>** Search results summary
 
-<br>Here's an example of Azure Portal plan details:
+<br>Here's an example of the Azure portal plan details:
 
-:::image type="content" source="media/avm-create6.png" alt-text="Illustrates Azure Portal plan details.":::
+:::image type="content" source="media/avm-create6.png" alt-text="Illustrates the Azure portal plan details.":::
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">1.</font>** Plan name
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<font color="#d83b01">2.</font>** Plan description
