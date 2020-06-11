@@ -8,6 +8,7 @@ ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

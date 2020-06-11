@@ -8,6 +8,7 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Summary of customer data request features​
