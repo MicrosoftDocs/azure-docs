@@ -232,19 +232,19 @@ Verify that the web app works by browsing to it (`http://<app-name>.azurewebsite
 
 ## Change web app and redeploy
 
-In your local Git repository, open app/templates/app/index.html. Locate the first HTML element and change it to.
+In your local Git repository, open *app/templates/app/index.html*. Change the first HTML element to match the following code.
 
 ```python
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry).
+Once you've saved your changes, rebuild and push the new Docker image using the same commands that you used earlier in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry).
 
 After pushing the new image, restart the web app for the changes to take effect by using the following command:
 
