@@ -1,10 +1,26 @@
 ---
-title: Deploy CIS Microsoft Azure Foundations Benchmark blueprint sample
-description: Deploy steps for the CIS Microsoft Azure Foundations Benchmark blueprint sample including blueprint artifact parameter details.
-ms.date: 05/06/2020
+title: CIS Microsoft Azure Foundations Benchmark blueprint sample
+description: Overview of the CIS Microsoft Azure Foundations Benchmark blueprint sample. This blueprint sample helps customers assess specific controls.
+ms.date: 06/02/2020
 ms.topic: sample
 ---
-# Deploy the CIS Microsoft Azure Foundations Benchmark blueprint sample
+# CIS Microsoft Azure Foundations Benchmark blueprint sample
+
+The CIS Microsoft Azure Foundations Benchmark blueprint sample provides governance guard-rails using
+[Azure Policy](../../policy/overview.md) that help you assess specific CIS Microsoft Azure
+Foundations Benchmark recommendations. This blueprint helps customers deploy a core set of policies
+for any Azure-deployed architecture that must implement CIS Microsoft Azure Foundations Benchmark
+recommendations.
+
+## Recommendation mapping
+
+The [Azure Policy recommendation mapping](../../policy/samples/cis-azure-1-1-0.md) provides details
+on policy definitions included within this blueprint and how these policy definitions map to the
+**compliance domains** and **controls** in CIS Microsoft Azure Foundations Benchmark v1.1.0. When
+assigned to an architecture, resources are evaluated by Azure Policy for non-compliance with
+assigned policy definitions. For more information, see [Azure Policy](../../policy/overview.md).
+
+## Deploy
 
 To deploy the Azure Blueprints CIS Microsoft Azure Foundations Benchmark blueprint sample, the
 following steps must be taken:
@@ -17,7 +33,7 @@ following steps must be taken:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
 
-## Create blueprint from sample
+### Create blueprint from sample
 
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
@@ -27,8 +43,8 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **CIS Microsoft Azure Foundations Benchmark v1.1.0** blueprint sample under _Other Samples_ and select **Use
-   this sample**.
+1. Find the **CIS Microsoft Azure Foundations Benchmark v1.1.0** blueprint sample under _Other
+   Samples_ and select **Use this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -44,12 +60,12 @@ sample as a starter.
    parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
    blueprint sample.
 
-## Publish the sample copy
+### Publish the sample copy
 
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
-blueprint sample can be customized to your environment and needs, but that modification may move
-it away from alignment with CIS Microsoft Azure Foundations Benchmark recommendations.
+blueprint sample can be customized to your environment and needs, but that modification may move it
+away from alignment with CIS Microsoft Azure Foundations Benchmark recommendations.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
@@ -62,11 +78,11 @@ it away from alignment with CIS Microsoft Azure Foundations Benchmark recommenda
    Microsoft Azure Foundations Benchmark blueprint sample." Then select **Publish** at the bottom of
    the page.
 
-## Assign the sample copy
+### Assign the sample copy
 
 Once the copy of the blueprint sample has been successfully **Published**, it can be assigned to a
-subscription within the management group it was saved to. This step is where parameters are
-provided to make each deployment of the copy of the blueprint sample unique.
+subscription within the management group it was saved to. This step is where parameters are provided
+to make each deployment of the copy of the blueprint sample unique.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
@@ -86,13 +102,14 @@ provided to make each deployment of the copy of the blueprint sample unique.
        Change as needed or leave as is.
      - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
-       [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
+       [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
        sample.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -101,7 +118,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
-     parameters are [dynamic parameters](../../concepts/parameters.md#dynamic-parameters) since
+     parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) since
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
@@ -111,10 +128,11 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
-## Artifact parameters table
+### Artifact parameters table
 
 The following table provides a list of the blueprint artifact parameters:
 
@@ -125,17 +143,10 @@ The following table provides a list of the blueprint artifact parameters:
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the CIS Microsoft Azure Foundations Benchmark blueprint
-sample, visit the following articles to learn about the blueprint and control mapping:
+Additional articles about blueprints and how to use them:
 
-> [!div class="nextstepaction"]
-> [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
-> [CIS Microsoft Azure Foundations Benchmark blueprint - Control mapping](./control-mapping.md)
-
-Addition articles about blueprints and how to use them:
-
-- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
-- Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).
-- Learn how to [update existing assignments](../../how-to/update-existing-assignments.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
