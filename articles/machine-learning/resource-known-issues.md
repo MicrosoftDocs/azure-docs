@@ -378,5 +378,5 @@ See more troubleshooting articles for Azure Machine Learning:
 * [Docker deployment troubleshooting with Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debug machine learning pipelines](how-to-debug-pipelines.md)
 * [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
-* [Interactive debugging of a machine learning compute instance with VS Code](how-to-set-up-vs-code-remote.md)
+* [Interactive debugging of a machine learning compute instance with VS Code](how-to-debug-vs-code.md)
 * [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)
