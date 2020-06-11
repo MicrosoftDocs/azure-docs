@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 06/11/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
@@ -95,11 +95,29 @@ When a compute instance running is running, you can also use code completion, po
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
 
+### Use IntelliSense
+
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  
+
+When typing code, use Ctrl+Space to trigger IntelliSense.
+
+### Save notebooks and checkpoint
+
+Azure Machine Learning creates a checkpoint file when you create an *ipynb* file. In the notebook toolbar, select **Save** tool to manually save the notebook.  Save also updates the checkpoint file associated with the notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Save a notebook":::
+
+Every notebook is autosaved every 30 seconds. Autosaves update only the initial *ipynb* file, not the checkpoint file.
+
+Use the **Terminal** to access the checkpoint file.  This file is located within a hidden folder named *.ipynb_checkpoints*, located within the same folder as the initial *ipynb* file.
+
+
 ### Useful keyboard shortcuts
 
 |Keyboard  |Action  |
 |---------|---------|
 |Shift+Enter     |  Run a cell       |
+| Ctrl+Space | Activate IntelliSense |
 |Ctrl+M(Windows)     |  Enable/disable tab trapping in notebook.       |
 |Ctrl+Shift+M(Mac & Linux)     |    Enable/disable tab trapping in notebook.     |
 |Tab (when tab trap enabled) | Add a '\t' character (indent)
