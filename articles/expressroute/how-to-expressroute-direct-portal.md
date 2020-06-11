@@ -40,8 +40,8 @@ ExpressRoute Direct lets you connect directly into Microsoft’s global network 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Configuration page":::
 
     * **Peering Location**: The peering location where you will connect to the ExpressRoute Direct resource. For more information about peering locations, review [ExpressRoute Locations](expressroute-locations-providers.md).
-   * **Bandwidth**: The port pair bandwidth that you want to reserve. ExpressRoute Direct both 10 Gb and 100 Gb bandwidth options. If your desired bandwidth is not available at the specified peering location, [open a support request in the Azure portal](https://aka.ms/azsupt).
-   * **Encapsulation**: ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. 
+   * **Bandwidth**: The port pair bandwidth that you want to reserve. ExpressRoute Direct supports both 10 Gb and 100 Gb bandwidth options. If your desired bandwidth is not available at the specified peering location, [open a Support Request in the Azure portal](https://aka.ms/azsupt).
+   * **Encapsulation**: ExpressRoute Direct supports both QinQ and Dot1Q encapsulation.
      * If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource.
      *  Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.
      * If Dot1Q encapsulation is selected, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.
