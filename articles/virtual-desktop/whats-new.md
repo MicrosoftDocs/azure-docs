@@ -15,20 +15,20 @@ manager: lizross
 
 Windows Virtual Desktop updates on a regular basis. This article is where you'll find out about:
 
-- The latest releases
+- The latest updates
 - New features
 - Improvements to existing features
 - Bug fixes
 
-This article is updated monthly. Make sure to check back here often to keep up with new releases.
+This article is updated monthly. Make sure to check back here often to keep up with new updates.
 
 ## June 2020
 
 Last month, we introduced the Windows Virtual Desktop Spring 2020 update. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
 
-### Windows Virtual Desktop is now integrated into Azure Resource Manager
+### Windows Virtual Desktop is now integrated with Azure Resource Manager
 
-Windows Virtual Desktop is now integrated into Azure Resource Manager. In the Spring 2020 update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. The Windows Virtual Desktop Spring 2020 update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
+Windows Virtual Desktop is now integrated into Azure Resource Manager. In the latest update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. This update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
 Here's what this change does for you:
 
@@ -36,7 +36,7 @@ Here's what this change does for you:
 
 - Before the Spring 2020 update, you could only publish RemoteApps and Desktops to individual users. With Azure Resource Manager, you can now publish resources to Azure Active Directory groups.
 
-- The earlier version of Windows Virtual Desktop had four Remote Desktop Service (RDS) admin roles that you could assign to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
+- The earlier version of Windows Virtual Desktop had four built-in admin roles that you could assign to a tenant or host pool. These roles are now in Azure [role-based access control](../role-based-access-control/overview.md). You can apply these roles to every Windows Virtual Desktop Azure Resource Manager object, which lets you have a full, rich delegation model.
 
 - In the Spring 2020 update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
@@ -46,21 +46,15 @@ Here's what this change does for you:
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
+### Additional gateways
+
+We've added a new gateway cluster in South Africa to reduce connection latency.
+
 ### PowerShell support
 
 We've added new AzWvd cmdlets to the Azure PowerShell Az Module with the Spring 2020 update. This new module is supported in PowerShell Core, which runs on .NET Core.
 
-To install the module, run the following cmdlet:
-
-```powershell
-Install-Module Az.DesktopVirtualization
-```
-
-Once you've installed the module, run this cmdlet to get the list of available commands:
-
-```powershell
-Get-Command-Module Az.DesktopVirtualization
-```
+To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
