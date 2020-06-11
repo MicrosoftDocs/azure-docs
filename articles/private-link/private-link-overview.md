@@ -60,7 +60,7 @@ Azure Private Link provides the following benefits:
 |Azure Event Grid| All public regions       |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | All public regions      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | EAST US, WEST US 2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
-| IoT Hub | All public regions    |   Preview   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure IoT Hub | All public regions    |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, WEST US 2, SOUTH CENTRAL US      |   Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |   GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
 
