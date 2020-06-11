@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 06/09/2020
+ms.date: 06/12/2020
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -32,8 +32,7 @@ In this tutorial:
 You need the following Azure AD B2C resources in place before continuing with the steps in this tutorial:
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
-* [Application registered](tutorial-register-applications.md) in your tenant
-  * You also need the the **Application (client) ID** and the **client secret** value you recorded while following this tutorial.
+* [Application registered](tutorial-register-applications.md) in your tenant, and its *Application (client) ID* and *client secret*
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 
 Additionally, you need the following in your local development environment:
