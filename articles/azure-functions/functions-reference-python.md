@@ -258,7 +258,7 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ## HTTP Trigger and bindings
 
-The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.
 In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
 
 From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.

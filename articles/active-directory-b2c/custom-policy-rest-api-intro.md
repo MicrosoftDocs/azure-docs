@@ -161,7 +161,7 @@ In a RESTful technical profile, you may want to send the current session's langu
 
 ## Handling error messages
 
-Your REST API may need to return an error message, such as "The user was not found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](restful-technical-profile.md#returning-error-message).
+Your REST API may need to return an error message, such as "The user was not found in the CRM system." If an error occurs, the REST API should return an HTTP 409 error message (Conflict response status code). For more information, see the [RESTful technical profile](restful-technical-profile.md#returning-validation-error-message).
 
 This can only be achieved by calling a REST API technical profile from a validation technical profile. This allows the user to correct the data on the page and run the validation again upon page submission.
 
