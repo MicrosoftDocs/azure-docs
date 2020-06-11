@@ -64,29 +64,6 @@ Container container = await createClient.GetDatabase(this.databaseName)
 
 --- 
 
-
-
-
-
-
-
-
-### <a id="create-custom-conflict-resolution-policy-lww-javav4"></a>Java V4 SDK
-
-#### [Async](#tab/async)
-
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
-
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionLWWAsync)]
-
-#### [Sync](#tab/sync)
-
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
-
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionLWWSync)]
-
---- 
-
 ### <a id="create-custom-conflict-resolution-policy-lww-javav2"></a>Java V2 SDKs
 
 # [Async Java V2 SDK](#tab/async)
