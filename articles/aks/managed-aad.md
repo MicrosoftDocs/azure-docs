@@ -155,6 +155,17 @@ To get the user credentials to access the cluster:
 ```
 Follow the instructions to sign in.
 
+Use the kubectl get nodes command to view nodes in the cluster:
+
+```azurecli-interactive
+kubectl get nodes
+
+NAME                       STATUS   ROLES   AGE    VERSION
+aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
+aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
+aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
+```
+
 ## Troubleshooting access issues with Azure AD
 
 > [!Important]
@@ -166,16 +177,6 @@ To perform these steps, you'll need to have access to the [Azure Kubernetes Serv
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
-```
-Use the kubectl get nodes command to view nodes in the cluster:
-
-```azurecli-interactive
-kubectl get nodes
-
-NAME                       STATUS   ROLES   AGE    VERSION
-aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
-aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
-aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
 
 ## Non-interactive login with kubelogin
