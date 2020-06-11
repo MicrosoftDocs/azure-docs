@@ -67,6 +67,10 @@ The following policies can be used in the `on-error` policy section.
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
+-   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
+-   [mock-response](api-management-advanced-policies.md#mock-response)
+-   [retry](api-management-advanced-policies.md#Retry)
+-   [trace](api-management-advanced-policies.md#Trace)
 
 ## LastError
 
