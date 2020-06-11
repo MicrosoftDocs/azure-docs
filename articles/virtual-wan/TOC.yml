@@ -36,7 +36,7 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: IPsec policies
+  - name: About IPsec policies
     href: virtual-wan-ipsec.md
 - name: How-to guides
   items:
