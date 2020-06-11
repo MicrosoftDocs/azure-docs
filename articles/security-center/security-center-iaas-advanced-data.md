@@ -78,23 +78,20 @@ The vulnerability assessment dashboard provides an overview of your assessment r
 
 You can view the vulnerability assessment results directly from Security Center.
 
-1. From Security Center's sidebar, under RESOURCE SECURITY HYGIENE, select **Data & Storage**.
+1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL databases on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
-1. Select the recommendation **Vulnerabilities on your SQL databases in VMs should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
-    [![**Vulnerabilities on your SQL databases in VMs should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
+    [![**Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
     The detailed view for this recommendation appears.
 
-    [![Detailed view for the **Vulnerabilities on your SQL databases in VMs should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
+    [![Detailed view for the **Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
 1. For more details, drill down:
 
-    * For an overview of scanned resources (databases) and the list of security checks that were tested, click the server of interest.
-    [![Vulnerabilities grouped by SQL server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
+    * For an overview of scanned resources (databases) and the list of security checks that were tested, select the server of interest.
 
-    * For an overview of the vulnerabilities grouped by a specific SQL database, click the database of interest.
-    [![Vulnerabilities grouped by SQL server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
+    * For an overview of the vulnerabilities grouped by a specific SQL database, select the database of interest.
 
     In each view, the security checks are sorted by **Severity**. Click a specific security check to see a details pane with a **Description**, how to **Remediate** it, and other related information such as **Impact** or **Benchmark**.
 
