@@ -4,7 +4,7 @@ description: Azure security baseline for Network Watcher
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -597,7 +597,8 @@ Azure customer data protection: https://docs.microsoft.com/azure/security/fundam
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19201).
 
-**Guidance**: Not applicable; Azure Network Watcher itself does not hold any customer data.
+**Guidance**: Not applicable; Azure Network Watcher itself does not hold any customer data. Network Watcher stores logs and other information in Azure Storage where data is encrypted at rest. 
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -870,9 +871,9 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Guidance**: Define and implement standard security configurations for Azure Network Watcher with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Network Watcher instances. You may also make use of built-in policy definitions such as:
 
-Deploy network watcher when virtual networks are created
-Network Watcher should be enabled
+Deploy network watcher when virtual networks are created: https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md
 
+Also see: 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 How to create a custom policy with policy aliases: https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition
@@ -951,8 +952,9 @@ Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?v
 
 **Guidance**: Define and implement standard security configurations for Azure Network Watcher with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the network configuration of your Network Watcher instances. You may also make use of built-in policy definitions such as:
 
-Deploy network watcher when virtual networks are created
-Network Watcher should be enabled
+Deploy network watcher when virtual networks are created: https://github.com/Azure/azure-policy/blob/master/samples/built-in-policy/deploy-network-watcher-in-vnet-regions/README.md 
+
+Also see: 
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -1054,9 +1056,8 @@ How to setup Credential Scanner: https://secdevtools.azurewebsites.net/helpcreds
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/19235).
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Network Watcher), however it does not run on customer content. 
+**Guidance**: Not applicable. Network Watcher does not operate on user uploaded data.  
 
-It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
 **Azure Security Center monitoring**: Not applicable
 
