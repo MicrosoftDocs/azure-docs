@@ -148,6 +148,8 @@ The cluster is created within a few minutes.
 
 ## Access an Azure AD enabled cluster
 
+You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the following steps:
+
 To get the user credentials to access the cluster:
  
 ```azurecli-interactive
@@ -181,7 +183,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## Non-interactive login with kubelogin
 
-You can use [kubelogin](https://github.com/Azure/kubelogin) to access advanced features that are not available in kubectl. You can use non-interactive logins part of automated jobs such as CI/CD (continuous integration and continuous delivery) pipelines.
+There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the cluster in non-interactive scenarios.
 
 ## Next steps
 
