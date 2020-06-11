@@ -46,7 +46,7 @@ If you're migrating VMware VMs to Azure, [compare](server-migrate-overview.md#co
 
 Verify supported operating systems for migration:
 
-- If you're migrating VMware VMs or Hyper-V VMs, verify VMware VM requirements for [agentless](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless], and [agent-based](/migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migration, and requirements for [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
+- If you're migrating VMware VMs or Hyper-V VMs, verify VMware VM requirements for [agentless](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless), and [agent-based](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) migration, and requirements for [Hyper-V VMs](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms).
 - Verify [Windows operating systems](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) are supported in Azure.
 - Verify [Linux distributions](../virtual-machines/linux/endorsed-distros.md) supported in Azure.
 
