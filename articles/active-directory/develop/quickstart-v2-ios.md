@@ -89,7 +89,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 
 > [!div renderon="docs"]
 > We have configured your project with values of your app's properties and it's ready to run.
-> >  [!NOTE]
+> > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
 >#### Step 4: Configure your project
