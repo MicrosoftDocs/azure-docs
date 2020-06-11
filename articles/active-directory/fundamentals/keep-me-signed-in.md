@@ -51,3 +51,11 @@ Details about the sign-in error are as follows and highlighted in the example.
 :::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Example sign-in log entry with the keep me signed in interrupt":::
 
 You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings.
+
+## Next steps
+
+Learn about other settings that affect sign-in session timeout:
+
+* Office 365 – [Idle session timeout](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
+* Azure AD Conditional Access - [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+* Azure portal – [Directory-level inactivity timeout](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
