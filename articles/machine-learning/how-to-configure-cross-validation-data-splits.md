@@ -68,7 +68,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 In this case, in addition to the training data, you explicitly provide a validation dataset using the `validation_data` parameter.
 
-With validation data provided in the form of an [Azure Machine Learning dataset](how-to-create-register-dataset.md) or pandas dataframe, `training_data` defines what data to use for training purposes, and `validation_data` specifies what data to use for model validation and metrics calculation. 
+With validation data provided in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe, `training_data` defines what data to use for training purposes, and `validation_data` specifies what data to use for model validation and metrics calculation. 
 
 The following code example explicitly defines which portion of the provided data is to be used for training and validation.
 
