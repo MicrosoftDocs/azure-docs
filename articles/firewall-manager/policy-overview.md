@@ -32,6 +32,8 @@ Network rule collections inherited from a parent policy are always prioritized a
 
 Threat Intelligence mode is also inherited from the parent policy. You can set your threat Intelligence mode to a different value to override this behavior, but you can't turn it off. It's only possible to override with a stricter value. For example, if your parent policy is set to **Alert only**, you can configure this local policy to **Alert and deny**.
 
+Like Threat Intelligence mode, the Threat Intelligence allow list is inherited from the parent policy. The child policy can add additional IP addresses to the allow list.
+
 NAT rule collections aren't inherited because they're specific to a given firewall.
 
 With inheritance, any changes to the parent policy are automatically applied down to associated firewall child policies.
@@ -43,7 +45,7 @@ Azure Firewall supports both traditional rules and policies. The following table
 
 |         |Policy  |Rules  |
 |---------|---------|---------|
-|Contains     |NAT, Network, Application rules, and Threat Intelligence settings|NAT, Network, and Application rules |
+|Contains     |NAT, Network, Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list)|NAT, Network, and Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list)|
 |Protects     |Virtual hubs and Virtual Networks|Virtual Networks only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
 |Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using third-party management solutions |
