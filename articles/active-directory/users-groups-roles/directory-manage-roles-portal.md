@@ -45,7 +45,6 @@ When you're viewing a role's members, select **Description** to see the complete
 
 ![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
 
-
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
