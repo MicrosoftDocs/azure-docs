@@ -14,15 +14,21 @@ ms.author: erhopf
 
 # Speech service: What's new in docs
 
-Welcome! This page covers what's new in Speech service docs. Check back every month for information on service changes, doc additions and updates this month. 
+Welcome! This page covers what's new in Speech service docs. Check back every month for information on service changes, doc additions and updates this month.
+
+### Service updates
+
+If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, or Speech CLI, see:
+* [Speech SDK release notes](releasenotes.md).
+* [Speech Devices SDK release notes](devices-sdk-release-notes.md)
 
 ## May 2020
 
-### New articles 
+### New articles
 
 * [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md)
 
-### Updated articles 
+### Updated articles
 
 These documents were updated in May 2020.
 
@@ -45,8 +51,34 @@ These documents were updated in May 2020.
 * [What is a keyword?](custom-keyword-overview.md) - Updated get started content and links.
 * [Specify source language for speech-to-text](how-to-specify-source-language.md) - Added JavaScript and Objective-C instructions to documentation.
 
-### Service updates
+## GitHub issues opened in May
 
-If you want to learn about updates to the Speech service, Speech SDK, Speech Devices SDK, or Speech CLI, see:
-* [Speech SDK release notes](releasenotes.md).
-* [Speech Devices SDK release notes](devices-sdk-release-notes.md)
+These issues were opened in June. This table lists the user that opened the issue, when it was opened, and it's status.  
+
+This table is updated monthly and only reflects issues opened in May.  
+
+|ID|User|Description|Opened|State|Type|
+| :--- | :--- | :--- | :--- | :--- | :--- |
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Activity dropped because the bot's endpoint is missing|2020-05-31|closed|Issue|
+|[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Wrong publishing bot steps|2020-05-31|open|Issue|
+|[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Add more clear doc about PCM samples format|2020-05-30|open|Issue|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|Title doesn't match side bar|2020-05-29|closed|Issue|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|cli error with wave file|2020-05-28|closed|Issue|
+|[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Update speech-sdk.md|2020-05-27|open|Pull Request|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Weird error with the unsupported voice name|2020-05-20|closed|Issue|
+|[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|the documentation on the speech to text api is poor|2020-05-18|open|Issue|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Microsoft CognitiveServices Speech class SpeechRecognizer, cannot gather a resulting text|2020-05-18|closed|Issue|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Not clear|2020-05-18|closed|Issue|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Graphics not visible in Dark theme|2020-05-17|closed|Issue|
+|[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|missing section?|2020-05-15|open|Issue|
+|[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Running Speech service containers fail|2020-05-13|open|Issue|
+|[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|manish-95|Example for Pronunciation file|2020-05-11|open|Issue|
+|[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|Java sample is incorrect.|2020-05-10|open|Issue|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Can't get pronounciation Score|2020-05-08|closed|Issue|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|YAML file template|2020-05-07|closed|Issue|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|C# Sample Code does not prompt user to speak.|2020-05-06|closed|Issue|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Upgrade TTS from v1.3 to v1.4|2020-05-05T22:01:00Z|closed|Pull Request|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Update custom STT latest version to v2.2.0|2020-05-05|closed|Pull Request|
+|[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|links to github projects are broken|2020-05-03|open|Issue|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Property to define: Max Audio Recognition time for Android Microphone. Stopping Audio Recognition after 15 seconds|2020-05-02|closed|Issue|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Custom Commands: docs update|2020-05-01|closed|Pull Request|
