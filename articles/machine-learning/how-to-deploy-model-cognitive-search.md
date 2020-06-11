@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
-ms.date: 05/21/2020
+ms.date: 06/11/2020
 ---
 
 # Deploy a model for use with Cognitive Search
@@ -21,11 +21,12 @@ Cognitive Search performs content processing over heterogenous content, to make 
 
 Azure Machine Learning can deploy a trained model as a web service. The web service is then embedded in a Cognitive Search _skill_, which becomes part of the processing pipeline.
 
-
 > [!IMPORTANT]
 > The information in this article is specific to the deployment of the model. It provides information on the supported deployment configurations that allow the model to be used by Cognitive Search.
 >
-> For information on how to configure Cognitive Search to use the deployed model, see the [TBD]() article.
+> For information on how to configure Cognitive Search to use the deployed model, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
+>
+> For the sample that the tutorial is based on, see [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
 When deploying a model for use with Azure Cognitive Search, the deployment must meet the following requirements:
 
@@ -35,17 +36,13 @@ When deploying a model for use with Azure Cognitive Search, the deployment must 
 * The entry script must also accept JSON data as input, and generate JSON as output.
 
 
-
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 * A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
-* A registered model. If you do not have a model, use the example notebooks at [TBD]() to deploy a pre-trained model, or train one yourself.
-
-    > [!IMPORTANT]
-    > The code snippets in this article are based on the example notebook at [TBD](). If you use a different model, you will need to adjust the snippet code to work with your model.
+* A registered model. If you do not have a model, use the example notebook at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill).
 
 * A general understanding of [How and where to deploy models](how-to-deploy-and-where.md).
 
@@ -192,9 +189,6 @@ For more information on entry scripts, see [How and where to deploy](how-to-depl
 
 The environment class is used to define the Python dependencies for the service. It includes dependencies required by both the model and the entry script. In this example, it installs packages from the regular pypi index, as well as from a GitHub repo. 
 
-> [!TIP]
-> The dependencies in this example are for the model and score.py from the [tbd]() example. They will be different for other models and score.py files.
-
 ```python
 from azureml.core.conda_dependencies import CondaDependencies 
 from azureml.core import Environment
@@ -308,7 +302,7 @@ The result returned from the service is similar to the following JSON:
 
 ## Connect to Cognitive Search
 
-For information on using this model from Cognitive Search, see the [TBD]() article.
+For information on using this model from Cognitive Search, see the [[Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
 
 ## Clean up the resources
 
@@ -324,4 +318,4 @@ aks_target.delete()
 
 ## Next steps
 
-* [TBD]()
+* [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)
