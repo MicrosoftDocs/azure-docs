@@ -17,7 +17,7 @@ ms.reviewer: sqlblt, daleche
 ms.custom: "seo-lt-2019"
 ---
 
-# In-place change of SQL Server version on Azure VM
+# In-place Change of SQL Server version on Azure VM
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
@@ -28,8 +28,8 @@ This article describes how to change the version of SQL Server on a Windows virt
 To do an in-place upgrade of SQL Server, you need the following:
 
 - In-place upgrade of SQL server is only possible from an earlier version of SQL server to a later version as mentioned in the [support upgrade path](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) article.
-- A [SQL Server VM on Windows](create-sql-vm-portal.md) registered with the [SQL VM resource provider](sql-vm-resource-provider-register.md).
-- Set up media of later version of SQL Server. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has later version of SQL Server (typically located in C:\SQLServerFull).
+- Set up media of desired version of SQL Server. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has later version of SQL Server (typically located in C:\SQLServerFull).
+- Edition upgrades should follow the [support upgrade paths](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15).
 
 ## Planning for version Change
 
@@ -55,7 +55,7 @@ It is a good idea to review the following items before you do the version change
 > [!WARNING]
 > Upgrading the version of SQL Server will restart the service for SQL Server, along with any associated services, such as Analysis Services and R Services.
 
-To upgrade the version of SQL Server, obtain the SQL Server setup media for the later version that would [support upgrade path](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) of SQL Server, and then do the following:
+To upgrade the version of SQL Server, obtain the SQL Server setup media for the later version that would [support upgrade path](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15?view=sql-server-ver15) of SQL Server, and do the following steps:
 
 1. Backup system (except tempdb) and user databases before you start the process. You may also take an app-consistent VM level backup using Azure backup services.
 1. Open Setup.exe from the SQL Server installation media.
@@ -72,18 +72,7 @@ If you have changed the SQL Edition while changing the version, then update the 
 
    :::image type="content" source="./media/change-sql-server-version/version-change-in-portal.png" alt-text="Change version metadata":::
 
-## Verify Version and Edition in Portal
-
-Once you have upgraded the version of SQL Server By Using the installation media, register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md) again so that you can then use the Azure portal to view the version of SQL server, it should reflect the newly upgraded version and edition of SQL Server.
-
-:::image type="content" source="./media/change-sql-server-version/verify-version-in-portal.png" alt-text="Verify version":::
-
-> [!NOTE]
-> If you already have Resource Provider installed, then [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL installed on the VM. This will update the metadata and billing associated with this VM.
-
 ## Downgrade version of SQL Server
-
-Backup system (except tempdb) and user databases before you start the process. Make sure that you are not using any feature that is available in the later version only.
 
 To downgrade the version of SQL Server, you need to completely uninstall SQL Server, and reinstall it again with the desired version. This will act as a fresh new install of SQL server as you will not be able to restore the earlier database from a later version to the newly installed earlier version. The databases will need to be recreated from scratch. If you had also changed the edition of SQL server while upgrading, then, after the SQL Server version is upgraded, change the edition property of the SQL Server virtual machine in the Azure portal to the new edition. This will update the metadata and billing associated with this VM.
 
@@ -94,7 +83,7 @@ You can downgrade the version of SQL Server by following these steps:
 
 1. Back up all databases, including the system databases.
 1. Export all the necessary server-level objects (such as server triggers, roles, logins, linked servers, jobs, credentials, and certificates).
-1. If you do not have scripts to re-create your user databases on the earlier version, you will need to script out all objects and export all data by using BCP.exe, SSIS, or DACPAC. 
+1. If you do not have scripts to re-create your user databases on the earlier version, you will need to script out all objects and export all data by using BCP.exe, SSIS, or DACPAC.
 
    Make sure that you select the correct options when scripting such as the target version, several dependent objects, advanced options.
 
@@ -106,6 +95,20 @@ You can downgrade the version of SQL Server by following these steps:
 1. Install the latest service packs and cumulative updates.
 1. Import all the necessary server-level objects (which were exported in Step 2).
 1. Re-create all the necessary user databases from scratch (using create scripts and/or the files from Step 3).
+
+You can downgrade the edition of SQL Server by following these steps:
+
+1. Make sure that you are not using any feature that is [available in the later version only](https://social.technet.microsoft.com/wiki/contents/articles/24222.find-enterprise-only-features-in-your-database.aspx).
+1. Back up all system (except tempdb) and user databases.
+
+## Verify Version and Edition in Portal
+
+Once you have changed the version of SQL Server, register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md) again so that you can then use the Azure portal to view the version of SQL server, it should reflect the newly upgraded version and edition of SQL Server.
+
+:::image type="content" source="./media/change-sql-server-version/verify-version-in-portal.png" alt-text="Verify version":::
+
+> [!NOTE]
+> If you already have Resource Provider installed, then [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL installed on the VM. This will update the metadata and billing associated with this VM.
 
 ## Remarks
 
