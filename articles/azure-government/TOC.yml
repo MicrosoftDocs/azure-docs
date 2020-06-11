@@ -15,6 +15,8 @@
     href: documentation-government-get-started-connect-with-cli.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
+  - name: Visual Studio
+    href: documentation-government-connect-vs.md
 - name: Tutorials
   items:
   - name: Deploy App Services
@@ -22,7 +24,9 @@
   - name: Create Virtual Machines
     href: documentation-government-quickstarts-vm.md
 - name: Concepts
-  items: 
+  items:
+  - name: Considerations for Naming Azure Resources
+    href: documentation-government-concept-naming-resources.md
   - name: Guidance for developers
     href: documentation-government-developer-guide.md
   - name: Plan
@@ -49,8 +53,6 @@
     href: documentation-government-get-started-connect-to-storage.md    
   - name: Use Cognitive Services API
     href: documentation-government-cognitiveservices.md     
-  - name: Deploy Kubernetes cluster
-    href: documentation-government-k8.md
   - name: Integrate Azure AD Authentication
     href: documentation-government-aad-auth-qs.md
   - name: Use DISA CAP
@@ -67,38 +69,6 @@
       href: documentation-government-extension.md
     - name: Marketplace for partners
       href: documentation-government-manage-marketplace-partners.md
-  - name: Services
-    items:
-    - name: Compute
-      href: documentation-government-compute.md
-    - name: Networking
-      href: documentation-government-networking.md
-    - name: Storage
-      href: documentation-government-services-storage.md
-    - name: Web + Mobile
-      href: documentation-government-services-webandmobile.md
-    - name: Azure Stack
-      href: documentation-azure-stack-gov.md
-    - name: Media Services
-      href: documentation-government-services-media.md
-    - name: Databases
-      href: documentation-government-services-database.md
-    - name: Data + Analytics
-      href: documentation-government-services-dataandanalytics.md
-    - name: AI + Machine Learning
-      href: documentation-government-services-aiandcognitiveservices.md
-    - name: Internet of Things
-      href: documentation-government-services-iot-hub.md
-    - name: Integration Services
-      href: documentation-government-services-integration.md
-    - name: Security + Identity
-      href: documentation-government-services-securityandidentity.md
-    - name: Backup
-      href: documentation-government-services-backup.md
-    - name: Monitoring + Management
-      href: documentation-government-services-monitoringandmanagement.md
-    - name: Developer Tools
-      href: documentation-government-services-devtools.md
   - name: CSP for Azure Government
     href: documentation-government-csp-application.md
   - name: Certifications
@@ -117,6 +87,8 @@
     href: compliance/azure-services-in-fedramp-auditscope.md
   - name: Secure Azure Computing Architecture 
     href: compliance/secure-azure-computing-architecture.md
+  - name: Accelerate your path to ATO with Azure
+    href: compliance/documentation-accelerate-compliance.md
 - name: Resources
   items:
   - name: Azure Government Website

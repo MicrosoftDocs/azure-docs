@@ -103,7 +103,7 @@ For more information, see [Virtual Private Networks](https://docs.vmware.com/en/
 
 The following steps show how to fetch the logical-router ID of Tier0 DR logical router instance for the IPsec and L2VPN services. The logical-router ID is needed later when implementing the L2VPN.
 
-1. Sign in to NSX-T Manager https://*nsx-t-manager-ip-address* and select **Networking** > **Routers** > **Provider-LR** > **Overview**. For **High Availability Mode**, select **Active-Standby**. This action opens a pop-up window that shows the Edge VM on which the Tier0 router is currently active.
+1. Sign in to NSX-T Manager `https://*nsx-t-manager-ip-address*` and select **Networking** > **Routers** > **Provider-LR** > **Overview**. For **High Availability Mode**, select **Active-Standby**. This action opens a pop-up window that shows the Edge VM on which the Tier0 router is currently active.
 
     ![Select active-standby](media/l2vpn-fetch01.png)
 
@@ -131,7 +131,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 ## Fetch the logical-switch ID needed for L2VPN
 
-1. Sign in to [NSX-T Manager](https://nsx-t-manager-ip-address).
+1. Sign in to NSX-T Manager (`https://nsx-t-manager-ip-address`).
 2. Select **Networking** > **Switching** > **Switches** > **<\Logical switch\>** > **Overview**.
 3. Make a note of the UUID of the stretch logical switch, which is required when configuring the L2VPN.
 
@@ -171,12 +171,12 @@ To establish an IPsec route-based VPN between the NSX-T Tier0 router and the sta
 
 Use the following template to fill in all the details for configuring a route-based VPN on the NSX-T Tier0 router. The UUIDs in each POST call are required in subsequent POST calls. The IP addresses for the loopback and tunnel interfaces for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks.
 
-The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premise or Private Cloud networks. The loopback interface network must always be /32.
+The IP addresses chosen for loopback and tunnel interface used for L2VPN must be unique and not overlap with the on-premises or Private Cloud networks. The loopback interface network must always be /32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
 Tunnel interface subnet : 5.5.5.0/29
-Logical-router ID : UUID of Tier0 DR logical router obtained in section “Steps to fetch Logical-Router ID needed for L2VPN”
+Logical-router ID : UUID of Tier0 DR logical router obtained in section "Steps to fetch Logical-Router ID needed for L2VPN"
 Logical-switch ID(Stretch) : UUID of Stretch Logical Switch obtained earlier
 IPSec Service ID :
 IKE profile ID :
@@ -352,7 +352,7 @@ POST : https://192.168.110.201/api/v1/vpn/l2vpn/services
 
 For the following POST command, the L2VPN service ID is the ID that you just obtained and the IPsec VPN session ID is the ID obtained in the previous section.
 
-```	
+```    
 POST: https://192.168.110.201/api/v1/vpn/l2vpn/sessions
 
 {
@@ -368,29 +368,29 @@ These calls create a GRE tunnel endpoint. To check the status, run the following
 
 ```
 edge-2> get tunnel-port
-Tunnel  	: 44648dae-8566-5bc9-a065-b1c4e5c3e03f
-IFUID   	: 328
-LOCAL   	: 169.254.64.1
-REMOTE  	: 169.254.64.2
-ENCAP   	: GRE
+Tunnel      : 44648dae-8566-5bc9-a065-b1c4e5c3e03f
+IFUID       : 328
+LOCAL       : 169.254.64.1
+REMOTE      : 169.254.64.2
+ENCAP       : GRE
 
-Tunnel  	: cf950ca1-5cf8-5438-9b1a-d2c8c8e7229b
-IFUID   	: 318
-LOCAL   	: 192.168.140.155
-REMOTE  	: 192.168.140.152
-ENCAP   	: GENEVE
+Tunnel      : cf950ca1-5cf8-5438-9b1a-d2c8c8e7229b
+IFUID       : 318
+LOCAL       : 192.168.140.155
+REMOTE      : 192.168.140.152
+ENCAP       : GENEVE
 
-Tunnel  	: 63639321-87c5-529e-8a61-92c1939799b2
-IFUID   	: 304
-LOCAL   	: 192.168.140.155
-REMOTE  	: 192.168.140.156
-ENCAP   	: GENEVE
+Tunnel      : 63639321-87c5-529e-8a61-92c1939799b2
+IFUID       : 304
+LOCAL       : 192.168.140.155
+REMOTE      : 192.168.140.156
+ENCAP       : GENEVE
 ```
 
 ### Create logical port with the tunnel ID specified
 
 ```
-	POST https://192.168.110.201/api/v1/logical-ports/
+    POST https://192.168.110.201/api/v1/logical-ports/
 
 {
 "resource_type": "LogicalPort",
@@ -402,10 +402,10 @@ ENCAP   	: GENEVE
 "id":"L2VPN session ID",
 "context" : {
 "resource_type" : "L2VpnAttachmentContext",
-	"tunnel_id" : 10
+    "tunnel_id" : 10
 }
-	}
-    	}
+    }
+        }
 ```
 
 ## Obtain the peer code for L2VPN on the NSX-T side
@@ -451,7 +451,7 @@ Before deploying, verify that your on-premises firewall rules allow inbound and 
 
     Expand Uplink Interface:
 
-    * **DNS IP Address**. Enter the on-premise DNS IP address.
+    * **DNS IP Address**. Enter the on-premises DNS IP address.
     * **Default Gateway**.  Enter the default gateway of the VLAN that will act as a default gateway for this client.
     * **IP Address**. Enter the uplink IP address of the standalone client.
     * **Prefix Length**. Enter the prefix length of the uplink VLAN/subnet.

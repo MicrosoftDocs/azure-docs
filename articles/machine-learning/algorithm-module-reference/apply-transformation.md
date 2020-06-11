@@ -7,38 +7,42 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 06/05/2020
 ---
 
 # Apply Transformation module
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to modify an input dataset based on a previously computed transformation.  
-  
+Use this module to modify an input dataset based on a previously computed transformation.
+
 For example, if you used z-scores to normalize your training data by using the **Normalize Data** module, you would want to use the z-score value that was computed for training during the scoring phase as well. In Azure Machine Learning, you can save the normalization method as a transform, and then using **Apply Transformation** to apply the z-score to the input data before scoring.
-  
-Azure Machine Learning provides support for creating and then applying many different kinds of custom transformations. For example, you might want to save and then reuse transformations to:  
-  
-- Remove or replace missing values, using **Clean Missing Data**
-- Normalize data, using **Normalize Data**
-  
+
+## How to save transformations
+
+The designer lets you save data transformations as **datasets** so that you can use them in other pipelines.
+
+1. Select a data transformation module that has successfully run.
+
+1. Select the **Outputs + logs** tab.
+
+1. Find the transformation output, and select the **Register dataset** to save it as a module under **Datasets** category in the module palette.
 
 ## How to use Apply Transformation  
   
-1. Add the **Apply Transformation** module to your pipeline. You can find this module under **Machine Learning**, in the **Score** category. 
+1. Add the **Apply Transformation** module to your pipeline. You can find this module in the **Model Scoring & Evaluation** section of the module palette. 
   
-2. Locate an existing transformation to use as an input.  Previously saved transformations can be found in the **Transforms** group in the left navigation pane.  
+1. Find the saved transformation you want to use under **Datasets** in the module palette.
+
+1. Connect the output of the saved transformation to the left input port of the **Apply Transformation** module.
+
+    The dataset should have exactly the same schema (number of columns, column names, data types) as the dataset for which the transformation was first designed.  
   
-   
+1. Connect the dataset output of the desired module to the right input port of the **Apply Transformation** module.
   
-3. Connect the dataset that you want to transform. The dataset should have exactly the same schema (number of columns, column names, data types) as the dataset for which the transformation was first designed.  
-  
-4. No other parameters need to be set since all customization is done when defining the transformation.  
-  
-5. To apply a transformation to the new dataset, run the pipeline.  
+1. To apply a transformation to the new dataset, run the pipeline.  
 
 ## Next steps
 

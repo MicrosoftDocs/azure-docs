@@ -1,10 +1,9 @@
 ---
-title: Azure Custom Script Extension for Windows | Microsoft Docs
+title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
-manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
@@ -26,7 +25,17 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Windows will run on the extension supported extension OSs, for more information, see this [Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Windows will run on the extension supported extension OSs;
+### Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### Script Location
 
@@ -77,7 +86,7 @@ These items should be treated as sensitive data and specified in the extensions 
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -88,17 +97,21 @@ These items should be treated as sensitive data and specified in the extensions 
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
 
 > [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
+
+> [!NOTE]
 > Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
 
 > [!NOTE]
-> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template. 
+> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template.
 
 ### Property values
 
@@ -107,12 +120,13 @@ These items should be treated as sensitive data and specified in the extensions 
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
+| typeHandlerVersion | 1.10 | int |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (e.g) | 123456789 | 32-bit integer |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (e.g) | { } or { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } or { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json object |
 
 >[!NOTE]
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
@@ -125,6 +139,9 @@ These items should be treated as sensitive data and specified in the extensions 
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
+* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
+  * `clientId`: (optional, string) the client ID of the managed identity
+  * `objectId`: (optional, string) the object ID of the managed identity
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 
@@ -134,11 +151,53 @@ Using public settings maybe useful for debugging, but it's recommended that you 
 
 Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, that is, if the settings were encrypted they're saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
+####  Property: managedIdentity
+> [!NOTE]
+> This property **must** be specified in protected settings only.
+
+CustomScript (version 1.10 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
+
+To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
+
+> Example:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client ID or the object ID of the managed identity.
+
+> Examples:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
+
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema, which is detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during deployment. The following samples show how to use the Custom Script extension:
 
-* [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## PowerShell deployment
@@ -178,7 +237,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -196,7 +255,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -217,8 +276,13 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
+## Virtual Machine Scale Sets
+
+To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 To deploy the Custom Script Extension on classic VMs, you can use the Azure portal or the Classic Azure PowerShell cmdlets.
 

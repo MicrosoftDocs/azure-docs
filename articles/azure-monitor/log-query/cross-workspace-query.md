@@ -1,16 +1,18 @@
 ---
 title: Query across resources with Azure Monitor  | Microsoft Docs
 description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/05/2019
+author: bwren
+ms.author: bwren
+ms.date: 05/01/2020
 
 ---
 
 # Perform cross-resource log queries in Azure Monitor  
+
+> [!IMPORTANT]
+> If you are using a [workspace-based Application Insights resource](../app/create-workspace-resource.md) telemetry is stored in a Log Analytics workspace with all other log data. Use the log() expression to write a query that includes application in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.
 
 Previously with Azure Monitor, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio. This also made it a challenge to natively analyze operational and application data together.
 

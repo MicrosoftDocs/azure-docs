@@ -15,8 +15,12 @@
         href: ./hdinsight-administer-use-command-line.md
       - name: Manage HDInsight clusters - .NET SDK
         href: ./hdinsight-administer-use-dotnet-sdk.md
-      - name: Manage HDInsight clusters - Powershell
+      - name: Manage HDInsight clusters - PowerShell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Create clusters with Runbooks
+        href: ./manage-clusters-runbooks.md
+      - name: Apache Ambari email notifications
+        href: ./apache-ambari-email.md
       - name: Build an ETL pipeline
         href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
@@ -33,8 +37,16 @@
       href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Concepts
     items: 
-    - name: Apache Hadoop components on HDInsight
+    - name: Apache components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: Enterprise Security Package
+      href: ./enterprise-security-package.md
+    - name: Hortonworks release notes
+      href: ./hortonworks-release-notes.md
+    - name: High availability components
+      href: ./hdinsight-high-availability-components.md   
+    - name: Apache Ambari in Azure HDInsight
+      href: ./apache-ambari-usage.md  
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
@@ -47,12 +59,21 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
+    - name: Cluster management best practices
+      href: ./cluster-management-best-practices.md
     - name: Availability and reliability
       href: ./hdinsight-high-availability-linux.md
-    - name: Compare storage options
-      href: ./hdinsight-hadoop-compare-storage-options.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: Compare storage options
+      href: hdinsight-hadoop-compare-storage-options.md
+      items:
+      - name: Azure Storage overview 
+        href: overview-azure-storage.md
+      - name: Azure Data Lake Storage Gen1 overview 
+        href: overview-data-lake-storage-gen1.md
+      - name: Azure Data Lake Storage Gen2 overview 
+        href: overview-data-lake-storage-gen2.md
   - name: How to
     items:
     - name: Create clusters
@@ -61,14 +82,19 @@
         href: ./hdinsight-hadoop-create-linux-clusters-portal.md
       - name: Create clusters using templates
         href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-      - name: Create clusters using command line
+      - name: Create clusters using Azure CLI
         href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
-      - name: Create clusters using Powershell
+      - name: Create clusters using PowerShell
         href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
       - name: Create clusters using REST API
         href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
-      - name: Create clusters using .NET
-        href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+      - name: Cluster creation errors
+        href: ./create-cluster-error-dictionary.md
+        title: 
+        summary: 
+        abstract: 
+        achievement: 
+        iconUrl: 
     - name: Use cluster storage
       items:
       - name: Using Azure Storage
@@ -87,10 +113,10 @@
         href: hdinsight-hadoop-customize-cluster-linux.md
       - name: Develop script actions
         href: hdinsight-hadoop-script-actions-linux.md
+      - name: Open-source software support
+        href: open-source-software.md
       - name: Add Apache Hive libraries
         href: hdinsight-hadoop-add-hive-libraries.md
-      - name: Use Apache Giraph
-        href: hdinsight-hadoop-giraph-install-linux.md
       - name: Use Hue
         href: hdinsight-hadoop-hue-linux.md
       - name: Build HDInsight applications
@@ -107,6 +133,8 @@
         href: hdinsight-hadoop-linux-use-ssh-unix.md
       - name: Use SSH tunneling
         href: hdinsight-linux-ambari-ssh-tunnel.md
+      - name: Use SCP with HDInsight
+        href: ./use-scp.md
       - name: Restrict access to data
         href: hdinsight-storage-sharedaccesssignature-permissions.md
       - name: Authorize users for Apache Ambari Views
@@ -129,8 +157,16 @@
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
-      - name: Optimize clusters with the Apache Ambari web UI
-        href: ./hdinsight-changing-configs-via-ambari.md
+      - name: Optimize with Apache Ambari
+        items:
+        - name: Optimize clusters
+          href: ./hdinsight-changing-configs-via-ambari.md
+        - name: Optimize Apache HBase
+          href: ./optimize-hbase-ambari.md
+        - name: Optimize Apache Hive
+          href: ./optimize-hive-ambari.md
+        - name: Optimize Apache Pig
+          href: ./optimize-pig-ambari.md
       - name: Use Apache Ambari REST API
         href: ./hdinsight-hadoop-manage-ambari-rest-api.md
       - name: Delete a cluster
@@ -195,8 +231,22 @@
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
         href: ./hdinsight-key-scenarios-to-monitor.md
-      - name: Monitor cluster availability with Ambari and Azure Monitor logs
-        href: ./hdinsight-cluster-availability.md    
+      - name: Cluster availability - Apache Ambari
+        href: ./hdinsight-cluster-availability.md
+      - name: Cluster availability - Azure Monitor logs
+        href: ./cluster-availability-monitor-logs.md
+    - name: Troubleshoot
+      items:
+      - name: Request increase for CPU core quota
+        href: ./quota-increase-request.md
+      - name: Troubleshoot script actions
+        href: ./troubleshoot-script-action.md
+      - name: Resource creation failures
+        href: ./troubleshoot-resource-creation-fails.md
+      - name: Troubleshoot Apache Oozie
+        href: ./troubleshoot-oozie.md
+      - name: Understand and resolve WebHCat errors
+        href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -223,9 +273,9 @@
       items:
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
-      - name: HDInsight 4.0 full release notes
+      - name: Release notes
         href: ./hdinsight-release-notes.md    
-      - name: HDInsight 3.6 full release notes
+      - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.md
@@ -239,16 +289,8 @@
       href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
     - name: Enable heap dumps for Apache Hadoop services
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-    - name: Understand and resolve WebHCat errors
-      href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-    - name: Get help on the forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
-    - name: Learning path
-      href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-    - name: Microsoft Professional Program for Big Data
-      href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
+    - name: Get help on the Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-hdinsight.html
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
@@ -267,18 +309,17 @@
       href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Create Apache Spark cluster - Azure CLI
       href: ./spark/apache-spark-create-cluster-cli.md
-    - name: Create Apache Spark cluster - Template
+    - name: Create Apache Spark cluster - ARM Template
+      displayName: Resource Manager
       href: ./spark/apache-spark-jupyter-spark-sql.md
   - name: Tutorials
     items:
       - name: Run queries on an Apache Spark cluster
         href: ./spark/apache-spark-load-data-run-query.md
       - name: Failure spark job debugging in IntelliJ (preview)
-        href: ./spark/apache-spark-intellij-tool-failure-debug.md
+        href: ./spark/apache-spark-intellij-tool-failure-debug.md     
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
-      - name: Run a streaming job
-        href: ./spark/apache-spark-eventhub-streaming.md
       - name: Create a machine learning app
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ
@@ -289,8 +330,20 @@
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
-      - name: Optimize Apache Spark jobs
-        href: ./spark/apache-spark-perf.md
+      - name: Optimization
+        items:
+        - name: Optimize Apache Spark jobs
+          href: ./spark/apache-spark-perf.md
+        - name: Optimize data processing
+          href: ./spark/optimize-data-processing.md
+        - name: Optimize data storage
+          href: ./spark/optimize-data-storage.md
+        - name: Optimize memory usage
+          href: ./spark/optimize-memory-usage.md
+        - name: Optimize cluster configuration
+          href: ./spark/optimize-cluster-configuration.md
+      - name: Migrate to Spark 2.3 or 2.4
+        href: ./spark/migrate-versions.md
   - name: How to
     items:
     - name: Use tools
@@ -325,8 +378,6 @@
           href: ./spark/apache-spark-machine-learning-mllib-ipython.md
         - name: Analyze website logs
           href: ./spark/apache-spark-custom-library-website-log-analysis.md
-        - name: Use Caffe for deep learning
-          href: ./spark/apache-spark-deep-learning-caffe.md
         - name: Use with Microsoft Cognitive Toolkit
           href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
         - name: Create an Apache Spark machine learning pipeline
@@ -345,6 +396,8 @@
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
+      - name: Manage Jar dependencies
+        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -353,7 +406,7 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Use external packages with Jupyter using script action
+        - name: Safely manage Python environment on Azure HDInsight using Script Action
           href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
@@ -369,6 +422,8 @@
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
+      - name: Can't create Jupyter notebook
+        href: ./spark/troubleshoot-jupyter-notebook-convert.md
       - name: OutOfMemoryError exception
         href: ./spark/apache-spark-troubleshoot-outofmemory.md
       - name: Apache Spark job fails - NoClassDefFoundError
@@ -393,6 +448,8 @@
         href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
       - name: Debug Apache Spark jobs
         href: ./spark/apache-spark-job-debugging.md
+      - name: Debug WASB file operations
+        href: ./spark/troubleshoot-debug-wasb.md
       - name: Use IntelliJ to debug Apache Spark job
         href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
       - name: Apache Spark troubleshooting
@@ -409,8 +466,8 @@
     items:
     - name: Create Apache Hadoop cluster - Portal
       href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Create Apache Hadoop cluster - Template
-      displayName: resource manager template, arm template, resource manager group
+    - name: Create Apache Hadoop cluster - ARM Template
+      displayName: Resource Manager
       href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md      
   - name: Tutorials
     items:
@@ -424,6 +481,8 @@
       items:
       - name: Use Apache Hadoop sandbox
         href: ./hadoop/apache-hadoop-emulator-get-started.md
+      - name: Use Apache Pig
+        href: use-pig.md
     - name: Develop
       items:
       - name: Use MapReduce with Apache Hadoop
@@ -470,10 +529,10 @@
           href: ./hadoop/apache-hadoop-mahout-linux-mac.md
         - name: Advanced analytics for HDInsight
           href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-    - name: Manage
-      items:
-      - name: Use empty edge nodes
-        href: ./hdinsight-apps-use-edge-node.md
+      - name: Manage
+        items:
+        - name: Use empty edge nodes
+          href: ./hdinsight-apps-use-edge-node.md
     - name: Troubleshoot
       items:
       - name: Common issues
@@ -502,16 +561,28 @@
         href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
       - name: Apache Ambari shows down hosts and services
         href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+      - name: Apache Ambari stale alerts
+        href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+      - name: Apache Ambari directory alerts
+        href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
       - name: Troubleshoot a slow or failing HDInsight cluster
         href: ./hdinsight-troubleshoot-failed-cluster.md
       - name: Apache Hadoop HDFS troubleshooting
         href: ./hdinsight-troubleshoot-hdfs.md
       - name: Apache Hadoop YARN troubleshooting
         href: ./hdinsight-troubleshoot-yarn.md
-      - name: Analyze Apache Hadoop logs
-        href: ./hadoop/apache-hadoop-debug-jobs.md
+      - name: Invalid BCFile error from Yarn log
+        href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
       - name: Troubleshoot Data Lake Store files
         href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
+      - name: Port conflict when starting services
+        href: ./hadoop/troubleshoot-port-conflict.md
+      - name: Lost Key Vault access
+        href: ./hadoop/troubleshoot-lost-key-vault-access.md
+      - name: WASBS storage exception
+        href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+      - name: Manage disk space
+        href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
   - name: Overview
@@ -524,11 +595,13 @@
       href: ./kafka/apache-kafka-get-started.md
     - name: Create Apache Kafka cluster - PowerShell
       href: ./kafka/apache-kafka-quickstart-powershell.md
-    - name: Create Apache Kafka cluster - Template
-      displayName: resource manager template, arm template, resource manager group
+    - name: Create Apache Kafka cluster - ARM Template
+      displayName: Resource Manager
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
   - name: Tutorials
     items:
+    - name: Create Apache Kafka cluster - Azure CLI
+      href: ./kafka/tutorial-cli-rest-proxy.md
     - name: Use Apache Kafka Producer and Consumer API
       href: ./kafka/apache-kafka-producer-consumer-api.md
     - name: Develop app with Apache Kafka Streams API
@@ -537,6 +610,8 @@
       href: ./hdinsight-apache-kafka-spark-structured-streaming.md
   - name: Concepts
     items:
+    - name: Migrate Kafka workloads to 4.0
+      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -549,6 +624,8 @@
     items:
     - name: Develop
       items:
+      - name: Use Kafka REST proxy
+        href: ./kafka/rest-proxy.md
       - name: Enable auto topic creation
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
@@ -569,8 +646,6 @@
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
-      - name: Bring your own key
-        href: ./kafka/apache-kafka-byok.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
     - name: Troubleshoot
@@ -585,6 +660,9 @@
       href: ./hbase/apache-hbase-overview.md
   - name: Quickstarts
     items:
+    - name: Create Apache HBase cluster - ARM Template
+      displayName: Resource Manager
+      href: ./hbase/quickstart-resource-manager-template.md
     - name: Query Apache HBase - Apache Phoenix
       href: ./hbase/apache-hbase-query-with-phoenix.md
     - name: Query Apache HBase - HBase Shell
@@ -649,6 +727,8 @@
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: Troubleshoot Apache HBase
         href: ./hbase/apache-troubleshoot-hbase.md
+      - name: REST API to query Apache HBase
+        href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
   items:
   - name: Overview
@@ -657,12 +737,21 @@
       href: ./interactive-query/apache-interactive-query-get-started.md
   - name: Quickstarts
     items:
+    - name: Create Interactive Query cluster - ARM Template
+      displayName: Resource Manager
+      href: ./interactive-query/quickstart-resource-manager-template.md
     - name: Execute Apache Hive queries - Apache Zeppelin
       href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
   - name: Tutorials
     items:
     - name: Analyze data with Interactive Query
       href: ./interactive-query/interactive-query-tutorial-analyze-flight-data.md
+  - name: Concepts
+    items: 
+    - name: Gateway best practices
+      href: ./interactive-query/gateway-best-practices.md
+    - name: Sizing guidelines
+      href: ./interactive-query/sizing-guidelines.md
   - name: How to
     items:
     - name: Develop
@@ -673,12 +762,18 @@
         href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       - name: Use Python with Apache Hive and Apache Pig
         href: ./hadoop/python-udf-hdinsight.md
-      - name: Apache Hive with Apache Spark
+      - name: HWC integration with Apache Spark and Apache Hive
         href: ./interactive-query/apache-hive-warehouse-connector.md
+      - name: HWC and Apache Spark operations
+        href: ./interactive-query/apache-hive-warehouse-connector-operations.md
+      - name: HWC integration with Apache Zeppelin
+        href: ./interactive-query/apache-hive-warehouse-connector-zeppelin.md
       - name: Apache Hive with Hadoop
         href: ./hadoop/hdinsight-use-hive.md
       - name: Use the Apache Hive View
         href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+      - name: Connect to Apache Beeline
+        href: ./hadoop/connect-install-beeline.md
       - name: Use Apache Hive Beeline
         href: ./hadoop/apache-hadoop-use-hive-beeline.md
       - name: Use Grafana
@@ -707,10 +802,14 @@
         href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
       - name: Apache Tez application hangs
         href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+      - name: Apache Hive LLAP sizing guidelines
+        href: ./interactive-query/hive-llap-sizing-guide.md
       - name: Apache Hive LLAP query performance
         href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
       - name: Slow reducer
         href: ./interactive-query/interactive-query-troubleshoot-slow-reducer.md
+      - name: Apache Hive gateway timeout
+        href: ./interactive-query/troubleshoot-gateway-timeout.md
       - name: Apache Hive View time out
         href: ./interactive-query/interactive-query-troubleshoot-view-time-out.md
       - name: Permission error creating table
@@ -727,6 +826,8 @@
         href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
       - name: Apache HIVE troubleshooting
         href: ./hdinsight-troubleshoot-hive.md
+      - name: Apache Hive logs taking up entire disk space on Head node
+        href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
   - name: Overview
@@ -735,6 +836,9 @@
       href: ./r-server/r-server-overview.md
   - name: Quickstarts
     items:
+    - name: Create ML Services cluster - ARM Template
+      displayName: Resource Manager
+      href: ./r-server/quickstart-resource-manager-template.md
     - name: Sample job - RStudio Server
       href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
     - name: Sample job - R console
@@ -775,8 +879,12 @@
     items:
     - name: Use Apache Storm to write to storage
       href: ./storm/apache-storm-write-data-lake-store.md
+    - name: Apache Kafka and Apache Storm (Java)
+      href: ./hdinsight-apache-storm-with-kafka.md
   - name: How to
     items:
+    - name: Migrate Storm to Spark
+      href: ./storm/migrate-storm-to-spark.md
     - name: Develop
       items:
       - name: Topologies
@@ -793,10 +901,6 @@
           href: ./storm/apache-storm-example-topology.md
       - name: Streaming pipelines
         items:
-        - name: Apache Kafka and Apache Storm (Java)
-          href: ./hdinsight-apache-storm-with-kafka.md
-        - name: Event Hub, Storage, and Data Lake Storage (Java)
-          href: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
         - name: Event Hub and Apache Storm (C# & Java)
           href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
     - name: Manage
@@ -815,8 +919,6 @@
       href: ./domain-joined/hdinsight-security-overview.md
   - name: Tutorials
     items:
-    - name: Use firewall to restrict outbound traffic
-      href: ./hdinsight-restrict-outbound-traffic.md
     - name: Apache HBase RBAC with Apache Ranger
       href: ./domain-joined/apache-domain-joined-run-hbase.md
     - name: Apache Hive RBAC with Apache Ranger
@@ -827,36 +929,55 @@
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
   - name: Concepts
     items:
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Enterprise security general guidelines
+      href: ./domain-joined/general-guidelines.md
     - name: Plan for ESP clusters
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Transport layer security
+      href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
       href: ./hdinsight-plan-virtual-network-deployment.md
+    - name: Control network traffic
+      href: ./control-network-traffic.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
+    - name: Service tags for Azure firewall
+      href: ./hdinsight-service-tags.md
+    - name: Customer-managed key disk encryption
+      href: ./disk-encryption.md
+    - name: LDAP sync in Ranger and Apache Ambari
+      href: ./domain-joined/ldap-sync.md
   - name: How to
     items:
+    - name: Use ID Broker for credential management
+      href: ./domain-joined/identity-broker.md    
     - name: Create ESP clusters and sync with on-premises
       href: ./domain-joined/apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Create VNETs for HDInsight
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure enterprise security in HDInsight
-      href: ./domain-joined/apache-domain-joined-configure.md
     - name: Configure ESP clusters using Azure AD DS
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
     - name: Synchronize Azure AD users to an HDInsight cluster
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md
+    - name: Manage SSH access
+      href: ./domain-joined/ssh-domain-accounts.md
     - name: Securing data
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Use firewall to restrict outbound traffic
+      href: ./hdinsight-restrict-outbound-traffic.md
+    - name: Configure network virtual appliance
+      href: ./network-virtual-appliance.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues
         href: ./domain-joined/domain-joined-authentication-issues.md
-      - name: Unable to sign in to Zeppelin with ESP
-        href: ./domain-joined/domain-joined-zeppelin-signin.md
-
+      - name: Cluster creation fails with DomainNotFound
+        href: ./domain-joined/troubleshoot-domainnotfound.md

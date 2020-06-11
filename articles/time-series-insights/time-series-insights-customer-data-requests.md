@@ -1,10 +1,10 @@
 ---
-title: 'Customer data request features​ in Azure Time Series Insights | Microsoft Docs'
-description: Summary of Azure Time Series Insights customer data request features.
+title: 'Customer data request features​ - Azure Time Series Insights | Microsoft Docs'
+description: Learn about customer data request features in Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 08/09/2019
+ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
@@ -29,9 +29,9 @@ A tenant administrator can delete customer data using the Azure portal.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
-You can also perform delete operations on access policies using the REST API. For more information, see [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
+You can also perform delete operations on access policies using the REST API. For more information, read [Access Policies - Delete](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
 
 Time Series Insights is integrated with the Policy blade in the Azure portal. Both Time Series Insights and the Policy blade enable you to view, export, and delete user data stored within the service. Any delete action taken within the Policy blade of the Azure portal results in the deletion of user data within Time Series Insights. For example, if a user has a saved personal query, that query is permanently deleted from the Time Series Insights explorer. If the user has a saved shared query, the query persists, but the user information is permanently deleted. The following note contains instructions on how to accomplish these tasks.
 
@@ -41,9 +41,9 @@ Similarly to deleting data, a tenant administrator can view and export data stor
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
+If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
-It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, see [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, read [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
 
 ## To delete data stored within Time Series Insights
 
@@ -53,13 +53,13 @@ Personal data might make its way into Time Series Insights storage, a different 
 
 To view and export data stored within Time Series Insights, you need to search for that data. You can use the Time Series Insights explorer or Time Series Insights query APIs to view and export data. To view and export data using the Time Series Insights explorer, first search to find the user data in question. After searching, right-click on the chart and select **Explore events**. The events grid appears and presents options to export the data as CSV and JSON.
 
-For more information, see [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+For more information, read [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 
 **Delete data**
 
 Currently, Time Series Insights does not support granular deletion of data. However, Time Series Insights provides the ability to remove customer data stored within Time Series Insights by configuring retention policies. You can adjust the retention period of the entire Time Series Insights environment to any number of days to support your deletion requirements.
 
-For more information, see [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+For more information, read [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 ## Next steps
 

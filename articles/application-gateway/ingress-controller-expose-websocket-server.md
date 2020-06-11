@@ -5,13 +5,13 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/4/2019
 ms.author: caya
 ---
 
 # Expose a WebSocket server to Application Gateway
 
-As outlined in the Application Gateway v2 documentation - it [provides native support for the WebSocket and HTTP/2 protocols](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Please note, that for both Application Gateway and the Kubernetes Ingress - there is no user-configurable setting to selectively enable or disable WebSocket support.
+As outlined in the Application Gateway v2 documentation - it [provides native support for the WebSocket and HTTP/2 protocols](features.md#websocket-and-http2-traffic). Please note, that for both Application Gateway and the Kubernetes Ingress - there is no user-configurable setting to selectively enable or disable WebSocket support.
 
 The Kubernetes deployment YAML below shows the minimum configuration used to deploy a WebSocket server, which is the same as deploying a regular web server:
 ```yaml

@@ -39,7 +39,7 @@ See [Data Factory Pricing Details page][adf-pricing-details] for the pricing det
 Data Factory is available in **US West** and **North Europe**. The compute and storage services used by data factories can be in other regions. See [Supported regions](data-factory-introduction.md#supported-regions).
 
 ### What are the limits on number of data factories/pipelines/activities/datasets?
-See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md#data-factory-limits) article.
+See **Azure Data Factory Limits** section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) article.
 
 ### What is the authoring/developer experience with Azure Data Factory service?
 You can author/create data factories using one of the following tools/SDKs:

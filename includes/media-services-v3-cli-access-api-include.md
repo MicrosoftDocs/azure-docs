@@ -10,11 +10,17 @@ ms.author: juliako
 ms.custom: include file
 ---
 
-## Access the Media Services API
+### Access the Media Services API
 
 To connect to Azure Media Services APIs, you use the Azure AD service principal authentication. The following command creates an Azure AD application and attaches a service principal to the account. You should use the returned values to configure your application.
 
 Before running the script, you should replace the `amsaccount` and `amsResourceGroup` with the names you chose when creating these resources. `amsaccount` is the name of the Azure Media Services account where to attach the service principal.
+
+If you have access to multiple subscriptions, first set the active subscription to the subscription where the Media Services account was created.
+
+```azurecli
+az account set --subscription subscriptionId
+```
 
 The following command returns a `json` output:
 

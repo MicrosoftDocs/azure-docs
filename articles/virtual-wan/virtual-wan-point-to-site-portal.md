@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 04/16/2020
 ms.author: alzam
 
 ---
@@ -25,7 +25,6 @@ In this tutorial, you learn how to:
 > * Connect a VNet to a hub
 > * Download and apply the VPN client configuration
 > * View your virtual WAN
-> * View resource health
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -33,7 +32,7 @@ In this tutorial, you learn how to:
 
 Verify that you have met the following criteria before beginning your configuration:
 
-* You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
+* You have a virtual network that you want to connect to. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [quickstart](../virtual-network/quick-create-portal.md).
 
 * Your virtual network does not have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
 
@@ -59,7 +58,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 4. After you finish filling out the fields, select **Review +Create**.
 5. Once validation passes, select **Create** to create the virtual WAN.
 
-## <a name="site"></a>Create an empty virtual hub
+## <a name="hub"></a>Create an empty virtual hub
 
 1. Under your virtual WAN, select Hubs and click **+New Hub**
 
@@ -76,7 +75,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 3. Click **Review + create**
 4. On the **validation passed** page, click **create**
 
-## <a name="site"></a>Create a P2S configuration
+## <a name="p2sconfig"></a>Create a P2S configuration
 
 A P2S configuration defines the parameters for connecting remote clients.
 
@@ -95,10 +94,9 @@ A P2S configuration defines the parameters for connecting remote clients.
 
    **Public Certificate Data** - Base-64 encoded X.509 certificate data.
   
-   ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Click **Create** to create the configuration.
 
-## <a name="hub"></a>Edit hub assignment
+## <a name="edit"></a>Edit hub assignment
 
 1. Navigate to the **Hubs** blade under the virtual WAN
 2. Select the hub that you want to associate the vpn server configuration to and click **...**
@@ -108,11 +106,37 @@ A P2S configuration defines the parameters for connecting remote clients.
 4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
 
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
+
+The table below shows the details about the available **Scale Units**
+
+| **Scale Unit** | **Throughput** | **P2S Connections** |
+| --- | --- | --- |
+| 1| 500 Mbps | 500 |
+| 2| 1 Gbps | 500 |
+| 3| 1.5 Gbps | 500 |
+| 4| 2 Gbps | 1000 |
+| 5| 2.5 Gbps | 1000 |
+| 6| 3 Gbps | 1000 |
+| 7| 3.5 Gbps | 5000 |
+| 8| 4 Gbps | 5000 |
+| 9| 4.5 Gbps | 5000 |
+| 10| 5 Gbps | 5000 |
+| 11| 5.5 Gbps | 5000 |
+| 12| 6 Gbps | 5000 |
+| 13| 6.5 Gbps | 10000 |
+| 14| 7 Gbps | 10000 |
+| 15| 7.5 Gbps | 10000 |
+| 16| 8 Gbps | 10000 |
+| 17| 8.5 Gbps | 10000 |
+| 18| 9 Gbps | 10000 |
+| 19| 9.5 Gbps | 10000 |
+| 20| 10 Gbps | 10000 |
+
 5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
 6. Click **Confirm**
 7. The operation will can take up to 30 minutes to complete.
 
-## <a name="device"></a>Download VPN profile
+## <a name="download"></a>Download VPN profile
 
 Use the VPN profile to configure your clients.
 
@@ -130,8 +154,8 @@ Use the downloaded profile to configure the remote access clients. The procedure
 1. Download and install the OpenVPN client from the official website.
 2. Download the VPN profile for the gateway. This can be done from the User VPN configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3. Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
+4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. For steps, see [How to export a certificate to get the encoded public key.](certificates-point-to-site.md)
+5. Fill in the private key section with the P2S client certificate private key in base64. For steps, see [How to extract private key.](howto-openvpn-clients.md#windows).
 6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 7. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
 8. Right-click the OpenVPN icon in the system tray and click connect.
@@ -141,18 +165,13 @@ Use the downloaded profile to configure the remote access clients. The procedure
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 2. Double-click the package to install it. If you see a SmartScreen popup, click More info, then Run anyway.
 3. On the client computer, navigate to Network Settings and click VPN. The VPN connection shows the name of the virtual network that it connects to.
-4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see Generate Certificates. For information about how to install a client certificate, see Install a client certificate.
+4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see [Generate Certificates](certificates-point-to-site.md). For information about how to install a client certificate, see [Install a client certificate](../vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md).
 
 ## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
+2. On the Overview page, each point on the map represents a hub.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
 
 ## <a name="cleanup"></a>Clean up resources
@@ -160,7 +179,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

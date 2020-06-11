@@ -1,90 +1,44 @@
 ---
 title: Manage Enterprise Security Package clusters - Azure HDInsight
 description: Learn how to manage Azure HDInsight clusters with Enterprise Security Package.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh 
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
 ---
 
 # Manage HDInsight clusters with Enterprise Security Package
+
 Learn the users and the roles in HDInsight Enterprise Security Package (ESP), and how to manage ESP clusters.
 
 ## Use VSCode to link to domain joined cluster
 
 You can link a normal cluster by using Apache Ambari managed username, also link a security Apache Hadoop cluster by using domain username (such as: `user1@contoso.com`).
 
-1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
+1. Open [Visual Studio Code](https://code.visualstudio.com/). Ensure the [Spark & Hive Tools](../hdinsight-for-vscode.md) extension is installed.
 
-   ![command palette, link a cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
-
-2. Enter HDInsight cluster URL -> input Username -> input Password -> select cluster type -> it shows success info if verification passed.
-
-   ![link cluster process steps dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
-
-   > [!NOTE]  
-   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster.
-
-3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
-
-   ![list cluster command output verification](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "linked cluster")
-
-4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
+1. Follow the steps from [Link a cluster](../hdinsight-for-vscode.md#link-a-cluster) for Visual Studio Code.
 
 ## Use IntelliJ to link to domain joined cluster
 
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: `user1@contoso.com`).
 
-1. Click **Link a cluster** from **Azure Explorer**.
+1. Open IntelliJ IDEA. Ensure all [prerequisites](../spark/apache-spark-intellij-tool-plugin.md#prerequisites) are met.
 
-   ![link cluster context menu intellij](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
-
-2. Enter **Cluster Name**, **User Name** and **Password**. You need to check the username and password if got the authentication failure. Optionally, add Storage Account, Storage Key, then select a container from Storage Container. Storage information is for storage explorer in the left tree
-
-   ![Azure Explorer link cluster dialog intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
-
-   > [!NOTE]  
-   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
-   > 
-   > ![Azure Explorer storage account in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
-
-3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
-
-   ![Azure Explorer linked cluster intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "linked cluster intellij]")
-
-4. You also can unlink a cluster from **Azure Explorer**.
-
-   ![Azure Explorer unlinked cluster intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
+1. Follow the steps from [Link a cluster](../spark/apache-spark-intellij-tool-plugin.md#link-a-cluster) for IntelliJ.
 
 ## Use Eclipse to link to domain joined cluster
 
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: `user1@contoso.com`).
 
-1. Click **Link a cluster** from **Azure Explorer**.
+1. Open Eclipse. Ensure all [prerequisites](../spark/apache-spark-eclipse-tool-plugin.md#prerequisites) are met.
 
-   ![link cluster context menu eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+1. Follow the steps from [Link a cluster](../spark/apache-spark-eclipse-tool-plugin.md#link-a-cluster) for Eclipse.
 
-2. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
-
-   ![Azure Explorer link cluster dialog eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
-
-   > [!NOTE]  
-   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
-   > 
-   > ![Azure Explorer storage account in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
-
-3. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
-
-   ![Azure Explorer linked cluster eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
-
-4. You also can unlink a cluster from **Azure Explorer**.
-   
-   ![Azure Explorer unlinked cluster eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
-
-## Access the clusters with Enterprise Security Package.
+## Access the clusters with Enterprise Security Package
 
 Enterprise Security Package (previously known as HDInsight Premium) provides multi-user access to the cluster, where authentication is done by Active Directory and authorization by Apache Ranger and Storage ACLs (ADLS ACLs). Authorization provides secure boundaries among multiple users and allows only privileged users to have access to the data based on the authorization policies.
 
@@ -101,15 +55,14 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
    > [!NOTE]  
    > Jupyter is not installed/supported in Enterprise Security Package.
 
-Using the standard APIs helps from security perspective. In addition, you get the following benefits:
+Using the standard APIs helps from security perspective. You also get the following benefits:
 
 - **Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
-- **Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
+- **Audit** – With SSH, there's no way to audit, which users SSH'd to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user.
 
+### <a name="beeline"></a>Use Beeline
 
-
-### <a name="beeline"></a>Use Beeline 
-Install Beeline on your machine, and connect over the public internet, use the following parameters: 
+Install Beeline on your machine, and connect over the public internet, use the following parameters:
 
 ```
 - Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
@@ -117,70 +70,58 @@ Install Beeline on your machine, and connect over the public internet, use the f
 - Cluster login password -p 'password'
 ```
 
-If you have Beeline installed locally, and connect over an Azure Virtual Network, use the following parameters: 
+If you have Beeline installed locally, and connect over an Azure Virtual Network, use the following parameters:
 
 ```
-- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
 To find the fully qualified domain name of a headnode, use the information in the Manage HDInsight using the Ambari REST API document.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Users of HDInsight clusters with ESP
+
 A non-ESP HDInsight cluster has two user accounts that are created during the cluster creation:
 
-* **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to sign in to Ambari at https://&lt;clustername>.azurehdinsight.net. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel,  Power BI, or Tableau).
+- **Ambari admin**: This account is also known as *Hadoop user* or *HTTP user*. This account can be used to sign in to Ambari at `https://CLUSTERNAME.azurehdinsight.net`. It can also be used to run queries on Ambari views, execute jobs via external tools (for example, PowerShell, Templeton, Visual Studio), and authenticate with the Hive ODBC driver and BI tools (for example, Excel,  Power BI, or Tableau).
 
 A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
-* **Ranger admin**:  This account is the local Apache Ranger admin account. It is not an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
-* **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
+- **Ranger admin**:  This account is the local Apache Ranger admin account. It isn't an active directory domain user. This account can be used to setup policies and make other users admins or delegated admins (so that those users can manage policies). By default, the username is *admin* and the password is the same as the Ambari admin password. The password can be updated from the Settings page in Ranger.
 
-  * Join machines to the domain and place them within the OU that you specify during cluster creation.
-  * Create service principals within the OU that you specify during cluster creation.
-  * Create reverse DNS entries.
+- **Cluster admin domain user**: This account is an active directory domain user designated as the Hadoop cluster admin including Ambari and Ranger. You must provide this user’s credentials during cluster creation. This user has the following privileges:
+    - Join machines to the domain and place them within the OU that you specify during cluster creation.
+    - Create service principals within the OU that you specify during cluster creation.
+    - Create reverse DNS entries.
 
     Note the other AD users also have these privileges.
 
-    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence are not secure. These end points are locked down for all users except the cluster admin domain user.
-* **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence aren't secure. These end points are locked down for all users except the cluster admin domain user.
+
+- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
 
 ## Roles of HDInsight clusters with ESP
+
 HDInsight Enterprise Security Package has the following roles:
 
-* Cluster Administrator
-* Cluster Operator
-* Service Administrator
-* Service Operator
-* Cluster User
+- Cluster Administrator
+- Cluster Operator
+- Service Administrator
+- Service Operator
+- Cluster User
 
 **To see the permissions of these roles**
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
-2. From the left menu, click **Roles**.
-3. Click the blue question mark to see the permissions:
+2. From the left menu, select **Roles**.
+3. Select the blue question mark to see the permissions:
 
     ![ESP HDInsight roles permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## Open the Ambari Management UI
 
-1. Sign on to the [Azure portal](https://portal.azure.com).
-2. Open your HDInsight cluster.
-3. Click **Dashboard** from the top menu to open Ambari.
-4. Sign in to Ambari using the cluster administrator domain user name and password.
-5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
+1. Navigate to `https://CLUSTERNAME.azurehdinsight.net/` where CLUSTERNAME is the name of your cluster.
+1. Sign in to Ambari using the cluster administrator domain user name and password.
+1. Select the **admin** dropdown menu from the upper right corner, and then select **Manage Ambari**.
 
     ![ESP HDInsight manage Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
@@ -189,36 +130,43 @@ HDInsight Enterprise Security Package has the following roles:
     ![ESP HDInsight Apache Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## List the domain users synchronized from your Active Directory
+
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
-2. From the left menu, click **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
+2. From the left menu, select **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
     ![ESP HDInsight Ambari management UI list users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## List the domain groups synchronized from your Active Directory
+
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
-2. From the left menu, click **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
+2. From the left menu, select **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
 
     ![ESP HDInsight Ambari management UI list groups](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## Configure Hive Views permissions
+
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
-2. From the left menu, click **Views**.
-3. Click **HIVE** to show the details.
+2. From the left menu, select **Views**.
+3. Select **HIVE** to show the details.
 
     ![ESP HDInsight Ambari management UI Hive Views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
-4. Click the **Hive View** link to configure Hive Views.
+
+4. Select the **Hive View** link to configure Hive Views.
 5. Scroll down to the **Permissions** section.
 
     ![ESP HDInsight Ambari management UI Hive Views configure permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
-6. Click **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
+
+6. Select **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 
 ## Configure users for the roles
+
  To see a list of roles and their permissions, see Roles of HDInsight clusters with ESP.
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
-2. From the left menu, click **Roles**.
-3. Click **Add User** or **Add Group** to assign users and groups to different roles.
+2. From the left menu, select **Roles**.
+3. Select **Add User** or **Add Group** to assign users and groups to different roles.
 
 ## Next steps
-* For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
-* For configuring Hive policies and run Hive queries, see [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).
+
+- For configuring a HDInsight cluster with Enterprise Security Package, see [Configure HDInsight clusters with ESP](apache-domain-joined-configure.md).
+- For configuring Hive policies and run Hive queries, see [Configure Apache Hive policies for HDInsight clusters with ESP](apache-domain-joined-run-hive.md).

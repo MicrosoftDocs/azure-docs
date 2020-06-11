@@ -1,28 +1,31 @@
 ---
-title: Create a user delegation SAS for a container or blob with the Azure CLI (preview) - Azure Storage
-description: Learn how to create a user delegation SAS using Azure Active Directory credentials in Azure Storage using the Azure CLI.
+title: Use Azure CLI to create a user delegation SAS for a container or blob
+titleSuffix: Azure Storage
+description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using Azure CLI.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
 
-# Create a user delegation SAS for a container or blob with the Azure CLI (preview)
+# Create a user delegation SAS for a container or blob with the Azure CLI
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure CLI (preview).
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure CLI.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## Install the latest version of the Azure CLI
 
 To use the Azure CLI to secure a SAS with Azure AD credentials, first make sure that you have installed the latest version of Azure CLI. For more information about installing the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+To create a user delegation SAS using the Azure CLI, make sure that you have installed version 2.0.78 or later. To check your installed version, use the `az --version` command.
 
 ## Sign in with Azure AD credentials
 

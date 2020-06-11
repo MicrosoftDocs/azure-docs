@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 03/15/2020
 ms.author: memildin
 
 ---
@@ -18,7 +18,7 @@ This topic explains about incidents in Security Center, and how to use remediate
 
 ## What is a security incident?
 
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#intentions) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
@@ -39,24 +39,10 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 1. Follow the remediation steps given for each alert.
 
-For more information about alerts, [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md).
-
-The following topics guide you through the different alerts, according to resource types:
-
-* [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
-* [Native compute alerts](security-center-alerts-compute.md)
-* [Data services alerts](security-center-alerts-data-services.md)
-
-The following topics explain how Security Center uses the different telemetry that it collects from integrating with the Azure infrastructure, in order to apply additional protection layers for resources deployed on Azure:
-
-* [Service layer alerts](security-center-alerts-service-layer.md)
-* [Integration with Azure security products](security-center-alerts-integration.md)
 
 ## See also
-In this document, you learned how to use the security incident capability in Security Center. To learn more about Security Center, see the following:
+In this document, you learned how to use the security incident capability in Security Center. For related information, see the following:
 
-* [Security alerts in Azure Security Center](security-center-alerts-overview.md).
+* [Threat protection in Azure Security Center](threat-protection.md)
+* [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage security alerts](security-center-managing-and-responding-alerts.md)
-* [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Find blog posts about Azure security and compliance.

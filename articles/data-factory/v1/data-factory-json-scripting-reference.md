@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory - JSON Scripting Reference | Microsoft Docs
+title: Azure Data Factory - JSON Scripting Reference 
 description: Provides JSON schemas for Data Factory entities.
 services: data-factory
 documentationcenter: ''
@@ -373,7 +373,7 @@ Click the link for the store you are interested in to see the JSON schemas for l
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table storage](#azure-table-storage) |
 | **Databases** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -587,13 +587,13 @@ To define an Azure Data Lake Store linked service, set the type of the linked se
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureDataLakeStore** | Yes |
 | dataLakeStoreUri | Specify information about the Azure Data Lake Store account. It is in the following format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` or `adl://[accountname].azuredatalakestore.net/`. | Yes |
-| subscriptionId | Azure subscription Id to which Data Lake Store belongs. | Required for sink |
+| subscriptionId | Azure subscription ID to which Data Lake Store belongs. | Required for sink |
 | resourceGroupName | Azure resource group name to which Data Lake Store belongs. | Required for sink |
 | servicePrincipalId | Specify the application's client ID. | Yes (for service principal authentication) |
 | servicePrincipalKey | Specify the application's key. | Yes (for service principal authentication) |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes (for service principal authentication) |
 | authorization | Click **Authorize** button in the **Data Factory Editor** and enter your credential that assigns the auto-generated authorization URL to this property. | Yes (for user credential authentication)|
-| sessionId | OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
+| sessionId | OAuth session ID from the OAuth authorization session. Each session ID is unique and may only be used once. This setting is automatically generated when you use Data Factory Editor. | Yes (for user credential authentication) |
 
 #### Example: using service principal authentication
 ```json
@@ -1274,15 +1274,15 @@ If you are copying data to Azure SQL Data Warehouse, set the **sink type** of th
 
 For more information, see [Azure SQL Data Warehouse connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) article.
 
-## Azure Search
+## Azure Cognitive Search
 
 ### Linked service
-To define an Azure Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
+To define an Azure Cognitive Search linked service, set the **type** of the linked service to **AzureSearch**, and specify following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| url | URL for the Azure Search service. | Yes |
-| key | Admin key for the Azure Search service. | Yes |
+| url | URL for the search service. | Yes |
+| key | Admin key for the search service. | Yes |
 
 #### Example
 
@@ -1299,15 +1299,15 @@ To define an Azure Search linked service, set the **type** of the linked service
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#linked-service-properties) article.
 
 ### Dataset
-To define an Azure Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
+To define an Azure Cognitive Search dataset, set the **type** of the dataset to **AzureSearchIndex**, and specify the following properties in the **typeProperties** section:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to **AzureSearchIndex**.| Yes |
-| indexName | Name of the Azure Search index. Data Factory does not create the index. The index must exist in Azure Search. | Yes |
+| indexName | Name of the search index. Data Factory does not create the index. The index must exist in Azure Cognitive Search. | Yes |
 
 #### Example
 
@@ -1328,15 +1328,15 @@ To define an Azure Search dataset, set the **type** of the dataset to **AzureSea
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#dataset-properties) article.
 
-### Azure Search Index Sink in Copy Activity
-If you are copying data to an Azure Search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
+### Azure Cognitive Search Index Sink in Copy Activity
+If you are copying data to a search index, set the **sink type** of the copy activity to **AzureSearchIndexSink**, and specify following properties in the **sink** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. | Merge (default)<br/>Upload| No |
-| WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
+| WriteBatchSize | Uploads data into the search index when the buffer size reaches writeBatchSize. | 1 to 1,000. Default value is 1000. | No |
 
 #### Example
 
@@ -1381,7 +1381,7 @@ If you are copying data to an Azure Search index, set the **sink type** of the c
 }
 ```
 
-For more information, see [Azure Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
+For more information, see [Azure Cognitive Search connector](data-factory-azure-search-connector.md#copy-activity-properties) article.
 
 ## Azure Table Storage
 
@@ -2441,15 +2441,15 @@ For more information, see [SAP HANA connector](data-factory-sap-hana-connector.m
 ## SQL Server
 
 ### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
@@ -2476,7 +2476,7 @@ You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet a
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -3306,7 +3306,7 @@ For more information, see [Amazon S3 connector article](data-factory-amazon-simp
 
 
 ### Linked service
-You can link an on-premises file system to an Azure data factory with the **On-Premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
+You can link an on-premises file system to an Azure data factory with the **On-premises File Server** linked service. The following table provides descriptions for JSON elements that are specific to the On-premises File Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
@@ -3553,7 +3553,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
 #### Example: Using Anonymous authentication
 
@@ -4068,7 +4068,7 @@ To define a HTTP linked service, set the **type** of the linked service to **Htt
 | --- | --- | --- |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
@@ -4967,9 +4967,9 @@ The following table provides descriptions for the properties used in the JSON de
 | accountName |Azure Data Lake Analytics Account Name. |Yes |
 | dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |No |
 | authorization |Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. |Yes |
-| subscriptionId |Azure subscription id |No (If not specified, subscription of the data factory is used). |
+| subscriptionId |Azure subscription ID |No (If not specified, subscription of the data factory is used). |
 | resourceGroupName |Azure resource group name |No (If not specified, resource group of the data factory is used). |
-| sessionId |session id from the OAuth authorization session. Each session id is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
+| sessionId |session ID from the OAuth authorization session. Each session ID is unique and may only be used once. When you use the Data Factory Editor, this ID is auto-generated. |Yes |
 
 
 #### JSON example
@@ -4997,15 +4997,15 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
 
 ### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
@@ -5032,7 +5032,7 @@ You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet a
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -5548,7 +5548,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.
 
-Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
+Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity.
 
 ### JSON example
 

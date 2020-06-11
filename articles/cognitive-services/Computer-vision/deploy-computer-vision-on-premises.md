@@ -3,13 +3,13 @@ title: Use Computer Vision container with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Deploy the Computer Vision container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Use Computer Vision container with Kubernetes and Helm
@@ -20,11 +20,11 @@ One option to manage your Computer Vision containers on-premises is to use Kuber
 
 The following prerequisites before using Computer Vision containers on-premises:
 
-|Required|Purpose|
-|--|--|
+| Required | Purpose |
+|----------|---------|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
+| Helm CLI | Install the [Helm CLI][helm-install], which is used to to install a helm chart (container package definition). |
 | Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
@@ -72,7 +72,7 @@ secret "containerpreview" created
 To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 Executing the `kubectl get secrets` prints all the configured secrets.
@@ -174,7 +174,7 @@ registry.
 To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory above the `read` folder.
 
 ```console
-helm install read --name read
+helm install read ./read
 ```
 
 Here is an example output you might expect to see from a successful install execution:
@@ -240,9 +240,8 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
-[tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test

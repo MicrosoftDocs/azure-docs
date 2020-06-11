@@ -5,11 +5,12 @@ description: Perform data exploration and modeling tasks on the Windows Data Sci
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/08/2020
 
 ---
 
@@ -27,7 +28,7 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 - Administer your Azure resources by using the Azure portal or PowerShell.
 - Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
 - Share code with your team by using GitHub. Access your repository by using the pre-installed Git clients: Git Bash and Git GUI.
-- Access Azure data and analytics services like Azure Blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, and Azure SQL Database.
+- Access Azure data and analytics services like Azure Blob storage, Azure Data Lake, Azure Cosmos DB, Azure SQL Data Warehouse, and Azure SQL Database.
 - Build reports and a dashboard by using the Power BI Desktop instance that's pre-installed on the DSVM, and deploy them in the cloud.
 - Dynamically scale your DSVM to meet your project's needs.
 - Install additional tools on your virtual machine.   
@@ -65,7 +66,7 @@ The Jupyter Notebook provides a browser-based IDE for data exploration and model
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
-After you start Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+After you start Jupyter, navigate to the `/notebooks` directory for example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * Select the notebook to see the code.
 * Run each cell by selecting Shift+Enter.
@@ -124,11 +125,6 @@ pass
 
 IrisPredictor(3,2,3,4)
 ```
-
-> [!NOTE]
-> Currently, the Azure Machine Learning library is supported only on Python 2.7.   
-> 
-> 
 
 ### Build and operationalize R models
 You can deploy R models built on the Data Science Virtual Machine or elsewhere onto Azure Machine Learning in a way that's similar to how it's done for Python. Here are the steps:
@@ -267,7 +263,7 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
 * Create your Azure Blob storage account from the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/create-azure-blob.png)
 
 * Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
 * Start the Azure Storage Explorer tool. You can download it from the  [Storage Explorer webpage](https://storageexplorer.com/). 
@@ -369,7 +365,7 @@ Azure Data Lake Storage is a hyperscale repository for big data analytics worklo
 
 * Create your Azure Data Lake Analytics instance in the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/azure-data-lake-create-v3.png)
 
 * The  [Azure Data Lake and Stream Analytics Tools for Visual Studio plug-in](https://www.microsoft.com/download/details.aspx?id=49504) is already installed in Visual Studio Community Edition on the virtual machine. After you start Visual Studio and sign in to your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
@@ -447,371 +443,6 @@ The file information appears:
 
 ![Screenshot of the file summary information](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
-### HDInsight Hadoop clusters
-Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service in the cloud. You can work easily with Azure HDInsight clusters from the Data Science Virtual Machine.
-
-#### Prerequisites
-
-* Create your Azure Blob storage account from the [Azure portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
-
-   ![Screenshot of creating a storage account from the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
-
-* Customize Azure HDInsight Hadoop clusters from the [Azure portal](../team-data-science-process/customize-hadoop-cluster.md).
-  
-   Link the storage account created with your HDInsight cluster when it's created. This storage account is used for accessing data that can be processed within the cluster.
-
-   ![Selections for linking the storage account created with an HDInsight cluster](./media/vm-do-ten-things/Create_HDI_v4.PNG)
-
-* Enable Remote Desktop access to the head node of the cluster after it's created. Remember the remote access credentials that you specify here, because you'll need them in the subsequent procedure.
-
-   ![Remote Desktop button for enabling remote access to the HDInsight cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
-
-* Create an Azure Machine Learning workspace. Your Machine Learning experiments are stored in this Machine Learning workspace. Select the highlighted options in the portal, as shown in the following screenshot:
-
-   ![Create an Azure Machine Learning workspace](./media/vm-do-ten-things/Create_ML_Space.PNG)
-
-* Enter the parameters for your workspace.
-
-   ![Enter Machine Learning workspace parameters](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
-
-* Upload data by using IPython Notebook. Import required packages, plug in credentials, create a database in your storage account, and then load data into HDI clusters.
-
-```python
-# Import required packages
-import pyodbc
-import time as time
-import json
-import os
-import urllib
-import urllib2
-import warnings
-import re
-import pandas as pd
-import matplotlib.pyplot as plt
-from azure.storage.blob import BlobService
-warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
-
-
-# Create the connection to Hive by using ODBC
-SERVER_NAME = 'xxx.azurehdinsight.net'
-DATABASE_NAME = 'nyctaxidb'
-USERID = 'xxx'
-PASSWORD = 'xxxx'
-DB_DRIVER = 'Microsoft Hive ODBC Driver'
-driver = 'DRIVER={' + DB_DRIVER + '}'
-server = 'Host=' + SERVER_NAME + ';Port=443'
-database = 'Schema=' + DATABASE_NAME
-hiveserv = 'HiveServerType=2'
-auth = 'AuthMech=6'
-uid = 'UID=' + USERID
-pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join(
-    [driver, server, database, hiveserv, auth, uid, pwd])
-connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor = connection.cursor()
-
-
-# Create the Hive database and tables
-queryString = "create database if not exists nyctaxidb;"
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.trip
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    rate_code string,
-                    store_and_fwd_flag string,
-                    pickup_datetime string,
-                    dropoff_datetime string,
-                    passenger_count int,
-                    trip_time_in_secs double,
-                    trip_distance double,
-                    pickup_longitude double,
-                    pickup_latitude double,
-                    dropoff_longitude double,
-                    dropoff_latitude double)  
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.fare
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    pickup_datetime string,
-                    payment_type string,
-                    fare_amount double,
-                    surcharge double,
-                    mta_tax double,
-                    tip_amount double,
-                    tolls_amount double,
-                    total_amount double)
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-
-# Upload data from Blob storage to an HDI cluster
-for i in range(1, 13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-```
-
-Alternatively, you can follow [this walkthrough](../team-data-science-process/hive-walkthrough.md) to upload NYC Taxi data to the HDI cluster. Major steps include:
-  
-* Use AzCopy to download zipped CSVs from the public blob to your local folder.
-* Use AzCopy to upload unzipped CSVs from the local folder to an HDI cluster.
-* Log in to the head node of Hadoop cluster and prepare for exploratory data analysis.
-
-After the data is loaded into the HDI cluster, you can check your data in Azure Storage Explorer. And the nyctaxidb database has been created in the HDI cluster.
-
-#### Data exploration: Hive Queries in Python
-
-Because the data is in a Hadoop cluster, you can use the pyodbc package to connect to Hadoop clusters and query databases by using Hive to do exploration and feature engineering. You can view the existing tables that you created in the prerequisite step.
-
-```python
-queryString = """
-    show tables in nyctaxidb2;
-    """
-pd.read_sql(queryString, connection)
-```
-
-![View existing tables](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
-
-Let's look at the number of records in each month and the frequencies of tipped or not in the trip table:
-
-```python
-queryString = """
-    select month, count(*) from nyctaxidb.trip group by month;
-    """
-results = pd.read_sql(queryString,connection)
-
-%matplotlib inline
-
-results.columns = ['month', 'trip_count']
-df = results.copy()
-df.index = df['month']
-df['trip_count'].plot(kind='bar')
-```
-
-![Plot of number of records in each month](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
-
-```python
-queryString = """
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tipped;
-    """
-results = pd.read_sql(queryString, connection)
-
-results.columns = ['tipped', 'trip_count']
-df = results.copy()
-df.index = df['tipped']
-df['trip_count'].plot(kind='bar')
-```
-
-![Plot of tip frequencies](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
-
-You can also compute the distance between pickup location and drop-off location, and then compare it to the trip distance.
-
-```python
-queryString = """
-                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                    from nyctaxidb.trip
-                    where month=1
-                        and pickup_longitude between -90 and -30
-                        and pickup_latitude between 30 and 90
-                        and dropoff_longitude between -90 and -30
-                        and dropoff_latitude between 30 and 90;
-            """
-results = pd.read_sql(queryString, connection)
-results.head(5)
-```
-
-![Top rows of the pickup and drop-off table](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
-
-```python
-results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance'] <= 100]  # remove outliers
-df = df.loc[df['direct_distance'] <= 100]  # remove outliers
-plt.scatter(df['direct_distance'], df['trip_distance'])
-```
-
-![Plot of pickup/drop-off distance to trip distance](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
-
-Now let's prepare a downsampled (1 percent) set of data for modeling. You can use this data in the Machine Learning reader module.
-
-```python
-queryString = """
-create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-medallion string,
-hack_license string,
-vendor_id string,
-rate_code string,
-store_and_fwd_flag string,
-pickup_datetime string,
-dropoff_datetime string,
-pickup_hour string,
-pickup_week string,
-weekday string,
-passenger_count int,
-trip_time_in_secs double,
-trip_distance double,
-pickup_longitude double,
-pickup_latitude double,
-dropoff_longitude double,
-dropoff_latitude double,
-direct_distance double,
-payment_type string,
-fare_amount double,
-surcharge double,
-mta_tax double,
-tip_amount double,
-tolls_amount double,
-total_amount double,
-tipped string,
-tip_class string
-)
-row format delimited fields terminated by ','
-lines terminated by '\\n'
-stored as textfile;
-"""
-cursor.execute(queryString)
-```
-
-Now insert contents of the join into the preceding internal table.
-
-```python
-queryString = """
-insert overwrite table nyctaxi_downsampled_dataset_testNEW
-select
-t.medallion,
-t.hack_license,
-t.vendor_id,
-t.rate_code,
-t.store_and_fwd_flag,
-t.pickup_datetime,
-t.dropoff_datetime,
-hour(t.pickup_datetime) as pickup_hour,
-weekofyear(t.pickup_datetime) as pickup_week,
-from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-t.passenger_count,
-t.trip_time_in_secs,
-t.trip_distance,
-t.pickup_longitude,
-t.pickup_latitude,
-t.dropoff_longitude,
-t.dropoff_latitude,
-t.direct_distance,
-f.payment_type,
-f.fare_amount,
-f.surcharge,
-f.mta_tax,
-f.tip_amount,
-f.tolls_amount,
-f.total_amount,
-if(tip_amount>0,1,0) as tipped,
-if(tip_amount=0,0,
-if(tip_amount>0 and tip_amount<=5,1,
-if(tip_amount>5 and tip_amount<=10,2,
-if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-from
-(
-select
-medallion,
-hack_license,
-vendor_id,
-rate_code,
-store_and_fwd_flag,
-pickup_datetime,
-dropoff_datetime,
-passenger_count,
-trip_time_in_secs,
-trip_distance,
-pickup_longitude,
-pickup_latitude,
-dropoff_longitude,
-dropoff_latitude,
-3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-+cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-rand() as sample_key
-
-from trip
-where pickup_latitude between 30 and 90
-    and pickup_longitude between -90 and -30
-    and dropoff_latitude between 30 and 90
-    and dropoff_longitude between -90 and -30
-)t
-join
-(
-select
-medallion,
-hack_license,
-vendor_id,
-pickup_datetime,
-payment_type,
-fare_amount,
-surcharge,
-mta_tax,
-tip_amount,
-tolls_amount,
-total_amount
-from fare
-)f
-on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-where t.sample_key<=0.01
-"""
-cursor.execute(queryString)
-```
-
-After a while, you can see that the data has been loaded in Hadoop clusters:
-
-```python
-queryString = """
-    select * from nyctaxi_downsampled_dataset limit 10;
-    """
-cursor.execute(queryString)
-pd.read_sql(queryString, connection)
-```
-
-![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-#### Read data from HDI by using Azure Machine Learning Studio (classic): reader module
-
-You can also use the reader module in Azure Machine Learning Studio (classic) to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
-
-![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
-
-You can then view the scored dataset:
-
-![View scored dataset](./media/vm-do-ten-things/AML_Model_Results.PNG)
-
 ### Azure SQL Data Warehouse and databases
 Azure SQL Data Warehouse is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
@@ -824,17 +455,17 @@ Use the following prerequisite steps to access Azure Cosmos DB from the DSVM:
 
 1. The Azure Cosmos DB Python SDK is already installed on the DSVM. To update it, run ```pip install pydocumentdb --upgrade``` from a command prompt.
 2. Create an Azure Cosmos DB account and database from the [Azure portal](https://portal.azure.com).
-3. Download the Azure Cosmos DB Data Migration Tool from the [Microsoft Download Center](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) and extract to a directory of your choice.
-4. Import JSON data (volcano data) stored in a [public blob](https://cahandson.blob.core.windows.net/samples/volcano.json) into Azure Cosmos DB with the following command parameters to the migration tool. (Use dtui.exe from the directory where you installed the Azure Cosmos DB Data Migration Tool.) Enter the source and target location with these parameters:
+3. Download the Azure Cosmos DB Data Migration Tool from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) and extract to a directory of your choice.
+4. Import JSON data (volcano data) stored in a [public blob](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) into Azure Cosmos DB with the following command parameters to the migration tool. (Use dtui.exe from the directory where you installed the Azure Cosmos DB Data Migration Tool.) Enter the source and target location with these parameters:
    
-    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
+    `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
 After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## Use Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Azure Cosmos DB example in Power BI Desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
 
-1. Open Power BI Desktop and select **Get Data**. Specify the URL as: https://cahandson.blob.core.windows.net/samples/volcano.json.
+1. Open Power BI Desktop and select **Get Data**. Specify the URL as: `https://cahandson.blob.core.windows.net/samples/volcano.json`.
 2. You should see the JSON records imported as a list. Convert the list to a table so Power BI can work with it.
 4. Expand the columns by selecting the expand (arrow) icon.
 5. Notice that the location is a **Record** field. Expand the record and select only the coordinates. **Coordinate** is a list column.

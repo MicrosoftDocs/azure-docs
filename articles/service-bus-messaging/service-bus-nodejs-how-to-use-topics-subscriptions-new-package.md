@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Service Bus topics and subscriptions with Node.js | Microsoft Docs
-description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
+title: 'Use azure/service-bus topics and subscriptions with Node.js'
+description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,16 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 01/16/2020
 ms.author: aschhab
 
 ---
-# How to use Service Bus topics and subscriptions with Node.js and the azure/service-bus package
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
+# Quickstart: How to use Service Bus topics and subscriptions with Node.js and the azure/service-bus package
 In this tutorial, you learn how to write a Node.js program to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 
 ## Prerequisites

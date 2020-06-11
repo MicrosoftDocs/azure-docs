@@ -1,27 +1,27 @@
 ---
-title: Import export of Azure IoT Hub device identities | Microsoft Docs
-description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
+title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
+description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2019
+ms.date: 10/02/2019
 ms.author: robinsh
 ---
 
 # Import and export IoT Hub device identities in bulk
 
-Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
+Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when cloning a hub to a different region, see [How to Clone an IoT Hub](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
-This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub’s identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
-
+This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
 
 ## What are jobs?
 
@@ -80,13 +80,17 @@ while(true)
 }
 ```
 
+> [!NOTE]
+> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+
+
 ## Device import/export job limits
 
 Only 1 active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [Reference - IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure Storage](../storage/index.yml) blob container using a [Shared Access Signature](../storage/common/storage-security-guide.md#authorization).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an Azure Storage blob container using a shared access signature (SAS). For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
@@ -254,11 +258,11 @@ Use the optional **importMode** property in the import serialization data for ea
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
-| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
+| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
 | **update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
 | **updateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
 | **delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
 | **deleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
@@ -416,7 +420,11 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Next steps
 
-In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
+In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Many of these operations, including how to move devices from one hub to another, are used in the [Managing devices registered to the IoT hub section of How to Clone an IoT Hub](iot-hub-how-to-clone.md#managing-the-devices-registered-to-the-iot-hub). 
+
+The cloning article has a working sample associated with it, which is located in the IoT C# samples on this page: [Azure IoT Samples for C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/), with the project being ImportExportDevicesSample. You can download the sample and try it out; there are instructions in the [How to Clone an IoT Hub](iot-hub-how-to-clone.md) article.
+
+To learn more about managing Azure IoT Hub, check out the following articles:
 
 * [IoT Hub metrics](iot-hub-metrics.md)
 * [IoT Hub logs](iot-hub-monitor-resource-health.md)

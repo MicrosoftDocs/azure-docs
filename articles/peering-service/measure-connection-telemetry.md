@@ -1,52 +1,45 @@
 ---
-title: Measure Azure Peering Service (Preview) connection telemetry
-description: Learn about on how to measure Azure Peering Service connection telemetry
+title: 'Azure Peering Service: How to measure connection telemetry '
+description: In this tutorial learn how to measure connection telemetry.
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.topic: tutorial
+ms.date: 05/18/2020
+ms.author: derekol
+Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
+# Tutorial: Measure Peering Service connection telemetry
 
-# Measure Peering Service (Preview) connection telemetry
+ In this tutorial, you'll learn how to measure telemetry for your Peering Service connections.
+ 
+ Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you'll learn how to view the latency report for a specific Azure Peering Service connection. 
 
- Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article you will learn how to view the latency report for specific Peering Service connection.  
+To measure Peering Service connection telemetry, you must register a Peering Service connection in the Azure portal. To learn how to register a connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
 
-To measure Peering Service connection telemetry, you must register Peering Service connection into the Azure portal. To learn how to register connection, refer to the [Register Peering Service connection - Azure portal](azure-portal.md).
 
-> [!IMPORTANT]
-> "Peering Service” is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## View a latency report
 
-## View Latency Report
+To view a latency report for a specific Peering Service connection, follow these steps.
 
-To view the latency report for specific Peering Service connection, do the following:
+1. Select **All resources** in the left pane, and select the Peering Service connection. Then select **Open** under **Prefixes**. 
 
-1. Click on **ALL resources** from the left pane and click on the Peering Service connection. Following that, click on the **Open** below the **Prefixes** as depicted below:  
+   ![Select the Peering Service connection](./media/peering-service-measure/peering-service-measure-menu.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Register Peering Service](./media/peering-service-measure/peering-service-measure-menu.png)
+2. A latency report page for all the prefixes associated with that Peering Service connection appears. 
 
-2. A latency report page for all the prefixes associated with that Peering Service connection appears as shown below:  
+      ![Latency report page](./media/peering-service-measure/peering-service-latency-report.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Register Peering Service](./media/peering-service-measure/peering-service-latency-report.png)
+3. By default, the report is updated for every hour that's displayed on this page. To view the report for different timelines, choose the appropriate option from **Show data for last**. 
 
-3. By default, the report is updated for every 1 hour that is displayed on this page. However, to view the report for different timelines choose the appropriate option from the **Show data for last**.  
+4. To view events for a specific prefix, select the prefix name and select **Prefix Events** in the left pane. The events that are captured are displayed.
 
-4. **Prefix Events** - To view events for a specific prefix, click on the prefix name and click on the **Prefix Events** on the left pane. The events that are captured will be displayed as depicted below:
 
-   > [!div class="mx-imgBorder"]
-   > ![Register Peering Service](./media/peering-service-measure/peering-service-prefix-event.png)
+   ![Prefix Events](./media/peering-service-measure/peering-service-prefix-event.png)
 
- Some of the possible events that are captured in the **Prefix Events** are as follows: 
+ Some of the possible events that are captured in the **Prefix Events** list are shown here.
 
-| **Prefix Events** | **Event Type**|**Reasoning**|
+| **Prefix events** | **Event type**|**Reasoning**|
 |-----------|---------|---------|
 | PrefixAnnouncementEvent |Information|Prefix announcement was received|
 | PrefixWithdrawalEvent|Warning| Prefix withdrawal was received |
@@ -54,11 +47,10 @@ To view the latency report for specific Peering Service connection, do the follo
 | PrefixBackupRouteWithdrawalEvent|Warning|Prefix backup route withdrawal was received |
 | PrefixActivePath |Information| Current prefix active route   |
 | PrefixBackupPath | Information|Current prefix backup route   |
-| PrefixOriginAsChangeEvent|Critical| Exact prefix received with different origin Autonomous System Number (for active route)| 
-| PrefixBackupRouteOriginAsChangeEvent  | Error|Prefix received with different origin Autonomous System Number (for backup route)  |
+| PrefixOriginAsChangeEvent|Critical| Exact prefix received with different origin autonomous system number (for active route)| 
+| PrefixBackupRouteOriginAsChangeEvent  | Error|Prefix received with different origin autonomous system number (for backup route)  |
 
 ## Next steps
 
-To learn about Peering Service connection, see [Peering Service connection](connection.md).
-
-To learn about Peering Service connection telemetry, see [Peering Service connection](connection-telemetry.md).
+- To learn about Peering Service connection, see [Peering Service connection](connection.md).
+- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).

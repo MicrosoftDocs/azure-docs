@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory Identity Protection notifications| Microsoft Docs
+title: Azure Active Directory Identity Protection notifications
 description: Learn how notifications support your investigation activities.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,12 +47,11 @@ Configure the users at risk email in the **Azure portal** under **Azure Active D
 The weekly digest email contains a summary of new risk detections.  
 It includes:
 
-- Users at risk
-- Suspicious activities
-- Detected vulnerabilities
+- New risky users detected
+- New risky sign-ins detected (in real-time)
 - Links to the related reports in Identity Protection
 
-![Weekly digest email](./media/howto-identity-protection-configure-notifications/400.png)
+![Weekly digest email](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
 By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
 

@@ -1,12 +1,8 @@
 ---
-title: Manage and monitor SQL Server DBs on an Azure VM - Azure Backup
+title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -58,7 +54,7 @@ If you choose to leave recovery points, keep these details in mind:
 
 - All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
 - You will be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-- If you delete a data source without stopping backups, new backups will fail.
+- If you delete a data source without stopping backups, new backups will fail. Old recovery points will expire according to the policy, but one last recovery point will always be kept until you stop the backups and delete the data.
 
 To stop protection for a database:
 
@@ -112,7 +108,7 @@ You can run different types of on-demand backups:
 - Differential backup
 - Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time.
+While you need to specify the retention duration for Copy-only full backup, the retention range for on-demand full backup will automatically be set to 45 days from current time.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
@@ -149,7 +145,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
-### Inconsistent Policy
+### Inconsistent policy
 
 Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 

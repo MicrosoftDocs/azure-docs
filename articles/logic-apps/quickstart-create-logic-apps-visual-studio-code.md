@@ -1,14 +1,9 @@
 ---
-title: Automate tasks with Visual Studio Code - Azure Logic Apps
+title: Automate tasks with Visual Studio Code
 description: Create or edit logic app underlying JSON definitions by using Visual Studio Code (VS Code)
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, deli, LADocs
+ms.reviewer: klam, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
@@ -130,10 +125,16 @@ Before you start, make sure that you have these items:
    For example, here is a sample logic app workflow definition, which starts with an RSS trigger and an Office 365 Outlook action. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
    > [!IMPORTANT]
-   > If you want to reuse this sample logic app definition, you need an Office 365 organizational account, for example, @fabrikam.com. 
-   > Make sure that you replace the fictitious email address with your own email address. To use a different email connector, 
-   > such as Outlook.com or Gmail, replace the `Send_an_email_action` action with a similar action available from an 
+   > If you want to reuse this sample logic app definition, you need an Office 365 organizational account, 
+   > for example, @fabrikam.com. Make sure that you replace the fictitious email address with your own 
+   > email address. To use a different email connector, such as Outlook.com or Gmail, replace the 
+   > `Send_an_email_action` action with a similar action available from an 
    > [email connector that's supported by Azure Logic Apps](../connectors/apis-list.md).
+   >
+   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+   > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
    {

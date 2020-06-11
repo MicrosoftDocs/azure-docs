@@ -1,20 +1,20 @@
 ---
-title: Build a .NET console app to manage Azure Cosmos DB SQL API resources
-description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources.
-author: SnehaGunda
-ms.author: sngun
+title: Quickstart - Build a .NET console app to manage Azure Cosmos DB SQL API resources
+description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources in this quickstart.
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/12/2019
+ms.date: 05/11/2020
 ---
 # Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -47,7 +47,7 @@ If you have your own Azure subscription or created a subscription for free, you 
 
 You can use Azure Cloud Shell to create the Azure Cosmos account. Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. For this quickstart, choose **Bash** mode. Azure Cloud Shell also requires a storage account, you can create one when prompted.
 
-Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure cloud shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
+Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure Cloud Shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
 
 ```azurecli-interactive
 
@@ -141,7 +141,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
-**MacOS**
+**macOS**
 
 ```bash
 export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
@@ -358,20 +358,17 @@ private async Task AddItemsToContainerAsync()
         IsRegistered = false
     };
 
-try
-{
-    // Read the item to see if it exists. ReadItemAsync will throw an exception if the item does not exist and return status code 404 (Not found).
-    ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
-    Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
-}
-catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-{
-    // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
-    ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
-
-    // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
-    Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
-}
+    try
+    {
+        // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen".
+        ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
+        // Note that after creating the item, we can access the body of the item with the Resource property of the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+        Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+    }
+    catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.Conflict)
+    {
+        Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamily.Id);                
+    }
 }
 
 ```

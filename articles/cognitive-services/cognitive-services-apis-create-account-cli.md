@@ -29,7 +29,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To sign into your local installation of the CLI, run the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command:
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -86,7 +86,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
-| Face API                   | `Face`                    |
+| Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
@@ -151,7 +151,7 @@ az cognitiveservices account create \
 
 To log into your local installation of the Command-Line Interface(CLI), use the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
 
-```console
+```azurecli-interactive
 az login
 ```
 
@@ -174,7 +174,7 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 
 ## Get current quota usage for your resource
 
-Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -190,7 +190,7 @@ If you want to clean up and remove a Cognitive Services resource, you can delete
 To remove the resource group and its associated resources, use the az group delete command.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## See also

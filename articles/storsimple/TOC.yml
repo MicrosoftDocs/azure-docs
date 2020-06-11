@@ -1,5 +1,5 @@
-- name: StorSimple Documentation
-  href: index.md
+- name: StorSimple documentation
+  href: index.yml
 - name: StorSimple Virtual Array
   items:
   - name: Overview
@@ -87,7 +87,7 @@
       href: storsimple-ova-web-ui-admin.md
   - name: Release notes
     items:
-    - name: Update 1.2 
+    - name: Update 1.2 - current
       href: storsimple-virtual-array-update-12-release-notes.md
     - name: Update 1.1 
       href: storsimple-virtual-array-update-11-release-notes.md
@@ -316,6 +316,8 @@
       items:
       - name: Subscriptions and storage accounts
         href: storsimple-8000-migrate-classic-azure-portal.md
+      - name: From 8000 series devices
+        href: storsimple-8000-migration-from-8000-options.md
       - name: From 5000/7000 series devices
         href: storsimple-8000-migration-options.md
         items:
@@ -327,13 +329,17 @@
         href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
     - name: Update
       items:
-      - name: Install Update 5 - current
+      - name: Install Update 5.1 - current
+        href: storsimple-8000-install-update-51.md
+      - name: Install Update 5
         href: storsimple-8000-install-update-5.md
       - name: Install Update 4
         href: storsimple-8000-install-update-4.md
   - name: Release notes
     items:
-    - name: Update 5 - current
+    - name: Update 5.1 - current
+      href: storsimple-update51-release-notes.md
+    - name: Update 5
       href: storsimple-update5-release-notes.md
     - name: Update 4
       href: storsimple-update4-release-notes.md
@@ -410,11 +416,11 @@
   - name: Marketing blog
     href: https://blogs.technet.com/b/cis/
   - name: Marketing
-    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
+    href: https://azure.microsoft.com/services/storsimple/
   - name: StorSimple Support options
     href: storsimple-8000-support-options.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-storsimple.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storsimple/
   - name: Pricing calculator

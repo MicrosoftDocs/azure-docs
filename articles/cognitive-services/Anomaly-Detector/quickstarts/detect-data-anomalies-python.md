@@ -1,15 +1,16 @@
 ---
 title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST API and Python"
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
+description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data in this quickstart.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 03/24/2020
 ms.author: aahi
+ms.custom: tracking-python
 ---
 
 # Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API and Python
@@ -21,12 +22,12 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
- While this application is written in Python, the API is a RESTful web service compatible with most programming languages.
+ While this application is written in Python, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
 ## Prerequisites
 
 - [Python 2.x or 3.x](https://www.python.org/downloads/)
-
+- An Anomaly detector key and endpoint
 - The [Requests library](https://pypi.org/project/requests/) for python
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
@@ -63,7 +64,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 3. Send the request using `requests.post()`. Combine your endpoint and anomaly detection URL for the full request URL, and include your headers, and json request data. And then return the response.
 
-[!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
+    [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
 ## Detect anomalies as a batch
 
@@ -75,7 +76,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 4. Otherwise, find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the index of anomalous data points, if any were found.
 
-[!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
+    [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 
 ## Detect the anomaly status of the latest data point
 
@@ -83,11 +84,11 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 2. Call `json.dumps()` on the result to format it, and print it to the console.
 
-[!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
+    [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
 ## Send the request
 
-1. Call the anomaly detection methods created above.
+Call the anomaly detection methods created above.
 
 [!code-python[Method calls](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=methodCalls)]
 
@@ -97,11 +98,4 @@ A successful response is returned in JSON format. Click the links below to view 
 * [Example batch detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Example latest point detection response](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## Next steps
-
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* What is the [Anomaly Detector API?](../overview.md)
-* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

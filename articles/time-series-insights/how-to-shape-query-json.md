@@ -1,19 +1,19 @@
 ---
-title: 'Best practices for shaping JSON in Azure Time Series Insights queries | Microsoft Docs'
-description: Learn how to improve your Azure Time Series Insights query efficiency.
+title: 'Best practices for shaping JSON - Azure Time Series Insights queries | Microsoft Docs'
+description: Learn how to improve your Azure Time Series Insights query efficiency by shaping JSON.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 04/17/2020
 ms.custom: seodec18
 
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Time Series Insights queries when I use APIs.
 ---
 
-# Shape JSON to maximize query performance 
+# Shape JSON to maximize query performance
 
 This article provides guidance on how to shape JSON to maximize the efficiency of your Azure Time Series Insights queries.
 
@@ -47,7 +47,7 @@ The following guidance helps to ensure the best possible query performance:
 
 ## Example overview
 
-The following two examples demonstrate how to send events to highlight the previous recommendations. Following each example, you can see how the recommendations were applied.
+The following two examples demonstrate how to send events to highlight the previous recommendations. Following each example, you can review how the recommendations were applied.
 
 The examples are based on a scenario where multiple devices send measurements or signals. Measurements or signals can be Flow Rate, Engine Oil Pressure, Temperature, and Humidity. In the first example, there are a few measurements across all devices. The second example has many devices, and each device sends many unique measurements.
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 06/04/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -220,7 +220,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 
     > [!TIP]
     > To add a rule for a subnet in a VNet belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
-    > 
+    >
     > You can use the **subscription** parameter to retrieve the subnet ID for a VNet belonging to another Azure AD tenant.
 
 1. Remove a network rule for a virtual network and subnet.
@@ -248,7 +248,7 @@ IP network rules are only allowed for **public internet** IP addresses. IP addre
    > IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
   > [!NOTE]
-  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public inbound IP address range.
+  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
 
 Only IPV4 addresses are supported for configuration of storage firewall rules.
 
@@ -354,19 +354,19 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Exceptions
 
-Network rules help to create a secure environment for connections between your applications and your data for most scenarios. However, some applications use services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to storage to enable full application functionality. In such situations, you can use the ***Allow trusted Microsoft services...*** setting to enable access to your data, logs, or analytics.
+Network rules help to create a secure environment for connections between your applications and your data for most scenarios. However, some applications depend on Azure services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to storage to enable full application functionality. In such situations, you can use the ***Allow trusted Microsoft services...*** setting to enable such services to access your data, logs, or analytics.
 
 ### Trusted Microsoft services
 
-Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
+Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. We've enabled two modes of trusted access for Microsoft services.
 
-- Resources of some services, **if registered in your subscription**, can access storage accounts **in the same subscription** for only select operations, such as writing logs or for backup.
-- Resource instances of some services can be granted explicit access to your storage account by [**assigning an RBAC role**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
+- Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.
+- Resources of some services can be granted explicit access to your storage account by **assigning an RBAC role** to its system-assigned managed identity.
 
 
-When you enable the **Allow trusted Microsoft services...** exception, these services (if registered in your subscription) are granted access to the storage account for select operations as described:
+When you enable the **Allow trusted Microsoft services...** setting, resources of the following services that are registered in the same subscription as your storage account are granted access for a limited set of operations as described:
 
-| Service                  | Resource Provider Name     | Purpose                            |
+| Service                  | Resource Provider Name     | Operations allowed                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft.RecoveryServices | Run backups and restores of unmanaged disks in IAAS virtual machines. (not required for managed disks). [Learn more](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft.DataBox          | Enables import of data to Azure using Data Box. [Learn more](/azure/databox/data-box-overview). |
@@ -374,26 +374,31 @@ When you enable the **Allow trusted Microsoft services...** exception, these ser
 | Azure Event Grid         | Microsoft.EventGrid        | Enable Blob Storage event publishing and allow Event Grid to publish to storage queues. Learn about [blob storage events](/azure/event-grid/event-sources) and [publishing to queues](/azure/event-grid/event-handlers). |
 | Azure Event Hubs         | Microsoft.EventHub         | Archive data with Event Hubs Capture. [Learn More](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft.StorageSync      | Enables you to transform your on-prem file server to a cache for Azure File shares. Allowing for multi-site sync, fast disaster-recovery, and cloud-side backup. [Learn more](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft.HDInsight        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Azure Machine Learning | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
-| Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure HDInsight          | Microsoft.HDInsight        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
+| Azure Import Export      | Microsoft.ImportExport     | Enables import of data to Azure and export of data from Azure using Import/Export service. [Learn more](/azure/storage/common/storage-import-export-service).  |
+| Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account, including resource logs, Azure Active Directory sign-in and audit logs, and Microsoft Intune logs. [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs, including through the Network Watcher and Traffic Analytics services. [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** exception enables a particular instance of the below services to access the storage account, if you explicitly assign an RBAC role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance.
+The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
 
-| Service                        | Resource Provider Name          | Purpose                            |
-| :----------------------------- | :------------------------------ | :--------------------------------- |
-| Azure Data Factory             | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. |
-| Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Service                        | Resource Provider Name                 | Purpose            |
+| :----------------------------- | :------------------------------------- | :----------------- |
+| Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
+| Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
+| Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
+| Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
+| Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
+| Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
+| Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                          | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Synapse Analytics. |
 
 
 ### Storage analytics data access
 
-In some cases, access to read diagnostic logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
+In some cases, access to read resource logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
 
 ### Managing exceptions
 
@@ -465,4 +470,4 @@ You can manage network rule exceptions through the Azure portal, PowerShell, or 
 
 Learn more about Azure Network service endpoints in [Service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Dig deeper into Azure Storage security in [Azure Storage security guide](storage-security-guide.md).
+Dig deeper into Azure Storage security in [Azure Storage security guide](../blobs/security-recommendations.md).

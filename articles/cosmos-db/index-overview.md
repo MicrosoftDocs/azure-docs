@@ -1,11 +1,11 @@
 ---
 title: Indexing in Azure Cosmos DB 
-description: Understand how indexing works in Azure Cosmos DB.
-author: ThomasWeiss
+description: Understand how indexing works in Azure Cosmos DB, different kinds of indexes such as Range, Spatial, composite indexes supported. 
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.author: thweiss
+ms.date: 05/21/2020
+ms.author: tisande
 ---
 
 # Indexing in Azure Cosmos DB - Overview
@@ -77,7 +77,7 @@ Azure Cosmos DB currently supports three kinds of indexes.
 
    Equality match on an array element
    ```sql
-    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1")
     ```
 
 - Range queries:
@@ -93,10 +93,14 @@ Azure Cosmos DB currently supports three kinds of indexes.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- String prefix matches (CONTAINS keyword will not leverage the range index):
+- String system functions:
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
+
+   ```sql
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - `ORDER BY` queries:
@@ -159,18 +163,18 @@ Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) obje
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-As long as one filter predicate uses on of the index kind, the query engine will evaluate that first before scanning the rest. For example, if you have a SQL query such as `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+As long as one filter predicate uses one of the index kind, the query engine will evaluate that first before scanning the rest. For example, if you have a SQL query such as `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * The above query will first filter for entries where firstName = "Andrew" by using the index. It then pass all of the firstName = "Andrew" entries through a subsequent pipeline to evaluate the CONTAINS filter predicate.
 
-* You can speed up queries and avoid full container scans when using functions that don’t use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine is will figure out which predicates are more selective and run the query accordingly.
+* You can speed up queries and avoid full container scans when using functions that don't use the index (e.g. CONTAINS) by adding additional filter predicates that do use the index. The order of filter clauses isn't important. The query engine is will figure out which predicates are more selective and run the query accordingly.
 
 
 ## Querying with indexes
 
 The paths extracted when indexing data make it easy to lookup the index when processing a query. By matching the `WHERE` clause of a query with the list of indexed paths, it is possible to identify the items that match the query predicate very quickly.
 
-For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country) would match the path highlighted in red below:
+For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country/region) would match the path highlighted in red below:
 
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 

@@ -1,43 +1,44 @@
 ---
-author: erhopf
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/06/2019
-ms.author: erhopf
+ms.date: 04/02/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
 
+Before you get started:
+
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
+> * Make sure that you have access to a microphone for audio capture
 
-## Add sample code
+## Source code
 
-1. To add a new empty class to your Java project, select **File** > **New** > **Class**.
+To add a new empty class to your Java project, select **File** > **New** > **Class**. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
+![Screenshot of New Java Class window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
 
-   ![Screenshot of New Java Class window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
+Replace the contents of the *Main.java* file with the following snippet:
 
-1. Replace all code in `Main.java` with the following snippet:
+[!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
+[!INCLUDE [replace key and region](../replace-key-and-region.md)]
 
-1. Replace the string `YourSubscriptionKey` with your subscription key.
+## Code explanation
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+[!INCLUDE [code explanation](../code-explanation.md)]
 
-1. Save changes to the project.
+## Build and run app
 
-## Build and run the app
-
-Press F11, or select **Run** > **Debug**.
+Press <kbd>F11</kbd>, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
 ![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

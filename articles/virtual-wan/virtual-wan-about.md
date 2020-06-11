@@ -6,16 +6,18 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 05/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
 # About Azure Virtual WAN
 
-Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. We have a list of partners that support connectivity automation with Azure Virtual WAN VPN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. These functionalities include branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE), Site-to-site VPN connectivity, remote user VPN (Point-to-site) connectivity, private (ExpressRoute) connectivity, intra-cloud connectivity (transitive connectivity for virtual networks), VPN ExpressRoute inter-connectivity, routing, Azure Firewall, and encryption for private connectivity. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case, and then adjust your network as it evolves.
 
-Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, User VPN (point-to-site), and ExpressRoute into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. It enables [global transit network architecture](virtual-wan-global-transit-network-architecture.md) based on a classic hub-and-spoke connectivity model where the cloud hosted network 'hub' enables transitive connectivity between endpoints that may be distributed across different types of 'spokes'.
+The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in for branches (VPN/SD-WAN devices), users (Azure VPN/OpenVPN/IKEv2 clients), ExpressRoute circuits, and virtual networks. It enables [global transit network architecture](virtual-wan-global-transit-network-architecture.md), where the cloud hosted network 'hub' enables transitive connectivity between endpoints that may be distributed across different types of 'spokes'.
+
+Azure regions serve as hubs that you can choose to connect to. All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For spoke connectivity with SD-WAN/VPN devices, users can either manually set it up in Azure Virtual WAN, or use the Virtual WAN CPE (SD-WAN/VPN) partner solution to set up connectivity to Azure. We have a list of partners that support connectivity automation (ability to export the device info into Azure, download the Azure configuration and establish connectivity) with Azure Virtual WAN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
 
@@ -32,6 +34,13 @@ There are two types of virtual WANs: Basic and Standard. The following table sho
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
 For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+
+## <a name="architecture"></a>Architecture
+
+For information about Virtual WAN architecture and how to migrate to Virtual WAN, see the following articles:
+
+* [Virtual WAN architecture](migrate-from-hub-spoke-topology.md)
+* [Global transit network architecture](virtual-wan-global-transit-network-architecture.md)
 
 ## <a name="resources"></a>Virtual WAN resources
 
@@ -53,7 +62,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
   * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
-## <a name="connectivity"></a>Connectivity
+## <a name="connectivity"></a>Types of connectivity
 
 Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User VPN (Point-to-Site), and ExpressRoute.
 
@@ -77,7 +86,7 @@ For a list of the available partners and locations, see the [Virtual WAN partner
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 
-You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN connection. This type of connection requires a VPN client to be configured on the client computer. For more information, see [Create a point-to-site connection](virtual-wan-site-to-site-portal.md).
+You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN connection. This type of connection requires a VPN client to be configured on the client computer. For more information, see [Create a point-to-site connection](virtual-wan-point-to-site-portal.md).
 
 ### <a name="er"></a>ExpressRoute connections
 ExpressRoute lets you connect on-premises network to Azure over a private connection. To create the connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).

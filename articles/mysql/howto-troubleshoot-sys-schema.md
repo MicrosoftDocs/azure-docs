@@ -1,11 +1,11 @@
 ---
-title: Use sys_schema to tune performance and maintain Azure Database for MySQL
+title: Utilize sys_schema - Azure Database for MySQL
 description: Learn how to use sys_schema to find performance issues and maintain database in Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 08/01/2018
+ms.date: 3/30/2020
 ---
 
 # How to use sys_schema for performance tuning and database maintenance in Azure Database for MySQL
@@ -24,7 +24,7 @@ There are 52 views in the sys_schema, and each view has one of the following pre
 - User: Resources consumed and grouped by users. Examples are file I/Os, connections, and memory.
 - Wait: Wait events grouped by host or user.
 
-Now let’s look at some common usage patterns of the sys_schema. To begin with, we’ll group the usage patterns into two categories: **Performance tuning** and **Database maintenance**.
+Now let's look at some common usage patterns of the sys_schema. To begin with, we'll group the usage patterns into two categories: **Performance tuning** and **Database maintenance**.
 
 ## Performance tuning
 
@@ -50,11 +50,14 @@ To troubleshoot database performance issues, it may be beneficial to identify th
 
 ![summary by statement](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That’s a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
+In this example Azure Database for MySQL spent 53 minutes flushing the slog query log 44579 times. That's a long time and many IOs. You can reduce this activity by either disable your slow query log or decrease the frequency of slow query login Azure portal.
 
 ## Database maintenance
 
 ### *sys.innodb_buffer_stats_by_table*
+
+[!IMPORTANT]
+> Querying this view can impact performance. It is recommended to perform this troubleshooting during off-peak business hours.
 
 The InnoDB buffer pool resides in memory and is the main cache mechanism between the DBMS and storage. The size of the InnoDB buffer pool is tied to the performance tier and cannot be changed unless a different product SKU is chosen. As with memory in your operating system, old pages are swapped out to make room for fresher data. To find out which tables consume most of the InnoDB buffer pool memory, you can query the *sys.innodb_buffer_stats_by_table* view.
 
@@ -75,4 +78,4 @@ Indexes are great tools to improve read performance, but they do incur additiona
 In summary, the sys_schema is a great tool for both performance tuning and database maintenance. Make sure to take advantage of this feature in your Azure Database for MySQL. 
 
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [MSDN forum](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

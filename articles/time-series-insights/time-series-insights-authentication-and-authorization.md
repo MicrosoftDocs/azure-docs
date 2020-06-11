@@ -1,5 +1,5 @@
 ---
-title: 'Authenticate and authorize by using an API in Azure Time Series Insights | Microsoft Docs'
+title: 'API authentication and authorization - Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,13 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.custom: seodec18
+ms.date: 04/14/2020
+ms.custom: seodec18, has-adal-ref
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
 
 This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Time Series Insights environment.
+
+> [!IMPORTANT]
+> Azure Time Series Insights supports both of the following authentication libraries:
+> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## Service principal
 
@@ -67,85 +72,94 @@ Per **step 3**, separating your application's and your user credentials allows y
 1. Save the policy by selecting **OK**.
 
    > [!TIP]
-   > Read about [granting data access](./time-series-insights-data-access.md) to your Time Series Insights environment in Azure Active Directory.
+   > For advanced data access options, read [granting data access](./time-series-insights-data-access.md).
 
 ### Client app initialization
 
-1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
+* Developers may use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) or [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) to authenticate with Azure Time Series Insights.
 
-    In C#, the following code can acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
+* For example, to authenticate using ADAL:
 
-    ```csharp
-    // Enter your Active Directory tenant domain name
-    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
-    var authenticationContext = new AuthenticationContext(
-        $"https://login.microsoftonline.com/{tenant}",
-        TokenCache.DefaultShared);
+   1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
-    AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-        // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/",
-        clientCredential: new ClientCredential(
-            // Application ID of application registered in Azure Active Directory
-            clientId: "YOUR_APPLICATION_ID",
-            // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
+   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
-    string accessToken = token.AccessToken;
-    ```
+        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
-1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
+   1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
+
+* Alternatively, developers may choose to authenticate using MSAL. Read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) and see our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## Common headers and parameters
 
 This section describes common HTTP request headers and parameters used to make queries against the Time Series Insights GA and Preview APIs. API-specific requirements are covered in greater detail in the [Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
+> [!TIP]
+> Read the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/) to learn more about how to consume REST APIs, make HTTP requests, and handle HTTP responses.
+
 ### Authentication
 
-To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
-
-> [!IMPORTANT]
-> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
-> * Your [Postman](https://www.getpostman.com/) **AuthURL** with therefore conform to: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#).
 
 > [!TIP]
-> See the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
+> Read the hosted Azure Time Series Insights [client SDK sample visualization](https://tsiclientsample.azurewebsites.net/) to learn how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) along with charts and graphs.
 
 ### HTTP headers
 
-Required request headers:
+Required request headers are described below.
 
-- `Authorization` for authentication and authorization, a valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+| Required request header | Description |
+| --- | --- |
+| Authorization | To authenticate with Time Series Insights, a valid OAuth 2.0 Bearer token must be passed in the **Authorization** header. |
 
-Optional request headers:
+> [!IMPORTANT]
+> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+> * Your [Postman](https://www.getpostman.com/) **AuthURL** will therefore be: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * `https://api.timeseries.azure.com/` is valid but `https://api.timeseries.azure.com` is not.
 
-- `Content-type` - only `application/json` is supported.
-- `x-ms-client-request-id` - a client request ID. Service records this value. Allows the service to trace operation across services.
-- `x-ms-client-session-id` - a client session ID. Service records this value. Allows the service to trace a group of related operations across services.
-- `x-ms-client-application-name` - name of the application that generated this request. Service records this value.
+Optional request headers are described below.
 
-Response headers:
+| Optional request header | Description |
+| --- | --- |
+| Content-type | only `application/json` is supported. |
+| x-ms-client-request-id | A client request ID. The service records this value. Allows the service to trace operation across services. |
+| x-ms-client-session-id | A client session ID. The service records this value. Allows the service to trace a group of related operations across services. |
+| x-ms-client-application-name | Name of the application that generated this request. The service records this value. |
 
-- `Content-type` - only `application/json` is supported.
-- `x-ms-request-id` - server-generated request ID. Can be used to contact Microsoft to investigate a request.
+Optional but recommended response headers are described below.
+
+| Response header | Description |
+| --- | --- |
+| Content-type | Only `application/json` is supported. |
+| x-ms-request-id | Server-generated request ID. Can be used to contact Microsoft to investigate a request. |
+| x-ms-property-not-found-behavior | GA API optional response header. Possible values are `ThrowError` (default) or `UseNull`. |
 
 ### HTTP parameters
 
-Required URL query string parameters:
+> [!TIP]
+> Find more information about required and optional query information in the [reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-- `api-version=2016-12-12`
-- `api-version=2018-11-01-preview`
+Required URL query string parameters depend on API version.
 
-Optional URL query string parameters:
+| Release | Possible API version values |
+| --- |  --- |
+| General Availability | `api-version=2016-12-12`|
+| Preview | `api-version=2018-11-01-preview` |
+| Preview | `api-version=2018-08-15-preview` |
 
-- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`.
+Optional URL query string parameters include setting a timeout for HTTP request execution times.
+
+| Optional query parameter | Description | Version |
+| --- |  --- | --- |
+| `timeout=<timeout>` | Server-side timeout for HTTP request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`. | GA |
+| `storeType=<storeType>` | For Preview environments with warm store enabled, the query can be executed either on the `WarmStore` or `ColdStore`. This parameter in the query defines which store the query should be executed on. If not defined, the query will be executed on the cold store. To query the warm store, **storeType** needs to be set to `WarmStore`. If not defined, the query will be executed against the cold store. | Preview |
 
 ## Next steps
 
-- For sample code that calls the GA Time Series Insights API, see [Query data using C#](./time-series-insights-query-data-csharp.md).
+- For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
 
-- For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
+- For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, see [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 
 - Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

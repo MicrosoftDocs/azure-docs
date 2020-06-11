@@ -2,7 +2,8 @@
 title: Azure Disk Encryption troubleshooting guide
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
@@ -20,7 +21,7 @@ Before taking any of the steps below, first ensure that the VMs you are attempti
 - [Group policy requirements](disk-encryption-overview.md#group-policy-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
 
@@ -31,7 +32,7 @@ Any network security group settings that are applied must still allow the endpoi
 
 ### Azure Key Vault behind a firewall
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-windows-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).
+When encryption is being enabled with [Azure AD credentials](disk-encryption-windows-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 The VM must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.

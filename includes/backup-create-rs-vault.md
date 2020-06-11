@@ -13,23 +13,23 @@ ms.custom: include file
 
 ## Create a Recovery Services vault
 
-A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
+A Recovery Services vault is a storage entity that stores the recovery points created over time. It also contains the backup policies that are associated with protected items.
 
-To create a Recovery Services vault:
+To create a Recovery Services vault, follow these steps.
 
 1. Sign in to your subscription in the [Azure portal](https://portal.azure.com/).
 
-2. On the left menu, select **All services**.
+1. On the left menu, select **All services**.
 
     ![Select All services](./media/backup-create-rs-vault/click-all-services.png)
 
-3. In the **All services** dialog box, enter **Recovery Services**. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
+1. In the **All services** dialog box, enter *Recovery Services*. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
 
     ![Enter and choose Recovery Services vaults](./media/backup-create-rs-vault/all-services.png)
 
     The list of Recovery Services vaults in the subscription appears.
 
-4. On the **Recovery Services vaults** dashboard, select **Add**.
+1. On the **Recovery Services vaults** dashboard, select **Add**.
 
     ![Add a Recovery Services vault](./media/backup-create-rs-vault/add-button-create-vault.png)
 
@@ -37,17 +37,17 @@ To create a Recovery Services vault:
 
     ![Configure the Recovery Services vault](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
+   - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least 2 but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
    - **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription.
-   - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
-   - **Location**: Select the geographic region for the vault. To create a vault to protect virtual machines, the vault **must** be in the same region as the virtual machines.
+   - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list. To create a new resource group, select **Create new** and enter the name. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md).
+   - **Location**: Select the geographic region for the vault. To create a vault to protect any data source, the vault *must* be in the same region as the data source.
 
       > [!IMPORTANT]
-      > If you're not sure of the location of your VM, close the dialog box. Go to the list of virtual machines in the portal. If you have virtual machines in several regions, create a Recovery Services vault in each region. Create the vault in the first location, before you create the vault for another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and the Azure Backup service handle that automatically.
+      > If you're not sure of the location of your data source, close the dialog box. Go to the list of your resources in the portal. If you have data sources in multiple regions, create a Recovery Services vault for each region. Create the vault in the first location before you create the vault for another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that automatically.
       >
       >
 
-5. When you're ready to create the Recovery Services vault, select **Create**.
+1. When you're ready to create the Recovery Services vault, select **Create**.
 
     ![Create the Recovery Services vault](./media/backup-create-rs-vault/click-create-button.png)
 

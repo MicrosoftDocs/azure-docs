@@ -1,23 +1,15 @@
 ---
 title: Prediction scores - LUIS
-titleSuffix: Azure Cognitive Services
-description: A prediction score indicates the degree of confidence the LUIS API service has for prediction results, based on a user utterance. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: A prediction score indicates the degree of confidence the LUIS API service has for prediction results, based on a user utterance.
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.author: diberry
+ms.date: 04/14/2020
 ---
 
 # Prediction scores indicate prediction accuracy for intent and entities
 
 A prediction score indicates the degree of confidence LUIS has for prediction results of a user utterance.
 
-A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
+A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01.
 
 |Score value|Confidence|
 |--|--|
@@ -28,11 +20,11 @@ A prediction score is between zero (0) and one (1). An example of a highly confi
 
 ## Top-scoring intent
 
-Every utterance prediction returns a top-scoring intent. This prediction is a numerical comparison of prediction scores. 
+Every utterance prediction returns a top-scoring intent. This prediction is a numerical comparison of prediction scores.
 
 ## Proximity of scores to each other
 
-The top 2 scores can have a very small difference between them. LUIS doesn't indicate this proximity other than returning the top score.  
+The top 2 scores can have a very small difference between them. LUIS doesn't indicate this proximity other than returning the top score.
 
 ## Return prediction score for all intents
 
@@ -63,15 +55,17 @@ You can turn off the **non-deterministic training** by [training with all data](
 
 ## E (exponent) notation
 
-Prediction scores can use exponent notation, *appearing* above the 0-1 range, such as `9.910309E-07`. This score is an indication of a very **small** number.
+Prediction scores can use exponent notation, _appearing_ above the 0-1 range, such as `9.910309E-07`. This score is an indication of a very **small** number.
 
 |E notation score |Actual score|
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## Punctuation
+<a name="punctuation"></a>
 
-[Learn more](luis-concept-utterance.md#punctuation-marks) about how to use or ignore punctuation. 
+## Application settings
+
+Use [application settings](luis-reference-application-settings.md) to control how diacritics and punctuation impact prediction scores.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
+title: Use the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
 description: Learn how to use the bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
 author: luisbosquez
 ms.service: cosmos-db
@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 This tutorial provides instructions about using Azure CosmosDB's bulk executor .NET library to import and update graph objects into an Azure Cosmos DB Gremlin API container. This process makes use of the Graph class in the [bulk executor library](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) to create Vertex and Edge objects programmatically to then insert multiple of them per network request. This behavior is configurable through the bulk executor library to make optimal use of both database and local memory resources.
 
-As opposed to sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the bulk executor library will instead require to create and validate the objects locally. After creating the objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. Learn more by visiting the GitHub page of the [Azure Cosmos DB Graph bulk executor sample application](https://aka.ms/graph-bulkexecutor-sample).
+As opposed to sending Gremlin queries to a database, where the command is evaluated and then executed one at a time, using the bulk executor library will instead require to create and validate the objects locally. After creating the objects, the library allows you to send graph objects to the database service sequentially. Using this method, data ingestion speeds can be increased up to 100x, which makes it an ideal method for initial data migrations or periodical data movement operations. Learn more by visiting the GitHub page of the [Azure Cosmos DB Graph bulk executor sample application](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started).
 
 ## Bulk operations with graph data
 
@@ -115,7 +115,7 @@ e.AddProperty("customProperty", "value");
 * Git. For more information check out the [Git Downloads page](https://git-scm.com/downloads).
 
 ### Clone the sample application
-In this tutorial, we'll follow through the steps for getting started by using the [Azure Cosmos DB Graph bulk executor sample](https://aka.ms/graph-bulkexecutor-sample) hosted on GitHub. This application consists of a .NET solution that randomly generates vertex and edge objects and then executes bulk insertions to the specified graph database account. To get the application, run the `git clone` command below:
+In this tutorial, we'll follow through the steps for getting started by using the [Azure Cosmos DB Graph bulk executor sample](https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started) hosted on GitHub. This application consists of a .NET solution that randomly generates vertex and edge objects and then executes bulk insertions to the specified graph database account. To get the application, run the `git clone` command below:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git

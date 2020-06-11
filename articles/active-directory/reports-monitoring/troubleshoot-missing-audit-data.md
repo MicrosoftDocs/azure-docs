@@ -4,7 +4,7 @@ title: 'Troubleshoot Missing data in activity logs  | Microsoft Docs'
 description: Provides you with a resolution to missing data in Azure Active Directory activity logs.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/15/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

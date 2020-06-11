@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Update an Azure Cosmos account
-description: Azure PowerShell script sample - Update an Azure Cosmos account or modify regions
+title: PowerShell script to update the default consistency level on an Azure Cosmos account
+description: Azure PowerShell script sample - Update default consistency level on an Azure Cosmos DB account using PowerShell
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 03/21/2020
 ms.author: mjbrown
 ---
 
-# Update an Azure Cosmos account or modify regions using PowerShell
+# Update the regions on an Azure Cosmos DB account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -19,9 +19,9 @@ ms.author: mjbrown
 > [!NOTE]
 > You cannot modify regions and change other Cosmos account properties in the same operation. These must be done as two separate operations.
 > [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, copy the related properties and apply to your API specific script.
+> This sample demonstrates using a SQL API account. To use this sample for other APIs, copy the related properties and apply to your API-specific script.
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Add a region to an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update.ps1 "Update an Azure Cosmos DB account")]
 
 ## Clean up deployment
 
@@ -37,11 +37,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Create a resource. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Update a resource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
+| [Update-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Update a Cosmos DB Account. |
 |**Azure Resource Groups**| |
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

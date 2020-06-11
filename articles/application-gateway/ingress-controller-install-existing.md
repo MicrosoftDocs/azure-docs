@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 11/4/2019
 ms.author: caya
 ---
 
@@ -74,7 +74,7 @@ these APIs.
 
 [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) is a controller, similar to AGIC, which also runs on your
 AKS. It binds Azure Active Directory identities to your Kubernetes pods. Identity is required for an application in a
-Kubernetes pod to be able to communicate with other Azure components. In the particular case here we need authorization
+Kubernetes pod to be able to communicate with other Azure components. In the particular case here, we need authorization
 for the AGIC pod to make HTTP requests to [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 Follow the [AAD Pod Identity installation instructions](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) to add this component to your AKS.
@@ -87,22 +87,22 @@ important. The resource group required in the command below is *not* the one ref
 the resource group of the `aks-agentpool` virtual machines. Typically that resource group starts with `MC_` and contains
  the name of your AKS. For instance: `MC_resourceGroup_aksABCD_westus`
 
-    ```bash
+    ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
 1. For the role assignment commands below we need to obtain `principalId` for the newly created identity:
 
-    ```bash
+    ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
-1. Give the identity `Contributor` access to you Application Gateway. For this you need the ID of the Application Gateway, which will
+1. Give the identity `Contributor` access to your Application Gateway. For this you need the ID of the Application Gateway, which will
 look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/applicationGateways/C`
 
     Get the list of Application Gateway IDs in your subscription with: `az network application-gateway list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Contributor \
         --assignee <principalId> \
@@ -112,7 +112,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 1. Give the identity `Reader` access to the Application Gateway resource group. The resource group ID would look like:
 `/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Reader \
         --assignee <principalId> \
@@ -125,8 +125,8 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
 blob to be saved to Kubernetes.
 
-```bash
-az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+```azurecli
+az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
 2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
@@ -138,7 +138,7 @@ armAuth:
 ```
 
 ## Install Ingress Controller as a Helm Chart
-In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
+In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
 
 1. Add the `application-gateway-kubernetes-ingress` helm repo and perform a helm update
 
@@ -194,7 +194,7 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is RBAC enabled or not
@@ -231,7 +231,7 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \
@@ -256,9 +256,9 @@ Please __backup your Application Gateway's configuration__ before enabling this 
 The zip file you downloaded will have JSON templates, bash, and PowerShell scripts you could use to restore Application Gateway
 
 ### Example Scenario
-Let's look at an imaginary Application Gateway, which manages traffic for 2 web sites:
+Let's look at an imaginary Application Gateway, which manages traffic for two web sites:
   - `dev.contoso.com` - hosted on a new AKS, using Application Gateway and AGIC
-  - `prod.contoso.com` - hosted on an [Azure Virutal Machine Scale Set](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+  - `prod.contoso.com` - hosted on an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
 
 With default settings, AGIC assumes 100% ownership of the Application Gateway it is pointed to. AGIC overwrites all of App
 Gateway's configuration. If we were to manually create a listener for `prod.contoso.com` (on Application Gateway), without
@@ -344,7 +344,7 @@ Broaden AGIC permissions with:
 Let's assume that we already have a working AKS, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
 `prod.contosor.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
 existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
-are going to re-use the existing Application Gateway and manually configure a listener and backend pools for
+are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (via
 [portal](https://portal.azure.com), [ARM APIs](https://docs.microsoft.com/rest/api/resources/) or
 [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after we apply

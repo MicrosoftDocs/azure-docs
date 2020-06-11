@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Create a search index in Node.js using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: Node.js sample for Azure Cognitive Search, demonstrating how to create, load data into, and query from JavaScript.
+description: In this Node.js quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript and the REST APIs.
 
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/25/2020
 ---
 # Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs
 > [!div class="op_single_selector"]
@@ -20,25 +20,30 @@ ms.date: 11/04/2019
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Node.js application that that creates, loads, and queries an Azure Cognitive Search index. This article demonstrates how to create the application step-by-step. Alternately, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) and run the application from the command line.
+Create a Node.js application that that creates, loads, and queries an Azure Cognitive Search index. This article demonstrates how to create the application step-by-step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) and run the application from the command line.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart.
+We used the following software and services to build and test this quickstart:
 
-+ [Node.js](https://nodejs.org).
-+ [NPM](https://www.npmjs.com) should be installed by Node.js.
-+ A sample index structure and matching documents are provided in this article, or from the [**quickstart** directory of the repo](https://github.com/Azure-Samples/azure-search-javascript-samples/).
++ [Node.js](https://nodejs.org)
+
++ [NPM](https://www.npmjs.com) should be installed by Node.js
+
++ A sample index structure and matching documents are provided in this article, or from the [**quickstart** directory of the repo](https://github.com/Azure-Samples/azure-search-javascript-samples/)
+
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 Recommended:
 
-* [Visual Studio Code](https://code.visualstudio.com).
+* [Visual Studio Code](https://code.visualstudio.com)
+
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extensions for VSCode.
 
 <a name="get-service-info"></a>
+
 ## Get keys and URLs
 
 Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
@@ -103,16 +108,17 @@ Begin by opening a Powershell console or other environment in which you've insta
       }
     }
     ```
-Create a file **azure_search_config.json** to hold your search service data:
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. Create a file **azure_search_config.json** to hold your search service data:
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 Replace the `[SERVICE_NAME]` value with the name of your search service. Replace `[ADMIN_KEY]` and `[QUERY_KEY]` with the key values you recorded earlier. 
 
@@ -398,7 +404,7 @@ The [**nconf** package](https://github.com/indexzero/nconf) allows you to specif
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -428,7 +434,7 @@ Finally, specify and call the main asynchronous `run` function. This function ca
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName"));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();
@@ -675,15 +681,16 @@ Run the program with `node index.js`. Now, in addition to the previous steps, th
 
 The sample uses a small amount of hotel data, sufficient to demonstrate the basics of creating and querying an Azure Cognitive Search index.
 
-The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Cognitive Search service, the hotel data that will be uploaded for indexing, and, in it's `run` function, orders, and executes the various operations.
+The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Cognitive Search service, the hotel data that will be uploaded for indexing, and, in its `run` function, orders, and executes the various operations.
 
 The overall behavior of the `run` function is to delete the Azure Cognitive Search index if it exists, create the index, add some data, and perform some queries.  
 
-## Clean up 
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
 If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps

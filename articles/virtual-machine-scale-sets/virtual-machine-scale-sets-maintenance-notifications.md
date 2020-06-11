@@ -1,20 +1,14 @@
 ---
-title: Maintenance notifications for virtual machine scale sets in Azure | Microsoft Docs
+title: Maintenance notifications for virtual machine scale sets in Azure
 description: View maintenance notifications and start self-service maintenance for virtual machine scale sets in Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -30,7 +24,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions):
 
-- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/platform/activity-logs-overview.md).  
+- A wave starts with a notification to customers. By default, notification is sent to the subscription owner and co-owners. You can add recipients and messaging options like email, SMS, and webhooks to the notifications by using Azure [Activity Log alerts](../azure-monitor/platform/platform-logs-overview.md).  
 - With notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your VMs are included in the wave. You can proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your VM. 
 
@@ -91,7 +85,7 @@ The **Self-service maintenance** column now appears in the list of virtual machi
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/activity-logs-overview.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add recipients and channels to this communication by creating Activity Log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left menu, select **Monitor**. 
@@ -149,7 +143,7 @@ You can view planned maintenance information by using [az vmss list-instances](/
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 
-```azure-cli
+```azurecli
 az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
@@ -169,7 +163,7 @@ The following properties are returned under **MaintenanceRedeployStatus** for ea
 
 The following call initiates maintenance on a VM instance if `IsCustomerInitiatedMaintenanceAllowed` is set to **true**:
 
-```azure-cli
+```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 

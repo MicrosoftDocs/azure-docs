@@ -1,23 +1,23 @@
 ---
-title: Import/Export Data in web services - Azure Machine Learning Studio (classic) | Microsoft Docs
+title: Import/Export Data in web services
+titleSuffix: ML Studio (classic) - Azure
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
 ---
 # Deploy Azure Machine Learning Studio (classic) web services that use Data Import and Data Export modules
 
 When you create a predictive experiment, you typically add a web service input and output. When you deploy the experiment, consumers can send and receive data from the web service through the inputs and outputs. For some applications, a consumer's data may be available from a data feed or already reside in an external data source such as Azure Blob storage. In these cases, they do not need read and write data using web service inputs and outputs. They can, instead, use the Batch Execution Service (BES) to read data from the data source using an Import Data module and write the scoring results to a different data location using an Export Data module.
 
-The Import Data and Export data modules, can read from and write to various data locations such as a Web URL via HTTP, a Hive Query, an Azure SQL database, Azure Table storage, Azure Blob storage, a Data Feed provide, or an on-premises SQL database.
+The Import Data and Export data modules, can read from and write to various data locations such as a Web URL via HTTP, a Hive Query, an Azure SQL database, Azure Table storage, Azure Blob storage, a Data Feed provide, or a SQL Server database.
 
 This topic uses the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample and assumes the dataset has already been loaded into an Azure SQL table named censusdata.
 
@@ -100,13 +100,13 @@ To deploy as a Classic Web Service and create an application to consume it:
 8. Update the value of the *apiKey* variable with the API key saved earlier.
 9. Locate the request declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you use the original query, but define a new table name.
 
-		var request = new BatchExecutionRequest()
-		{
-			GlobalParameters = new Dictionary<string, string>() {
-				{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-				{ "Table", "dbo.ScoredTable2" },
-			}
-		};
+        var request = new BatchExecutionRequest()
+        {
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable2" },
+            }
+        };
 10. Run the application.
 
 On completion of the run, a new table is added to the database containing the scoring results.
@@ -128,15 +128,15 @@ To deploy as a New Web Service and create an application to consume it:
 8. Update the value of the *apiKey* variable with the **Primary Key** located in the **Basic consumption info** section.
 9. Locate the *scoreRequest* declaration and update the values of Web Service Parameters that are passed to the *Import Data* and *Export Data* modules. In this case, you use the original query, but define a new table name.
 
-		var scoreRequest = new
-		{
-			Inputs = new Dictionary<string, StringTable>()
-			{
-			},
-			GlobalParameters = new Dictionary<string, string>() {
-				{ "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
-				{ "Table", "dbo.ScoredTable3" },
-			}
-		};
+        var scoreRequest = new
+        {
+            Inputs = new Dictionary<string, StringTable>()
+            {
+            },
+            GlobalParameters = new Dictionary<string, string>() {
+                { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
+                { "Table", "dbo.ScoredTable3" },
+            }
+        };
 10. Run the application.
 

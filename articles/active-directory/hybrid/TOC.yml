@@ -24,6 +24,8 @@
        href: cloud-governed-management-for-on-premises.md
      - name: Four steps to a strong identity foundation
        href: four-steps.md
+     - name: Choose a hybrid identity authentication method
+       href: choose-ad-authn.md
    - name: Azure AD Connect and Connect Health
      items:
      - name: What is Azure AD Connect and Connect Health?
@@ -149,7 +151,9 @@
             href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
             href: plan-migrate-adfs-pass-through-authentication.md
-          - name: Cloud authentication - Staged Rollout (Public Preview)
+          - name: Move groups from one forest to another
+            href: how-to-connect-migrate-groups.md
+          - name: Migrate to cloud authentication using staged rollout
             href: how-to-connect-staged-rollout.md
     - name: Hybrid Identity Design Considerations
       items:
@@ -208,6 +212,8 @@
       href: how-to-connect-pta-quick-start.md
     - name: Pass-through authentication FAQ
       href: how-to-connect-pta-faq.md
+    - name: Disable PTA with Azure AD Connect "Do not configure"
+      href: how-to-connect-pta-disable-do-not-configure.md
   - name: Manage Federation Services
     items:
     - name: Managing federation with Azure AD Connect
@@ -276,6 +282,8 @@
       href: how-to-connect-sync-feature-scheduler.md
     - name: Create and customize a synchronization rule
       href: how-to-connect-create-custom-sync-rule.md
+    - name: Azure AD Connect sync V2 endpoint API
+      href: how-to-connect-sync-endpoint-api-v2.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab
@@ -318,6 +326,8 @@
       href: tshoot-connect-attribute-not-syncing.md
     - name: Installation issues
       href: tshoot-connect-install-issues.md
+    - name: UPN changes
+      href: howto-troubleshoot-upn-changes.md
 - name: Reference
   items:
   - name: Hybrid Identity Required Ports and Protocols
@@ -326,6 +336,8 @@
     href:  reference-connect-version-history.md
   - name: Azure AD Connect Health version history
     href: reference-connect-health-version-history.md
+  - name: Azure AD Pass-through Authentication agent version history
+    href: reference-connect-pta-version-history.md
   - name: Connector version history
     href: reference-connect-sync-connector-version-history.md
   - name: Accounts and permissions
@@ -334,6 +346,8 @@
     href: reference-connect-faq.md
   - name: Azure AD Connect Health FAQ
     href: reference-connect-health-faq.md
+  - name: Hybrid identity considerations for Azure Government 
+    href: reference-connect-government-cloud.md
   - name: Azure AD Connect user privacy
     href: reference-connect-user-privacy.md
   - name: Azure AD Connect Health user privacy

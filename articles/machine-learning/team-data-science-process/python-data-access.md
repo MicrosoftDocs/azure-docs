@@ -3,14 +3,14 @@ title: Access datasets with Python client library - Team Data Science Process
 description: Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
 The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
@@ -20,12 +20,12 @@ This topic provides instructions on how to:
 * install the Machine Learning Python client library
 * access and upload datasets, including instructions on how to get authorization to access Azure Machine Learning datasets from your local Python environment
 * access intermediate datasets from experiments
-* use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
+* use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets, and update existing datasets
 
 ## <a name="prerequisites"></a>Prerequisites
 The Python client library has been tested under the following environments:
 
-* Windows, Mac and Linux
+* Windows, Mac, and Linux
 * Python 2.7, 3.3 and 3.4
 
 It has a dependency on the following packages:
@@ -34,10 +34,10 @@ It has a dependency on the following packages:
 * python-dateutil
 * pandas
 
-We recommend using a Python distribution such as [Anaconda](http://continuum.io/downloads#all) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
+We recommend using a Python distribution such as [Anaconda](https://www.anaconda.com/) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
 
 ### <a name="installation"></a>How to install the Azure Machine Learning Python client library
-The Azure Machine Learning Python client library must also be installed to complete the tasks outlined in this topic. It is available from the [Python Package Index](https://pypi.python.org/pypi/azureml). To install it in your Python environment, run the following command from your local Python environment:
+Install the Azure Machine Learning Python client library to complete the tasks outlined in this topic. This library is available from the [Python Package Index](https://pypi.python.org/pypi/azureml). To install it in your Python environment, run the following command from your local Python environment:
 
     pip install azureml
 
@@ -50,13 +50,13 @@ If you have git installed on your machine, you can use pip to install directly f
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Use Studio Code snippets to access datasets
+## <a name="datasetAccess"></a>Use code snippets to access datasets
 The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
 
-From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
+From the Azure Machine Learning Studio (classic) web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
 
 ### <a name="security"></a>Security for data access
-The code snippets provided by Studio for use with the Python client library includes your workspace id and authorization token. These provide full access to your workspace and must be protected, like a password.
+The code snippets provided by Azure Machine Learning Studio (classic) for use with the Python client library includes your workspace ID and authorization token. These provide full access to your workspace and must be protected, like a password.
 
 For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio (classic) on the **USERS** page under **Settings**.
 
@@ -64,20 +64,20 @@ For security reasons, the code snippet functionality is only available to users 
 
 If your role is not set as **Owner**, you can either request to be reinvited as an owner, or ask the owner of the workspace to provide you with the code snippet.
 
-To obtain the authorization token, you can do one of the following:
+To obtain the authorization token, you may choose one of these options:
 
-* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens. Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Azure Machine Learning Studio (classic). Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens. Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
-![Authorization tokens](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Authorization tokens](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Ask to be promoted to role of owner. To do this, a current owner of the workspace needs to first remove you from the workspace then re-invite you to it as an owner.
+* Ask to be promoted to role of owner:  a current owner of the workspace needs to first remove you from the workspace then reinvite you to it as an owner.
 
-Once developers have obtained the workspace id and authorization token, they are able to access the workspace using the code snippet regardless of their role.
+Once developers have obtained the workspace ID and authorization token, they are able to access the workspace using the code snippet regardless of their role.
 
 Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SETTINGS**. You can regenerate them, but this procedure revokes access to the previous token.
 
 ### <a name="accessingDatasets"></a>Access datasets from a local Python application
-1. In Machine Learning Studio, click **DATASETS** in the navigation bar on the left.
+1. In Machine Learning Studio (classic), click **DATASETS** in the navigation bar on the left.
 2. Select the dataset you would like to access. You can select any of the datasets from the **MY DATASETS** list or from the **SAMPLES** list.
 3. From the bottom toolbar, click **Generate Data Access Code**. If the data is in a format incompatible with the Python client library, this button is disabled.
    
@@ -90,11 +90,11 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
     ![Paste code into the notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
-After an experiment is run in the Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
+After an experiment is run in Machine Learning Studio (classic), it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 
 Intermediate datasets can be accessed as long as the data format is compatible with the Python client library.
 
-The following formats are supported (constants for these are in the `azureml.DataTypeIds` class):
+The following formats are supported (constants for these formats are in the `azureml.DataTypeIds` class):
 
 * PlainText
 * GenericCSV
@@ -118,7 +118,7 @@ The following steps show an example that creates an experiment, runs it and acce
 2. Insert an **Adult Census Income Binary Classification dataset** module.
 3. Insert a [Split][split] module, and connect its input to the dataset module output.
 4. Insert a [Convert to CSV][convert-to-csv] module and connect its input to one of the [Split][split] module outputs.
-5. Save the experiment, run it, and wait for it to finish running.
+5. Save the experiment, run it, and wait for the job to finish.
 6. Click the output node on the [Convert to CSV][convert-to-csv] module.
 7. When the context menu appears, select **Generate Data Access Code**.
    
@@ -135,7 +135,7 @@ The following steps show an example that creates an experiment, runs it and acce
 
 ## <a name="clientApis"></a>Use the Machine Learning Python client library to access, read, create, and manage datasets
 ### Workspace
-The workspace is the entry point for the Python client library. Provide the `Workspace` class with your workspace id and authorization token to create an instance:
+The workspace is the entry point for the Python client library. Provide the `Workspace` class with your workspace ID and authorization token to create an instance:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')
@@ -287,7 +287,7 @@ You can optionally set a new description by specifying a value for the `descript
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-You can optionally set a new name by specifying a value for the `name` parameter. From now on, you'll retrieve the dataset using the new name only. The following code updates the data, name and description.
+You can optionally set a new name by specifying a value for the `name` parameter. From now on, you'll retrieve the dataset using the new name only. The following code updates the data, name, and description.
 
     dataset = ws.datasets['existing dataset']
 

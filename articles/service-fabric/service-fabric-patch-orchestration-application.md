@@ -1,9 +1,9 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster | Microsoft Docs
+title: Patch the Windows operating system in your Service Fabric cluster 
 description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
+ms.author: atsenthi
 
 ---
 
@@ -162,7 +162,7 @@ You can configure POA behavior to meet your needs. Override the default values b
 | WUOperationTimeOutInMinutes | Int <br>(Default: *90*)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: *5*)                  | The maximum number of times the service reschedules the Windows update if an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: *30*) | The interval at which the service reschedules the Windows updates if failure persists. |
-| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>&nbsp;&nbsp;- Monthly: DD, HH:MM:SS (for example, *Monthly, 5,12:22:32*)<br>Permitted values for field DD (day) are numbers from 1 through 28 and "last". <br> &nbsp;&nbsp;- Weekly, DAY, HH:MM:SS (for example, *Weekly, Tuesday, 12:22:32*)  <br> &nbsp;&nbsp;- Daily, HH:MM:SS (for example, *Daily, 12:22:32*)  <br> &nbsp;&nbsp;-  *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
+| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- Week, Day, HH:MM:SS (example: *2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Default: *true*) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]
@@ -432,6 +432,10 @@ It might also be possible that node patching is blocked because it's stuck in *D
 **Q: Why must the node be disabled when POA is patching it?**
 
 A: POA disables the node with a *Restart* intent, which stops or reallocates all the Service Fabric services that are running on the node. POA does this to ensure that applications don't end up using a mix of new and old DLLs, so we recommend not patching a node without disabling it.
+
+**Q: What is the maximum number of nodes that can be updated by using POA?**
+
+A: POA uses Service Fabric Repair Manager to create repair tasks for nodes for updates. However, no more than 250 repair tasks can be present at the same time. Currently, POA creates repair tasks for each node at the same time, so POA can update no more than 250 nodes in a cluster. 
 
 ## Disclaimers
 

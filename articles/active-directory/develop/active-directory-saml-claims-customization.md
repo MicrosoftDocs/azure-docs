@@ -1,23 +1,18 @@
 ---
-title: Customize SAML token claims for enterprise apps in Azure AD 
+title: Customize Azure AD app SAML token claims
 titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: customize claims issued in the SAML token for enterprise applications
@@ -60,6 +55,7 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Azure AD will use Persistent as the NameID format. |
 | **EmailAddress** | Azure AD will use EmailAddress as the NameID format. |
 | **Unspecified** | Azure AD will use Unspecified as the NameID format. |
+| **Windows domain qualified name** | Azure AD will use WindowsDomainQualifiedName as the NameID format. |
 
 Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
@@ -168,9 +164,9 @@ To add a claim condition:
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
 
-For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
 
-First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
+First, Azure AD verifies if Britta's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Britta's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
 ![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
@@ -178,4 +174,4 @@ First, Azure AD verifies if Brita's user type is `All guests`. Since, this is tr
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
 * [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshoot SAML-based single sign-on](howto-v1-debug-saml-sso-issues.md)
+* [Troubleshoot SAML-based single sign-on](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

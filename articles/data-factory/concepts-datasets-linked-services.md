@@ -1,5 +1,5 @@
 ---
-title: Datasets in Azure Data Factory | Microsoft Docs
+title: Datasets
 description: 'Learn about datasets in Data Factory. Datasets represent input/output data.'
 services: data-factory
 documentationcenter: ''
@@ -10,6 +10,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ---
 
@@ -18,6 +19,9 @@ ms.date: 04/25/2019
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
 
 If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
@@ -25,9 +29,9 @@ If you are new to Data Factory, see [Introduction to Azure Data Factory](introdu
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the activity should read the data.
 
-Before you create a dataset, you must create a [**linked service**](concepts-linked-services.md) to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder within that Azure storage account that contains the input blobs to be processed.
+Before you create a dataset, you must create a [**linked service**](concepts-linked-services.md) to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Think of it this way; the dataset represents the structure of the data within the linked data stores, and the linked service defines the connection to the data source. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder within that Azure Storage account that contains the input blobs to be processed.
 
-Here is a sample scenario. To copy data from Blob storage to a SQL database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
+Here is a sample scenario. To copy data from Blob storage to a SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL Database to which the data is to be copied.
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
@@ -115,7 +119,7 @@ typeProperties | The type properties are different for each type (for example: A
 
 
 ## Dataset example
-In the following example, the dataset represents a table named MyTable in a SQL database.
+In the following example, the dataset represents a table named MyTable in a SQL Database.
 
 ```json
 {
@@ -198,7 +202,7 @@ Define the Blob dataset structure as follows along with type definitions for the
 The following guidelines help you understand when to include structure information, and what to include in the **structure** section. Learn more on how data factory maps source data to sink and when to specify structure information from [Schema and type mapping](copy-activity-schema-and-type-mapping.md).
 
 - **For strong schema data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-- **For no/weak schema data sources e.g. text file in blob storage**, include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. And include structure when you want to map source columns to sink columns..
+- **For no/weak schema data sources for example, text file in blob storage**, include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. And include structure when you want to map source columns to sink columns
 
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal

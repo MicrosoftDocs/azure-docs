@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/09/2019
 ms.author: erhopf
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## Add sample code
 
@@ -46,7 +45,7 @@ Before you get started, make sure to:
        {
            // Creates an instance of a speech translation config with specified
            // subscription key and service region. Replace with your own subscription key
-           // and service region (e.g., "westus").
+           // and region identifier from here: https://aka.ms/speech/sdkregion
 
            int exitCode = 1;
            SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey",  "YourServiceRegion");
@@ -126,7 +125,7 @@ Before you get started, make sure to:
 
 Press F11, or select **Run** > **Debug**.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to German). The Speech service then sends the text back to the application for display.
 
 ````
 Say something...

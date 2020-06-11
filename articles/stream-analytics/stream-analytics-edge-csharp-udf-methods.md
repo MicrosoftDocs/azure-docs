@@ -1,11 +1,8 @@
 ---
 title: Develop .NET Standard functions for Azure Stream Analytics jobs (Preview)
 description: Learn how to write c# user-defined functions for Stream Analytics jobs.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
@@ -17,12 +14,12 @@ ms.custom: seodec18
 Azure Stream Analytics offers a SQL-like query language for performing transformations and computations over streams of event data. There are many built-in functions, but some complex scenarios require additional flexibility. With .NET Standard user-defined functions (UDF), you can invoke your own functions written in any .NET standard language (C#, F#, etc.) to extend the Stream Analytics query language. UDFs allow you to perform complex math computations, import custom ML models using ML.NET, and use custom imputation logic for missing data. The UDF feature for Stream Analytics jobs is currently in preview and shouldn't be used in production workloads.
 
 .NET user-defined-function for cloud jobs is available in:
-* West Central US (available)
-* North Europe (available)
-* East US (available)
-* West US (rolling out soon)
-* East US 2 (rolling out soon)
-* West Europe (rolling out soon)
+* West Central US
+* North Europe
+* East US
+* West US
+* East US 2
+* West Europe
 
 If you are interested in using this feature in any another region, you can [request access](https://aka.ms/ccodereqregion).
 
@@ -40,17 +37,29 @@ There are three ways to implement UDFs:
 The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link Libraries (DLLs) and resources are copied under the `/UserCustomCode/CLR/*` folder, which helps isolate user DLLs from system and Azure Stream Analytics DLLs. This package path is used for all functions regardless of the method used to employ them.
 
 ## Supported types and mapping
+For Azure Stream Analytics values to be used in C#, they need to be marshaled from one environment to the other. Marshaling happens for all input parameters of a UDF. Every Azure Stream Analytics type has a corresponding type in C# shown on the table below:
 
-|**UDF type (C#)**  |**Azure Stream Analytics type**  |
+|**Azure Stream Analytics type** |**C# type** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | string |
+|datetime | DateTime |
+|Record | Dictionary\<string, object> |
+|Array | Object[] |
+
+The same is true when data needs to be marshaled from C# to Azure Stream Analytics, which happens on the output value of a UDF. The table below shows what types are supported:
+
+|**C# type**  |**Azure Stream Analytics type**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |string  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|object  |  IRecord   |
-|Array\<object>  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|DateTime  |  dateTime   |
+|struct  |  Record   |
+|object  |  Record   |
+|Object[]  |  Array   |
+|Dictionary\<string, object>  |  Record   |
 
 ## CodeBehind
 You can write user-defined functions in the **Script.asql** CodeBehind. Visual Studio tools will automatically compile the CodeBehind file into an assembly file. The assemblies are packaged as a zip file and uploaded to your storage account when you submit your job to Azure. You can learn how to write a C# UDF using CodeBehind by following the [C# UDF for Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf.md) tutorial. 
@@ -126,6 +135,43 @@ Expand the **User-Defined Code Configuration** section, and fill out the configu
    |Custom Code Storage Settings Container|< your storage container >|
    |Custom Code Assembly Source|Existing assembly packages from the cloud|
    |Custom Code Assembly Source|UserCustomCode.zip|
+
+## User logging
+The logging mechanism allows you to capture custom information while a job is running. You can use log data to debug or assess the correctness of the custom code in real time.
+
+The `StreamingContext` class lets you publish diagnostic information using the `StreamingDiagnostics.WriteError` function. The code below shows the interface exposed by Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext` is passed as an input parameter to the UDF method and can be used within the UDF to publish custom log information. In the example below, `MyUdfMethod` defines a **data** input, which is provided by the query, and a **context** input as the `StreamingContext`, provided by the runtime engine. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+The `StreamingContext` value doesn't need to be passed in by the SQL query. Azure Stream Analytics provides a context object automatically if an input parameter is present. The use of the `MyUdfMethod` does not change, as shown in the following query:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+You can access log messages through the [diagnostic logs](data-errors.md).
 
 ## Limitations
 The UDF preview currently has the following limitations:

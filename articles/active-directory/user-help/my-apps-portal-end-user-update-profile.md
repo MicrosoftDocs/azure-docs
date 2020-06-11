@@ -1,28 +1,34 @@
 ---
-title: Update your profile and account info from the My Apps portal - Azure Active Directory| Microsoft Docs
+title: Update profile & account info from the My Apps portal - Azure AD
 description: Learn how to update your profile and your work or school account information, including changing your password, turning on password reset, updating your security verification methods, viewing your organization's terms of use statement, and signing out of everywhere you've signed in using your work or school account.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.topic: end-user-help
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
-# Update your profile and account info from the My Apps portal
+# Update your profile and account information on the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to 
+
+- View and start many of your organization’s cloud-based apps
+- Update some of your profile and account information
+- See your **Groups** information
+- Perform **access reviews** for your apps and groups. 
+
+If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## View your organization-related profile information
 

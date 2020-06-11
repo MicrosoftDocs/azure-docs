@@ -2,9 +2,6 @@
 title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
-manager: gwallace
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
@@ -30,7 +27,8 @@ The following built-in HTTP APIs are supported.
 * [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
 * [Purge orchestration history](durable-functions-http-api.md#purge-single-instance-history)
 * [Send an operation event to an entity](durable-functions-http-api.md#signal-entity)
-* [Query the state of an entity](durable-functions-http-api.md#query-entity)
+* [Get the state of an entity](durable-functions-http-api.md#get-entity)
+* [Query the list of entities](durable-functions-http-api.md#list-entities)
 
 See the [HTTP APIs article](durable-functions-http-api.md) for a full description of all the built-in HTTP APIs exposed by the Durable Functions extension.
 
@@ -38,21 +36,21 @@ See the [HTTP APIs article](durable-functions-http-api.md) for a full descriptio
 
 The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
 
-#### Precompiled C#
+# [C#](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-#### C# script
+# [JavaScript](#tab/javascript)
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
-
-#### JavaScript with Functions 2.0 or later only
+**index.js**
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### Function.json
+**function.json**
 
-[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
+
+---
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
 
@@ -109,10 +107,9 @@ As described in the [orchestrator function code constraints](durable-functions-c
 
 Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
 
-> [!NOTE]
-> The ability to call HTTP endpoints directly from orchestrator functions is not yet available in JavaScript.
+The following example code shows an orchestrator function making an outbound HTTP request:
 
-The following example code shows a C# orchestrator function making an outbound HTTP request using the **CallHttpAsync** .NET API:
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -131,6 +128,23 @@ public static async Task CheckSiteAvailable(
     }
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const url = context.df.getInput();
+    const response = yield context.df.callHttp("GET", url)
+
+    if (response.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
+---
 
 By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
 
@@ -153,6 +167,8 @@ Durable Functions natively supports calls to APIs that accept Azure Active Direc
 
 The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
+# [C#](#tab/csharp)
+
 ```csharp
 [FunctionName("RestartVm")]
 public static async Task RunOrchestrator(
@@ -161,6 +177,7 @@ public static async Task RunOrchestrator(
     string subscriptionId = "mySubId";
     string resourceGroup = "myRG";
     string vmName = "myVM";
+    string apiVersion = "2019-03-01";
     
     // Automatically fetches an Azure AD token for resource = https://management.core.windows.net
     // and attaches it to the outgoing Azure Resource Manager API call.
@@ -176,7 +193,33 @@ public static async Task RunOrchestrator(
 }
 ```
 
-In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
+# [JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const subscriptionId = "mySubId";
+    const resourceGroup = "myRG";
+    const vmName = "myVM";
+    const apiVersion = "2019-03-01";
+    const tokenSource = new df.ManagedIdentityTokenSource("https://management.core.windows.net");
+
+    // get a list of the Azure subscriptions that I have access to
+    const restartResponse = yield context.df.callHttp(
+        "POST",
+        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        undefined, // no request content
+        undefined, // no request headers (besides auth which is handled by the token source)
+        tokenSource);
+
+    return restartResponse;
+});
+```
+
+---
+
+In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/management/overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 
 At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
 
@@ -184,7 +227,7 @@ At runtime, the configured token source automatically returns an OAuth 2.0 acces
 * Tokens are never stored in the durable orchestration state.
 * You don't need to write any code to manage token acquisition.
 
-You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
+You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
 Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
@@ -210,7 +253,7 @@ If any of these limitations might affect your use case, consider instead using a
 
 Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
 
-The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
+The following example demonstrates using dependency injection to disable TLS/SSL certificate validation for orchestrator functions that call external HTTP endpoints.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -228,7 +271,7 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 {
     public HttpMessageHandler CreateHttpMessageHandler()
     {
-        // Disable SSL certificate validation (not recommended in production!)
+        // Disable TLS/SSL certificate validation (not recommended in production!)
         return new HttpClientHandler
         {
             ServerCertificateCustomValidationCallback =

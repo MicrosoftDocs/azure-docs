@@ -18,67 +18,67 @@ highlightedContent:
   items: 
     - title: What is IoT Central? 
       itemType: overview # controls the icon image and super-title text 
-      url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/overview-iot-central.md
     - title: What are application templates? 
       itemType: concept 
-      url: ./core/concepts-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/concepts-app-templates.md
       
     - title: Azure IoT Central Architecture
       itemType: architecture
-      url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/concepts-architecture.md
     - title: Create a new application 
       itemType: quickstart
-      url: ./core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/quick-deploy-iot-central.md
     - title: Define a device type and add a device 
       itemType: tutorial
-      url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/howto-set-up-template.md
     - title: Monitor your devices
       itemType: tutorial 
-      url: ./core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./core/tutorial-create-telemetry-rules.md
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
-    - title: Get connected (preview features)
+    - title: Get connected
       links: 
-        - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-set-up-template.md
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/tutorial-connect-pnp-device.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play device
+          text: Connect an IoT Plug and Play (preview) device
       footerLink: 
-        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        url: ./core/index.yml
         text: See more
 
-    - title: Stay connected (preview features)
+    - title: Stay connected
       links: 
-        - url: ./core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/tutorial-use-device-groups.md
           itemType: how-to-guide
           text: Use device groups
-        - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-manage-devices.md
           itemType: how-to-guide 
           text: Manage your devices 
-        - url: ./core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-run-a-job.md
           itemType: concept
           text: How to run a job 
-        - url: ./core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-create-analytics.md
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
-        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        url: ./core/index.yml
         text: See more
 
-    - title: Transform (preview features)
+    - title: Transform
       links: 
-        - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/tutorial-create-telemetry-rules.md
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Configure continuous data export
+          text: Export data to destinations in Azure
       footerLink: 
-        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        url: ./core/index.yml
         text: See more
 
 # productDirectory section (optional)
@@ -92,15 +92,15 @@ productDirectory:
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
           - text: Building retail solutions with Azure IoT Central
-            url: ./retail/overview-iot-central-retail-pnp.md
+            url: ./retail/overview-iot-central-retail.md
           - text: Create an in-store analytics application
-            url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+            url: ./retail/tutorial-in-store-analytics-create-app.md
           - text: Create a smart inventory management application
-            url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+            url: ./retail/tutorial-iot-central-smart-inventory-management.md
           - text: Create a connected logistics application
-            url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+            url: ./retail/tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
-            url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md 
+            url: ./retail/tutorial-iot-central-digital-distribution-center.md 
 
     # Card
     - title: Build for healthcare
@@ -142,3 +142,6 @@ additionalContent:
       - title: IoT Central on Microsoft Learn
         summary: Explore the IoT Central in the a free sandbox environment.
         url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central
+      - title: Recent updates
+        summary: See what's new in IoT Central.
+        url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central

@@ -1,18 +1,19 @@
 ---
 title: Manage web services using API Management
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
+
 ## Overview
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 
@@ -24,7 +25,7 @@ To complete this guide, you need:
 
 * An Azure account.
 * An AzureML account.
-* The workspace, service, and api_key for an AzureML experiment deployed as a web service. For details on how to create an AzureML experiment, see the [Studio quickstart](create-experiment.md). For information on how to deploy a Studio (classic) experiment as a web service, see the [Studio deployment how-to](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. For details on how to create an AzureML experiment, see the [Studio quickstart](create-experiment.md). For information on how to deploy a Studio (classic) experiment as a web service, see the [Studio deployment how-to](deploy-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ## Create an API Management instance
 
@@ -209,7 +210,7 @@ Click **Yes** to publish the experiment.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### Test the web service
-An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](/azure/python/python-sdk-azure-install)).
+An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](/azure/developer/python/azure-sdk-install)).
 
 You will also need the **workspace**, **service**, and **api_key** of your experiment for the sample source below. You can find the workspace and service by clicking either **Request/Response** or **Batch Execution** for your experiment in the web service dashboard.
 
@@ -240,9 +241,9 @@ This guide shows a working Python example. You will need to modify it with the *
 
     import urllib2
     import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
     data = {
     "Inputs": {
         "input1": {

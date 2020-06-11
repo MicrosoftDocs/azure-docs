@@ -94,6 +94,10 @@ The following preconfigured endpoints are available during preview:
 
 Internet Analyzer helps you understand your end users' performance and assists in making decisions to improve their performance. While other Azure monitoring tools provide insights into your Azure services, Internet Analyzer focuses on measuring end-to-end Internet performance for your users.
 
+## How is measurement data handled by Internet Analyzer?
+
+Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
+
 ## Next steps
 
 To learn more, see our [Internet Analyzer Overview](internet-analyzer-overview.md).

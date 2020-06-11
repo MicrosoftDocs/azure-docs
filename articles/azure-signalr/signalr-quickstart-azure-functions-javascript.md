@@ -1,30 +1,29 @@
 ---
-title: Azure SignalR Service serverless quickstart - JavaScript
+title: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 12/14/2019
 ms.author: zhshang
 ---
-# Quickstart: Create a chat room with Azure Functions and SignalR Service using JavaScript
+# Quickstart: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 
-Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Functions to build a serverless, real-time chat application.
+Azure SignalR Service lets you easily add real-time functionality to your application and Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, you use JavaScript to build a serverless, real-time chat application using SignalR Service and Functions.
 
 ## Prerequisites
 
-This quickstart can be run on macOS, Windows, or Linux.
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 or above. Used to run Azure Function apps locally.
+- [Node.js](https://nodejs.org/en/download/), version 10.x
 
-Make sure you have a code editor such as [Visual Studio Code](https://code.visualstudio.com/) installed.
+   > [!NOTE]
+   > The examples should work with other versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) for more information.
 
-Install the [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) to run Azure Function apps locally.
-
-Azure Functions requires [Node.js](https://nodejs.org/en/download/) version 8 or 10.
-
-In order to install extensions, Azure Functions Core Tools currently require the [.NET Core SDK](https://www.microsoft.com/net/download) installed. However, no knowledge of .NET is required to build JavaScript Azure Function apps.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> This quickstart can be run on macOS, Windows, or Linux.
 
 ## Log in to Azure
 
@@ -57,13 +56,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     - **negotiate** - Uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
     - **messages** - Receives a chat message in the request body and uses the *SignalR* output binding to broadcast the message to all connected client applications.
 
-1. In the terminal, ensure that you are in the *src/chat/javascript* folder. Use the Azure Functions Core Tools to install extensions required to run the app.
-
-    ```bash
-    func extensions install
-    ```
-
-1. Run the function app.
+1. In the terminal, ensure that you are in the *src/chat/javascript* folder. Run the function app.
 
     ```bash
     func start

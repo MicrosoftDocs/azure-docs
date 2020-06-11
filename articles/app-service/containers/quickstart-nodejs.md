@@ -1,11 +1,10 @@
 ---
-title: Create a Node.js web app - Azure App Service
-description: How to deploy a Node.js app to Azure App Service
-author: msangapu
+title: 'Quickstart: Create a Linux Node.js app'
+description: Get started with Linux apps on Azure App Service by deploying your first Node.js app to a Linux container in App Service.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
 
 # NOTE: this article is nearly identical to app-service/app-service-web-get-started-nodejs.md.
@@ -23,7 +22,7 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-You will also need to install the [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice), which you can use to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
+You will also need to install the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), which you can use to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 
 ### Sign in
 
@@ -83,7 +82,7 @@ Next, ensure that the application runs. From the terminal, start the application
 npm start
 ```
 
-Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
+Now, open your browser and navigate to `http://localhost:3000`, where you should see something like this:
 
 ![Running Express Application](./media/quickstart-nodejs/express.png)
 
@@ -151,7 +150,7 @@ In this section, you learn how to view (or "tail") the logs from the running App
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
+The VS Code output window opens with a connection to the log stream.
 
 ![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
@@ -159,12 +158,12 @@ When prompted, choose to enable logging and restart the application. Once the ap
 
 After a few seconds, you'll see a message indicating that you're connected to the log-streaming service. Refresh the page a few times to see more activity.
 
-    ```bash
-    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
-    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
-    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
-    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
-    ```
+<pre>
+2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+</pre>
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)

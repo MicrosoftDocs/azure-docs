@@ -1,10 +1,9 @@
 ---
 title: Understand job monitoring in Azure Stream Analytics
 description: This article describes how to monitor Azure Stream Analytics jobs in the Azure portal.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
@@ -32,7 +31,7 @@ The window will appear as shown:
 | Function Requests      | Number of calls to the Azure Machine Learning function (if present). |
 | Input Deserialization Errors       | Number of input events that could not be deserialized.  |
 | Input Event Bytes      | Amount of data received by the Stream Analytics job, in bytes. This can be used to validate that events are being sent to the input source. |
-| Input Events           | Number of records deserialized from the input events. This count does not include incoming events that result in deserialization errors. |
+| Input Events           | Number of records deserialized from the input events. This count does not include incoming events that result in deserialization errors. The same events can be ingested by Stream Analytics multiple times in scenarios such as internal recoveries and self joins. Therefore it is recommended not to expect Input Events and Output Events metrics to match if your job has a simple 'pass through' query. |
 | Input Sources Received       | Number of messages received by the job. For Event Hub, a message is a single EventData. For Blob, a message is a single blob. Please note that Input Sources are counted before deserialization. If there are deserialization errors, input sources can be greater than input events. Otherwise, it can be less than or equal to input events since each message can contain multiple events. |
 | Late Input Events      | Events that arrived later than the configured late arrival tolerance window. Learn more about [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md) . |
 | Out-of-Order Events    | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
@@ -54,7 +53,7 @@ Another interesting data point to monitor your job is the time of the last outpu
 This time is the application time (i.e. the time using the timestamp from the event data) of the latest output of your job.
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

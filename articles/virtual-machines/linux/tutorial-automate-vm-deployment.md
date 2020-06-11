@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Customize a Linux VM with cloud-init in Azure | Microsoft Docs
+title: Tutorial - Customize a Linux VM with cloud-init in Azure 
 description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -56,7 +56,7 @@ To see cloud-init in action, create a VM that installs NGINX and runs a simple '
 
 At your bash prompt or in the Cloud Shell, create a file named *cloud-init.txt* and paste the following configuration. For example, type `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:

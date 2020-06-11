@@ -1,5 +1,5 @@
 ---
-title: 'Configure BFD over ExpressRoute - Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure BFD'
 description: This article provides instructions on how to configure BFD (Bidirectional Forwarding Detection) over private-peering of an ExpressRoute circuit.
 services: expressroute
 author: rambk
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
-ms.custom: seodec18
 
 ---
 # Configure BFD over ExpressRoute
@@ -35,22 +34,22 @@ BFD is configured by default under all the newly created ExpressRoute private pe
 
 An example CE/PE (using Cisco IOS XE) configuration is shown below. 
 
-	interface TenGigabitEthernet2/0/0.150
- 	  description private peering to Azure
- 	  encapsulation dot1Q 15 second-dot1q 150
- 	  ip vrf forwarding 15
- 	  ip address 192.168.15.17 255.255.255.252
- 	  bfd interval 300 min_rx 300 multiplier 3
+    interface TenGigabitEthernet2/0/0.150
+       description private peering to Azure
+       encapsulation dot1Q 15 second-dot1q 150
+       ip vrf forwarding 15
+       ip address 192.168.15.17 255.255.255.252
+       bfd interval 300 min_rx 300 multiplier 3
 
 
-	router bgp 65020
- 	  address-family ipv4 vrf 15
-  	    network 10.1.15.0 mask 255.255.255.128
-  	    neighbor 192.168.15.18 remote-as 12076
-  	    neighbor 192.168.15.18 fall-over bfd
-  	    neighbor 192.168.15.18 activate
-  	    neighbor 192.168.15.18 soft-reconfiguration inbound
- 	  exit-address-family
+    router bgp 65020
+       address-family ipv4 vrf 15
+          network 10.1.15.0 mask 255.255.255.128
+          neighbor 192.168.15.18 remote-as 12076
+          neighbor 192.168.15.18 fall-over bfd
+          neighbor 192.168.15.18 activate
+          neighbor 192.168.15.18 soft-reconfiguration inbound
+       exit-address-family
 
 >[!NOTE]
 >To enable BFD under an already existing private peering; you need to reset the peering. See [Reset ExpressRoute peerings][ResetPeering]

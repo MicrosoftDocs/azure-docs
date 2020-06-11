@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 10/14/2019
+ms.topic: reference
+ms.date: 04/13/2020
 ms.author: diberry
 ---
 
 # DatetimeV2 prebuilt entity for a LUIS app
 
-The **datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents. 
+The **datetimeV2** prebuilt entity extracts date and time values. These values resolve in a standardized format for client programs to consume. When an utterance has a date or time that isn't complete, LUIS includes _both past and future values_ in the endpoint response. Because this entity is already trained, you do not need to add example utterances containing datetimeV2 to the application intents.
 
 ## Types of datetimeV2
 DatetimeV2 is managed from the [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) GitHub repository.
 
-## Example JSON 
+## Example JSON
 
 The following utterance and its partial JSON response is shown below.
 
@@ -117,7 +117,7 @@ The following utterance and its partial JSON response is shown below.
 |resolution|Has a `values` array that has one, two, or four [values of resolution](#values-of-resolution).|
 |end|The end value of a time, or date range, in the same format as `value`. Only used if `type` is `daterange`, `timerange`, or `datetimerange`|
 
-* * * 
+* * *
 
 ## Subtypes of datetimeV2
 
@@ -136,13 +136,14 @@ The **datetimeV2** prebuilt entity has the following subtypes, and examples of e
   * A date or date range that is ambiguous as to year
   * A time or time range that is ambiguous as to A.M. or P.M. For example, 3:00 April 3rd.
 
-Each element of the `values` array may have the following fields: 
+Each element of the `values` array may have the following fields:
 
 |Property name|Property description|
 |--|--|
-|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) and the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the [TIMEX guidelines](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) and the TIMEX3 attributes for annotation using the TimeML language.|
+|mod|term used to describe how to use the value such as `before`, `after`.|
 |type|The subtype, which can be one of the following items: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|value|**Optional.** A datetime object in the Format yyyy:MM:dd  (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
+|value|**Optional.** A datetime object in the Format yyyy-MM-dd  (date), HH:mm:ss (time) yyyy-MM-dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|
 
 ## Valid date values
 
@@ -154,13 +155,13 @@ The **datetimeV2** supports dates between the following ranges:
 
 ## Ambiguous dates
 
-If the date can be in the past or future, LUIS provides both values. An example is an utterance that includes the month and date without the year.  
+If the date can be in the past or future, LUIS provides both values. An example is an utterance that includes the month and date without the year.
 
 For example, given the following utterance:
 
 `May 2nd`
 
-* If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values. 
+* If today's date is May 3rd 2017, LUIS provides both "2017-05-02" and "2018-05-02" as values.
 * When today's date is May 1st 2017, LUIS provides both "2016-05-02" and "2017-05-02" as values.
 
 The following example shows the resolution of the entity "may 2nd". This resolution assumes that today's date is a date between May 2nd 2017 and May 1st 2018.
@@ -264,7 +265,7 @@ The following utterance and its partial JSON response is shown below.
     }
   ]
 ```
-* * * 
+* * *
 
 ## Date range resolution examples for numeric date
 
@@ -368,7 +369,7 @@ The following utterance and its partial JSON response is shown below.
     }
   ]
 ```
-* * * 
+* * *
 
 ## Date range resolution examples for day of week
 
@@ -469,7 +470,7 @@ The following utterance and its partial JSON response is shown below.
     }
   ]
 ```
-* * * 
+* * *
 
 ## Ambiguous time
 The values array has two time elements if the time, or time range is ambiguous. When there's an ambiguous time, values have both the A.M. and P.M. times.
@@ -479,7 +480,7 @@ The values array has two time elements if the time, or time range is ambiguous. 
 DatetimeV2 JSON response has changed in the API V3. The following example shows how LUIS uses **datetimeV2** to resolve the utterance that has a time range.
 
 Changes from API V2:
-* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
+* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`.
 * The `datetimeV2.value` property has been renamed to `datetimeV2.timex`.
 
 The following utterance and its partial JSON response is shown below.
@@ -574,7 +575,7 @@ The following JSON is with the `verbose` parameter set to `true`:
   ]
 ```
 
-* * * 
+* * *
 
 ## Time resolution example
 
@@ -661,15 +662,15 @@ The following utterance and its partial JSON response is shown below.
 ]
 ```
 
-* * * 
+* * *
 
 ## Deprecated prebuilt datetime
 
-The `datetime` prebuilt entity is deprecated and replaced by **datetimeV2**. 
+The `datetime` prebuilt entity is deprecated and replaced by **datetimeV2**.
 
 To replace `datetime` with `datetimeV2` in your LUIS app, complete the following steps:
 
-1. Open the **Entities** pane of the LUIS web interface. 
+1. Open the **Entities** pane of the LUIS web interface.
 2. Delete the **datetime** prebuilt entity.
 3. Click **Add prebuilt entity**
 4. Select **datetimeV2** and click **Save**.
@@ -678,5 +679,5 @@ To replace `datetime` with `datetimeV2` in your LUIS app, complete the following
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md). 
+Learn about the [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) entities, and [number](luis-reference-prebuilt-number.md).
 

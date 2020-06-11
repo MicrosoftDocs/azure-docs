@@ -1,13 +1,10 @@
 ---
-title: Limitations for Windows Server node pools in Azure Kubernetes Service (AKS)
+title: Windows Server node pools limitations
+titleSuffix: Azure Kubernetes Service
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: mlearned
+ms.date: 05/28/2020
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -16,13 +13,7 @@ ms.author: mlearned
 
 In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows Server as the guest OS on the nodes. These nodes can run native Windows container applications, such as those built on the .NET Framework. As there are major differences in how the Linux and Windows OS provides container support, some common Kubernetes and pod-related features are not currently available for Windows node pools.
 
-This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS. Node pools for Windows Server are currently in preview.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional information, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS.
 
 ## Which Windows operating systems are supported?
 
@@ -52,9 +43,9 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
-## Can I change the min. # of pods per node?
+## Can I change the max. # of pods per node?
 
-It is currently a requirement to be set to a minimum of 30 pods to ensure the reliability of your clusters.
+Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
 
 ## How do patch my Windows nodes?
 
@@ -64,9 +55,26 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
 >
 
+## Why am I seeing an error when I try to create a new Windows agent pool?
+
+If you created your cluster before February 2020 and have never did any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
+
+"The following list of images referenced from the deployment template are not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage for instructions on finding available images."
+
+To fix this:
+
+1. Upgrade the [cluster control plane][upgrade-cluster-cp]. This will update the image offer and publisher.
+1. Create new Windows agent pools.
+1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
+1. Delete old Windows agent pools.
+
+## How do I rotate the service principal for my Windows node pool?
+
+Windows node pools do not support service principal rotation. In order to update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
+
 ## How many node pools can I create?
 
-The AKS cluster can have a maximum of eight (8) node pools. You can have a maximum of 400 nodes across those node pools. [Node pool limitations][nodepool-limitations].
+The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
 
 ## What can I name my Windows node pools?
 
@@ -114,7 +122,9 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
-[preview-support]: support-policies.md#preview-features-or-feature-flags
-[windows-container-compat]: https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#windows-server-2019-host-os-compatibility
+[windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
+[maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node

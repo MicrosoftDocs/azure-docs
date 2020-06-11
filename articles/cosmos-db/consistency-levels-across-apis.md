@@ -1,11 +1,11 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
-description: Understanding the consistency levels across APIs in Azure Cosmos DB.
+description: Understanding the consistency level mapping between different APIs in Azure Cosmos DB and Apache Cassandra, MongoDB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 04/23/2020
 ms.reviewer: sngun
 ---
 
@@ -17,12 +17,11 @@ When using SQL API, Gremlin API, and Table API, the default consistency level co
 
 When using Cassandra API or Azure Cosmos DB’s API for MongoDB, applications get a full set of consistency levels offered by Apache Cassandra and MongoDB, respectively, with even stronger consistency and durability guarantees. This document shows the corresponding Azure Cosmos DB consistency levels for Apache Cassandra and MongoDB consistency levels.
 
-
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 
-Unlike AzureCosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees.  Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API: 
+Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees.  Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API: 
 
-* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. 
+* The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. Consistency for a write operation (CL) can't be changed on a per-request basis.
 
 * Azure Cosmos DB will dynamically map the read consistency level specified by the Cassandra client driver to one of the Azure Cosmos DB consistency levels configured dynamically on a read request. 
 
@@ -40,7 +39,7 @@ While using Azure Cosmos DB’s API for MongoDB:
 
 * The write concern is mapped to the default consistency level configured on your Azure Cosmos account.
  
-* Azure Cosmos DB will dynamically map the read concern specified by the MongoDB client driver to one of the Azure Cosmos DB consistency levels that is configured dynamically on a read request. 
+* Azure Cosmos DB will dynamically map the read concern specified by the MongoDB client driver to one of the Azure Cosmos DB consistency levels that is configured dynamically on a read request.  
 
 * You can annotate a specific region associated with your Azure Cosmos account as "Master" by making the region as the first writable region. 
 

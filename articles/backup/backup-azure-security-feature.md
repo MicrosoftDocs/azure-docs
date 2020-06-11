@@ -1,13 +1,9 @@
 ---
-title: Security features that protect hybrid backups using Azure Backup
+title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: dacurwin
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 
@@ -19,10 +15,10 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 > [!NOTE]
 > Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
->  * **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
->  * **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
->  * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
-
+>
+> - **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
+> - **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
+> - **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
 > These features are available only for Recovery Services vault. All the newly created Recovery Services vaults have these features enabled by default. For existing Recovery Services vaults, users enable these features by using the steps mentioned in the following section. After the features are enabled, they apply to all the Recovery Services agent computers, Azure Backup Server instances, and Data Protection Manager servers registered with the vault. Enabling this setting is a one-time action, and you cannot disable these features after enabling them.
@@ -118,5 +114,5 @@ The security features mentioned in this article provide defense mechanisms again
 
 - [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
 - [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
-- [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
+- [Download the latest Azure Backup Server](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3) to help protect workloads and guard your backup data against attacks.
 - [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.

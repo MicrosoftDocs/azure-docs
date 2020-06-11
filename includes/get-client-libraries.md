@@ -11,7 +11,7 @@ ms.author: spelluru
     ```json
     {
       "require": {
-        "microsoft/azure-storage": "*"
+        "microsoft/windowsazure": "*"
       }
     }
     ```
@@ -21,8 +21,6 @@ ms.author: spelluru
     ```
     php composer.phar install
     ```
-
-Alternatively go to the [Azure Storage PHP Client Library][php-sdk-github] on GitHub to clone the source code.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

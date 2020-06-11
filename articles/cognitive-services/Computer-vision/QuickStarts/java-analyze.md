@@ -9,13 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ---
+
 # Quickstart: Analyze a remote image using the Computer Vision REST API and Java
 
-In this quickstart, you analyze a remotely stored image to extract visual features by using Java and the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you'll analyze a remotely stored image to extract visual features by using Java and the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
@@ -48,25 +49,24 @@ To create and run the sample, do the following steps:
    import org.json.JSONObject;
    ```
 
-1. Replace the `Main` public class with the following code.
+1. Replace the `AnalyzeImage` public class with the following code.
 1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image that you want to analyze.
 
 ```java
-public class Main {
+public class AnalyzeImage {
     // **********************************************
     // *** Update or verify the following values. ***
     // **********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static final String uriBase = endpoint + 
-            "vision/v2.1/analyze";
+    private static final String uriBase = endpoint + "vision/v3.0/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
-                    "1/12/Broadway_and_Times_Square_by_night.jpg";
+            "1/12/Broadway_and_Times_Square_by_night.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();

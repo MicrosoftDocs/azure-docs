@@ -1,5 +1,5 @@
 ---
-title: Manage the configuration server for disaster recovery of on-premises physical servers to Azure with Azure Site Recovery | Microsoft Docs'
+title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
 author: mayurigupta13
@@ -34,7 +34,7 @@ The table summarizes the prerequisites for deploying the on-premises configurati
 | IIS | - No pre-existing default website <br> - Enable  [Anonymous Authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting  <br> - No pre-existing website/application listening on port 443<br>|
 | NIC type | VMXNET3 (when deployed as a VMware VM) |
 | IP address type | Static |
-| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
+| Internet access | The server needs access to these URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (not required for Scale-out Process Servers) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 
 ## Download the latest installation file
@@ -55,7 +55,7 @@ The latest version of the configuration server installation file is available in
 1. Run the Unified Setup installation file.
 2. In **Before You Begin**, select **Install the configuration server and process server**.
 
-	![Before you start](./media/physical-manage-configuration-server/combined-wiz1.png)
+    ![Before you start](./media/physical-manage-configuration-server/combined-wiz1.png)
 
 3. In **Third Party Software License**, click **I Accept** to download and install MySQL.
 4. In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet. Make sure you've allowed the required URLs.
@@ -285,8 +285,8 @@ Upgrade the server as follows:
 > [!NOTE]
 > The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
-## Renew SSL certificates
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
+## Renew TLS/SSL certificates
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses a TLS/SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
 
 ### Check expiry
 

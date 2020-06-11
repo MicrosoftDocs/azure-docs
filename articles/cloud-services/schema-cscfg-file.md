@@ -1,13 +1,14 @@
 ---
-title: "Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs"
+title: Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs
+description: A service configuration (.cscfg) file specifies how many role instances to deploy for each role, configuration values, and certificate thumbprints for a role.
 services: cloud-services
-ms.custom: ""
-ms.date: "12/07/2016"
-ms.service: "cloud-services"
-ms.topic: "reference"
+ms.custom: 
+ms.date: 12/07/2016
+ms.service: cloud-services
+ms.topic: reference
 caps.latest.revision: 35
-author: "georgewallace"
-ms.author: "gwallace"
+author: tgore03
+ms.author: tagore
 ---
 
 # Azure Cloud Services Config Schema (.cscfg File)

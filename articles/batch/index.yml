@@ -5,11 +5,10 @@ summary: Azure Batch runs large-scale applications efficiently in the cloud. Sch
 metadata:
   title: Azure Batch documentation
   description: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
-  services: batch
   ms.service: batch 
   ms.topic: landing-page 
-  author: laurenhughes 
-  ms.author: lahugh 
+  author: JnHs 
+  ms.author: jenhayes 
   ms.date: 09/23/2019 
 
 landingContent:
@@ -38,8 +37,8 @@ landingContent:
             url: quick-run-python.md
       - linkListType: concept
         links:
-            - text: Developer features
-              url: batch-api-basics.md
+            - text: Workflow and feature overview for developers
+              url: batch-service-workflow-features.md
 
   - title: Step-by-step guides
     linkLists:
@@ -76,6 +75,8 @@ landingContent:
             url: batch-pool-vm-sizes.md
           - text: Quotas and limits
             url: batch-quota-limit.md
+          - text: Best practices
+            url: best-practices.md
 
   - title: API reference
     linkLists:

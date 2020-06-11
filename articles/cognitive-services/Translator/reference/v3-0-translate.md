@@ -1,7 +1,7 @@
 ---
-title: Translator Text API Translate Method
+title: Translator Translate Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API Translate method.
+description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 04/17/2020
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: Translate
+# Translator 3.0: Translate
 
 Translates text.
 
@@ -29,6 +29,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 Request parameters passed on the query string are:
 
+### Required parameters
+
 <table width="100%">
   <th width="20%">Query parameter</th>
   <th>Description</th>
@@ -37,13 +39,20 @@ Request parameters passed on the query string are:
     <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>from</td>
-    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
-  </tr>
-  <tr>
     <td>to</td>
     <td><em>Required parameter</em>.<br/>Specifies the language of the output text. The target language must be one of the <a href="./v3-0-languages.md">supported languages</a> included in the <code>translation</code> scope. For example, use <code>to=de</code> to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use <code>to=de&to=it</code> to translate to German and Italian.</td>
   </tr>
+</table>
+
+### Optional parameters
+
+<table width="100%">
+  <th width="20%">Query parameter</th>
+  <th>Description</th>
+  <tr>
+    <td>from</td>
+    <td><em>Optional parameter</em>.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up <a href="./v3-0-languages.md">supported languages</a> using the <code>translation</code> scope. If the <code>from</code> parameter is not specified, automatic language detection is applied to determine the source language. <br/><br/>You must use the <code>from</code> parameter rather than autodetection when using the <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamic dictionary</a> feature.</td>
+  </tr>  
   <tr>
     <td>textType</td>
     <td><em>Optional parameter</em>.<br/>Defines whether the text being translated is plain text or HTML text. Any HTML needs to be a well-formed, complete element. Possible values are: <code>plain</code> (default) or <code>html</code>.</td>
@@ -221,7 +230,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 
@@ -441,6 +450,14 @@ The response is:
 
 ### Obtain alignment information
 
+Alignment is returned as a string value of the following format for every word of the source. The information for each word is separated by a space, including for non-space-separated languages (scripts) like Chinese:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. The method returns no error in that case.
+
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
 ```curl
@@ -466,14 +483,16 @@ The response is:
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
 #### Limitations
-Note the following restrictions:
+Obtaining alignment information is an experimental feature that we have enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this in the future. Here are some of the notable restrictions where alignments are not supported:
 
 * Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
-  - from English to any other language;
-  - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;
+  - English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
   - from Japanese to Korean or from Korean to Japanese.
+  - from Japanese to Chinese Simplified and Chinese Simplified to Japanese. 
+  - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified. 
 * You will not receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
+* Alignment is not available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries
 
@@ -501,7 +520,7 @@ The response is:
 
 ### Translate with dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names.
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names.
 
 The markup to supply uses the following syntax.
 

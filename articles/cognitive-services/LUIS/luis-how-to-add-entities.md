@@ -1,194 +1,216 @@
 ---
 title: Add entities - LUIS
-titleSuffix: Azure Cognitive Services
-description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
+description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
 ---
 
-# Create entities without utterances
+# Add entities to extract data
 
-The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events, or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
+Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by your client application to fullfil customer requests.
 
-You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
+The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an example utterance to an intent or apart from (before or after) adding an example utterance to an intent.
 
-Once a machine-learned entity is created, you need to mark that entity in all the example utterance of all the intents it is in.
+## Plan entities, then create and label
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+machine-learning entities can be created from the example utterances or created from the **Entities** page.
 
-<a name="add-prebuilt-entity"></a>
+In general, a best practice is to spend time planning the entities before creating a machine-learning entity in the portal. Then create the machine-learning entity from the example utterance with as much detail in the subentities and features you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method.
 
-## Add a prebuilt entity to your app
+As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the **Entities** page before they are labeled in example utterances.
 
-Common prebuilt entities added to an application are *number* and *datetimeV2*. 
+When labeling, you can either label individual entities then build up to a parent machine-learning entity. Or you can start with a parent machine-learning entity and decompose into child entities.
 
-1. In your app, from the **Build** section, select **Entities** in the left panel.
- 
-1. On the **Entities** page, select **Add prebuilt entities**.
+> [!TIP]
+>Label all words that may indicate an entity, even if the words are not used when extracted in the client application.
 
-1. In **Add prebuilt entities** dialog box, select the **number** and **datetimeV2** prebuilt entities. Then select **Done**.
+## When to create an entity
 
-    ![Screenshot of Add prebuilt entity dialog box](./media/add-entities/list-of-prebuilt-entities.png)
+After planning your entities, you should create your machine-learning entities and subentities. This may require adding prebuilt entities or text-matching entities to provide features for your machine-learning entities. These should all be done before labeling.
 
-<a name="add-simple-entities"></a>
+Once you begin labeling example utterances, you can create machine learned entities or extend list entities.
 
-## Add simple entities for single concepts
+Use the following table to understand where to create or add each entity type to the app.
 
-A simple entity describes a single concept. Use the following procedure to create an entity that extracts company department names such as *Human resources* or *Operations*.   
+|Entity type|Where to create entity in the LUIS portal|
+|--|--|
+|machine-learning entity|Entities or Intent detail|
+|List entity|Entities or Intent detail|
+|Regular expression entity|Entities|
+|Pattern.any entity|Entities|
+|Prebuilt entity|Entities|
+|Prebuilt domain entity|Entities|
 
-1. In your app, select the **Build** section, then select **Entities** in the left panel, then select **Create new entity**.
+You can create all the entities from the **Entities** page, or you can create a couple of the entities as part of labeling the entity in the example utterance on the **Intent detail** page. You can only _label_ an entity in an example utterance from the **Intent detail** page.
 
-1. In the pop-up dialog box, type `Location` in the **Entity name** box, select **Simple** from the **Entity type** list, and then select **Done**.
 
-    Once this entity is created, go to all intents that have example utterances that contain the entity. Select the text in the example utterance and mark the text as the entity. 
 
-    A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
+## How to create a new custom entity
 
-<a name="add-regular-expression-entities"></a>
+This process works for machine learned entities, list entities, and regular expression entities.
 
-## Add regular expression entities for highly structured concepts
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select the **Entities** page.
+1. Select **+ Create**, then select the entity type.
+1. Continue configuring the entity then select **Create** when you are done.
 
-A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
+## Create a machine learned entity
 
-1. In your app, select **Entities** from the left navigation, and then select **Create new entity**.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
+1. In the **Create an entity type** dialog box, enter the name of the entity and select **Machine learned**, select. To add subentities, select **Add structure**. Select **Create**.
 
-1. In the pop-up dialog box, enter `Human resources form name` in the **Entity name** box,  select **Regular expression** from the **Entity type** list, enter the regular expression `hrf-[0-9]{6}`, and then select **Done**. 
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of creating a machine learned entity.](media/add-entities/machine-learned-entity-with-structure.png)
 
-    This regular expression matches literal characters `hrf-`, then 6 digits to represent a form number for a Human resources form.
+1. In **Add subentities**, add a subentity by selecting the **+** on the parent entity row.
 
-<a name="add-composite-entities"></a>
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding subentities.](media/add-entities/machine-learned-entity-with-subentities.png)
 
-## Add composite entities to group into a parent-child relationship
+1. Select **Create** to finish the creation process.
 
-You can define relationships between entities of different types by creating a composite entity. In the following example, the entity contains a regular expression, and a prebuilt entity of name.  
+## Add a feature to a machine learned entity
 
-In the utterance `Send hrf-123456 to John Smith`, the text `hrf-123456` is matched to a human resources [regular expression](#add-regular-expression-entities) and `John Smith` is extracted with the prebuilt entity personName. Each entity is part of a larger, parent entity. 
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. From the **Build** section, select **Entities** in the left panel, and then select the machine learned entity.
+1. Add a feature by selecting **+ Add feature** on the entity or subentity row.
+1. Select from the existing entities and phrase lists.
+1. If the entity should only be extracted if the feature is found, select the asterisk, `*` for that feature.
 
-1. In your app, select **Entities** from the left navigation of the **Build** section, and then select **Add prebuilt entity**.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding feature to entity.](media/add-entities/machine-learned-entity-schema-with-features.png)
 
-1. Add the prebuilt entity **PersonName**. For instructions, see [Add Prebuilt Entities](#add-prebuilt-entity). 
+## Create a regular expression entity
 
-1. Select **Entities** from the left navigation, and then select **Create new entity**.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
-1. In the pop-up dialog box, enter `SendHrForm` in the **Entity name** box, then select **Composite** from the **Entity type** list.
+1. In the **Create an entity type** dialog box, enter the name of the entity and select **RegEx**, enter the regular expression in the **Regex** field and select **Create**.
 
-1. Select **Add Child** to add a new child.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of creating a regular expression entity.](media/add-entities/add-regular-expression-entity.png)
 
-1. In **Child #1**, select the entity **number** from the list.
-
-1. In **Child #2**, select the entity **Human resources form name** from the list. 
-
-1. Select **Done**.
-
-<a name="add-pattern-any-entities"></a>
-
-## Add Pattern.any entities to capture free-form entities
-
-[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
-
-If an app has a `FindHumanResourcesForm` intent, the extracted form title may interfere with the intent prediction. In order to clarify which words are in the form title, use a Pattern.any within a pattern. The LUIS prediction begins with the utterance. First, the utterance is checked and matched for entities, when the entities are found, then the pattern is checked and matched. 
-
-In the utterance `Where is Request relocation from employee new to the company on the server?`, the form title is tricky because it is not contextually obvious where the title ends and where the rest of the utterance begins. Titles can be any order of words including a single word, complex phrases with punctuation, and nonsensical ordering of words. A pattern allows you to create an entity where the full and exact entity can be extracted. Once the title is found, the `FindHumanResourcesForm` intent is predicted because that is the intent for the pattern.
-
-1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
-
-1. In the **Add Entity** dialog box, enter `HumanResourcesFormTitle` in the **Entity name** box, and select **Pattern.any** as the **Entity type**.
-
-    To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
-
-    If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
-
-<a name="add-a-role-to-pattern-based-entity"></a>
-
-## Add a role to distinguish different contexts
-
-A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
-
-The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
-
-1. From the **Build** section, select **Entities** in the left panel.
-
-1. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**. 
-
-1. Select **Entities** from the left panel, then select the new entity **Location** created in the previous step.
-
-1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
-
-    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
 
 <a name="add-list-entities"></a>
 
-## Add list entities for exact matches
+## Create a list entity
 
-List entities represent a fixed, closed set of related words. 
+List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. You can also import to an existing list entity using a [list entity .json format](reference-entity-list.md#example-json-to-import-into-list-entity).
 
-For a Human Resources app, you can have a list of all departments along with any synonyms for the departments. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
+The following list demonstrates the canonical name and the synonyms.
 
-1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
+|Color - list item name|Color - synonyms|
+|--|--|
+|Red|crimson, blood, apple, fire-engine|
+|Blue|sky, cobalt|
+|Green|kelly, lime|
 
-1. In the **Add Entity** dialog box, type `Department` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
-  
-1. The list entity page allows you to add normalized names. In the **Values** textbox, enter a department name for the list, such as `HumanResources` then press Enter on the keyboard. 
+Use the procedure to create a list entity. Once the list entity is created, you don't need to label example utterances in an intent. List items and synonyms are matched using exact text.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
-1. To the right of the normalized value, enter synonyms, pressing Enter on the keyboard after each item.
+1. In the **Create an entity type** dialog box, enter the name of the entity, such as `Colors` and select **List**.
+1. In the **Create a list entity** dialog box, in the **Add new sublist....**, enter the list item name, such as `Green`, then add synonyms.
 
-1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
+    > [!div class="mx-imgBorder"]
+    > ![Create a list of colors as a list entity in the Entity detail page.](media/how-to-add-entities/create-list-entity-of-colors.png)
 
-    ![Screenshot of selecting Recommend feature to see options](./media/add-entities/hr-list-2.png)
+1. When you are finished adding list items and synonyms, select **Create**.
 
+    When you are done with a group of changes to the app, remember to **Train** the app. Do not train the app after a single change.
 
-1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
-    You can import values into an existing list entity using the following JSON format:
+    > [!NOTE]
+    > This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
 
-    ```JSON
-    [
-        {
-            "canonicalForm": "Blue",
-            "list": [
-                "navy",
-                "royal",
-                "baby"
-            ]
-        },
-        {
-            "canonicalForm": "Green",
-            "list": [
-                "kelly",
-                "forest",
-                "avacado"
-            ]
-        }
-    ]  
-    ```
+## Add a role for an entity
 
-<a name="change-entity-type"></a>
+A role is a named subtype of an entity, based on context.
+
+### Add a role to distinguish different contexts
+
+In the following utterance, there are two locations, and each is specified semantically by the words around it such as `to` and `from`:
+
+`Pick up the package from Seattle and deliver to New York City.`
+
+In this procedure, add `origin` and `destination` roles to a prebuilt geographyV2 entity.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. From the **Build** section, select **Entities** in the left panel.
+
+1. Select **+ Add prebuilt entity**. Select **geographyV2** then select **Done**. This adds a prebuilt entity to the app.
+
+    If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem.
+
+1. Select the newly added prebuilt geographyV2 entity from the **Entities** page list of entities.
+1. To add a new role, select **+** next to **No roles added**.
+1. In the **Type role...** textbox, enter the name of the role `Origin` then enter. Add a second role name of `Destination` then enter.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding Origin role to Location entity](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
+
+    The role is added to the prebuilt entity but isn't added to any utterances using that entity.
+
+### Label text with a role in an example utterance
+
+> [!TIP]
+> Roles can be replaced by labeling with subentities of a machine-learning entities.
+
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Go to the Intent details page, which has example utterances that use the role.
+1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity pane** from the drop-down list.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting View in entity Palette](media/add-entities/view-in-entity-pane.png)
+
+    The entity palette opens to the right.
+
+1. Select the entity, then go to the bottom of the palette and select the role.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting View in entity Palette](media/add-entities/select-role-in-entity-palette.png)
+
+<a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
+<a name="create-a-pattern-from-an-utterance"></a>
+
+## Create a pattern.any entity
+
+The **Pattern.any** entity is only available with [Patterns](luis-how-to-model-intent-pattern.md).
+
 
 ## Do not change entity type
 
-LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
+LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity.
 
-<a name="create-a-pattern-from-an-utterance"></a>
-
-## Create a pattern from an example utterance
-
-See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
-
-## Train your app after changing model with entities
-
-After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 
-For more information about prebuilt entities, see the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. 
+> [!div class="nextstepaction"]
+> [Use prebuilt models](howto-add-prebuilt-models.md)
 
-For information about how the entity appears in the JSON endpoint query response, see [Data Extraction](luis-concept-data-extraction.md)
+Learn more about:
+* How to [train](luis-how-to-train.md)
+* How to [test](luis-interactive-test.md)
+* How to [publish](luis-how-to-publish-app.md)
+* Patterns:
+    * [Concepts](luis-concept-patterns.md)
+    * [Syntax](reference-pattern-syntax.md)
+* [Prebuilt entities GitHub repository](https://github.com/Microsoft/Recognizers-Text)
+* [Data Extraction concepts](luis-concept-data-extraction.md)
 
-Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](luis-interactive-test.md), and [publish](luis-how-to-publish-app.md) your app.
- 
+
+

@@ -1,12 +1,11 @@
 ---
-title: How to upgrade the Azure Monitor for VMs Dependency agent| Microsoft Docs
+title: How to upgrade the Azure Monitor for VMs Dependency agent
 description: This article describes how to upgrade the Azure Monitor for VMs Dependency agent using command-line, setup wizard, and other methods.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 09/30/2019
+author: bwren
+ms.author: bwren
+ms.date: 04/16/2020
 
 ---
 
@@ -35,16 +34,9 @@ You can download the latest version of the Windows agent from [here](https://aka
 1. Sign on to the computer with an account that has administrative rights.
 
 2. Execute **InstallDependencyAgent-Windows.exe** to start the Setup Wizard.
+   
+3. Follow the **Dependency Agent Setup** wizard to uninstall the previous version of the dependency agent and then install the latest version.
 
-3. In the **Dependency Agent 9.9.1 Setup** dialog box, click **I agree** to accept the license agreement.
-
-5. In the **Dependency Agent 9.9.0 Uninstall** dialog box, click **Next**. The status page displays the progress of the uninstall of the previous version.
-
-6. In the **Dependency Agent 9.9.0 Uninstall** dialog box, click **Uninstall** to proceed with uninstalling the previous version from the path specified in the dialog box. 
-
-7. In the **Dependency Agent 9.9.0 Uninstall** dialog box, the uninstall progress is shown and when completed, the **Completing Dependency Agent Uninstall** page appears. Click **Finish**.
-
-8. In the **Dependency Agent 9.9.1 Setup** dialog box, the install progress is shown. When the **Completing Dependency Agent Uninstall** page appears, click **Finish**. 
 
 ### From the command line
 
@@ -64,7 +56,7 @@ You can download the latest version of the Windows agent from [here](https://aka
 
 Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
 
-You can download the latest version of the Windows agent from [here](https://aka.ms/dependencyagentlinux).
+You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
 1. Sign on to the computer with an account that has administrative rights.
 

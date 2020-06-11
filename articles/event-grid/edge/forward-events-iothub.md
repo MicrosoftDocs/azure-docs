@@ -77,6 +77,8 @@ As a publisher of an event, you need to create an event grid topic. The topic re
 
 Subscribers can register for events published to a topic. To receive any event, they'll need to create an Event grid subscription on a topic of interest.
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
 1. Create subscription4.json with the below content. Refer to our [API documentation](api.md) for details about the payload.
 
    ```json
@@ -207,3 +209,4 @@ In this tutorial, you created an event grid topic, edge hub subscription, and pu
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication
 * Forward events to Azure Event Grid in the cloud by following this [tutorial](forward-events-event-grid-cloud.md)
+* [Monitor topics and subscriptions on the edge](monitor-topics-subscriptions.md)

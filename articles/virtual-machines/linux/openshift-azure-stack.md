@@ -1,18 +1,11 @@
 ---
-title: Deploy OpenShift in Azure Stack | Microsoft Docs
+title: Deploy OpenShift in Azure Stack 
 description: Deploy OpenShift in Azure Stack.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: joraio
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw

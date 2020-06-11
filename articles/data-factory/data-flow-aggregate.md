@@ -1,15 +1,18 @@
 ---
-title: Aggregate transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Aggregate transformation in mapping data flow
 description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.custom: seo-lt-2019
+ms.date: 03/24/2020
 ---
 
-# Aggregate transformation in mapping data flow 
+# Aggregate transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns.
 
@@ -39,6 +42,16 @@ Aggregate transformations are similar to SQL aggregate select queries. Columns t
 
 * Use an aggregate function such as `last()` or `first()` to include that additional column.
 * Rejoin the columns to your output stream using the [self join pattern](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
+## Removing duplicate rows
+
+A common use of the aggregate transformation is removing or identifying duplicate entries in source data. This process is known as deduplication. Based upon a set of group by keys, use a heuristic of your choosing to determine which duplicate row to keep. Common heuristics are `first()`, `last()`, `max()`, and `min()`. Use [column patterns](concepts-data-flow-column-pattern.md) to apply the rule to every column except for the group by columns.
+
+![Deduplication](media/data-flow/agg-dedupe.png "Deduplication")
+
+In the above example, columns `ProductID` and `Name` are being use for grouping. If two rows have the same values for those two columns, they're considered duplicates. In this aggregate transformation, the values of the first row matched will be kept and all others will be dropped. Using column pattern syntax, all columns whose names aren't `ProductID` and `Name` are mapped to their existing column name and given the value of the first matched rows. The output schema is the same as the input schema.
+
+For data validation scenarios, the `count()` function can be used to count how many duplicates there are.
 
 ## Data flow script
 
@@ -76,8 +89,19 @@ The data flow script for this transformation is in the snippet below.
 ```
 MoviesYear aggregate(
                 groupBy(year),
-	            avgrating = avg(toInteger(Rating))
+                avgrating = avg(toInteger(Rating))
             ) ~> AvgComedyRatingByYear
+```
+
+![Aggregate data flow script](media/data-flow/aggdfs1.png "Aggregate data flow script")
+
+```MoviesYear```: Derived Column defining year and title columns
+```AvgComedyRatingByYear```: Aggregate transformation for average rating of comedies grouped by year
+```avgrating```: Name of new column being created to hold the aggregated value
+
+```
+MoviesYear aggregate(groupBy(year),
+	avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
 ```
 
 ## Next steps

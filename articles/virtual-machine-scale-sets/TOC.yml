@@ -13,11 +13,13 @@
     href: quick-create-cli.md
   - name: Create with Azure PowerShell
     href: quick-create-powershell.md
-  - name: Create with a template
+  - name: Create with ARM template
     items:
     - name: Linux scale set
+      displayName: ARM, resource manager
       href: quick-create-template-linux.md
     - name: Windows scale set
+      displayName: ARM, resource manager
       href: quick-create-template-windows.md
 - name: Tutorials
   items:
@@ -58,13 +60,46 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: cli-samples.md
+    items:
+      - name: Create a virtual machine scale set
+        href: ./scripts/cli-sample-create-simple-scale-set.md
+      - name: Create a scale set from a custom VM image
+        href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
+      - name: Install applications to a scale set
+        href: ./scripts/cli-sample-install-apps.md
+      - name: Create and attach disks to a scale set
+        href: ./scripts/cli-sample-attach-disks.md
+      - name: Enable host-based autoscale
+        href: ./scripts/cli-sample-enable-autoscale.md
+      - name: Create a single-zone scale set
+        href: ./scripts/cli-sample-single-availability-zone-scale-set.md
+      - name: Create a zone-redundant scale set
+        href: ./scripts/cli-sample-zone-redundant-scale-set.md
   - name: PowerShell
-    href: powershell-samples.md
+    items:
+      - name: Create a simple virtual machine scale set
+        href: ./scripts/powershell-sample-create-simple-scale-set.md
+      - name: Create a complete virtual machine scale set
+        href: ./scripts/powershell-sample-create-complete-scale-set.md
+      - name: Create a scale set from a custom VM image
+        href: ./scripts/powershell-sample-create-scale-set-from-custom-image.md
+      - name: Install applications to a scale set
+        href: ./scripts/powershell-sample-install-apps.md
+      - name: Create and attach disks to a scale set
+        href: ./scripts/powershell-sample-attach-disks.md
+      - name: Enable host-based autoscale
+        href: ./scripts/powershell-sample-enable-autoscale.md
+      - name: Create a single-zone scale set
+        href: ./scripts/powershell-single-av-zone-scale-set.md
+      - name: Create a zone-redundant scale set
+        href: ./scripts/powershell-sample-zone-redundant-scale-set.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
     maintainContext: true
   - name: Regions
     href: ../virtual-machines/windows/regions.md
@@ -79,6 +114,8 @@
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
+  - name: Images
+    href: shared-image-galleries.md
   - name: VM types and sizes
     href: ../virtual-machines/windows/sizes.md
     maintainContext: true
@@ -107,7 +144,7 @@
       href: ../virtual-machines/windows/sizes-gpu.md
       maintainContext: true
       items:
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
     - name: High performance compute
@@ -134,6 +171,9 @@
       maintainContext: true
     - name: Select a disk type
       href: ../virtual-machines/windows/disks-types.md
+      maintainContext: true
+    - name: Encryption
+      href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
       maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
@@ -179,6 +219,57 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
+
+  - name: Use Images
+    displayName: SIG, AMI, image
+    items:
+    - name: Shared Image Galleries
+      items:
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../virtual-machines/shared-images-powershell.md
+        - name: Create an image 
+          items:
+          - name: From a VM
+            href: ../virtual-machines/image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../virtual-machines/image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../virtual-machines/image-version-another-gallery-powershell.md             
+        - name: Create a scale-set
+          items:
+          - name: Specialized
+            href: instance-specialized-image-version-powershell.md
+          - name: Generalized
+            href: instance-generalized-image-version-powershell.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-powershell.md
+      - name: CLI
+        items:
+        - name: Create a gallery
+          href: ../virtual-machines/shared-images-cli.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../virtual-machines/image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../virtual-machines/image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../virtual-machines/image-version-another-gallery-cli.md
+        - name: Create a scale-set
+          items:
+          - name: Specialized
+            href: instance-specialized-image-version-cli.md
+          - name: Generalized
+            href: instance-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../virtual-machines/update-image-resources-cli.md
+      - name: Troubleshoot shared images
+        href: ../virtual-machines/troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: ../virtual-machines/image-version-encryption.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
@@ -226,13 +317,13 @@
       - name: Extension sequencing
         href: disk-encryption-extension-sequencing.md
       - name: Key vault for Azure Disk Encryption
-        href: disk-encryption-key-vault.md      
+        href: disk-encryption-key-vault.md
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use low-priority
-      href: virtual-machine-scale-sets-use-low-priority.md
+    - name: Use spot instance
+      href: use-spot.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -247,11 +338,13 @@
       href: virtual-machine-scale-sets-networking.md
     - name: Automatic OS upgrades
       href: virtual-machine-scale-sets-automatic-upgrade.md
-    - name: Instance protection (Preview)
+    - name: Automatic instance repairs
+      href: virtual-machine-scale-sets-automatic-instance-repairs.md
+    - name: Instance protection
       href: virtual-machine-scale-sets-instance-protection.md
-    - name: Scale-In Policy (Preview)
+    - name: Scale-In Policy
       href: virtual-machine-scale-sets-scale-in-policy.md
-    - name: Terminate notification on delete (Preview)
+    - name: Terminate notification on delete
       href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries
       items:

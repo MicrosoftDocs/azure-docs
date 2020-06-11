@@ -1,17 +1,9 @@
 ---
-title: Configure deployment credentials - Azure App Service | Microsoft Docs
-description: Learn how to use the Azure App Service deployment credentials.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
+title: Configure deployment credentials
+description: Learn what types of deployment credentials are in Azure App Service and how to configure and use them.
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
 
@@ -20,14 +12,11 @@ ms.custom: seodec18
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
 and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure subscription credentials.
 
-* **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. It's the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
-of the app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use their own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
-
-* **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials for each app are generated automatically at app creation. They can't be configured manually, but can be reset anytime. For a user to be granted access to app-level credentials via (RBAC), that user must be contributor or higher on the app. Readers are not allowed to publish, and can't access those credentials.
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 ## <a name="userscope"></a>Configure user-level credentials
 
-You can configure your user-level credentials in any app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources). Regardless in which app you configure these credentials, it applies to all apps and for all subscriptions in your Azure account. 
+You can configure your user-level credentials in any app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources). Regardless in which app you configure these credentials, it applies to all apps and for all subscriptions in your Azure account. 
 
 ### In the Cloud Shell
 

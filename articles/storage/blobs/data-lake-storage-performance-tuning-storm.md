@@ -1,16 +1,16 @@
 ---
-title: Azure Data Lake Storage Gen2 Storm performance tuning guidelines | Microsoft Docs
+title: 'Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2 Storm performance tuning guidelines
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Performance tuning guidance for Storm on HDInsight and Azure Data Lake Storage Gen2
+# Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2
 
 Understand the factors that should be considered when you tune the performance of an Azure Storm topology. For example, it's important to understand the characteristics of the work done by the spouts and the bolts (whether the work is I/O or memory intensive). This article covers a range of performance tuning guidelines, including troubleshooting common issues.
 
@@ -58,7 +58,7 @@ Let’s say we do 8 bolt threads per core. Given 64 cores, that means we want 51
 After you have the basic topology, you can consider whether you want to tweak any of the parameters:
 * **Number of JVMs per worker node.** If you have a large data structure (for example, a lookup table) that you host in memory, each JVM requires a separate copy. Alternatively, you can use the data structure across many threads if you have fewer JVMs. For the bolt’s I/O, the number of JVMs does not make as much of a difference as the number of threads added across those JVMs. For simplicity, it's a good idea to have one JVM per worker. Depending on what your bolt is doing or what application processing you require, though, you may need to change this number.
 * **Number of spout executors.** Because the preceding example uses bolts for writing to Data Lake Storage Gen2, the number of spouts is not directly relevant to the bolt performance. However, depending on the amount of processing or I/O happening in the spout, it's a good idea to tune the spouts for best performance. Ensure that you have enough spouts to be able to keep the bolts busy. The output rates of the spouts should match the throughput of the bolts. The actual configuration depends on the spout.
-* **Number of tasks.** Each bolt runs as a single thread. Additional tasks per bolt don't provide any additional concurrency. The only time they are of benefit is if your process of acknowledging the tuple takes a large proportion of your bolt execution time. It's a good idea to group many tuples into a larger append before you send an acknowledgement from the bolt. So, in most cases, multiple tasks provide no additional benefit.
+* **Number of tasks.** Each bolt runs as a single thread. Additional tasks per bolt don't provide any additional concurrency. The only time they are of benefit is if your process of acknowledging the tuple takes a large proportion of your bolt execution time. It's a good idea to group many tuples into a larger append before you send an acknowledgment from the bolt. So, in most cases, multiple tasks provide no additional benefit.
 * **Local or shuffle grouping.** When this setting is enabled, tuples are sent to bolts within the same worker process. This reduces inter-process communication and network calls. This is recommended for most topologies.
 
 This basic scenario is a good starting point. Test with your own data to tweak the preceding parameters to achieve optimal performance.
@@ -67,7 +67,7 @@ This basic scenario is a good starting point. Test with your own data to tweak t
 
 You can modify the following settings to tune the spout.
 
-- **Tuple timeout: topology.message.timeout.secs**. This setting determines the amount of time a message takes to complete, and receive acknowledgement, before it is considered failed.
+- **Tuple timeout: topology.message.timeout.secs**. This setting determines the amount of time a message takes to complete, and receive acknowledgment, before it is considered failed.
 
 - **Max memory per worker process: worker.childopts**. This setting lets you specify additional command-line parameters to the Java workers. The most commonly used setting here is XmX, which determines the maximum memory allocated to a JVM’s heap.
 
@@ -84,7 +84,7 @@ While your topology is running, you can monitor it in the Storm user interface. 
 
 * **Total process execution latency.** This is the average time one tuple takes to be emitted by the spout, processed by the bolt, and acknowledged.
 
-* **Total bolt process latency.** This is the average time spent by the tuple at the bolt until it receives an acknowledgement.
+* **Total bolt process latency.** This is the average time spent by the tuple at the bolt until it receives an acknowledgment.
 
 * **Total bolt execute latency.** This is the average time spent by the bolt in the execute method.
 

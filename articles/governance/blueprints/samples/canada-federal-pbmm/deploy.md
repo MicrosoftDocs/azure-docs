@@ -1,12 +1,8 @@
 ---
-title: Canada Federal PBMM blueprint sample - Deploy steps
+title: Deploy Canada Federal PBMM blueprint sample
 description: Deploy steps for the Canada Federal PBMM blueprint sample including blueprint artifact parameter details.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/05/2019
-ms.topic: conceptual
-ms.service: blueprints
+ms.date: 05/08/2020
+ms.topic: sample
 ---
 # Deploy the Canada Federal PBMM blueprint samples
 

@@ -23,73 +23,61 @@
     href: storage-sync-files-extend-servers.md
 - name: Concepts
   items:
-  - name: Planning for an Azure Files deployment
-    href: storage-files-planning.md
-  - name: Planning for an Azure File Sync deployment
-    href: storage-sync-files-planning.md
-  - name: Networking considerations for direct access
-    href: storage-files-networking-overview.md
-  - name: About cloud tiering
-    href: storage-sync-cloud-tiering.md
-  - name: About storage accounts
-    href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Redundancy
-    items:
-    - name: Azure storage replication
-      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Locally-redundant storage
-      href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Zone-redundant storage
-      href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Geo-redundant storage
-      href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Geo-zone-redundant storage
-      href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Azure file share snapshots
-    href: storage-snapshots-files.md
+  - name: Azure Files
+    items: 
+    - name: Planning for an Azure Files deployment
+      href: storage-files-planning.md
+    - name: Identity-based authentication and authorization
+      href: storage-files-active-directory-overview.md
+    - name: Networking considerations for direct access
+      href: storage-files-networking-overview.md
+    - name: Prevent accidental data deletion
+      href: storage-files-prevent-file-share-deletion.md
+    - name: Encryption at-rest
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Encryption at-rest with customer-managed keys
+      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Disaster recovery and failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure file share snapshots
+      href: storage-snapshots-files.md
+    - name: Development
+      items:
+      - name: Manage concurrency
+        href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Shared key authentication
+        href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+      - name: Shared access signatures (SAS)
+        href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Monitor and troubleshoot
+      items:
+      - name: Monitor, diagnose, and troubleshoot
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Metrics in Azure Monitor
+        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Migrate to new metrics
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Storage analytics metrics (classic)
+        href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Azure File Sync
+    items: 
+    - name: Planning for an Azure File Sync deployment
+      href: storage-sync-files-planning.md
+    - name: Networking considerations for hybrid access
+      href: storage-sync-files-networking-overview.md
+    - name: About cloud tiering
+      href: storage-sync-cloud-tiering.md
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
-  - name: Security
-    items:
-    - name: Authorization
-      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Storage security
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Storage encryption
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Azure AD authentication over SMB
-      href: storage-files-active-directory-overview.md
-    - name: Use Azure Private Endpoints
-      href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json  
-    - name: Compliance offerings
-      href: ../common/storage-compliance-offerings.md
-  - name: Development
-    items:
-    - name: Manage concurrency
-      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Shared key authentication
-      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-    - name: Shared access signatures (SAS)
-      href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Monitor and troubleshoot
-    items:
-    - name: Monitor, diagnose, and troubleshoot
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Metrics in Azure Monitor
-      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Migrate to new metrics
-      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Storage analytics metrics (classic)
-      href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Compliance offerings
+    href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
 - name: How-to guides
   items:
   - name: Create
     items:
-    - name: Create a standard file share
+    - name: Create a file share
       href: storage-how-to-create-file-share.md
     - name: Enable large file shares
       href: storage-files-how-to-create-large-file-share.md
@@ -101,8 +89,6 @@
       href: storage-files-deployment-guide.md
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
-    - name: Configure File Sync proxy and firewall settings
-      href: storage-sync-files-firewall-and-proxy.md
     - name: SQL Server FCI with premium file shares
       href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Mount
@@ -115,6 +101,18 @@
       href: storage-how-to-use-files-mac.md
   - name: Network
     items:
+    - name: Azure Files
+      items:
+      - name: Configure Azure Files network endpoints
+        href: storage-files-networking-endpoints.md
+      - name: Configuring DNS forwarding for Azure Files
+        href: storage-files-networking-dns.md
+    - name: Azure File Sync
+      items:
+      - name: Configuring Azure File Sync network endpoints
+        href: storage-sync-files-networking-endpoints.md
+      - name: Configure File Sync proxy and firewall settings
+        href: storage-sync-files-firewall-and-proxy.md
     - name: Configure Site-to-Site VPN 
       href: storage-files-configure-s2s-vpn.md
     - name: Configure Point-to-Site VPN on Windows
@@ -127,28 +125,66 @@
       href: storage-sync-files-server-registration.md
     - name: Add an Azure File Sync Server endpoint
       href: storage-sync-files-server-endpoint.md
+    - name: Enable soft delete
+      href: storage-files-enable-soft-delete.md
     - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Change how data is replicated
+      href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage data redundancy
+      items:
+      - name: Change how data is replicated
+        href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Design highly available applications
+        href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage disaster recovery
+      items:
+      - name: Check the Last Sync Time property
+        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Initiate account failover
+        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Authenticate
+    items:
+    - name: Enable on-premises authentication and authorization
+      items:
+      - name: AD DS overview
+        href: storage-files-identity-auth-active-directory-enable.md
+      - name: Enable AD DS authentication
+        href: storage-files-identity-ad-ds-enable.md
+      - name: Assign share-level permissions
+        href: storage-files-identity-ad-ds-assign-permissions.md
+      - name: Assign directory/file-level permissions
+        href: storage-files-identity-ad-ds-configure-permissions.md
+      - name: Mount file share
+        href: storage-files-identity-ad-ds-mount-file-share.md
+      - name: Update password
+        href: storage-files-identity-ad-ds-update-password.md
+    - name: Enable Azure AD DS authentication and authorization
+      href: storage-files-identity-auth-active-directory-domain-service-enable.md
   - name: Monitor
     items:
     - name: Monitor Azure File Sync
       href: storage-sync-files-monitoring.md
   - name: Migrate
     items:
-    - name: Migrate to Azure File Sync
-      href: storage-sync-offline-data-transfer.md
-    - name: Move data to and from Azure Storage
-      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Move data with AzCopy
+    - name: Migrate to Azure file shares
+      href: storage-files-migration-overview.md
+    - name: Target a hybrid deployment
       items:
-        - name: Get started
-          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Use with Files
-          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Configure, optimize, troubleshoot
-          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Migrate bulk data to Azure File Sync with Azure DataBox
+        href: storage-sync-offline-data-transfer.md
+      - name: Migrate from Linux to a hybrid file server with Azure File Sync
+        href: storage-files-migration-linux-hybrid.md
+      - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
+        href: storage-files-migration-nas-hybrid.md
+    - name: From StorSimple
+      items:
+      - name: StorSimple 8100 and 8600 migration guide
+        href: storage-files-migration-storsimple-8000.md
+      - name: StorSimple 1200 migration guide
+        href: storage-files-migration-storsimple-1200.md
   - name: Develop
     items:
     - name: Configure connection strings
@@ -163,14 +199,32 @@
       href: storage-python-how-to-use-file-storage.md
   - name: Secure
     items:
+    - name: Manage encryption keys for the storage account
+      items:
+      - name: Check the encryption key model for the account
+        href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Configure customer-managed encryption keys
+        items:
+        - name: Portal
+          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure CLI
+          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Enable Azure AD authentication over SMB
-      href: storage-files-active-directory-enable.md
     - name: Enable secure TLS for Azure Storage client
       href: ../common/storage-security-tls.md
+  - name: Transfer
+    items: 
+    - name: Get started - AzCopy
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Use with Files
+      href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Configure, optimize, troubleshoot - AzCopy
+      href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Files on Windows
@@ -185,84 +239,8 @@
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.storage
-  - name: Azure CLI
-    href: /cli/azure/storage
-  - name: .NET
-    items:
-    - name: Blobs, Queues, and Files
-      href: /dotnet/api/overview/azure/storage/client
-    - name: Data Movement
-      href: /dotnet/api/microsoft.azure.storage.datamovement
-    - name: Storage Resource Provider
-      href: /dotnet/api/overview/azure/storage/management
-  - name: Java
-    items:
-    - name: Blobs, Queues, and Files (version 12.x - preview)
-      href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-    - name: Blobs, Queues, and Files (version 8)
-      href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
-    - name: Storage Resource Provider
-      href: /java/api/overview/azure/storage/management
-  - name: Node.js
-    href: /javascript/api/overview/azure/storage
-  - name: Python
-    href: /python/api/overview/azure/storage
-  - name: REST
-    items:
-    - name: Blobs, Queues, Tables, and Files
-      href: /rest/api/storageservices
-    - name: Storage Resource Provider
-      href: /rest/api/storagerp
-    - name: Import/Export
-      href: /rest/api/storageimportexport
-  - name: C++
-    href: https://azure.github.io/azure-storage-cpp
-  - name: Ruby
-    href: https://azure.github.io/azure-storage-ruby
-  - name: PHP
-    href: https://azure.github.io/azure-storage-php/
-  - name: iOS
-    href: https://azure.github.io/azure-storage-ios/
-  - name: Android
-    href: https://azure.github.io/azure-storage-android
-  - name: AzCopy v10
-    items:
-    - name: azcopy
-      href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy bench
-      href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy copy
-      href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy doc
-      href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy env
-      href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs
-      href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs clean
-      href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs list
-      href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs remove
-      href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs resume
-      href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy jobs show
-      href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy list
-      href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy login
-      href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy logout
-      href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy make
-      href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy remove
-      href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: azcopy sync
-      href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Azure File Shares storage reference
+    href: ../files/reference.md
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
@@ -274,20 +252,8 @@
     href: https://azure.microsoft.com/updates/?category=storage
   - name: Azure File Sync release notes
     href: storage-files-release-notes.md
-  - name: Azure Storage Explorer
-    items:
-    - name: Download Storage Explorer
-      href: https://azure.microsoft.com/features/storage-explorer/
-    - name: Get started with Storage Explorer
-      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage Explorer release notes
-      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Troubleshoot Storage Explorer
-      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Storage Explorer accessibility
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Azure Storage forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+    href: https://docs.microsoft.com/answers/products/azure?product=storage
   - name: Azure Storage on Stack Overflow
     href: https://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Pricing for Azure storage

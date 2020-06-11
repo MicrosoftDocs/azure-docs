@@ -1,27 +1,16 @@
 ---
-title: Add custom analyzers to string fields in an index
+title: Add custom analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
 
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 06/05/2020
 ---
-# Add custom analyzers to an Azure Cognitive Search index
+# Add custom analyzers to string fields in an Azure Cognitive Search index
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
@@ -274,7 +263,7 @@ This section provides the valid values for attributes specified in the definitio
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-|-|-|  
 |[keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (type applies only when options are available) |Treats the entire content of a field as a single token. This is useful for data like zip codes, IDs, and some product names.|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is \w+.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|Flexibly separates text into terms via a regular expression pattern.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - Determines whether terms are lowercased. The default is true.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - A regular expression pattern to match token separators. The default is `\W+`, which matches non-word characters.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |[simple](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(type applies only when options are available) |Divides text at non-letters and converts them to lower case. |  
 |[standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(Also referred to as standard.lucene)|StandardAnalyzer|Standard Lucene analyzer, composed of the standard tokenizer, lowercase filter, and stop filter.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. The default is 255. Tokens longer than the maximum length are split. Maximum token length that can be used is 300 characters.<br /><br /> stopwords (type: string array) - A list of stopwords. The default is an empty list.|  
 |standardasciifolding.lucene|(type applies only when options are available) |Standard analyzer with Ascii folding filter. |  
@@ -317,7 +306,7 @@ In the table below, the tokenizers that are implemented using Apache Lucene are 
 | microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| Divides text using language-specific rules and reduces words to their base forms<br /><br /> **Options**<br /><br />maxTokenLength (type: int) - The maximum token length, default: 255, maximum: 300. Tokens longer than the maximum length are split. Tokens longer than 300 characters are first split into tokens of length 300 and then each of those tokens is split based on the maxTokenLength set.<br /><br /> isSearchTokenizer (type: bool) - Set to true if used as the search tokenizer, set to false if used as the indexing tokenizer.<br /><br /> language (type: string) - Language to use, default "english". Allowed values include:<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
 |[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|Tokenizes the input into n-grams of the given size(s).<br /><br /> **Options**<br /><br /> minGram (type: int) - Default: 1, maximum: 300.<br /><br /> maxGram (type: int) - Default: 2, maximum: 300. Must be greater than minGram. <br /><br /> tokenChars (type: string array) - Character classes to keep in the tokens. Allowed values: "letter", "digit", "whitespace", "punctuation", "symbol". Defaults to an empty array - keeps all characters. |  
 |[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|Tokenizer for path-like hierarchies.<br /><br /> **Options**<br /><br /> delimiter (type: string) - Default: '/.<br /><br /> replacement (type: string) - If set, replaces the delimiter character. Default same as the value of delimiter.<br /><br /> maxTokenLength (type: int) -  The maximum token length. Default: 300, maximum: 300. Paths longer than maxTokenLength are ignored.<br /><br /> reverse (type: bool) - If true, generates token in reverse order. Default: false.<br /><br /> skip (type: bool) - Initial tokens to skip. The default is 0.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|This tokenizer uses regex pattern matching to construct distinct tokens.<br /><br /> **Options**<br /><br /> [pattern](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (type: string) - Regular expression pattern. The default is \W+. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - Which group to extract into tokens. The default is -1 (split).|
+|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|This tokenizer uses regex pattern matching to construct distinct tokens.<br /><br /> **Options**<br /><br /> [pattern](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (type: string) - Regular expression pattern to match token separators. The default is `\W+`, which matches non-word characters. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - Regular expression flags. The default is an empty string. Allowed values: CANON_EQ, CASE_INSENSITIVE, COMMENTS, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - Which group to extract into tokens. The default is -1 (split).|
 |[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|Breaks text following the [Unicode Text Segmentation rules](https://unicode.org/reports/tr29/).<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. Default: 255, maximum: 300. Tokens longer than the maximum length are split.|  
 |[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Tokenizes urls and emails as one token.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - The maximum token length. Default: 255, maximum: 300. Tokens longer than the maximum length are split.|  
 |[whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(type applies only when options are available) |Divides text at whitespace. Tokens that are longer than 255 characters are split.|  

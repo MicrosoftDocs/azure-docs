@@ -1,25 +1,22 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
-description: Send guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+title: Collect Windows VM metrics in Azure Monitor  with template
+description: Send guest OS metrics to the Azure Monitor metric database store by using a Resource Manager template for a Windows virtual machine 
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 05/04/2020
+ms.author: bwren
 ms.subservice: metrics
 ---
-# Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+# Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine
+Performance data from the guest OS of Azure virtual machines is not collected automatically like other [platform metrics](../insights/monitor-azure-resource.md#monitoring-data). Install the Azure Monitor [diagnostics extension](diagnostics-extension-overview.md) to collect guest OS metrics into the metrics database so it can be used with all features of Azure Monitor Metrics, including near-real time alerting, charting, routing, and access from a REST API. This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the metrics database using a Resource Manager template. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!NOTE]
+> For details on configuring the diagnostics extension to collect guest OS metrics using the Azure portal, see [Install and configure Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md).
 
-By using the Azure Monitor [Diagnostics extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
-This article describes the process for sending Guest OS performance metrics for a Windows virtual machine to the Azure Monitor data store. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected.
-
-Storing them in this location allows you to access the same actions for platform metrics. Actions include near-real time alerting, charting, routing, and access from a REST API and more. In the past, the Diagnostics extension wrote to Azure Storage, but not to the Azure Monitor data store.
-
-If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.
+If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.
 
 ## Prerequisites
 

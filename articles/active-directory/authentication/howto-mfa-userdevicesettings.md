@@ -1,58 +1,58 @@
 ---
-title: Admins manage users and devices - Azure MFA - Azure Active Directory
-description: How can administrators change user settings such as forcing the users to do the proof-up process again.
+title: Manage user settings for Azure Multi-Factor Authentication - Azure Active Directory
+description: Learn how you can configure Azure Active Directory user settings for Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 10/28/2019
+ms.topic: how-to
+ms.date: 04/13/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Manage user settings with Azure Multi-Factor Authentication in the cloud
+# Manage user settings for Azure Multi-Factor Authentication
 
-As an administrator, you can manage the following user and device settings:
+To help manage the users of Azure Multi-Factor Authentication, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions. For users that have defined app passwords, you can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or want to reset their security status.
 
-* Require users to provide contact methods again
-* Delete app passwords
-* Require MFA on all trusted devices
+## Manage user authentication options
 
-## Manage authentication methods
-
-As an administrator assigned the Authentication Administrator role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object.
-
-![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+If you're assigned the *Authentication Administrator* role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.
-1. Choose the user you wish to perform an action on and select **Authentication methods**.
-   - **Reset Password** will reset the user's password and assign a temporary password that must be changed on the next sign in.
-   - **Require Re-register MFA** will make it so that when the user signs in next time, they will be requested to setup a new MFA authentication method.
-   - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it is required by the policy on the device.
+1. Choose the user you wish to perform an action on and select **Authentication methods**. At the top of the window, then choose one of the following options for the user:
+   - **Reset Password** resets the user's password and assigns a temporary password that must be changed on the next sign-in.
+   - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
+   
+      > [!NOTE]
+      > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
+   
+   - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
+
+   ![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
 ## Delete users existing app passwords
 
-This setting deletes all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created. Global administrator permissions are required to perform this action.
+If needed, you can delete all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created. *Global administrator* permissions are required to perform this action.
 
-### How to delete users existing app passwords
+To delete a user's app passwords, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users** > **All users**.
-3. On the right, select **Multi-Factor Authentication** on the toolbar. The multi-factor authentication page opens.
-4. Check the box next to the user or users that you wish to manage. A list of quick step options appears on the right.
-5. Select **Manage user settings**.
-6. Check the box for **Delete all existing app passwords generated by the selected users**.
+1. On the left-hand side, select **Azure Active Directory** > **Users** > **All users**.
+1. Select **Multi-Factor Authentication**. You may need to scroll to the right to see this menu option. Select the example screenshot below to see the full Azure portal window and menu location:
+    [![](media/howto-mfa-userstates/selectmfa-cropped.png "Select Multi-Factor Authentication from the Users window in Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Check the box next to the user or users that you wish to manage. A list of quick step options appears on the right.
+1. Select **Manage user settings**, then check the box for **Delete all existing app passwords generated by the selected users**, as shown in the following example:
    ![Delete all existing app passwords](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-7. Click **save**.
-8. Click **close**.
+1. Select **save**, then **close**.
 
 ## Next steps
 
-- Get more information about how to [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
-- If your users need help, point them towards the [User guide for two-step verification](../user-help/multi-factor-authentication-end-user.md)
+This article helped configure individual user settings. To configure Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+
+If your users need help, see the [User guide for Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).

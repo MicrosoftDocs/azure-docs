@@ -1,6 +1,6 @@
 ---
 title: EXP in Azure Cosmos DB query language
-description: Learn about SQL system function EXP in Azure Cosmos DB.
+description: Learn about the Exponent (EXP) SQL system function in Azure Cosmos DB to return the exponential value of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual

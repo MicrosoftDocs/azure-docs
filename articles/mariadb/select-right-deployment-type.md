@@ -1,11 +1,11 @@
 ---
-title: Selecting the right deployment type for Azure Database for MariaDB
+title: Selecting the right deployment type - Azure Database for MariaDB
 description: This article describes what factors to consider before you deploy Azure Database for MariaDB as either infrastructure as a service (IaaS) or platform as a service (PaaS).
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 3/18/2020
 ---
 
 # Choose the right MariaDB Server option in Azure
@@ -33,7 +33,7 @@ The main differences between these options are listed in the following table:
 | MariaDB patching     | Automatic  | Managed by customers |
 | High availability | The high availability (HA) model is based on built-in failover mechanisms for when a node-level interruption occurs. In such cases, the service automatically creates a new instance and attaches storage to this instance. | Customers architect, implement, test, and maintain high availability. Capabilities might include always-on failover clustering, always-on group replication, log shipping, or transactional replication.|
 | Zone redundancy | Currently not supported | Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.|
-| Hybrid scenarios | With [Data-in Replication](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication), you can synchronize data from an external MariaDB server into the Azure Database for MariaDB service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.<br/><br/> With the [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) feature, you can replicate data from an Azure Database for MariaDB master server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology.<br/><br/>Cross-region read replication is currently in public preview.| Managed by customers
+| Hybrid scenarios | With [Data-in Replication](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication), you can synchronize data from an external MariaDB server into the Azure Database for MariaDB service. The external server can be on-premises, in virtual machines, or a database service hosted by other cloud providers.<br/><br/> With the [read replica](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) feature, you can replicate data from an Azure Database for MariaDB master server to up to five read-only replica servers. The replicas are either within the same Azure region or across regions. Read-only replicas are asynchronously updated using binlog replication technology.<br/><br/>Cross-region read replication is currently in public preview.| Managed by customers
 | Backup and restoration | Automatically creates [server backups](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) and stores them in user-configured storage that is either locally redundant or geo-redundant. The service takes full, differential, and transaction log backups | Managed by customers |
 | Monitoring database operations | Offers customers the ability to [set alerts](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) on the database operation and act upon reaching thresholds. | Managed by customers |
 | Advanced Threat Protection | Provides [Advanced Threat Protection](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). This protection detects anomalous activities that indicate unusual and potentially harmful attempts to access or exploit databases.<br/><br/>Advanced Threat Protection is currently in public preview.| Customers must build this protection for themselves.
@@ -97,4 +97,4 @@ The following list describes administrative considerations for each option:
 ## Next steps
 
 * See [Azure Database for MariaDB pricing](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Get started by [creating your first server](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Get started by [creating your first server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

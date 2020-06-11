@@ -1,5 +1,5 @@
 ---
-title: Set RBAC roles for Azure administrative access in the portal
+title: Set RBAC roles for Azure administrative access
 titleSuffix: Azure Cognitive Search
 description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/03/2020
 ---
 
 # Set RBAC roles for administrative access to Azure Cognitive Search
@@ -30,6 +30,21 @@ For Azure Cognitive Search, roles are associated with permission levels that sup
 | Reader |View service essentials and metrics. Members of this role cannot view index, indexer, data source, or key information.  |
 
 Roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. For more information, see [Manage api-keys](search-security-api-keys.md).
+
+## Permissions table
+
+The following table summarizes the operations allowed in Azure Cognitive Search and which key unlocks access a particular operation.
+
+| Operation | Permissions |
+|-----------|-------------------------|
+| Create a service | Azure subscription holder |
+| Scale a service | Admin key, RBAC Owner, or Contributor on the resource  |
+| Delete a service | Admin key, RBAC Owner, or Contributor on the resource |
+| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters | Admin key, RBAC Owner, or Contributor on the resource |
+| Query an index | Admin or query key (RBAC not applicable) |
+| Query system information, such as returning statistics, counts, and lists of objects | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
+| Manage admin keys | Admin key, RBAC Owner or Contributor on the resource |
+| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource  |
 
 ## See also
 

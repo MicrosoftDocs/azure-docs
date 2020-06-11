@@ -1,12 +1,8 @@
 ---
 title: Design Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
 ---
 # Design Policy as Code workflows
 
@@ -22,7 +18,7 @@ in the cloud are:
   end users.
 
 Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test and validate that change. However, that shouldn't
+source control and whenever a change is made, test, and validate that change. However, that shouldn't
 be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
@@ -35,11 +31,11 @@ before it's too late and they're attempting to deploy in production.
 
 The recommended general workflow of Policy as Code looks like this diagram:
 
-![Policy as Code workflow overview](../media/policy-as-code/policy-as-code-workflow.png)
+:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Policy as Code workflow overview" border="false":::
 
 ### Create and update policy definitions
 
-The policy definitions are created using JSON, and stored in source control. Each policy has it's
+The policy definitions are created using JSON, and stored in source control. Each policy has its
 own set of files, such as the parameters, rules, and environment parameters, that should be stored
 in the same folder. The following structure is a recommended way of keeping your policy definitions
 in source control.
@@ -114,7 +110,7 @@ The assignment should use [enforcementMode](./assignment-structure.md#enforcemen
 _disabled_ so that resource creation and updates aren't blocked, but that existing resources are
 still audited for compliance to the updated policy definition. Even with enforcementMode, it's
 recommended that the assignment scope is either a resource group or a subscription that is
-specifically used for validating policies.
+specifically for validating policies.
 
 > [!NOTE]
 > While enforcement mode is helpful, it's not a replacement for thoroughly testing a policy
@@ -128,7 +124,7 @@ to test the policies and assignments should have both compliant and non-complian
 good unit test for code, you want to test that resources are as expected and that you also have no
 false-positives or false-negatives. If you test and validate only for what you expect, there may be
 unexpected and unidentified impact from the policy. For more information, see
-[Evaluate the impact of a new Azure policy](./evaluate-impact.md).
+[Evaluate the impact of a new Azure Policy definition](./evaluate-impact.md).
 
 ### Enable remediation tasks
 
@@ -137,9 +133,9 @@ Policies that use either [deployIfNotExists](./effects.md#deployifnotexists) or
 [modify](./effects.md#modify) may be turned into a remediation task and correct resources from a
 non-compliant state.
 
-The first step to doing this is to grant the policy assignment the role assignment defined in the
-policy definition. This role assignment gives the policy assignment managed identity enough rights
-to make the needed changes to make the resource compliant.
+The first step to remediating resources is to grant the policy assignment the role assignment
+defined in the policy definition. This role assignment gives the policy assignment managed identity
+enough rights to make the needed changes to make the resource compliant.
 
 Once the policy assignment has appropriate rights, use the Policy SDK to trigger a remediation task
 against a set of resources that are known to be non-compliant. Three tests should be completed
@@ -157,9 +153,10 @@ compliance change as expected.
 ### Update to enforced assignments
 
 After all validation gates have completed, update the assignment to use **enforcementMode** of
-_enabled_. This change should initially be made in the same environment far from production. Once
-that environment is validated as working as expected, the change should then be scoped to include
-the next environment and so on until the policy is deployed to production resources.
+_enabled_. It's recommended to make this change initially in the same environment far from
+production. Once that environment is validated as working as expected, the change should then be
+scoped to include the next environment, and so on, until the policy is deployed to production
+resources.
 
 ## Process integrated evaluations
 
@@ -186,6 +183,6 @@ scripted steps and automation based on triggers.
 - Learn about the [policy definition structure](./definition-structure.md).
 - Learn about the [policy assignment structure](./assignment-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

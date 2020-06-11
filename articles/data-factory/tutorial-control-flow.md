@@ -1,19 +1,21 @@
 ---
-title: 'Branching in Azure Data Factory pipeline | Microsoft Docs'
-description: 'Learn how to control flow of data in Azure Data Factory by branching and chaining activities.'
+title: Branching in Azure Data Factory pipeline
+description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
 services: data-factory
-documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
+manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you create a Data Factory pipeline that showcases some control flow features. This pipeline copies from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation in an email. That information could include the amount of data written. If the copy activity fails, it sends details of the copy failure, such as the error message, in an email. Throughout the tutorial, you see how to pass parameters.
 
@@ -39,9 +41,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. This article uses Visual Studio 2019.
 * Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
@@ -112,7 +114,7 @@ Create a C# .NET console application:
    // Specify the source Azure Blob information
    static string storageAccount = "<Azure Storage account name>";
    static string storageKey = "<Azure Storage account key>";
-   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container. 
+   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container.
    static string inputBlobPath = "adfv2branch/input";
    static string inputBlobName = "input.txt";
    static string outputBlobPath = "adfv2branch/output";
@@ -213,7 +215,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 {
     Console.WriteLine("Creating dataset " + blobSourceDatasetName + "...");
     AzureBlobDataset blobDataset = new AzureBlobDataset
-    { 
+    {
         FolderPath = new Expression { Value = "@pipeline().parameters.sourceBlobContainer" },
         FileName = inputBlobName,
         LinkedServiceName = new LinkedServiceReference
@@ -505,7 +507,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
- 
+
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
@@ -572,8 +574,8 @@ Build and run your program to trigger a pipeline run!
     Console.WriteLine("Checking copy activity run details...");
 
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList();
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(activityRuns.First().Output);
@@ -603,10 +605,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

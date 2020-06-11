@@ -1,69 +1,168 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation for the Azure Backup service
+### YamlMime:Landing
+
+title: Azure Backup service documentation
+summary: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+
 metadata:
-  title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
-  services: backup
-  author: dcurwin
-  manager: carmonm
+  title: Azure Backup Documentation 
+  description: The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud. 
   ms.service: backup
-  ms.tgt_pltfrm: na
-  ms.topic: landing-page
-  ms.date: 05/22/2018
-  ms.author: dacurwin
-abstract:
-  description: Use Azure Backup to protect the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to back up an Azure virtual machine in Azure.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
-      href: quick-backup-vm-portal
-    - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: quick-backup-vm-powershell
-    - image: 
-        src: https://docs.microsoft.com/media/common/cli.svg
-      text: Azure CLI
-      href: quick-backup-vm-cli
-- title: Step-by-step Tutorials
-  items:
-  - type: paragraph
-    text: Learn to back up and recover virtual machines within Azure or from Windows Server.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-backup-vm-at-scale">Backup multiple Azure VMs</a>
-    - html: <a href="tutorial-restore-disk">Restore a disk and create a recovered VM</a>
-    - html: <a href="tutorial-restore-files">Restore files to a Virtual Machine in Azure</a>
-    - html: <a href="tutorial-backup-windows-server-to-azure">Back up a Windows Server to Azure</a>
-    - html: <a href="tutorial-backup-restore-files-windows-server">Recover files from Azure to a Windows Server</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Use the following samples to protect your data in Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.recoveryservices">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/backup/">Azure Backup API Reference</a></p>
+  ms.topic: landing-page 
+  author: dcurwin 
+  ms.author: dacurwin 
+  ms.date: 12/01/2019 
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Learn about Azure Backup
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Backup?
+            url: backup-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Backup support matrix
+            url: backup-support-matrix.md
+          - text: Azure Backup architecture
+            url: backup-architecture.md
+
+  # Card (optional)
+  - title: Get started with Azure Backup
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Back up a VM with the Azure Portal
+            url: quick-backup-vm-portal.md
+          - text: Back up a VM with PowerShell
+            url: quick-backup-vm-powershell.md
+          - text: Back up a VM with Azure CLI
+            url: quick-backup-vm-cli.md
+          - text: Back up a VM with Resource Manager template
+            url: quick-backup-vm-template.md
+
+  # Card
+  - title: Try these step-by-step tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Back up Azure VMs
+            url: tutorial-backup-vm-at-scale.md
+          - text: Backup SQL Server on Azure VM
+            url: tutorial-sql-backup.md
+          - text: Backup files and folders on Windows Server
+            url: tutorial-backup-windows-server-to-azure.md
+          - text: Back up SAP HANA databases in an Azure VM
+            url: tutorial-backup-sap-hana-db.md
+  # Card
+  - title: Learn about the latest features in Azure Backup
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Soft Delete for Azure Backup
+            url: backup-azure-security-feature-cloud.md
+          - text: SQL Server on Azure VMs restore as files
+            url: restore-sql-database-azure-vm.md#restore-as-files
+          - text: SAP HANA database on Azure VMs backup
+            url: backup-azure-sap-hana-database.md
+  # Card
+  - title: Back up Azure VMs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About Azure VM backup
+            url: backup-azure-vms-introduction.md
+          - text: Support matrix for Azure VM backup
+            url: backup-support-matrix-iaas.md
+          - text: FAQ - Azure VM backup
+            url: backup-azure-vm-backup-faq.md
+          - text: Manage Azure VM backups
+            url: backup-azure-manage-vms.md
+  # Card
+  - title: Back up SQL Server on Azure VMs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About SQL Server in Azure VMs backup
+            url: backup-azure-sql-database.md
+          - text: FAQ - SQL Server in Azure VMs backup
+            url: faq-backup-sql-server.md
+          - text: Back up SQL Server databases in Azure VMs
+            url: backup-sql-server-database-azure-vms.md
+          - text: Manage and monitor backed up SQL Server databases
+            url: manage-monitor-sql-database-backup.md            
+  # Card
+  - title: Back up SAP HANA on Azure VMs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Back up SAP HANA databases in Azure VMs
+            url: backup-azure-sap-hana-database.md
+          - text: Manage and monitor backed up SAP HANA databases
+            url: sap-hana-db-manage.md
+          - text: FAQ - Back up SAP HANA databases on Azure VMs
+            url: sap-hana-faq-backup-azure-vm.md
+          - text: Support matrix for backup of SAP HANA databases on Azure VMs
+            url: sap-hana-backup-support-matrix.md            
+  # Card
+  - title: Back up Azure Files shares
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Back up and restore Azure file shares
+            url: backup-afs.md
+          - text: FAQ - Back up Azure Files
+            url: backup-azure-files-faq.md
+ # Card
+  - title: Back up with Microsoft Azure Recovery Services (MARS) agent
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Back up Windows machines with the Azure Backup MARS agent
+            url: backup-windows-with-mars-agent.md
+          - text: Manage MARS Agent backups by using the Azure Backup service
+            url: backup-azure-manage-mars.md
+          - text: MARS agent support matrix
+            url: backup-support-matrix-mars-agent.md
+          - text: FAQ - Mars agent
+            url: backup-azure-file-folder-backup-faq.md 
+# Card
+  - title: Back up with Microsoft Azure Backup Server (MABS) and DPM
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: MABS protection matrix
+            url: backup-mabs-protection-matrix.md
+          - text: MABS / DPM support matrix
+            url: backup-support-matrix-mabs-dpm.md
+          - text: FAQ - MABS and DPM
+            url: backup-azure-dpm-azure-server-faq.md
+          - text: Install and upgrade MABS
+            url: backup-azure-microsoft-azure-backup.md
+# Card
+  - title: Manage at scale
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Govern at scale with Azure Policy
+            url: backup-azure-auto-enable-backup.md
+          - text: Monitor and operate at scale with Backup Explorer
+            url: monitor-azure-backup-with-backup-explorer.md
+          - text: Analyze at scale with Backup Reports
+            url: configure-reports.md
+# Card
+  - title: Explore resources for Azure Backup
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Backup pricing calculator
+            url: https://azure.microsoft.com/pricing/details/backup/
+          - text: Azure Backup service updates
+            url: https://azure.microsoft.com/updates/?product=backup
+          - text: Azure Backup Microsoft Q&A question page
+            url: https://docs.microsoft.com/answers/topics/azure-backup.html
+                          

@@ -1,15 +1,8 @@
 ---
-title: Introduction to Azure Advisor | Microsoft Docs
+title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
 ---
 
 # Introduction to Azure Advisor
@@ -26,12 +19,13 @@ With Advisor, you can:
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
-The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into four categories: 
+The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into five categories: 
 
 * **High Availability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor High Availability recommendations](advisor-high-availability-recommendations.md).
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
+* **Operational Excellence**: To help you achieve process and workflow efficiency, resource manageability and deployment best practices. . For more information, see [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-dashboard.png)
 

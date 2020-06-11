@@ -1,9 +1,9 @@
 ---
-title: What is Azure AD entitlement management? - Azure Active Directory
+title: What is entitlement management? - Azure AD
 description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is Azure AD entitlement management?
 
-Azure Active Directory (Azure AD) entitlement management is a [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
+Azure Active Directory (Azure AD) entitlement management is an [identity governance](identity-governance-overview.md) feature that  enables organizations to manage identity and access lifecycle at scale, by automating access request workflows, access assignments, reviews, and expiration.
 
 Employees in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging, as requirements change - new applications are added or users need additional access rights.  This scenario gets more complicated when you collaborate with outside organizations - you may not know who in the other organization needs access to your organization's resources, and they won't know what applications, groups or sites your organization is using.
 
@@ -38,10 +38,10 @@ Enterprise organizations often face challenges when managing employee access to 
 
 These problems are compounded for users who need access from another organization, such as external users that are from supply chain organizations or other business partners. For example:
 
-- No one person may not know all of the specific individuals in other organization's directories to be able to invite them
+- No one person may know all of the specific individuals in other organization's directories to be able to invite them
 - Even if they were able to invite these users, no one in that organization may remember to manage all of the user's access consistently
 
-Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://aka.ms/AvanadeELMCase) and the [Centrica case study](https://aka.ms/CentricaELMCase).  This video provides an overview of entitlement management and its value:
+Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -130,19 +130,35 @@ To better understand entitlement management and its documentation, you can refer
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use.
+Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not currently available for use.
 
-### Which users must have licenses?
+### How many licenses must you have?
 
-Your tenant must have at least as many Azure AD Premium P2 licenses as you have member users active in entitlement management. Active member users in entitlement management include:
+Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
-- A user that initiates or approves a request for an access package.
-- A user that has been assigned an access package.
-- A user that manages access packages.
+- Member users who **can** request an access package.
+- Member and guest users who request an access package.
+- Member and guest users who approve requests for an access package.
+- Member and guest users who have a direct assignment to an access package.
 
-As part of the licenses for member users, you can also allow a number of guest users to interact with entitlement management. For information about how to calculate the number of guest users you can include, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+Azure AD Premium P2 licenses are **not** required for the following tasks:
 
-For information about how to assign licenses to your users, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md). Note that entitlement management currently does not enforce license assignment for users.
+- No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
+- No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
+- No licenses are required for guests who **can** request access packages, but do **not** request an access package.
+
+For each paid Azure AD Premium P2 license that you purchase for your member users (employees), you can use Azure AD B2B to invite up to 5 guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+
+For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Number of licenses |
+| --- | --- | --- |
+| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
+| A Global Administrator at Woodgrove Bank creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner Contoso** (guests) can request the same access packages subject to approval. Contoso has 30,000 users. 150 employees request the access packages and 10,500 users from Contoso request access. | 2,000 employees + 500 guest users from Contoso that exceed the 1:5 ratio (10,500 - (2,000 * 5)) | 2,500 |
 
 ## Next steps
 

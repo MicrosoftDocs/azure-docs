@@ -1,5 +1,6 @@
 ---
-title: Implement disaster recovery using backup and restore in Azure API Management | Microsoft Docs
+title: Implement disaster recovery using backup and restore in API Management
+titleSuffix: Azure API Management
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -11,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 02/03/2020
 ms.author: apimpm
 ---
 
@@ -67,11 +68,10 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 ### Add an application
 
-1. Once the application is created, click **Settings**.
-2. Click **Required permissions**.
-3. Click **+Add**.
-4. Press **Select an API**.
-5. Choose **Windows** **Azure Service Management API**.
+1. Once the application is created, click **API permissions**.
+2. Click **+ Add a permission**.
+4. Press **Select Microsoft APIs**.
+5. Choose **Azure Service Management**.
 6. Press **Select**.
 
     ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -127,7 +127,7 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
+The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
@@ -165,18 +165,21 @@ Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a '202 Accepted' status code. A Response code of `200 OK` indicates successful completion of the backup operation.
 
-Note the following constraints when making a backup request:
+Note the following constraints when making a backup or restore request:
 
 -   **Container** specified in the request body **must exist**.
--   While backup is in progress, **avoid changes in service management** such as SKU upgrade or downgrade, change in domain name, and more.
+-   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
--   In addition, the following items are not part of the backup data: custom domain SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
+-   In addition, the following items are not part of the backup data: custom domain TLS/SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
 -   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account. Customer should open the following set of Inbound IPs on their Storage Account for Backup. 
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32,
-    > 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+-   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. 
+
+> [!NOTE]
+> If you attempt to do backup/restore from/to an API Management service using a storage account which has [firewall][azure-storage-ip-firewall] 
+> enabled, in the same Azure Region, then this will not work. This is because the requests to Azure Storage are not SNATed to a public IP from Compute > (Azure Api Management control Plane). Cross Region storage request will be SNATed.
+
 ### <a name="step2"> </a>Restore an API Management service
 
 To restore an API Management service from a previously created backup, make the following HTTP request:
@@ -237,3 +240,5 @@ Check out the following resources for different walkthroughs of the backup/resto
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined devices - Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,8 +16,9 @@ ms.reviewer: jairoc
 #Customer intent: As an IT admin, I want to fix issues with my hybrid Azure AD joined devices so that my users can use this feature.
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
-# Troubleshooting hybrid Azure Active Directory joined devices 
+# Troubleshooting hybrid Azure Active Directory joined devices
 
 The content of this article is applicable to devices running Windows 10 or Windows Server 2016.
 
@@ -29,13 +30,13 @@ This article assumes that you have [configured hybrid Azure Active Directory joi
 - [Enterprise roaming of settings](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
 
-This document provides troubleshooting guidance to resolve potential issues. 
+This document provides troubleshooting guidance to resolve potential issues.
 
 For Windows 10 and Windows Server 2016, hybrid Azure Active Directory join supports the Windows 10 November 2015 Update and above.
 
 ## Troubleshoot join failures
 
-### Step 1: Retrieve the join status 
+### Step 1: Retrieve the join status
 
 **To retrieve the join status:**
 
@@ -87,22 +88,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### Step 2: Evaluate the join status 
+### Step 2: Evaluate the join status
 
 Review the following fields and make sure that they have the expected values:
 
-#### DomainJoined : YES  
+#### DomainJoined : YES
 
-This field indicates whether the device is joined to an on-premises Active Directory or not. If the value is **NO**, the device cannot perform a hybrid Azure AD join.  
+This field indicates whether the device is joined to an on-premises Active Directory or not. If the value is **NO**, the device cannot perform a hybrid Azure AD join.
 
-#### WorkplaceJoined : NO  
+#### WorkplaceJoined : NO
 
 This field indicates whether the device is registered with Azure AD as a personal device (marked as *Workplace Joined*). This value should be **NO** for a domain-joined computer that is also hybrid Azure AD joined. If the value is **YES**, a work or school account was added prior to the completion of the hybrid Azure AD join. In this case, the account is ignored when using the Anniversary Update version of Windows 10 (1607).
 
-#### AzureAdJoined : YES  
+#### AzureAdJoined : YES
 
-This field indicates whether the device is joined with Azure AD. 
-If the value is **NO**, the join to Azure AD has not completed yet. 
+This field indicates whether the device is joined. The value will be **YES** if the device is either an Azure AD joined device or a hybrid Azure AD joined device.
+If the value is **NO**, the join to Azure AD has not completed yet.
 
 Proceed to next steps for further troubleshooting.
 
@@ -154,7 +155,7 @@ Possible reasons for failure:
    - A valid SCP object is required in the AD forest, to which the device belongs, that points to a verified domain name in Azure AD.
    - Details can be found in the section [Configure a Service Connection Point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Failure to connect and fetch the discovery metadata from the discovery endpoint.
-   - The device should be able to access `https://enterpriseregistration.windows.net`, in the SYSTEM context, to discover the registration and authorization endpoints. 
+   - The device should be able to access `https://enterpriseregistration.windows.net`, in the SYSTEM context, to discover the registration and authorization endpoints.
    - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
 - Failure to connect to user realm endpoint and perform realm discovery. (Windows 10 version 1809 and later only)
    - The device should be able to access `https://login.microsoftonline.com`, in the SYSTEM context, to perform realm discovery for the verified domain and determine the domain type (managed/federated).
@@ -172,7 +173,7 @@ Possible reasons for failure:
    - Reason: Operation timed out while performing Discovery.
    - Resolution: Ensure that `https://enterpriseregistration.windows.net` is accessible in the SYSTEM context. For more information, see the section [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Reason: Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS. 
+   - Reason: Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS.
    - Resolution: Find the suberror below to investigate further.
 
 **Common suberror codes:**
@@ -244,7 +245,7 @@ Applicable only for federated domain accounts.
 Reasons for failure:
 
 - Unable to get an Access token silently for DRS resource.
-   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Windows 10 devices acquire auth token from the federation service using Integrated Windows Authentication to an active WS-Trust endpoint. Details: [Federation Service Configuration](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Common error codes:**
 
@@ -259,7 +260,7 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Reason: Authentication protocol is not WS-Trust.
-   - Resolution: The on-premises identity provider must support WS-Trust 
+   - Resolution: The on-premises identity provider must support WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Reason: On-premises federation service did not return an XML response.
    - Resolution: Ensure MEX endpoint is returning a valid XML. Ensure proxy is not interfering and returning non-xml responses.
@@ -276,8 +277,8 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Reason: Connection with the auth endpoint was aborted.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Reason: The Secure Sockets Layer (SSL) certificate sent by the server could not be validated.
-   - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location. 
+   - Reason: The Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate sent by the server could not be validated.
+   - Resolution: Check the client time skew. Retry after sometime or try joining from an alternate stable network location.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Reason: The attempt to connect to `https://login.microsoftonline.com` failed.
    - Resolution: Check network connection to `https://login.microsoftonline.com`.
@@ -292,11 +293,11 @@ Use Event Viewer logs to locate the error code, suberror code, server error code
    - Resolution: Check the federation server settings. Look for the server error code in the authentication logs.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Reason: Received an error when trying to get access token from the token endpoint.
-   - Resolution: Look for the underlying error in the ADAL log. 
+   - Resolution: Look for the underlying error in the ADAL log.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Reason: General ADAL failure
    - Resolution: Look for the suberror code or server error code from the authentication logs.
-    
+
 #### Join Phase
 
 Reasons for failure:
@@ -336,7 +337,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Reason: Received an error response from DRS with ErrorCode: "DirectoryError"
    - Resolution: Refer to the server error code for possible reasons and resolutions.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Reason: Received an error response from DRS with ErrorCode: "AuthenticationError" and ErrorSubCode is NOT "DeviceNotFound". 
+   - Reason: Received an error response from DRS with ErrorCode: "AuthenticationError" and ErrorSubCode is NOT "DeviceNotFound".
    - Resolution: Refer to the server error code for possible reasons and resolutions.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Reason: Received an error response from DRS with ErrorCode: "DirectoryError"
@@ -348,14 +349,14 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Reason: TPM operation failed or was invalid
    - Resolution: Likely due to a bad sysprep image. Ensure the machine from which the sysprep image was created is not Azure AD joined, hybrid Azure AD joined, or Azure AD registered.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Reason: Generic TPM error. 
+   - Reason: Generic TPM error.
    - Resolution: Disable TPM on devices with this error. Windows 10 version 1809 and higher automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Reason: TPM in FIPS mode not currently supported.
    - Resolution: Disable TPM on devices with this error. Windows 1809 automatically detects TPM failures and completes hybrid Azure AD join without using the TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Reason: TPM locked out.
-   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
+   - Resolution: Transient error. Wait for the cooldown period. Join attempt after some time should succeed. More Information can be found in the article [TPM fundamentals](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering)
 
 ##### Network Errors
 
@@ -385,20 +386,23 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 ### Step 5: Collect logs and contact Microsoft Support
 
-Get public scripts here: [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Download the file Auth.zip from [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Open an admin command prompt and run `start_ngc_tracing_public.cmd`.
-2. Perform the steps to reproduce the issue.
-3. Stop running the logging script by executing `stop_ngc_tracing_public.cmd`.
-4. Zip and send the logs under `%SYSTEMDRIVE%\TraceDJPP\*` for analysis.
+1. Unzip the files and rename the included files **start-auth.txt** and **stop-auth.txt** to **start-auth.cmd** and **stop-auth.cmd**.
+1. From an elevated command prompt, run **start-auth.cmd**.
+1. Use Switch Account to toggle to another session with the problem user.
+1. Reproduce the issue.
+1. Use Switch Account to toggle back to the admin session running the tracing.
+1. From an elevated command prompt, run **stop-auth.cmd**.
+1. Zip and send the folder **Authlogs** from the folder where the scripts were executed from.
 
 ## Troubleshoot Post-Join issues
 
-### Retrieve the join status 
+### Retrieve the join status
 
 #### WamDefaultSet: YES and AzureADPrt: YES
-  
-These fields indicate whether the user has successfully authenticated to Azure AD when signing in to the device. 
+
+These fields indicate whether the user has successfully authenticated to Azure AD when signing in to the device.
 If the values are **NO**, it could be due:
 
 - Bad storage key in the TPM associated with the device upon registration (check the KeySignTest while running elevated).
@@ -406,8 +410,8 @@ If the values are **NO**, it could be due:
 - HTTP Proxy not found
 
 ## Known issues
-- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
- 
+- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality.
+
 ## Next steps
 
 Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)

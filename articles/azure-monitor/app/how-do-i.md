@@ -1,11 +1,7 @@
 ---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
 
 ---
@@ -16,7 +12,7 @@ ms.date: 04/04/2017
 Set an [availability web test](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### Email if my site is overloaded
-Set an [alert](../../azure-monitor/app/alerts.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
+Set an [alert](../../azure-monitor/platform/alerts-log.md) on **Server response time**. A threshold between 1 and 2 seconds should work.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +22,10 @@ If you want to set an alert on **Server exceptions**, you might have to do [some
 
 ### Email on exceptions
 1. [Set up exception monitoring](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Set an alert](../../azure-monitor/app/alerts.md) on the Exception count metric
+2. [Set an alert](../../azure-monitor/platform/alerts-log.md) on the Exception count metric
 
 ### Email on an event in my app
-Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](../../azure-monitor/app/alerts.md).
+Let's suppose you'd like to get an email when a specific event occurs. Application Insights doesn't provide this facility directly, but it can [send an alert when a metric crosses a threshold](../../azure-monitor/platform/alerts-log.md).
 
 Alerts can be set on [custom metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), though not custom events. Write some code to increase a metric when the event occurs:
 
@@ -45,7 +41,7 @@ Because alerts have two states, you have to send a low value when you consider t
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Create a chart in [metric explorer](../../azure-monitor/app/metrics-explorer.md) to see your alarm:
+Create a chart in [metric explorer](../../azure-monitor/platform/metrics-charts.md) to see your alarm:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -65,11 +61,11 @@ Some points to consider:
 * Since emails are sent both on "alert" and "healthy", you might want to consider re-thinking your one-shot event as a two-state condition. For example, instead of a "job completed" event, have a "job in progress" condition, where you get emails at the start and end of a job.
 
 ### Set up alerts automatically
-[Use PowerShell to create new alerts](../../azure-monitor/app/alerts.md#automation)
+[Use PowerShell to create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Use PowerShell to Manage Application Insights
-* [Create new resources](../../azure-monitor/app/powershell-script-create-resource.md)
-* [Create new alerts](../../azure-monitor/app/alerts.md#automation)
+* [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Create new alerts](../../azure-monitor/platform/alerts-log.md)
 
 ## Separate telemetry from different versions
 
@@ -82,7 +78,7 @@ Some points to consider:
 
 ## Visualize data
 #### Dashboard with metrics from multiple apps
-* In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
+* In [Metric Explorer](../../azure-monitor/platform/metrics-charts.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
 * [Export telemetry to Power BI](../../azure-monitor/app/export-power-bi.md ).
@@ -94,11 +90,11 @@ Or
 <a name="search-specific-users"></a>
 
 ### Filter out anonymous or authenticated users
-If your users sign in, you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
+If your users sign in, you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
 
 You can then:
 
-* Search on specific user ids
+* Search on specific user IDs
 
 ![](./media/how-do-i/110-search.png)
 
@@ -110,12 +106,12 @@ You can then:
 Create a [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
 
 ## List specific users and their usage
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
 
-* [Set authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
-* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
+* [Set authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
+* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user ID as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user ID to all server telemetry. You can then filter and segment metrics and searches on the user ID.
 
 ## Reduce traffic from my app to Application Insights
 * In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.
@@ -146,7 +142,7 @@ For ASP.NET Core applications you may access `TelemetryConfiguration` instance u
 You can disable standard collectors (for example, performance counters, HTTP requests, or dependencies)
 
 * **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core applicaitons** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET Core applications** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## View system performance counters
 Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.
@@ -159,5 +155,5 @@ Among the metrics you can show in metrics explorer are a set of system performan
 * **Unix server** - [Install collectd](../../azure-monitor/app/java-collectd.md)
 
 ### To display more performance counters
-* First, [add a new chart](../../azure-monitor/app/metrics-explorer.md) and see if the counter is in the basic set that we offer.
+* First, [add a new chart](../../azure-monitor/platform/metrics-charts.md) and see if the counter is in the basic set that we offer.
 * If not, [add the counter to the set collected by the performance counter module](../../azure-monitor/app/performance-counters.md).

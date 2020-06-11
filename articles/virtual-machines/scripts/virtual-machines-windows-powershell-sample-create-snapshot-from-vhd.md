@@ -1,11 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample -  Create a snapshot from a VHD to create multiple identical managed disks in small amount of time | Microsoft Docs
+title: Create a snapshot from a VHD to create multiple identical managed disks - PowerShell Sample
 description: Azure PowerShell Script Sample -  Create a snapshot from a VHD to create multiple identical managed disks in small amount of time
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -25,21 +25,12 @@ This script creates a snapshot from a VHD file in a storage account in same or d
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-snapshots-from-vhd-in-different-subscription/create-snapshots-from-vhd-in-different-subscription.ps1 "Create snapshot from VHD")]
 
-
-## Script explanation
-
-This script uses following commands to create a managed disk from a VHD in different subscription. Each command in the table links to command specific documentation.
-
-| Command | Notes |
-|---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Creates disk configuration that is used for disk creation. It includes storage type, location, resource Id of the storage account where the parent VHD is stored, and VHD URI of the parent VHD. |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a disk using disk configuration, disk name, and resource group name passed as parameters. |
 
 ## Next steps
 

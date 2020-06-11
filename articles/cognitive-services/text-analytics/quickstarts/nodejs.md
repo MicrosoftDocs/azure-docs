@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Node.js to call the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
+description: This quickstart shows how to get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-javascript-september2019
 ---
@@ -18,7 +18,7 @@ ms.custom: seo-javascript-september2019
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Node.JS.
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
@@ -30,27 +30,17 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
 1. Add the code provided below to a new `.js` file.
+1. Copy your key and endpoint into the code. 
 1. Run the program from your IDE or command line, for example `npm start` or `node detect.js`.
 
 ```javascript
 'use strict';
 
 let https = require ('https');
-
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/languages';
 
@@ -149,9 +139,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). Sentiment analysis can be used to find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. The following example provides scores for two documents, one in English and another in Spanish.
 
-1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
 1. Add the code provided below to a new `.js` file.
+1. Copy your Text Analytics key and endpoint into the code. 
 1. Run the program from your IDE or command line, for example `npm start` or `node sentiment.js`.
 
 ```javascript
@@ -159,17 +149,8 @@ The Sentiment Analysis API detects the sentiment of a set of text records, using
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/sentiment';
 
@@ -242,9 +223,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Key phrase extraction is used to quickly identify the main points of a document or text. The following example extracts key phrases for both English and Spanish documents.
 
-1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
 1. Add the code provided below to a new `.js` file.
+1. Copy your Text Analytics key and endpoint into the code. 
 1. Run the program from your IDE or command line, for example `npm start` or `node key-phrases.js`.
 
 ```javascript
@@ -252,17 +233,8 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/keyPhrases';
 
@@ -355,9 +327,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
-1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
 1. Add the code provided below to a new `.js` file.
+1. Copy your Text analytics key and endpoint into the code
 1. Run the program from your IDE or command line, for example `npm start` or `node entities.js`.
 
 ```javascript
@@ -365,17 +337,8 @@ The Entities API identifies well-known entities in a text document, using the [E
 
 let https = require ('https');
 
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
+subscription_key = "<paste-your-text-analytics-key-here>";
+endpoint = "<paste-your-text-analytics-endpoint-here>";
 
 let path = '/text/analytics/v2.1/entities';
 

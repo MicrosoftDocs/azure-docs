@@ -5,12 +5,12 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/12/2019
+ms.date: 03/11/2020
 ---
 
-# Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output (Preview)
+# Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output
 
-[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage is available for Azure Stream Analytics as a preview. This gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
+[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
 This article shows you how to enable Managed Identity for the Blob output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
@@ -18,7 +18,7 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
 1. Create a new Stream Analytics job or open an existing job in the Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Configure**. Ensure that "Use System-assigned Managed Identity" is selected and then click the **Save** button on the bottom of the screen.
 
-   ![Configure Stream Analytics managed identity](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. In the output properties window of the Azure Blob storage output sink, select the Authentication mode drop-down and choose **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md). When you are finished, click **Save**.
 

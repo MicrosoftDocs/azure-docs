@@ -1,5 +1,5 @@
 ---
-title: Language filters for multi-lingual content in a search index
+title: Filter by language in a search index
 titleSuffix: Azure Cognitive Search
 description: Filter criteria to support multi-language search, scoping query execution to language-specific fields.
 
@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/22/2020
 ---
 
 # How to filter by language in Azure Cognitive Search 
@@ -28,7 +28,7 @@ The success of this technique hinges on the integrity of field contents. Azure C
 
 In Azure Cognitive Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
 
-In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. Notice how this example shows the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
+The following example is from the [real-estate sample](search-get-started-portal.md) which has several string fields containing content in different languages. Notice the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
   ![](./media/search-filters-language/lang-fields.png)
 
@@ -54,7 +54,7 @@ parameters =
     };
 ```
 > [!Note]
-> Although there is no $filter argument on the query, this use case is strongly affiliated with filter concepts, so we present it as a filtering scenario.
+> Although there is no $filter argument on the query, this use case is strongly affiliated with filter concepts, so it's presented as a filtering scenario.
 
 ## See also
 

@@ -1,6 +1,6 @@
 ---
 title: High availability ports overview in Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer. 
 services: load-balancer
 documentationcenter: na
@@ -82,17 +82,13 @@ If your scenario requires that you configure more than one HA port front end for
 
 ### An internal load balancer with HA ports and a public load balancer on the same back-end instance
 
-You can configure *one* public Standard Load Balancer resource for the back-end resources, along with a single internal Standard Load Balancer with HA ports.
-
->[!NOTE]
->This capability is currently available via Azure Resource Manager templates, but it is not available via the Azure portal.
+You can configure *one* public Standard Load Balancer resource for the backend resources, along with a single internal Standard Load Balancer with HA ports.
 
 ## Limitations
 
 - HA ports load-balancing rules are available only for internal Standard Load Balancer.
-- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule is not supported.
+- The combining of an HA ports load-balancing rule and a non-HA ports load-balancing rule pointing to same backend ipconfiguration(s) is not supported unless both have Floating IP enabled.
 - Existing IP fragments will be forwarded by HA Ports load-balancing rules to same destination as first packet.  IP fragmenting a UDP or TCP packet is not supported.
-- The HA ports load-balancing rules are not available for IPv6.
 - Flow symmetry (primarily for NVA scenarios) is supported with backend instance and a single NIC (and single IP configuration) only when used as shown in the diagram above and using HA Ports load-balancing rules. It is not provided in any other scenario. This means that two or more Load Balancer resources and their respective rules make independent decisions and are never coordinated. See the description and diagram for [network virtual appliances](#nva). When you are using multiple NICs or sandwiching the NVA between a public and internal Load Balancer, flow symmetry is not available.  You may be able to work around this by source NAT'ing the ingress flow to the IP of the appliance to allow replies to arrive on the same NVA.  However, we strongly recommend using a single NIC and using the reference architecture shown in the diagram above.
 
 

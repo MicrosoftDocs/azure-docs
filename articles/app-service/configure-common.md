@@ -1,20 +1,10 @@
 ---
-title: Configure apps in the portal - Azure App Service
-description: Learn to configure common settings for an App Service app in the Azure portal.
+title: Configure apps in the portal
+description: Learn to configure common settings for an App Service app in the Azure portal. App settings, connection strings, platform, language stack, container, etc.
 keywords: azure app service, web app, app settings, environment variables
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -26,7 +16,11 @@ This topic explains how to configure common settings for web apps, mobile back e
 
 In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
 
-In the [Azure portal], navigate to your app's management page. In the app's left menu, click **Configuration** > **Application settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. 
+
+![Search for App Services](./media/configure-common/search-for-app-services.png)
+
+In the app's left menu, select **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
@@ -87,20 +81,21 @@ App settings have the following JSON formatting:
 
 ## Configure connection strings
 
-In the [Azure portal], navigate to the app's management page. In the app's left menu, click **Configuration** > **Application settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQLServer: `SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
+* PostgreSQL: `POSTGRESQLCONNSTR_`  
 
 For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
@@ -158,7 +153,7 @@ Connection strings have the following JSON formatting:
 
 ## Configure general settings
 
-In the [Azure portal], navigate to the app's management page. In the app's left menu, click **Configuration** > **Application settings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **General settings**.
 
 ![General settings](./media/configure-common/open-general.png)
 
@@ -169,10 +164,12 @@ Here, you can configure some common settings for the app. Some settings require 
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keep the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+      > [!NOTE]
+      > With the Always On feature, you can’t control the endpoint. It always sends a request to the application root.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
-    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, [secure your custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     - **ARR affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
 - **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](containers/configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
@@ -181,9 +178,9 @@ Here, you can configure some common settings for the app. Some settings require 
 
 This setting is only for Windows apps.
 
-In the [Azure portal], navigate to the app's management page. In the app's left menu, click **Configuration** > **Default documents**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Default documents**.
 
-![General settings](./media/configure-common/open-documents.png)
+![Default documents](./media/configure-common/open-documents.png)
 
 The default document is the web page that's displayed at the root URL for a website. The first matching file in the list is used. To add a new default document, click **New document**. Don't forget to click **Save**.
 
@@ -191,9 +188,9 @@ If the app uses modules that route based on URL instead of serving static conten
 
 ## Configure path mappings
 
-In the [Azure portal], navigate to the app's management page. In the app's left menu, click **Configuration** > **Path mappings**.
+In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Path mappings**.
 
-![General settings](./media/configure-common/open-path.png)
+![Path mappings](./media/configure-common/open-path.png)
 
 The **Path mappings** page shows you different things based on the OS type.
 
@@ -247,7 +244,7 @@ See [Configure a custom Linux container for Azure App Service](containers/config
 
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
-- [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md)
+- [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 - [Enable diagnostic logs](troubleshoot-diagnostic-logs.md)
 - [Scale an app in Azure App Service]
 - [Monitoring basics in Azure App Service]

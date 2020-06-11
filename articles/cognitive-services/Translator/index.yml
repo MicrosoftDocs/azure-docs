@@ -1,15 +1,14 @@
 ### YamlMime:Landing
 
-title: Translator Text documentation
-summary: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API, which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or Microsoft Speech Services. 
+title: Translator documentation
+summary: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
 metadata:
-  title: Translator Text documentation - quickstarts, tutorials, API reference
+  title: Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure Cognitive Services
-  description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API, which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or Microsoft Speech Services.
+  description: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
   services: cognitive-services
   author: erhopf
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
@@ -24,7 +23,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Translator Text API
+          - text: Translator
             url: translator-info-overview.md
           - text: Custom Translator
             url: translator-info-overview.md
@@ -36,11 +35,7 @@ landingContent:
             url: translator-text-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-      - linkListType: concept
-        links:
-          - text: Docker containers
-            url: how-to-install-containers.md
-  - title: Translator Text API
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
@@ -64,11 +59,11 @@ landingContent:
             url: tutorial-build-flask-app-translation-synthesis.md
       - linkListType: reference
         links:
-          - text: Translator Text API reference (v3)
+          - text: Translator reference (v3)
             url: reference/v3-0-reference.md
           - text: Request limits
             url: request-limits.md
-          - text: Language and region support
+          - text: Language support
             url: language-support.md
 
   - title: Custom Translator

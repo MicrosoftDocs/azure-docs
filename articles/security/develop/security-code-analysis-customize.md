@@ -1,7 +1,8 @@
 ---
-title: Microsoft Azure Security Code Analysis task customization guide
+title: Customize Microsoft Security Code Analysis tasks
+titleSuffix: Azure
 description: This article describes customizing the tasks in the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -36,12 +37,14 @@ Windows Defender uses the Windows Update client to download and install signatur
 
 For more information on Windows Update errors and their mitigation, see [Windows Update error codes by component](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) and the TechNet article [Windows Update Agent - Error Codes](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
+For information about YAML configuration for this task, check our [Anti-Malware YAML options](yaml-configuration.md#anti-malware-scanner-task)
+
 ## BinSkim task
 
 > [!NOTE]
 > Before you can run the BinSkim task, your build must meet one of these conditions:
->    - Your build produces binary artifacts from managed code.
->    - You have binary artifacts committed that you want to analyze with BinSkim.
+>  - Your build produces binary artifacts from managed code.
+>  - You have binary artifacts committed that you want to analyze with BinSkim.
 
 Details of task configuration are shown in the following screenshot and list.
 
@@ -75,6 +78,8 @@ Details of task configuration are shown in the following screenshot and list.
 
 For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
+For information about YAML configuration for this task, check our [BinSkim YAML options](yaml-configuration.md#binskim-task)
+
 ## Credential Scanner task
 
 Details of task configuration are shown in the following screenshot and list.
@@ -82,7 +87,8 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the Credential Scanner build task](./media/security-tools/3-taskdetails.png)
 
 Available options include:
-
+  - **Display Name**: Name of the Azure DevOps Task. The default value is Run Credential Scanner
+  - **Tool Major Version**: Available values include **CredScan V2**, **CredScan V1**. We recommend customers to use the **CredScan V2** version.
   - **Output Format**: Available values include **TSV**, **CSV**, **SARIF**, and **PREfast**.
   - **Tool Version**: We recommend you select **Latest**.
   - **Scan Folder**: The repository folder to be scanned.
@@ -95,6 +101,8 @@ Available options include:
   - **Maximum File Scan Read Bytes**: The maximum number of bytes to read from a file during content analysis. The default value is 104,857,600.
   - **Control Options** > **Run this task**: Specifies when the task will run. Select **Custom conditions** to specify more complex conditions.
   - **Version**: The build task version within Azure DevOps. This option isn't frequently used.
+
+For information about YAML configuration for this task, check our [Credential Scanner YAML options](yaml-configuration.md#credential-scanner-task)
 
 ## Microsoft Security Risk Detection task
 
@@ -124,10 +132,13 @@ Details for configuring this task are shown in the following list. For any UI el
        - **Test Driver Can Be Renamed**: Select this checkbox if the test driver executable file can be renamed and still work correctly.
        - **The Fuzzing Application Runs as a Single OS Process**: Select this checkbox if the test driver runs under a single OS process. Clear it if the test driver spawns additional processes.
 
+For information about YAML configuration for this task, check our [Microsoft Security Risk Detection YAML options](yaml-configuration.md#microsoft-security-risk-detection-task)
+
 ## Roslyn Analyzers task
 
 > [!NOTE]
 > Before you can run the Roslyn Analyzers task, your build needs to meet these conditions:
+>
 > - Your build definition includes the built-in MSBuild or VSBuild build task to compile C# or Visual Basic code. The analyzers task relies on the input and output of the built-in task to run the MSBuild compilation with Roslyn analyzers enabled.
 > - The build agent running this build task has Visual Studio 2017 version 15.5 or later installed, so that it uses compiler version 2.6 or later.
 
@@ -141,6 +152,7 @@ Available options include:
 - **Control Options** > **Run this task**: Specifies when the task will run. Choose **Custom conditions** to specify more complex conditions.
 
 > [!NOTE]
+>
 > - Roslyn Analyzers are integrated with the compiler and can be run only as part of csc.exe compilation. Hence, this task requires the compiler command that ran earlier in the build to be replayed or run again. This replay or run is done by querying Visual Studio Team Services (VSTS) for the MSBuild build task logs.
 >
 >   There is no other way for the task to reliably get the MSBuild compilation command line from the build definition. We considered adding a freeform text box to allow users to enter their command lines. But then it would be hard to keep those command lines up-to-date and in sync with the main build.
@@ -157,12 +169,16 @@ For additional resources for the Roslyn Analyzers task, check out [The Roslyn-ba
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
+For information about YAML configuration for this task, check our [Roslyn Analyzers YAML options](yaml-configuration.md#roslyn-analyzers-task)
+
 ## TSLint task
 
 For More information about TSLint, go to the [TSLint GitHub repo](https://github.com/palantir/tslint).
 
 >[!NOTE] 
 >As you might be aware, the [TSLint GitHub repo](https://github.com/palantir/tslint) home page says that TSLint will be deprecated sometime in 2019. Microsoft is investigating [ESLint](https://github.com/eslint/eslint) as an alternative task.
+
+For information about YAML configuration for this task, check our [TSLint YAML options](yaml-configuration.md#tslint-task)
 
 ## Publish Security Analysis Logs task
 
@@ -171,8 +187,10 @@ Details of task configuration are shown in the following screenshot and list.
 ![Configuring the Publish Security Analysis Logs build task](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
 - **Artifact Name**: Any string identifier.
-- **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps server or to a shared file that is accessible to the build agent.
+- **Artifact Type**: Depending on your selection, you can publish logs to your Azure DevOps Server or to a shared file that is accessible to the build agent.
 - **Tools**: You can choose to preserve logs for specific tools, or you can select **All Tools** to preserve all logs.
+
+For information about YAML configuration for this task, check our [Publish Security Logs YAML options](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## Security Report task
 
@@ -185,6 +203,8 @@ Details of Security Report configuration are shown in the following screenshot a
 - **Advanced Options**: If there are no logs for one of the tools selected, you can choose to log a warning or an error. If you log an error, the task fails.
 - **Base Logs Folder**: You can customize the base logs folder where logs are to be found. But this option is typically not used.
 
+For information about YAML configuration for this task, check our [Security report YAML options](yaml-configuration.md#security-report-task)
+
 ## Post-Analysis task
 
 Details of task configuration are shown in the following screenshot and list.
@@ -195,6 +215,10 @@ Details of task configuration are shown in the following screenshot and list.
 - **Report**: You can optionally write the results that are causing the build break. The results are written to the Azure DevOps console window and log file.
 - **Advanced Options**: If there are no logs for one of the tools selected, you can choose to log a warning or an error. If you log an error, the task fails.
 
+For information about YAML configuration for this task, check our [Post Analysis YAML options](yaml-configuration.md#post-analysis-task)
+
 ## Next steps
+
+For information about YAML based configuration, refer to our [YAML Configuration guide](yaml-configuration.md).
 
 If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).

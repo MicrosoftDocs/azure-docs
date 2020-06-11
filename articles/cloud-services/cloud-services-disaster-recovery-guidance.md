@@ -1,5 +1,6 @@
 ---
-title: What to do in the event of an Azure service disruption that impacts Azure Cloud Services | Microsoft Docs
+title: Handling an Azure service disruption that impacts Azure Cloud Services
+titleSuffix: Azure Cloud Services
 description: Learn what to do in the event of an Azure service disruption that impacts Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -21,7 +22,7 @@ Azure already has many built-in platform features that support highly available 
 This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
 
 > [!NOTE]
-> Be aware that you do not have any control over this process, and it will only occur for datacenter-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see [Disaster recovery and high availability for applications built on Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). If you would like to be able to affect your own failover, you might want to consider the use of [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), which creates a read-only copy of your data in another region.
+> Be aware that you do not have any control over this process, and it will only occur for datacenter-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see [Disaster recovery and high availability for applications built on Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). If you would like to be able to affect your own failover, you might want to consider the use of [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md), which creates a read-only copy of your data in another region.
 >
 >
 
@@ -40,8 +41,8 @@ For more detail about how to create and deploy a cloud service application, see 
 
 Depending on your application data sources, you may need to check the recovery procedures for your application data source.
 
-* For Azure Storage data sources, see [Azure Storage replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) to check on the options that are available based on the chose replication model for your application.
-* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md) to check on the options that are available based on the chosen replication model for your application.
+* For Azure Storage data sources, see [Azure Storage redundancy](../storage/common/storage-redundancy.md) to check on the options that are available based on the chosen redundancy model for your application.
+* For SQL Database sources, read [Overview: Cloud business continuity and database disaster recovery with SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) to check on the options that are available based on the chosen replication model for your application.
 
 
 ## Option 3: Wait for recovery
@@ -50,4 +51,4 @@ In this case, no action on your part is required, but your service will be unava
 ## Next steps
 To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
+To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](/azure/architecture/checklist/resiliency-per-service).

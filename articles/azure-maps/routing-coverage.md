@@ -1,8 +1,8 @@
 ---
-title: Routing coverage in Azure Maps | Microsoft Docs
-description: Learn about routing coverage in Azure Maps 
-author: jingjing-z
-ms.author: jinzh
+title: Routing coverage | Microsoft Azure Maps
+description: In this article, you will learn about regions with routing coverage for Microsoft Azure Maps. 
+author: Philmea
+ms.author: philmea
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,10 +11,9 @@ manager:
 ---
 
 
-
 # Azure Maps routing coverage
 
-This article provides coverage information for Azure Maps routing. When you search optimal route from location A to B, Azure Maps can provide highly accurate travel times, live updated travel information and route instructions. The route will take into account additional search terms such as current traffic, vehicle type and conditions to avoid. The ability to optimize the route depends on the region as Azure Maps has various levels of information and accuracy for different regions. The following table lists the regions and what kind of information you can request for them.
+This article provides coverage information for Azure Maps routing. Upon a search query, Azure Maps returns an optimal route from location A to location B. You are provided with accurate travel times, live updates of travel information, and route instructions. You can also add additional search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The following table lists the regions and what kind of information you can request for them.
  
 Check out coverage for [**Geocoding**](geocoding-coverage.md).       
 Check out coverage for [**Traffic**](traffic-coverage.md).  
@@ -48,7 +47,7 @@ The following table provides coverage information for Azure Maps routing.
 | Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
-| côte d’ivoire                  |        ✓       |                       |             |
+| côte d'ivoire                  |        ✓       |                       |             |
 | Egypt                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
 | Gambia                         |        ✓       |                       |             |
@@ -135,6 +134,7 @@ The following table provides coverage information for Azure Maps routing.
 | Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
+| Kazakhstan                |        ✓       |                     |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macao SAR                      |        ✓       |         ✓            |             |
@@ -202,7 +202,6 @@ The following table provides coverage information for Azure Maps routing.
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |

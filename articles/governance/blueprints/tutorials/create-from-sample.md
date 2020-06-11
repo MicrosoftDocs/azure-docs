@@ -1,11 +1,8 @@
 ---
-title: Create an environment from a blueprint sample
-description: Use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/05/2019
+title: "Tutorial: Blueprint sample to new environment"
+description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
+ms.date: 03/25/2020
 ms.topic: tutorial
-ms.service: blueprints
 ---
 # Tutorial: Create an environment from a blueprint sample
 
@@ -15,7 +12,7 @@ intended as a starting place to explore using Azure Blueprints with various comb
 artifacts, designs, and parameters.
 
 The following tutorial uses the **Resource Groups with RBAC** blueprint sample to showcase different
-aspects of the Blueprints service. The following steps are covered:
+aspects of the Azure Blueprints service. The following steps are covered:
 
 > [!div class="checklist"]
 > - Create a new blueprint definition from the sample
@@ -39,8 +36,7 @@ on the sample.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select **Use
-   this sample**.
+1. Find the **Resource Groups with RBAC** blueprint sample under _Other Samples_ and select it.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -212,7 +208,8 @@ resources directly.
    states that while your account has permission to delete the resource group, access is denied by
    the blueprint assignment. Remember that we selected the _Read Only_ blueprint lock mode during
    blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from
-   deleting the resource. For more information, see [blueprints resource locking](../concepts/resource-locking.md).
+   deleting the resource. For more information, see
+   [blueprints resource locking](../concepts/resource-locking.md).
 
 These steps show that our resources were created as defined and the blueprint locks prevented
 unwanted deletion, even from an account with permission.
@@ -253,9 +250,8 @@ When finished with this tutorial, delete the following resources:
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](../concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](../concepts/parameters.md)
-- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
-- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+In this tutorial, you've learned how to create a new blueprint from a sample definition. To learn
+more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)

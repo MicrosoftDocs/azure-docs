@@ -1,5 +1,5 @@
 ---
-title: Wrangling data flow transformation functions in Azure Data Factory | Microsoft Docs
+title: Wrangling data flow transformation functions in Azure Data Factory 
 description: An overview of available wrangling data flow functions in Azure Data Factory
 author: djpmsft
 ms.author: daperlov
@@ -10,6 +10,8 @@ ms.date: 11/01/2019
 ---
 
 # Transformation functions in wrangling data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Wrangling data flow in Azure Data Factory allows you to do code-free agile data preparation and wrangling at cloud scale. Wrangling data flow integrates with [Power Query Online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) and makes Power Query M functions available for data wrangling via spark execution. 
 
@@ -108,12 +110,21 @@ Keep and Remove Top, Keep Range (corresponding M functions,
     [Table.MinN](https://docs.microsoft.com/powerquery-m/table-minn),
     [Table.MaxN](https://docs.microsoft.com/powerquery-m/table-maxn))
 
-## Known unsupported functionality
+## Known unsupported functions
 
-Below are functions that aren't supported. This list isn't exhaustive and is subject to change.
-* Merge columns (can be achieved with AddColumn)
-* Split column
-* Append queries
-* 'Use first row as headers' and 'Use headers as first row'
+| Function | Status |
+| -- | -- |
+| Table.PromoteHeaders | Not supported. The same result can be achieved by setting "First row as header" in the dataset. |
+| Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName]) |
+| Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
+| Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
+| Table.Distinct | Remove duplicate rows isn't supported. |
+| Table.RemoveLastN | Remove bottom rows isn't supported. |
+| Table.RowCount | Not supported, but can be achieved with an add column with all cells empty (condition column can be used) and then using group by on that column. Table.Group is supported. | 
+| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in wrangling data flow. |
+| Table.Transpose | Not supported |
+| Table.Pivot | Not supported |
 
 ## Next steps
+
+Learn how to [create a wrangling data flow](wrangling-data-flow-tutorial.md).

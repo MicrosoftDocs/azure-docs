@@ -1,12 +1,8 @@
 ---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 08/16/2019
+ms.date: 12/02/2019
 
 ---
 
@@ -26,9 +22,13 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring. |
-   | **Resource Group**     | myResourceGroup      | Name for the new or existing resource group to host App Insights data. |
-   | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+   | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
+   | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
+   | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
+   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources are currently in public preview and allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
+
+> [!NOTE]
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) as it simplifies the required syntax.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
@@ -38,7 +38,7 @@ When your app has been created, a new pane opens. This pane is where you see per
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need copy to add the instrumentation key to your application's code.
+The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 ![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
 
@@ -93,13 +93,13 @@ For the full PowerShell documentation for this cmdlet, and to learn how to retri
 
 ### Azure CLI (preview)
 
-To access the preview Application Insights Azure CLI commands you first need to run:
+To access the preview Application Insights Azure CLI commands, you first need to run:
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Now you can run the following to create your Application Insights resource:
 
@@ -150,12 +150,12 @@ For the full Azure CLI documentation for this command, and to learn how to retri
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
+* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

@@ -21,7 +21,7 @@ The following table lists the limits that apply to IoT Hub resources.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum paid IoT hubs per Azure subscription |100 |
+| Maximum paid IoT hubs per Azure subscription |50 |
 | Maximum free IoT hubs per Azure subscription |1 |
 | Maximum number of characters in a device ID | 128 |
 | Maximum number of device identities<br/> returned in a single call |1,000 |
@@ -35,9 +35,10 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum cloud-to-device queue depth per device |50 |
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
-| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (tags, reported properties, and desired properties) | 8 KB |
-| Maximum size of device twin string value | 4 KB |
-| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
+| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB for tags section, and 32 KB for desired and reported properties sections each |
+| Maximum length of device twin string key | 1 KB |
+| Maximum length of device twin string value | 4 KB |
+| [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
 | Maximum size of direct method payload | 128 KB |
 | Job history maximum retention | 30 days |
 | Maximum concurrent jobs | 10 (for S3), 5 for (S2), 1 (for S1) |
@@ -47,7 +48,7 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
 > [!NOTE]
-> If you need more than 100 paid IoT hubs in an Azure subscription, contact Microsoft Support.
+> If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
 
 > [!NOTE]
 > Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).

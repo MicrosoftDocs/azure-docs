@@ -1,18 +1,15 @@
 ---
-title: Protect new resources with blueprint locks
-description: In this tutorial, you'll learn to use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/28/2019
+title: "Tutorial: Protect new resources with locks"
+description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
+ms.date: 05/06/2020
 ms.topic: tutorial
-ms.service: blueprints
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
 
 With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly
-deployed resources from being tampered with, even by an account with the _Owner_ role. You can add this
-protection in the
-blueprint definitions of resources created by a Resource Manager template artifact.
+deployed resources from being tampered with, even by an account with the _Owner_ role. You can add
+this protection in the blueprint definitions of resources created by a Resource Manager template
+artifact.
 
 In this tutorial, you'll complete these steps:
 
@@ -25,8 +22,8 @@ In this tutorial, you'll complete these steps:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure subscription. If you don't have an Azure subscription,
-create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+before you begin.
 
 ## Create a blueprint definition
 
@@ -44,30 +41,28 @@ First, create the blueprint definition.
 
    - **Blueprint name**: Provide a name for your copy of the blueprint sample. For this tutorial,
      we'll use the name **locked-storageaccount**.
-   - **Blueprint description**: Add a description for the blueprint definition. Use **For testing blueprint
-     resource locking on deployed resources**.
-   - **Definition location**: Select the ellipsis button (...) and then select the management group or subscription to
-     save your blueprint definition to.
+   - **Blueprint description**: Add a description for the blueprint definition. Use **For testing
+     blueprint resource locking on deployed resources**.
+   - **Definition location**: Select the ellipsis button (...) and then select the management group
+     or subscription to save your blueprint definition to.
 
-1. Select the **Artifacts** tab at the top of the page, or select **Next: Artifacts** at the bottom of the
-   page.
+1. Select the **Artifacts** tab at the top of the page, or select **Next: Artifacts** at the bottom
+   of the page.
 
 1. Add a resource group at the subscription level:
    1. Select the **Add artifact** row under **Subscription**.
    1. Select **Resource Group** under **Artifact type**.
    1. Set the **Artifact display name** to **RGtoLock**.
    1. Leave the **Resource Group Name** and **Location** boxes blank, but make sure the check box is
-   selected on each property to make them **dynamic parameters**.
-   1. Select **Add** to add the artifact
-   to the blueprint.
+      selected on each property to make them **dynamic parameters**.
+   1. Select **Add** to add the artifact to the blueprint.
 
 1. Add a template under the resource group:
-   1. Select the **Add artifact** row under the **RGtoLock**
-   entry. 
-   1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display name**
-   to **StorageAccount**, and leave **Description** blank. 
-   1. On the **Template** tab, paste the following Resource Manager template into the editor box. After you paste in the template, select **Add** to add
-   the artifact to the blueprint.
+   1. Select the **Add artifact** row under the **RGtoLock** entry.
+   1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display
+      name** to **StorageAccount**, and leave **Description** blank.
+   1. On the **Template** tab, paste the following Resource Manager template into the editor box.
+      After you paste in the template, select **Add** to add the artifact to the blueprint.
 
    ```json
    {
@@ -128,22 +123,24 @@ and must be published before it can be assigned and deployed.
 1. Select the **Blueprint definitions** page on the left. Use the filters to find the
    **locked-storageaccount** blueprint definition, and then select it.
 
-1. Select **Publish blueprint** at the top of the page. In the new pane on the right, enter
-   **1.0** as the **Version**. This property is useful if you make a change later. Enter
-   **Change notes**, such as **First version published for locking blueprint deployed resources**. Then
-   select **Publish** at the bottom of the page.
+1. Select **Publish blueprint** at the top of the page. In the new pane on the right, enter **1.0**
+   as the **Version**. This property is useful if you make a change later. Enter **Change notes**,
+   such as **First version published for locking blueprint deployed resources**. Then select
+   **Publish** at the bottom of the page.
 
-This step makes it possible to assign the blueprint to a subscription. After the blueprint definition is published, you can still make changes. If you make changes, you need to publish the definition with a new version value to track
-differences between versions of the same blueprint definition.
+This step makes it possible to assign the blueprint to a subscription. After the blueprint
+definition is published, you can still make changes. If you make changes, you need to publish the
+definition with a new version value to track differences between versions of the same blueprint
+definition.
 
 After the **Publishing blueprint definition succeeded** portal notification appears, go to the next
 step.
 
 ## Assign the blueprint definition
 
-After the blueprint definition is published, you can assign it to a
-subscription within the management group where you saved it. In this step, you provide parameters
-to make each deployment of the blueprint definition unique.
+After the blueprint definition is published, you can assign it to a subscription within the
+management group where you saved it. In this step, you provide parameters to make each deployment of
+the blueprint definition unique.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
@@ -171,18 +168,20 @@ to make each deployment of the blueprint definition unique.
 
    - **Lock Assignment**
 
-     Select the **Read Only** blueprint lock mode. For more information, see [blueprints resource locking](../concepts/resource-locking.md).
+     Select the **Read Only** blueprint lock mode. For more information, see
+     [blueprints resource locking](../concepts/resource-locking.md).
 
    - **Managed Identity**
 
-     Use the default option: **System assigned**. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Use the default option: **System assigned**. For more information, see
+     [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - **Artifact parameters**
 
      The parameters defined in this section apply to the artifact under which they're defined. These
-     parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) because they're
-     defined during the assignment of the blueprint. For each artifact, set the parameter value to
-     what you see in the **Value** column.
+     parameters are [dynamic parameters](../concepts/parameters.md#dynamic-parameters) because
+     they're defined during the assignment of the blueprint. For each artifact, set the parameter
+     value to what you see in the **Value** column.
 
      |Artifact name|Artifact type|Parameter name|Value|Description|
      |-|-|-|-|-|
@@ -192,8 +191,8 @@ to make each deployment of the blueprint definition unique.
 
 1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
-This step deploys the defined resources and configures the selected **Lock Assignment**. It can take up to 30 minutes to apply blueprint
-locks.
+This step deploys the defined resources and configures the selected **Lock Assignment**. It can take
+up to 30 minutes to apply blueprint locks.
 
 After the **Assigning blueprint definition succeeded** portal notification appears, go to the next
 step.
@@ -201,34 +200,37 @@ step.
 ## Inspect resources deployed by the assignment
 
 The assignment creates the resource group _TestingBPLocks_ and the storage account deployed by the
-Resource Manager template artifact. The new resource group and the selected lock state are shown
-on the assignment details page.
+Resource Manager template artifact. The new resource group and the selected lock state are shown on
+the assignment details page.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Assigned blueprints** page on the left. Use the filters to find the
    **assignment-locked-storageaccount-TestingBPLocks** blueprint assignment, and then select it.
 
-   From this page, we can see that the assignment succeeded and that the resources were deployed with the new
-   blueprint lock state. If the assignment is updated, the **Assignment operation** drop-down shows
-   details about the deployment of each definition version. You can select the resource group to
-   open the property page.
+   From this page, we can see that the assignment succeeded and that the resources were deployed
+   with the new blueprint lock state. If the assignment is updated, the **Assignment operation**
+   drop-down shows details about the deployment of each definition version. You can select the
+   resource group to open the property page.
 
 1. Select the **TestingBPLocks** resource group.
 
 1. Select the **Access control (IAM)** page on the left. Then select the **Role assignments** tab.
 
    Here we see that the _assignment-locked-storageaccount-TestingBPLocks_ blueprint assignment has
-   the _Owner_ role. It has this role because this role was used to deploy and lock the resource group.
+   the _Owner_ role. It has this role because this role was used to deploy and lock the resource
+   group.
 
 1. Select the **Deny assignments** tab.
 
-   The blueprint assignment created a [deny assignment](../../../role-based-access-control/deny-assignments.md)
-   on the deployed resource group to enforce the **Read Only** blueprint lock mode. The deny
-   assignment prevents someone with appropriate rights on the **Role assignments** tab from taking
-   specific actions. The deny assignment affects _All principals_.
+   The blueprint assignment created a
+   [deny assignment](../../../role-based-access-control/deny-assignments.md) on the deployed
+   resource group to enforce the **Read Only** blueprint lock mode. The deny assignment prevents
+   someone with appropriate rights on the **Role assignments** tab from taking specific actions. The
+   deny assignment affects _All principals_.
 
-   For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+   For information about excluding a principal from a deny assignment, see
+   [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
 1. Select the deny assignment, and then select the **Denied Permissions** page on the left.
 
@@ -239,11 +241,12 @@ on the assignment details page.
    the **Overview** page on the left and then the **Delete resource group** button. Enter the name
    **TestingBPLocks** to confirm the delete and then select **Delete** at the bottom of the pane.
 
-   The portal notification **Delete resource group TestingBPLocks failed** appears. The error
-   states that although your account has permission to delete the resource group, access is denied by
-   the blueprint assignment. Remember that we selected the **Read Only** blueprint lock mode during
+   The portal notification **Delete resource group TestingBPLocks failed** appears. The error states
+   that although your account has permission to delete the resource group, access is denied by the
+   blueprint assignment. Remember that we selected the **Read Only** blueprint lock mode during
    blueprint assignment. The blueprint lock prevents an account with permission, even _Owner_, from
-   deleting the resource. For more information, see [blueprints resource locking](../concepts/resource-locking.md).
+   deleting the resource. For more information, see
+   [blueprints resource locking](../concepts/resource-locking.md).
 
 These steps show that our deployed resources are now protected with blueprint locks that prevent
 unwanted deletion, even from an account that has permission to delete the resources.
@@ -258,11 +261,11 @@ doesn't remove the associated artifacts.
 1. Select the **Assigned blueprints** page on the left. Use the filters to find the
    **assignment-locked-storageaccount-TestingBPLocks** blueprint assignment, and then select it.
 
-1. Select **Unassign blueprint** at the top of the page. Read the warning in the
-   confirmation dialog box, and then select **OK**.
+1. Select **Unassign blueprint** at the top of the page. Read the warning in the confirmation dialog
+   box, and then select **OK**.
 
-   When the blueprint assignment is removed, the blueprint locks are also removed. The
-   resources can once again be deleted by an account with appropriate permissions.
+   When the blueprint assignment is removed, the blueprint locks are also removed. The resources can
+   once again be deleted by an account with appropriate permissions.
 
 1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
 
@@ -283,9 +286,8 @@ When you're finished with this tutorial, delete these resources:
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
-- Find out how to use [blueprint resource locking](../concepts/resource-locking.md).
-- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
-- [Troubleshoot issues](../troubleshoot/general.md) during the assignment of a blueprint.
+In this tutorial, you've learned how to protect new resources deployed with Azure Blueprints. To
+learn more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)

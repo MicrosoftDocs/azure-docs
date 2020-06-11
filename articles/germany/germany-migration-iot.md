@@ -6,12 +6,19 @@ services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 11/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate IoT resources to global Azure
+
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 This article has information that can help you migrate Azure IoT resources from Azure Germany to global Azure.
 
@@ -50,10 +57,10 @@ Migrating Azure Functions resources from Azure Germany to global Azure isn't sup
 For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-- Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Notification Hubs
 
@@ -65,7 +72,7 @@ To migrate settings from one instance of Azure Notification Hubs to another inst
 
 For more information:
 
-- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
 - Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## IoT Hub
@@ -77,7 +84,7 @@ Although you can migrate Azure IoT Hub instances from Azure Germany to global Az
 
 ### Step 1: Re-create the IoT hub
 
-IoT Hub doesn’t support cloning natively. However, you can use the Azure Resource Manager feature to [export a resource group as a template](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) to export your IoT Hub metadata. Configured routes and other IoT hub settings are included in the exported metadata. Then, redeploy the template in global Azure. You might find it easier to re-create the IoT hub in the Azure portal by looking at the details in the exported JSON.
+IoT Hub doesn't support cloning natively. However, you can use the Azure Resource Manager feature to [export a resource group as a template](../azure-resource-manager/templates/export-template-portal.md) to export your IoT Hub metadata. Configured routes and other IoT hub settings are included in the exported metadata. Then, redeploy the template in global Azure. You might find it easier to re-create the IoT hub in the Azure portal by looking at the details in the exported JSON.
 
 ### Step 2: Migrate device identities
 

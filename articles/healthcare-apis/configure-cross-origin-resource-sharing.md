@@ -30,3 +30,10 @@ To configure a CORS setting in the Azure API for FHIR, specify the following set
 
 >[!NOTE]
 >You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
+
+## Next steps
+
+In this article, you learned how to configure cross-origin sharing in Azure API for FHIR. Next deploy a fully managed Azure API for FHIR:
+ 
+>[!div class="nextstepaction"]
+>[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)

@@ -1,11 +1,12 @@
 ---
-title: Configure Web Application Firewall v2 on Application Gateway custom rules using Azure PowerShell
-description: Learn how to configure WAF v2 custom rules using Azure PowerShell
+title: Configure v2 custom rules using PowerShell
+titleSuffix: Azure Web Application Firewall
+description: Learn how to configure Web Application Firewall (WAF) v2 custom rules using Azure PowerShell. You can create your own rules evaluated for each request that passes through the firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 05/21/2020
 ms.author: victorh
 ---
 
@@ -103,6 +104,8 @@ $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ### Create two custom rules and apply it to WAF policy
 
 ```azurepowershell
+# Create WAF config
+$wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention" -RuleSetType "OWASP" -RuleSetVersion "3.0"
 # Create a User-Agent header custom rule 
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "evilbot" -Transform Lowercase -NegationCondition $False  
@@ -128,6 +131,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## Update your WAF
+
+After you create your WAF, you can update it using a procedure similar to the following code:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## Next steps

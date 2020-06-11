@@ -8,10 +8,12 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ---
 
 # How to add a custom skill to an Azure Cognitive Search enrichment pipeline
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=172&end=221]
 
 An [enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can be assembled from [built-in cognitive skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in an AI enrichment pipeline. 
 
@@ -30,9 +32,15 @@ Custom WebAPI skill endpoints by default timeout if they don't return a response
         "timeout": "PT230S",
 ```
 
+Make sure the URI is secure (HTTPS).
+
 Currently, the only mechanism for interacting with a custom skill is through a Web API interface. The Web API needs must meet the requirements described in this section.
 
 ### 1.  Web API Input Format
+
+
+> [!VIDEO https://www.youtube.com/embed/fHLCE-NZeb4?version=3&start=294&end=340]
+
 
 The Web API must accept an array of records to be processed. Each record must contain a "property bag" that is the input provided to your Web API. 
 
@@ -118,7 +126,7 @@ As shown in the previous example, you may return error and warning messages for 
 
 ## Consuming custom skills from skillset
 
-When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and HTTP headers may be described as part of the skillset definition.
+When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and *optional* HTTP headers may be described as part of the skillset definition. HTTP headers are not a requirement, but they allow you to add additional configuration capabilities to your skill and to set them from the skillset definition.
 
 ```json
 {
@@ -152,6 +160,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 This article covered the interface requirements necessary for integrating a custom skill into a skillset. Click the following links to learn more about custom skills and skillset composition.
 
++ [Watch our video about custom skills](https://youtu.be/fHLCE-NZeb4)
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

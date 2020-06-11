@@ -1,26 +1,18 @@
 ---
-title: Create a blueprint in the portal
-description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/11/2019
+title: "Quickstart: Create a blueprint in the portal"
+description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
+ms.date: 03/25/2020
 ms.topic: quickstart
-ms.service: blueprints
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
 When you learn how to create and assign blueprints, you can define common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
+tasks related to creating, publishing, and assigning a blueprint within your organization. These
+tasks include:
 
-> [!div class="checklist"]
-> - Create a new blueprint and add various supported artifacts
-> - Make changes to an existing blueprint still in **Draft**
-> - Mark a blueprint as ready to assign with **Published**
-> - Assign a blueprint to an existing subscription
-> - Check the status and progress of an assigned blueprint
-> - Remove a blueprint that has been assigned to a subscription
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -39,14 +31,17 @@ Manager template and role assignment on the new resource group.
 
    Or, select **Create** from the **Getting started** page to go straight to creating a blueprint.
 
-   ![Create a blueprint from the Blueprint definitions page](./media/create-blueprint-portal/create-blueprint-button.png)
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Create a blueprint from the Blueprint definitions page" border="false":::
+
+1. Select **Start with blank blueprint** from the card at the top of the built-in blueprints list.
 
 1. Provide a **Blueprint name** such as **MyBlueprint**. (Use up to 48 letters and numbers,
    but no spaces or special characters). Leave **Blueprint description** blank
    for now.
 
-1. In the **Definition location** box, select the ellipsis on the right, select the [management group](../management-groups/overview.md)
-   or subscription where you want to save the blueprint, and choose **Select**.
+1. In the **Definition location** box, select the ellipsis on the right, select the
+   [management group](../management-groups/overview.md) or subscription where you want to save the
+   blueprint, and choose **Select**.
 
 1. Verify that the information is correct. The **Blueprint name** and **Definition location** fields
    can't be changed later. Then select **Next : Artifacts** at the bottom of the page or the
@@ -64,12 +59,13 @@ Manager template and role assignment on the new resource group.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-   ![Role assignment for a blueprint artifact](./media/create-blueprint-portal/add-role-assignment.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Role assignment for a blueprint artifact" border="false":::
 
    > [!NOTE]
    > Most artifacts support parameters. A parameter that's assigned a value during blueprint
-   > creation is a *static parameter*. If the parameter is assigned during blueprint assignment,
-   > it's a *dynamic parameter*. For more information, see [Blueprint parameters](./concepts/parameters.md).
+   > creation is a _static parameter_. If the parameter is assigned during blueprint assignment,
+   > it's a _dynamic parameter_. For more information, see
+   > [Blueprint parameters](./concepts/parameters.md).
 
 1. Add a policy assignment at the subscription level:
 
@@ -176,13 +172,13 @@ Manager template and role assignment on the new resource group.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-   ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Resource Manager template for the blueprint artifact" border="false":::
 
 1. Your completed blueprint should look similar to the following. Notice that each artifact has
    **_x_ out of _y_ parameters populated** in the **Parameters** column. The dynamic parameters are
    set during each assignment of the blueprint.
 
-   ![Completed blueprint definition](./media/create-blueprint-portal/completed-blueprint.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Completed blueprint definition" border="false":::
 
 1. Now that all planned artifacts have been added, select **Save Draft** at the bottom of the page.
 
@@ -216,14 +212,14 @@ assignment to the new resource group. You can fix both by following these steps:
    1. Search for and select a user, app, or group to add. This artifact uses a static parameter set
       the same in every assignment of this blueprint.
 
-   e. Select **Add** to add this artifact to the blueprint.
+   1. Select **Add** to add this artifact to the blueprint.
 
-   ![Second role assignment for the blueprint artifact](./media/create-blueprint-portal/add-role-assignment-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Second role assignment for the blueprint artifact" border="false":::
 
 1. Your completed blueprint should look similar to the following. Notice that the newly added role
    assignment shows **1 out of 1 parameters populated**. That means it's a static parameter.
 
-   ![Second definition for the completed blueprint](./media/create-blueprint-portal/completed-blueprint-2.png)
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Second definition for the completed blueprint" border="false":::
 
 1. Select **Save Draft** now that it has been updated.
 
@@ -257,8 +253,9 @@ is saved to a subscription, it can only be assigned to that subscription.
 1. On the **Assign blueprint** page, in the **Subscription** drop-down list, select the
    subscriptions that you want to deploy this blueprint to.
 
-   If there are supported Enterprise offerings available from [Azure Billing](../../billing/index.md),
-   a **Create new** link is activated under the **Subscription** box. Follow these steps:
+   If there are supported Enterprise offerings available from
+   [Azure Billing](../../billing/index.md), a **Create new** link is activated under the
+   **Subscription** box. Follow these steps:
 
    1. Select the **Create new** link to create a new subscription instead of selecting existing
       ones.
@@ -272,10 +269,10 @@ is saved to a subscription, it can only be assigned to that subscription.
 
    1. Select **Create** at the bottom of the page.
 
-   ![Create a subscription for a blueprint assignment subscription](./media/create-blueprint-portal/assignment-create-subscription.png)
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Create a subscription for a blueprint assignment subscription" border="false":::
 
-   > [!IMPORTANT]
-   > The new subscription is created immediately after you select **Create**.
+      > [!IMPORTANT]
+      > The new subscription is created immediately after you select **Create**.
 
    > [!NOTE]
    > An assignment is created for each subscription that you select. You can make changes to a
@@ -292,9 +289,10 @@ is saved to a subscription, it can only be assigned to that subscription.
 1. Leave the **Blueprint definition version** drop-down selection of **Published** versions on the
    **v1** entry. (The default is the most recently published version.)
 
-1. For **Lock Assignment**, leave the default of **Don't Lock**. For more information, see [Blueprints resource locking](./concepts/resource-locking.md).
+1. For **Lock Assignment**, leave the default of **Don't Lock**. For more information, see
+   [Blueprints resource locking](./concepts/resource-locking.md).
 
-   ![Locking and managed identities for the assignment](./media/create-blueprint-portal/assignment-locking-mi.png)
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Locking and managed identities for the assignment" border="false":::
 
 1. Under **Managed Identity**, leave the default of **System assigned**.
 
@@ -332,13 +330,15 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
 1. In the list of blueprints, right-click the one that you previously assigned and select **View
    assignment details**.
 
-   ![View assignment details from the Assigned blueprints page](./media/create-blueprint-portal/view-assignment-details.png)
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="View assignment details from the Assigned blueprints page" border="false":::
 
 1. On the **Blueprint assignment** page, validate that all artifacts were successfully deployed and
    that there were no errors during the deployment. If errors occurred, see [Troubleshooting blueprints](./troubleshoot/general.md)
    for steps to determine what went wrong.
 
-## Unassign a blueprint
+## Clean up resources
+
+### Unassign a blueprint
 
 If you no longer need a blueprint assignment, remove it from a subscription. The blueprint might
 have been replaced by a newer blueprint with updated patterns, policies, and designs. When a
@@ -352,7 +352,7 @@ blueprint assignment, follow these steps:
 
 1. Read the confirmation message and then select **OK**.
 
-## Delete a blueprint
+### Delete a blueprint
 
 1. Select **Blueprint definitions** from the page on the left.
 
@@ -367,9 +367,8 @@ blueprint assignment, follow these steps:
 
 ## Next steps
 
-- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).
+In this quickstart, you've created, assigned, and removed a blueprint with Azure portal. To learn
+more about Azure Blueprints, continue to the blueprint lifecycle article.
+
+> [!div class="nextstepaction"]
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)

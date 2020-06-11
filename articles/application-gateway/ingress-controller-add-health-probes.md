@@ -5,7 +5,7 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/4/2019
 ms.author: caya
 ---
 
@@ -42,7 +42,7 @@ spec:
 
 Kubernetes API Reference:
 * [Container Probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [HttpGet Action](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/#httpgetaction-v1-core)
+* [HttpGet Action](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
 > * `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.

@@ -24,6 +24,8 @@
       href: hana-data-tiering-extension-nodes.md
     - name: Operations model and responsibilities
       href: hana-operations-model.md
+    - name: Compatible Operating Systems
+      href: os-compatibility-matrix-hana-large-instance.md
   - name: Architecture
     items:
     - name: General architecture
@@ -74,13 +76,17 @@
       href: ha-setup-with-stonith.md
     - name: OS Backup for Type II SKUs
       href: os-backup-type-ii-skus.md
+    - name: Enable Kdump for HANA Large Instances
+      href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
       href: os-upgrade-hana-large-instance.md
     - name: Setting up SMT server for SUSE Linux
       href: hana-setup-smt.md
+    - name: HLI to Azure VM migration
+      href: hana-large-instance-virtual-machine-migration.md
 - name: SAP HANA on Azure Virtual Machines
   items:
-  - name: Single instance SAP HANA installation
+  - name: Installation of SAP HANA on Azure  VMs
     href: hana-get-started.md
   - name: S/4 HANA or BW/4 HANA SAP CAL deployment guide
     href: cal-s4h.md
@@ -104,18 +110,23 @@
       href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
     - name: SAP HANA scale-out with standby node with Azure NetApp Files on SLES
       href: sap-hana-scale-out-standby-netapp-files-suse.md
+    - name: SAP HANA scale-out with standby node with Azure NetApp Files on RHEL
+      href: sap-hana-scale-out-standby-netapp-files-rhel.md
   - name: SAP HANA backup overview
     href: sap-hana-backup-guide.md
   - name: SAP HANA file level backup
     href: sap-hana-backup-file-level.md
-  - name: SAP HANA storage snapshot backups
-    href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver and Business One on Azure Virtual Machines
   items:
   - name: SAP workload planning and deployment checklist
     href: sap-deployment-checklist.md
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
+    items:
+    - name: SAP workload on Azure virtual machine supported scenarios
+      href: sap-planning-supported-configurations.md
+    - name: What SAP software is supported for Azure deployments
+      href: sap-supported-product-on-azure.md
   - name: SAP NetWeaver Deployment guide
     href: deployment-guide.md
   - name: DBMS deployment guides for SAP workload
@@ -166,6 +177,8 @@
         href: sap-high-availability-guide-wsfc-shared-disk.md
       - name: HA on Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-guide-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: HA on SUSE Linux for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files
@@ -196,6 +209,8 @@
         href: sap-high-availability-installation-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-installation-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: SUSE Linux with NFS for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: SUSE Linux with NFS for (A)SCS Instance with Azure NetApp Files
@@ -210,6 +225,10 @@
         href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
       - name: Windows with SOFS File Share for (A)SCS Instance
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+      - name: SLES with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-suse-multi-sid.md
+      - name: RHEL with Pacemaker multi-SID for A(SCS) Instance
+        href: high-availability-guide-rhel-multi-sid.md
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
@@ -240,6 +259,10 @@
     href: https://docs.microsoft.com/power-bi/desktop-sap-bw-connector
   - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
     href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/sap-hana/hanainstance
 - name: Resources
   items:
   - name: Azure Roadmap

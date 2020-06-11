@@ -1,12 +1,12 @@
 ---
-title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
+title: 'Azure VPN Gateway: Create and manage S2S VPN connections: Tutorial'
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
@@ -22,13 +22,13 @@ Azure S2S VPN connections provide secure, cross-premises connectivity between cu
 > * Add more VPN connections
 > * Delete a VPN connection
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The following diagram shows the topology for this tutorial:
 
 ![Site-to-Site VPN connection diagram](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### Working with Azure Cloud Shell and Azure PowerShell
+
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## Requirements
 
@@ -83,7 +83,7 @@ Create a local network gateway with the [New-AzLocalNetworkGateway](https://docs
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
-  -Location 'East US' -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
+  -Location $Location1 -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
 ```
 
 ## Create a S2S VPN connection

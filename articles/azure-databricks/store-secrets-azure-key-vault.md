@@ -1,5 +1,5 @@
 ---
-title: Access blob storage using key vault - Azure Databricks
+title: Tutorial - Access blob storage using key vault using Azure Databricks
 description: This tutorial describes how to access Azure Blob Storage from Azure Databricks using secrets stored in a key vault.
 author: mamccrea
 ms.author: mamccrea
@@ -31,7 +31,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
 
 ## Create a storage account and blob container
 
@@ -124,7 +124,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 4. Once your Azure Databricks workspace is open in a separate window, append **#secrets/createScope** to the URL. The URL should have the following format: 
 
-   **https://<\location>.azuredatabricks.net/?o=<\id>#secrets/createScope**.
+   **https://<\location>.azuredatabricks.net/?o=<\orgID>#secrets/createScope**.
+   
 
 5. Enter a scope name, and enter the Azure Key Vault DNS name and Resource ID you saved earlier. Save the scope name in a text editor for use later in this tutorial. Then, select **Create**.
 
@@ -171,7 +172,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 6. Run the following command to read the text file in your blob storage container to a dataframe. Change the values in the command to match your mount name and file name.
 
    ```python
-   df = spark.read.text("mnt/<mount-name>/<file-name>")
+   df = spark.read.text("/mnt/<mount-name>/<file-name>")
    ```
 
    ![Read file to dataframe](./media/store-secrets-azure-key-vault/command2.png)

@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Back up Linux virtual machines in the Azure portal | Microsoft Docs
+title: Tutorial - Back up Linux virtual machines in the Azure portal 
 description: In this tutorial, you learn how to use the Azure portal to protect your Linux virtual machines with Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -62,7 +62,7 @@ If you accidentally delete or make changes to a file, you can use File Recovery 
 
 In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -76,6 +76,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Delete /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -120,7 +121,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 12. The output from the script gives you the path for the mount point. The output looks similar to this:
 
-    ```bash
+    ```output
 	Microsoft Azure VM Backup - File Recovery
 	______________________________________________
                           

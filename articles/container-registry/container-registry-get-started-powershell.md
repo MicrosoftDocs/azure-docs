@@ -1,14 +1,8 @@
 ﻿---
-title: Quickstart - Create a private Docker registry in Azure - PowerShell
-description: Quickly learn to create a private Docker container registry in Azure with PowerShell.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
+title: Quickstart - Create registry - PowerShell
+description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
@@ -52,7 +46,7 @@ The registry name must be unique within Azure, and contain 5-50 alphanumeric cha
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 ## Log in to registry
 

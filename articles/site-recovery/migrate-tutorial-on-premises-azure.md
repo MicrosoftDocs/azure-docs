@@ -1,19 +1,22 @@
 ---
-title: Migrate on-premises machines to Azure with Azure Site Recovery 
+title: Migrate on-premises machines with Azure Site Recovery 
 description: This article describes how to migrate on-premises machines to Azure, using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/29/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.custom: MVC
+
 ---
 
 # Migrate on-premises machines to Azure
 
 
-This article describes how to migrate on-premises machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md). Generally, Site Recovery is used to manage and orchestrate disaster recovery of on-premises machines and Azure VMs. However, it can also be used for migration. Migration uses the same steps as disaster recovery with one exception. In a migration, failing machines over from your on-premises site is the final step. Unlike disaster recovery, you can't fail back to on-premises in a migration scenario.
+This article describes how to migrate on-premises machines to Azure, using the [Azure Site Recovery](site-recovery-overview.md). 
+
+> [!TIP]
+> You should now use Azure Migrate to migrate on-premises machines to Azure, instead of the Azure Site Recovery service. [Learn more](../migrate/migrate-services-overview.md).
 
 
 This tutorial shows you how to migrate on-premises VMs and physical servers to Azure. You learn how to:
@@ -31,7 +34,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 
 ## Before you start
 
-Note that devices exported by paravirtualized drivers aren't supported.
+Devices exported by paravirtualized drivers aren't supported.
 
 
 ## Prepare Azure and on-premises
@@ -127,8 +130,8 @@ Some steps can be automated as part of the migration process using the in-built 
 - Perform final application and migration acceptance testing on the migrated application now running in Azure.
 - The [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security.
     - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover.
-    - If you’re migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
-    - If you’re migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
+    - If you're migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
+    - If you're migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
 - Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, uninstall the Mobility service from the VM.
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).

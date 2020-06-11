@@ -1,31 +1,27 @@
 ---
-title: Use custom scale-in policies with Azure virtual machine scale sets | Microsoft Docs
+title: Use custom scale-in policies with Azure virtual machine scale sets
 description: Learn how to use custom scale-in policies with Azure virtual machine scale sets that use autoscale configuration to manage instance count
 services: virtual-machine-scale-sets
-author: avverma
-manager: vashan
-tags: azure-resource-manager
-
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: article
-ms.date: 10/11/2019
-ms.author: avverma
+ms.subservice: autoscale
+ms.date: 02/26/2020
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 
-# Preview: Use custom scale-in policies with Azure virtual machine scale sets
+# Use custom scale-in policies with Azure virtual machine scale sets
 
-A virtual machine scale set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new Virtual Machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves. 
+A virtual machine scale set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves. 
 
-The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in. The Preview introduces three scale-in configurations: 
+The scale-in policy feature provides users a way to configure the order in which virtual machines are scaled-in, by way of three scale-in configurations: 
 
 1. Default
 2. NewestVM
 3. OldestVM
-
-***This preview feature is provided without a service level agreement, and it's not recommended for production workloads.***
 
 ### Default scale-in policy
 
@@ -37,7 +33,7 @@ By default, virtual machine scale set applies this policy to determine which ins
 
 Users do not need to specify a scale-in policy if they just want the default ordering to be followed.
 
-Note that balancing across availability zones or fault domains does not move instances across availability zones or fault domains. The balancing is achieved through deletion of virtual machines from the unbalanced availability zones or fault domains till the distribution of virtual machines becomes balanced.
+Note that balancing across availability zones or fault domains does not move instances across availability zones or fault domains. The balancing is achieved through deletion of virtual machines from the unbalanced availability zones or fault domains until the distribution of virtual machines becomes balanced.
 
 ### NewestVM scale-in policy
 
@@ -52,6 +48,17 @@ This policy will delete the oldest created virtual machine in the scale set, aft
 A scale-in policy is defined in the virtual machine scale set model. As noted in the sections above, a scale-in policy definition is needed when using the ‘NewestVM’ and ‘OldestVM’ policies. Virtual machine scale set will automatically use the ‘Default’ scale-in policy if there is no scale-in policy definition found on the scale set model. 
 
 A scale-in policy can be defined on the virtual machine scale set model in the following ways:
+
+### Azure portal
+ 
+The following steps define the scale-in policy when creating a new scale set. 
+ 
+1. Go to **Virtual machine scale sets**.
+1. Select **+ Add** to create a new scale set.
+1. Go to the **Scaling** tab. 
+1. Locate the **Scale-in policy** section.
+1. Select a scale-in policy from the drop-down.
+1. When you are done creating the new scale set, select **Review + create** button.
 
 ### Using API
 
@@ -69,6 +76,33 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 } 
+```
+### Azure PowerShell
+
+Create a resource group, then create a new scale set with scale-in policy set as *OldestVM*.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### Azure CLI 2.0
+
+The following example adds a scale-in policy while creating a new scale set. First create a resource group, then create a new scale set with scale-in policy as *OldestVM*. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
 ```
 
 ### Using Template
@@ -93,6 +127,15 @@ The same process applies when using ‘NewestVM’ in the above scale-in policy.
 
 Modifying the scale-in policy follows the same process as applying the scale-in policy. For example, if in the above example, you want to change the policy from ‘OldestVM’ to ‘NewestVM’, you can do so by:
 
+### Azure portal
+
+You can modify the scale-in policy of an existing scale set through the Azure portal. 
+ 
+1. In an existing virtual machine scale set, select **Scaling** from the menu on the left.
+1. Select the **Scale-In Policy** tab.
+1. Select a scale-in policy from the drop-down.
+1. When you are done, select **Save**. 
+
 ### Using API
 
 Execute a PUT on the virtual machine scale set using API 2019-03-01:
@@ -109,6 +152,27 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 }
+```
+### Azure PowerShell
+
+Update the scale-in policy of an existing scale set:
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### Azure CLI 2.0
+
+The following is an example for updating the scale-in policy of an existing scale set: 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
 ```
 
 ### Using Template
@@ -169,7 +233,7 @@ For non-zonal virtual machine scale sets, the policy selects the newest VM acros
 ## Troubleshoot
 
 1. Failure to enable scaleInPolicy
-    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. API version 2019-03-01 or higher is required for this preview.
+    If you get a ‘BadRequest’ error with an error message stating "Could not find member 'scaleInPolicy' on object of type 'properties'”, then check the API version used for virtual machine scale set. API version 2019-03-01 or higher is required for this feature.
 
 2. Wrong selection of VMs for scale-in
     Refer to the examples above. If your virtual machine scale set is a Zonal deployment, scale-in policy is applied first to the imbalanced Zones and then across the scale set once it is zone balanced. If the order of scale-in is not consistent with the examples above, raise a query with the virtual machine scale set team for troubleshooting.

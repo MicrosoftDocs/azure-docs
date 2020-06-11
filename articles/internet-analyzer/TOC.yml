@@ -21,15 +21,18 @@
 - name: Resources
   items:
   - name: Internet Analyzer FAQ
-    href: internet-analyzer-faq.md     
+    href: internet-analyzer-faq.md
+  - name: Internet Analyzer troubleshooting
+    href: troubleshoot.md
+  - name: Internet Analyzer CLI reference
+    href: https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
-

@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: references_regions
 ---
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
@@ -74,7 +75,7 @@ No. You cannot create additional users but you can create additional databases o
 Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500). Pro series can be upgraded in-place (Pro 125 through Pro 1000) except for Pro 60. We do not support upgrading Pro 60 database currently. 
 
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?
-When you perform resource migration across subscriptions, some [limitations](azure-resource-manager/move-support-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+When you perform resource migration across subscriptions, some [limitations](azure-resource-manager/management/move-support-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## I hit the spending limit on my subscription. I removed the limit and my App Service is online, however the database is not accessible. How do I re-enable the ClearDB database?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) to re-enable the database. Provide them with your Azure subscription information and database name.

@@ -1,15 +1,12 @@
 ---
-title: Build Java web app on Linux - Azure App Service
-description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
+title: 'Tutorial: Linux Java app with MongoDB'
+description: Learn how to get a data-driven Linux Java app working in Azure App Service, with connection to a MongoDB running in Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
-manager: angerobe
-ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc
-ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -166,7 +163,7 @@ bash-3.2$ mvn package spring-boot:run
 [INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
 ```
 
-You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
+You can access Spring TODO App locally using this link once the app is started: `http://localhost:8080/`.
 
  ![Access Spring TODO app locally](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -174,7 +171,7 @@ If you see exceptions instead of the "Started TodoApplication" message, check th
 
 ## Configure Azure deployment
 
-Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
+Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
 
 ```xml    
 <plugins> 
@@ -185,24 +182,38 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
        
     <plugin>
         <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-webapp-maven-plugin</artifactId>
-            <version>1.4.0</version>
-            <configuration>
-            <deploymentType>jar</deploymentType>
-            
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.9.1</version>
+        <configuration>
+            <schemaVersion>v2</schemaVersion>
+
             <!-- Web App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-            
+
             <!-- Java Runtime Stack for Web App on Linux-->
-            <linuxRuntime>jre8</linuxRuntime>
-            
+            <runtime>
+                 <os>linux</os>
+                 <javaVersion>jre8</javaVersion>
+                 <webContainer>jre8</webContainer>
+             </runtime>
+             <deployment>
+                 <resources>
+                 <resource>
+                     <directory>${project.basedir}/target</directory>
+                     <includes>
+                     <include>*.jar</include>
+                     </includes>
+                 </resource>
+                 </resources>
+             </deployment>
+
             <appSettings>
                 <property>
                     <name>COSMOSDB_URI</name>
                     <value>${COSMOSDB_URI}</value>
-                </property>
+                </property> 
                 <property>
                     <name>COSMOSDB_KEY</name>
                     <value>${COSMOSDB_KEY}</value>
@@ -216,9 +227,9 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
                     <value>-Dserver.port=80</value>
                 </property>
             </appSettings>
-            
+
         </configuration>
-    </plugin>            
+    </plugin>           
     ...
 </plugins>
 ```
@@ -237,19 +248,24 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.4.0:deploy (default-cli) @ spring-todo-app ---
-[INFO] Authenticate with Azure CLI 2.0
+[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
+[INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
 [INFO] Successfully created Web App.
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource to /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7
 [INFO] Trying to deploy artifact to spring-todo-app...
+[INFO] Renaming /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7/spring-todo-app-2.0-SNAPSHOT.jar to app.jar
+[INFO] Deploying the zip package spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7718326714198381983.zip...
 [INFO] Successfully deployed the artifact to https://spring-todo-app.azurewebsites.net
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 02:19 min
-[INFO] Finished at: 2018-10-28T15:32:03-07:00
+[INFO] Finished at: 2019-11-06T15:32:03-07:00
 [INFO] Final Memory: 50M/574M
 [INFO] ------------------------------------------------------------------------
 ```

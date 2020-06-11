@@ -6,37 +6,49 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Require MFA for specific apps
-    href: app-based-mfa.md
   - name: Require terms of use to be accepted
     href: require-tou.md
   - name: Block access when a session risk is detected
     href: app-sign-in-risk.md
 - name: Tutorials
   items:
-  - name: Migrate classic MFA policies
-    href: policy-migration-mfa.md
+  - name: Require Azure Multi-Factor Authentication
+    href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
   items:
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
-  - name: Security defaults
-    href: concept-conditional-access-security-defaults.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
-  - name: Conditions
-    href: conditions.md
-  - name: Location conditions
-    href: location-condition.md
-  - name: Controls
-    href: controls.md
+  - name: Assignments
+    items: 
+     - name: Users and groups
+       href: concept-conditional-access-users-groups.md
+     - name: Cloud apps or actions
+       href: concept-conditional-access-cloud-apps.md
+     - name: Conditions
+       href: concept-conditional-access-conditions.md
+  - name: Access controls
+    items: 
+     - name: Grant
+       href: concept-conditional-access-grant.md
+     - name: Session
+       href: concept-conditional-access-session.md
+  - name: Insights and reporting
+    href: howto-conditional-access-insights-reporting.md
   - name: Report-only mode
     href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
+  - name: Location conditions
+    href: location-condition.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Custom controls
+    href: controls.md
+  - name: Classic policy migrations
+    href: policy-migration.md
   - name: Baseline protection policies
     href: concept-baseline-protection.md
 - name: How-to guides
@@ -48,26 +60,26 @@
     href: best-practices.md
   - name: Common Conditional Access policies
     items: 
+    - name: Block legacy authentication
+      href: howto-conditional-access-policy-block-legacy.md
     - name: Require MFA for administrators
       href: howto-conditional-access-policy-admin-mfa.md
     - name: Require MFA for Azure management
       href: howto-conditional-access-policy-azure-management.md
     - name: Require MFA for all users
       href: howto-conditional-access-policy-all-users-mfa.md
-    - name: Block legacy authentication
-      href: howto-conditional-access-policy-block-legacy.md
     - name: Risk-based Conditional Access
       href: howto-conditional-access-policy-risk.md
-    - name: Require trusted location for MFA registration
+    - name: Secure security info registration
       href: howto-conditional-access-policy-registration.md
     - name: Block access by location
       href: howto-conditional-access-policy-location.md
     - name: Require compliant devices
       href: howto-conditional-access-policy-compliant-device.md
+    - name: Block access
+      href: howto-conditional-access-policy-block-access.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
-  - name: Conditional Access for MFA registration
-    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
   - name: Require approved client apps
     href: app-based-conditional-access.md
   - name: Require app protection policy
@@ -83,23 +95,21 @@
   - name: Sign-in frequency and browser persistence controls
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies
-    href: policy-migration.md
-  - name: Adopting Conditional Access
-    href: howto-conditional-access-adoption-kit.md
+    href: policy-migration-mfa.md
   - name: Troubleshooting
     items:
+    - name: Troubleshoot sign-in problems
+      href: troubleshoot-conditional-access.md
     - name: Troubleshoot using the What If tool 
       href: troubleshoot-conditional-access-what-if.md
-- name: Reference
-  items:
-  - name: Technical reference
-    href: technical-reference.md
+    - name: FAQ
+      href: faqs.md
 - name: Resources
   items:
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Service updates

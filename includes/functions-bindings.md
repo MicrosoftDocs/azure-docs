@@ -4,14 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
+ms.custom: fasttrack-edit
 ---
-This table shows the bindings that are supported in the two major versions of the Azure Functions runtime:
+This table shows the bindings that are supported in the major versions of the Azure Functions runtime:
 
-| Type | 1.x | 2.x<sup>1</sup> | Trigger | Input | Output |
+
+| Type | 1.x | 2.x and higher<sup>1</sup> | Trigger | Input | Output |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
-| [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |
+| [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
 | [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
@@ -30,4 +32,4 @@ This table shows the bindings that are supported in the two major versions of th
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> In the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md). All supported 2.x bindings are also supported in the version 3.x, unless otherwise noted.   
+<sup>1</sup> Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).

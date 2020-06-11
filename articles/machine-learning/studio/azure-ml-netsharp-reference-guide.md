@@ -1,14 +1,14 @@
 ---
-title: Create custom neural networks with Net#
-titleSuffix: ML Studio (classic) Azure
+title: Net# custom neural networks
+titleSuffix: ML Studio (classic) - Azure
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
@@ -51,7 +51,7 @@ Additionally, Net# supports the following four kinds of advanced connection bund
 
 ## Supported customizations
 
-The architecture of neural network models that you create in the classic version of Azure Machine Learning Studio can be extensively customized by using Net#. You can:
+The architecture of neural network models that you create in Azure Machine Learning Studio (classic) can be extensively customized by using Net#. You can:
 
 + Create hidden layers and control the number of nodes in each layer.
 + Specify how layers are to be connected to each other.

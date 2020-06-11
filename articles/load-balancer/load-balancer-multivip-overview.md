@@ -1,10 +1,9 @@
 ---
-title: Multiple Frontends for Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Overview of Multiple Frontends on Azure Load Balancer
+title: Multiple frontends - Azure Load Balancer
+description: With this learning path, get started with an overview of multiple frontends on Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: chkuhtz
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,10 +11,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
-ms.author: chkuhtz
+ms.author: allensu
 ---
 
-# Multiple Frontends for Azure Load Balancer
+# Multiple frontends for Azure Load Balancer
 
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
@@ -94,8 +93,28 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * Frontend 1: a loopback interface within guest OS that is configured with IP address of Frontend 1
 * Frontend 2: a loopback interface within guest OS that is configured with IP address of Frontend 2
 
+For each VM in the backend pool, run the following commands at a Windows Command Prompt.
+
+To get the list of interface names you have on your VM, type this command:
+
+    netsh interface show interface 
+
+For the VM NIC (Azure managed), type this command:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+   (replace interfacename with the name of this interface)
+
+For each loopback interface you added, repeat these commands:
+
+    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+   (replace interfacename with the name of this loopback interface)
+     
+    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+   (replace interfacename with the name of this loopback interface)
+
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
+
 
 Let's assume the same frontend configuration as in the previous scenario:
 
@@ -122,14 +141,14 @@ The destination of the inbound flow is the frontend IP address on the loopback i
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 
 * Multiple frontend configurations are only supported with IaaS VMs.
 * With the Floating IP rule, your application must use the primary IP configuration for outbound SNAT flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound SNAT is not available to rewrite the outbound flow and the flow fails.  Review [outbound scenarios](load-balancer-outbound-connections.md).
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
-* Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
+* Subscription limits apply. For more information, see [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) for details.
 
 ## Next steps
 

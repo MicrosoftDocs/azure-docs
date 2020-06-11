@@ -2,22 +2,17 @@
 title: Terms of Service and privacy statement for apps | Azure
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
-ms.reviwer: lenalepa, sureshja
+ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure terms of service and privacy statement for an app
@@ -54,7 +49,7 @@ When the terms of service and privacy statement are ready, you can add links to 
 
 * [Through the Azure portal](#azure-portal)
 * [Using the app object JSON](#app-object-json)
-* [Using the MSGraph beta REST API](#msgraph-beta-rest-api)
+* [Using the Microsoft Graph API](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>Using the Azure portal
 Follow these steps in the Azure portal.
@@ -78,12 +73,12 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>Using the MSGraph beta REST API
+### <a name="msgraph-rest-api"></a>Using the Microsoft Graph API
 
-To programmatically update all your apps, you can use the MSGraph beta REST API to update all your apps to include links to the terms of service and privacy statement documents.
+To programmatically update all your apps, you can use the Microsoft Graph API to update all your apps to include links to the terms of service and privacy statement documents.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -98,4 +93,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * Be careful not to overwrite any pre-existing values you have assigned to any of these fields: `supportUrl`, `marketingUrl`, and `logoUrl`
-> * The MSGraph beta REST API will only work when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.
+> * The Microsoft Graph API only works when you sign in with an Azure AD account. Personal Microsoft accounts are not supported.

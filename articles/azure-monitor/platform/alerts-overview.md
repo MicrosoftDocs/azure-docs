@@ -1,11 +1,8 @@
 ---
 title: Overview of alerting and notification monitoring in Azure
 description: Overview of alerting in Azure. Alerts, classic alerts, and the alerts interface.
-ms.service:  azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 01/28/2018
 
 ---
@@ -13,9 +10,6 @@ ms.date: 01/28/2018
 # Overview of alerts in Microsoft Azure 
 
 This article describes what alerts are, their benefits, and how to get started using them.  
-
-
-
 
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
@@ -37,26 +31,29 @@ The following are key attributes of an alert rule:
 **Signal**: Emitted by the target resource. Signals can be of the following types: metric, activity log, Application Insights, and log.
 
 **Criteria**: A combination of signal and logic applied on a target resource. Examples: 
-   - Percentage CPU > 70%
-   - Server Response Time > 4 ms 
-   - Result count of a log query > 100
+
+- Percentage CPU > 70%
+- Server Response Time > 4 ms 
+- Result count of a log query > 100
 
 **Alert Name**: A specific name for the alert rule configured by the user.
 
 **Alert Description**: A description for the alert rule configured by the user.
 
 **Severity**: The severity of the alert after the criteria specified in the alert rule is met. Severity can range from 0 to 4.
-   - Sev 0 = Critical
-   - Sev 1 = Error
-   - Sev 2 = Warning
-   - Sev 3 = Informational
-   - Sev 4 = Verbose 
+
+- Sev 0 = Critical
+- Sev 1 = Error
+- Sev 2 = Warning
+- Sev 3 = Informational
+- Sev 4 = Verbose 
 
 **Action**: A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources-reference.md). These include but are not limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources.md). These include but are not limited to:
+
 - Metric values
 - Log search queries
 - Activity log events
@@ -65,7 +62,7 @@ You can alert on metrics and logs, as described in [monitoring data sources](../
 
 Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
 
-| **Monitor source** | **Signal type**  | **Description** | 
+| **Monitor source** | **Signal type**  | **Description** |
 |-------------|----------------|-------------|
 | Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
@@ -124,7 +121,10 @@ To show the **Rules** page, select **Manage alert rules**. The Rules page is a s
 
 
 ## Create an alert rule
-You can author alerts in a consistent manner, regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
+You can author alert rules in a consistent manner, regardless of the monitoring service or signal type.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Here's how to create a new alert rule:
 1. Pick the _target_ for the alert.
@@ -180,23 +180,23 @@ The consumption and management of alert instances requires the user to have the 
 
 You might want to query programmatically for alerts generated against your subscription. This might be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
 
-You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)).
+You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph](../../governance/resource-graph/overview.md) and the [REST API for Resources](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
-The [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)) allows you to query for alert instances at scale. This is recommended when you have to manage alerts generated across many subscriptions. 
+The Resource Graph REST API for Resources allows you to query for alert instances at scale. This is recommended when you have to manage alerts generated across many subscriptions. 
 
-The following sample request to the API returns the count of alerts within one subscription:
+The following sample request to the Resource Graph REST API returns the count of alerts within one subscription:
 
 ```json
 {
   "subscriptions": [
     <subscriptionId>
   ],
-  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
-  "options": {
-            "dataset":"alerts"
-  }
+  "query": "AlertsManagementResources | where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()"
 }
 ```
+
+You can also see the result of this Resource Graph query in the portal with Azure Resource Graph Explorer: [portal.azure.com](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AlertsManagementResources%20%7C%20where%20type%20%3D~%20%27Microsoft.AlertsManagement%2Falerts%27%20%7C%20summarize%20count())
+
 You can query the alerts for their [essential](alerts-common-schema-definitions.md#essentials) fields.
 
 Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get more information about specific alerts, including their [alert context](alerts-common-schema-definitions.md#alert-context) fields.
@@ -207,6 +207,7 @@ Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get 
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+- [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

@@ -1,19 +1,10 @@
 ---
-title: FAQ about Windows VMs in Azure | Microsoft Docs
+title: FAQ about Windows VMs in Azure 
 description: Provides answers to some of the common questions about Windows virtual machines created with the Resource Manager model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-management
-
-ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 
@@ -37,12 +28,12 @@ Azure storage accounts can also provide storage for the operating system disk an
 ## How can I access my virtual machine?
 Establish a remote connection using Remote Desktop Connection (RDP) for a Windows VM. For instructions, see [How to connect and sign on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A maximum of two concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 
-If you’re having problems with Remote Desktop, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+If you're having problems with Remote Desktop, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-If you’re familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn’t offer a similar tool because console access to a virtual machine isn’t supported.
+If you're familiar with Hyper-V, you might be looking for a tool similar to VMConnect. Azure doesn't offer a similar tool because console access to a virtual machine isn't supported.
 
 ## Can I use the temporary disk (the D: drive by default) to store data?
-Don’t use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can’t be recovered. Data loss can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
+Don't use the temporary disk to store data. It is only temporary storage, so you would risk losing data that can't be recovered. Data loss can occur when the virtual machine moves to a different host. Resizing a virtual machine, updating the host, or a hardware failure on the host are some of the reasons a virtual machine might move.
 
 If you have an application that needs to use the D: drive letter, you can reassign drive letters so that the temporary disk uses something other than D:. For instructions, see [Change the drive letter of the Windows temporary disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -73,10 +64,10 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) for more information around naming your resources.
+Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

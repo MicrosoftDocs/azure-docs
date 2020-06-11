@@ -8,85 +8,68 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: diberry
 ---
 
 # Create a new LUIS app in the LUIS portal
-There are a couple of ways to create a LUIS app. You can create a LUIS app in the [LUIS](https://www.luis.ai) portal, or through the LUIS authoring [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+There are a couple of ways to create a LUIS app. You can create a LUIS app in the LUIS portal, or through the LUIS authoring [APIs](developer-reference-resource.md).
 
 ## Using the LUIS portal
 
-You can create a new app in the LUIS portal in several ways:
+You can create a new app in the portal in several ways:
 
 * Start with an empty app and create intents, utterances, and entities.
 * Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
-* Import a LUIS app from a JSON file that already contains intents, utterances, and entities.
+* Import a LUIS app from a `.lu` or `.json` file that already contains intents, utterances, and entities.
 
 ## Using the authoring APIs
 You can create a new app with the authoring APIs in a couple of ways:
 
-* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) with an empty app and create intents, utterances, and entities.
-* [Start](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) with a prebuilt domain.  
+* [Add application](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) - start with an empty app and create intents, utterances, and entities.
+* [Add prebuilt application](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/59104e515aca2f0b48c76be5) - start with a prebuilt domain, including intents, utterances, and entities.
 
 
 <a name="export-app"></a>
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
- 
+
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## Create new app in LUIS
 
-1. On **My Apps** page, select **+ Create**.
+1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. If you are using free trial key, learn how to [create an authoring resource](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![LUIS apps list](./media/luis-create-new-app/apps-list.png)
+> [!div class="mx-imgBorder"]
+> ![LUIS apps list](./media/create-app-in-portal.png)
 
+1. In the dialog box, enter the name of your application, such as `Pizza Tutorial`.
 
-2. In the dialog box, name your application "TravelAgent".
+    ![Create new app dialog](./media/create-pizza-tutorial-app-in-portal.png)
 
-    ![Create new app dialog](./media/luis-create-new-app/create-app.png)
-
-3. Choose your application culture (for TravelAgent app, choose English), and then select **Done**. 
+1. Choose your application culture, and then select **Done**. The description and prediction resource are optional at this point. You can set then at any time in the **Manage** section of the portal.
 
     > [!NOTE]
-    > The culture cannot be changed once the application is created. 
+    > The culture cannot be changed once the application is created.
 
-## Import an app from file
+    After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app.
 
-1. On **My Apps** page, select **Import new app**.
-1. In the pop-up dialog, select a valid app JSON file, and then select **Done**.
+    > [!div class="mx-imgBorder"]
+    > ![Intents list with None intent created with no example utterances.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-### Import errors
+## Other actions available on My Apps page
 
-Possible errors are: 
+The context toolbar provides other actions:
 
-* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
-
-## Export app for backup
-
-1. On **My Apps** page, select **Export**.
-1. Select **Export as JSON**. Your browser downloads the active version of the app.
-1. Add this file to your backup system to archive the model.
-
-## Export app for containers
-
-1. On **My Apps** page, select **Export**.
-1. Select **Export as container** then select which published slot (production or stage) you want to export.
-1. Use this file with your [LUIS container](luis-container-howto.md). 
-
-    If you are interested in exporting a trained but not yet published model to use with the LUIS container, go to the **Versions** page and export from there. 
-
-## Delete app
-
-1. On **My Apps** page, select the three dots (...) at the end of the app row.
-1. Select **Delete** from the menu.
-1. Select **Ok** in the confirmation window.
+* Rename app
+* Import from file using `.lu` or `.json`
+* Export app as `.lu` (for [LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)), `.json`, or `.zip` (for [LUIS container](luis-container-howto.md))
+* Import container endpoint logs, to review endpoint utterances
+* Export endpoint logs, as a `.csv`, for offline analysis
+* Delete app
 
 ## Next steps
 
-Your first task in the app is to [add intents](luis-how-to-add-intents.md).
+If your app design includes intent detection, [create new intents](luis-how-to-add-intents.md), and add example utterances. If your app design is only data extraction, add example utterances to the None intent, then [create entities](luis-how-to-add-example-utterances.md), and label the example utterances with those entities.

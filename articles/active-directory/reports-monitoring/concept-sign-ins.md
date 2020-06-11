@@ -3,7 +3,7 @@ title: Sign-in activity reports in the Azure Active Directory portal | Microsoft
 description: Introduction to sign-in activity reports in the Azure Active Directory portal 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
-ms.author: chadam
+ms.date: 03/24/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -37,13 +37,17 @@ This article gives you an overview of the sign-ins report.
 
 ### Who can access the data?
 
-* Users in the Security Administrator, Security Reader, and Report Reader roles
+* Users in the Security Administrator, Security Reader, Global Reader, and Report Reader roles
 * Global Administrators
 * Any user (non-admins) can access their own sign-ins 
 
 ### What Azure AD license do you need to access sign-in activity?
 
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. It will take a couple of days for the data to show up in the reports after you upgrade to a premium license with no data activities before the upgrade.
+- The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
+
+- If you want to access the sign-in data using an API, your tenant must have an [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) license associated with it.
+
+
 
 ## Sign-ins report
 
@@ -53,9 +57,15 @@ The user sign-ins report provides answers to the following questions:
 * How many users have signed in over a week?
 * What’s the status of these sign-ins?
 
-Start with [Azure portal](https://portal.azure.com). To access the sign-ins report select **Sign-ins**, continue to the **Monitoring.** It may take up to two hours for some sign-in records to show up in the portal.
+On the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
 
-![Sign-in activity](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Sign-in activity")
+![Select Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Under **Monitoring**, select **Sign-ins** to open the [Sign-ins report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Sign-in activity](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Sign-in activity")
+
+It may take up to two hours for some sign-in records to show up in the portal.
 
 > [!IMPORTANT]
 > The sign-ins report only displays the **interactive** sign-ins, that is, sign-ins where a user manually signs in using their username and password. Non-interactive sign-ins, such as service-to-service authentication, are not displayed in the sign-ins report. 
@@ -75,9 +85,10 @@ You can customize the list view by clicking **Columns** in the toolbar.
 
 ![Sign-in activity](./media/concept-sign-ins/19.png "Sign-in activity")
 
-Displays additional fields or remove fields that are already displayed.
+The **Columns** dialog gives you access to the selectable attributes. In a sign-in report, you can't have fields
+that have more than one value for a given sign-in request as column. This is, for example, true for authentication details, conditional access data and network location.   
 
-![Sign-in activity](./media/concept-sign-ins/02.png "Sign-in activity")
+![Sign-in activity](./media/concept-sign-ins/columns.png "Sign-in activity")
 
 Select an item in the list view to get more detailed information.
 
@@ -91,60 +102,94 @@ Select an item in the list view to get more detailed information.
 
 ## Filter sign-in activities
 
-First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set.
+First, narrowing down the reported data to a level that works for you. Second, filter sign-ins data using date field as default filter. Azure AD provides you with a broad range of additional filters you can set:
 
 ![Sign-in activity](./media/concept-sign-ins/04.png "Sign-in activity")
 
-The **User** filter enables you to specify the name or the user principal name (UPN) of the user you care about.
+**Request ID** - The ID of the request you care about.
 
-The **Application** filter enables you to specify the name of the application you care about.
+**User** - The name or the user principal name (UPN) of the user you care about.
 
-The **Sign-in status** filter enables you to select:
+**Application** - The name of the target application.
+ 
+**Status** - The sign-in status you care about:
 
-- All
 - Success
+
 - Failure
 
-The **Conditional Access** filter enables you to select the CA policy status for the sign-in:
+- Interrupted
 
-- All
-- Not Applied
-- Success
-- Failure
 
-The **Date** filter enables to you to define a timeframe for the returned data.  
-Possible values are:
+**IP address** - The IP address of the device used to connect to your tenant.
 
-- One month
-- 7 days
-- 24 hours
-- Custom time interval
+The **Location** - The location the connection was initiated from:
 
-When you select a custom timeframe, you can configure a start time and an end time.
+- City
 
-If you add additional fields to your sign-ins view, these fields are automatically added to the list of filters. For example, by adding **Client App** field to your list, you also get another filter option that enables you to set the following filters:  
-![Sign-in activity](./media/concept-sign-ins/12.png "Sign-in activity")
+- State / Province
 
-- **Browser**  
-    This filter shows all events where sign-in attempts were attempted using browser flows.
-- **Exchange ActiveSync (supported)**  
-    This filter shows all sign-in attempts where the Exchange ActiveSync (EAS) protocol has been attempted from supported platforms like iOS, Android, and Windows Phone.
-- **Exchange ActiveSync (unsupported)**  
-    This filter shows all sign-in attempts where the EAS protocol has been attempted from unsupported platforms like, Linux distros.
-- **Mobile Apps and Desktop clients**
-        The filter shows all sign-in attempts that were not using browser flows. For example, mobile apps from any platform using any protocol or from Desktop client apps like Office on Windows or MacOS.
-  
-- **Other clients**
-    - **IMAP**  
-        A legacy mail client using IMAP to retrieve email.
-    - **MAPI**  
-        Office 2013, where ADAL is enabled and it is using MAPI.
-    - **Old Office clients**  
-        Office 2013 in its default configuration where ADAL is not enabled and it is using MAPI, or Office 2016 where ADAL has been disabled.
-    - **POP**  
-        A legacy mail client using POP3 to retrieve email.
-    - **SMTP**  
-        A legacy mail client using SMTP to send email.
+- Country/Region
+
+
+**Resource** - The name of the service used for the sign-in.
+
+
+**Resource ID** - The ID of the service used for the sign-in.
+
+
+**Client app** - The type of the client app used to connect to your tenant:
+
+![Client app filter](./media/concept-sign-ins/client-app-filter.png)
+
+
+|Name|Modern authentication|Description|
+|---|:-:|---|
+|Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
+|Autodiscover| |Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.|
+|Exchange ActiveSync| |This filter shows all sign-in attempts where the EAS protocol has been attempted.|
+|Browser|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using web browsers|
+|Exchange ActiveSync| | Shows all sign-in attempts from users with client apps using Exchange ActiceSync to connect to Exchange Online|
+|Exchange Online PowerShell| |Used to connect to Exchange Online with remote PowerShell. If you block basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Web Services| |A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.|
+|IMAP4| |A legacy mail client using IMAP to retrieve email.|
+|MAPI over HTTP| |Used by Outlook 2010 and later.|
+|Mobile apps and desktop clients|![Check](./media/concept-sign-ins/check.png)|Shows all sign-in attempts from users using mobile apps and desktop clients.|
+|Offline Address Book| |A copy of address list collections that are downloaded and used by Outlook.|
+|Outlook Anywhere (RPC over HTTP)| |Used by Outlook 2016 and earlier.|
+|Outlook Service| |Used by the Mail and Calendar app for Windows 10.|
+|POP3| |A legacy mail client using POP3 to retrieve email.|
+|Reporting Web Services| |Used to retrieve report data in Exchange Online.|
+|Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
+
+
+
+**Operating system** - The operating system running on the device used sign-on to your tenant. 
+
+
+**Device browser** - If the connection was initiated from a browser, this field enables you to filter by browser name.
+
+
+**Correlation ID** - The correlation ID of the activity.
+
+
+
+
+**Conditional access** - The status of the applied conditional access rules
+
+- **Not applied**: No policy applied to the user and application during sign-in.
+
+- **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
+
+- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
+
+
+
+
+
+
+
+
 
 ## Download sign-in activities
 
@@ -153,7 +198,8 @@ Click the **Download** option to create a CSV or JSON file of the most recent 25
 ![Download](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
-> The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
+> The number of records you can download is constrained by the [Azure Active 
+> Directory report retention policies](reference-reports-data-retention.md).  
 
 
 ## Sign-ins data shortcuts

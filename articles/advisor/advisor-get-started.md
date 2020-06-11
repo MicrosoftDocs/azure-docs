@@ -1,14 +1,9 @@
 ---
-title: Get started with Azure Advisor | Microsoft Docs
+title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
+
 ---
 
 # Get started with Azure Advisor
@@ -128,4 +123,4 @@ To learn more about Advisor, see:
 - [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md)
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
-- [Advisor Cost recommendations](advisor-performance-recommendations.md)
+- [Advisor Cost recommendations](advisor-cost-recommendations.md)

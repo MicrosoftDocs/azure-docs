@@ -1,6 +1,6 @@
 ---
-title: 'How to add an IoT hub event source to Azure Time Series Insights | Microsoft Docs'
-description: This article describes how to add an event source that is connected to an IoT hub to your Time Series Insights environment.
+title: 'How to add an IoT hub event source - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to add an IoT hub event source to your Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 10/09/2019
+ms.date: 04/16/2020
 ms.custom: seodec18
 ---
 
@@ -25,7 +25,7 @@ This article describes how to use the Azure portal to add an event source that r
 * Create an [Azure Time Series Insights environment](time-series-insights-update-create-environment.md).
 * Create an [IoT hub by using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * The IoT hub must have active message events being sent in.
-* Create a dedicated consumer group in the IoT hub for the Time Series Insights environment to consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to see failures. For details, see the [Azure IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
+* Create a dedicated consumer group in the IoT hub for the Time Series Insights environment to consume from. Each Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. For details, read the [Azure IoT Hub developer guide](../iot-hub/iot-hub-devguide.md).
 
 ### Add a consumer group to your IoT hub
 
@@ -37,7 +37,7 @@ To add a new consumer group to your IoT hub:
 
 1. Under **Settings**, select **Built-in Endpoints**, and then select the **Events** endpoint.
 
-   [![On the Build-in Endpoints page, select the Events button](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/1-iot-hub.png#lightbox)
+   [![On the Build-in Endpoints page, select the Events button](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
 1. Under **Consumer groups**, enter a unique name for the consumer group. Use this same name in your Time Series Insights environment when you create a new event source.
 
@@ -49,9 +49,9 @@ To add a new consumer group to your IoT hub:
 
 1. In the left menu, select **All resources**. Select your Time Series Insights environment.
 
-1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
+1. Under **Settings**, select **Event Sources**, and then select **Add**.
 
-   [![Select Event Sources, and then select the Add button](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/2-add-event-source.png#lightbox)
+   [![Select Event Sources, and then select the Add button](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
 1. In the **New event source** pane, for **Event source name**, enter a name that's unique to this Time Series Insights environment. For example, enter **event-stream**.
 
@@ -61,11 +61,11 @@ To add a new consumer group to your IoT hub:
 
    * If you already have an IoT hub in one of your subscriptions, select **Use IoT Hub from available subscriptions**. This option is the easiest approach.
    
-     [![Select options in the New event source pane](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/3-select-an-import-option.png#lightbox)
+     [![Select options in the New event source pane](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-select-an-import-option.png#lightbox)
 
     * The following table describes the properties that are required for the **Use IoT Hub from available subscriptions** option:
 
-       [![New event source pane - Properties to set in the Use IoT Hub from available subscriptions option](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png#lightbox)
+       [![New event source pane - Properties to set in the Use IoT Hub from available subscriptions option](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
        | Property | Description |
        | --- | --- |

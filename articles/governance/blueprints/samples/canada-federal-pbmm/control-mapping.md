@@ -1,11 +1,8 @@
 ---
-title: Canada Federal PBMM blueprint sample - Control mapping
+title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.service: blueprints
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
 
@@ -94,8 +91,8 @@ separation of duties.
 
 - A maximum of 3 owners should be designated for your subscription
 - There should be more than one owner assigned to your subscription
-- Audit Windows VMs in which the Administrators group contains any of the specified members
-- Audit Windows VMs in which the Administrators group does not contain all of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group does not contain all of the specified members
 - Deploy requirements to audit Windows VMs in which the Administrators group contains any of the specified members
 - Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
 
@@ -109,8 +106,8 @@ indicators can help you ensure least privilege controls are implemented.
 
 - A maximum of 3 owners should be designated for your subscription
 - There should be more than one owner assigned to your subscription
-- Audit Windows VMs in which the Administrators group contains any of the specified members
-- Audit Windows VMs in which the Administrators group does not contain all of the specified members
+- Show audit results from Windows VMs in which the Administrators group contains any of the specified members
+- Show audit results from Windows VMs in which the Administrators group does not contain all of the specified members
 - Deploy requirements to audit Windows VMs in which the Administrators group contains any of the specified members
 - Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
 
@@ -137,7 +134,7 @@ connections from accounts without passwords. Additionally, the blueprint assigns
 definition that helps you monitor unrestricted access to storage accounts. Monitoring these
 indicators can help you ensure remote access methods comply with your security policy.
 
-- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
 - Audit unrestricted network access to storage accounts
 - Remote debugging should be turned off for API App
@@ -163,7 +160,7 @@ audit and event logging configurations. Monitoring these configurations can prov
 an audit system failure or misconfiguration and help you take corrective action.
 
 - Audit diagnostic setting
-- Audit SQL server level Auditing settings
+- Auditing on SQL server should be enabled
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers
 
@@ -194,7 +191,7 @@ and Advanced Data Security are configured on SQL servers.
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
-- Audit SQL server level Auditing settings
+- Auditing on SQL server should be enabled
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers
 - Deploy Advanced Data Security on SQL servers
@@ -253,8 +250,8 @@ configuration of the password encryption type for Windows virtual machines. Moni
 indicators helps you ensure that system authenticators comply with your organization's
 identification and authentication policy.
 
-- \[Preview\]: Audit Linux VMs that do not have the passwd file permissions set to 0644
-- \[Preview\]: Audit Linux VMs that have accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
+- \[Preview\]: Show audit results from  Linux VMs that have accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
 - \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
 
@@ -266,11 +263,11 @@ password requirements. Awareness of virtual machines in violation of the passwor
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization's password policy.
 
-- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
 - \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
@@ -328,10 +325,9 @@ endpoints, applications, and storage accounts. Endpoints and applications that a
 firewall, and storage accounts with unrestricted access can allow unintended access to information
 contained within the information system.
 
-- Network Security Group Rules for Internet facing virtual machines should be hardened
+- Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
 - Access through Internet facing endpoint should be restricted
 - Audit unrestricted network access to storage accounts
-- The NSGs rules for web applications on IaaS should be hardened
 
 ## SC-7 (3) Boundary Protection | Access Points
 
@@ -363,7 +359,7 @@ properly encrypted can help you meet your organization's requirements or protect
 from unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
-- Audit Windows web servers that are not using secure communication protocols
+- Show audit results from  Windows web servers that are not using secure communication protocols
 - Deploy requirements to audit Windows web servers that are not using secure communication protocols
 - Function App should only be accessible over HTTPS
 - Only secure connections to your Redis Cache should be enabled

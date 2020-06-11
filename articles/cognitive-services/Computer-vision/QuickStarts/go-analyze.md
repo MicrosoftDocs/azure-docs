@@ -9,20 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
+
 # Quickstart: Analyze a remote image using the Computer Vision REST API with Go
 
-In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
 
 ## Prerequisites
 
-- You must have [Go](https://golang.org/dl/) installed.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* The latest version of [Go](https://golang.org/dl/)
+* A Computer Vision subscription key. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample
 
@@ -43,6 +44,7 @@ import (
     "fmt"
     "io/ioutil"
     "net/http"
+    "os"
     "strings"
     "time"
 )
@@ -50,21 +52,14 @@ import (
 func main() {
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
-    if (subscriptionKey == "") {
-        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**\n")
-
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
-    if ("" == endpoint) {
-        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**")
-    }
-    const uriBase = endpoint + "vision/v2.1/analyze"
+
+    uriBase := endpoint + "vision/v3.0/analyze"
     const imageUrl =
         "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
     const params = "?visualFeatures=Description&details=Landmarks&language=en"
-    const uri = uriBase + params
+    uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
     reader := strings.NewReader(imageUrlEnc)

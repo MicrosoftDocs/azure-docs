@@ -1,27 +1,27 @@
 ---
-title: Create your first automated workflow - Azure Logic Apps
-description: Quickstart - Build your first automated task by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
+title: Create your first automated workflow
+description: Quickstart - Build your first automated workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
 ---
 
-# Quickstart: Create your first automated workflow with Azure Logic Apps - Azure portal
+# Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal
 
-This quickstart introduces how to build your first automated workflow with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). In this article, you create a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
+This quickstart introduces the basic general concepts behind how to build your first workflow by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), such as creating a blank logic app, adding a trigger and an action, and then testing your logic app. In this quickstart, you build a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
 
 ![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-To follow this quickstart, you need an email account from a provider that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your user interface might slightly differ.
+For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](https://docs.microsoft.com/connectors/). In this example, the logic app uses an Office 365 Outlook account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
 
-Also, if you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+> [!IMPORTANT]
+> If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+> If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+> [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## Sign in to the Azure portal
 
@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. On the Logic App pane, provide details about your logic app as shown below. After you're done, select **Create**.
+1. On the **Logic App** pane, provide details about your logic app as shown below. After you're done, select **Create**.
 
    ![Provide details for new logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -45,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
    |----------|-------|-------------|
    | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
@@ -64,11 +64,11 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 <a name="add-rss-trigger"></a>
 
-## Check RSS feed with a trigger
+## Add the RSS trigger
 
 1. In the **Logic App Designer**, under the search box, select **All**.
 
-1. In the search box, enter `rss`. From the triggers list, select this trigger: **When a feed item is published**.
+1. In the search box, enter `rss` to find the RSS connector. From the triggers list, select the **When a feed item is published** trigger.
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -85,7 +85,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    Together, the interval and frequency define the schedule for your logic app's trigger. This logic app checks the feed every minute.
 
-1. To hide the trigger details for now, click inside the trigger's title bar.
+1. To collapse the trigger details for now, click inside the trigger's title bar.
 
    ![Collapse logic app shape to hide details](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
@@ -93,7 +93,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 Your logic app is now live but doesn't do anything other than check the RSS feed. So, add an action that responds when the trigger fires.
 
-## Send email with an action
+## Add the "send email" action
 
 Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends an email when a new item appears in the RSS feed.
 
@@ -103,7 +103,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. Under **Choose an action** and the search box, select **All**.
 
-1. In the search box, enter `send an email`. From the actions list, select the "send an email" action for the email provider that you want.
+1. In the search box, enter `send an email` to find connectors that offer this action. From the actions list, select the "send an email" action for the email service that you want to use. This example uses the Office 365 Outlook connector, which has the **Send an email** action.
 
    ![Select the "Send an email" action for Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -112,7 +112,18 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    * For Azure work or school accounts, select Office 365 Outlook.
    * For personal Microsoft accounts, select Outlook.com.
 
-1. If asked for credentials, sign in to your email account so that Logic Apps creates a connection to your email account.
+1. If your selected email connector prompts you to authenticate your identity, complete that step now to create a connection between your logic app and your email service.
+
+   > [!NOTE]
+   > In this specific example, you manually authenticate your identity. However, connectors that require authentication differ in 
+   > the authentication types that they support. You also have options to set up the way that you want to handle authentication. 
+   > For example, when you use Azure Resource Manager templates for deployment, you can parameterize and improve security on inputs 
+   > that you want to change often or easily, such as connection information. For more information, see these topics:
+   >
+   > * [Template parameters for deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
+   > * [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
+   > * [Authenticate access with managed identities](../logic-apps/create-managed-service-identity.md)
+   > * [Authenticate connections for logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
 1. In the **Send an email** action, specify the data that you want the email to include.
 

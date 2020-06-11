@@ -1,21 +1,11 @@
 ---
-title: How to configure data persistence for a Premium Azure Cache for Redis
+title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 08/24/2017
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 08/24/2017
 ---
 # How to configure data persistence for a Premium Azure Cache for Redis
 Azure Cache for Redis has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Cache for Redis instance.
@@ -30,7 +20,13 @@ Azure Cache for Redis offers Redis persistence using the following models:
 * **RDB persistence** - When RDB (Redis database) persistence is configured, Azure Cache for Redis persists a snapshot of the Azure Cache for Redis in a Redis binary format to disk based on a configurable backup frequency. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the most recent snapshot. Learn more about the [advantages](https://redis.io/topics/persistence#rdb-advantages) and [disadvantages](https://redis.io/topics/persistence#rdb-disadvantages) of RDB persistence.
 * **AOF persistence** - When AOF (Append only file) persistence is configured, Azure Cache for Redis saves every write operation to a log that is saved at least once per second into an Azure Storage account. If a catastrophic event occurs that disables both the primary and replica cache, the cache is reconstructed using the stored write operations. Learn more about the [advantages](https://redis.io/topics/persistence#aof-advantages) and [disadvantages](https://redis.io/topics/persistence#aof-disadvantages) of AOF persistence.
 
-Persistence is configured from the **New Azure Cache for Redis** blade during cache creation and on the **Resource menu** for existing premium caches.
+Persistence writes Redis data into an Azure Storage account that you own and manage. You can configure from the **New Azure Cache for Redis** blade during cache creation and on the **Resource menu** for existing premium caches.
+
+> [!NOTE]
+> 
+> Azure Storage automatically encrypts data when it is persisted. You can use your own keys for the encryption. For more information, see [Customer-managed keys with Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -42,7 +38,7 @@ The steps in the next section describe how to configure Redis persistence on you
 
 ## Enable Redis persistence
 
-Redis persistence is enabled on the **Redis data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Redis data persistence** blade is accessed from the **Resource menu** for your cache.
+Redis persistence is enabled on the **Data persistence** blade by choosing either **RDB** or **AOF** persistence. For new caches, this blade is accessed during the cache creation process, as described in the previous section. For existing caches, the **Data persistence** blade is accessed from the **Resource menu** for your cache.
 
 ![Redis settings][redis-cache-settings]
 
@@ -129,7 +125,7 @@ For both RDB and AOF persistence:
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Can I change the RDB backup frequency after I create the cache?
-Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see Configure Redis persistence.
+Yes, you can change the backup frequency for RDB persistence on the **Data persistence** blade. For instructions, see Configure Redis persistence.
 
 ### Why if I have an RDB backup frequency of 60 minutes there is more than 60 minutes between backups?
 The RDB persistence backup frequency interval does not start until the previous backup process has completed successfully. If the backup frequency is 60 minutes and it takes a backup process 15 minutes to successfully complete, the next backup won't start until 75 minutes after the start time of the previous backup.

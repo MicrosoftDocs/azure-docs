@@ -1,24 +1,32 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# - Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# - Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 04/02/2020
 ms.author: erhopf
 ---
 
 **Choose your target environment**
-#### [.Net](#tab/dotnet)
+
+# [.NET](#tab/dotnet)
+
 [!INCLUDE [dotnet](./dotnet.md)]
-#### [Unity](#tab/unity)
+
+# [Unity](#tab/unity)
+
 [!INCLUDE [unity](./unity.md)]
-#### [UWP](#tab/uwp)
+
+# [UWP](#tab/uwp)
+
 [!INCLUDE [uwp](./uwp.md)]
-#### [Xamarin](#tab/xaml)
+
+# [Xamarin](#tab/xaml)
+
 [!INCLUDE [xamarin](./xamarin.md)]
-* * *
+
+***

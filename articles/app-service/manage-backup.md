@@ -1,18 +1,9 @@
 ---
-title: Back up app - Azure App Service
-description: Learn how to create backups of your apps in Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-
+title: Back up an app
+description: Learn how to create backups of your apps in Azure App Service. Run manual or scheduled backups. Customize backups by including the attached database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -36,7 +27,7 @@ The following database solutions are supported with backup feature:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
-- [MySQL in-app](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
+- [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -46,11 +37,11 @@ The following database solutions are supported with backup feature:
 <a name="requirements"></a>
 
 ## Requirements and restrictions
-* The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** tier allows a greater number of daily back ups than **Standard** tier.
+* The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
-* Backups of SSL enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
-* Backups of SSL enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
+* Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
+* Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
 * In-app MySQL databases are automatically backed up without any configuration. If you make manually settings for in-app MySQL databases, such as adding connection strings, the backups may not work correctly.
 * Using a firewall enabled storage account as the destination for your backups is not supported. If a backup is configured, you will get failed backups.
 

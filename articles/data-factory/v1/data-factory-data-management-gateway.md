@@ -1,16 +1,16 @@
 ---
-title: Data Management Gateway for Data Factory | Microsoft Docs
+title: Data Management Gateway for Data Factory 
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 
 
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -27,7 +27,7 @@ robots: noindex
 
 The Data management gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
 
-This article complements the walkthrough in the [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob. This article provides detailed in-depth information about the data management gateway.
+This article complements the walkthrough in the [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from a SQL Server database to an Azure blob. This article provides detailed in-depth information about the data management gateway.
 
 You can scale out a data management gateway by associating multiple on-premises machines with the gateway. You can scale up by increasing number of data movement jobs that can run concurrently on a node. This feature is also available for a logical gateway with a single node. See [Scaling data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) article for details.
 
@@ -161,10 +161,10 @@ Ensure that the firewall rules are enabled properly on the corporate firewall, W
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, do the following steps:
 
 * Allow outbound **TCP** communication on port **1433** for both Windows firewall and corporate firewall.
-* Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
+* Configure the firewall settings of logical SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Database / SQL Managed Instance / SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
 >
 >
 
@@ -327,7 +327,7 @@ The Settings page allows you to do the following actions:
 * View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
 * Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
 * **Status** of the endpoint
-* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.
+* View **SSL certificate** is used for TLS/SSL communication between portal and the gateway to set credentials for data sources.
 
 ### Remote access from intranet
 This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials.
@@ -544,4 +544,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## Next steps
-* See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob.
+* See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from a SQL Server database to an Azure blob.

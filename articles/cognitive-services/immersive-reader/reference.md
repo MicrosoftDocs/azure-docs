@@ -1,7 +1,7 @@
 ---
 title: "Immersive Reader SDK Reference"
 titleSuffix: Azure Cognitive Services
-description: Reference for the Immersive Reader SDK
+description: The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -15,9 +15,9 @@ ms.author: metan
 
 # Immersive Reader SDK Reference Guide
 
-The Immersive Reader SDK is a JavaScript library that allows you to integrate the Immersive Reader into your web application.
+The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
-# Functions
+## Functions
 
 The SDK exposes the functions:
 
@@ -32,21 +32,21 @@ The SDK exposes the functions:
 Launches the Immersive Reader within an `iframe` in your web application.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Azure AD authentication token. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
-| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See the [Azure AD authentication how-to](./azure-active-directory-authentication.md). |
+| `token` | string | The Azure AD authentication token. |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
 ### Returns
 
-Returns a `Promise<HTMLDivElement>`, which resolves when the Immersive Reader is loaded. The `Promise` resolves to a `div` element whose only child is an `iframe` element that contains the Immersive Reader page.
+Returns a `Promise<LaunchResponse>`, which resolves when the Immersive Reader is loaded. The `Promise` resolves to a [`LaunchResponse`](#launchresponse) object.
 
 ### Exceptions
 
@@ -105,22 +105,41 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 }
 ```
 
+### LaunchResponse
+
+Contains the response from the call to `ImmersiveReader.launchAsync`.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
+### CookiePolicy enum
+
+An enum used to set the policy for the Immersive Reader's cookie usage. See [options](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### Supported MIME types
 
 | MIME Type | Description |
 | --------- | ----------- |
 | text/plain | Plain text. |
 | text/html | HTML content. [Learn more](#html-support)|
-| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](./how-to/display-math.md).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
 ### HTML Support
+
 | HTML | Supported Content |
 | --------- | ----------- |
 | Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
 | Unordered Lists | Disc, Circle, Square |
 | Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
-| Hyperlinks | Coming Soon |
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
@@ -138,6 +157,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -173,7 +193,7 @@ Contains information about the error.
 
 ## Launching the Immersive Reader
 
-The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling.
+The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling. See [this article](./how-to-customize-launch-button.md) for more details.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -202,4 +222,4 @@ Use the most recent versions of the following browsers for the best experience w
 ## Next steps
 
 * Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstart.md)
+* [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstarts/client-libraries.md?pivots=programming-language-csharp)

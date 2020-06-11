@@ -1,12 +1,12 @@
 ---
-title: Provide feedback on risk detections in Azure AD Identity Protection - Azure Active Directory
+title: Provide risk feedback in Azure Active Directory Identity Protection
 description: How and why should you provide feedback on Identity Protection risk detections.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -1,49 +1,49 @@
 ---
-title: Copy data from HDFS using Azure Data Factory  | Microsoft Docs
-description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from HDFS by using Azure Data Factory  
+description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using Copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 05/15/2020
 ms.author: jingwang
 
 ---
-# Copy data from HDFS using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+# Copy data from the HDFS server by using Azure Data Factory
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-hdfs-connector.md)
 > * [Current version](connector-hdfs.md)
 
-This article outlines how to copy data from HDFS server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This article outlines how to copy data from the Hadoop Distributed File System (HDFS) server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
-This HDFS connector is supported for the following activities:
+The HDFS connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source and sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-Specifically, this HDFS connector supports:
+Specifically, the HDFS connector supports:
 
-- Copying files using **Windows** (Kerberos) or **Anonymous** authentication.
-- Copying files using **webhdfs** protocol or **built-in DistCp** support.
-- Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copying files by using *Windows* (Kerberos) or *Anonymous* authentication.
+- Copying files by using the *webhdfs* protocol or *built-in DistCp* support.
+- Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
-> Make sure the Integration Runtime can access to **ALL** the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. Default [name node port] is 50070, and default [data node port] is 50075.
+> Make sure that the integration runtime can access *all* the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. The default [name node port] is 50070, and the default [data node port] is 50075.
 
-## Getting started
+## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -51,16 +51,16 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for HDFS linked service:
+The following properties are supported for the HDFS linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **Hdfs**. | Yes |
-| url |URL to the HDFS |Yes |
-| authenticationType | Allowed values are: **Anonymous**, or **Windows**. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
-| userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
-| password |Password for Windows authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| type | The *type* property must be set to *Hdfs*. | Yes |
+| url |The URL to the HDFS |Yes |
+| authenticationType | The allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector) section. |Yes |
+| userName |The username for Windows authentication. For Kerberos authentication, specify **\<username>@\<domain>.com**. |Yes (for Windows authentication) |
+| password |The password for Windows authentication. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
 
@@ -108,17 +108,17 @@ The following properties are supported for HDFS linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
+For a full list of sections and properties that are available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). 
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for HDFS under `location` settings in format-based dataset:
+The following properties are supported for HDFS under `location` settings in the format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | The type property under `location` in dataset must be set to **HdfsLocation**. | Yes      |
-| folderPath | The path to folder. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
-| fileName   | The file name under the given folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
+| type       | The *type* property under `location` in the dataset must be set to *HdfsLocation*. | Yes      |
+| folderPath | The path to the folder. If you want to use a wildcard to filter the folder, skip this setting and specify the path in activity source settings. | No       |
+| fileName   | The file name under the specified folderPath. If you want to use a wildcard to filter files, skip this setting and specify the file name in activity source settings. | No       |
 
 **Example:**
 
@@ -146,77 +146,33 @@ The following properties are supported for HDFS under `location` settings in for
 }
 ```
 
-### Legacy dataset model
-
->[!NOTE]
->The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **FileShare** |Yes |
-| folderPath | Path to the folder. Wildcard filter is supported, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual file name has wildcard or this escape char inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes |
-| fileName |  **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual folder name has wildcard or this escape char inside. |No |
-| modifiedDatetimeStart | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
-| modifiedDatetimeEnd | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> Be aware the overall performance of data movement will be impacted by enabling this setting when you want to do file filter from huge amounts of files. <br/><br/> The properties can be NULL that mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.| No |
-| format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
-
->[!TIP]
->To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
-
-**Example:**
-
-```json
-{
-    "name": "HDFSDataset",
-    "properties": {
-        "type": "FileShare",
-        "linkedServiceName":{
-            "referenceName": "<HDFS linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "folderPath": "folder/subfolder/",
-            "fileName": "*",
-            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
-            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "rowDelimiter": "\n"
-            },
-            "compression": {
-                "type": "GZip",
-                "level": "Optimal"
-            }
-        }
-    }
-}
-```
-
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by HDFS source.
+For a full list of sections and properties that are available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties that are supported by the HDFS source.
 
 ### HDFS as source
 
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-The following properties are supported for HDFS under `storeSettings` settings in format-based copy source:
+The following properties are supported for HDFS under `storeSettings` settings in the format-based Copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **HdfsReadSetting**. | Yes                                           |
-| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
-| wildcardFolderPath       | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
-| wildcardFileName         | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
-| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
-| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
-| distcpSettings | Property group when using HDFS DistCp. | No |
-| resourceManagerEndpoint | The Yarn Resource Manager endpoint | Yes if using DistCp |
-| tempScriptPath | A folder path used to store temp DistCp command script. The script file is generated by Data Factory and will be removed after Copy job finished. | Yes if using DistCp |
+| type                     | The *type* property under `storeSettings` must be set to **HdfsReadSettings**. | Yes                                           |
+| ***Locate the files to copy*** |  |  |
+| OPTION 1: static path<br> | Copy from the folder or file path that's specified in the dataset. If you want to copy all files from a folder, additionally specify `wildcardFileName` as `*`. |  |
+| OPTION 2: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape character inside. <br>For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
+| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the specified folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has a wildcard or this escape character inside.  For more examples, see [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
+| OPTION 3: a list of files<br>- fileListPath | Indicates to copy a specified file set. Point to a text file that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset).<br/>When you use this option, do not specify file name in the dataset. For more examples, see [File list examples](#file-list-examples). |No |
+| ***Additional settings*** |  | |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When `recursive` is set to *true* and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
+| modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No                                            |
+| ***DistCp settings*** |  | |
+| distcpSettings | The property group to use when you use HDFS DistCp. | No |
+| resourceManagerEndpoint | The YARN (Yet Another Resource Negotiator) endpoint | Yes, if using DistCp |
+| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated by Data Factory and will be removed after the Copy job is finished. | Yes, if using DistCp |
 | distcpOptions | Additional options provided to DistCp command. | No |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
 
 **Example:**
 
@@ -241,11 +197,11 @@ The following properties are supported for HDFS under `storeSettings` settings i
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "HdfsReadSetting",
+                    "type": "HdfsReadSettings",
                     "recursive": true,
                     "distcpSettings": {
                         "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
@@ -262,39 +218,9 @@ The following properties are supported for HDFS under `storeSettings` settings i
 ]
 ```
 
-#### Legacy source model
-
->[!NOTE]
->The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **HdfsSource** |Yes |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. Note when recursive is set to true and sink is file-based store, empty folder/sub-folder will not be copied/created at sink.<br/>Allowed values are: **true** (default), **false** | No |
-| distcpSettings | Property group when using HDFS DistCp. | No |
-| resourceManagerEndpoint | The Yarn Resource Manager endpoint | Yes if using DistCp |
-| tempScriptPath | A folder path used to store temp DistCp command script. The script file is generated by Data Factory and will be removed after Copy job finished. | Yes if using DistCp |
-| distcpOptions | Additional options provided to DistCp command. | No |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No |
-
-**Example: HDFS source in copy activity using DistCp**
-
-```json
-"source": {
-    "type": "HdfsSource",
-    "distcpSettings": {
-        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
-        "tempScriptPath": "/usr/hadoop/tempscript",
-        "distcpOptions": "-m 100"
-    }
-}
-```
-
-Learn more on how to use DistCp to copy data from HDFS efficiently from the next section.
-
 ### Folder and file filter examples
 
-This section describes the resulting behavior of the folder path and file name with wildcard filters.
+This section describes the resulting behavior if you use a wildcard filter with the folder path and file name.
 
 | folderPath | fileName             | recursive | Source folder structure and filter result (files in **bold** are retrieved) |
 | :--------- | :------------------- | :-------- | :----------------------------------------------------------- |
@@ -303,81 +229,91 @@ This section describes the resulting behavior of the folder path and file name w
 | `Folder*`  | `*.csv`              | false     | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 | `Folder*`  | `*.csv`              | true      | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
 
+### File list examples
+
+This section describes the behavior that results from using a file list path in the Copy activity source. It assumes that you have the following source folder structure and want to copy the files that are in bold type:
+
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Azure Data Factory configuration                                            |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
+| root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In the dataset:**<br>- Folder path: `root/FolderA`<br><br>**In the Copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset). |
+
 ## Use DistCp to copy data from HDFS
 
-[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is a Hadoop native command-line tool to do distributed copy in a Hadoop cluster. When run a Distcp command, it will first list all the files to be copied, create several Map jobs into the Hadoop cluster, and each Map job will do binary copy from source to sink.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is a Hadoop native command-line tool for doing a distributed copy in a Hadoop cluster. When you run a command in DistCp, it first lists all the files to be copied and then creates several Map jobs in the Hadoop cluster. Each Map job does a binary copy from the source to the sink.
 
-Copy Activity support using DistCp to copy files as-is into Azure Blob (including [staged copy](copy-activity-performance.md)) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the Self-hosted Integration Runtime. It will provide better copy throughput especially if your cluster is very powerful. Based on your configuration in Azure Data Factory, Copy activity automatically construct a distcp command, submit to your Hadoop cluster, and monitor the copy status.
+The Copy activity supports using DistCp to copy files as is into Azure Blob storage (including [staged copy](copy-activity-performance.md)) or an Azure data lake store. In this case, DistCp can take advantage of your cluster's power instead of running on the self-hosted integration runtime. Using DistCp provides better copy throughput, especially if your cluster is very powerful. Based on the configuration in your data factory, the Copy activity automatically constructs a DistCp command, submits it to your Hadoop cluster, and monitors the copy status.
 
 ### Prerequisites
 
-To use DistCp to copy files as-is from HDFS to Azure Blob (including staged copy) or Azure Data Lake Store, make sure your Hadoop cluster meets below requirements:
+To use DistCp to copy files as is from HDFS to Azure Blob storage (including staged copy) or the Azure data lake store, make sure that your Hadoop cluster meets the following requirements:
 
-1. MapReduce and Yarn services are enabled.
-2. Yarn version is 2.5 or above.
-3. HDFS server is integrated with your target data store - Azure Blob or Azure Data Lake Store:
+* The MapReduce and YARN services are enabled.  
+* YARN version is 2.5 or later.  
+* The HDFS server is integrated with your target data store: Azure Blob storage or your Azure data lake store:  
 
-    - Azure Blob FileSystem is natively supported since Hadoop 2.7. You only need to specify jar path in Hadoop env config.
-    - Azure Data Lake Store FileSystem is packaged starting from Hadoop 3.0.0-alpha1. If your Hadoop cluster is lower than that version, you need to manually import ADLS related jar packages (azure-datalake-store.jar) into cluster from [here](https://hadoop.apache.org/releases.html), and specify jar path in Hadoop env config.
+    - Azure Blob FileSystem is natively supported since Hadoop 2.7. You need only to specify the JAR path in the Hadoop environment configuration.
+    - Azure Data Lake Store FileSystem is packaged starting from Hadoop 3.0.0-alpha1. If your Hadoop cluster version is earlier than that version, you need to manually import Azure Data Lake Storage Gen2-related JAR packages (azure-datalake-store.jar) into the cluster from [here](https://hadoop.apache.org/releases.html), and specify the JAR file path in the Hadoop environment configuration.
 
-4. Prepare a temp folder in HDFS. This temp folder is used to store DistCp shell script, so it will occupy KB-level space.
-5. Make sure the user account provided in HDFS Linked Service have permission to a) submit application in Yarn; b) have the permission to create subfolder, read/write files under above temp folder.
+* Prepare a temp folder in HDFS. This temp folder is used to store a DistCp shell script, so it will occupy KB-level space.
+* Make sure that the user account that's provided in the HDFS linked service has permission to:
+   * Submit an application in YARN.
+   * Create a subfolder and read/write files under the temp folder.
 
 ### Configurations
 
-See DistCp related configurations and examples in [HDFS as source](#hdfs-as-source) section.
+For DistCp-related configurations and examples, go to the [HDFS as source](#hdfs-as-source) section.
 
-## Use Kerberos authentication for HDFS connector
+## Use Kerberos authentication for the HDFS connector
 
-There are two options to set up the on-premises environment so as to use Kerberos Authentication in HDFS connector. You can choose the one better fits your case.
-* Option 1: [Join Self-hosted Integration Runtime machine in Kerberos realm](#kerberos-join-realm)
-* Option 2: [Enable mutual trust between Windows domain and Kerberos realm](#kerberos-mutual-trust)
+There are two options for setting up the on-premises environment to use Kerberos authentication for the HDFS connector. You can choose the one that better fits your situation.
+* Option 1: [Join a self-hosted integration runtime machine in the Kerberos realm](#kerberos-join-realm)
+* Option 2: [Enable mutual trust between the Windows domain and the Kerberos realm](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Option 1: Join Self-hosted Integration Runtime machine in Kerberos realm
+### <a name="kerberos-join-realm"></a>Option 1: Join a self-hosted integration runtime machine in the Kerberos realm
 
 #### Requirements
 
-* The Self-hosted Integration Runtime machine needs to join the Kerberos realm and can’t join any Windows domain.
+* The self-hosted integration runtime machine needs to join the Kerberos realm and can’t join any Windows domain.
 
 #### How to configure
 
-**On Self-hosted Integration Runtime machine:**
+**On the self-hosted integration runtime machine:**
 
-1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
+1.	Run the Ksetup utility to configure the Kerberos Key Distribution Center (KDC) server and realm.
 
-    The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
+    The machine must be configured as a member of a workgroup, because a Kerberos realm is different from a Windows domain. You can achieve this configuration by setting the Kerberos realm and adding a KDC server by running the following commands. Replace *REALM.COM* with your own realm name.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-	**Restart** the machine after executing these 2 commands.
+	After you run these commands, restart the machine.
 
-2.	Verify the configuration with **Ksetup** command. The output should be like:
+2.	Verify the configuration with the `Ksetup` command. The output should be like:
 
             C:> Ksetup
             default realm = REALM.COM (external)
             REALM.com:
                 kdc = <your_kdc_server_address>
 
-**In Azure Data Factory:**
+**In your data factory:**
 
-* Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+* Configure the HDFS connector by using Windows authentication together with your Kerberos principal name and password to connect to the HDFS data source. For configuration details, check the [HDFS linked service properties](#linked-service-properties) section.
 
-### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
+### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between the Windows domain and the Kerberos realm
 
 #### Requirements
 
-*	The Self-hosted Integration Runtime machine must join a Windows domain.
+*	The self-hosted integration runtime machine must join a Windows domain.
 *	You need permission to update the domain controller's settings.
 
 #### How to configure
 
 > [!NOTE]
-> Replace REALM.COM and AD.COM in the following tutorial with your own respective realm and domain controller as needed.
+> Replace REALM.COM and AD.COM in the following tutorial with your own realm name and domain controller.
 
-**On KDC server:**
+**On the KDC server:**
 
-1. Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to the following configuration template. By default, the configuration is located at **/etc/krb5.conf**.
+1. Edit the KDC configuration in the *krb5.conf* file to let KDC trust the Windows domain by referring to the following configuration template. By default, the configuration is located at */etc/krb5.conf*.
 
            [logging]
             default = FILE:/var/log/krb5libs.log
@@ -413,66 +349,140 @@ There are two options to set up the on-premises environment so as to use Kerbero
              REALM.COM = .
             }
 
-   **Restart** the KDC service after configuration.
+   After you configure the file, restart the KDC service.
 
-2. Prepare a principal named **krbtgt/REALM.COM\@AD.COM** in KDC server with the following command:
+2. Prepare a principal named *krbtgt/REALM.COM\@AD.COM* in the KDC server with the following command:
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3. In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
+3. In the *hadoop.security.auth_to_local* HDFS service configuration file, add `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
-**On domain controller:**
+**On the domain controller:**
 
-1.	Run the following **Ksetup** commands to add a realm entry:
+1.	Run the following `Ksetup` commands to add a realm entry:
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
+2.	Establish trust from the Windows domain to the Kerberos realm. [password] is the password for the principal *krbtgt/REALM.COM\@AD.COM*.
 
-            C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+        C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /password:[password]
 
-3.	Select encryption algorithm used in Kerberos.
+3.	Select the encryption algorithm that's used in Kerberos.
 
-    1. Go to Server Manager > Group Policy Management > Domain > Group Policy Objects > Default or Active Domain Policy, and Edit.
+    a. Select **Server Manager** > **Group Policy Management** > **Domain** > **Group Policy Objects** > **Default or Active Domain Policy**, and then select **Edit**.
 
-    2. In the **Group Policy Management Editor** popup window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options, and configure **Network security: Configure Encryption types allowed for Kerberos**.
+    b. On the **Group Policy Management Editor** pane, select **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **Security Options**, and then configure **Network security: Configure Encryption types allowed for Kerberos**.
 
-    3. Select the encryption algorithm you want to use when connect to KDC. Commonly, you can simply select all the options.
+    c. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
-        ![Config Encryption Types for Kerberos](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    ![Screenshot of the "Network security: Configure encryption types allowed for Kerberos" pane](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Use **Ksetup** command to specify the encryption algorithm to be used on the specific REALM.
+    d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
-                C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+        C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.	Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
+4.	Create the mapping between the domain account and the Kerberos principal, so that you can use the Kerberos principal in the Windows domain.
 
-    1. Start the Administrative tools > **Active Directory Users and Computers**.
+    a. Select **Administrative tools** > **Active Directory Users and Computers**.
 
-    2. Configure advanced features by clicking **View** > **Advanced Features**.
+    b. Configure advanced features by selecting **View** > **Advanced Features**.
 
-    3. Locate the account to which you want to create mappings, and right-click to view **Name Mappings** > click **Kerberos Names** tab.
+    c. On the **Advanced Features** pane, right-click the account to which you want to create mappings and, on the **Name Mappings** pane, select the **Kerberos Names** tab.
 
-    4. Add a principal from the realm.
+    d. Add a principal from the realm.
 
-        ![Map Security Identity](media/connector-hdfs/map-security-identity.png)
+       ![The "Security Identity Mapping" pane](media/connector-hdfs/map-security-identity.png)
 
-**On Self-hosted Integration Runtime machine:**
+**On the self-hosted integration runtime machine:**
 
-* Run the following **Ksetup** commands to add a realm entry.
+* Run the following `Ksetup` commands to add a realm entry.
 
-            C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-            C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+        C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
+        C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-**In Azure Data Factory:**
+**In your data factory:**
 
-* Configure the HDFS connector using **Windows authentication** together with either your Domain Account or Kerberos Principal to connect to the HDFS data source. Check [HDFS Linked Service properties](#linked-service-properties) section on configuration details.
+* Configure the HDFS connector by using Windows authentication together with either your domain account or Kerberos principal to connect to the HDFS data source. For configuration details, see the [HDFS linked service properties](#linked-service-properties) section.
 
 ## Lookup activity properties
 
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+For information about Lookup activity properties, see [Lookup activity in Azure Data Factory](control-flow-lookup-activity.md).
 
+## Legacy models
+
+>[!NOTE]
+>The following models are still supported as is for backward compatibility. We recommend that you use the previously discussed new model, because the Azure Data Factory authoring UI has switched to generating the new model.
+
+### Legacy dataset model
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The *type* property of the dataset must be set to *FileShare* |Yes |
+| folderPath | The path to the folder. A wildcard filter is supported. Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character); use `^` to escape if your actual file name has a wildcard or this escape character inside. <br/><br/>Examples: rootfolder/subfolder/, see more examples in [Folder and file filter examples](#folder-and-file-filter-examples). |Yes |
+| fileName |  The name or wildcard filter for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or a single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual folder name has a wildcard or this escape character inside. |No |
+| modifiedDatetimeStart | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| modifiedDatetimeEnd | Files are filtered based on the attribute *Last Modified*. The files are selected if their last modified time is within the range of `modifiedDatetimeStart` to `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. <br/><br/> Be aware that the overall performance of data movement will be affected by enabling this setting when you want to apply a file filter to large numbers of files. <br/><br/> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.| No |
+| format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse files with a specific format, the following file format types are supported: *TextFormat*, *JsonFormat*, *AvroFormat*, *OrcFormat*, *ParquetFormat*. Set the *type* property under format to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are: *Gzip*, *Deflate*, *Bzip2*, and *ZipDeflate*.<br/>Supported levels are: *Optimal* and *Fastest*. |No |
+
+>[!TIP]
+>To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a specified name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
+
+**Example:**
+
+```json
+{
+    "name": "HDFSDataset",
+    "properties": {
+        "type": "FileShare",
+        "linkedServiceName":{
+            "referenceName": "<HDFS linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "typeProperties": {
+            "folderPath": "folder/subfolder/",
+            "fileName": "*",
+            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
+            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "\n"
+            },
+            "compression": {
+                "type": "GZip",
+                "level": "Optimal"
+            }
+        }
+    }
+}
+```
+
+### Legacy Copy activity source model
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The *type* property of the Copy activity source must be set to *HdfsSource*. |Yes |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to *true* and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are *true* (default) and *false*. | No |
+| distcpSettings | The property group when you're using HDFS DistCp. | No |
+| resourceManagerEndpoint | The YARN Resource Manager endpoint | Yes, if using DistCp |
+| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated by Data Factory and will be removed after the Copy job is finished. | Yes, if using DistCp |
+| distcpOptions | Additional options are provided to DistCp command. | No |
+| maxConcurrentConnections | The number of connections that can connect to the storage store concurrently. Specify a value only when you want to limit the concurrent connection to the data store. | No |
+
+**Example: HDFS source in Copy activity using DistCp**
+
+```json
+"source": {
+    "type": "HdfsSource",
+    "distcpSettings": {
+        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
+        "tempScriptPath": "/usr/hadoop/tempscript",
+        "distcpOptions": "-m 100"
+    }
+}
+```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that are supported as sources and sinks by the Copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

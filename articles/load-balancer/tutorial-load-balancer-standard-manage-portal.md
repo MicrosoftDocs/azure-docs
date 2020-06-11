@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Load balance internet traffic to VMs - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -111,22 +111,20 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
-### Create a virtual network
+## Virtual network and parameters
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
-2. In **Create virtual network**, enter or select this information:
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter *myVNet*. |
-    | Address space | Enter *10.1.0.0/16*. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select existing resource - *myResourceGroupSLB*. |
-    | Location | Select **West Europe**.|
-    | Subnet - Name | Enter *myBackendSubnet*. |
-    | Subnet - Address range | Enter *10.1.0.0/24*. |
-    
-3. Leave the rest of the defaults and select **Create**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupSLB (Select existing resource group) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | West Europe      |
+| **\<IPv4-address-space>**   | 10.1.0.0/16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 10.1.0.0/24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### Create virtual machines
 

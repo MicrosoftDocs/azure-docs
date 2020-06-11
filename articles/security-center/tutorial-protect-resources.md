@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center Tutorial - Protect your resources with Azure Security Center | Microsoft Docs
+title: Access & application controls tutorial - Azure Security Center
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
@@ -24,8 +24,6 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Configure a just-in-time VM access policy
 > * Configure an application control policy
-
-If you don’t have an Azure subscription, create a  [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 ## Prerequisites
 To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
@@ -91,7 +89,7 @@ Adaptive application controls help you define a set of applications that are all
 4. Once you finish your selections, select **Create**.
 
 ## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
 1. Return to the Security Center main menu and select **Security Policy**.
 2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
@@ -107,7 +105,7 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps

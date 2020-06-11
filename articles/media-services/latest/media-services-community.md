@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services Community Overview | Microsoft Docs
+title: Azure Media Services v3 community overview
 description: This Azure Media Services community page discusses different ways you can ask questions, give feedback, and get updates about Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/22/2020
 ms.author: juliako
 
 ---
-# Azure Media Services Community  
+# Azure Media Services v3 community  
 
 This Azure Media Services community page discusses different ways you can ask questions, give feedback, and get updates about Media Services.
 
@@ -36,7 +36,7 @@ The following forums can be used for asking questions about current products and
 
 Currently, MSDN is Media Services team's primary community forum.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
 

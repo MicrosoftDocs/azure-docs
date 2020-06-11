@@ -1,17 +1,24 @@
 ---
 title: Windows Virtual Desktop PowerShell - Azure
-description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop tenant environment.
+description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 06/05/2020
 ms.author: helohr
+manager: lizross
 ---
 # Windows Virtual Desktop PowerShell
 
-Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop Powershell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Use this article to resolve errors and issues when using PowerShell with Windows Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
 ## Provide feedback
 
@@ -21,70 +28,57 @@ Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microso
 
 This section lists PowerShell commands that are typically used while setting up Windows Virtual Desktop and provides ways to resolve issues that may occur while using them.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName is already assigned to a RemoteApp app group in the specified Host Pool
+### Error: New-AzRoleAssignment: The provided information does not map to an AD object ID
 
-```Powershell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
+```powershell
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-**Cause:** The username used has been already assigned to an app group of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The user specified by the *-SignInName* parameter can't be found in the Azure Active Directory tied to the Windows Virtual Desktop environment. 
 
-**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to the remote desktop, which will permit the use of any application on the session host VM.
+**Fix:** Make sure of the following things.
 
-### Error: Add-RdsAppGroupUser command -- The specified UserPrincipalName doesn't exist in the Azure Active Directory associated with the Remote Desktop tenant
+- The user should be synced to Azure Active Directory.
+- The user shouldn't be tied to business-to-consumer (B2C) or business-to-business (B2B) commerce.
+- The Windows Virtual Desktop environment should be tied to correct Azure Active Directory.
 
-```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
-```
+### Error: New-AzRoleAssignment: "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)"
 
-**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant.
+**Cause 1:** The account being used doesn't have Owner permissions on the subscription. 
 
-**Fix:** Confirm the items in the following list.
+**Fix 1:** A user with Owner permissions needs to execute the role assignment. Alternatively, the user needs to be assigned to the User Access Administrator role to assign a user to an application group.
 
-- The user is synched to Azure Active Directory.
-- The user isn't tied to business to consumer (B2C) or business-to-business (B2B) commerce.
-- The Windows Virtual Desktop tenant is tied to correct Azure Active Directory.
-
-### Error: Get-RdsDiagnosticActivities -- User isn't authorized to query the management service
-
-```PowerShell
-Get-RdsDiagnosticActivities -ActivityId <ActivityId>
-```
-
-**Cause:** -TenantName parameter
-
-**Fix:** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName>.
-
-### Error: Get-RdsDiagnosticActivities -- the user isn't authorized to query the management service
-
-```PowerShell
-Get-RdsDiagnosticActivities -Deployment -username <username>
-```
-
-**Cause:** Using -Deployment switch.
-
-**Fix:** -Deployment switch can be used only by deployment administrators. These administrators are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace the -Deployment switch with -TenantName \<TenantName>.
-
-### Error: New-RdsRoleAssignment -- the user isn't authorized to query the management service
-
-**Cause 1:** The account being used doesn't have Remote Desktop Services Owner permissions on the tenant.
-
-**Fix 1:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
-
-**Cause 2:** The account being used has Remote Desktop Services owner permissions but isn't part of the tenant’s Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
+**Cause 2:** The account being used has Owner permissions but isn't part of the environment's Azure Active Directory or doesn't have permissions to query the Azure Active Directory where the user is located.
 
 **Fix 2:** A user with Active Directory permissions needs to execute the role assignment.
 
->[!Note]
->New-RdsRoleAssignment cannot give permissions to a user that doesn't exist in the Azure Active Directory (AD).
+### Error: New-AzWvdHostPool -- the location is not available for resource type
+
+```powershell
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+```
+
+Cause: Windows Virtual Desktop supports selecting the location of host pools, application groups, and workspaces to store service metadata in certain locations. Your options are restricted to where this feature is available. This error means that the feature isn't available in the location you chose.
+
+Fix: In the error message, a list of supported regions will be published. Use one of the supported regions instead.
+
+### Error: New-AzWvdApplicationGroup must be in same location as host pool
+
+```powershell
+New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
+```
+
+**Cause:** There's a location mismatch. All host pools, application groups, and workspaces have a location to store service metadata. Any objects you create that are associated with each other must be in the same location. For example, if a host pool is in `eastus`, then you also need to create the application groups in `eastus`. If you create a workspace to register these application groups to, that workspace needs to be in `eastus` as well.
+
+**Fix:** Retrieve the location the host pool was created in, then assign the application group you're creating to that same location.
 
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while setting up your Windows Virtual Desktop environment and host pools, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

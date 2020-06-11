@@ -1,7 +1,7 @@
 ---
 title: Language support - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: This is a list of natural languages that the Content Moderator API supports.
+description: This is a list of natural languages that the Azure Cognitive Services Content Moderator API supports.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -109,7 +109,7 @@ ms.author: pafarley
 | | Russian | | |
 | | Scottish Gaelic | | |
 | | Serbian (Cyrillic) | | |
-| | Serbian (Cyrillic, Bosnia, and Herzegovina) | | |
+| | Serbian (Cyrillic, Bosnia and Herzegovina) | | |
 | | Serbian (Latin) | | |
 | | Sesotho | | |
 | | Sesotho sa Leboa | | |

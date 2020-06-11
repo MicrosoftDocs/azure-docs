@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 
 # Boosted Decision Tree Regression module
@@ -25,8 +25,6 @@ This regression method is a supervised learning method, and therefore requires a
 
 After you have defined the model, train it by using the [Train Model](./train-model.md).
 
-> [!TIP]
-> Want to know more about the trees that were created? After the model has been trained, right-click the output of the [Train Model](./train-model.md) module and select **Visualize** to see the tree that was created on each iteration. You can drill down into the splits for each tree and see the rules for each node.  
   
 ## More about boosted regression trees  
 
@@ -52,7 +50,9 @@ The gradient boosting method can also be used for classification problems by red
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
-    -   **Single Parameter**: Select this option if you know how you want to configure the model, and provide a specific set of values as arguments.  
+    -   **Single Parameter**: Select this option if you know how you want to configure the model, and provide a specific set of values as arguments. 
+     
+    -   **Parameter Range**: Select this option if you are not sure of the best parameters, and want to run a parameter sweep. Select a range of values to iterate over, and the [Tune Model Hyperparameters](tune-model-hyperparameters.md) iterates over all possible combinations of the settings you provided to determine the hyperparameters that produce the optimal results.    
    
   
 3. **Maximum number of leaves per tree**: Indicate the maximum number of terminal nodes (leaves) that can be created in any tree.  
@@ -73,27 +73,31 @@ The gradient boosting method can also be used for classification problems by red
 
     By default, the random seed is set to 0, which means the initial seed value is obtained from the system clock.
   
-8. **Allow unknown categorical levels**: Select this option to create a group for unknown values in the training and validation sets. If you deselect this option, the model can accept only the values that are contained in the training data. The model might be less precise for known values, but it can provide better predictions for new (unknown) values.
 
-9. Add a training dataset, and one of the training modules:
+9. Train the model:
 
-    - If you set **Create trainer mode** option to **Single Parameter**, use the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
     
 
-10. Run the pipeline.  
+10. Submit the pipeline.  
   
 ## Results
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](train-model.md) module and select **Visualize**.
-  
-     Click each tree to drill down into the splits and see the rules for each node.  
++ To use the model for scoring, connect [Train Model](train-model.md) to [Score Model](./score-model.md), to predict values for new input examples.
 
-+ To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
-
-+ To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the pipeline.
++ To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a module in the module tree and will not be updated on successive runs of the pipeline.
 
 ## Next steps
 

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/06/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/24/2020
 ---
 # Evaluate Model module
 
@@ -20,58 +20,39 @@ Use this module to measure the accuracy of a trained model. You provide a datase
  The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   
 -   **Classification Models**    
--   **Regression Models**    
-
+-   **Regression Models**  
+-   **Clustering Models**  
 
 
 > [!TIP]
 > If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
 
 
-There are three ways to use the **Evaluate Model** module:
+## How to use Evaluate Model
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the [Assign Data to Clusters](./assign-data-to-clusters.md) to the left input port of **Evaluate Model**. 
+  > [!NOTE] 
+  > If use modules like "Select Columns in Dataset" to select part of input dataset, please ensure
+  > Actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
+  > Actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
+  > 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1)     exist to calculate metrics for clustering.
 
-+ Generate scores over your training data, and evaluate the model based on these scores
-+ Generate scores on the model, but compare those scores to scores on a reserved testing set
-+ Compare scores for two different but related models, using the same set of data
+2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right** input port of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 
-## Use the training data
+    > [!NOTE]
+    > Algorithm type refers to 'Two-class Classification', 'Multi-class Classification', 'Regression', 'Clustering' under 'Machine Learning Algorithms'. 
 
-To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
-
-1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
-2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
-
-## Use testing data
-
-A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
-
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
-2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
-
-## Compare scores from two models
-
-You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
-
-This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
-
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
+3. Submit the pipeline to generate the evaluation scores.
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. You can:
-
-+ Save the results as a dataset, for easier analysis with other tools
-+ Generate a visualization in the designer
+After you run **Evaluate Model**, select the module to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons.   The **Visualize** icon has a bar graph icon, and is a first way to see the results.
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
 
 For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
 
-![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
@@ -79,12 +60,13 @@ Because this is a clustering model, the evaluation results are different than if
 
 This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
-+ [classification models](#bkmk_classification)
-+ [regression models](#bkmk_regression)
++ [classification models](#metrics-for-classification-models)
++ [regression models](#metrics-for-regression-models)
++ [clustering models](#metrics-for-clustering-models)
 
-###  <a name="bkmk_classification"></a> Metrics for classification models
+### Metrics for classification models
 
-The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
+The following metrics are reported when evaluating classification models.
   
 -   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
@@ -100,11 +82,11 @@ The following metrics are reported when evaluating classification models. If you
   
 - **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-##  <a name="bkmk_regression"></a> Metrics for regression models
+### Metrics for regression models
  
-The metrics returned for regression models are generally designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
- The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
+ The following metrics are reported for evaluating regression models.
   
 - **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
   
@@ -114,9 +96,33 @@ The metrics returned for regression models are generally designed to estimate th
   
 - **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
   
-- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
+
   
 - **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
+
+###  Metrics for clustering models
+
+Because clustering models differ significantly from classification and regression models in many respects, [Evaluate Model](evaluate-model.md) also returns a different set of statistics for clustering models.  
+  
+ The statistics returned for a clustering model describe how many data points were assigned to each cluster, the amount of separation between clusters, and how tightly the data points are bunched within each cluster.  
+  
+ The statistics for the clustering model are averaged over the entire dataset, with additional rows containing the statistics per cluster.  
+  
+The following metrics are reported for evaluating clustering models.
+    
+-   The scores in the column, **Average Distance to Other Center**, represent how close, on average, each point in the cluster is to the centroids of all other clusters.   
+
+-   The scores in the column, **Average Distance to Cluster Center**, represent the closeness of all points in a cluster to the centroid of that cluster.  
+  
+-   The **Number of Points** column shows how many data points were assigned to each cluster, along with the total overall number of data points in any cluster.  
+  
+     If the number of data points assigned to clusters is less than the total number of data points available, it means that the data points could not be assigned to a cluster.  
+  
+-   The scores in the column, **Maximal Distance to Cluster Center**, represent the sum of the distances between each point and the centroid of that point's cluster.  
+  
+     If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster's spread.   
+
+-   The **Combined Evaluation** score at the bottom of the each section of results lists the averaged scores for the clusters created in that particular model.  
   
 
 ## Next steps

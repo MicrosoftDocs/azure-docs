@@ -1,20 +1,10 @@
 ---
-title: Manage App Service plan - Azure | Microsoft Docs
-description: Learn how to perform different tasks to manage an App Service plan.
+title: Manage App Service plan
+description: Learn how to perform different tasks to manage an App Service plan, such as create, move, scale, and delete.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -29,11 +19,15 @@ An [Azure App Service plan](overview-hosting-plans.md) provides the resources th
 
 You can create an empty App Service plan, or you can create a plan as part of app creation.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Web App** or another kind of App Service app.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 
-   ![Create an app in the Azure portal.][createWebApp]
+   ![Create a resource in the Azure portal.][createResource] 
 
-2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created.
+1. Select **New** > **Web App** or another kind of App service app.
+
+   ![Create an app in the Azure portal.][createWebApp] 
+
+2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created. 
    
 3. In the **App Service Plan** section, select an existing plan, or create a plan by selecting **Create new**.
 
@@ -53,7 +47,7 @@ You can move an app to another App Service plan, as long as the source plan and 
 > You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
 > 
 
-1. In the [Azure portal](https://portal.azure.com), browse to the app that you want to move.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App services** and select the app that you want to move.
 
 2. From the left menu, select **Change App Service plan**.
 
@@ -62,7 +56,7 @@ You can move an app to another App Service plan, as long as the source plan and 
 4. If you create a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select the existing tier to change it. 
    
    > [!IMPORTANT]
-   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses SSL certificates, you might see this error message:
+   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
@@ -102,3 +96,4 @@ To avoid unexpected charges, when you delete the last app in an App Service plan
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

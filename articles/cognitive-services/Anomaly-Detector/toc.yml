@@ -10,12 +10,8 @@
   items:
     - name: Client library
       items:
-        - name: Using C#
-          href: quickstarts/detect-data-anomalies-csharp-sdk.md
-        - name: Using Python
-          href: quickstarts/detect-data-anomalies-python-sdk.md
-        - name: Using Node.js
-          href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+        - name: Anomaly Detector client libraries
+          href: ./quickstarts/client-libraries.md
     - name: REST API
       items:
         - name: Using C#
@@ -62,10 +58,32 @@
           href: https://go.microsoft.com/fwlink/?linkid=2090370
         - name: Node.js
           href: https://go.microsoft.com/fwlink/?linkid=2090788
+    - name: Technical blogs
+      items:
+        - name: Introducing Azure Anomaly Detector API
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - name: Overview of SR-CNN algorithm 
+          href: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - name: Demo
+      items:
+        - name: Interactive demo
+          href: https://aka.ms/adDemo
+        - name: On Jupyter Notebook
+          href: https://aka.ms/adNotebook      
     - name: Paper on SR-CNN in KDD 2019
       href: https://arxiv.org/abs/1906.03821
 - name: Resources
   items:
+    - name: Support
+      items:
+      - name: Get support
+        href: https://aka.ms/adsupport
+      - name: Stack Overflow
+        href: https://aka.ms/adso
+      - name: MSDN
+        href: https://aka.ms/admsdn
+      - name: User voice
+        href: https://aka.ms/aduservoice
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: Regional availability 
@@ -78,13 +96,3 @@
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-- name: Support
-  items:
-    - name: Get support
-      href: https://aka.ms/adsupport
-    - name: Stack Overflow
-      href: https://aka.ms/adso
-    - name: MSDN
-      href: https://aka.ms/admsdn
-    - name: User voice
-      href: https://aka.ms/aduservoice

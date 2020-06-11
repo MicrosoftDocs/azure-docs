@@ -5,14 +5,14 @@ description: Learn how to use Azure DDoS Protection Standard telemetry in Azure 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
@@ -70,11 +70,20 @@ You cannot move a virtual network to another resource group or subscription when
 4. Select **DDoS protection**, under **SETTINGS**.
 5. Select **Standard**. Under **DDoS protection plan**, select an existing DDoS protection plan, or the plan you created in step 1, and then select **Save**. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Azure Active Directory tenant.
 
+**Commands** 
+- Azure CLI: [az network ddos-protection create](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-create)
+- Powershell: [New-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0)
+ 
+
 ## Disable DDoS for a virtual network
 
 1. Enter the name of the virtual network you want to disable DDoS protection standard for in the **Search resources, services, and docs box** at the top of the portal. When the name of the virtual network appears in the search results, select it.
 2. Select **DDoS protection**, under **SETTINGS**.
 3. Select **Basic** under **DDoS protection plan** and then select **Save**.
+
+**Commands** 
+- Azure CLI: [az network ddos-protection delete](https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest#az-network-ddos-protection-delete)
+- Powershell: [Remove-AzDdosProtectionPlan](https://docs.microsoft.com/powershell/module/az.network/remove-azddosprotectionplan?view=azps-3.2.0)
 
 ## Work with DDoS protection plans
 
@@ -155,8 +164,8 @@ Attack mitigation reports uses the Netflow protocol data which is aggregated to 
 5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
 6. Select **Turn on diagnostics to collect the DDoSMitigationReports log** and then select as many of the following options as you require:
 
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Both the incremental & post-attack mitigation reports include the following fields
@@ -177,8 +186,8 @@ Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded t
 5. Select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for.
 6. Select **Turn on diagnostics to collect the DDoSMitigationFlowLogs log** and then select as many of the following options as you require:
 
-    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive diagnostic logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream diagnostic logs to an event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Archive to a storage account**: Data is written to an Azure Storage account. To learn more about this option, see [Archive resource logs](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Stream to an event hub**: Allows a log receiver to pick up logs using an Azure Event Hub. Event hubs enable integration with Splunk or other SIEM systems. To learn more about this option, see [Stream resource logs to an event hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Send to Log Analytics**: Writes logs to the Azure Monitor service. To learn more about this option, see [Collect logs for use in Azure Monitor logs](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. To view the flow logs data in Azure analytics dashboard, you can import the sample dashboard from https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
@@ -190,7 +199,7 @@ Flow logs will have the following fields:
 - Protocol type 
 - Action taken during mitigation
 
-
+Attack analytics will only work if DDoS Protection Standard is enabled on the virtual network of the public IP address. 
 
 ## Validate DDoS detection
 
@@ -229,4 +238,4 @@ To enable DDoS protection for a virtual network, your account must also be assig
 
 ## Next steps
 
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy defintions](policy-samples.md) for virtual networks

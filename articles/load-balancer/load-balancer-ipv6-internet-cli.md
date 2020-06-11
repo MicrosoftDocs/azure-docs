@@ -1,7 +1,7 @@
 ---
 title: Create a public load balancer with IPv6 - Azure CLI
-titlesuffix: Azure Load Balancer
-description: Learn how to create a public load balancer with IPv6 using Azure CLI.
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started creating a public load balancer with IPv6 using Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -18,9 +18,9 @@ ms.author: allensu
 
 # Create a public load balancer with IPv6 using Azure CLI
 
->[!NOTE: Change in Best Practice for IPv6] 
->This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity.  More  comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended best practice for IPv6 applications in Azure. 
->Please see [IPv6 for Azure VNET CLI Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
+>[!NOTE] 
+>This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
+See [IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers provide high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Load balancers can also present these services on multiple ports or multiple IP addresses or both.
 

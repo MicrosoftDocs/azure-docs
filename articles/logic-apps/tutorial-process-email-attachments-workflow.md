@@ -1,16 +1,12 @@
 ---
-title: Automate tasks with multiple Azure services - Azure Logic Apps
+title: Automate tasks with multiple Azure services
 description: Tutorial - Create automated workflows to process emails with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
+ms.date: 02/27/2020
 ---
 
 # Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage
@@ -41,6 +37,12 @@ When you're done, your logic app looks like this workflow at a high level:
 
   This logic app uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
 * Download and install the [free Microsoft Azure Storage Explorer](https://storageexplorer.com/). This tool helps you check that your storage container is correctly set up.
 
 ## Sign in to Azure portal
@@ -51,12 +53,12 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 You can save incoming emails and attachments as blobs in an [Azure storage container](../storage/common/storage-introduction.md).
 
-1. Before you can create a storage container, [create a storage account](../storage/common/storage-quickstart-create-account.md) with these settings on the **Basics** tab in the Azure portal:
+1. Before you can create a storage container, [create a storage account](../storage/common/storage-account-create.md) with these settings on the **Basics** tab in the Azure portal:
 
    | Setting | Value | Description |
    |---------|-------|-------------|
    | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription |  
-   | **Resource group** | <*Azure-resource-group*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. This example uses "LA-Tutorial-RG". <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
+   | **Resource group** | <*Azure-resource-group*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize and manage related resources. This example uses "LA-Tutorial-RG". <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
    | **Storage account name** | <*Azure-storage-account-name*> | Your storage account name, which must have 3-24 characters and can contain only lowercase letters and numbers. This example uses "attachmentstorageacct". |
    | **Location** | <*Azure-region*> | The region where to store information about your storage account. This example uses "West US". |
    | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -84,13 +86,13 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   To get your storage account's access key, you can also use 
-   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 
+   To get your storage account's access key, you can also use
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Create a blob storage container for your email attachments.
 
-   1. On your storage account menu, select **Overview**. Under **Services**, select **Containers**.
+   1. On your storage account menu, select **Overview**. On the Overview pane, select **Containers**.
 
       ![Add blob storage container](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -160,7 +162,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
    ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
+   To create a function app, you can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md),    or [PowerShell and Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. In the **Function Apps** list, expand your function app, if not already expanded. Under your function app, select **Functions**. On the functions toolbar, select **New function**.
 
@@ -178,7 +180,7 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
 1. After the editor opens, replace the template code with this sample code, which removes the HTML and returns results to the caller:
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -224,24 +226,24 @@ After checking that your function works, create your logic app. Although this tu
 
 ## Create your logic app
 
-1. From the Azure home page, in the search box, find and select **Logic Apps**.
+1. In the Azure top-level search box, enter `logic apps`, and select **Logic Apps**.
 
    ![Find and select "Logic Apps"](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. On the **Logic Apps** page, select **Add**.
+1. On the **Logic Apps** pane, select **Add**.
 
-   ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Add new logic app](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
+1. On the **Logic App** pane, provide details about your logic app as shown here. After you're done, select **Review + create**.
 
    ![Provide logic app information](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Setting | Value | Description |
    | ------- | ----- | ----------- |
-   | **Name** | LA-ProcessAttachment | The name for your logic app |
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used |
    | **Resource group** | LA-Tutorial-RG | The same Azure resource group that you previously used |
-   | **Location** | West US | The same region that you previously used |
+   | **Logic App name** | LA-ProcessAttachment | The name for your logic app |
+   | **Select the location** | West US | The same region that you previously used |
    | **Log Analytics** | Off | For this tutorial, select the **Off** setting. |
    ||||
 
@@ -283,7 +285,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
       | **Interval** | 1 | The number of intervals to wait between checks |
       | **Frequency** | Minute | The unit of time for each interval between checks |
       ||||
-  
+
    1. From the **Add new parameter** list, select **Subject Filter**.
 
    1. After the **Subject Filter** box appears in the action, specify the subject as listed here:
@@ -378,10 +380,10 @@ Now, test whether the condition works correctly:
 Next, define the actions to take for the **If true** branch. To save the email along with any attachments, remove any HTML from the email body, then create blobs in the storage container for the email and attachments.
 
 > [!NOTE]
-> Your logic app doesn't have to do anything for the 
-> **If false** branch when an email doesn't have attachments. 
-> As a bonus exercise after you finish this tutorial, 
-> you can add any appropriate action that you want to take 
+> Your logic app doesn't have to do anything for the
+> **If false** branch when an email doesn't have attachments.
+> As a bonus exercise after you finish this tutorial,
+> you can add any appropriate action that you want to take
 > for the **If false** branch.
 
 ## Call RemoveHTMLFunction
@@ -610,13 +612,13 @@ Next, add an action so that your logic app sends email to review the attachments
    ||||
 
    > [!NOTE]
-   > If you select a field that contains an array, 
-   > such as the **Content** field, which is an array that contains attachments, 
-   > the designer automatically adds a "For each" loop 
-   > around the action that references that field. 
-   > That way, your logic app can perform that action on each array item. 
-   > To remove the loop, remove the field for the array, 
-   > move the referencing action to outside the loop, 
+   > If you select a field that contains an array,
+   > such as the **Content** field, which is an array that contains attachments,
+   > the designer automatically adds a "For each" loop
+   > around the action that references that field.
+   > That way, your logic app can perform that action on each array item.
+   > To remove the loop, remove the field for the array,
+   > move the referencing action to outside the loop,
    > select the ellipses (**...**) on the loop's title bar, and select **Delete**.
 
 1. Save your logic app.
@@ -676,7 +678,15 @@ Congratulations, you've now created and run a logic app that automates tasks acr
 
 When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, select **Resource groups**. From the resource groups list, select the resource group for this tutorial. On the **Overview** pane, select **Delete resource group**.
+1. In the top-level Azure search box, enter `resources groups`, and select **Resource groups**.
+
+   ![Find and select "Resource groups"](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. From the **Resource groups** list, select the resource group for this tutorial. 
+
+   ![Find the resource group for tutorial](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. On the **Overview** pane, select **Delete resource group**.
 
    ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

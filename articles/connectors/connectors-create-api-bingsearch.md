@@ -1,19 +1,15 @@
 ﻿---
-title: Connect to Bing Search - Azure Logic Apps
-description: Find news with Bing Search REST APIs and Azure Logic Apps
+title: Connect to Bing Search
+description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ---
 
-# Find news with Bing Search and Azure Logic Apps
+# Find results in Bing Search by using Azure Logic Apps
 
 This article shows how you can find news, videos, and other items through 
 Bing Search from inside a logic app with the Bing Search connector. 
@@ -205,7 +201,7 @@ provide these details:
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
+as described by the connector's Swagger file, 
 see the [connector's reference page](/connectors/bingsearch/).
 
 ## Next steps

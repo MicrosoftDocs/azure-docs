@@ -1,14 +1,14 @@
 ---
-title: 'Azure Virtual WAN partners locations | Microsoft Docs'
+title: 'Azure Virtual WAN partners and locations | Microsoft Docs'
 description: This article contains a list of Azure Virtual WAN partners and hub locations.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ---
 # Virtual WAN partners and virtual hub locations
 
@@ -29,13 +29,13 @@ The following high-level automation is set up in the device console/management c
 * Automatic download of Azure connectivity information
 * Configuration of on-premises branch device 
 
-Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, see [Configure Automation – WAN Partners](virtual-wan-configure-automation-providers.md).
+Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, see [Automation guidelines for Virtual WAN partners](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Connectivity through partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: Arista, F5 Networks, Velocloud.
+The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN and SharpLink.
 
 ## <a name="locations"></a>Locations
 
@@ -45,4 +45,4 @@ The following partners are slated on our roadmap for the near future: Arista, F5
 
 * For more information about Virtual WAN, see the [Virtual WAN FAQ](virtual-wan-faq.md).
 
-* For more information about how to automate connectivity to Azure Virtual WAN, see [Virtual WAN Partners - How to automate](virtual-wan-configure-automation-providers.md).
+* For more information about how to automate connectivity to Azure Virtual WAN, see [Automation guidelines for Virtual WAN partners](virtual-wan-configure-automation-providers.md).

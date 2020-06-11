@@ -1,43 +1,34 @@
 ---
-title: Configurable token lifetimes in Azure Active Directory 
+title: Configurable Azure AD token lifetimes
 titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 04/17/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
-
-ms.collection: M365-identity-device-management
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Azure Active Directory (Preview)
 
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 1, 2020 you will not be able to use Configurable Token Lifetime policy to configure session and refresh tokens. You can still configure access token lifetimes after the deprecation.
+> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 30, 2020 no new tenant will be able to use Configurable Token Lifetime policy to configure session and refresh tokens. The deprecation will happen within several months after that, which means that we will stop honoring existing session and refresh tokens polices. You can still configure access token lifetimes after the deprecation.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
 You can designate a policy as the default policy for your organization. The policy is applied to any application in the organization, as long as it is not overridden by a policy with a higher priority. You also can assign a policy to specific applications. The order of priority varies by policy type.
 
 > [!NOTE]
-> Configurable token lifetime policy is not supported for SharePoint Online.  Even though you have the ability to create this policy via PowerShell, SharePoint Online will not acknowledge this policy. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
->* The default lifetime for the SharePoint Online access token is 1 hour. 
->* The default max inactive time of the SharePoint Online refresh token is 90 days.
-
+> Configurable token lifetime policy only applies to mobile and desktop clients that access SharePoint Online and OneDrive for Business resources, and does not apply to web browser sessions.
+> To manage the lifetime of web browser sessions for SharePoint Online and OneDrive for Business, use the [Conditional Access session lifetime](../conditional-access/howto-conditional-access-session-lifetime.md) feature. Refer to the [SharePoint Online blog](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) to learn more about configuring idle session timeouts.
 
 ## Token types
 
@@ -49,11 +40,11 @@ Clients use access tokens to access a protected resource. An access token can be
 
 ### SAML tokens
 
-SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint.  They are also consumed by applications using WS-Federation.    The default lifetime of the token is 1 hour. After  From and applications perspective the validity period of the token is specified by the NotOnOrAfter value of the <conditions …>    element in the token.  After the token validity period the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
+SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint. They are also consumed by applications using WS-Federation. The default lifetime of the token is 1 hour. From an application's perspective, the validity period of the token is specified by the NotOnOrAfter value of the `<conditions …>` element in the token. After the validity period of the token has ended, the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
 
-The value of NotOnOrAfter can be changed using the AccessTokenLifetime parameter in a TokenLifetimePolicy.  It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
+The value of NotOnOrAfter can be changed using the `AccessTokenLifetime` parameter in a `TokenLifetimePolicy`. It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
 
-Note that the subject confirmation NotOnOrAfter specified in the <SubjectConfirmationData> element is not affected by the Token Lifetime configuration. 
+Note that the subject confirmation NotOnOrAfter specified in the `<SubjectConfirmationData>` element is not affected by the Token Lifetime configuration. 
 
 ### Refresh tokens
 
@@ -80,7 +71,7 @@ When a user authenticates with Azure AD, a single sign-on session (SSO) is estab
 Azure AD uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
 Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.
 
-Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 180 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
+Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 90 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
 
 You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. (To do this, use the Session Token Max Age property.) You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials, instead of being silently authenticated, when using a web application.
 
@@ -249,19 +240,25 @@ In this example, you create a policy that lets your users' sign in less frequent
         }')
         ```
 
-    2. To create the policy, run the following command:
+    1. To create the policy, run the following command:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3. To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    1. To remove any whitespace, run the following command:
+
+        ```powershell
+        Get-AzureADPolicy -id | set-azureadpolicy -Definition @($((Get-AzureADPolicy -id ).Replace(" ","")))
+        ```
+
+    1. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Update the policy.
+1. Update the policy.
 
     You might decide that the first policy you set in this example is not as strict as your service requires. To set your Single-Factor Refresh Token to expire in two days, run the following command:
 
@@ -283,13 +280,13 @@ In this example, you create a policy that requires users to authenticate more fr
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, and to get the policy **ObjectId**, run the following command:
+    1. To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
+1. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
 
     1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
         ```powershell
@@ -297,7 +294,7 @@ In this example, you create a policy that requires users to authenticate more fr
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. When you have the service principal, run the following command:
+    1. When you have the service principal, run the following command:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -314,13 +311,13 @@ In this example, you create a policy that requires users to authenticate less fr
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, run the following command:
+    1. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
+1. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
 
     Get the **ObjectId** of your app and assign the policy:
 
@@ -343,19 +340,19 @@ In this example, you create a few policies to learn how the priority system work
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, run the following command:
+    1. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to a service principal.
+1. Assign the policy to a service principal.
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
     1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2. When you have the service principal, run the following command:
+    1. When you have the service principal, run the following command:
 
         ```powershell
         # Get ID of the service principal
@@ -365,13 +362,13 @@ In this example, you create a few policies to learn how the priority system work
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Set the `IsOrganizationDefault` flag to false:
+1. Set the `IsOrganizationDefault` flag to false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
-4. Create a new organization default policy:
+1. Create a new organization default policy:
 
     ```powershell
     New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "ComplexPolicyScenarioTwo" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
@@ -545,3 +542,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
+
+## License requirements
+
+Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.

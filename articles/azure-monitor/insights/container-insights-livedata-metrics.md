@@ -1,18 +1,9 @@
 ---
 title: View metrics in real-time with Azure Monitor for containers | Microsoft Docs
 description: This article describes the real-time view of metrics without using kubectl with Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
+ms.custom: references_regions
 ---
 
 # How to view metrics in real-time
@@ -39,7 +30,7 @@ This feature performs a polling operation against the metrics endpoints (includi
 
 The polling interval is configured from the **Set interval** drop-down allowing you to set polling for new data every 1, 5, 15 and 30 seconds. 
 
-![Go Live drop-down polling interval](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Go Live drop-down polling interval](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >We recommend setting the polling interval to one second while troubleshooting an issue for a short period of time. These requests may impact the availability and throttling of the Kubernetes API on your cluster. Afterwards, reconfigure to a longer polling interval. 

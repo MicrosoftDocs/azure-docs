@@ -1,16 +1,17 @@
 ---
-title: Configure metrics alerts for Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Configure alerts - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 3/16/2020
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
 
-This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
+This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on [monitoring metrics](concepts-hyperscale-monitoring.md) for your Azure services.
 
 We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
@@ -76,13 +77,31 @@ You can configure and get information about alert rules using:
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-## Manage your alerts
+### Managing alerts
 
 Once you've created an alert, you can select it and do the following actions:
 
 * View a graph showing the metric threshold and the actual values from the previous day relevant to this alert.
 * **Edit** or **Delete** the alert rule.
 * **Disable** or **Enable** the alert, if you want to temporarily stop or resume receiving notifications.
+
+## Suggested alerts
+
+### Disk space
+
+Monitoring and alerting is important for every production Hyperscale (Citus) server group. The underlying PostgreSQL database requires free disk space to operate correctly. If the disk becomes full, the database server node will go offline and refuse to start until space is available. At that point, it requires a Microsoft support request to fix the situation.
+
+We recommend setting disk space alerts on every node in every server group, even for non-production usage. Disk space usage alerts provide the advance warning needed to intervene and keep nodes healthy. For best results, try a series of alerts at 75%, 85%, and 95% usage. The percentages to choose depend on data ingestion speed, since fast data ingestion fills up the disk faster.
+
+As the disk approaches its space limit, try these techniques to get more free space:
+
+* Review data retention policy. Move older data to cold storage if feasible.
+* Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+
+### CPU usage
+
+Monitoring CPU usage is useful to establish a baseline for performance. For example, you may notice that CPU usage is usually around 40-60%. If CPU usage suddenly begins hovering around 95%, you can recognize an anomaly. The CPU usage may reflect organic growth, but it may also reveal a stray query. When creating a CPU alert, set a long aggregation granularity to catch prolonged increases and ignore momentary spikes.
 
 ## Next steps
 * Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).

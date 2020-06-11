@@ -58,11 +58,11 @@ To view your security policies in Security Center:
 
 1. Choose from the available options on this page:
 
-    1. To work with industry policies, click **Add more standards**. For more information, see [Update to dynamic compliance packages](update-regulatory-compliance-packages.md).
+    1. To work with industry policies, select **Add more standards**. For more information, see [Update to dynamic compliance packages](update-regulatory-compliance-packages.md).
 
-    1. To assign and manage custom initiatives, click **Add custom initiatives**. For more information, see [Using custom security policies](custom-security-policies.md).
+    1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security policies](custom-security-policies.md).
 
-    1. To view and edit the default policy, click **View effective policy** and proceed as described below. 
+    1. To view and edit the default policy, select **View effective policy** and proceed as described below. 
 
        ![policy screen](./media/security-center-policies/policy-screen.png)
        
@@ -92,16 +92,20 @@ Security Center uses Role-Based Access Control (RBAC), which provides built-in r
 If the default security policy is generating a recommendation that's not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
 For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
-1. In the Security Center, from the **Policy & Compliance** section, click **Security policy**.
+1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
 
    ![policy management](./media/tutorial-security-policy/policy-management.png)
 
-2. Click the subscription or management group for which you want to disable the recommendation.
+2. Select the subscription or management group for which you want to disable the recommendation.
 
    > [!NOTE]
    > Remember that a management group applies its policies to its subscriptions. Therefore, if you disable a subscription's policy, and the subscription belongs to a management group that still uses the same policy, then you will continue to receive the policy recommendations. The policy will still be applied from the management level and the recommendations will still be generated.
 
-1. Click the assigned policy.
+1. Select **View effective policy**.
+
+   ![disable policy](./media/tutorial-security-policy/view-effective-policy.png)
+
+1. Select the assigned policy.
 
    ![disable policy](./media/tutorial-security-policy/security-policy.png)
 
@@ -109,7 +113,7 @@ For more information about recommendations, see [Managing security recommendatio
 
    ![disable policy](./media/tutorial-security-policy/disable-policy.png)
 
-1. Click **Save**.
+1. Select **Save**.
 
    > [!NOTE]
    > The disable policy changes can take up to 12 hours to take effect.

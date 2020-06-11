@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services diagnostic logs schemas - Azure
-description: This article shows the Azure Media Services diagnostic logs schemas.
+description: This article demonstrates the Azure Media Services diagnostic logs schemas.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -21,7 +21,7 @@ ms.author: juliako
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
 
-For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md).
+For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md).
 
 This article describes Media Services diagnostic logs schemas.
 
@@ -104,6 +104,10 @@ Properties of the key delivery requests schema.
     }
 } 
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

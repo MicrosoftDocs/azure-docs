@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/10/2019
+  ms.date: 05/22/2020
 
 highlightedContent:
   items:
@@ -37,6 +37,8 @@ productDirectory:
       links:
         - url: ./management-groups/overview.md
           text: Overview
+        - url: ./management-groups/how-to/protect-resource-hierarchy.md
+          text: Protect your resource hierarchy
         - url: ./management-groups/index.yml
           text: See more >
     - title: Azure Policy
@@ -46,8 +48,8 @@ productDirectory:
           text: Overview
         - url: ./policy/how-to/get-compliance-data.md
           text: Evaluate compliance
-        - url: ./policy/concepts/rego-for-aks.md
-          text: Manage AKS configuration
+        - url: ./policy/concepts/policy-for-kubernetes.md
+          text: Manage Kubernetes configuration
         - url: ./policy/concepts/guest-configuration.md
           text: Manage VM configuration
         - url: ./policy/index.yml
@@ -75,11 +77,11 @@ productDirectory:
     - title: Cost Management
       imageSrc: ./media/cost-management.svg
       links:
-        - url: ../cost-management/overview-cost-mgt.md
+        - url: ../cost-management-billing/cost-management-billing-overview.md
           text: Overview
-        - url: ../cost-management/aws-integration-manage.md
+        - url: ../cost-management-billing/costs/aws-integration-manage.md
           text: Manage AWS cost and usage
-        - url: ../cost-management/index.yml
+        - url: ../cost-management-billing/index.yml
           text: See more >
 
 tools:
@@ -106,13 +108,17 @@ additionalContent:
         - title: Management Groups
           links:
             - text: Azure CLI
-              url: /cli/azure/ext/managementgroups/?view=azure-cli-latest
+              url: /cli/azure/account/management-group
             - text: Azure PowerShell
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET
               url: /dotnet/api/overview/azure/managementgroups
             - text: Azure SDK for Node
-              url: /javascript/api/azure-arm-resource/managementgroups
+              url: /javascript/api/@azure/arm-managementgroups/managementgroups
+            - text: REST
+              url: /rest/api/resources/managementgroups
+            - text: Resource Manager templates
+              url: /azure/templates/microsoft.management/managementgroups
         - title: Azure Policy
           links:
             - text: Azure CLI
@@ -126,12 +132,6 @@ additionalContent:
             - text: Azure PowerShell
               url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
               note: (Guest Configuration)
-            - text: Azure SDK for .NET
-              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
-              note: (Assignments)
-            - text: Azure SDK for .NET
-              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-              note: (Policy Definitions)
             - text: REST
               url: /rest/api/policy-insights/
               note: (Policy Insights)
@@ -149,10 +149,28 @@ additionalContent:
               note: (Guest Configuration)
             - text: Resource Manager templates
               url: /azure/templates/microsoft.authorization/allversions
+        - title: Azure Policy (more)
+          links:
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+              note: (Assignments)
+            - text: Azure SDK for .NET
+              url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+              note: (Policy Definitions)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policy
+              note: (Policy)
+            - text: Azure SDK for Node
+              url: /javascript/api/@azure/arm-policyinsights
+              note: (Policy Insights)
+            - text: Azure SDK for Python
+              url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
         - title: Azure Blueprints
           links:
             - text: Blueprint functions
               url: ./blueprints/reference/blueprint-functions.md
+            - text: Azure CLI
+              url: /cli/azure/ext/blueprint/blueprint
             - text: Azure PowerShell
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell
@@ -168,9 +186,6 @@ additionalContent:
               url: /cli/azure/ext/resource-graph/graph
             - text: Azure PowerShell
               url: /powershell/module/az.resourcegraph/
-            - text: Azure PowerShell
-              url: https://www.powershellgallery.com/packages/Az.ResourceGraph
-              note: (PS Gallery Module)
             - text: Azure SDK for .NET
               url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
             - text: Azure SDK for .NET
@@ -192,6 +207,8 @@ additionalContent:
               note: (Gem)
             - text: REST
               url: /rest/api/azure-resourcegraph/
+            - text: Resource Manager templates
+              url: /azure/templates/microsoft.resourcegraph/allversions
         - title: Cost Management
           links:
             - text: REST

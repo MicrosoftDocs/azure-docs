@@ -1,23 +1,28 @@
 ---
-title: Combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
-description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
+title: Combined registration for SSPR and MFA - Azure Active Directory
+description: Azure AD Multi-Factor Authentication and self-service password reset registration
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 04/15/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
-# Combined security information registration (preview)
+# Combined security information registration overview
 
 Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
+
+This article outlines what combined security registration is. To get started with combined security registration, see the following article:
+
+> [!div class="nextstepaction"]
+> [Enable combined security registration](howto-registration-mfa-sspr-combined.md)
 
 ![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
@@ -25,16 +30,10 @@ Before enabling the new experience, review this administrator-focused documentat
 
 Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
 
-|     |
-| --- |
-| Combined security information registration for Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
 > [!IMPORTANT]
 > Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-
-> [!NOTE] 
-> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
+>
+> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser.
 
 My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
 
@@ -55,6 +54,7 @@ Combined registration supports the following authentication methods and actions:
 | Email | Yes | Yes | Yes |
 | Security questions | Yes | No | Yes |
 | App passwords | Yes | No | Yes |
+| FIDO2 security keys<br />*Managed mode only from the [Security info](https://mysignins.microsoft.com/security-info) page*| Yes | Yes | Yes |
 
 > [!NOTE]
 > App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.
@@ -73,10 +73,9 @@ As we continue to add more authentication methods to Azure AD, those methods wil
 There are two modes of combined registration: interrupt and manage.
 
 - **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
-
 - **Manage mode** is part of the user profile and allows users to manage their security info.
 
-For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
+For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info. Users must confirm their information before continuing to use their previously registered methods. 
 
 ### Interrupt mode
 
@@ -105,7 +104,7 @@ This flowchart describes which methods are shown to a user when interrupted to r
 
 If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to. Users must perform multi-factor authentication when accessing this page.
 
 ### Manage mode
 
@@ -135,14 +134,8 @@ A user who has previously set up at least one method that can be used for Multi-
 
 ## Next steps
 
-[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+To get started, see the tutorials to [enable self-service password reset](tutorial-enable-sspr.md) and [enable Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
+Learn how to [enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md) or [force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
-[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
-
-[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
-
-[Configure self-service password reset](howto-sspr-deployment.md)
-
-[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+You can also review the [available methods for Azure Multi-Factor Authentication and SSPR](concept-authentication-methods.md).

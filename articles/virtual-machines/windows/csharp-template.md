@@ -1,18 +1,10 @@
 ---
-title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
+title: Deploy a VM using C# and a Resource Manager template 
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
@@ -195,7 +187,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.

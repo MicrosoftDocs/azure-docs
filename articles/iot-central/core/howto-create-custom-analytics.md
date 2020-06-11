@@ -3,8 +3,8 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
-ms.topic: conceptual
+ms.date: 12/02/2019
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
@@ -15,7 +15,7 @@ manager: philmea
 
 This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).
 
-This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](howto-create-analytics.md).
+This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](./howto-create-custom-analytics.md).
 
 In this how-to guide, you learn how to:
 
@@ -34,15 +34,17 @@ Create an IoT Central application on the [Azure IoT Central application manager]
 
 | Setting | Value |
 | ------- | ----- |
-| Payment plan | Pay-As-You-Go |
-| Application template | Sample Contoso |
+| Pricing plan | Standard |
+| Application template | In-store analytics – condition monitoring |
 | Application name | Accept the default or choose your own name |
 | URL | Accept the default or choose your own unique URL prefix |
 | Directory | Your Azure Active Directory tenant |
 | Azure subscription | Your Azure subscription |
-| Region | East US |
+| Region | Your nearest region |
 
-The examples and screenshots in this article use the **East US** region. Choose a location close to you and make sure you create all your resources in the same region.
+The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
+
+This application template includes two simulated thermostat devices that send telemetry.
 
 ### Resource group
 
@@ -96,7 +98,7 @@ Your Event Hubs namespace looks like the following screenshot:
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Continuous Data Export** page, select **+ New**, and then **Azure Event Hubs**.
+1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**:
 
     | Setting | Value |
@@ -109,7 +111,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Devices | Off |
     | Device Templates | Off |
 
-![Continuous data export configuration](media/howto-create-custom-analytics/cde-configuration.png)
+![Data export configuration](media/howto-create-custom-analytics/cde-configuration.png)
 
 Wait until the export status is **Running** before you continue.
 
@@ -127,7 +129,7 @@ Use the information in the following table to create your cluster:
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Cluster Mode | Standard |
-| Databricks Runtime Version | 5.3 (Scala 2.11, Spark 2.4.0) |
+| Databricks Runtime Version | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
 | Python Version | 3 |
 | Enable Autoscaling | No |
 | Terminate after minutes of inactivity | 30 |

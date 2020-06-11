@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub device streams C quickstart for SSH and RDP (preview) | Microsoft Docs
+title: Azure IoT Hub device streams C quickstart for SSH and RDP
 description: In this quickstart, you run a sample C application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
@@ -28,7 +28,7 @@ The following figure illustrates how the device- and service-local proxy program
 * [SSH/RDP over IoT Hub device streams using C# proxy](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP over IoT Hub device streams using NodeJS proxy](./quickstart-device-streams-proxy-nodejs.md).
 
-![Local proxy setup](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
+![Local proxy setup](./media/quickstart-device-streams-proxy-c/device-stream-proxy-diagram.png)
 
 1. The service-local proxy connects to the IoT hub and starts a device stream to the target device.
 
@@ -43,7 +43,7 @@ The following figure illustrates how the device- and service-local proxy program
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -60,8 +60,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Prepare the development environment
 
@@ -71,18 +73,19 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
     It's important that the Visual Studio prerequisites (Visual Studio and the *Desktop development with C++* workload) are installed on your machine, *before* you start the CMake installation. After the prerequisites are in place and the download is verified, you can install the CMake build system.
 
-1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+1. Open a command prompt or Git Bash shell. Run the following commands to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
-
-    You should expect this operation to take a few minutes.
-
-1. Create a *cmake* subdirectory in the root directory of the Git repository, as shown in the following command, and navigate to that folder.
-
-    ```
+    ```cmd/sh
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
+    git submodule update --init
+    ```
+
+    This operation should take a few minutes.
+
+1. Create a *cmake* subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory:
+
+    ```cmd/sh
     mkdir cmake
     cd cmake
     ```
@@ -105,17 +108,20 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
       rem Or for VS2017
       cmake .. -G "Visual Studio 15 2017"
 
+      rem Or for VS2019
+      cmake .. -G "Visual Studio 16 2019"
+
       rem Then build the project
       cmake --build . -- /m /p:Configuration=Release
       ```
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to register a simulated device.
 
 1. To create the device identity, run the following command in Cloud Shell:
 

@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/06/2019
+ ms.date: 04/24/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -28,11 +28,11 @@ Managed disks are integrated with availability sets to ensure that the disks of 
 
 ### Integration with Availability Zones
 
-Managed disks supports [Availability Zones](../articles/availability-zones/az-overview.md), which is a high-availability offering that protects your applications from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA.
+Managed disks support [Availability Zones](../articles/availability-zones/az-overview.md), which is a high-availability offering that protects your applications from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA.
 
 ### Azure Backup support
 
-To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform easy VM restorations at will. Currently Azure Backup supports disk sizes up to four tebibyte (TiB) disks.  Azure Backup supports backup and restore of managed disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
+To protect against regional disasters, [Azure Backup](../articles/backup/backup-overview.md) can be used to create a backup job with time-based backups and backup retention policies. This allows you to perform VM or managed disk restorations at will. Currently Azure Backup supports disk sizes up to 32 tebibyte (TiB) disks. [Learn more](../articles/backup/backup-support-matrix-iaas.md) about Azure VM backup support.
 
 ### Granular access control
 
@@ -50,11 +50,14 @@ Managed disks offer two different kinds of encryption. The first is Server Side 
 
 ### Server-side encryption
 
-[Azure Server-side Encryption](../articles/storage/common/storage-service-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images in all the regions where managed disks are available. Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+[Azure Server-side Encryption](../articles/virtual-machines/windows/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Server-side encryption is enabled by default for all managed disks, snapshots, and images, in all the regions where managed disks are available. (Temporary disks, on the other hand, are not encrypted by Storage Service Encryption; see [Disk Roles: temporary disks](#temporary-disk)).
+
+You can either allow Azure to manage your keys for you, these are platform-managed keys, or you can manage the keys yourself, these are customer-managed keys. Visit the [Managed Disks FAQ page](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) for more details.
+
 
 ### Azure Disk Encryption
 
-Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This encryption includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. The encryption process is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, see [Azure Disk Encryption for IaaS VMs](../articles/security/azure-security-disk-encryption-overview.md).
+Azure Disk Encryption allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine. This encryption includes managed disks. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. The encryption process is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys. For more information, see [Azure Disk Encryption for Linux VMs](../articles/virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
 ## Disk roles
 
@@ -74,13 +77,15 @@ This disk has a maximum capacity of 2,048 GiB.
 
 ### Temporary disk
 
-Every VM contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) event or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). On Azure Linux VMs, the temporary disk is /dev/sdb by default and on Windows VMs the temporary disk is D: by default. During a successful standard reboot of the VM, the data on the temporary disk will persist.
+Every VM contains a temporary disk, which is not a managed disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) event or when you [redeploy a VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). During a successful standard reboot of the VM, the data on the temporary disk will persist.  
+
+On Azure Linux VMs, the temporary disk is typically /dev/sdb and on Windows VMs the temporary disk is D: by default. The temporary disk is not encrypted by Server Side Encryption (see [Encryption](#encryption)).
 
 ## Managed disk snapshots
 
 A managed disk snapshot is a read-only crash-consistent full copy of a managed disk that is stored as a standard managed disk by default. With snapshots, you can back up your managed disks at any point in time. These snapshots exist independent of the source disk and can be used to create new managed disks. 
 
-Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
+Snapshots are billed based on the used size. For example, if you create a snapshot of a managed disk with provisioned capacity of 64 GiB and actual used data size of 10 GiB, that snapshot is billed only for the used data size of 10 GiB. You can see the used size of your snapshots by looking at the [Azure usage report](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). For example, if the used data size of a snapshot is 10 GiB, the **daily** usage report will show 10 GiB/(31 days) = 0.3226 as the consumed quantity.
 
 To learn more about how to create snapshots for managed disks, see the following resources:
 
@@ -110,7 +115,7 @@ The following diagram depicts real-time allocation of bandwidth and IOPS for dis
 
 ![Three level provisioning system showing bandwidth and IOPS allocation](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-The first level provisioning sets the per-disk IOPS and bandwidth assignment.  At the second level, compute server host implements SSD provisioning, applying it only to data that is stored on the server’s SSD, which includes disks with caching (ReadWrite and ReadOnly) as well as local and temp disks. Finally, VM network provisioning takes place at the third level for any I/O that the compute host sends to Azure Storage's backend. With this scheme, the performance of a VM depends on a variety of factors, from how the VM uses the local SSD, to the number of disks attached, as well as the performance and caching type of the disks it has attached.
+The first level provisioning sets the per-disk IOPS and bandwidth assignment.  At the second level, compute server host implements SSD provisioning, applying it only to data that is stored on the server's SSD, which includes disks with caching (ReadWrite and ReadOnly) as well as local and temp disks. Finally, VM network provisioning takes place at the third level for any I/O that the compute host sends to Azure Storage's backend. With this scheme, the performance of a VM depends on a variety of factors, from how the VM uses the local SSD, to the number of disks attached, as well as the performance and caching type of the disks it has attached.
 
 As an example of these limitations, a Standard_DS1v1 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 
@@ -121,5 +126,7 @@ Azure uses prioritized network channel for disk traffic, which gets the preceden
 Refer to our [design for high performance](../articles/virtual-machines/windows/premium-storage-performance.md) article, to learn the best practices for optimizing VM + Disk configurations so that you can achieve your desired performance
 
 ## Next steps
+
+If you'd like a video going into more detail on managed disks, check out: [Better Azure VM Resiliency with Managed Disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Learn more about the individual disk types Azure offers, which type is a good fit for your needs, and learn about their performance targets in our article on disk types.

@@ -1,21 +1,21 @@
 ---
-title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory | Microsoft Docs"
+title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 services: data-factory
-documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
 ---
 
 # Troubleshoot SSIS Integration Runtime management in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article provides troubleshooting guidance for management issues in Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), also known as SSIS IR.
 
@@ -25,28 +25,28 @@ If you run into any issue while provisioning or deprovisioning SSIS IR, you'll s
 
 If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
-Otherwise, three major external dependencies can cause errors: an Azure SQL Database server or managed instance, a custom setup script, and a virtual network configuration.
+Otherwise, three major external dependencies can cause errors: Azure SQL Database or Azure SQL Managed Instance, a custom setup script, and a virtual network configuration.
 
-## Azure SQL Database server or managed instance issues
+## SQL Database or SQL Managed Instance issues
 
-An Azure SQL Database server or managed instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access the Azure SQL Database server or managed instance. Also, the account of the Azure SQL Database server or managed instance should have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
+SQL Database or SQL Managed Instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access SQL Database or SQL Managed Instance. Also, the login account for SQL Database or SQL Managed Instance must have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
 
 ### AzureSqlConnectionFailure
 
 You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, you might get a detailed SqlException message in the error message that indicates one of the following problems:
 
-* A network connection issue. Check whether the SQL Server or managed instance host name is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
+* A network connection issue. Check whether the host name for SQL Database or SQL Managed Instance  is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
 * Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
 * Login failed during Microsoft Azure Active Directory (Azure AD)
  authentication (managed identity). Add the managed identity of your factory to an AAD group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This error is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM.
   1. Join the VM to the same Microsoft Azure Virtual Network of IR if IR is in a virtual network.
-  1. Install SSMS and check the Azure SQL Database server or managed instance status.
+  1. Install SSMS and check the SQL Database or SQL Managed Instance status.
 
-For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the Azure SQL Database server or managed instance support team.
+For other problems, fix the issue shown in the detailed SQL Exception error message. If you’re still having problems, contact the SQL Database or SQL Managed Instance support team.
 
-If you see the error when IR is running, network security group or firewall changes are likely preventing the SSIS IR worker node from accessing the Azure SQL Database server or managed instance. Unblock the SSIS IR worker node so that it can access the Azure SQL Database server or managed instance.
+If you see the error when IR is running, network security group or firewall changes are likely preventing the SSIS IR worker node from accessing SQL Database or SQL Managed Instance. Unblock the SSIS IR worker node so that it can access SQL Database or SQL Managed Instance.
 
 ### CatalogCapacityLimitError
 
@@ -61,20 +61,20 @@ The possible solutions are:
 
 ### CatalogDbBelongsToAnotherIR
 
-This error means the Azure SQL Database server or managed instance already has an SSISDB and that it's being used by another IR. You need to either provide a different Azure SQL Database server or managed instance or else delete the existing SSISDB and restart the new IR.
+This error means SQL Database or SQL Managed Instance already has an SSISDB and that it's being used by another IR. You need to either provide a different SQL Database or SQL Managed Instance or else delete the existing SSISDB and restart the new IR.
 
 ### CatalogDbCreationFailure
 
 This error can occur for one of the following reasons:
 
 * The user account that's configured for the SSIS IR doesn't have permission to create the database. You can grant the user permission to create the database.
-* A timeout occurs during database creation, such as an execution timeout or a DB operation timeout. You should retry the operation later. If the retry doesn’t work, contact the Azure SQL Database server or Managed Instance support team.
+* A timeout occurs during database creation, such as an execution timeout or a DB operation timeout. You should retry the operation later. If the retry doesn’t work, contact the SQL Database or SQL Managed Instance support team.
 
-For other issues, check the SQL Exception error message and fix the issue mentioned in the error details. If you’re still having problems, contact the Azure SQL Database server or managed instance support team.
+For other issues, check the SQL Exception error message and fix the issue mentioned in the error details. If you’re still having problems, contact the SQL Database or SQL Managed Instance support team.
 
 ### InvalidCatalogDb
 
-This kind of error message looks like this: “Invalid object name 'catalog.catalog_properties'.” In this situation, either you already have a database named SSISDB but it wasn't created by SSIS IR, or the database is in an invalid state that's caused by errors in the last SSIS IR provisioning. You can drop the existing database with the name SSISDB, or you can configure a new Azure SQL Database server or managed instance for the IR.
+This kind of error message looks like this: “Invalid object name 'catalog.catalog_properties'.” In this situation, either you already have a database named SSISDB but it wasn't created by SSIS IR, or the database is in an invalid state that's caused by errors in the last SSIS IR provisioning. You can drop the existing database with the name SSISDB, or you can configure a new SQL Database or SQL Managed Instance for the IR.
 
 ## Custom setup issues
 
@@ -154,3 +154,38 @@ When you stop SSIS IR, all the resources related to Virtual Network are deleted.
 ### NodeUnavailable
 
 This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because configuration of DNS server and NSG is controlled by the customer, the customer must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
+
+## Static public IP addresses configuration
+
+When you join the Azure-SSIS IR to Azure Virtual Network, you are also able to bring your own static public IP addresses for the IR so that the IR can access data sources which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Besides the above virtual network issues, you may also meet static public IP addresses-related issue. Please check the following errors for help.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+This error can occur for a variety of reasons when you start the Azure-SSIS IR:
+
+| Error message | Solution|
+|:--- |:--- |
+| The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
+| The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
+| The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
+| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for help. |
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### PublicIPResourceGroupLockedDuringStart
+
+If Azure-SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level, the network resources are not deleted as expected. To fix the error, please remove the delete lock and restart the IR.
+
+### PublicIPResourceGroupLockedDuringStop
+
+When you stop Azure-SSIS IR, all the network resources created in the resource group containing your public IP address will be deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock and restart the IR.
+
+### PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (e.g., the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Please remove the delete lock so that we can cleanup the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address cannot be released and we will not be able to upgrade your IR further.
+
+### PublicIPNotUsableDuringUpgrade
+
+When you want to bring your own static public IP addresses, two public IP addresses should be provided. One of them will be used to create the IR nodes immediately and another one will be used during upgrade of the IR. This error can occur when the other public IP address is unusable during upgrade. Please refer to  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) for possible causes.

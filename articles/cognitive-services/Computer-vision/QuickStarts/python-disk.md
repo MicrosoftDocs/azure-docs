@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and Python
 
-In this quickstart, you analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+In this quickstart, you'll analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -37,12 +37,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create and run the sample, do the following steps:
 
 1. Copy the following code into a text editor.
-1. Optionally, replace the value of `image_path` with the path and file name of a different image that you want to analyze.
+1. Replace the value of `image_path` with the path and file name of a different image that you want to analyze.
 1. Save the code as a file with an `.py` extension. For example, `analyze-local-image.py`.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python analyze-local-image.py`.
 
 ```python
+import os
+import sys
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 # %matplotlib inline
@@ -60,9 +62,11 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v2.1/analyze"
+analyze_url = endpoint + "vision/v3.0/analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
+# Sample images are here, if needed:
+# https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
 image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
@@ -85,6 +89,7 @@ image = Image.open(BytesIO(image_data))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## Examine the response
@@ -165,7 +170,9 @@ A successful response is returned in JSON. The sample webpage parses and display
 
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Next, explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; and detect, categorize, tag, and describe visual features in images.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)
+
+* To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).

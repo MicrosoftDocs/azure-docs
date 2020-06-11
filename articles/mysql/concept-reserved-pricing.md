@@ -1,20 +1,20 @@
 ---
-title: Prepay for Azure Database for MySQL compute resources with  reserved capacity
-description: Prepay for Azure Database for MySQL compute resources with  reserved capacity
+title: Prepay for compute with reserved capacity - Azure Database for MySQL 
+description: Prepay for Azure Database for MySQL compute resources with reserved capacity
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 05/20/2020
 ---
 
 # Prepay for Azure Database for MySQL compute resources with reserved capacity
 
-Azure Database for MySQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved capacity, you make an upfront commitment on MySQL server for a one year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
+Azure Database for MySQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MySQL reserved capacity, you make an upfront commitment on MySQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for MySQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
-You do not need to assign the reservation to specific Azure Database for MySQL servers. An already running Azure Database for MySQL or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one years. As soon as you buy a reservation, the Azure database for MySQL compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MySQL Database server. At the end of the reservation term, the billing benefit expires, and the Azure Database for MySQL are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MySQL reserved capacity offering](https://azure.microsoft.com/pricing/details/mysql/). </br>
+You do not need to assign the reservation to specific Azure Database for MySQL servers. An already running Azure Database for MySQL or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure database for MySQL compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MySQL Database server. At the end of the reservation term, the billing benefit expires, and the Azure Database for MySQL are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MySQL reserved capacity offering](https://azure.microsoft.com/pricing/details/mysql/). </br>
 
-You can buy Azure Database for MySQL reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
+You can buy Azure Database for MySQL reserved capacity in the [Azure portal](https://portal.azure.com/). Pay for the reservation [up front or with monthly payments](../cost-management-billing/reservations/monthly-payments-reservations.md). To buy the reserved capacity:
 
 * You must be in the owner role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
@@ -27,7 +27,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed server within a specific region and using the same performance tier and hardware generation.</br>
 
-For example, let's suppose that you are running one general purpose, Gen5 – 32 vCore MySQL database, and two memory optimized, Gen5 – 16 vCore MySQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 32 vCore elastic pool, and one memory optimized, Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 64 (2x32) vCores, 1 year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore 1 year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running one general purpose, Gen5 – 32 vCore MySQL database, and two memory optimized, Gen5 – 16 vCore MySQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 32 vCore database server, and one memory optimized, Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 64 (2x32) vCores, 1 year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore 1 year reservation for single database memory optimized - Gen5
 
 
 ## Buy Azure Database for MySQL reserved capacity
@@ -46,8 +46,8 @@ The following table describes required fields.
 | Field | Description |
 | :------------ | :------- |
 | Subscription   | The subscription used to pay for the Azure Database for MySQL reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Database for MySQL reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
-| Scope | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for MySQL servers running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for MySQL servers in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for MySQL servers in the selected subscription and the selected resource group within that subscription.
-| Region | The Azure region that’s covered by the Azure Database for MySQL reserved capacity reservation.
+| Scope | The vCore reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for MySQL servers running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for MySQL servers in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for MySQL servers in the selected subscription and the selected resource group within that subscription.
+| Region | The Azure region that's covered by the Azure Database for MySQL reserved capacity reservation.
 | Deployment Type | The Azure Database for MySQL resource type that you want to buy the reservation for.
 | Performance Tier | The service tier for the Azure Database for MySQL servers.
 | Term | One year

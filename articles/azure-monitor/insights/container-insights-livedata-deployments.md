@@ -1,13 +1,9 @@
 ---
 title: View Azure Monitor for containers Deployments (preview) | Microsoft Docs
 description: This article describes the real-time view of Kubernetes Deployments without using kubectl in Azure Monitor for containers.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
+ms.custom: references_regions
 ---
 
 # How to view Deployments (preview) in real-time

@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services
-author: donkim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.author: donkim
+ms.date: 12/09/2019
+ms.author: nitinme
 ---
 
 # Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)
@@ -18,20 +18,21 @@ After creating a hosted Custom Commands application, you can begin talking to it
 
 In this article, you'll:
 
-- Publish a Custom Commands application and get an application identifier (app id)
-- Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
+- Publish a Custom Commands application and get an application identifier (App ID)
+- Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
 
 A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
-
-- [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-- [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class = "checklist"]
+> * [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
+> * [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
 You'll also need:
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+> * [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Optional: Get started fast
 
@@ -39,12 +40,13 @@ This quickstart describes, step by step, how to make a client application to con
 
 ## Step 1: Publish Custom Commands application
 
-1. Open your [previously created Custom Commands application](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
+1. Open your [previously created Custom Commands application (Preview)](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
 
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copy the app id from the publish notification for later use
+1. Copy the App ID from the publish notification for later use
+1. Copy the Speech Resource Key for later use
 
 ## Step 2: Create a Visual Studio project
 
@@ -124,7 +126,7 @@ Add the code-behind source as follows:
 
 1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs` (grouped under `MainPage.xaml`)
 
-1. Replace the file's contents with the following code:
+1. Replace the file's contents with the following code: 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -293,6 +295,11 @@ Add the code-behind source as follows:
        }
    }
    ```
+    > [!NOTE]
+    > If you see error: "The type 'Object' is defined in an assembly that is not referenced"
+    > 1. Right-client your solution.
+    > 1. Choose **Manage NuGet Packages for Solution**, Select **Updates** 
+    > 1. If you see **Microsoft.NETCore.UniversalWindowsPlatform** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
 
 1. Add the following code to the method body of `InitializeDialogServiceConnector`
 
@@ -304,7 +311,7 @@ Add the code-behind source as follows:
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
@@ -315,7 +322,7 @@ Add the code-behind source as follows:
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -372,7 +379,7 @@ Add the code-behind source as follows:
 1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -410,7 +417,10 @@ Add the code-behind source as follows:
 1. Select **Talk**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How to: Fulfill commands on the client with the Speech SDK (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
+## Sample source code
+Check out our client sample codes at [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

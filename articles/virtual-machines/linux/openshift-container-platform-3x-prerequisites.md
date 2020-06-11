@@ -1,18 +1,11 @@
 ---
-title: OpenShift Container Platform 3.11 in Azure prerequisites | Microsoft Docs
+title: OpenShift Container Platform 3.11 in Azure prerequisites 
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
@@ -51,16 +44,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Sign in to Azure 
 Sign in to your Azure subscription with the [az login](/cli/azure/reference-index) command and follow the on-screen directions, or click **Try it** to use Cloud Shell.
 
-```azurecli 
+```azurecli
 az login
 ```
+
 ## Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. You should use a dedicated resource group to host the key vault. This group is separate from the resource group into which the OpenShift cluster resources deploy.
 
 The following example creates a resource group named *keyvaultrg* in the *eastus* location:
 
-```azurecli 
+```azurecli
 az group create --name keyvaultrg --location eastus
 ```
 
@@ -78,7 +72,7 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ## Create an SSH key 
 An SSH key is needed to secure access to the OpenShift cluster. Create an SSH key pair by using the `ssh-keygen` command (on Linux or macOS):
  
- ```bash
+```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
@@ -99,9 +93,9 @@ OpenShift communicates with Azure by using a username and password or a service 
 
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp) and output the credentials that OpenShift needs.
 
-The following example creates a service principal and assigns it contributor permissions to a resource group named openshiftrg.
+The following example creates a service principal and assigns it contributor permissions to a resource group named *openshiftrg*.
 
-First, create the resource group named openshiftrg:
+First, create the resource group named *openshiftrg*:
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -112,6 +106,7 @@ Create service principal:
 ```azurecli
 az group show --name openshiftrg --query id
 ```
+
 Save the output of the command and use in place of $scope in next command
 
 ```azurecli
@@ -120,6 +115,7 @@ az ad sp create-for-rbac --name openshiftsp \
 ```
 
 Take note of the appId property and password returned from the command:
+
 ```json
 {
   "appId": "11111111-abcd-1234-efgh-111111111111",
@@ -129,6 +125,7 @@ Take note of the appId property and password returned from the command:
   "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 }
 ```
+
  > [!WARNING] 
  > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
@@ -136,15 +133,15 @@ For more information on service principals, see [Create an Azure service princip
 
 ## Prerequisites applicable only to Resource Manager template
 
-Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
+Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom TLS/SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
 
 The template references specific secret names so you **must** use the bolded names listed above (case sensitive).
 
 ### Custom Certificates
 
-By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
+By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom TLS/SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
 
-You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the SSL certificate files.  Store the certificate data using the information from the following table.
+You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the TLS/SSL certificate files.  Store the certificate data using the information from the following table.
 
 | Secret Name      | Certificate file   |
 |------------------|--------------------|
@@ -157,7 +154,7 @@ You'll need to store these files in Key Vault secrets.  Use the same Key Vault a
 
 Create the secrets using the Azure CLI. Below is an example.
 
-```bash
+```azurecli
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
 ```
 

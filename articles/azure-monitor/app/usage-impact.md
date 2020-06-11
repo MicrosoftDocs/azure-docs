@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights Usage Impact | Microsoft docs
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
@@ -84,5 +82,5 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)

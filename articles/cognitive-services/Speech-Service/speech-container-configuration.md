@@ -1,22 +1,22 @@
 ---
 title: Configure Speech containers
 titleSuffix: Azure Cognitive Services
-description: Speech Services provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
-# Configure Speech Service containers
+# Configure Speech service containers
 
 Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, and **custom-text-to-speech**.
 
-The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
 ## Configuration settings
 
@@ -31,7 +31,7 @@ The `ApiKey` setting specifies the Azure resource key used to track billing info
 
 This setting can be found in the following place:
 
-* Azure portal: **Speech's** Resource Management, under **Keys**
+- Azure portal: **Speech's** Resource Management, under **Keys**
 
 ## ApplicationInsights setting
 
@@ -43,11 +43,11 @@ The `Billing` setting specifies the endpoint URI of the _Speech_ resource on Azu
 
 This setting can be found in the following place:
 
-* Azure portal: **Speech's** Overview, labeled `Endpoint`
+- Azure portal: **Speech's** Overview, labeled `Endpoint`
 
-|Required| Name | Data type | Description |
-|--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI. For more information on the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). |
+| Required | Name | Data type | Description |
+| -------- | ---- | --------- | ----------- |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -62,7 +62,7 @@ This setting can be found in the following place:
 [!INCLUDE [Container shared HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
- 
+
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Mount settings
@@ -71,12 +71,12 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Standard Speech containers don't use input or output mounts to store training or service data. However, custom speech containers rely on volume mounts.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 
-|Optional| Name | Data type | Description |
-|-------|------|-----------|-------------|
-|Not allowed| `Input` | String | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings). |
-|Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
+| Optional | Name | Data type | Description |
+| -------- | ---- | --------- | ----------- |
+| Not allowed | `Input` | String | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings).                                                                                    |
+| Optional | `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## Volume mount settings
 
@@ -86,8 +86,8 @@ Custom models are downloaded the first time that a new model is ingested as part
 
 The volume mount setting consists of three color `:` separated fields:
 
-1. The first field is the name of the volume on the host machine, for example *C:\input*.
-2. The second field is the directory in the container, for example */usr/local/models*.
+1. The first field is the name of the volume on the host machine, for example _C:\input_.
+2. The second field is the directory in the container, for example _/usr/local/models_.
 3. The third field (optional) is a comma-separated list of options, for more information see [use volumes](https://docs.docker.com/storage/volumes/).
 
 ### Volume mount example
@@ -96,36 +96,36 @@ The volume mount setting consists of three color `:` separated fields:
 -v C:\input:/usr/local/models
 ```
 
-This command mounts the host machine *C:\input* directory to the containers */usr/local/models* directory.
+This command mounts the host machine _C:\input_ directory to the containers _/usr/local/models_ directory.
 
 > [!IMPORTANT]
 > The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The standard **Speech-to-text** and **Text-to-speech** containers do not use volume mounts.
 
-## Example docker run commands 
+## Example docker run commands
 
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](speech-container-howto.md#stop-the-container) it.
+The following examples use the configuration settings to illustrate how to write and use `docker run` commands. Once running, the container continues to run until you [stop](speech-container-howto.md#stop-the-container) it.
 
-* **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-* **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
+- **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
+- **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
 
 Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page.| See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
+| ----------- | ----- | ----------------- |
+| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing-configuration-setting).
-> The ApiKey value is the **Key** from the Azure Speech Resource keys page. 
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
+> The ApiKey value is the **Key** from the Azure Speech Resource keys page.
 
 ## Speech container Docker examples
 
-The following Docker examples are for the Speech container. 
+The following Docker examples are for the Speech container.
 
-# [Speech-to-text](#tab/stt)
+## [Speech-to-text](#tab/stt)
 
 ### Basic example for Speech-to-text
 
@@ -148,7 +148,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Custom Speech-to-text](#tab/cstt)
+## [Custom Speech-to-text](#tab/cstt)
 
 ### Basic example for Custom Speech-to-text
 
@@ -175,7 +175,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Text-to-speech](#tab/tss)
+## [Text-to-speech](#tab/tss)
 
 ### Basic example for Text-to-speech
 
@@ -198,7 +198,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Custom Text-to-speech](#tab/ctts)
+## [Custom Text-to-speech](#tab/ctts)
 
 ### Basic example for Custom Text-to-speech
 
@@ -225,8 +225,8 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-***
+---
 
 ## Next steps
 
-* Review [How to install and run containers](speech-container-howto.md)
+- Review [How to install and run containers](speech-container-howto.md)

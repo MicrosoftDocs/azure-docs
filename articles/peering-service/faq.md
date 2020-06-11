@@ -1,60 +1,52 @@
 ---
-title: Azure Peering Service (Preview) FAQ
-description: Learn about Microsoft Azure Peering Service FAQ
+title: Azure Peering Service FAQ
+description: Learn about Microsoft Azure Peering Service FAQs
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: ypitsch
+ms.date: 05/18/2020
+ms.author: derekol
 ---
 
-# Peering Service (Preview) FAQs
+# Peering Service FAQ
 
-This article elucidates on the most frequently asked questions about Peering Service connection.
+This article explains the most frequently asked questions about Azure Peering Service connections.
 
-> [!IMPORTANT]
-> "Peering Service” is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-**Q. Who are the target customers?**  
+**Q. Who are the target customers?**
 
-A. Enterprises who connect to Microsoft Cloud using the internet as transport.  
+A. Target customers are enterprises that connect to Microsoft cloud by using the internet as transport.
 
-**Q. Can customers sign up for the Peering Service with multiple providers?** 
+**Q. Can customers sign up for Peering Service with multiple providers?** 
 
-A. Yes, customers can sign up for the Peering Service with multiple providers in the same region or different region, but not for the same prefix.
+A. Yes, customers can sign up for Peering Service with multiple providers in the same region or different regions, but not for the same prefix.
 
-**Q. Can customers select a unique ISP for their sites per geographical region?**  
+**Q. Can customers select a unique ISP for their sites per geographical region?**
 
-A. Yes, customers can do so. It is recommended to select the Partner ISP per region that suits their business and operational needs.
+A. Yes, customers can do so. Select the partner ISP per region that suits your business and operational needs.
 
-**Q. What is Microsoft Edge PoP?**
+**Q. What is a Microsoft Edge PoP?**
 
-A. It is a physical location where Microsoft interconnects with other networks. In the Microsoft Edge PoP location, services such as Azure Front Door, and Azure CDN are hosted. Refer to [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features) for more information.
+A. It's a physical location where Microsoft interconnects with other networks. In the Microsoft Edge PoP location, services such as Azure Front Door and Azure CDN are hosted. For more information, see [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features).
 
-## Peering Service - Unique characteristics
+## Peering Service: Unique characteristics
 
-**Q. How is Peering Service different from normal Internet access?**
+**Q. How is Peering Service different from normal internet access?**
 
-A. Partners who have registered to the Microsoft Peering service have been working with Microsoft to offer optimized latency and reliable connectivity to Microsoft Services.  
+A. Partners who have registered with Microsoft Peering Service are working with Microsoft to offer optimized routing and reliable connectivity to Microsoft services.  
 
 **Q. How is Peering Service different from ExpressRoute?**
 
-A. ExpressRoute is a private, dedicated connection from the given one or multiple customer locations. While Peering Service offers optimized Public connectivity and does not support any private connectivity. It also offers optimized connectivity for local internet breakouts.
+A. Azure ExpressRoute is a private, dedicated connection from one or multiple customer locations. While Peering Service offers optimized public connectivity and doesn't support any private connectivity, it also offers optimized connectivity for local internet breakouts.
 
 ## Next steps
 
-To learn about Peering Service, see [Peering Service Overview](about.md).
-
-To find a Service Provider, see [Peering Service partners and locations](location-partners.md).
-
-To onboard Peering Service connection, see [Onboard Peering Service model](onboarding-model.md).
-
-To register the Peering Service connection, see [Register Peering Service connection - Azure portal](azure-portal.md).
-
-To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn about Peering Service, see [Peering Service overview](about.md).
+- To find a service provider, see [Peering Service partners and locations](location-partners.md).
+- To onboard a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
+- To register a Peering Service connection, see [Register a Peering Service connection - Azure portal](azure-portal.md).
+- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

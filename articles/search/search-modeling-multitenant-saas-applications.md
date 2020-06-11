@@ -1,5 +1,5 @@
 ---
-title: Modeling multitenancy for content isolation in one service
+title: Multitenancy and content isolation
 titleSuffix: Azure Cognitive Search
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Cognitive Search.
 
@@ -47,7 +47,7 @@ In Azure Cognitive Search’s S3 pricing tier, there is an option for the High D
 
 S3 HD allows for the many small indexes to be packed under the management of a single search service by trading the ability to scale out indexes using partitions for the ability to host more indexes in a single service.
 
-Concretely, an S3 service could have between 1 and 200 indexes that together could host up to 1.4 billion documents. An S3 HD on the other hand would allow individual indexes to only go up to 1 million documents, but it can handle up to 1000 indexes per partition (up to 3000 per service) with a total document count of 200 million per partition (up to 600 million per service).
+An S3 service is designed to host a fixed number of indexes (maximum 200) and allow each index to scale in size horizontally as new partitions are added to the service. Adding partitions to S3 HD services increases the maximum number of indexes that the service can host. The ideal maximum size for an individual S3HD index is around 50 - 80 GB, although there is no hard size limit on each index imposed by the system.
 
 ## Considerations for multitenant applications
 Multitenant applications must effectively distribute resources among the tenants while preserving some level of privacy between the various tenants. There are a few considerations when designing the architecture for such an application:

@@ -25,16 +25,26 @@
     items:
     - name: Performance considerations for Azure NetApp Files
       href: azure-netapp-files-performance-considerations.md    
-    - name: Performance benchmark test results for Azure NetApp Files
-      href: azure-netapp-files-performance-benchmarks.md
     - name: Performance benchmark test recommendations for Azure NetApp Files
       href: azure-netapp-files-performance-metrics-volumes.md 
+    - name: Performance benchmarks for Linux
+      href: performance-benchmarks-linux.md
+    - name: FAQs about SMB performance
+      href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
-  - name: Solution architectures using Azure NetApp Files
-    href: azure-netapp-files-solution-architectures.md
+  - name: Solutions
+    items:
+    - name: Solution architectures using Azure NetApp Files
+      href: azure-netapp-files-solution-architectures.md
+    - name: Specific solutions
+      items:
+      - name: Benefits of using Azure NetApp Files with Oracle Database
+        href: solutions-benefits-azure-netapp-files-oracle-database.md
+      - name: Benefits of using Azure NetApp Files for electronic design automation
+        href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
   - name: FAQs about Azure NetApp Files
     href: azure-netapp-files-faqs.md
 - name: How-to guides
@@ -47,10 +57,12 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
-  - name: Create an NFS volume for Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
   - name: Create an SMB volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes-smb.md
+  - name: Create an NFS volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configure NFSv4.1 default domain for Azure NetApp Files
+    href: azure-netapp-files-configure-nfsv41-domain.md
   - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
@@ -63,8 +75,10 @@
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
   - name: Develop
     items:
-    - name: REST
+    - name: REST API
       href: azure-netapp-files-develop-with-rest-api.md
+    - name: REST API using PowerShell
+      href: develop-rest-api-powershell.md
     - name: Azure NetApp Files SDKs and CLI tools
       href: azure-netapp-files-sdk-cli.md
     - name: Troubleshoot Azure NetApp Files Resource Provider errors
@@ -75,3 +89,13 @@
     href: https://docs.microsoft.com/rest/api/netapp/ 
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/netapp/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=netapp
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla/netapp/
+  - name: Videos
+    href: azure-netapp-files-videos.md

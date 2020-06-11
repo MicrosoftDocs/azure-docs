@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Migrate documentation
-summary: Use Azure Migrate to migrate to the Azure cloud. Azure Migrate provides a central hub for discovery, assessment, and migration of on-premises workloads to Azure. The hub provides Azure Migrate tools, and well as integrated tools from independent software vendors (ISVs). 
+summary: Azure Migrate provides a central hub of tools for discovery, assessment, and migration of on-premises workloads to Azure.
 
 metadata:
   title: Azure Migrate documentation
-  description: Use Azure Migrate to migrate to the Azure cloud. Azure Migrate provides a central hub for discovery, assessment, and migration of on-premises workloads to Azure. The hub provides Azure Migrate tools, and well as integrated tools from independent software vendors (ISVs). 
+  description: Use Azure Migrate to migrate on-premises workloads to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
+  ms.date: 11/19/2019
 
 landingContent:
   - title: About Azure Migrate
@@ -24,23 +24,27 @@ landingContent:
             url: ./whats-new.md
           - text: Common questions
             url: ./resources-faq.md
-  
+
   - title: Get started
     linkLists:
       - linkListType: tutorial
         links:
           - text: Assess VMware VMs with Server Assessment
             url: ./tutorial-prepare-vmware.md
-          - text: Assess Hyper-V VMs with Server Assessment 
+          - text: Assess Hyper-V VMs with Server Assessment
             url: ./tutorial-prepare-hyper-v.md
+          - text: Assess physical servers with Server Assessment
+            url: ./tutorial-prepare-physical.md
+          - text: Assess servers using imported data
+            url: tutorial-assess-import.md
           - text: Migrate VMware VMs with Server Migration
             url: ./server-migrate-overview.md
           - text: Migrate Hyper-V VMs with Server Migration
             url: ./tutorial-migrate-hyper-v.md
           - text: Migrate physical servers/VMs with Server Migration
             url: ./tutorial-migrate-physical-virtual-machines.md
-            
-  - title: Start deployment 
+
+  - title: Start deployment
     linkLists:
       - linkListType: deploy
         links:
@@ -51,14 +55,20 @@ landingContent:
           - text: Review the Azure Migrate support matrix
             url: migrate-support-matrix.md
           - text: Review the VMware support matrix
-            url: migrate-support-matrix-vmware.md
+            url: ./migrate-support-matrix-vmware.md
           - text: Review the Hyper-V support matrix
-            url: migrate-support-matrix-hyper-v.md              
-  
+            url: ./migrate-support-matrix-hyper-v.md
+          - text: Review the physical server support matrix
+            url: ./migrate-support-matrix-physical.md
+
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Add assessment tools
+            url: ./how-to-assess.md
+          - text: Discover application inventory
+            url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
           - text: Scale VMware assessment
@@ -66,21 +76,21 @@ landingContent:
           - text: Automate and scale migration
             url: ./how-to-migrate-at-scale.md
           - text: Troubleshoot assessment and migration
-            url: ./troubleshooting-general.md
-            
+            url: ./troubleshoot-general.md
+
   - title: Learn more
-    linkLists:   
+    linkLists:
       - linkListType: learn
         links:
-          - text: VMware agent-based migration architecture
+          - text: Learn about VMware/physical agent-based migration
             url: ./agent-based-migration-architecture.md
-          - text: Hyper-V migration architecture
+          - text: Learn about Hyper-V migration
             url: ./hyper-v-migration-architecture.md
           - text: Learn about assessments
             url: ./concepts-assessment-calculation.md
           - text: Learn about dependency visualization
             url: ./concepts-dependency-visualization.md
-            
+
   - title: Get involved
     linkLists:
       - linkListType: get-started
@@ -88,8 +98,6 @@ landingContent:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/907195-azure-migrate
           - text: Ask a forum question
-            url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+            url: https://docs.microsoft.com/answers/topics/azure-migrate.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration
-            
-            

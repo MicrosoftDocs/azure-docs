@@ -1,15 +1,11 @@
 ---
 title: Monitor Azure Automation runbooks with metric alerts
-description: This article walks you through monitoring Azure Automation runbooks based off of metrics
+description: This article tells how to monitor runbooks based on metrics.
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 11/01/2018
 ms.topic: article
-manager: carmonm
 ---
-# Monitoring runbooks with metric alerts
+# Monitor runbooks with metric alerts
 
 In this article, you learn how to create alerts based on the completion status of runbooks.
 
@@ -21,7 +17,7 @@ Sign in to Azure at https://portal.azure.com
 
 Alerts allow you to define a condition to monitor for and an action to take when that condition is met.
 
-In the Azure portal, navigate to your Automation Account. Under **Monitoring**, select **Alerts** and click **+ New Alert Rule**. The scope for the target is already defined to your Automation Account.
+In the Azure portal, navigate to your Automation account. Under **Monitoring**, select **Alerts** and click **+ New Alert Rule**. The scope for the target is already defined to your Automation account.
 
 ### Configure alert criteria
 
@@ -65,7 +61,7 @@ In the Azure portal, navigate to your Automation Account. Under **Monitoring**, 
 > [!NOTE]
 > When adding an email address to an Action Group, a notification email is sent stating the address has been added to an Action Group.
 
-## Notification
+## Receive notification
 
 When the alert criteria is met, the action group runs the action defined. In this article's example, an email is sent. The following image is an example of an email you receive after the alert is triggered:
 
@@ -75,7 +71,4 @@ Once the metric is no longer outside of the threshold defined, the alert is deac
 
 ## Next steps
 
-Continue to the following article to learn about other ways that you can integrate alertings into your Automation Account.
-
-> [!div class="nextstepaction"]
-> [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
+* For more information, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).

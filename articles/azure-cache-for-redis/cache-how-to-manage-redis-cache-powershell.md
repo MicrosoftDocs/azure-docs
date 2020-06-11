@@ -1,18 +1,10 @@
 ---
-title: Manage Azure Cache for Redis with Azure PowerShell | Microsoft Docs
+title: Manage Azure Cache for Redis with Azure PowerShell
 description: Learn how to perform administrative tasks for Azure Cache for Redis using Azure PowerShell.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 
@@ -30,7 +22,7 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md).
+For more information about the classic deployment model, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md).
 
 ## Prerequisites
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
@@ -99,7 +91,7 @@ To create a cache in the Azure China Cloud, use one of the following locations.
 * China East
 * China North
 
-For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/).
+For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](https://www.windowsazure.cn/).
 
 ### To connect to Microsoft Azure Germany
 To connect to Microsoft Azure Germany, use one of the following commands.
@@ -780,8 +772,8 @@ To learn more about using Windows PowerShell with Azure, see the following resou
 
 * [Azure Cache for Redis cmdlet documentation on MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
 * [Azure Resource Manager Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the Azure Resource Manager module.
-* [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
+* [Using Resource groups to manage your Azure resources](../azure-resource-manager/templates/deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
 * [Azure blog](https://azure.microsoft.com/blog/): Learn about new features in Azure.
-* [Windows PowerShell blog](https://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
+* [Windows PowerShell blog](https://devblogs.microsoft.com/powershell/): Learn about new features in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 

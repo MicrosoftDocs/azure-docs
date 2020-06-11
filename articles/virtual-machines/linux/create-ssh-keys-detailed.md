@@ -1,20 +1,10 @@
 ---
-title: Detailed steps - SSH key pair for Azure Linux VMs | Microsoft Docs
+title: Detailed steps to create an SSH key pair
 description: Learn detailed steps to create and manage an SSH public and private key pair for Linux VMs in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: ''
-
-ms.assetid:
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 12/06/2019
 ms.author: cynthn
 
 ---
@@ -41,7 +31,7 @@ If you do not wish to use SSH keys, you can set up your Linux VM to use password
 
 ## Generate keys with ssh-keygen
 
-To create the keys, a preferred command is `ssh-keygen`, which is available with OpenSSH utilities in the Azure Cloud Shell, a macOS or Linux host, the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about), and other tools. `ssh-keygen` asks a series of questions and then writes a private key and a matching public key. 
+To create the keys, a preferred command is `ssh-keygen`, which is available with OpenSSH utilities in the Azure Cloud Shell, a macOS or Linux host, and Windows 10. `ssh-keygen` asks a series of questions and then writes a private key and a matching public key. 
 
 SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
@@ -50,7 +40,7 @@ SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~
 The following `ssh-keygen` command generates 2048-bit SSH RSA public and private key files by default in the `~/.ssh` directory. If an SSH key pair exists in the current location, those files are overwritten.
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 ### Detailed example
@@ -58,6 +48,7 @@ The following example shows additional command options to create an SSH RSA key 
 
 ```bash
 ssh-keygen \
+    -m PEM \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
@@ -68,6 +59,8 @@ ssh-keygen \
 **Command explained**
 
 `ssh-keygen` = the program used to create the keys
+
+`-m PEM` = format the key as PEM
 
 `-t rsa` = type of key to create, in this case in the RSA format
 
@@ -82,7 +75,7 @@ ssh-keygen \
 ### Example of ssh-keygen
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
+ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -90,19 +83,19 @@ Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-The keys randomart image is:
-+--[ RSA 2048]----+
-|        o o. .   |
-|      E. = .o    |
-|      ..o...     |
-|     . o....     |
-|      o S =      |
-|     . + O       |
-|      + = =      |
-|       o +       |
-|        .        |
-+-----------------+
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[RSA 4096]----+
+|        .oE=*B*+ |
+|          o+o.*++|
+|           .oo++*|
+|       .    .B+.O|
+|        S   o=BO.|
+|         . .o++o |
+|        . ... .  |
+|         ..  .   |
+|           ..    |
++----[SHA256]-----+
 ```
 
 #### Saved key files

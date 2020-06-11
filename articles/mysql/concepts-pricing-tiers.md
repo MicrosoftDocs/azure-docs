@@ -1,11 +1,11 @@
 ---
-title: Pricing tiers for Azure Database for MySQL
+title: Pricing tiers - Azure Database for MySQL
 description: Learn about the various pricing tiers for Azure Database for MySQL including compute generations, storage types, storage size, vCores, memory, and backup retention periods.
-author: jan-eng
-ms.author: janeng
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 02/25/2020
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -17,8 +17,7 @@ You can create an Azure Database for MySQL server in one of three different pric
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Database backup retention period | 7 to 35 days | 7 to 35 days | 7 to 35 days |
 
 To choose a pricing tier, use the following table as a starting point.
@@ -41,10 +40,16 @@ The storage you provision is the amount of storage capacity available to your Az
 
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
-| Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
+| Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
+| Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!NOTE]
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2 and West Central US.
+>
+> All other regions support up to 4TB of storage and up to 6000 IOPS.
+>
 
 You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
 
@@ -55,28 +60,9 @@ The Basic tier does not provide an IOPS guarantee. In the General Purpose and Me
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
-### Large storage (Preview)
-
-We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
-
-|              | **General Purpose** | **Memory Optimized** |
-|:-------------|:--------------------|:---------------------|
-| Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
-| Storage increment size | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
-
-> [!IMPORTANT]
-> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
->
-> The large storage preview currently does not support:
->
-> * Geographically redundant backups
-> * Cross region replication
-
 ### Reaching the storage limit
 
-Servers with less than 100 GB provisioned storage are marked read-only if the free storage is less than 512MB or 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
+Servers with less than equal to 100 GB provisioned storage are marked read-only if the free storage is less than 5% of the provisioned storage size. Servers with more than 100 GB provisioned storage are marked read only when the free storage is less than 5 GB.
 
 For example, if you have provisioned 110 GB of storage, and the actual utilization goes over 105 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 256 MB.
 
@@ -86,15 +72,15 @@ We recommend that you turn on storage auto-grow or to set up an alert to notify 
 
 ### Storage auto-grow
 
-Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10% of the provisioned storage size. Maximum storage limits as specified above apply.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply.
 
-For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 900 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
 
 Remember that storage can only be scaled up, not down.
 
 ## Backup
 
-The service automatically takes backups of your server. The minimum retention period for backups is seven days. You can set a retention period of up to 35 days. The retention can be adjusted at any point during the lifetime of the server. You can choose between locally redundant and geo-redundant backups. Geo-redundant backups also are stored in the [geo-paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) of the region where your server is created. This redundancy provides a level of protection in the event of a disaster. You also gain the ability to restore your server to any other Azure region in which the service is available with geo-redundant backups. It's not possible to change between the two backup storage options after the server is created.
+The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups. Learn more about backups in the [concepts article](concepts-backup.md).
 
 ## Scale resources
 

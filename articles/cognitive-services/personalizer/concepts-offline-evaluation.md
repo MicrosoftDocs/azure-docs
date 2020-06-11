@@ -1,20 +1,20 @@
 ---
 title: Use the Offline Evaluation method - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Create feedback loop in this C# quickstart with the Personalizer service.
+description: This article will explain how to use offline evaluation to measure effectiveness of your app and analyze your learning loop.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
 ---
 
 # Offline evaluation
 
-Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank API, to compare how different ranks have performed.
+Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank and Reward APIs, to compare how different ranks have performed.
 
 Offline evaluation is performed on a date range. The range can finish as late as the current time. The beginning of the range can't be more than the number of days specified for [data retention](how-to-settings.md).
 
@@ -45,15 +45,25 @@ Personalizer can use the offline evaluation process to discover a more optimal l
 
 After performing the offline evaluation, you can see the comparative effectiveness of Personalizer with that new policy compared to the current online policy. You can then apply that learning policy to make it effective immediately in Personalizer, by downloading it and uploading it in the Models and Policy panel. You can also download it for future analysis or use.
 
+Current policies included in the evaluation:
+
+| Learning settings | Purpose|
+|--|--|
+|**Online Policy**| The current Learning Policy used in Personalizer |
+|**Baseline**|The application's default (as determined by the first Action sent in Rank calls)|
+|**Random Policy**|An imaginary Rank behavior that always returns random choice of Actions from the supplied ones.|
+|**Custom Policies**|Additional Learning Policies uploaded when starting the evaluation.|
+|**Optimized Policy**|If the evaluation was started with the option to discover an optimized policy, it will also be compared, and you will be able to download it or make it the online learning policy, replacing the current one.|
+
 ## Understanding the relevance of offline evaluation results
 
 When you run an offline evaluation, it is very important to analyze _confidence bounds_ of the results. If they are wide, it means your application hasn’t received enough data for the reward estimates to be precise or significant. As the system accumulates more data, and you run offline evaluations over longer periods, the confidence intervals become narrower.
 
 ## How offline evaluations are done
 
-Offline Evaluations are done using a method called **Counterfactual Evaluation**. 
+Offline Evaluations are done using a method called **Counterfactual Evaluation**.
 
-Personalizer is built on the assumption that users' behavior (and thus rewards) are impossible to predict retrospectively (Personalizer can't know what would have happened if the user had been shown something different than what they did see), and only to learn from measured rewards. 
+Personalizer is built on the assumption that users' behavior (and thus rewards) are impossible to predict retrospectively (Personalizer can't know what would have happened if the user had been shown something different than what they did see), and only to learn from measured rewards.
 
 This is the conceptual process used for evaluations:
 
@@ -65,11 +75,11 @@ This is the conceptual process used for evaluations:
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.
@@ -87,7 +97,7 @@ We recommend looking at feature evaluations and asking:
 
 * What other, additional, features could your application or system provide along the lines of those that are more effective?
 * What features can be removed due to low effectiveness? Low effectiveness features add _noise_ into the machine learning.
-* Are there any features that are accidentally included? Examples of these are: personally identifiable information (PII), duplicate IDs, etc.
+* Are there any features that are accidentally included? Examples of these are: user identifiable information, duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
 

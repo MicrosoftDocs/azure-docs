@@ -6,50 +6,45 @@
   items:
   - name: What is the Data Science Virtual Machine (DSVM)?
     href: overview.md
-  - name: What is the Geo AI DSVM?
-    href: geo-ai-dsvm-overview.md
-  - name: Tools Included on the DSVM
+  - name: Tools Included on the Data Science Virtual Machine
     href: tools-included.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Windows DSVM
+  - name: Create a Windows Data Science Virtual Machine
     href: provision-vm.md
-  - name: Create an Ubuntu DSVM
+  - name: Create an Ubuntu Data Science Virtual Machine
     href: dsvm-ubuntu-intro.md
-  - name: Create a CentOS DSVM
-    href: linux-dsvm-intro.md
-  - name: Create a Geo AI DSVM
-    href: provision-geo-ai-dsvm.md 
+  - name: Create a DSVM with an ARM template
+    displayName: Resource Manager
+    href: dsvm-tutorial-resource-manager.md
 - name: Concepts
   items:
   - name: Deep Learning and AI frameworks
-    href: dsvm-deep-learning-ai-frameworks.md
+    href: dsvm-tools-deep-learning-frameworks.md
   - name: Programming languages
-    href: dsvm-languages.md
+    href: dsvm-tools-languages.md
   - name: Development tools 
     href: dsvm-tools-development.md
   - name: ML and data science tools
-    href: dsvm-ml-data-science-tools.md
+    href: dsvm-tools-data-science.md
   - name: Data platforms
-    href: dsvm-data-platforms.md    
+    href: dsvm-tools-data-platforms.md    
   - name: Data ingestion tools
     href: dsvm-tools-ingestion.md
-  - name: Data exploration and visualization tools
-    href: dsvm-tools-explore-and-visualize.md
+  - name: Productivity tools
+    href: dsvm-tools-productivity.md
   - name: Enterprise security and guidance
     href: dsvm-enterprise-overview.md  
 - name: Samples    
   href: dsvm-samples-and-walkthroughs.md
 - name: How-to guides
   items:
-  - name: Use a Windows DSVM
+  - name: Use a Windows Data Science Virtual Machine
     href: vm-do-ten-things.md
-  - name: Use a Linux DSVM
+  - name: Use a Linux Data Science Virtual Machine
     href: linux-dsvm-walkthrough.md
-  - name: Use a Geo AI DSVM
-    href: use-geo-ai-dsvm.md
-  - name: Create an autoscaled DSVM pool 
+  - name: Create an autoscaled Data Science Virtual Machine pool 
     href: dsvm-pools.md
   - name: Integrate with Active Directory
     href: dsvm-common-identity.md
@@ -57,18 +52,16 @@
     href: dsvm-secure-access-keys.md            
 - name: Resources
   items:
-  - name: MSDN forum
-    href: https://social.microsoft.com/Forums/home?forum=dsvm
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-science-vm.html
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Reference
   items:
-  - name: Ubuntu DSVM
+  - name: Ubuntu Data Science Virtual Machine
     href: reference-ubuntu-vm.md
-  - name: CentOS DSVM
-    href: reference-centos-vm.md
   - name: Release notes
     href: release-notes.md
   - name: Known issues

@@ -1,12 +1,10 @@
 ---
-title: CLI Example - Load Balancer VMs within a zone - Azure | Microsoft Docs
+title: Load balance VMs within a zone - Azure CLI
 description: This Azure CLI script example shows how to load balance traffic to VMs within a specific availability zone
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: 
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid:
 ms.service: load-balancer
@@ -18,7 +16,7 @@ ms.date: 06/14/2018
 ms.author: allensu
 ---
 
-# Azure CLI script example: Load balance traffic to VMs for high availability
+# Azure CLI script example: Load balance traffic to VMs within a specific availability zone
 
 This Azure CLI script example creates everything needed to run several Ubuntu virtual machines configured in a highly available and load balanced configuration within a specific availability zone. After running the script, you will have three virtual machines in a single availability zones within a region that are accessible through an Azure Standard Load Balancer. 
 
@@ -52,7 +50,7 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
 
   # Create an Azure Load Balancer.
    az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroup \
     --name myLoadBalancer \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEndPool \

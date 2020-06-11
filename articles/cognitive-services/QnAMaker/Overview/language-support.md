@@ -1,7 +1,7 @@
 ---
 title: Language support - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The language of a knowledge base affects QnA Maker's ability to auto-extract questions and answers from sources, as well as the relevance of the results QnA Maker provides in response to user queries. A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
+description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -27,7 +27,7 @@ The following list contains the languages supported for a QnA Maker resource.
 |--|
 |Arabic|
 |Armenian|
-|Bengali|
+|Bangla|
 |Basque|
 |Bulgarian|
 |Catalan|

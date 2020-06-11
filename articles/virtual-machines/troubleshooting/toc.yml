@@ -1,206 +1,322 @@
+### YamlMime:TOC
+
 - name: Troubleshooting Azure VMs
-  href: index.md
-- name: Allocation failures
+  href: index.yml
+- name: Troubleshoot deployment failures
+  items:
+  - name: Windows
+    href: troubleshoot-deploy-vm-windows.md
+  - name: Linux
+    href: troubleshoot-deploy-vm-linux.md
+  - name: Availability sets
+    href: virtual-machines-availability-set-supportability.md
+- name: VM deployment guidance
+  items:
+  - name: Upgrade to SLES 15 SP1
+    href: linux-upgrade-suse-15sp1.md
+  - name: New VM deployments
+    items:
+    - name: Linux
+      href: troubleshoot-deployment-new-vm-linux.md
+    - name: Windows
+      href: troubleshoot-deployment-new-vm-windows.md
+  - name: Redeploy a VM
+    items:
+    - name: Linux
+      href: redeploy-to-new-node-linux.md
+    - name: Windows
+      href: redeploy-to-new-node-windows.md
+  - name: Reset NIC
+    href: reset-network-interface.md
+- name: Troubleshoot allocation failures
   items:
   - name: Allocation failures
     href: allocation-failure.md
+  - name: Classic deployment model
+    href: allocation-failure-classic.md
+- name: VM restart issues
+  items:
+  - name: Restarting or resizing a VM
+    href: restart-resize-error-troubleshooting.md
+  - name: Restarting, Shutting Down, or Stopping services
+    href: boot-error-troubleshoot-windows.md
+- name: Unexpected restart
+  items:
+  - name: Unexpected reboots of VMs with attached VHDs
+    href: unexpected-reboots-attached-vhds.md
+  - name: Understand a system reboot
+    href: understand-vm-reboot.md
+- name: Cannot start or stop VM
+  items:
+  - name: Start/Stop VMs using Azure Automation
+    href: ../../automation/troubleshoot/start-stop-vm.md
+  - name: Restarting or resizing a VM
+    href: restart-resize-error-troubleshooting.md
   - name: Allocation failures for classic deployments
     href: allocation-failure-classic.md
-- name: RDP
-  href: rdp.md
-  items:
-  - name: Reset RDP
-    href: reset-rdp.md
-  - name: RDP troubleshooting
-    href: troubleshoot-rdp-connection.md
-  - name: Detailed RDP troubleshooting
-    href: detailed-troubleshoot-rdp.md
-  - name: Troubleshoot RDP error because the DHCP is disabled
-    href: troubleshoot-rdp-dhcp-disabled.md
-  - name: Troubleshoot RDP error because of the NSG setting
-    href: troubleshoot-rdp-nsg-problem.md
-  - name: Troubleshoot specific errors
-    href: troubleshoot-specific-rdp-errors.md
-  - name: Troubleshoot no license server errors
-    href: troubleshoot-rdp-no-license-server.md
-  - name: Troubleshoot remote desktop services issues
-    href: troubleshoot-remote-desktop-services-issues.md
-  - name: Troubleshoot An internal error
-    href: Troubleshoot-rdp-internal-error.md
-  - name: Troubleshoot connection disconnects frequently
-    href: troubleshoot-rdp-intermittent-connectivity.md
-  - name: Troubleshoot a general error
-    href: troubleshoot-rdp-general-error.md
-  - name: Troubleshoot authentication errors
-    href: troubleshoot-authentication-error-rdp-vm.md
-  - name: Troubleshoot Azure VM RDP connection issues by Event ID
-    href: event-id-troubleshoot-vm-rdp-connecton.md
-  - name: Troubleshoot RDP error in VM because of static IP
-    href: troubleshoot-rdp-static-ip.md
-  - name: Troubleshoot RDP error in VM because the NIC is disabled
-    href: troubleshoot-rdp-nic-disabled.md
-  - name: Troubleshoot RDP error caused by Safe Mode
-    href: troubleshoot-rdp-safe-mode.md
-  - name: Disable the guest OS Firewall in Azure VM
-    href: disable-guest-os-firewall-windows.md
-  - name: Enable or disable a firewall rule on a guest OS
-    href: enable-disable-firewall-rule-guest-os.md
-  - name: Guest OS firewall is blocking inbound traffic
-    href: guest-os-firewall-blocking-inbound-traffic.md
-  - name: Guest OS firewall is misconfigured
-    href: guest-os-firewall-misconfigured.md
-  - name: Troubleshoot RDP error caused by netvsc.sys
-    href: troubleshoot-rdp-driver-netvsc.md
-- name: SSH
-  items:
-  - name: SSH troubleshooting
-    href: troubleshoot-ssh-connection.md
-  - name: Troubleshoot file system errors
-    href: linux-recovery-cannot-start-file-system-errors.md
-  - name: Troubleshoot kernel-related boot problems
-    href: https://support.microsoft.com/help/4091524
-  - name: Troubleshoot fstab errors
-    href: linux-virtual-machine-cannot-start-fstab-errors.md
-  - name: Detailed SSH troubleshooting
-    href: detailed-troubleshoot-ssh-connection.md
-- name: Common error messages
-  href: error-messages.md
-- name: Troubleshoot Azure VM Performance issues
-  items:
-  - name: Performance issues on Linux or Windows
-    href: troubleshoot-performance-virtual-machine-linux-windows.md
-  - name: Performance diagnostics
-    href: performance-diagnostics.md
-- name: Support for 32-bit operating systems
-  href: support-32-bit-operating-systems-virtual-machines.md
-- name: PerfInsights
-  items:
-  - name: Windows
-    items:
-    - name: How to use PerfInsights
-      href: how-to-use-perfinsights.md
-    - name: Performance diagnostics extension
-      href: performance-diagnostics-vm-extension.md
-  - name: Linux
-    items:
-    - name: How to use PerfInsights
-      href: how-to-use-perfinsights-linux.md
-- name: Install Windows VM agent offline
-  href: install-vm-agent-offline.md
-- name: Redeploy a VM
+  - name: VM startup is stuck
+    href: troubleshoot-vm-boot-configure-update.md
+  - name: VM lifecycle and states
+    href: ../windows/states-lifecycle.md
+- name: VM is not booting
   items:
   - name: Linux
-    href: redeploy-to-new-node-linux.md
+    href: boot-error-troubleshoot-linux.md
+    items:
+    - name: Grub Rescue
+      href: troubleshoot-vm-boot-error.md
   - name: Windows
-    href: redeploy-to-new-node-windows.md
-- name: Reset VM password
+    href: boot-error-troubleshoot.md
+    items:
+    - name: Boot diagnostics
+      href: boot-diagnostics.md
+    - name: Boot Error - Disk Read Error Occurred
+      href: boot-error-disk-read-error-occurred.md
+    - name: BitLocker errors
+      href: troubleshoot-bitlocker-boot-error.md
+    - name: Blue screen errors
+      href: troubleshoot-common-blue-screen-error.md
+    - name: Checking file system errors
+      href: troubleshoot-check-disk-boot-error.md
+    - name: Critical process disabled
+      href: troubleshoot-guide-critical-process-died.md
+    - name: Critical service failed
+      href: troubleshoot-critical-service-failed-boot-error.md
+    - name: Troubleshoot boot error - Status not found
+      href: boot-error-status-not-found.md
+    - name: Troubleshoot Windows Update installation capacity
+      href: windows-update-installation-capacity.md
+    - name: Not a bootable disk
+      href: troubleshoot-guide-not-bootable-disk.md
+    - name: Reboot loop
+      href: troubleshoot-reboot-loop.md
+    - name: Stuck at Windows update
+      href: troubleshoot-stuck-updating-boot-error.md
+    - name: VM startup is stuck
+      href: troubleshoot-vm-boot-configure-update.md
+    - name: VM cannot boot due to windows boot manager
+      href: troubleshoot-guide-windows-boot-manager-menu.md
+    - name: VM is unresponsive due to updating
+      href: unresponsive-vm-apply-windows-update.md
+    - name: VM is unresponsive when applying group policy
+      href: unresponsive-vm-apply-group-policy.md
+- name: Cannot connect to my VM
+  items:
+  - name: RDP
+    href: rdp.md
+    items:
+    - name: Reset RDP
+      href: reset-rdp.md
+    - name: RDP troubleshooting
+      href: troubleshoot-rdp-connection.md
+    - name: Detailed RDP troubleshooting
+      href: detailed-troubleshoot-rdp.md
+    - name: Troubleshoot RDP error because the DHCP is disabled
+      href: troubleshoot-rdp-dhcp-disabled.md
+    - name: Troubleshoot RDP error because of the NSG setting
+      href: troubleshoot-rdp-nsg-problem.md
+    - name: Troubleshoot specific errors
+      href: troubleshoot-specific-rdp-errors.md
+    - name: Troubleshoot no license server errors
+      href: troubleshoot-rdp-no-license-server.md
+    - name: Troubleshoot remote desktop services issues
+      href: troubleshoot-remote-desktop-services-issues.md
+    - name: Troubleshoot An internal error
+      href: Troubleshoot-rdp-internal-error.md
+    - name: Troubleshoot connection disconnects frequently
+      href: troubleshoot-rdp-intermittent-connectivity.md
+    - name: Troubleshoot a general error
+      href: troubleshoot-rdp-general-error.md
+    - name: Troubleshoot authentication errors
+      href: troubleshoot-authentication-error-rdp-vm.md
+    - name: Troubleshoot Azure VM RDP connection issues by Event ID
+      href: event-id-troubleshoot-vm-rdp-connecton.md
+    - name: Troubleshoot RDP error in VM because of static IP
+      href: troubleshoot-rdp-static-ip.md
+    - name: Troubleshoot RDP error in VM because the NIC is disabled
+      href: troubleshoot-rdp-nic-disabled.md
+    - name: Troubleshoot RDP error caused by Safe Mode
+      href: troubleshoot-rdp-safe-mode.md
+    - name: Disable the guest OS Firewall in Azure VM
+      href: disable-guest-os-firewall-windows.md
+    - name: Enable or disable a firewall rule on a guest OS
+      href: enable-disable-firewall-rule-guest-os.md
+    - name: Guest OS firewall is blocking inbound traffic
+      href: guest-os-firewall-blocking-inbound-traffic.md
+    - name: Guest OS firewall is misconfigured
+      href: guest-os-firewall-misconfigured.md
+    - name: Troubleshoot RDP error caused by netvsc.sys
+      href: troubleshoot-rdp-driver-netvsc.md
+  - name: SSH
+    items:
+    - name: SSH troubleshooting
+      href: troubleshoot-ssh-connection.md
+    - name: Troubleshoot file system errors
+      href: linux-recovery-cannot-start-file-system-errors.md
+    - name: Troubleshoot kernel-related boot problems
+      href: https://support.microsoft.com/help/4091524
+    - name: Recover LVM configured VMs and no boot 
+      href: chroot-logical-volume-manager.md
+    - name: Troubleshoot fstab errors 
+      href: linux-virtual-machine-cannot-start-fstab-errors.md
+    - name: Detailed SSH troubleshooting
+      href: detailed-troubleshoot-ssh-connection.md
+  - name: Application access issues
+    href: troubleshoot-app-connection.md
+- name: Help with VM password reset
   items:
   - name: Windows
     href: reset-local-password-without-agent.md
   - name: Linux
     href: reset-password.md
-- name: Reset NIC
-  href: reset-network-interface.md
-- name: Restarting or resizing a VM
-  href: restart-resize-error-troubleshooting.md
-- name: Serial Console
+  - name: VM recovery access
+    items:
+    - name: Windows
+      items:
+      - name: PowerShell
+        href: troubleshoot-recovery-disks-windows.md
+      - name: Azure portal
+        href: troubleshoot-recovery-disks-portal-windows.md
+    - name: Linux
+      items:
+      - name: CLI
+        href: troubleshoot-recovery-disks-linux.md
+      - name: Azure portal
+        href: troubleshoot-recovery-disks-portal-linux.md
+    - name: Device names are changed
+      href: troubleshoot-device-names-problems.md
+- name: Virtual Disk Management issues
   items:
-  - name: Serial Console overview
-    href: serial-console-overview.md
-  - name: Serial Console for Linux
-    href: serial-console-linux.md
+  - name: Overview
+    href: ../windows/managed-disks-overview.md
+  - name: FAQ
+    href: ../windows/faq-for-disks.md
+  - name: Errors when deleting storage resources
+    href: storage-resource-deletion-errors.md
+  - name: Errors when deleting classic storage resources
+    href: storage-classic-cannot-delete-storage-account-container-vhd.md
+  - name: Use nested virtualization
+    href: troubleshoot-vm-by-use-nested-virtualization.md
+- name: VM Performance issues
+  items:
+  - name: Troubleshoot Azure VM Performance issues
     items:
-    - name: Serial Console GRUB/Single user mode
-      href: serial-console-grub-single-user-mode.md
-    - name: Serial Console NMI/SysRq
-      href: serial-console-nmi-sysrq.md
-  - name: Serial Console for Windows
-    href: serial-console-windows.md
+    - name: Performance issues on Linux or Windows
+      href: troubleshoot-performance-virtual-machine-linux-windows.md
+    - name: Performance diagnostics
+      href: performance-diagnostics.md
+  - name: PerfInsights
     items:
-    - name: CMD and PowerShell commands
-      href: serial-console-cmd-ps-commands.md
-  - name: Enabling and disabling Serial Console
-    href: serial-console-enable-disable.md
-  - name: Power options within Serial Console
-    href: serial-console-power-options.md
-  - name: Common Serial Console errors
-    href: serial-console-errors.md
-- name: Errors when deleting storage resources
-  href: storage-resource-deletion-errors.md
-- name: Errors when deleting classic storage resources
-  href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Troubleshoot VM restart issues
-  items: 
-  - name: Unexpected reboots of VMs with attached VHDs
-    href: unexpected-reboots-attached-vhds.md
-  - name: Understand a system reboot
-    href: understand-vm-reboot.md
-- name: Windows activation
-  items: 
+    - name: Windows
+      items:
+      - name: How to use PerfInsights
+        href: how-to-use-perfinsights.md
+      - name: Performance diagnostics extension
+        href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+      - name: How to use PerfInsights
+        href: how-to-use-perfinsights-linux.md
+- name: VM extension issues
+  items:
+  - name: Azure extension overview
+    href: ../extensions/overview.md
+  - name: Troubleshoot extension issues
+    href: ../extensions/troubleshoot.md
+  - name: Install Windows VM agent offline
+    href: install-vm-agent-offline.md
+- name: Backup and restore
+  items:
+  - name: Troubleshoot backup failures on Azure VM
+    href: ../../backup/backup-azure-vms-troubleshoot.md
+- name: Repair a VM using commands
+  items:
+  - name: Windows
+    href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Linux
+    href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
+- name: Windows Activation issues
+  items:
   - name: Windows activation problems
     href: troubleshoot-activation-problems.md
   - name: Activation problem with forced tunneling
     href: custom-routes-enable-kms-activation.md
-- name: Application access issues
-  href: troubleshoot-app-connection.md
-- name: New VM deployments
-  items:
-    - name: Linux
-      href: troubleshoot-deployment-new-vm-linux.md
-    - name: Windows
-      href: troubleshoot-deployment-new-vm-windows.md
-- name: Troubleshoot deployments
-  items:
-  - name: Linux
-    href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
-    href: troubleshoot-deploy-vm-windows.md
-- name: Device names are changed
-  href: troubleshoot-device-names-problems.md
-- name: VM recovery access
-  items:
-  - name: Windows
-    items:
-    - name: PowerShell
-      href: troubleshoot-recovery-disks-windows.md
-    - name: Azure portal
-      href: troubleshoot-recovery-disks-portal-windows.md
-  - name: Linux
-    items:
-    - name: CLI
-      href: troubleshoot-recovery-disks-linux.md
-    - name: Azure portal
-      href: troubleshoot-recovery-disks-portal-linux.md
-- name: Boot errors
-  href: boot-error-troubleshoot.md
-  items:
-  - name: Azure Virtual Machine boot error
-    href: troubleshoot-vm-boot-error.md
-  - name: Boot diagnostics
-    href: boot-diagnostics.md
-  - name: BitLocker errors
-    href: troubleshoot-bitlocker-boot-error.md
-  - name: Checking file system errors
-    href: troubleshoot-check-disk-boot-error.md
-  - name: Blue screen errors
-    href: troubleshoot-common-blue-screen-error.md
-  - name: VM startup is stuck
-    href: troubleshoot-vm-boot-configure-update.md
-  - name: Critical service failed
-    href: troubleshoot-critical-service-failed-boot-error.md
-  - name: Reboot loop
-    href: troubleshoot-reboot-loop.md
-  - name: Stuck at Windows update
-    href: troubleshoot-stuck-updating-boot-error.md
-- name: Throttling errors
-  href: troubleshooting-throttling-errors.md
-- name: Use nested virtualization
-  href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
-- name: Virtual Machine Repair
   items:
-  - name: Repair a Windows VM by using the Azure Virtual Machine repair commands
-    href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
-  - name: Repair a Linux VM by using the Azure Virtual Machine repair commands
-    href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Serial Console
+    items:
+    - name: Overview
+      href: serial-console-overview.md
+    - name: Serial Console for Linux
+      href: serial-console-linux.md
+      items:
+      - name: Serial Console GRUB/Single user mode
+        href: serial-console-grub-single-user-mode.md
+      - name: Serial Console NMI/SysRq
+        href: serial-console-nmi-sysrq.md
+      - name: Serial console grub proactive configuration
+        href: serial-console-grub-proactive-configuration.md
+    - name: Serial Console for Windows
+      href: serial-console-windows.md
+      items:
+      - name: CMD and PowerShell commands
+        href: serial-console-cmd-ps-commands.md
+    - name: Enabling and disabling Serial Console
+      href: serial-console-enable-disable.md
+    - name: Power options within Serial Console
+      href: serial-console-power-options.md
+    - name: Common Serial Console errors
+      href: serial-console-errors.md
+- name: Azure Disk Encryption issues
+  items:
+  - name: Windows
+    items:
+    - name: Overview
+      href: ../windows/disk-encryption-overview.md
+    - name: Troubleshoot
+      href: ../windows/disk-encryption-troubleshooting.md
+    - name: FAQ
+      href: ../windows/disk-encryption-faq.md
+  - name: Linux
+    items:
+    - name: Overview
+      href: ../linux/disk-encryption-overview.md
+    - name: Troubleshoot
+      href: ../linux/disk-encryption-troubleshooting.md
+    - name: FAQ
+      href: ../linux/disk-encryption-faq.md
+- name: Quota increases
+  items:
+  - name: Increase compute vCPU limits
+    items:
+    - name: Resource Manager deployment model
+      items:
+      - name: Increase VM series vCPU limit
+        href: ../../azure-portal/supportability/per-vm-quota-requests.md
+      - name: Increase total regional vCPU limit
+        href: ../../azure-portal/supportability/regional-quota-requests.md
+      - name: Increase spot quota limit
+        href: ../../azure-portal/supportability/low-priority-quota.md
+    - name: Classic deployment model
+      href: ../../azure-portal/supportability/classic-deployment-model-quota-increase-requests.md
+  - name: Increase networking limits
+    href: ../../azure-portal/supportability/networking-quota-requests.md
+- name: Migration and Move issues
+  items:
+  - name: Azure Resource Manager migration (ASM to ARM) FAQ
+    href: ../windows/migration-classic-resource-manager-overview.md
+- name: Planned Maintenance
+  items:
+  - name: Overview
+    href: ../maintenance-notifications.md
+- name: Common error messages
+  href: error-messages.md
+  items:
+  - name: Throttling errors
+    href: troubleshooting-throttling-errors.md
+- name: Support Statements
+  items:
+  - name: Support for 32-bit operating systems
+    href: support-32-bit-operating-systems-virtual-machines.md
+    

@@ -1,15 +1,9 @@
 ---
 title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
-services: functions
-documentationcenter: 
-author: ggailey777
-manager: jeconnoc
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: glenga
 ---
 
 # IP addresses in Azure Functions
@@ -82,15 +76,15 @@ For example, this is what the Western Europe JSON fragment might look like:
 
  For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## Inbound IP address changes
+## <a name="inbound-ip-address-changes"></a>Inbound IP address changes
 
 The inbound IP address **might** change when you:
 
 - Delete a function app and recreate it in a different resource group.
 - Delete the last function app in a resource group and region combination, and re-create it.
-- Delete an SSL binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 ## Outbound IP address changes
 
@@ -99,7 +93,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 To deliberately force an outbound IP address change:
 

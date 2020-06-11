@@ -1,12 +1,11 @@
 ---
 title: Monitoring Azure Functions with Azure Monitor Logs
 description: Learn how to use Azure Monitor Logs with Azure Functions to monitor function executions.
-author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
+author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.author: aelnably
+ms.date: 04/15/2020
+ms.author: cshoe
+ms.custom: tracking-python
 # Customer intent: As a developer, I want to monitor my functions so I can know if they're running correctly.
 ---
 
@@ -23,55 +22,72 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-From the Monitoring section, select **Diagnostic settings** and then click **Add**.
+1. From the **Monitoring** section of your function app in the [Azure portal](https://portal.azure.com), select **Diagnostic settings**, and then select **Add diagnostic setting**.
 
-![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Select diagnostic settings":::
 
-In the setting page, choose **Send to Log Analytics**, and under **LOG** choose **FunctionAppLogs**, this table contains the desired logs.
+1. In the **Diagnostics settings** page, under **Category details** and **log**, choose **FunctionAppLogs**.
 
-![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
+   The **FunctionAppLogs** table contains the desired logs.
 
-## User generated logs
+1. Under **Destination details**, choose **Send to Log Analytics**.and then select your **Log Analytics workspace**. 
 
-To generate custom logs, you can use the specific logging statement depending on your language, here are sample code snippets:
+1. Enter a **Diagnostic settings name**, and then select **Save**.
 
-**JavaScript**
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Add a diagnostic setting":::
 
-```javascript
-    context.log('My app logs here.');
-```
+## User-generated logs
 
-**Python**
+To generate custom logs, use the logging statement specific to your language. Here are sample code snippets:
 
-```python
-    logging.info('My app logs here.')
-```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```csharp
-    log.LogInformation("My app logs here.");
+log.LogInformation("My app logs here.");
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```java
-    context.getLogger().info("My app logs here.");
+context.getLogger().info("My app logs here.");
 ```
 
-**PowerShell**
+# [JavaScript](#tab/javascript)
+
+```javascript
+context.log('My app logs here.');
+```
+
+# [PowerShell](#tab/powershell)
 
 ```powershell
-    Write-Host "My app logs here."
+Write-Host "My app logs here."
 ```
+
+# [Python](#tab/python)
+
+```python
+logging.info('My app logs here.')
+```
+
+---
 
 ## Querying the logs
 
-To query the generated logs, go to the log analytics workspace and click **Logs**.
+To query the generated logs:
+ 
+1. From your function app, select **Diagnostic settings**. 
 
-![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
+1. From the **Diagnostic settings** list, select the Log Analytics workspace that you configured to send the function logs to. 
 
-Azure Functions writes all logs to **FunctionAppLogs** table, here are some sample queries.
+1. From the **Log Analytics workspace** page, select **Logs**.
+
+   Azure Functions writes all logs to the **FunctionAppLogs** table under **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Query window in Log Analytics workspace":::
+
+Here are some sample queries:
 
 ### All logs
 
@@ -82,7 +98,7 @@ FunctionAppLogs
 
 ```
 
-### A specific function logs
+### Specific function logs
 
 ```
 
@@ -103,6 +119,6 @@ FunctionAppLogs
 
 ## Next steps
 
-- Review the [Azure Functions overview](functions-overview.md)
-- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md)
+- Review the [Azure Functions overview](functions-overview.md).
+- Learn more about [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
 - Learn more about the [query language](../azure-monitor/log-query/get-started-queries.md).

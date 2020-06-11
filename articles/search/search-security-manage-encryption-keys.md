@@ -1,47 +1,47 @@
 ---
-title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview)
+title:  Encryption-at-rest using customer-managed keys
 titleSuffix: Azure Cognitive Search
-description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search through keys that you create and manage in Azure Key Vault.
+description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search using keys that you create and manage in Azure Key Vault.
 
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 01/08/2020
 ---
 
-# Content encryption of Azure Cognitive Search using customer-managed keys in Azure Key Vault
+# Encryption-at-rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
-> [!Note]
-> Encryption with customer-managed keys is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. You can also use the .NET SDK version 8.0-preview.
->
-> This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
-
-By default, Azure Cognitive Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). 
-You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
+By default, Azure Cognitive Search encrypts indexed content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
 
 Server-side encryption is supported through integration with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
 
 Encryption with customer-managed keys is configured at the index or synonym map level when those objects are created, and not on the search service level. You cannot encrypt content that already exists. 
 
-You can use different keys from different Key vaults. This means a single search service can host multiple encrypted indexes\synonym maps, each encrypted potentially using a different customer-managed key, alongside indexes\synonym maps that are not encrypted using customer-managed keys. 
+Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
+
+> [!IMPORTANT] 
+> This feature is available on the [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
 
 ## Prerequisites
 
 The following services are used in this example. 
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. 
 
 + [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) can be used to call the preview REST API. There is no portal or .NET SDK support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
+
+>[!Note]
+> Due to the nature of the encryption with customer-managed keys feature, Azure Cognitive Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key Vault key deletions, you **must** enable Soft Delete and Purge Protection in Key Vault before it can be used. For more information, see [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## 1 - Enable key recovery
 
-This step is optional but highly recommended. After creating the Azure Key Vault resource, enable **Soft Delete** and **Purge Protection** in the selected Key vault by executing the following PowerShell or Azure CLI commands:   
+After creating the Azure Key Vault resource, enable **Soft Delete** and **Purge Protection** in the selected Key vault by executing the following PowerShell or Azure CLI commands:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -56,9 +56,6 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
-
->[!Note]
-> Due to the very nature of the encryption with customer-managed keys feature, Azure Cognitive Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key Vault key deletions, it is highly recommended that you enable Soft Delete and Purge Protection on the selected key vault. For more information, see [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## 2 - Create a new key
 

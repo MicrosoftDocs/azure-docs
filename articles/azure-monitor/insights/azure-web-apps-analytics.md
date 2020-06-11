@@ -1,11 +1,10 @@
 ---
 title: View Azure Web Apps analytic data | Microsoft Docs
 description: You can use the Azure Web Apps Analytics solution to gain insights about your Azure Web Apps by collecting different metrics across all your Azure Web App resources.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/02/2018
 
 ---

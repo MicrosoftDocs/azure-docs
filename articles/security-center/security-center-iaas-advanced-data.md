@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
 ---
 
@@ -50,14 +50,14 @@ Enable Advanced Data Security for SQL Servers on Virtual Machines at the subscri
     Advanced Data Security for SQL Servers will be enabled on all SQL Servers connected to the selected workspace or the default workspace of the selected subscription.
 
     >[!NOTE]
-    > The solution will be active after the first restart of the SQL Server. 
+    > The solution will be fully active after the first restart of the SQL Server. 
 
 To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
 To connect the SQL Server’s host to a workspace, follow the instructions in [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## Set up email notification for ATP alerts 
+## Set up email notification for security alerts 
 
 You can set a list of recipients to receive an email notification when Security Center alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 
@@ -68,7 +68,7 @@ You can set a list of recipients to receive an email notification when Security 
 1. From the Settings menu, click **Email notifications**. 
 1. In the **Email address** text box, enter the email addresses to receive the notifications. You can enter more than one email address by separating the email addresses with a comma (,).  For example   admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-      ![Email Settings](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Email Settings](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. In the **Email notification** settings, set the following options:
   
@@ -84,29 +84,27 @@ You can set a list of recipients to receive an email notification when Security 
 
 The Vulnerability assessment dashboard provides an overview of your assessment results across all your databases. You can view the distribution of databases according to SQL Server version, along with a summary of failing versus passing databases and an overall summary of failing checks according to risk distribution.
 
-You can view your Vulnerability assessment results and reports directly from Log Analytics.
+You can view the vulnerability assessment results directly from Security Center.
 
-1. Navigate to your Log Analytics workspace with the Advanced Data Security solution.
-1. Navigate to **Solutions** and select the **SQL Vulnerability Assessment** solution.
-1. In the **Summary** pane, click **View Summary** and select your **SQL Vulnerability Assessment Report**.
+1. From Security Center's sidebar, under RESOURCE SECURITY HYGIENE, select **Data & Storage**.
 
-    ![SQL Assessment Report](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. Select the recommendation **Vulnerabilities on your SQL databases in VMs should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
-    The report dashboard loads. Make sure the time window is set to at least the **Last 7 days** since vulnerability assessment scans are run on your databases on a fixed schedule of once per seven days.
+    [![**Vulnerabilities on your SQL databases in VMs should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![Set Last 7 Days](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    The detailed view for this recommendation appears.
 
-1. To drill down for more details, click on any of the dashboard elements. For example:
+    [![Detailed view for the **Vulnerabilities on your SQL databases in VMs should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. Click on a Vulnerability check in the **Failed checks summary** section to view a Log Analytics table with the results for this check across all databases. The ones that have results are listed first.
+1. To drill down for more details:
 
-   1. Then, click through to view details for each vulnerability, including the vulnerability description and impact, status, associated risk, and actual results on this database. You can also see the actual Query that was run to perform this check, and remediation information for resolving this vulnerability.
+    * For an overview of scanned resources (databases) and the list of security checks that were tested, click the server of interest.
+    [![Vulnerabilities grouped by SQL server](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![Select workspace](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * For an overview of the vulnerabilities grouped by a specific SQL database, click the database of interest.
+    [![Vulnerabilities grouped by SQL server](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![Select workspace](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. You can run any Log Analytics queries on your Vulnerability Assessment results data, to slice and dice the data according to your needs.
+    In each view, the security checks are sorted by **Severity**. Click a specific security check to see a details pane with a **Description**, how to **Remediate** it, and other related information such as **Impact** or **Benchmark**.
 
 ## Advanced threat protection for SQL servers on Azure VMs alerts
 Alerts are generated by unusual and potentially harmful attempts to access or exploit SQL Servers. These events can trigger the following alerts:

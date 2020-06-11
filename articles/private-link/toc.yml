@@ -6,20 +6,24 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a Private Endpoint
-    items: 
-    - name: Azure portal
-      href: create-private-endpoint-portal.md
-    - name: Azure CLI
-      href: create-private-endpoint-cli.md
-    - name: Azure PowerShell
-      href: create-private-endpoint-powershell.md
-  - name: Create a Private Link service
-    items:
-    - name: Azure PowerShell
-      href: create-private-link-service-powershell.md
-    - name:  Azure CLI
-      href: create-private-link-service-cli.md
+  - name: Create a Private Endpoint - Portal
+    href: create-private-endpoint-portal.md
+  - name: Create a Private Endpoint - PowerShell
+    href: create-private-endpoint-powershell.md
+  - name: Create a Private Endpoint - Azure CLI
+    href: create-private-endpoint-cli.md
+  - name: Create a Private Endpoint - ARM template
+    displayName: Resource Manager
+    href: create-private-endpoint-template.md
+  - name: Create a Private Link service - Portal
+    href: create-private-link-service-portal.md
+  - name: Create a Private Link service - PowerShell
+    href: create-private-link-service-powershell.md
+  - name: Create a Private Link service - Azure CLI
+    href: create-private-link-service-cli.md
+  - name: Create a Private Link service - ARM template
+    displayName: Resource Manager
+    href: create-private-link-service-template.md
 
 - name: Concepts
   items:
@@ -27,6 +31,8 @@
     href: private-endpoint-overview.md
   - name: Private Link Service
     href: private-link-service-overview.md    
+  - name: Private Endpoint DNS integration
+    href: private-endpoint-dns.md    
 
 - name: How to
   items:
@@ -34,12 +40,21 @@
     href: create-private-endpoint-storage-portal.md
   - name: Connect privately to a Cosmos DB account
     href: create-private-endpoint-cosmosdb-portal.md
+  - name: Connect privately to a Web App
+    href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
     href: manage-private-endpoint.md  
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot Private Endpoint connectivity problems
+      href: troubleshoot-private-endpoint-connectivity.md
+    - name: Troubleshoot Private Link Service connectivity problems
+      href: troubleshoot-private-link-connectivity.md 
+     
 
 - name: Reference
   items:
@@ -48,7 +63,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network
   - name: .NET
-    href: /api/overview/azure/virtual-network
+    href: /dotnet/api/overview/azure/virtual-network
   - name: Java
     href: /java/api/
   - name: Node.js
@@ -69,16 +84,15 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Networking forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page for Networking
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/virtual-network
+    href: https://azure.microsoft.com/pricing/details/private-link/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: private-link-faq.md
-

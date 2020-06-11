@@ -1,15 +1,9 @@
 ---
-title: Certificates and the App Service Environment - Azure
-description: Explain numerous topics related to certificates on an ASE
-services: app-service
-documentationcenter: na
+title: Certificates bindings
+description: Explain numerous topics related to certificates on an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an ASE.
 author: ccompy
-manager: stefsch
 
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
@@ -24,7 +18,7 @@ The ASE is a single tenant system. Because it is single tenant, there are some f
 
 ## ILB ASE certificates 
 
-If you are using an External ASE, then your apps are reached at [appname].[asename].p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support SSL, you need to upload certificates. Obtain a valid SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
+If you are using an External ASE, then your apps are reached at [appname].[asename].p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
 
 There are two options for configuring certificates with your ILB ASE.  You can set a wildcard default certificate for the ILB ASE or set certificates on the individual web apps in the ASE.  Regardless of the choice you make, the following certificate attributes must be configured properly:
 
@@ -60,7 +54,7 @@ Apps that are hosted in an ASE can use the app-centric certificate features that
 - IP-based SSL, which is only supported with an External ASE.  An ILB ASE does not support IP-based SSL.
 - KeyVault hosted certificates 
 
-The instructions for uploading and managing those certificates are available in [Add an SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
+The instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
 
 ## TLS settings 
 
@@ -86,7 +80,7 @@ The certificate will be available by all the apps in the same app service plan a
 
 To perform testing, you can create a self signed certificate and generate a *.cer* file with the following PowerShell: 
 
-	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com
+	$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
 	$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
 	$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText

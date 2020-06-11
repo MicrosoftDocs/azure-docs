@@ -3,9 +3,7 @@ title: Azure traffic analytics | Microsoft Docs
 description: Learn how to analyze Azure network security group flow logs with traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
 ---
 
@@ -82,6 +80,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 * Japan East 
 * Japan West
 * US Gov Virginia
+* China East 2
 
 ## Supported regions: Log Analytics Workspaces
 
@@ -90,13 +89,17 @@ The Log Analytics workspace must exist in the following regions:
 * West Central US
 * East US
 * East US 2
+* North Central US
 * South Central US
+* Central US
 * West US
 * West US 2
 * Central US
 * France Central
-* North Europe
 * West Europe
+* North Europe
+* Brazil South
+* UK West
 * UK South
 * Australia East
 * Australia Southeast
@@ -106,6 +109,7 @@ The Log Analytics workspace must exist in the following regions:
 * Central India
 * Japan East
 * US Gov Virginia
+* China East 2
 
 ## Prerequisites
 
@@ -132,6 +136,7 @@ If your account is not assigned to one of the built-in roles, it must be assigne
 - "Microsoft.Network/routeTables/read"
 - "Microsoft.Network/virtualNetworkGateways/read"
 - "Microsoft.Network/virtualNetworks/read"
+- "Microsoft.Network/expressRouteCircuits/read"
 
 For information on how to check user access permissions, see [Traffic analytics FAQ](traffic-analytics-faq.md).
 
@@ -143,7 +148,7 @@ To analyze traffic, you need to have an existing network watcher, or [enable a n
 
 Before enabling NSG flow logging, you must have a network security group to log flows for. If you don't have a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md#create-a-network-security-group) to create one.
 
-On the left side of the Azure portal, select **Monitor**, then **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
+In Azure portal, go to **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
 ![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -174,11 +179,8 @@ Select the following options, as shown in the picture:
 
 1. Select *On* for **Status**
 2. Select *Version 2* for **Flow Logs version**. Version 2 contains flow-session statistics (Bytes and Packets)
-3. Select an existing storage account to store the flow logs in. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. Ensure that your storage does not have "Data Lake Storage Gen2 Hierarchical Namespace Enabled" set to true. Also, NSG Flow Logs cannot be stored in a Storage Account with a Firewall. 
-4. Set **Retention** to the number of days you want to store data for.
-> [!IMPORTANT]
-> Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [Delete NSG flow log storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
-
+3. Select an existing storage account to store the flow logs in. Ensure that your storage does not have "Data Lake Storage Gen2 Hierarchical Namespace Enabled" set to true.
+4. Set **Retention** to the number of days you want to store data for. If you want to store the data forever, set the value to *0*. You incur Azure Storage fees for the storage account. 
 5. Select *On* for **Traffic Analytics Status**.
 6. Select processing interval. Based on your choice, flow logs will be collected from storage account and processed by Traffic Analytics. You can choose processing interval of every 1 hour or every 10 mins. 
 7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](#supported-regions-log-analytics-workspaces) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -190,13 +192,13 @@ Select the following options, as shown in the picture:
 
     ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example: You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
+Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country/region permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example: You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
 
 You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet in Azure PowerShell. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ## View traffic analytics
 
-On the left-side of the portal, select **All services**, then enter *Monitor* in the **Filter** box. When **Monitor** appears in the search results, select it. To start exploring traffic analytics and its capabilities, select **Network watcher**, then **Traffic Analytics**.
+To view Traffic Analytics, search for **Network Watcher** in the portal search bar. Once inside Network Watcher, to explore traffic analytics and its capabilities, select **Traffic Analytics** from the left menu. 
 
 ![Accessing the Traffic Analytics dashboard](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -306,7 +308,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     ![Dashboard showcasing virtual network distribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
-- The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
+- The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network's (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
   Flow Type (InterVNet, IntraVNET, and so on), Flow Direction (Inbound, Outbound), Flow Status (Allowed, Blocked), VNETs (Targeted and Connected), Connection Type (Peering or Gateway - P2S and S2S), and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:

@@ -19,10 +19,11 @@ ms.reviewer: milanga
 ---
 # Detect Face and Emotion with Azure Media Analytics
 
-> [!IMPORTANT]
-> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
+> [!NOTE]
+> The **Azure Media Face Detector** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
 
 ## Overview
+
 The **Azure Media Face Detector** media processor (MP) enables you to count, track movements, and even gauge audience participation and reaction via facial expressions. This service contains two features: 
 
 * **Face detection**

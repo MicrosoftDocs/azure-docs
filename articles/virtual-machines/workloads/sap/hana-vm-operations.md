@@ -25,7 +25,7 @@ This document provides guidance for configuring Azure infrastructure and operati
 
 - [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP installation guides](https://service.sap.com/instguides)
-- [SAP notes](https://sservice.sap.com/notes)
+- [SAP notes](https://service.sap.com/notes)
 
 ## Prerequisites
 To use this guide, you need basic knowledge of the following Azure components:
@@ -66,7 +66,7 @@ You also can deploy a complete installed SAP HANA platform on the Azure VM servi
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your 
->  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
+>  Linux image from the Azure VM image gallery. In order to read the details, read the article [Memory optimized virtual machine sizes](../../mv2-series.md).
 > 
 
 
@@ -94,7 +94,7 @@ When you install the VMs to run SAP HANA, the VMs need:
 >
 >
 
-However, for deployments that are enduring, you need to create a virtual datacenter network architecture in Azure. This architecture recommends the separation of the Azure VNet Gateway that connects to on-premise into a separate Azure VNet. This separate VNet should host all the traffic that leaves either to on-premise or to the internet. This approach allows you to deploy software for auditing and logging traffic that enters the virtual datacenter in Azure in this separate hub VNet. So you have one VNet that hosts all the software and configurations that relates to in- and outgoing traffic to your Azure deployment.
+However, for deployments that are enduring, you need to create a virtual datacenter network architecture in Azure. This architecture recommends the separation of the Azure VNet Gateway that connects to on-premises into a separate Azure VNet. This separate VNet should host all the traffic that leaves either to on-premises or to the internet. This approach allows you to deploy software for auditing and logging traffic that enters the virtual datacenter in Azure in this separate hub VNet. So you have one VNet that hosts all the software and configurations that relates to in- and outgoing traffic to your Azure deployment.
 
 The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) and [Azure Virtual Datacenter and the Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/) give more  information on the virtual datacenter approach and related Azure VNet design.
 
@@ -103,7 +103,7 @@ The articles [Azure Virtual Datacenter: A Network Perspective](https://docs.micr
 >Traffic that flows between a hub VNet and spoke VNet using [Azure VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) is subject of additional [costs](https://azure.microsoft.com/pricing/details/virtual-network/). Based on those costs, you might need to consider making compromises between running a strict hub and spoke network design and running multiple [Azure ExpressRoute Gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) that you connect to 'spokes' in order to bypass VNet peering. However, Azure ExpressRoute Gateways introduce additional [costs](https://azure.microsoft.com/pricing/details/vpn-gateway/) as well. You also may encounter additional costs for third-party software you use for network traffic logging, auditing, and monitoring. Dependent on the costs for data exchange through VNet peering on the one side and costs created by additional Azure ExpressRoute Gateways and additional software licenses, you may decide for micro-segmentation within one VNet by using subnets as isolation unit instead of VNets.
 
 
-For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](../../../virtual-network/public-ip-addresses.md). 
 
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 
@@ -111,115 +111,59 @@ For VMs running SAP HANA, you should work with static IP addresses assigned. Rea
 
 The following image shows an overview of a rough deployment schema for SAP HANA following a hub and spoke VNet architecture:
 
-![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
+![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking-dmz.png)
 
 To deploy SAP HANA in Azure without a site-to-site connection, you still want to shield the SAP HANA instance from the public internet and hide it behind a forward proxy. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs and [Azure NVAs](https://azure.microsoft.com/solutions/network-appliances/) to control, monitor the routing from the internet into your Azure VNet architecture in Azure. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection in a hub and spoke VNet architecture:
   
-![Rough deployment schema for SAP HANA without a site-to-site connection](media/hana-vm-operations/hana-simple-networking2.PNG)
+![Rough deployment schema for SAP HANA without a site-to-site connection](media/hana-vm-operations/hana-simple-networking-dmz.png)
  
 
 Another description on how to use Azure NVAs to control and monitor access from Internet without the hub and spoke VNet architecture can be found in the article [Deploy highly available network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
 ## Configuring Azure infrastructure for SAP HANA scale-out
-Microsoft has one M-Series VM SKU that is certified for an SAP HANA scale-out configuration. The VM type M128s got certified for a scale-out of up to 16 nodes. For changes in SAP HANA scale-out certifications on Azure VMs, check [Certified IaaS Platforms list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+In order to find out the Azure VM types that are certified for either OLAP scale-out or S/4HANA scale-out, check the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). A checkmark in the column 'Clustering' indicates scale-out support. Application type indicates whether OLAP scale-out or S/4HANA scale-out is supported. For details on nodes certified in scale-out for each of the VMs, check the details of the entries in the particular VM SKU listed in the SAP HANA hardware directory.
 
-The minimum OS releases for deploying scale-out configurations in Azure VMs are:
-
-- SUSE Linux 12 SP3
-- Red hat Linux 7.4
-
-Of the 16 node scale-out certification
-
-- One node is the master node
-- A maximum of 15 nodes are worker nodes
+The minimum OS releases for deploying scale-out configurations in Azure VMs, check the details of the entries in the particular VM SKU listed in the SAP HANA hardware directory. Of a n-node OLAP scale-out configuration, one node functions as master node. The other nodes up to the limit of the certification act as worker node. Additional standby nodes don't count into the number of certified nodes
 
 >[!NOTE]
->In Azure VM scale-out deployments there is no possibility to use a standby node
+> Azure VM scale-out deployments of SAP HANA with standby node are only possible using the [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) storage. No other SAP HANA certified Azure storage allows the configuration of SAP HANA standby nodes
 >
 
-Though Azure has a native NFS service with [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), the NFS service, though supported for the SAP application layer, is not yet certified for SAP HANA. As a result NFS shares still need to be configured with help of third-party functionality. 
+For /hana/shared, we also recommend the usage of [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). 
 
+A typical basic design for a single node in a scale-out configuration is going to look like:
 
-As a result, **/hana/data** and **/hana/log** volumes can't be shared. Not sharing these volumes of the single nodes, prevents the usage of an SAP HANA standby node in a scale-out configuration.
-
-As a result the basic design for a single node in a scale-out configuration is going to look like:
-
-![Scale-out basics of a single node](media/hana-vm-operations/scale-out-basics.PNG)
+![Scale-out basics of a single node](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 The basic configuration of a VM node for SAP HANA scale-out looks like:
 
-- For **/hana/shared**, you need to build out a highly available NFS share. So far, different possibilities exist to get to such a highly available share. These are documented in conjunction with SAP NetWeaver:
-	- [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-	- [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
-	- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-- All other disk volumes are **NOT** shared among the different nodes and are **NOT** based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further down in this document.
-
->[!NOTE]
->The highly available NFS cluster as displayed in the graphics is documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). Other possibilities are documented in the list above.
-
-Sizing the volumes for the nodes is the same as for scale-up, except **/hana/shared**. For the M128s VM SKU, the suggested sizes and types look like:
-
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | /hana/log | /root volume | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
+- For **/hana/shared**, you use the native NFS service provided through Azure NetApp Files. 
+- All other disk volumes are not shared among the different nodes and are not based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 
-Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type. Also apply Azure Write Accelerator to the disks that form the **/hana/log** volume.
- 
-In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), a formula is named that defines the size of the **/hana/shared** volume for scale-out as the memory size of a single worker node per four worker nodes.
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
-Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
-
-- One master node and up to four worker node, the **/hana/shared** volume would need to be 2 TB of size. 
-- One master node and five to eight worker nodes, the size of **/hana/shared** should be 4 TB. 
-- One master node and 9 to 12 worker nodes, a size of 6 TB for **/hana/shared** would be required. 
-- One master node and using between 12 and 15 worker nodes, you are required to provide a **/hana/shared** volume that is 8 TB in size.
-
-The other important design that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
+The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 
 Particularly in Azure, there are no means and methods to enforce quality of service and quotas on specific vNICs. As a result, the separation of client/application facing and intra-node communication does not open any opportunities to prioritize one traffic stream over the other. Instead the separation remains a measure of security in shielding the intra-node communications of the scale-out configurations.  
 
->[!IMPORTANT]
->SAP highly recommends separating network traffic to the client/application side and intra-node traffic as described in this document. Therefore putting an architecture in place as shown in the last graphics is highly recommended.
+>[!NOTE]
+>SAP recommends separating network traffic to the client/application side and intra-node traffic as described in this document. Therefore putting an architecture in place as shown in the last graphics is recommended. Also consult your security and compliance team for requirements that deviate from the recommendation 
 >
 
 From a networking point of view the minimum required network architecture would look like:
 
-![Scale-out basics of a single node](media/hana-vm-operations/scale-out-networking-overview.PNG)
-
-The limits supported so far are 15 worker additional to the one master node.
-
-From a storage point of view the storage architecture would look like:
+![Scale-out basics of a single node](media/hana-vm-operations/overview-scale-out-networking.png)
 
 
-![Scale-out basics of a single node](media/hana-vm-operations/scale-out-storage-overview.PNG)
-
-The **/hana/shared** volume is located on the highly available NFS share configuration. Whereas all the other drives are 'locally' mounted to the individual VMs. 
-
-### Highly available NFS share
-The highly available NFS cluster so far is working with SUSE Linux only. The document [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) describes how to set it up. if you don't share the NFS cluster with any other HANA configurations outside the azure VNet that runs the SAP HANA instances, install it in the same VNet. Install it in its own subnet and make sure that not all arbitrary traffic can access the subnet. Instead you want to limit the traffic to that subnet to the IP addresses of the VM that execute the traffic to **/hana/shared** volume.
-
-Related to the vNIC of a HANA scale-out VM that should route the **/hana/shared** traffic, the recommendations are:
-
-- Since traffic to **/hana/shared** is moderate, route it through the vNIC that is assigned to the client network in the minimum configuration
-- Eventually, for the traffic to **/hana/shared**, deploy a third subnet in the VNet you deploy the SAP HANA scale-out configuration and assign a third vNIC that is hosted in that subnet. Use the third vNIC and associated IP address for the traffic to the NFS share. You then can apply separate access and routing rules.
-
->[!IMPORTANT]
->Network traffic between the VMs that have SAP HANA in a scale-out manner deployed and the highly available NFS may under no circumstances be routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/) or similar virtual appliances. Whereas Azure NSGs are no such devices. Check your routing rules in order to make sure that NVAs or similar virtual appliances are detoured when access the highly available NFS share from the VMs running SAP HANA.
-> 
-
-If you want to share the highly available NFS cluster between SAP HANA configurations, move all those HANA configurations into the same VNet. 
- 
 
 ### Installing SAP HANA scale-out n Azure
 Installing a scale-out SAP configuration, you need to perform rough steps of:
 
 - Deploying new or adapting an existing Azure VNet infrastructure
-- Deploying the new VMs using Azure Managed Premium Storage volumes
-- Deploying a new or adapt an existing highly available NFS cluster
-- Adapt network routing to make sure that, for example, intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
+- Deploying the new VMs using Azure Managed Premium Storage, Ultra disk volumes, and/or NFS volumes based on ANF
+- - Adapt network routing to make sure that, for example, intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). 
 - Install the SAP HANA master node.
 - Adapt configuration parameters of the SAP HANA master node
 - Continue with the installation of the SAP HANA worker nodes
@@ -228,11 +172,11 @@ Installing a scale-out SAP configuration, you need to perform rough steps of:
 As your Azure VM infrastructure is deployed, and all other preparations are done, you need to install the SAP HANA scale-out configurations in these steps:
 
 - Install the SAP HANA master node according to SAP's documentation
-- **After the installation, you need to change the global.ini file and add the parameter 'basepath_shared = no' to the global.ini**. This parameter enables SAP HANA to run in scale-out without 'shared' **/hana/data** and **/hana/log** volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991).
-- After changing the global.ini parameter, restart the SAP HANA instance
+- In case of using Azure Premium Storage or Ultra disk storage with non-shared disks of /hana/data and /hana/log, you need to change the global.ini file and add the parameter 'basepath_shared = no' to the global.ini file. This parameter enables SAP HANA to run in scale-out without 'shared' **/hana/data** and **/hana/log** volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991). If you are using NFS volumes based on ANF for /hana/data and /hana/log, you don't need to make this change
+- After the eventual change in the global.ini parameter, restart the SAP HANA instance
 - Add additional worker nodes. See also <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see also [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
-Following this setup routine, the scale-out configuration you installed is going to use non-shared disks for running **/hana/data** and **/hana/log**. Whereas the **/hana/shared** volume is going to be placed on the highly available NFS share.
+Details to set up an SAP HANA scale-out system with standby node on SUSE Linux is described in detail in [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse). Equivalent documentation for Red Hat can be found in the article [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel). 
 
 
 ## SAP HANA Dynamic Tiering 2.0 for Azure virtual machines
@@ -258,7 +202,7 @@ has to be followed to comply with the official certification:
 
 More details are going to be explained in the following sections.
 
-![SAP HANA DT 2.0 Architecture Overview](media/hana-vm-operations/hana-dt-20.PNG)
+![SAP HANA DT 2.0 Architecture Overview](media/hana-vm-operations/hana-data-tiering.png)
 
 
 
@@ -328,8 +272,8 @@ Especially in case the workload is read-intense it could boost IO performance to
 data volumes of database software. Whereas for the transaction log Azure host disk cache must be "none". 
 
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
-Azure disk types depending on cost and throughput requirements. For the log volume high I/O throughput is required.  In case of using the VM type M64-32ms it is 
-strongly recommended to enable [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). Azure Write Accelerator provides optimal disk write latency for the transaction
+Azure disk types depending on cost and throughput requirements. For the log volume, high I/O throughput is required.  In case of using the VM type M64-32ms it is 
+mandatory to enable [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). Azure Write Accelerator provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
 found [here](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -382,11 +326,22 @@ If you have a site-to-site connection between your on-premises locations and Azu
 
 If you're connecting to Azure through the internet, and you don't have an SAP router for the VM with SAP HANA, then you need to install the component. Install SAProuter in a separate VM in the Management subnet. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection and with SAProuter:
 
-![Rough deployment schema for SAP HANA without a site-to-site connection and SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
+![Rough deployment schema for SAP HANA without a site-to-site connection and SAProuter](media/hana-vm-operations/hana-simple-networking-saprouter.png)
 
 Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The separate VM must have a static IP address. To connect your SAProuter to the SAProuter that is hosted by SAP, contact SAP for an IP address. (The SAProuter that is hosted by SAP is the counterpart of the SAProuter instance that you install on your VM.) Use the IP address from SAP to configure your SAProuter instance. In the configuration settings, the only necessary port is TCP port 3299.
 
 For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux Enterprise Server for SAP Applications 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+If you're running SUSE Linux Enterprise Server or Red Hat, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information listed in the 'next steps' section.
+
+## Next Steps
+Get familiar with the articles as listed
+- [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+- [Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+- [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+
+ 
+

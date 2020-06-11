@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Azure Site Recovery documentation
-summary: Use Azure Site Recovery for disaster recovery of on-premises machines and workloads to Azure, and Azure VMs to a secondary Azure region. With replication to Azure in place,  you can orchestrate failover when outages occur, and continue to access workloads and apps in Azure. When the primary location is available again, you can fail back as needed.
+summary: Use Azure Site Recovery for disaster recovery of on-premises workloads, and Azure VMs. 
 
 
 metadata:
   title: Azure Site Recovery documentation
-  description: Use Azure Site Recovery for disaster recovery of on-premises machines and workloads to Azure, and Azure VMs to a secondary Azure region. With replication to Azure in place,  you can orchestrate failover when outages occur, and continue to access workloads and apps in Azure. When the primary location is available again, you can fail back as needed.
+  description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs. 
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
+  ms.date: 11/19/2019
 
 landingContent:
   - title: About Site Recovery
@@ -105,8 +105,8 @@ landingContent:
         links:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/256299-site-recovery
-          - text: Ask a forum question
-            url: https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr
+          - text: Ask a Microsoft Q&A question
+            url: https://docs.microsoft.com/answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
 

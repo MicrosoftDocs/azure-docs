@@ -1,25 +1,15 @@
 ---
 title: ASP.NET Output Cache Provider for Azure Cache for Redis
-description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis
-services: cache
-documentationcenter: na
+description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis. The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data.
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-
-ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
-ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.date: 04/22/2018
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 04/22/2018
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 
-The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4.
+The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data. This data is specifically for full HTTP responses (page output caching). The provider plugs into the new output cache provider extensibility point that was introduced in ASP.NET 4. For ASP.NET Core applications, read [Response caching in ASP.NET Core](https://docs.microsoft.com/aspnet/core/performance/caching/response). 
 
 To use the Redis Output Cache Provider, first configure your cache, and then configure your ASP.NET application using the Redis Output Cache Provider NuGet package. This topic provides guidance on configuring your application to use the Redis Output Cache Provider. For more information about creating and configuring an Azure Cache for Redis instance, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -58,9 +48,9 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 | Attribute | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | *host* | string | "localhost" | The Redis server IP address or host name |
-| *port* | positive integer | 6379 (non-SSL)<br/>6380 (SSL) | Redis server port |
+| *port* | positive integer | 6379 (non-TLS/SSL)<br/>6380 (TLS/SSL) | Redis server port |
 | *accessKey* | string | "" | Redis server password when Redis authorization is enabled. The value is empty string by default, which means the session state provider won’t use any password when connecting to Redis server. **If your Redis server is in a publicly accessible network like Azure Redis Cache, be sure to enable Redis authorization to improve security, and provide a secure password.** |
-| *ssl* | boolean | **false** | Whether to connect to Redis server via SSL. This value is **false** by default because Redis doesn’t support SSL out of the box. **If you are using Azure Redis Cache which supports SSL out of the box, be sure to set this to true to improve security.**<br/><br/>The non-SSL port is disabled by default for new caches. Specify **true** for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic. |
+| *ssl* | boolean | **false** | Whether to connect to Redis server via TLS. This value is **false** by default because Redis doesn’t support TLS out of the box. **If you are using Azure Redis Cache which supports SSL out of the box, be sure to set this to true to improve security.**<br/><br/>The non-TLS port is disabled by default for new caches. Specify **true** for this setting to use the TLS port. For more information about enabling the non-TLS port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic. |
 | *databaseIdNumber* | positive integer | 0 | *This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Specify which Redis database to use. |
 | *connectionTimeoutInMilliseconds* | positive integer | Provided by StackExchange.Redis | Used to set *ConnectTimeout* when creating StackExchange.Redis.ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | positive integer | Provided by StackExchange.Redis | Used to set *SyncTimeout* when creating StackExchange.Redis.ConnectionMultiplexer. |
@@ -71,7 +61,6 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 | *throwOnError* | boolean | true | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Whether to throw an exception when an error occurs.<br/><br/>For more about *throwOnError*, see [Notes on *throwOnError*](#notes-on-throwonerror) in the [Attribute notes](#attribute-notes) section. |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
 | *retryTimeoutInMilliseconds* | positive integer | 5000 | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>How long to retry when an operation fails. If this value is less than *operationTimeoutInMilliseconds*, the provider will not retry.<br/><br/>For more about *retryTimeoutInMilliseconds*, see [Notes on *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) in the [Attribute notes](#attribute-notes) section. |
 | *redisSerializerType* | string | *n/a* | Specifies the assembly qualified type name of a class that implements Microsoft.Web.Redis. ISerializer and that contains the custom logic to serialize and deserialize the values. For more information, see [About *redisSerializerType*](#about-redisserializertype) in the [Attribute notes](#attribute-notes) section. |
-|
 
 ## Attribute notes
 
@@ -201,6 +190,12 @@ Add an OutputCache directive to each page for which you wish to cache the output
 In the previous example, the cached page data remains in the cache for 60 seconds, and a different version of the page is cached for each parameter combination. For more information about the OutputCache directive, see [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837).
 
 Once these steps are performed, your application is configured to use the Redis Output Cache Provider.
+
+## Third-party output cache providers
+
+* [NCache](https://www.alachisoft.com/blogs/how-to-use-a-distributed-cache-for-asp-net-output-cache/)
+* [Apache Ignite](https://apacheignite-net.readme.io/docs/aspnet-output-caching)
+
 
 ## Next steps
 

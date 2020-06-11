@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/28/2019
+  ms.date: 05/08/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -40,6 +40,8 @@ landingContent:
             url: virtual-wan-site-to-site-portal.md
           - text: Create an ExpressRoute association
             url: virtual-wan-expressroute-portal.md
+          - text: Create a User VPN (point-to-site) connection
+            url: virtual-wan-point-to-site-portal.md
       - linkListType: how-to-guide
         links:
           - text: Route traffic from a virtual hub to an NVA
@@ -55,10 +57,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Migrate to Virtual WAN
+            url: migrate-from-hub-spoke-topology.md
           - text: Global transit network architecture
             url: virtual-wan-global-transit-network-architecture.md
-          - text: Office 365 control plane
-            url: virtual-wan-office365-overview.md
+          - text: SD-WAN connectivity architecture
+            url: sd-wan-connectivity-architecture.md
  # Card
   - title: Reference
     linkLists:

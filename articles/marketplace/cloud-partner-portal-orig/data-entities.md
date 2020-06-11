@@ -1,13 +1,12 @@
 ---
 title: Data Entities 
 description: Deprecated this CPP article and linked to PC article; was "An overview of data entities."
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Data Entities

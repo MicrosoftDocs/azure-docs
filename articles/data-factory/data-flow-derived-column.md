@@ -1,14 +1,17 @@
 ---
-title: Derived column transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Derived column transformation in mapping data flow
 description: Learn how to transform data at scale in Azure Data Factory with the mapping data flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
 ---
 
 # Derived column transformation in mapping data flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the derived column transformation to generate new columns in your data flow or to modify existing fields.
 
@@ -21,6 +24,16 @@ To override an existing column, select it via the column dropdown. Otherwise, us
 To add additional derived columns, hover over an existing derived column and click the plus icon. Choose either **Add column** or **Add column pattern**. Column patterns may come in handy if your column names are variable from your sources. For more information, see [Column Patterns](concepts-data-flow-column-pattern.md).
 
 ![New derived column selection](media/data-flow/columnpattern.png "New derived column selection")
+
+## Build schemas in Output Schema pane
+
+The columns you're modifying and adding to your schema are listed in the Output Schema pane,. You can interactively build simple and complex data structures here. To add additional fields, select **Add column**. To build hierarchies, select **Add subcolumn**.
+
+![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+
+For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
+
+![Add complex column](media/data-flow/complexcolumn.png "Add columns")
 
 ## Data flow script
 

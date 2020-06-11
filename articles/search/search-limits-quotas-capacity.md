@@ -8,29 +8,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/11/2020
 ---
 
 # Service limits in Azure Cognitive Search
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
+Maximum limits on storage, workloads, and quantities of indexes and other objects depend on whether you [provision Azure Cognitive Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
-+ **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
++ **Free** is a multi-tenant shared service that comes with your Azure subscription. 
 
 + **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
-+ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
++ **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD. S3 High Density (S3 HD) is engineered for [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (three thousand indexes per service). S3 HD does not provide the [indexer feature](search-indexer-overview.md) and data ingestion must leverage APIs that push data from source to index. 
 
-+ **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. Storage Optimized comes in two levels: L1 and L2
-
-> [!NOTE]
-> As of July 1, all tiers are generally available, including the Storage Optimized tier. All pricing can be found on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page.
-
-  S3 High Density (S3 HD) is engineered for specific workloads: [multi-tenancy](search-modeling-multitenant-saas-applications.md) and large quantities of small indexes (one million documents per index, three thousand indexes per service). This tier does not provide the [indexer feature](search-indexer-overview.md). On S3 HD, data ingestion must leverage the push approach, using API calls to push data from source to index. 
-
-> [!NOTE]
-> A service is provisioned at a specific tier. Jumping tiers to gain capacity involves provisioning a new service (there is no in-place upgrade). For more information, see [Choose a SKU or tier](search-sku-tier.md). To learn more about adjusting capacity within a service you've already provisioned, see [Scale resource levels for query and indexing workloads](search-capacity-planning.md).
->
++ **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
 ## Subscription limits
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -47,7 +38,7 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximum complex collection fields per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximum elements across all complex collections per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum elements across all complex collections per document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
@@ -55,39 +46,18 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
+<sup>2</sup> Having a very large number of elements in complex collections per document currently causes high storage utilization. This is a known issue. In the meantime, a limit of 3000 is a safe upper bound for all service tiers. This limit is only enforced for indexing operations that utilize the earliest generally available (GA) API version that supports complex type fields (`2019-05-06`) onwards. To not break clients who might be using earlier preview API versions (that support complex type fields), we will not be enforcing this limit for indexing operations that use these preview API versions. Note that preview API versions are not meant to be used for production scenarios and we highly recommend customers move to the latest GA API version.
+
 <a name="document-limits"></a>
 
 ## Document limits 
 
-As of October 2018, there are no longer any document limits<sup>1</sup> for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. While most regions have had unlimited document counts since November/December 2017, there were five regions that continued to impose document limits. Depending on when and where you created a search service, you might be running a service that is still subject to document limits.
+As of October 2018, there are no longer any document count limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. Older services created prior to October 2018 may still be subject to document count limits.
 
-To determine whether your service has document limits, check the Usage tile in the overview page of your service. Document counts are either unlimited, or subject to a limit based on tier.
+To determine whether your service has document limits, use the [GET Service Statistics REST API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
 
-  ![Usage tile](media/search-limits-quotas-capacity/portal-usage-tile.png)
-
-<sup>1</sup> Even though there aren't any SKU specific document limits, every index is still subject to a maximum safe limit to ensure stability of the service. This limit comes from Lucene. Every Azure Cognitive Search document is internally indexed as one or more Lucene documents. The number of Lucene documents per search document depends on the total number of elements in complex collection fields. Each element is indexed as a separate Lucene document. For example, a document with 3 elements in a complex collection field, will be indexed as 4 Lucene documents - 1 for the document itself and 3 for the elements. The maximum number of Lucene documents is roughly 25 billion per index.
-
-### Regions previously having document limits
-
-If the portal indicates a document limit, your service was either created before late 2017, or it was created on a data center using lower-capacity clusters for hosting Azure Cognitive Search services:
-
-+ Australia East
-+ East Asia
-+ Central India
-+ Japan West
-+ West Central US
-
-For services subject to document limits, the following maximum limits apply:
-
-|  Free | Basic | S1 | S2 | S3 | S3&nbsp;HD |
-|-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;million |15 million per partition or 180 million per service |60 million per partition or 720 million per service |120 million per partition or 1.4 billion per service |1 million per index or 200 million per partition |
-
-If your service has limits that are blocking you, create a new service and then republish all content to that service. There is no mechanism for seamlessly reprovisioning your service onto new hardware behind the scenes.
-
-> [!Note] 
-> For S3 High Density services created after late 2017, the 200 million document per partition has been removed but the 1 million document per index limit remains.
-
+> [!NOTE]
+> Although there are no document limits imposed by the service, there is a shard limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the shard limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of shard limits.
 
 ### Document size limits per API call
 
@@ -95,7 +65,7 @@ The maximum document size when calling an Index API is approximately 16 megabyte
 
 Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit realistically depends on how many documents are in the batch. For a batch with a single document, the maximum document size is 16 MB of JSON.
 
-To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a URL reference to the resource.
+When estimating document size, remember to consider only those fields that can be consumed by a search service. Any binary or image data in source documents should be omitted from your calculations.  
 
 ## Indexer limits
 
@@ -112,7 +82,7 @@ Maximum running times exist to provide balance and stability to the service as a
 | Maximum running time <sup>5</sup> | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |24 hours |24 hours |
 | Maximum running time for cognitive search skillsets or blob indexing with image analysis <sup>5</sup> | 3-10 minutes |2 hours |2 hours |2 hours |2 hours |N/A  |2 hours |2 hours |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4&nbsp;million |4&nbsp;million |4&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
+| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4&nbsp;million |8&nbsp;million |16&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
 
 <sup>1</sup> Free services have indexer maximum execution time of 3 minutes for blob sources and 1 minute for all other data sources. For AI indexing that calls into Cognitive Services, free services are limited to 20 free transactions per day, where a transaction is defined as a document that successfully passes through the enrichment pipeline.
 
@@ -122,11 +92,14 @@ Maximum running times exist to provide balance and stability to the service as a
 
 <sup>4</sup> Maximum of 30 skills per skillset.
 
-<sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
+<sup>5</sup> AI enrichment and image analysis are computationally intensive and consume disproportionate amounts of available processing power. Running time for these workloads has been shortened to give other jobs in the queue more opportunity to run.  
+
+> [!NOTE]
+> As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
 
 ## Synonym limits
 
-The maximum number of synonym maps allowed varies by pricing tier. Each rule can have up to 20 expansions, where an expansion is an equivalvent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
+Maximum number of synonym maps varies by tier. Each rule can have up to 20 expansions, where an expansion is an equivalent term. For example, given "cat", association with "kitty", "feline", and "felis" (the genus for cats) would count as 3 expansions.
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
@@ -139,11 +112,11 @@ QPS estimates must be developed independently by every customer. Index size and 
 
 Estimates are more predictable when calculated on services running on dedicated resources (Basic and Standard tiers). You can estimate QPS more closely because you have control over more of the parameters. For guidance on how to approach estimation, see [Azure Cognitive Search performance and optimization](search-performance-optimization.md).
 
-For the Storage Optimized tiers,  you should expect a lower query throughput and higher latency than the Standard tiers.  The methodology for estimating the query performance you'll experience is the same as the Standard tiers.
+For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers. 
 
 ## Data limits (AI enrichment)
 
-An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), [language detection](cognitive-search-skill-language-detection.md), and [personal-information detection](cognitive-search-skill-pii-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Throttling limits
 

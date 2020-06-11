@@ -1,14 +1,8 @@
 ---
-title: Create an Azure function app with Java and Eclipse | Microsoft Docs
+title: Create an Azure function app with Java and Eclipse 
 description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and Eclipse to Azure Functions.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jpconnock
-keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: azure-functions
-ms.topic: conceptual
-ms.devlang: java
+ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
@@ -43,7 +37,7 @@ It's highly recommended to also install [Azure Functions Core Tools, version 2](
 1. Select **Add Archetype** and add the entries for the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID: com.microsoft.azure
     - Archetype Artifact ID: azure-functions-archetype
-    - Version: Use latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Version: Check and use latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Click **OK** and then click **Next**.  Be sure to fill in values for all of the fields including `resourceGroup`, `appName`, and `appRegion` (please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  

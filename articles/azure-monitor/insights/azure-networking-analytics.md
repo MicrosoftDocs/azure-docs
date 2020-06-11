@@ -1,7 +1,6 @@
 ---
 title: Azure Networking Analytics solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Networking Analytics solution in Azure Monitor to review Azure network security group logs and Azure Application Gateway logs.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -41,7 +40,7 @@ To use the solutions:
 
 You can enable diagnostics and the corresponding solution for either one or both of Application Gateway and Networking Security Groups.
 
-If you do not enable diagnostic logging for a particular resource type, but install the solution, the dashboard blades for that resource are blank and display an error message.
+If you do not enable diagnostic resource logging for a particular resource type, but install the solution, the dashboard blades for that resource are blank and display an error message.
 
 > [!NOTE]
 > In January 2017, the supported way of sending logs from Application Gateways and Network Security Groups to a Log Analytics workspace changed. If you see the **Azure Networking Analytics (deprecated)** solution, refer to [migrating from the old Networking Analytics solution](#migrating-from-the-old-networking-analytics-solution) for steps you need to follow.
@@ -96,7 +95,7 @@ Use the following instructions to install and configure the Azure Application Ga
 
 #### Enable Azure network diagnostics using PowerShell
 
-The following PowerShell script provides an example of how to enable diagnostic logging for application gateways.
+The following PowerShell script provides an example of how to enable resource logging for application gateways.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -137,7 +136,7 @@ On any of the log search pages, you can view results by time, detailed results, 
 > The Network Security Group analytics solution is moving to community support since its functionality has been replaced by [Traffic Analytics](../../network-watcher/traffic-analytics.md).
 > - The solution is now available in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) and will soon no longer be available in the Azure Marketplace.
 > - For existing customers who already added the solution to their workspace, it will continue to function with no changes.
-> - Microsoft will continue to support sending NSG diagnostic logs to your workspace using Diagnostics Settings.
+> - Microsoft will continue to support sending NSG resource logs to your workspace using Diagnostics Settings.
 
 The following logs are supported for network security groups:
 
@@ -147,7 +146,7 @@ The following logs are supported for network security groups:
 ### Install and configure the solution
 Use the following instructions to install and configure the Azure Networking Analytics solution:
 
-1. Enable the Azure Network Security Group analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) or by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Enable the Azure Network Security Group analytics solution by using the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
 2. Enable diagnostics logging for the [Network Security Group](../../virtual-network/virtual-network-nsg-manage-log.md) resources you want to monitor.
 
 ### Enable Azure network security group diagnostics in the portal
@@ -167,7 +166,7 @@ Use the following instructions to install and configure the Azure Networking Ana
 
 ### Enable Azure network diagnostics using PowerShell
 
-The following PowerShell script provides an example of how to enable diagnostic logging for network security groups
+The following PowerShell script provides an example of how to enable resource logging for network security groups
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

@@ -1,21 +1,22 @@
 ---
-title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility | Microsoft Docs
+title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility
 description: Learn how to execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/21/2019
+ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
 ---
 
 # Run SQL Server Integration Services packages with the Azure-enabled dtexec utility
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes the Azure-enabled dtexec (AzureDTExec) command prompt utility. It's used to run SQL Server Integration Services (SSIS) packages on the Azure-SSIS Integration Runtime (IR) in Azure Data Factory.
 
 The traditional dtexec utility comes with SQL Server. For more information, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017). It's often invoked by third-party orchestrators or schedulers, such as ActiveBatch and Control-M, to run SSIS packages on-premises. 
@@ -43,19 +44,19 @@ In the **AzureDTExecConfig** window, enter your configuration settings as follow
 - **ApplicationId**: Enter the unique identifier of the Azure AD app that you create with the right permissions to generate pipelines in your data factory. For more information, see [Create an Azure AD app and service principal via Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 - **AuthenticationKey**: Enter the authentication key for your Azure AD app.
 - **TenantId**: Enter the unique identifier of the Azure AD tenant, under which your Azure AD app is created.
-- **SubscriptionId**: Enter the unique identifier of the Azure subscription, under which your data factory was created.
-- **ResourceGroup**: Enter the name of the Azure resource group in which your data factory was created.
 - **DataFactory**: Enter the name of your data factory in which unique pipelines with Execute SSIS Package activity in them are generated based on the values of options provided when you invoke AzureDTExec.
 - **IRName**: Enter the name of the Azure-SSIS IR in your data factory, on which the packages specified in their Universal Naming Convention (UNC) path will run when you invoke AzureDTExec.
-- **PackageAccessDomain**: Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessUserName**: Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **PackageAccessPassword**: Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
-- **LogPath**: Enter the UNC path of the log folder, into which log files from your package executions on the Azure-SSIS IR are written.
-- **LogLevel**: Enter the selected scope of logging from predefined **null**, **Basic**, **Verbose**, or **Performance** options for your package executions on the Azure-SSIS IR.
-- **LogAccessDomain**: Enter the domain credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
-- **LogAccessUserName**: Enter the username credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
-- **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
 - **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when you invoke AzureDTExec. The strings are used to form unique names for Data Factory pipelines that run your packages on the Azure-SSIS IR. Usually a length of 32 characters is sufficient.
+- **ResourceGroup**: Enter the name of the Azure resource group in which your data factory was created.
+- **SubscriptionId**: Enter the unique identifier of the Azure subscription, under which your data factory was created.
+- **LogAccessDomain**: Enter the domain credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogAccessUserName**: Enter the username credential to access your log folder in its UNC path when you write log files, which is required when **LogPath** is specified and **LogLevel** isn't **null**.
+- **LogLevel**: Enter the selected scope of logging from predefined **null**, **Basic**, **Verbose**, or **Performance** options for your package executions on the Azure-SSIS IR.
+- **LogPath**: Enter the UNC path of the log folder, into which log files from your package executions on the Azure-SSIS IR are written.
+- **PackageAccessDomain**: Enter the domain credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessPassword**: Enter the password credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
+- **PackageAccessUserName**: Enter the username credential to access your packages in their UNC path that's specified when you invoke AzureDTExec.
 
 To store your packages and log files in file systems or file shares on-premises, join your Azure-SSIS IR to a virtual network connected to your on-premises network so that it can fetch your packages and write your log files. For more information, see [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -89,7 +90,7 @@ Invoking AzureDTExec offers similar options as invoking dtexec. For more informa
 
 ## Next steps
 
-After unique pipelines with the Execute SSIS Package activity in them are generated and run after you invoke AzureDTExec, they can be monitored on the Data Factory portal. For more information, see [Run SSIS packages as Data Factory activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+After unique pipelines with the Execute SSIS Package activity in them are generated and run when you invoke AzureDTExec, they can be monitored on the Data Factory portal. You can also assign Data Factory triggers to them if you want to orchestrate/schedule them using Data Factory. For more information, see [Run SSIS packages as Data Factory activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 > [!WARNING]
 > The generated pipeline is expected to be used only by AzureDTExec. Its properties or parameters might change in the future, so don't modify or reuse them for any other purposes. Modifications might break AzureDTExec. If this happens, delete the pipeline. AzureDTExec generates a new pipeline the next time it's invoked.

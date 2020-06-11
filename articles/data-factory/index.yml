@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Data Factory documentation
-summary: Azure Data Factory is Azure's cloud ETL service for scale-out serverless data integration and data transformation.  It offers a code-free UI for intuitive authoring and single-pane-of-class monitoring and management. You can also lift and shift existing SSIS packages to Azure and run them with full compatibility in ADF. SSIS Integration Runtime offers a fully managed service, so you don't have to worry about infrastructure management.
+summary: Azure Data Factory is Azure's cloud ETL service for scale-out serverless data integration and data transformation.  It offers a code-free UI for intuitive authoring and single-pane-of-glass monitoring and management. You can also lift and shift existing SSIS packages to Azure and run them with full compatibility in ADF. SSIS Integration Runtime offers a fully managed service, so you don't have to worry about infrastructure management.
 metadata:
   title: Azure Data Factory Documentation
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
@@ -12,7 +12,6 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  monikerRange: ""
 
 landingContent:
   - title: About Azure Data Factory
@@ -105,7 +104,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Migrate SSIS packages to Azure SQL Database managed instance
+          - text: Migrate SSIS packages to Azure SQL Managed Instance
             url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
       - linkListType: tutorial
         links:

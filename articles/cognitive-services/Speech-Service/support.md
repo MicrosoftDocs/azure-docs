@@ -1,7 +1,7 @@
 ---
-title: Support and help options - Speech Service
+title: Support and help options - Speech service
 titleSuffix: Azure Cognitive Services
-description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech Service
+description: How to obtain help and support for questions and problems when you create applications that integrate with the Speech service
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -15,10 +15,10 @@ ms.author: jhakulin
 
 # Support and help options
 
-Are you just starting to explore the functionality of the Speech Services? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
+Are you just starting to explore the functionality of the Speech service? Are you implementing a new feature to your application? Here are suggestions about where you can get help as a developer.
 
 > [!div class="checklist"]
-> * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to *Speech service*.
+> * Stay informed about new developments in *Azure Cognitive Services*, or find the latest news related to the *Speech service*.
 > * Release notes contain information for all releases.
 > * Search to see if your issue was discussed by the community, or if existing documentation for the feature you want to implement already exists.
 > * If you can't find a satisfactory answer, ask a question on *Stack Overflow*.
@@ -27,7 +27,7 @@ Are you just starting to explore the functionality of the Speech Services? Are y
 
 ## Stay informed
 
-News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about Speech Services, track the [Speech Services blog](https://azure.microsoft.com/blog/tag/speech-service/).
+News about Cognitive Services is collected in the [Cognitive Services blog](https://azure.microsoft.com/blog/topics/cognitive-services/). For the latest information about the Speech service, track the [Speech service blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## Release notes
 
@@ -53,26 +53,6 @@ Azure customers can create and manage support requests in the Azure portal.
 
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
-
-## Post a question to Stack Overflow
-
-Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
-
-If you can't find an answer to your problem via search, submit a new question to Stack Overflow. Use one of the following tags when you formulate the question:
-
-|Component/Area  |Tags  |
-|---------|---------|
-|Speech Recognition |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Speech Synthesis |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Speech Intent |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|General Speech SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-|Voice assistants | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
-
-> [!TIP]
-> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
-> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
-> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
 ## Create a GitHub issue
 
@@ -113,6 +93,16 @@ Which version of the SDK are you using.
  - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
  - Any other additional information
 
+## Post a question to Stack Overflow
+
+Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
+
+If you can't find an answer to your problem via search, submit a new question to Stack Overflow by using tags [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:  
+> * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
+> * [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve)
 
 ## UserVoice forum
 

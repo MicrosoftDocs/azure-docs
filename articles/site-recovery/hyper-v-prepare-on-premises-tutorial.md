@@ -1,10 +1,10 @@
 ---
-title: Prepare on-premises Hyper-V servers for disaster recovery of Hyper-V VMs to Azure
-description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure with the Azure Site Recovery service.
+title: Prepare for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
+description: Learn how to prepare on-premises Hyper-V VMs for disaster recovery to Azure with Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ---

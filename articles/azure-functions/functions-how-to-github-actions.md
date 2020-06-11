@@ -1,20 +1,16 @@
 ---
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
-author: ahmedelnably
-manager: gwallace
-ms.service: azure-functions
+author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
-ms.author: aelnably
+ms.date: 04/16/2020
+ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Continuous delivery by using GitHub Action
 
 [GitHub Actions](https://github.com/features/actions) lets you define a workflow to automatically build and deploy your functions code to function app in Azure. 
-
-> [!IMPORTANT]  
-> GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
 
 In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your functions app project on GitHub. 
 
@@ -28,6 +24,9 @@ For an Azure Functions workflow, the file has three sections:
 | **Build** | <ol><li>Set up the environment.</li><li>Build the function app.</li></ol> |
 | **Deploy** | <ol><li>Deploy the function app.</li></ol>|
 
+> [!NOTE]
+> You do not need to create a service principal if you decide to use publishing profile for authentication.
+
 ## Create a service principal
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
@@ -36,50 +35,45 @@ You can create a [service principal](../active-directory/develop/app-objects-and
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provides access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
-
-> [!NOTE]
-> You do not need to create a service principal if you decide to use publishing profile for authentication.
+In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provide access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific function app and not the entire resource group.
 
 ## Download the publishing profile
 
-You can download the publishing profile of your functionapp, by going to the **Overview** page of your app and clicking **Get publish profile**.
+To download the publishing profile of your function app:
 
-   ![Download publish profile](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Select the function app's **Overview** page, and then select **Get publish profile**.
 
-Copy the content of the file.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
+
+1. Save and copy the contents of the publish settings file.
 
 ## Configure the GitHub secret
 
-1. In [GitHub](https://github.com), browse your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
-   ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Add Secret":::
 
-1. Use `AZURE_CREDENTIALS` for the **Name** and the copied command output for **Value**, if you then select **Add secret**. If you are using publishing profile, use `SCM_CREDENTIALS` for the **Name** and the file content for **Value**.
+1. Add a new secret.
+
+   * If you're using the service principal that you created by using the Azure CLI, use `AZURE_CREDENTIALS` for the **Name**. Then, paste the copied JSON object output for **Value**, and select **Add secret**.
+   * If you're using a publishing profile, use `SCM_CREDENTIALS` for the **Name**. Then, use the publishing profile's file content for **Value**, and select **Add secret**.
 
 GitHub can now authenticate to your function app in Azure.
 
 ## Set up the environment 
 
-Setting up the environment can be done using one of the publish setup actions.
+Setting up the environment is done using a language-specific publish setup action.
 
-|Language | Setup Action |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# [JavaScript](#tab/javascript)
 
-The following examples show the part of the workflow that sets up the environment for the various supported languages:
-
-**JavaScript**
+The following example shows the part of the workflow that uses the `actions/setup-node` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Node 10.x
@@ -88,11 +82,13 @@ The following examples show the part of the workflow that sets up the environmen
         node-version: '10.x'
 ```
 
-**Python**
+# [Python](#tab/python)
+
+The following example shows the part of the workflow that uses the `actions/setup-python` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Python 3.6
@@ -101,11 +97,13 @@ The following examples show the part of the workflow that sets up the environmen
         python-version: 3.6
 ```
 
-**.NET**
+# [C#](#tab/csharp)
+
+The following example shows the part of the workflow that uses the `actions/setup-dotnet` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Dotnet 2.2.300
@@ -114,11 +112,13 @@ The following examples show the part of the workflow that sets up the environmen
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# [Java](#tab/java)
+
+The following example shows the part of the workflow that uses the  `actions/setup-java` action to set up the environment:
 
 ```yaml
     - name: 'Login via Azure CLI'
-      uses: Azure/actions/login@master
+      uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Setup Java 1.8.x
@@ -128,14 +128,15 @@ The following examples show the part of the workflow that sets up the environmen
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## Build the function app
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-The following examples show the part of the workflow that builds the function app, in the various supported languages.:
+The following example shows the part of the workflow that builds the function app, which is language specific:
 
-**JavaScript**
+# [JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +151,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Python**
+# [Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +165,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**.NET**
+# [C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +178,7 @@ The following examples show the part of the workflow that builds the function ap
         popd
 ```
 
-**Java**
+# [Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +191,7 @@ The following examples show the part of the workflow that builds the function ap
         mvn azure-functions:package
         popd
 ```
+---
 
 ## Deploy the function app
 
@@ -213,7 +215,7 @@ The following example uses version 1 of the `functions-action`:
 
 ## Next steps
 
-To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
+To view a complete workflow .yaml file, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
 
 > [!div class="nextstepaction"]
 > [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)

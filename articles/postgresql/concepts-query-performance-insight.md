@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight in Azure Database for PostgreSQL - Single Server
+title: Query Performance Insight - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Performance Insight feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema

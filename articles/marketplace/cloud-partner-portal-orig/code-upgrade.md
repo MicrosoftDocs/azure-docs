@@ -1,13 +1,12 @@
 ---
 title: Upgrading code to the latest platform  | Azure Marketplace
 description: Deprecated this CPP article, linked to PC article; was "This topic explains how to upgrade your Microsoft Dynamics 365 for Operations platform version to the latest platform release"
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos 
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Upgrading code to the latest platform

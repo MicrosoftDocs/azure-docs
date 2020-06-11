@@ -1,14 +1,13 @@
 ---
-title: EDIFACT messages for B2B integration - Azure Logic Apps
+title: EDIFACT messages for B2B integration
 description: Exchange EDIFACT messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 04/22/2020
 ---
 
 # Exchange EDIFACT messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
@@ -92,6 +91,10 @@ Now that you've set the agreement properties,
 you can configure how this agreement identifies and 
 handles incoming messages received from your partner through this agreement.
 
+> [!IMPORTANT]
+> The EDIFACT connector supports only UTF-8 characters.
+> If your output contains unexpected characters, check that your EDIFACT messages use the UTF-8 character set.
+
 1. Under **Add**, select **Receive Settings**.
 Configure these properties based on your agreement 
 with the partner that exchanges messages with you. 
@@ -134,7 +137,8 @@ messages that conform to your selected settings.
 | UNG2.2 (APP SENDER CODE QUALIFIER) |Enter an alphanumeric value, with a maximum of four characters. |
 | SCHEMA |Select the previously uploaded schema you want to use from your associated integration account. |
 
-### Control Numbers
+### Control numbers
+
 | Property | Description |
 | --- | --- |
 | Disallow Interchange Control Number duplicates |To block duplicate interchanges, select this property. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the interchange is not processed. |
@@ -143,7 +147,7 @@ messages that conform to your selected settings.
 | Disallow Transaction set control number duplicates |To block interchanges with duplicate transaction set control numbers (UNH1), select this property. |
 | EDIFACT Acknowledgement Control Number |To designate the transaction set reference numbers for use in an acknowledgment, enter a value for the prefix, a range of reference numbers, and a suffix. |
 
-### Validations
+### Validation
 
 When you complete each validation row, another is automatically added. 
 If you don't specify any rules, then validation uses the "Default" row.
@@ -157,7 +161,7 @@ If you don't specify any rules, then validation uses the "Default" row.
 | Trim Leading/Trailing Zeroes |Remove leading or trailing zero and space characters. |
 | Trailing Separator Policy |Generate trailing separators. <p>Select **Not Allowed** to prohibit trailing delimiters and separators in the received interchange. If the interchange has trailing delimiters and separators, the interchange is declared not valid. <p>Select **Optional** to accept interchanges with or without trailing delimiters and separators. <p>Select **Mandatory** when the received interchange must have trailing delimiters and separators. |
 
-### Internal Settings
+### Internal settings
 
 | Property | Description |
 | --- | --- |
@@ -201,6 +205,7 @@ messages that conform to your selected settings.
 | UNB7 (Application Reference ID) |Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters |
 
 ### Acknowledgment
+
 | Property | Description |
 | --- | --- |
 | Receipt of Message (CONTRL) |Select this checkbox if the hosted partner expects to receive a technical (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner. |
@@ -208,6 +213,7 @@ messages that conform to your selected settings.
 | Generate SG1/SG4 loop for accepted transaction sets |If you chose to request a functional acknowledgement, select this checkbox to force generation of SG1/SG4 loops in functional CONTRL acknowledgments for accepted transaction sets. |
 
 ### Schemas
+
 | Property | Description |
 | --- | --- |
 | UNH2.1 (TYPE) |Select a transaction set type. |
@@ -216,6 +222,7 @@ messages that conform to your selected settings.
 | SCHEMA |Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app. |
 
 ### Envelopes
+
 | Property | Description |
 | --- | --- |
 | UNB8 (Processing Priority Code) |Enter an alphabetical value that is not more than one character long. |
@@ -224,7 +231,7 @@ messages that conform to your selected settings.
 | Apply UNA Segment (Service String Advice) |Select this checkbox to generate a UNA segment for the interchange to be sent. |
 | Apply UNG Segments (Function Group Header) |Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments: <p>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters. <p>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters. <p>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters. <p>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters. <p>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters. <p>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters. <p>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters. |
 
-### Character Sets and Separators
+### Character sets and separators
 
 Other than the character set, you can enter a different set of delimiters to be used for each message type. 
 If a character set is not specified for a given message schema, then the default character set is used.
@@ -239,14 +246,15 @@ If a character set is not specified for a given message schema, then the default
 | Segment Terminator |To indicate the end of an EDI segment, enter a single character. |
 | Suffix |Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix. |
 
-### Control Numbers
+### Control numbers
+
 | Property | Description |
 | --- | --- |
 | UNB5 (Interchange Control Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outgoing interchange. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same. |
 | UNG5 (Group Control Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional, while the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same. |
 | UNH1 (Message Header Reference Number) |Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional, while the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same. |
 
-### Validations
+### Validation
 
 When you complete each validation row, another is automatically added. 
 If you don't specify any rules, then validation uses the "Default" row.
@@ -273,9 +281,14 @@ On your integration account menu, choose **Overview**, then select the **Agreeme
 
 	![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
-## View Swagger file
-To view the Swagger details for the EDIFACT connector, see [EDIFACT](/connectors/edifact/).
+## Connector reference
 
-## Learn more
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/edifact/).
 
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
+
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

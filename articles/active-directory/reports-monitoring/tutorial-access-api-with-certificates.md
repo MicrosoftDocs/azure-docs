@@ -3,7 +3,7 @@ title: Tutorial for AD Reporting API with certificates | Microsoft Docs
 description: This tutorial explains how to use the Azure AD Reporting API with certificate credentials to get data from directories without user intervention. 
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 
 ms.assetid: 
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk 
 
 # Customer intent: As a developer, I want to learn how to access the Azure AD reporting API using certificates so that I can create an application that does not require user intervention to access reports.
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # Tutorial: Get data using the Azure Active Directory reporting API with certificates
@@ -42,10 +43,10 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
     - Access tokens from user, application keys, and certificates using ADAL
     - Graph API handling paged results
 
-6. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** Powershell command. Your session should look similar to this screen:
-    ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+6. If it's your first time using the module run **Install-MSCloudIdUtilsModule**, otherwise import it using the **Import-Module** PowerShell command. Your session should look similar to this screen:
+    ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-7. Use the **New-SelfSignedCertificate** Powershell commandlet to create a test certificate.
+7. Use the **New-SelfSignedCertificate** PowerShell commandlet to create a test certificate.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
@@ -62,13 +63,13 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
 
 1. Navigate to the [Azure portal](https://portal.azure.com), select **Azure Active Directory**, then select **App registrations** and choose your application from the list. 
 
-2. Select **Settings** > **Keys** and select **Upload Public Key**.
+2. Select **Certificates & secrets** under **Manage** section on Application registration blade and select **Upload Certificate**.
 
-3. Select the certificate file from the previous step and select **Save**. 
+3. Select the certificate file from the previous step and select **Add**. 
 
-4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Settings** and click **Keys**. The thumbprint will be under the **Public Keys** list.
+4. Note the Application ID, and the thumbprint of the certificate you just registered with your application. To find the thumbprint, from your application page in the portal, go to **Certificates & secrets** under **Manage** section. The thumbprint will be under the **Certificates** list.
 
-5. Open the application manifest in the inline manifest editor and replace the *keyCredentials* property with your new certificate information using the following schema. 
+5. Open the application manifest in the inline manifest editor and verify the *keyCredentials* property is updated with your new certificate information as shown below - 
 
    ```
    "keyCredentials": [
@@ -80,23 +81,20 @@ In this tutorial, you learn how to use a test certificate to access the MS Graph
             "value":  "$base64Value" //base64 encoding of the certificate raw data
         }
     ]
-   ```
-
-6. Save the manifest. 
-  
-7. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
+   ``` 
+6. Now, you can get an access token for the MS Graph API using this certificate. Use the **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet from the MSCloudIdUtils PowerShell module, passing in the Application ID and the thumbprint you obtained from the previous step. 
 
    ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-8. Use the access token in your Powershell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
+7. Use the access token in your PowerShell script to query the Graph API. Use the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins and directoryAudits endpoint. This cmdlet handles multi-paged results, and sends those results to the PowerShell pipeline.
 
-9. Query the directoryAudits endpoint to retrieve the audit logs. 
+8. Query the directoryAudits endpoint to retrieve the audit logs. 
    ![Azure portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-10. Query the signins endpoint to retrieve the sign-in logs.
+9. Query the signins endpoint to retrieve the sign-in logs.
     ![Azure portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-11. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
+10. You can now choose to export this data to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
 ## Next steps
 

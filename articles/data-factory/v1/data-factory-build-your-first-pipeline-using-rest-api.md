@@ -1,5 +1,5 @@
 ---
-title: Build your first data factory (REST) | Microsoft Docs
+title: Build your first data factory (REST) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
 documentationcenter: ''
@@ -79,7 +79,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see the information about how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 >
 >
 

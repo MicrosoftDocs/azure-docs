@@ -1,22 +1,15 @@
 ---
-title: Hunting capabilities using notebooks in Azure Sentinel| Microsoft Docs
+title: Use notebooks with Azure Sentinel for security hunting
 description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
 services: sentinel
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-
+author: yelevin
+ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/04/2019
-ms.author: rkarlin
+ms.date: 11/25/2019
 ---
 
 # Use Jupyter notebooks to hunt for security threats
@@ -58,18 +51,18 @@ To use the notebooks, you must have an Azure Notebooks account. For more informa
 > [!div class="mx-imgBorder"]
 >![Sign up for Azure Notebooks option](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-## View available notebooks from Azure Sentinel
+You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentinel notebooks to a new Azure Notebooks project.
+
+## Run a notebook from Azure Sentinel
  
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides. 
 
 2. Select individual notebooks to read their descriptions, required data types, and data sources. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-3. Select **Launch Notebook** to browse the notebooks on the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel).
-
-Currently, you can't launch a notebook directly from Azure Sentinel. Instead, use the following procedure that steps you through cloning the notebooks on GitHub into an Azure Notebooks project.
+3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
 
 ## Clone Azure Sentinel notebooks to a new Azure Notebooks project
 
@@ -127,7 +120,7 @@ Each notebook walks you through the steps for carrying out a hunt or investigati
 
 Recommendations:
 
-- For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main **Notebooks** folder. 
+- For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) notebook in the main **Notebooks** folder. 
 
 - You'll find additional sample notebooks in the **Sample-Notebooks** subfolder. These sample notebooks have been saved with data, so that it's easier to see the intended output. We recommend viewing these notebooks in [nbviewer](https://nbviewer.jupyter.org/). 
 

@@ -1,12 +1,8 @@
 ---
 title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/29/2019
+ms.date: 06/11/2020
 
 ---
 
@@ -114,7 +110,7 @@ If you share code with other projects, remember to remove your instrumentation k
 All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
-Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. 
 
 ## Does the SDK create temporary local storage?
 
@@ -172,7 +168,24 @@ By default `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` is used for persisting
 
 The folder prefix `appInsights-node` can be overridden by changing the runtime value of the static variable `Sender.TEMPDIR_PREFIX` found in [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
+### JavaScript (browser)
 
+[HTML5 Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used to persist data. Two separate buffers are used: `AI_buffer` and `AI_sent_buffer`. Telemetry that is batched and waiting to be sent is stored in `AI_buffer`. Telemetry that was just sent is placed in `AI_sent_buffer` until the ingestion server responds that it was successfully received. When telemetry is successfully received, it's removed from all buffers. On transient failures (for example, a user loses network connectivity), telemetry remains in `AI_buffer` until it is successfully received or the ingestion server responds that the telemetry is invalid (bad schema or too old, for example).
+
+Telemetry buffers can be disabled by setting [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) to `false`. When session storage is turned off, a local array is instead used as persistent storage. Because the JavaScript SDK runs on a client device, the user has access to this storage location via their browser's developer tools.
+
+### OpenCensus Python
+
+By default OpenCensus Python SDK uses the current user folder `%username%/.opencensus/.azure/`. Permissions to access this folder are restricted to the current user and Administrators. (See [implementation](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) here.) The folder with your persisted data will be named after the Python file that generated the telemetry.
+
+You may change the location of your storage file by passing in the `storage_path` parameter in the constructor of the exporter you are using.
+
+```python
+AzureLogHandler(
+  connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+  storage_path='<your-path-here>',
+)
+```
 
 ## How do I send data to Application Insights using TLS 1.2?
 
@@ -186,8 +199,8 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
-| Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure App Services  | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| Azure Function Apps | Supported, configuration may be required. | Support was announced in April 2018. Read the announcement for [configuration details](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions, refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application-specific configuration. |

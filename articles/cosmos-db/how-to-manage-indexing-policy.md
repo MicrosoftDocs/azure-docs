@@ -1,11 +1,12 @@
 ---
 title: Manage indexing policies in Azure Cosmos DB
-description: Learn how to manage indexing policies in Azure Cosmos DB
-author: ThomasWeiss
+description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
-ms.author: thweiss
+ms.date: 04/28/2020
+ms.author: tisande
+ms.custom: tracking-python
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -14,7 +15,7 @@ In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.m
 
 ## Indexing policy examples
 
-Here are some examples of indexing policies shown in their JSON format, which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
+Here are some examples of indexing policies shown in [their JSON format](index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
 
 ### Opt-out policy to selectively exclude some property paths
 
@@ -132,7 +133,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
 
 ### Using a spatial index on a specific property path only
@@ -148,7 +149,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     ],
     "excludedPaths": [
         {
-            "path": "/\"_etag\"/?"
+            "path": "/_etag/?"
         }
     ],
     "spatialIndexes": [
@@ -168,6 +169,9 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 ## Composite indexing policy examples
 
 In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a filter and have an ORDER BY clause on different properties.
+
+> [!NOTE]
+> Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
 
 ### Composite index defined for (name asc, age desc):
 
@@ -363,7 +367,9 @@ To create a container with a custom indexing policy see, [Create a container wit
 
 To create a container with a custom indexing policy see, [Create a container with a custom index policy using Powershell](manage-with-powershell.md#create-container-custom-index)
 
-## Use the .NET SDK V2
+## <a id="dotnet-sdk"></a> Use the .NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 The `DocumentCollection` object from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -393,7 +399,7 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## Use the .NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 The `ContainerProperties` object from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (see [this Quickstart](create-sql-api-dotnet.md) regarding its usage) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -449,6 +455,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## Use the Java SDK
 
@@ -467,7 +474,7 @@ indexingPolicy.setIndexingMode(IndexingMode.Consistent);
 // Add an included path
 
 Collection<IncludedPath> includedPaths = new ArrayList<>();
-ExcludedPath includedPath = new IncludedPath();
+IncludedPath includedPath = new IncludedPath();
 includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
@@ -604,7 +611,9 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 ## Use the Python SDK
 
-When using the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+# [Python SDK V3](#tab/pythonv3)
+
+When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
 Retrieve the container's details
 
@@ -665,6 +674,73 @@ Update the container with changes
 ```python
 response = client.ReplaceContainer(containerPath, container)
 ```
+
+# [Python SDK V4](#tab/pythonv4)
+
+When using the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+
+Retrieve the container's details
+
+```python
+database_client = cosmos_client.get_database_client('database')
+container_client = database_client.get_container_client('container')
+container = container_client.read()
+```
+
+Set the indexing mode to consistent
+
+```python
+indexingPolicy = {
+    'indexingMode': 'consistent'
+}
+```
+
+Define an indexing policy with an included path and a spatial index
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+        {"path":"/location/*","types":["Point"]}
+    ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+Define an indexing policy with an excluded path
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+Add a composite index
+
+```python
+indexingPolicy['compositeIndexes'] = [
+    [
+        {
+            "path": "/name",
+            "order": "ascending"
+        },
+        {
+            "path": "/age",
+            "order": "descending"
+        }
+    ]
+]
+```
+
+Update the container with changes
+
+```python
+response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
+```
+---
 
 ## Next steps
 

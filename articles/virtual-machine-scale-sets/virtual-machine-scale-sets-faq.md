@@ -1,22 +1,14 @@
 ---
-title: Azure virtual machine scale sets FAQs | Microsoft Docs
-description: Get answers to frequently asked questions about virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+title: Azure virtual machine scale sets FAQs
+description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: faq
 ms.date: 05/24/2019
-ms.author: manayar
-ms.custom: na
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -50,11 +42,13 @@ Create and capture a VM image, then use that as the source for your scale set. F
 
 ### If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
-Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+By default, virtual machines are removed from the scale set evenly across availability zones (if the scale set is deployed in zonal configuration) and fault domains to maximize availability. VMs with the highest IDs are removed first.
+
+You can change the order of virtual machine removal by specifying a [scale-in policy](virtual-machine-scale-sets-scale-in-policy.md) for the scale set.
 
 ### What if I then increase the capacity from 15 to 18?
 
-If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains.
 
 ### When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
@@ -167,7 +161,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
 ### How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
 For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
-```bash
+```azurecli
 az sf cluster create -h
 ```
 
@@ -340,6 +334,13 @@ For more information, see [the Microsoft Trust Center](https://www.microsoft.com
 
 Yes. You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## Deleting
+
+### Will the locks I set in place on virtual machine scale set instances be respected when deleting instances?
+
+In the Azure Portal, you have the ability to delete an individual instance or bulk delete by selecting multiple instances. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete the instance. However, if you bulk select multiple instances and any of those instances have a lock in place, the lock(s) will not be respected and all of the selected instances will be deleted.
+
+In Azure CLI, you only have the ability to delete an individual instance. If you attempt to delete a single instance that has a lock in place, the lock is respected and you will not be able to delete that instance.
 
 ## Extensions
 
@@ -443,7 +444,7 @@ There are two main ways to change the password for VMs in scale sets.
 
     Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
-- Reset the password using the VM access extensions.
+- Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     Use the following PowerShell example:
 
@@ -519,6 +520,7 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 ### Can I use scale sets with Accelerated Networking?
 
 Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. For example
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -538,6 +540,7 @@ Yes. To use accelerated networking, set enableAcceleratedNetworking to true in y
 ### How can I configure the DNS servers used by a scale set?
 
 To create a virtual machine scale set with a custom DNS configuration, add a dnsSettings JSON packet to the scale set networkInterfaceConfigurations section. Example:
+
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -637,9 +640,11 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 ### Is it possible to integrate scale sets with Azure Monitor logs?
 
 Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
-```
+
+```azurecli
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
+
 You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
 > [!NOTE]
@@ -715,7 +720,7 @@ New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $
 Create a managed disk from the snapshot.
 
 ```azurepowershell-interactive
-$snapshotName = "myShapshot"
+$snapshotName = "mySnapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
 $osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')

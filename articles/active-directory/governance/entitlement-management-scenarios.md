@@ -1,5 +1,5 @@
 ---
-title: Common scenarios in Azure AD entitlement management - Azure Active Directory
+title: Common scenarios in entitlement management - Azure AD
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -143,11 +143,16 @@ There are several ways that you can configure entitlement management for your or
 
 1. Open an access package
 1. [View assignments](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+1. [Archive reports and logs](entitlement-management-logs-and-reporting.md)
 
 ### Administrator: View resources assigned to users
 
 1. [View access packages for a user](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [View resource assignments for a user](entitlement-management-reports.md#view-resource-assignments-for-a-user)
+
+## Programmatic administration
+
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
 
 ## Next steps
 

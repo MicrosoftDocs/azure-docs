@@ -3,21 +3,21 @@ title: How to install and run containers - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 05/05/2020
+ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Install and run Read containers
+# Install and run Read containers (Preview)
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
 
-A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+A single Docker container, *Read*, is available for Computer Vision. The *Read* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. Additionally, the *Read* container detects *handwritten text* in images and provides PDF, TIFF, and multi-page file support. For more information, see the [Read](concept-recognizing-text.md#read-api) API documentation.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,11 +31,27 @@ You must meet the following prerequisites before using the containers:
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
 
+## Request access to the private container registry
+
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container. 
+
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+
+### Advanced Vector Extension support
+
+The **host** computer is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
 ### Container requirements and recommendations
 
@@ -135,71 +151,26 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
       "unit": "pixel",
       "lines": [
         {
-          "boundingBox": [
-            56,
-            39,
-            317,
-            50,
-            313,
-            134,
-            53,
-            123
-          ],
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
           "text": "Tabs VS",
           "words": [
             {
-              "boundingBox": [
-                90,
-                43,
-                243,
-                53,
-                243,
-                123,
-                94,
-                125
-              ],
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
               "text": "Tabs",
               "confidence": "Low"
             },
             {
-              "boundingBox": [
-                259,
-                55,
-                313,
-                62,
-                313,
-                122,
-                259,
-                123
-              ],
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
               "text": "VS"
             }
           ]
         },
         {
-          "boundingBox": [
-            221,
-            148,
-            417,
-            146,
-            417,
-            206,
-            227,
-            218
-          ],
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
           "text": "Spaces",
           "words": [
             {
-              "boundingBox": [
-                230,
-                148,
-                416,
-                141,
-                419,
-                211,
-                232,
-                218
-              ],
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
               "text": "Spaces"
             }
           ]

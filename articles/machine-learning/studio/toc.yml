@@ -8,19 +8,19 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Tutorials
+- name: Quickstarts
   items:
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-  - name: Create a predictive solution
-    items:
-    - name: 1 - Create experiment
-      href: tutorial-part1-credit-risk.md  
-    - name: 2 - Train and evaluate
-      href: tutorial-part2-credit-risk-train.md
-    - name: 3 - Deploy web service
-      href: tutorial-part3-credit-risk-deploy.md
+- name: Tutorials
+  items:
+  - name: '1: Create predictive experiment'
+    href: tutorial-part1-credit-risk.md 
+  - name: '2: Train & evaluate solution'
+    href: tutorial-part2-credit-risk-train.md
+  - name: '3: Deploy web service'
+    href: tutorial-part3-credit-risk-deploy.md
 - name: Samples
   items:
   - name: Available datasets
@@ -52,15 +52,13 @@
       href: create-workspace.md
     - name: Manage
       href: manage-workspace.md
-    - name: Troubleshoot
-      href: troubleshooting-creating-ml-workspace.md
     - name: Deploy using ARM
       href: deploy-with-resource-manager-template.md
   - name: Import training data
     items:
     - name: Import data
       href: import-data.md
-    - name: Use data from on-premises SQL
+    - name: Use data from SQL Server
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Train models
@@ -84,8 +82,6 @@
         href: algorithm-parameters-optimize.md
       - name: Interpret results
         href: interpret-model-results.md
-      - name: Debug
-        href: debug-models.md
     - name: Retrain models
       items:
       - name: '"New" web services'
@@ -96,24 +92,17 @@
       items:
       - name: Get started in R
         href: r-get-started.md
-      - name: Execute R scripts
-        href: extend-your-experiment-with-r.md
       - name: Author custom R modules
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
   - name: Select an algorithm
-    items:
-    - name: Choose algorithms
-      href: algorithm-choice.md     
-    - name: Algorithm examples
-      displayName: infographic, studio basics
-      href: basics-infographic-with-algorithm-examples.md
+    href: algorithm-choice.md     
   - name: Deploy models
     items:
     - name: Deploy a web service
-      displayName: publish, multiple regions
-      href: publish-a-machine-learning-web-service.md
+      displayName: deploy, multiple regions
+      href: deploy-a-machine-learning-web-service.md
     - name: How it works
       href: model-progression-experiment-to-web-service.md
     - name: Prepare for deployment
@@ -143,16 +132,6 @@
       href: consuming-from-excel.md
     - name: Use Excel add-in
       href: excel-add-in-for-web-services.md
-    - name: Use Batch Pool
-      href: dedicated-capacity-for-bes-jobs.md
-  - name: Use cases
-    items: 
-    - name: Customer churn
-      href: azure-ml-customer-churn-scenario.md
-    - name: Sentiment analysis
-      href: text-analytics-module-tutorial.md
-    - name: Migrate analytics from Excel to Studio (classic)
-      href: linear-regression-in-azure.md
   - name: Delete & export customer data
     items:
     - name: Studio (classic) data
@@ -161,6 +140,9 @@
     - name: Gallery data
       displayName: export
       href: ai-gallery-control-personal-data-dsr.md 
+    - name: Download notebooks
+      displayName: export
+      href: download-notebooks-data.md
 - name: Reference
   items:
   - name: Algorithm & module reference

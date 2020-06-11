@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Java (Android) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, Java (Android) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java on Android by using the Speech SDK
 services: cognitive-services
@@ -7,18 +7,19 @@ author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
 ---
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
+> * Make sure that you have access to a microphone for audio capture
 
 ## Create a user interface
 
@@ -52,7 +53,7 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
+1. Also replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. For example, use `westus` for the free trial subscription.
 
 ## Build and run the app
 
@@ -66,11 +67,10 @@ The text and graphical representation of your UI should now look like this:
 
    ![Screenshot of Select Deployment Target window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Select the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Select the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech service and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
 ![Screenshot of the Android application](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
-
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

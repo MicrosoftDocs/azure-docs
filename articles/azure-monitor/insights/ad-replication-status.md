@@ -1,11 +1,10 @@
 ---
-title: Monitor Active Directory replication status with Azure Monitor | Microsoft Docs
+title: Monitor Active Directory replication status
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/24/2018
 
 ---
@@ -16,12 +15,19 @@ ms.date: 01/24/2018
 
 Active Directory is a key component of an enterprise IT environment. To ensure high availability and high performance, each domain controller has its own copy of the Active Directory database. Domain controllers replicate with each other in order to propagate changes across the enterprise. Failures in this replication process can cause a variety of problems across the enterprise.
 
-The AD Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
+The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
+
+### Prerequisites
+
+* The AD Replication Status solution requires a supported version of .NET Framework 4.6.2 or above installed on each computer that has the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) installed.  The agent is used by System Center 2016 - Operations Manager, Operations Manager 2012 R2, and Azure Monitor.
+* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
+* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal. There is no additional configuration required.
+
 
 ### Install agents on domain controllers
 You must install agents on domain controllers that are members of the domain to be evaluated. Or, you must install agents on member servers and configure the agents to send AD replication data to Azure Monitor. To understand how to connect Windows computers to Azure Monitor, see [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md). If your domain controller is already part of an existing System Center Operations Manager environment that you want to connect to Azure Monitor, see [Connect Operations Manager to Azure Monitor](../../azure-monitor/platform/om-agents.md).

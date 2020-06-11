@@ -1,65 +1,44 @@
 ---
-title: Create a user delegation SAS for a container or blob with .NET (preview) - Azure Storage
-description: Learn how to create a user delegation SAS using Azure Active Directory credentials in Azure Storage using the .NET client library.
+title: Use .NET to create a user delegation SAS for a container or blob
+titleSuffix: Azure Storage
+description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using the .NET client library for Azure Storage.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/17/2019
+ms.topic: how-to
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
 
-# Create a user delegation SAS for a container or blob with .NET (preview)
+# Create a user delegation SAS for a container or blob with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure Storage client library for .NET.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure Storage client library for .NET version 12.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
-
-## Authenticate with the Azure Identity library (preview)
-
-The Azure Identity client library for .NET (preview) authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources.
-
-When your code is running in the development environment, authentication may be handled automatically, or it may require a browser login, depending on which tools you're using. Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
-
-Other development tools may prompt you to login via a web browser. You can also use a service principal to authenticate from the development environment. For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
-
-After authenticating, the Azure Identity client library gets a token credential. This token credential is then encapsulated in the service client object that you create to perform operations against Azure Storage. The library handles this for your seamlessly by getting the appropriate token credential.
-
-For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 
 ## Assign RBAC roles for access to data
 
 When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## Install the preview packages
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-The examples in this article use the latest preview version of the [Azure Storage client library for Blob storage](https://www.nuget.org/packages/Azure.Storage.Blobs). To install the preview package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
-```
-
-The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the preview package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Identity -IncludePrerelease
-```
+To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled **Authenticate with the Azure Identity library** in [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
 
 ## Add using directives
 
-Add the following `using` directives to your code to use the preview versions of the Azure Identity and Azure Storage client libraries.
+Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
 ```csharp
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Azure;
 using Azure.Identity;
-using Azure.Storage;
 using Azure.Storage.Sas;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
@@ -72,8 +51,10 @@ To get a token credential that your code can use to authorize requests to Azure 
 The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 
 ```csharp
+// Construct the blob endpoint from the account name.
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
 
+// Create a new Blob service client with Azure AD credentials.
 BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
@@ -92,14 +73,17 @@ Use one of the following methods to request the user delegation key:
 The following code snippet gets the user delegation key and writes out its properties:
 
 ```csharp
+// Get a user delegation key for the Blob service that's valid for seven days.
+// You can use the key to generate any number of shared access signatures over the lifetime of the key.
 UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
                                                                    DateTimeOffset.UtcNow.AddDays(7));
 
+// Read the key's properties.
 Console.WriteLine("User delegation key properties:");
-Console.WriteLine("Key signed start: {0}", key.SignedStart);
-Console.WriteLine("Key signed expiry: {0}", key.SignedExpiry);
-Console.WriteLine("Key signed object ID: {0}", key.SignedOid);
-Console.WriteLine("Key signed tenant ID: {0}", key.SignedTid);
+Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
+Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
+Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
+Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
 Console.WriteLine("Key signed service: {0}", key.SignedService);
 Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 ```
@@ -109,18 +93,23 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 The following code snippet shows create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) and provide the parameters for the user delegation SAS. The snippet then calls the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string. Finally, the code builds the complete URI, including the resource address and SAS token.
 
 ```csharp
-BlobSasBuilder builder = new BlobSasBuilder()
+// Create a SAS token that's valid for one hour.
+BlobSasBuilder sasBuilder = new BlobSasBuilder()
 {
-    ContainerName = containerName,
+    BlobContainerName = containerName,
     BlobName = blobName,
-    Permissions = "r",
     Resource = "b",
-    StartTime = DateTimeOffset.UtcNow,
-    ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
+    StartsOn = DateTimeOffset.UtcNow,
+    ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
 };
 
+// Specify read permissions for the SAS.
+sasBuilder.SetPermissions(BlobSasPermissions.Read);
+
+// Use the key to get the SAS token.
 string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
 
+// Construct the full URI, including the SAS token.
 UriBuilder fullUri = new UriBuilder()
 {
     Scheme = "https",
@@ -145,29 +134,32 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
                                                             new DefaultAzureCredential());
 
     // Get a user delegation key for the Blob service that's valid for seven days.
-    // Use the key to generate any number of shared access signatures over the lifetime of the key.
-    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
-                                                                       DateTimeOffset.UtcNow.AddDays(7));
+    // You can use the key to generate any number of shared access signatures over the lifetime of the key.
+    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, 
+                                                                        DateTimeOffset.UtcNow.AddDays(7));
 
     // Read the key's properties.
     Console.WriteLine("User delegation key properties:");
-    Console.WriteLine("Key signed start: {0}", key.SignedStart);
-    Console.WriteLine("Key signed expiry: {0}", key.SignedExpiry);
-    Console.WriteLine("Key signed object ID: {0}", key.SignedOid);
-    Console.WriteLine("Key signed tenant ID: {0}", key.SignedTid);
+    Console.WriteLine("Key signed start: {0}", key.SignedStartsOn);
+    Console.WriteLine("Key signed expiry: {0}", key.SignedExpiresOn);
+    Console.WriteLine("Key signed object ID: {0}", key.SignedObjectId);
+    Console.WriteLine("Key signed tenant ID: {0}", key.SignedTenantId);
     Console.WriteLine("Key signed service: {0}", key.SignedService);
     Console.WriteLine("Key signed version: {0}", key.SignedVersion);
+    Console.WriteLine();
 
-    // Create a SAS token that's valid a short interval.
+    // Create a SAS token that's valid for one hour.
     BlobSasBuilder sasBuilder = new BlobSasBuilder()
     {
-        ContainerName = containerName,
+        BlobContainerName = containerName,
         BlobName = blobName,
-        Permissions = "r",
         Resource = "b",
-        StartTime = DateTimeOffset.UtcNow,
-        ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
+        StartsOn = DateTimeOffset.UtcNow,
+        ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
     };
+
+    // Specify read permissions for the SAS.
+    sasBuilder.SetPermissions(BlobSasPermissions.Read);
 
     // Use the key to get the SAS token.
     string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
@@ -182,6 +174,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
     };
 
     Console.WriteLine("User delegation SAS URI: {0}", fullUri);
+    Console.WriteLine();
     return fullUri.Uri;
 }
 ```
@@ -216,9 +209,9 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
         Console.WriteLine("Read operation succeeded for SAS {0}", sasUri);
         Console.WriteLine();
     }
-    catch (StorageRequestFailedException e)
+    catch (RequestFailedException e)
     {
-        // Check for a 403 (Forbidden) error. If the SAS is invalid, 
+        // Check for a 403 (Forbidden) error. If the SAS is invalid,
         // Azure Storage returns this error.
         if (e.Status == 403)
         {
@@ -240,5 +233,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## See also
 
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

@@ -1,5 +1,6 @@
 ---
-title: Use revisions to make non-breaking changes safely in Azure API Management | Microsoft Docs
+title: Use revisions to make non-breaking changes safely in API Management
+titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
 documentationcenter: ''

@@ -1,14 +1,12 @@
 ---
 title: "Using CI/CD with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"
 ms.topic: "conceptual"
 manager: gwallace
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn how to set up continuous integration/continuous deployment using Azure DevOps with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
 
@@ -129,7 +127,7 @@ An automated release process will now begin, deploying the *mywebapi* and *webfr
 The release is done when all tasks are complete.
 
 > [!TIP]
-> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](../../aks/kubernetes-dashboard.md). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](../../aks/cluster-container-registry-integration.md) prerequisite.
+> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](../../aks/kubernetes-dashboard.md). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https:\//azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](../../aks/cluster-container-registry-integration.md) prerequisite.
 
 You now have a fully automated CI/CD pipeline for your GitHub fork of the Dev Spaces sample apps. Each time you commit and push code, the build pipeline will build and push the *mywebapi* and *webfrontend* images to your custom ACR instance. Then the release pipeline will deploy the Helm chart for each app into the _dev_ space on your Dev Spaces-enabled cluster.
 

@@ -42,6 +42,9 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
 1. Select a location for your storage account, or use the default location.
 1. For **Performance** select **Premium**.
+
+    You must select **Premium** for **FileStorage** to be an available option in the **Account kind** dropdown.
+
 1. Select **Account kind** and choose **FileStorage**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 
@@ -71,9 +74,9 @@ If you would like to clean up the resources created in this article, you can sim
 
 ### Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
-Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
+Then, upgrade your PowerShell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
 ### Upgrade your PowerShell module
 
@@ -109,7 +112,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### Create a FileStorage storage account
 
-To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
+To create a FileStorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -142,7 +145,7 @@ To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.c
 
 If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
 
-```cli
+```azurecli
 az login
 ```
 
@@ -173,7 +176,7 @@ az storage account create `
 
 Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. The keys are automatically created when you create a storage account. You can get the storage account keys for your storage account by using the [az storage account keys list](/cli/azure/storage/account/keys) command:
 
-```azurecli-interactive 
+```azurecli-interactive
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -207,4 +210,4 @@ az group delete --name myResourceGroup
 In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
-> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)
+> [File share tiers](storage-files-planning.md#storage-tiers)

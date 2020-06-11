@@ -1,5 +1,5 @@
 ---
-title: 'Understand data retention in your Azure Time Series Insights environment | Microsoft Docs'
+title: 'Understand data retention in your environment - Azure Time Series Insight | Microsoft Docs'
 description: This article describes two settings that control data retention in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
@@ -9,13 +9,13 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/14/2020
 ms.custom: seodec18
 ---
 
 # Understand data retention in Azure Time Series Insights
 
-This article describes two settings that impact data retention in your Azure Time Series Insights environment.
+This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
 ## Video
 
@@ -39,8 +39,8 @@ Both data retention policies are described in greater detail below.
 ## Purge old data
 
 - **Purge old data** is the default setting for Azure Time Series Insights environments.  
-- **Purge old data** is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
-- The **Purge old data** setting *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
+- **Purge old data** is preferred when users want to always have their *most recent data* in their Time Series Insights environment.
+- The **Purge old data** setting *purges* data once the environment's limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (the "First In First Out" approach).
 
 ### Example one
@@ -55,16 +55,16 @@ On the 61st day, the environment shows the freshest data, but purges the oldest 
 
 Consider an environment also configured retention behavior **Continue ingress and purge old data**. In this example, **Data retention time** is set to a lower value of 180 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity. In order to store data for the full 180 days, the daily ingress cannot exceed 0.166 GB (166 MB) per day.  
 
-Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment’s ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
+Whenever this environment's daily ingress rate exceeds of 0.166 GB per day, data cannot be stored for 180 days, since some data gets purged. Consider this same environment during a busy time frame. Assume the environment's ingress rate may increase to an average 0.189 GB per day. In that busy time frame, about 158 days of data are retained (30GB/0.189 = 158.73 days of retention). This time is less than the desired data retention time frame.
 
 ## Pause ingress
 
 - The **Pause ingress** setting is designed to ensure data is not purged if the size and count limits are reached prior to their retention period.  
 - **Pause ingress** provides additional time for the users to increase the capacity of their environment before data is purged due to breaching of retention period.
 - It helps protect you from data loss but can create an opportunity for the loss of your most recent data if ingress is paused beyond the retention period of your event source.
-- However, once an environment’s maximum capacity is reached, the environment pauses data ingress until the following additional actions occur:
+- However, once an environment's maximum capacity is reached, the environment pauses data ingress until the following additional actions occur:
 
-   - You increase the environment’s maximum capacity to add more scale units as described in [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+   - You increase the environment's maximum capacity to add more scale units as described in [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
    - The data retention period is reached and data is purged, bringing the environment below its maximum capacity.
 
 ### Example three
@@ -83,7 +83,7 @@ When ingress resumes:
 
 In the impacted Event Hubs, consider adjusting the **Message Retention** property to minimize data loss when pause ingress occurs in Time Series Insights.
 
-[![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![Event hub message retention.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 If no properties are configured on event source (`timeStampPropertyName`), Time Series Insights defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 

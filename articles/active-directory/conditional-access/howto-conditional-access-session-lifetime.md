@@ -1,17 +1,17 @@
 ---
-title: Configure authentication session management with Azure Active Directory Conditional Access
+title: Configure authentication session management - Azure Active Directory
 description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 06/04/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: jlu, calebb
 
 ms.collection: M365-identity-device-management
 ---
@@ -34,15 +34,48 @@ Sign-in frequency defines the time period before a user is asked to sign in agai
 
 The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
-It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
+It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
-Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile comply with the setting.
+Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following web applications comply with the setting.
+
+- Word, Excel, PowerPoint Online
+- OneNote Online
+- Office.com
+- O365 Admin portal
+- Exchange Online
+- SharePoint and OneDrive
+- Teams web client
+- Dynamics CRM Online
+- Azure portal
+
+### User sign-in frequency and multi-factor authentication
+
+Sign-in frequency previously applied to only to the first factor authentication on devices that were Azure AD joined, Hybrid Azure AD joined and Azure AD registered. There was no easy way for our customers to re-enforce multi factor authentication (MFA) on those devices. Based on customer feedback, sign-in frequency will apply for MFA as well.
+
+[![Sign in frequency and MFA](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
+
+### User sign-in frequency and device identities
+
+If you have Azure AD joined, hybrid Azure AD joined, or Azure AD registered devices, when a user unlocks their device or signs in interactively, this event will satisfy the sign in frequency policy as well. In the following 2 examples user sign-in frequency is set to 1 hour:
+
+Example 1:
+
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- The user continues working on the same document on their device for an hour.
+- At 01:00, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator.
+
+Example 2:
+
+- At 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.
+- At 00:30, the user gets up and takes a break locking their device.
+- At 00:45, the user returns from their break and unlocks the device.
+- At 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45.
 
 ## Persistence of browsing sessions
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
 ), we will comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the company branding pane in Azure portal using the guidance in the article [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md).
 
 ## Configuring authentication session controls

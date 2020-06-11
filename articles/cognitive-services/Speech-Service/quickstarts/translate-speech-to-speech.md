@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Translate speech-to-speech - Speech Service'
+title: 'Quickstart: Translate speech-to-speech - Speech service'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Speech SDK to interactively translate speech from one language to text in another language.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.date: 02/10/2020
+ms.author: trbye
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Quickstart: Translate speech-to-speech
@@ -37,6 +37,12 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/translate-sts/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/translate-sts/javascript/header.md)]
+[!INCLUDE [javascript](../includes/quickstarts/translate-sts/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

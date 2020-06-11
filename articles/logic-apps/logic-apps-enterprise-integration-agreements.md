@@ -1,12 +1,11 @@
 ---
-title: Trading partner agreements - Azure Logic Apps
+title: Trading partner agreements
 description: Create and manage agreements between trading partners by using Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ---
@@ -91,6 +90,14 @@ about your agreement, for example:
    | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives all incoming messages from the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **Send Settings** | Varies | Varies | These properties specify how the host partner sends all outgoing messages to the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > The resolution for an agreement depends on matching these items that are defined in the partner and incoming message:
+   >
+   > * The sender's qualifier and identifier
+   > * The receiver's qualifier and identifier
+   >
+   > If these values change for your partner, make sure that you update the agreement too.
 
 1. When you're done creating your agreement, on the **Add** page, 
 choose **OK**, and return to your integration account.

@@ -1,11 +1,7 @@
 ---
 title: Developer's Guide to Durable Entities in .NET - Azure Functions
 description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
-services: functions
 author: sebastianburckhardt
-manager: gwallace
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
@@ -113,7 +109,7 @@ For example, we can modify the counter entity so it starts an orchestration when
 
 ## Accessing entities directly
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Accessing entities](durable-functions-entities.md#accessing-entities). 
+Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
@@ -363,7 +359,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -371,7 +367,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
 
-The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
+The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob-input.md) can be made available to a class-based entity.
 
 ```csharp
 public class BlobBackedEntity

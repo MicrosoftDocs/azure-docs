@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a custom role for Azure resources using Azure CLI | Microsoft Docs
-description: Get started creating a custom role for Azure resources using Azure CLI.
+title: "Tutorial: Create an Azure custom role with Azure CLI - Azure RBAC"
+description: Get started creating an Azure custom role using Azure CLI and Azure role-based access control (Azure RBAC) in this tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -18,9 +18,9 @@ ms.author: rolyon
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant custom permissions because the current built-in roles do not meet my permission needs.
 
 ---
-# Tutorial: Create a custom role for Azure resources using Azure CLI
+# Tutorial: Create an Azure custom role using Azure CLI
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. For this tutorial, you create a custom role named Reader Support Tickets using Azure CLI. The custom role allows the user to view everything in the management plane of a subscription and also open support tickets.
 
 In this tutorial, you learn how to:
 
@@ -59,7 +59,7 @@ The easiest way to create a custom role is to start with a JSON template, add yo
 
 1. Open ReaderSupportRole.json in an editor and add the following JSON.
 
-    For information about the different properties, see [Custom roles for Azure resources](custom-roles.md).
+    For information about the different properties, see [Azure custom roles](custom-roles.md).
 
     ```json
     {
@@ -267,4 +267,4 @@ To update the custom role, update the JSON file and then update the custom role.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom roles for Azure resources using Azure CLI](custom-roles-cli.md)
+> [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md)

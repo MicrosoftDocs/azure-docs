@@ -3,7 +3,7 @@ title: Onboard your Azure Stack virtual machines to Azure Sentinel | Microsoft D
 description: This article shows you how to provision the Azure Monitor, Update, and Configuration Management virtual machine extension on Azure Stack virtual machines and start monitoring them with Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Azure subscription to Security Center Standard | Microsoft Docs
+title: Upgrade to Standard tier - Azure Security Center
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: memildin
 # Quickstart: Onboard your Azure subscription to Security Center Standard
 Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-In this article, you upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
+In this article, you upgrade to the Standard tier for added security and install the Log Analytics agent on your virtual machines to monitor for security vulnerabilities and threats.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -42,7 +42,7 @@ Within minutes of launching Security Center the first time, you may see:
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
 - An inventory of **Compute & apps**, **Networking**, **Data security**, and **Identity & access** resources that are now being assessed by Security Center along with the security posture of each.
 
-To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
+To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Log Analytics agent.
 
 ## Upgrade to the Standard tier
 For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
@@ -61,11 +61,11 @@ For the purpose of the Security Center quickstarts and tutorials you must upgrad
   ![Security alerts][9]
 
 ## Automate data collection
-Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
+Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
 
-When automatic provisioning is enabled, Security Center installs the Microsoft Monitoring Agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
+When automatic provisioning is enabled, Security Center installs the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is strongly recommended.
 
-To enable automatic provisioning of the Microsoft Monitoring Agent:
+To enable automatic provisioning of the Log Analytics agent:
 
 1. Under the Security Center main menu, select **Pricing & settings**.
 2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
@@ -94,11 +94,11 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps
-In this quickstart you upgraded to Standard tier and provisioned the Microsoft Monitoring Agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
+In this quickstart you upgraded to Standard tier and provisioned the Log Analytics agent for unified security management and threat protection across your hybrid cloud workloads. To learn more about how to use Security Center, continue to the quickstart for onboarding Windows computers that are on-premises and in other clouds.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Onboard Windows computers to Azure Security Center](quick-onboard-windows-computer.md)

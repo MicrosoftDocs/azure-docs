@@ -1,52 +1,57 @@
 ---
-title: Create a knowledge store using REST
+title: Create a knowledge store (preview) using REST
 titleSuffix: Azure Cognitive Search
-description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting enrichments from an AI enrichment pipeline.
+description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting enrichments from an AI enrichment pipeline. This feature is currently in public preview.
 
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ---
-# Create an Azure Cognitive Search knowledge store by using REST
+# Create a knowledge store using REST and Postman
 
-The knowledge store feature in Azure Cognitive Search persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Cognitive Search, applies AI enrichments from Azure Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
+> [!IMPORTANT] 
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+
+A knowledge store contains output from an Azure Cognitive Search enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Cognitive Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
 
 In this article, you use the REST API interface to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blob storage. The results are saved as a knowledge store in Azure Table storage.
 
 After you create the knowledge store, you can learn about how to access the knowledge store by using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
 
-## Create services
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Create the following services:
+> [!TIP]
+> We recommend [Postman desktop app](https://www.getpostman.com/) for this article. The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) for this article includes a Postman collection containing all of the requests. 
 
-- Create an [Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your current subscription. You can use a free service for this tutorial.
+## Create services and load data
 
-- Create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to store the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Cognitive Search service. The value for **Account kind** must be **StorageV2 (general purpose V2)** (default) or **Storage (general purpose V1)**.
+This quickstart uses Azure Cognitive Search, Azure Blob storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
 
-- Recommended: Get the [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Cognitive Search. You can use the REST API with any tool that's capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs. We use Postman in this article. Also, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) for this article includes a Postman collection of requests. 
+Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. Because the data set is so small, you can skip creating or attaching a Cognitive Services resource.
 
-## Store the data
+1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
-Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Cognitive Search indexer and fed through the AI enrichment pipeline.
+1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. You'll use Azure storage for both the raw content to be imported, and the knowledge store that is the end result.
 
-### Create a blob container by using the data
+   Choose the **StorageV2 (general purpose V2)** account type.
 
-1. Download the [hotel review data](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) saved in a CSV file (HotelReviews_Free.csv). This data originates from Kaggle.com and contains customer feedback about hotels.
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your Azure storage account.
-1. Create a [blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). To create the container, in the left menu for your storage account, select **Blobs**, and then select **Container**.
-1. For the new container **Name**, enter **hotel-reviews**.
-1. For **Public Access Level**, select any value. We used the default.
-1. Select **OK** to create the blob container.
-1. Open the new **hotels-review** container, select **Upload**, and then select the HotelReviews-Free.csv file you downloaded in the first step.
+1. Open the Blob services pages and create a container named *hotel-reviews*.
+
+1. Click **Upload**.
 
     ![Upload the data](media/knowledge-store-create-portal/upload-command-bar.png "Upload the hotel reviews")
 
-1. Select **Upload** to import the CSV file into Azure Blob storage. The new container is shown:
+1. Select the **HotelReviews-Free.csv** file you downloaded in the first step.
 
-    ![Create the blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the blob container")
+    ![Create the Azure Blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
+
+1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. Still in the portal, switch to Azure Cognitive Search. [Create a new service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this exercise.
 
 ## Configure Postman
 
@@ -64,7 +69,7 @@ Install and set up Postman.
 
 On the **Variables** tab, you can add values that Postman swaps in every time it encounters a specific variable inside double braces. For example, Postman replaces the symbol `{{admin-key}}` with the current value that you set for `admin-key`. Postman makes the substitution in URLs, headers, the request body, and so on. 
 
-To get the value for `admin-key`, go to the Azure Cognitive Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
+To get the value for `admin-key`, go to the Azure Cognitive Search service and select the **Keys** tab. Change `search-service-name` and `storage-account-name` to the values you chose in [Create services](#create-services-and-load-data). Set `storage-connection-string` by using the value on the storage account's **Access Keys** tab. You can leave the defaults for the other values.
 
 ![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
 
@@ -145,7 +150,7 @@ Select **Send** to issue the PUT request. You should see the status `201 - Creat
 
 ## Create the datasource
 
-Next, connect Azure Cognitive Search to the hotel data you stored in [Store the data](#store-the-data). To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
+Next, connect Azure Cognitive Search to the hotel data you stored in Blob storage. To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
 
 In Postman, go to the **Create Datasource** request, and then to the **Body** pane. You should see the following code:
 

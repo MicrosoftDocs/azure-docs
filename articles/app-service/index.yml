@@ -1,160 +1,154 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: App Service Documentation
+### YamlMime:Landing
+
+title: App Service documentation
+summary: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
+
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: Azure App Service Documentation - Tutorials, API Reference
-  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
-  services: app-service
-  author: georgewallace
-  manager: gwallace
-  ms.service: app-service
+  title: Azure App Service documentation
+  description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: gwallace
-abstract:
-  description: Azure App Service enables you to build and host web apps, mobile back ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo. Learn how to use Azure App Service with our quickstarts, tutorials, and samples.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
-      width: 250  
-    title: Create an app with Node.js and Azure App Service. (2:41)
-    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
-    width: 250
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to deploy your first application to the cloud using App Service:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
-      text: Node.js
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
-      text: PHP
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
-      text: Java
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-java
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
-      text: Python (on Linux)
-      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
-    - image: 
-        src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
-      text: HTML
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: Custom Windows container (Preview)
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container
-  - type: paragraph
-    text: 'Learn how to deploy your code:'
-  - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/zip.svg
-      text: ZIP/WAR
-      href: deploy-zip.md
-    - image:
-        src: media/index/ftp.svg
-      text: FTP
-      href: deploy-ftp.md
-    - image:
-        src: media/index/git-icon.svg
-      text: Local Git
-      href: deploy-local-git.md
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
-      text: Azure DevOps
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-    - image:
-        src: media/index/github-octicons.svg
-      text: GitHub
-      href: deploy-continuous-deployment.md
-    - image:
-        src: media/index/bitbucket.svg
-      text: Bitbucket
-      href: deploy-continuous-deployment.md
-    - image:
-        src: media/index/dropbox.svg
-      text: DropBox sync
-      href: deploy-content-sync.md
-    - image:
-        src: media/index/onedrive.svg
-      text: OneDrive sync
-      href: deploy-content-sync.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy, manage, and monitor secure web applications on Azure
-  - type: list
-    style: ordered
-    items:
-    - html: Create an application using <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET with Azure SQL DB</a> or <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js with MongoDB</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Map an existing custom domain to your application </a>
-    - html: <a href="/azure/app-service/configure-ssl-certificate">Secure a custom DNS name with an SSL binding in Azure App Service</a>
-    - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Add a CDN to your application</a>
-- title: Build your skills with Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Host a web application with Azure App service
-      href: /learn/modules/host-a-web-app-with-azure-app-service/
-      image: 
-        src: /learn/achievements/host-a-web-app-with-azure-app-service.svg
-        href: /learn/modules/host-a-web-app-with-azure-app-service/
-  - type: paragraph
-    text: <a href="/learn/browse/">More interactive learning...</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Developing with .NET
-      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Developing with Node.js
-      href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find scripts to manage common tasks.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-    - html: <a href="/cli/azure/appservice">Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/appservice">REST API Reference</a></p>
+  ms.service: app-service
+  ms.date: 02/26/2020
+
+landingContent:
+  - title: About App Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is App Service?
+            url: overview.md
+          - text: App Service on Linux
+            url: /azure/app-service/containers/
+          - text: App Service Environments
+            url: environment/intro.md
+          - text: Compare hosting options
+            url: /azure/architecture/guide/technology-choices/compute-decision-tree
+      - linkListType: whats-new
+        links:
+          - text: Service updates
+            url: https://azure.microsoft.com/updates/?product=app-service
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: First ASP.NET Core app
+            url: app-service-web-get-started-dotnet.md
+          - text: First ASP.NET app
+            url: app-service-web-get-started-dotnet-framework.md
+          - text: First Node.js app
+            url: app-service-web-get-started-nodejs.md
+          - text: First PHP app
+            url: app-service-web-get-started-php.md
+          - text: First Java app
+            url: app-service-web-get-started-java.md
+  - title: Common tasks
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Map a custom domain to your app
+            url: app-service-web-tutorial-custom-domain.md
+          - text: Secure a custom domain with an SSL binding
+            url: configure-ssl-bindings.md
+          - text: Run app in staged environments
+            url: deploy-staging-slots.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: troubleshoot-diagnostic-logs.md
+          - text: Migrate an active domain to App Service
+            url: manage-custom-dns-migrate-domain.md
+  - title: CRUD app with database
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET app with SQL Database
+            url: app-service-web-tutorial-dotnet-sqldatabase.md
+          - text: ASP.NET Core app with SQL Database
+            url: app-service-web-tutorial-dotnetcore-sqldb.md
+          - text: PHP (Laravel) app with Azure MySQL
+            url: app-service-web-tutorial-php-mysql.md
+          - text: Node.js (MEAN.js) app with MongoDB
+            url: app-service-web-tutorial-nodejs-mongodb-app.md
+  - title: Upload your code or content
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+          - text: Upload content as zip packages
+            url: deploy-zip.md
+          - text: Git push from local machine
+            url: deploy-local-git.md
+          - text: Sync content with OneDrive or Dropbox
+            url: deploy-content-sync.md
+          - text: CI/CD with GitHub, BitBucket, etc.
+            url: deploy-continuous-deployment.md
+
+  - title: Run containerized Windows apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Run a custom Windows container
+            url: app-service-web-get-started-windows-container.md
+      - linkListType: tutorial
+        links:
+          - text: Migrate a legacy app to Azure in a Windows container
+            url: app-service-web-tutorial-windows-containers-custom-fonts.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect a container to Storage Files
+            url: configure-connect-to-azure-storage.md
+
+  - title: Manage and integrate
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Manage App Service plans
+            url: overview-hosting-plans.md
+      - linkListType: tutorial
+        links:
+          - text: Secure resource access with managed identities
+            url: app-service-web-tutorial-connect-msi.md
+          - text: Authenticate users
+            url: app-service-web-tutorial-auth-aad.md
+          - text: Host RESTful API with CORS
+            url: app-service-web-tutorial-rest-api.md
+          - text: Add a CDN to your application
+            url: ../cdn/cdn-add-to-web-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate with a Virtual Network
+            url: web-sites-integrate-with-vnet.md
+          - text: Create hybrid connections to on-prem
+            url: app-service-hybrid-connections.md
+          - text: Load balance with Traffic Manager
+            url: configure-domain-traffic-manager.md
+          - text: Back up your app to Storage Blobs
+            url: manage-backup.md
+
+
+
+  - title: More resources
+    linkLists:
+      - linkListType: video
+        links:
+          - text: App Service video library
+            url: https://azure.microsoft.com/resources/videos/index/?services=app-service
+          - text: Pluralsight video training
+            url: https://www.pluralsight.com/search?q=azure%20app%20service
+      - linkListType: sample
+        links:
+          - text: Azure CLI samples
+            url: samples-cli.md
+          - text: Azure PowerShell samples
+            url: samples-powershell.md
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/appservice
+          - text: Azure PowerShell
+            url: /powershell/module/az.websites/#app_service
+          - text: REST API
+            url: /rest/api/appservice/
+          - text: Resource Manager
+            url: /azure/templates/microsoft.web/allversions

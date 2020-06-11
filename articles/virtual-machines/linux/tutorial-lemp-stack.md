@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure | Microsoft Docs
+title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure 
 description: In this tutorial, you learn how to install the LEMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -168,10 +168,10 @@ In this tutorial, you deployed a LEMP server in Azure. You learned how to:
 > * Verify installation and configuration
 > * Install WordPress on the LEMP stack
 
-Advance to the next tutorial to learn how to secure web servers with SSL certificates.
+Advance to the next tutorial to learn how to secure web servers with TLS/SSL certificates.
 
 > [!div class="nextstepaction"]
-> [Secure web server with SSL](tutorial-secure-web-server.md)
+> [Secure web server with TLS](tutorial-secure-web-server.md)
 
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and C#"
+title: "Quickstart: Search for videos using the REST API and C# - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using C#.
 services: cognitive-services
@@ -9,26 +9,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/19/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple C# application sends an HTTP video search query to the API, and displays the response. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Video Search API. This simple C# application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) with additional error handling, features, and code annotations.
 
 ## Prerequisites
 * Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* If you're using Linux/MacOS, you can run this application by using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. Create a new console solution in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new console solution in Visual Studio. Then, add the following namespaces to the main code file:
 
     ```csharp
     using System;
@@ -38,7 +38,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and search term.
+2. Add variables for your subscription key, endpoint, and search term. For the `uriBase` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -46,33 +46,34 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     const string searchTerm = "kittens";
     ```
 
-### Create a struct to format the Bing Video Search API response
+## Create a struct to format the Bing Video Search API response
 
-1. Define a `SearchResult` struct to contain the image search results, and JSON header information.
+Define a `SearchResult` struct to contain the image search results, and JSON header information.
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+```csharp
+struct SearchResult
+    {
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
+    }
+```
 
 ## Create and handle a video search request
 
-Create a method named `BingVideoSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created earlier. In the method, perform the following steps:
+1. Create a method named `BingVideoSearch` to perform the call to the API, and set the return type to the `SearchResult` struct created previously. 
 
-1. Construct the URI for the search request. Note that the search term toSearch must be formatted before being appended to the string.
+   Add code to this method in the steps that follow.
 
-    ```csharp
-    
+1. Construct the URI for the search request. Format the search term `toSearch` before you append it to the string.
+
+    ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
     //...
     ```
 
-2. Perform the web request by adding your key to the `Ocp-Acpim-Subscription-Key` header, and using a `HttpWebResponse` object to store the API response. Then use a `StreamReader` to get the JSON string.
+2. Perform the web request by adding your key to the `Ocp-Acpim-Subscription-Key` header, and using a `HttpWebResponse` object to store the API response. Then, use a `StreamReader` to get the JSON string.
 
     ```csharp
     //...
@@ -85,7 +86,7 @@ Create a method named `BingVideoSearch` to perform the call to the API, and set 
 
 ## Process the result
 
-1. Create the search result object, and extract the Bing HTTP headers. Then return the `searchResult` object. 
+1. Create the search result object, and extract the Bing HTTP headers. Then, return the `searchResult` object. 
 
     ```csharp
     var searchResult = new SearchResult();
@@ -101,7 +102,7 @@ Create a method named `BingVideoSearch` to perform the call to the API, and set 
     return searchResult;
     ```
 
-2. You can then print the response.
+2. Print the response.
 
     ```csharp
     Console.WriteLine(result.jsonResult);

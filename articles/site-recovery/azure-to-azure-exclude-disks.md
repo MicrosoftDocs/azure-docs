@@ -1,13 +1,12 @@
 ---
-title: Azure Site Recovery - exclude disks during replication of Azure virtual machines by using Azure PowerShell  | Microsoft Docs
+title: Exclude Azure VM disks from replication with Azure Site Recovery and Azure PowerShell
 description: Learn how to exclude disks of Azure virtual machines during Azure Site Recovery by using Azure PowerShell.
-author: asgang
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/18/2019
-ms.author: asgang
 ---
+
 # Exclude disks from PowerShell replication of Azure VMs
 
 This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or the target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
@@ -92,7 +91,7 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication. 
+# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication.
 
 # Data disk 2
 $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id

@@ -1,28 +1,31 @@
 ---
-title: SaaS offer creation checklist - Commercial Marketplace for Azure
-description: The details you can provide in the SaaS offer creation process. - Commercial Marketplace for Azure
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe 
+title: SaaS offer creation checklist in Microsoft commercial marketplace
+description: The details you can provide in the SaaS offer creation process in Partner Center. 
+author: dsindona 
+ms.author: dsindona 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 05/08/2020
 ---
 
-# SaaS offer creation checklist
+# SaaS offer creation checklist in Partner Center
 
-The SaaS offer creation process will take you through multiple pages. Here are the details you can provide on each page, with links to learn more about each item.
+The SaaS offer creation process will take you through multiple pages.  Here are the details you can provide on each page, with links to learn more about each item.
 
-Items you are required to provide or specify are noted below. Some areas are optional or have default values provided, that you can change as desired. You don't have to work on these sections in the order listed here.
+Items you are required to provide or specify are noted below.  Some areas are optional or have default values provided, that you can change as desired.  You don't have to work on these sections in the order listed here.
+
+>[!Note]
+>If you are creating transactable SaaS offer please make sure you implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-apis.md).  Integration with the APIs is the only way for the transactability in Marketplace to work properly.
 
 | **Item**    | **Purpose**  |
 | :---------- | :-------------------|
 | [**New Offer Modal**](#new-offer-modal) | Collects offer identity information.  |
 | [Offer Setup Page](#offer-setup-page) | Allows you to opt in to use key features and choose how to sell your offer through Microsoft.  |
 | [Properties Page](#properties-page) | Define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. |
-| [Offer Listing Page](#offer-listing-page) | Define the offer details to be displayed in the marketplace, including descriptions of your offer and marketing assets. |
-| [Preview Page](#preview-page) | Define a limited Preview Audience for releasing your offer prior to publishing your offer live to the broader marketplace audience(s). |
-| [Offer Technical Configuration Page](#technical-configuration-page)  | Only available if you select to sell the offer through Microsoft. Define the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. |
+| [Offer Listing Page](#offer-listing-page) | Define the offer details to be displayed in the marketplace, including descriptions of your offer and marketing assets.|
+| [Preview Page](#preview-page) | Define a limited Preview Audience for releasing your offer prior to publishing your offer live to the broader marketplace audience(s).|
+| [Offer Technical Configuration Page](#technical-configuration-page)  |  Only available if you select to sell the offer through Microsoft.  Define the technical details (Landing page URL, Connection webhook URL, Azure AD tenant ID, and Azure AD app ID) used by marketplace to connect to your offer.  These parameters are required to integrate correctly with SaaS fulfillment and the Marketplace metered billing APIs.|
 | [**New Plan Modal**](#plan-identity-modal) | Collects plan identity information.  |
 | [Plan Listing Page](#plan-listing-page)  | Only available if you select to sell the offer through Microsoft. Define the details used to list the Plan in the marketplace.  |
 | [Plan Pricing & Availability Page](#plan-pricing--availability-page)  | Only available if you select to sell the offer through Microsoft.  Collects the business characteristics (pricing model), audience and market availability for each plan (version) of your offer.  |
@@ -37,7 +40,7 @@ The first pieces of information you will be asked to provide are an ID and alias
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
-| Offer ID  | Required, can’t be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
+| Offer ID  | Required, can't be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
 | Offer alias  | Required. |
 
 ## Offer setup page
@@ -47,17 +50,17 @@ The offer setup page is where you can opt into different channels and selling mo
 | **Field name**    | **Notes**   | 
 | :---------------- | :-----------|  
 | Would you like to sell through Microsoft?  | Required. Default: Yes |
-| How do you want potential customers to interact with the offer listing? (Call to action)  | Required if not selling through Microsoft. Default: Free Trial, Options: “Get it now”, “Free Trial”, “Contact me.” |
-| Trial URL  | Required if “Free Trial” is selected, as the way customers should interact with the offer listing. |
-| Offer URL  | Required if “Get it Now” is selected, as the way customers should interact with the offer listing |
+| How do you want potential customers to interact with the offer listing? (Call to action)  | Required if not selling through Microsoft. Default: Free Trial, Options: "Get it now", "Free Trial", "Contact me." |
+| Trial URL  | Required if "Free Trial" is selected, as the way customers should interact with the offer listing. |
+| Offer URL  | Required if "Get it Now" is selected, as the way customers should interact with the offer listing |
 | Channels  | Optional. Default: Not opted into the CSP (reseller) channel.  |
 | Test Drive | Optional. Default: No test drive enabled.  |
 | Type of Test Drive | Required if enabled a test drive. Default: None selected. Options: Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic app, Power BI.  |
-| Lead Management – connect to a CRM system | Required if selling through Microsoft, or if listing offers as “Contact me.” Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
+| Customer leads - connect to a CRM system | Required if selling through Microsoft, or if listing offers as "Contact me." Default: no CRM system connected. CRM options: Azure table, Azure blob, Dynamics CRM online, HTTPs' endpoint, Marketo, Salesforce  |
 
 ## Properties page
 
-The properties page is where you define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. Be sure to provide complete and accurate details about your offer on this page, so that it’s displayed appropriately and offered to the right set of customers. 
+The properties page is where you define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers. 
 
 | **Field name**    | **Notes**   | 
 | :---------------- | :-----------|  
@@ -69,7 +72,7 @@ The properties page is where you define the categories and industries used to gr
 
 ## Offer listing page
 
-The listing page is where you provide the text and images that customers see when viewing your offer’s listing in the marketplace. 
+The listing page is where you provide the text and images that customers see when viewing your offer's listing in the marketplace. 
 
 | **Field name**    | **Notes**   |
 | :---------------- | :-----------| 
@@ -114,7 +117,7 @@ The first pieces of information you are asked to provide are a name and an ID fo
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
-| Plan ID  | Required if selling through Microsoft. It can’t be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
+| Plan ID  | Required if selling through Microsoft. It can't be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
 | Plan Name  | Required if selling through Microsoft. Must be unique across all the plans in the offer. Max 50 characters. |
 
 ## Plan listing page

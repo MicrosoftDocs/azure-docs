@@ -1,17 +1,9 @@
 ---
-title: Create a Windows VM from a specialized VHD in the Azure portal| Microsoft Docs
+title: Create a Windows VM from a specialized VHD in the Azure portal
 description: Create a new Windows VM from a VHD in the Azure portal.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn

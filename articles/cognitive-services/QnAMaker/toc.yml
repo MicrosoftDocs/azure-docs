@@ -5,19 +5,110 @@
   - name: What is QnA Maker?
     href: Overview/overview.md
   - name: What's new
-    href: whats-new.md   
+    href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Create a new knowledge base
-    href: quickstarts/create-publish-knowledge-base.md
-  - name: Add questions with metadata
-    href: quickstarts/add-question-metadata-portal.md
-  - name: Get answer
+  - name: With QnA Maker portal
     items:
-    - name: Using Postman
-      href: Quickstarts/get-answer-from-kb-using-postman.md
-    - name: Using cURL
-      href: Quickstarts/get-answer-from-kb-using-cURL.md  
+    - name: 1. Create knowledge base
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: 2. Add questions with metadata
+      href: Quickstarts/add-question-metadata-portal.md
+    - name: 3. Get answer with Postman or cURL
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+  - name: Using REST
+    href: Quickstarts/quickstart-rest-curl.md
+  - name: Using SDK
+    href: Quickstarts/quickstart-sdk.md
+- name: Tutorials
+  items:
+  - name: Integrate with Power Virtual Agent
+    href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+  - name: Test with batch file
+    href: Quickstarts/batch-testing.md
+- name: Concepts
+  items:
+  - name: Azure resources
+    href: Concepts/azure-resources.md
+  - name: Collaborate with others
+    href: Concepts/role-based-access-control.md
+  - name: Design a knowledge base
+    items:
+    - name: For languages
+      href: Concepts/design-language-culture.md
+    - name: For client applications
+      href: Concepts/integration-with-other-applications.md
+  - name: Data sources and content
+    items:
+    - name: Importing from data sources
+      href: Concepts/knowledge-base.md
+    - name: Content types imported
+      href: Concepts/content-types.md
+    - name: Question and answer pairs
+      href: Concepts/question-answer-set.md
+  - name: Knowledge base lifecycle
+    items:
+    - name: Development lifecycle
+      href: Concepts/development-lifecycle-knowledge-base.md
+      displayName: version control, test, index, publish, monitor usage, create
+    - name: Improve with active learning suggestions
+      href: Concepts/active-learning-suggestions.md
+  - name: Query knowledge base
+    items:
+    - name: Get answer
+      displayName: DefaultAnswer, Default answer
+      href: Concepts/query-knowledge-base.md
+    - name: Confidence score
+      href: Concepts/confidence-score.md
+  - name: Best practices
+    href: Concepts/best-practices.md
+    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
+  - name: Using QnA Maker and LUIS
+    href: choose-natural-language-processing-service.md
+- name: How-to guides
+  items:
+  - name: Manage Azure resources
+    items:
+    - name: Manage resources
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: azure, resource, key, upgrade, pricing, tier,
+    - name: Collaborate
+      href: How-To/collaborate-knowledge-base.md
+    - name: Turn on active learning
+      href: How-To/use-active-learning.md
+    - name: Change default answer
+      href: How-To/change-default-answer.md
+  - name: Manage knowledge base
+    items:
+    - name: Create knowledge base
+      href: How-To/manage-knowledge-bases.md
+    - name: Language selection
+      href: How-To/language-knowledge-base.md
+    - name: Add chit-chat
+      href: How-to/chit-chat-knowledge-base.md
+    - name: Migrate to new knowledge base
+      href: Tutorials/migrate-knowledge-base.md
+      displayName: metadata, pair
+    - name: Test
+      href: How-To/test-knowledge-base.md
+  - name: Manage QnA pairs
+    items:
+    - name: Edit QnA pair
+      href: How-To/edit-knowledge-base.md
+    - name: Add follow-up prompts
+      href: How-To/multiturn-conversation.md
+      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
+    - name: Get suggested alternate questions
+      href: How-to/improve-knowledge-base.md
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
+    - name: Add secured SharePoint files
+      href: How-To/add-sharepoint-datasources.md
+      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
+  - name: Query knowledge base
+    href: How-To/metadata-generateanswer-usage.md
+    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+  - name: Analytics and telemetry
+    href: How-To/get-analytics-knowledge-base.md
   - name: Using REST APIs
     items:
     - name: Create a new knowledge base
@@ -28,8 +119,6 @@
         href: Quickstarts/create-new-kb-go.md
       - name: Java
         href: Quickstarts/create-new-kb-java.md
-      - name: Node.js
-        href: Quickstarts/create-knowledge-rest-api-nodejs.md
       - name: Python
         href: Quickstarts/create-new-kb-python.md
     - name: Publish a knowledge base
@@ -41,129 +130,55 @@
       - name: Java
         href: Quickstarts/publish-kb-java.md
       - name: Node.js
-        href: Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base
+        href: Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base
       - name: Python
         href: Quickstarts/publish-kb-python.md
     - name: Get answer
       items:
       - name: C#
-        href: Quickstarts/get-answer-from-knowledge-base-csharp.md   
+        href: Quickstarts/get-answer-from-knowledge-base-csharp.md
       - name: Go
-        href: Quickstarts/get-answer-from-knowledge-base-go.md 
+        href: Quickstarts/get-answer-from-knowledge-base-go.md
       - name: Java
-        href: Quickstarts/get-answer-from-knowledge-base-java.md 
+        href: Quickstarts/get-answer-from-knowledge-base-java.md
       - name: Node.js
-        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md 
+        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
       - name: Python
         href: Quickstarts/get-answer-from-knowledge-base-python.md
-    
-  - name: Using SDKs
-    items: 
-    - name: C#
-      href: ./Quickstarts/create-publish-kb-csharp-sdk.md
-    - name: Node.js
-      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
-    - name: Python
-      href: ./Quickstarts/python-sdk.md
-- name: Tutorials
-  items: 
-  - name: Create and answer from KB
-    displayName: curl, publish, chit-chat, chit chat
-    href: Tutorials/create-publish-query-in-portal.md
-  - name: Create and answer from KB using C#
-    href: Tutorials/create-publish-answer.md
-  - name: Create a QnA Maker bot
-    href: Tutorials/create-qna-bot.md
-- name: Concepts
-  items:
-  - name: Knowledge base
-    href: Concepts/knowledge-base.md
-    displayName: metadata, pair
-  - name: Using LUIS and QnA Maker
-    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-  - name: Development lifecycle of a knowledge base
-    href: Concepts/development-lifecycle-knowledge-base.md
-    displayName: version control, test, index, publish, monitor usage, create
-  - name: Best practices
-    href: Concepts/best-practices.md
-    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
-  - name: Confidence score
-    displayName: DefaultAnswer, Default answer  
-    href: Concepts/confidence-score.md
-  - name: Data sources supported
-    href: Concepts/data-sources-supported.md
-    displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
-- name: How-to guides
-  items:
-  - name: Edit knowledge base
-    items: 
-    - name: Edit a knowledge base
-      href: How-To/edit-knowledge-base.md    
-    - name: Create multi-turn conversations with follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
-    - name: Add chit-chat 
-      href: How-to/chit-chat-knowledge-base.md
-    - name: Add a secured SharePoint file
-      href: How-To/add-sharepoint-datasources.md
-      displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
-  - name: Manage knowledge base
-    items:
-    - name: Create and publish a knowledge base
-      href: Quickstarts/create-publish-knowledge-base.md
-      displayName: create bot, bot, publish to bot, test, edit
-    - name: Get answer using metadata
-      href: How-To/metadata-generateanswer-usage.md  
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
-    - name: Create bot with QnA Maker and LUIS
-      href: Tutorials/integrate-qnamaker-luis.md
-    - name: Language selection
-      href: How-To/language-knowledge-base.md
-    - name: Migrate a knowledge base
-      href: Tutorials/migrate-knowledge-base.md
-      displayName: metadata, pair
-    - name: Collaborate on a knowledge base
-      href: How-To/collaborate-knowledge-base.md      
-    - name: Test a knowledge base
-      href: How-To/test-knowledge-base.md
-    - name: Use active learning to improve knowledge base
-      href: How-to/improve-knowledge-base.md
-      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
-  - name: Manage service
-    items:
-    - name: Manage resources
-      href: How-To/set-up-qnamaker-service-azure.md  
-      displayName: azure, resource, key, upgrade, pricing, tier,    
-    - name: Get analytics 
-      href: How-To/get-analytics-knowledge-base.md
-    - name: Choose capacity 
-      href: Tutorials/choosing-capacity-qnamaker-deployment.md
-    - name: Create a business continuity plan
-      href: How-To/business-continuity-plan.md      
 - name: Reference
   items:
-  - name: Languages
-    href: Overview/language-support.md  
+  - name: Language support
+    href: Overview/language-support.md
   - name: Limits
-    href: limits.md    
+    href: limits.md
+  - name: Role-based access control (RBAC)
+    href: reference-role-based-access-control.md
   - name: Troubleshooting
     href: troubleshooting.md
-  - name: File formats
-    items: 
-    - name: Batch testing TSV
-      href: reference-tsv-format-batch-testing.md
+  - name: Service configuration
+    href: reference-app-service.md
+  - name: Content and data formats
+    items:
+    - name: Content format guidelines
+      href: reference-document-format-guidelines.md
+    - name: URLs
+      href: reference-document-type-url.md
+    - name: Import and export data guidelines
+      href: reference-data-guidelines.md
+  - name: Display format
+    href: reference-markdown-format.md
+  - name: Batch testing format
+    href: reference-tsv-format-batch-testing.md
   - name: REST API Reference
-    items: 
+    items:
     - name: Authoring APIs
       href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
     - name: GenerateAnswer API
       href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
     - name: Train API
       href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
-    href: https://go.microsoft.com/fwlink/?linkid=2092179 
-
   - name: Samples
-    items: 
+    items:
     - name: QnA Maker help bot
       href: https://aka.ms/qnamakerhelpbotsample
   - name: SDKs
@@ -187,21 +202,21 @@
     - name: Node.js
       items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest      
+        href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
       - name: NPM
         href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
       - name: Samples
-        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs 
+        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python
-      items: 
+      items:
       - name: Reference Documentation
-        href: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
+        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
       - name: Pip
         href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-python
     - name: Ruby
-      items: 
+      items:
       - name: Gem
         href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: Resources
@@ -209,7 +224,9 @@
   - name: Regional Availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: qna-maker-encryption-of-data-at-rest.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing and limits

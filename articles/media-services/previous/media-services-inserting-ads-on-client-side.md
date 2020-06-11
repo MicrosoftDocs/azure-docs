@@ -1,6 +1,6 @@
 ---
 title: Inserting ads on the client side | Microsoft Docs
-description: This topic shows how to insert ads on the client side.
+description: This article demonstrates how to insert ads into your media on the client side.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -582,7 +582,7 @@ This sample uses the VmapSchedulerPlugin to schedule ads using a VMAP file. The 
 ```
 
 ## Implementing an iOS Video Player with Ad Support
-The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). The GitHub page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+The Microsoft Media Platform: Player Framework for iOS contains a collection of sample applications that show you how to implement a video player application using the framework. You can download the Player Framework and the samples from [Azure Media Player Framework](https://github.com/CloudMetal/azure-media-player-framework). The GitHub page has a link to a Wiki that contains additional information on the player framework and an introduction to the player sample: [Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### Scheduling Ads with VMAP
 The following example shows how to schedule ads using a VMAP file.
@@ -844,7 +844,3 @@ The following sample shows how to schedule a mid-roll overlay ad.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## See Also
-[Develop video player applications](media-services-develop-video-players.md)
-

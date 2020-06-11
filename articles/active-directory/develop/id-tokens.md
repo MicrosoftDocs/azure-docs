@@ -1,28 +1,25 @@
 ---
-title: Microsoft identity platform ID token reference | Microsoft Docs
+title: Microsoft identity platform ID tokens | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
 services: active-directory
-documentationcenter: ''
-author: rwike77
+author: hpsin
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.author: ryanwi
+ms.date: 05/06/2020
+ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.collection: M365-identity-device-management
 ---
 
 # Microsoft identity platform ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v2-protocols-oidc.md) (OIDC) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 
@@ -30,7 +27,7 @@ ID Tokens should be used to validate that a user is who they claim to be and get
 
 ## Claims in an id_token
 
-`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519), meaning they consist of a header, payload, and signature portion. You can use the header and signature to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all claims listed here appear in both v1.0 and v2.0 tokens.
+`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web Tokens), meaning they consist of a header, payload, and signature portion. You can use the header and signature to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all JWT claims listed here appear in both v1.0 and v2.0 tokens.
 
 ### v1.0
 
@@ -52,14 +49,14 @@ View this v2.0 sample token in [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1Q
 
 |Claim | Format | Description |
 |-----|--------|-------------|
-|`typ` | String - always "JWT" | Indicates that the token is a JWT.|
+|`typ` | String - always "JWT" | Indicates that the token is a JWT token.|
 |`alg` | String | Indicates the algorithm that was used to sign the token. Example: "RS256" |
 |`kid` | String | Thumbprint for the public key used to sign this token. Emitted in both v1.0 and v2.0 `id_tokens`. |
 |`x5t` | String | The same (in use and value) as `kid`. However, this is a legacy claim emitted only in v1.0 `id_tokens` for compatibility purposes. |
 
 ### Payload claims
 
-This list shows the claims that are in most id_tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request additional claims in the id_token.  These can range from the `groups` claim to information about the user's name.
+This list shows the JWT claims that are in most id_tokens by default (except where noted).  However, your app can use [optional claims](active-directory-optional-claims.md) to request additional JWT claims in the id_token.  These can range from the `groups` claim to information about the user's name.
 
 |Claim | Format | Description |
 |-----|--------|-------------|
@@ -81,21 +78,27 @@ This list shows the claims that are in most id_tokens by default (except where n
 |`rh` | Opaque String |An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. If a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be wanted depending on your architecture and privacy requirements. |
 |`tid` | String, a GUID | A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required to receive this claim. |
-|`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value isn't guaranteed to be unique within a tenant and should be used only for display purposes. Only issued in v1.0 `id_tokens`. |
+|`unique_name` | String | Provides a human readable value that identifies the subject of the token. This value is unique at any given point in time, but as emails and other identifiers can be reused, this value can reappear on other accounts, and should therefore be used only for display purposes. Only issued in v1.0 `id_tokens`. |
 |`uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Should be ignored. |
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 
+> [!NOTE]
+> The v1 and v2 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD Oauth implementation](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) have evolved through the years. Currently we have two different oAuth endpoints for AzureAD applications. You can use any of the new endpoints which are categorized as v2 or the old one which is said to be v1. The Oauth endpoints for both of them are different. The V2 endpoint is the newer one where we are trying to migrate all the features of v1 endpoint and recommend new developers to use the v2 endpoint.
+>
+> - V1: Azure Active Directory Endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: Microsoft Identity Platform Endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+
 ## Validating an id_token
 
-Validating an `id_token` is similar to the first step of [validating an access token](access-tokens.md#validating-tokens) - your client should validate that the correct issuer has sent back the token and that it hasn't been tampered with. Because `id_tokens` are always a JWT, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.
+Validating an `id_token` is similar to the first step of [validating an access token](access-tokens.md#validating-tokens) - your client should validate that the correct issuer has sent back the token and that it hasn't been tampered with. Because `id_tokens` are always a JWT token, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.
 
-To manually validate the token, see the steps details in [validating an access token](access-tokens.md#validating-tokens). After validating the signature on the token, the following claims should be validated in the id_token (these may also be done by your token validation library):
+To manually validate the token, see the steps details in [validating an access token](access-tokens.md#validating-tokens). After validating the signature on the token, the following JWT claims should be validated in the id_token (these may also be done by your token validation library):
 
-* Timestamps: the `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate. 
+* Timestamps: the `iat`, `nbf`, and `exp` timestamps should all fall before or after the current time, as appropriate.
 * Audience: the `aud` claim should match the app ID for your application.
 * Nonce: the `nonce` claim in the payload must match the nonce parameter passed into the /authorize endpoint during the initial request.
 
 ## Next steps
 
 * Learn about [access tokens](access-tokens.md)
-* Customize the claims in your id_token using [optional claims](active-directory-optional-claims.md).
+* Customize the JWT claims in your id_token using [optional claims](active-directory-optional-claims.md).

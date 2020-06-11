@@ -1,141 +1,128 @@
 ---
-title: 'C# Tutorial: Index data from Azure SQL databases'
+title: C# tutorial indexing Azure SQL data
 titleSuffix: Azure Cognitive Search
-description: C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
+description: In this C# tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/28/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
-# C# Tutorial: Crawl an Azure SQL database using Azure Cognitive Search indexers
+# Tutorial: Index Azure SQL data using the .NET SDK
 
-Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Cognitive Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
+Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL database, sending it to a search index in Azure Cognitive Search. 
 
-Proficiency in indexer configuration is helpful because it simplifies the amount of code you have to write and maintain. Rather than preparing and pushing a schema-compliant JSON dataset, you can attach an indexer to a data source, have the indexer extract data and insert it into an index, and optionally run the indexer on a recurring schedule to pick up changes in the underlying source.
-
-In this tutorial, use the [Azure Cognitive Search .NET client libraries](https://aka.ms/search-sdk) and a .NET Core console application to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
 
 > [!div class="checklist"]
-> * Add search service information to application settings
-> * Prepare an external dataset in Azure SQL database 
-> * Review the index and indexer definitions in sample code
-> * Run the indexer code to import data
-> * Search the index
-> * View indexer configuration in the portal
+> * Create a data source that connects to Azure SQL Database
+> * Create an indexer
+> * Run an indexer to load data into an index
+> * Query an index as a verification step
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
-
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
-
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stores the external data source used by an indexer. The sample solution provides a SQL data file to create the table. Steps for creating the service and database are provided in this tutorial.
-
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition, can be used to run the sample solution. Sample code and instructions were tested on the free Community edition.
-
-[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) provides the sample solution, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files.
++ [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
++ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
++ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> If you are using the free Azure Cognitive Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
+> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-## Get a key and URL
+## Download files
 
-REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+Source code for this tutorial is in the [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) folder in the [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) GitHub repository.
+
+## 1 - Create services
+
+This tutorial uses Azure Cognitive Search for indexing and queries, and Azure SQL Database as an external data source. If possible, create both services in the same region and resource group for proximity and manageability. In practice, Azure SQL Database can be in any region.
+
+### Start with Azure SQL Database
+
+In this step, create an external data source on Azure SQL Database that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample download to create the dataset in Azure SQL Database. Azure Cognitive Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
+
+If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at step 4.
+
+1. [Sign in to the Azure portal](https://portal.azure.com/).
+
+1. Find or create a **SQL Database**. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
+
+   ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png "New database page")
+
+1. Click **Review + create** to deploy the new server and database. Wait for the server and database to deploy.
+
+1. On the navigation pane, click **Query editor (preview)** and enter the user name and password of server admin. 
+
+   If access is denied, copy the client IP address from the error message, and then click the **Set server firewall** link to add a rule that allows access from your client computer, using your client IP for the range. It can take several minutes for the rule to take effect.
+
+1. In Query editor, click **Open query** and navigate to the location of *hotels.sql* file on your local computer. 
+
+1. Select the file and click **Open**. The script should look similar to the following screenshot:
+
+   ![SQL script](./media/search-indexer-tutorial/sql-script.png "SQL script")
+
+1. Click **Run** to execute the query. In the Results pane, you should see a query succeeded message, for 3 rows.
+
+1. To return a rowset from this table, you can execute the following query as a verification step:
+
+    ```sql
+    SELECT * FROM Hotels
+    ```
+
+1. Copy the ADO.NET connection string for the database. Under **Settings** > **Connection Strings**, copy the ADO.NET connection string, similar to the example below.
+
+    ```sql
+    Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
+
+You will need this connection string in the next exercise, setting up your environment.
+
+### Azure Cognitive Search
+
+The next component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+
+### Get an admin api-key and URL for Azure Cognitive Search
+
+API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
-All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+## 2 - Set up your environment
 
-## Set up connections
-Connection information to required services is specified in the **appsettings.json** file in the solution. 
+1. Start Visual Studio and open **DotNetHowToIndexers.sln**.
 
-1. In Visual Studio, open the **DotNetHowToIndexers.sln** file.
+1. In Solution Explorer, open **appsettings.json** to provide connection information.
 
-1. In Solution Explorer, open **appsettings.json** so that you can populate each setting.  
+1. For `searchServiceName`, if the full URL is "https://my-demo-service.search.windows.net", the service name to provide is "my-demo-service".
 
-The first two entries you can fill in right now, using the URL and admin keys for your Azure Cognitive Search service. Given an endpoint of `https://mydemo.search.windows.net`, the service name to provide is `mydemo`.
-
-```json
-{
-  "SearchServiceName": "Put your search service name here",
-  "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-  "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
-}
-```
-
-The last entry requires an existing database. You'll create it in the next step.
-
-## Prepare sample data
-
-In this step, create an external data source that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample to create the dataset in Azure SQL Database. Azure Cognitive Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
-
-The following exercise assumes no existing server or database, and instructs you to create both in step 2. Optionally, if you have an existing resource, you can add the hotels table to it, starting at step 4.
-
-1. [Sign in to the Azure portal](https://portal.azure.com/). 
-
-2. Find or create an **Azure SQL Database** to create a database, server, and resource group. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
-
-   ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png)
-
-3. Click **Create** to deploy the new server and database. Wait for the server and database to deploy.
-
-4. Open the SQL Database page for your new database, if it's not already open. The resource name should say *SQL database* and not *SQL Server*.
-
-   ![SQL database page](./media/search-indexer-tutorial/hotels-db.png)
-
-4. On the navigation pane, click **Query editor (preview)**.
-
-5. Click **Login** and enter the user name and password of server admin.
-
-6. Click **Open query** and navigate to the location of *hotels.sql*. 
-
-7. Select the file and click **Open**. The script should look similar to the following screenshot:
-
-   ![SQL script](./media/search-indexer-tutorial/sql-script.png)
-
-8. Click **Run** to execute the query. In the Results pane, you should see a query succeeded message, for 3 rows.
-
-9. To return a rowset from this table, you can execute the following query as a verification step:
-
-    ```sql
-    SELECT HotelId, HotelName, Tags FROM Hotels
-    ```
-    The prototypical query, `SELECT * FROM Hotels`, doesn't work in the Query Editor. The sample data includes geographic coordinates in the Location field, which is not handled in the editor at this time. For a list of other columns to query, you can execute this statement: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
-
-10. Now that you have an external dataset, copy the ADO.NET connection string for the database. On the SQL Database page of your database, go to **Settings** > **Connection Strings**, and copy the ADO.NET connection string.
- 
-    An ADO.NET connection string looks like the following example, modified to use a valid database name, user name, and password.
-
-    ```sql
-    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-    ```
-11. Paste the connection string into "AzureSqlConnectionString" as the third entry in **appsettings.json** file in Visual Studio.
+1. For `AzureSqlConnectionString`, the string format is similar to this: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
       "SearchServiceName": "<placeholder-Azure-Search-service-name>",
       "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
-      "AzureSqlConnectionString": "Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security  Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+      "AzureSqlConnectionString": "<placeholder-ADO.NET-connection-string",
     }
     ```
 
-## Understand the code
+1. In the connection string, make sure the connection string contains a valid password. While the database and user names will copy over, the password must be entered manually.
 
-Once the data and configuration settings are in place, the sample program in **DotNetHowToIndexers.sln** is ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
+## 3 - Create the pipeline
 
-  + **hotel.cs**, containing the schema that defines the index
-  + **Program.cs**, containing the functions for creating and managing structures in your service
+Indexers require a data source object and an index. Relevant code is in two files:
+
+  + **hotel.cs**, containing a schema that defines the index
+  + **Program.cs**, containing functions for creating and managing structures in your service
 
 ### In hotel.cs
 
@@ -150,13 +137,11 @@ public string HotelName { get; set; }
 
 A schema can also include other elements, including scoring profiles for boosting a search score, custom analyzers, and other constructs. However, for our purposes, the schema is sparsely defined, consisting only of fields found in the sample datasets.
 
-In this tutorial, the indexer pulls data from one data source. In practice, you can attach multiple indexers to the same index, creating a consolidated searchable index from multiple data sources. You can use the same index-indexer pair, varying just the data sources, or one index with various indexer and data source combinations, depending on where you need the flexibility.
-
 ### In Program.cs
 
 The main program includes logic for creating a client, an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL database resources, including [incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -208,61 +193,61 @@ An indexer object is platform-agnostic, where  configuration, scheduling, and in
   }
   ```
 
+## 4 - Build the solution
 
+Press F5 to build and run the solution. The program executes in debug mode. A console window reports the status of each operation.
 
-## Run the indexer
+   ![Console output](./media/search-indexer-tutorial/console-output.png "Console output")
 
-In this step, compile and run the program. 
-
-1. In Solution Explorer, right-click **DotNetHowToIndexers** and select **Build**.
-2. Again, right-click **DotNetHowToIndexers**, followed by **Debug** > **Start new instance**.
-
-The program executes in debug mode. A console window reports the status of each operation.
-
-  ![SQL script](./media/search-indexer-tutorial/console-output.png)
-
-Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn uses the connection string to connect to Azure SQL Database and retrieve the dataset. With this many operations, there are several potential points of failure, but if you get an error, check the following conditions first:
+Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn connects to Azure SQL Database and retrieves the dataset. With this many operations, there are several potential points of failure. If you get an error, check the following conditions first:
 
 + Search service connection information that you provide is limited to the service name in this tutorial. If you entered the full URL, operations stop at index creation, with a failure to connect error.
 
-+ Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
++ Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data. Your local client IP address must be allowed access.
 
 + Resource limits. Recall that the Free tier has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
 
-## Search the index 
+## 5 - Search
 
-In the Azure portal, in the search service Overview page, click **Search explorer** at the top to submit a few queries on the new index.
+Use Azure portal to verify object creation, and then use **Search explorer** to query the index.
 
-1. Click **Change index** at the top to select the *hotels* index.
-
-2. Click the **Search** button to issue an empty search. 
-
-   The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
-
-3. Next, enter a search string: `search=river&$count=true`. 
-
-   This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
-
-4. Lastly, enter a search string that limits the JSON output to fields of interest: `search=river&$count=true&$select=hotelId, baseRate, description`. 
-
-   The query response is reduced to selected fields, resulting in more concise output.
-
-## View indexer configuration
-
-All indexers, including the one you just created programmatically, are listed in the portal. You can open an indexer definition and view its data source, or configure a refresh schedule to pick up new and changed rows.
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, click the links for **Indexes**, **Indexers**, and **Data Sources**.
-3. Select individual objects to view or modify configuration settings.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
 
    ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
+1. Select the hotels index. On the hotels page, **Search explorer** is the first tab. 
+
+1. Click **Search** to issue an empty query. 
+
+   The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
+
+   ![Query an index](./media/search-indexer-tutorial/portal-search.png "Query an index")
+   
+1. Next, enter a search string: `search=river&$count=true`. 
+
+   This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
+
+1. Lastly, enter a search string that limits the JSON output to fields of interest: `search=river&$count=true&$select=hotelId, baseRate, description`. 
+
+   The query response is reduced to selected fields, resulting in more concise output.
+
+## Reset and rerun
+
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+
+The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
+
+You can also use the portal to delete indexes, indexers, and data sources.
+
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Cognitive Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Cognitive Search service.
+When you're working in your own subscription, at the end of a project, it's a good idea to remove the resources that you no longer need. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the All resources or Resource groups link in the left-navigation pane.
 
 ## Next steps
 
-You can attach AI enrichment algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+> [Configure an Azure SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

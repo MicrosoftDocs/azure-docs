@@ -1,21 +1,14 @@
 ---
-title: Create an Azure scale set that uses Availability Zones | Microsoft Docs
+title: Create an Azure scale set that uses Availability Zones
 description: Learn how to create Azure virtual machine scale sets that use Availability Zones for increased redundancy against outages
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor:
-tags: azure-resource-manager
-
-ms.assetid: 
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.devlang: na
-ms.topic: article
+ms.subservice: availability
 ms.date: 08/08/2018
-ms.author: cynthn
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -59,7 +52,7 @@ When you deploy a virtual machine scale set, you can choose to use a single Avai
 
 When you create a scale set in a single zone, you control which zone all those VM instances run in, and the scale set is managed and autoscales only within that zone. A zone-redundant scale set lets you create a single scale set that spans multiple zones. As VM instances are created, by default they are evenly balanced across zones. Should an interruption occur in one of the zones, a scale set does not automatically scale out to increase capacity. A best practice would be to configure autoscale rules based on CPU or memory usage. The autoscale rules would allow the scale set to respond to a loss of the VM instances in that one zone by scaling out new instances in the remaining operational zones.
 
-To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#services-support-by-region). You can create a scale set that uses Availability Zones with one of the following methods:
+To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-region.md). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
 - Azure CLI

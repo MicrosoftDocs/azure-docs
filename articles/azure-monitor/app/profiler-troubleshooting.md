@@ -1,8 +1,6 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Profiler | Microsoft Docs
+title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
@@ -12,6 +10,10 @@ ms.reviewer: mbullwin
 ---
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
+
+## Active issues
+
+* Profiling for ASP.NET Core 3.x applications is supported now on Azure App Services.
 
 ## <a id="troubleshooting"></a>General troubleshooting
 
@@ -43,6 +45,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 * If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
+* Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.
 
 ### <a id="double-counting"></a>Double counting in parallel threads
 
@@ -121,7 +124,7 @@ These parameters delete the folder that's used by Application Insights Profiler 
 
 Profiler runs as a continuous webjob in the web app. You can open the web app resource in the [Azure portal](https://portal.azure.com). In the **WebJobs** pane, check the status of **ApplicationInsightsProfiler**. If it isn't running, open **Logs** to get more information.
 
-## Troubleshoot problems with Profiler and Azure Diagnostics
+## Troubleshoot VMs and Cloud Services
 
 >**The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
 
@@ -134,31 +137,54 @@ To see whether Profiler is configured correctly by Azure Diagnostics, do the fol
 
 To check the settings that were used to configure Azure Diagnostics:
 
-1. Sign in to the virtual machine (VM), and then open the log file at this location. (The drive could be c: or d: and the plugin version could be different.)
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    or
+1. Sign in to the virtual machine (VM), and then open the log file at this location. The plugin version may be newer on your machine.
+    
+    For VMs:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    For Cloud Services:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. In the file, you can search for the string **WadCfg** to find the settings that were passed to the VM to configure Azure Diagnostics. You can check to see whether the iKey used by the Profiler sink is correct.
 
-1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file. (The drive could be c: or d:)
+1. Check the command line that's used to start Profiler. The arguments that are used to launch Profiler are in the following file. (The drive could be c: or d: and the directory may be hidden.)
 
+    For VMs:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    for Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Make sure that the iKey on the Profiler command line is correct. 
 
-1. Using the path found in the preceding *config.json* file, check the Profiler log file. It displays the debug information that indicates the settings that Profiler is using. It also displays status and error messages from Profiler.  
+1. Using the path found in the preceding *config.json* file, check the Profiler log file, called **BootstrapN.log**. It displays the debug information that indicates the settings that Profiler is using. It also displays status and error messages from Profiler.  
+
+    For VMs, the file is usually here:
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    For Cloud Services:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     If Profiler is running while your application is receiving requests, the following message is displayed: *Activity detected from iKey*. 
 
     When the trace is being uploaded, the following message is displayed: *Start to upload trace*. 
+
+
+## Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Application Insights Profiler service. The IPs used by Application Insights Profiler are included in the Azure Monitor service tag.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

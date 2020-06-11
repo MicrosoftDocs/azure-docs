@@ -238,7 +238,7 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 	>
 
 >[!NOTE]
->You can use any other Coupa user account creation tools or APIs provided by Coupa to provision AAD user accounts.
+>You can use any other Coupa user account creation tools or APIs provided by Coupa to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,14 +1,14 @@
 ---
-title: 'Best practices for choosing a Time Series ID in Azure Time Series Insights Preview | Microsoft Docs'
-description: Understanding best practices when you choose a Time Series ID in Azure Time Series Insights Preview.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+title: 'Best practices for choosing a Time Series ID - Azure Time Series Insights | Microsoft Docs'
+description: Learn about best practices when choosing a Time Series ID in Azure Time Series Insights Preview.
+author: shipramishra
+ms.author: shmishr
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 05/11/2020
 ms.custom: seodec18
 ---
 
@@ -18,23 +18,29 @@ This article summarizes the importance of the Time Series ID for your Azure Time
 
 ## Choose a Time Series ID
 
-Choosing a Time Series ID is like choosing a partition key for a database. It needs to be selected while you're creating a Time Series Insights Preview environment. It's an *immutable* property. That is, after you create a Time Series Insights Preview environment with a Time Series ID, you can't change it for that environment. 
+Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID is like choosing a partition key for a database. It's required when you create a Time Series Insights Preview environment. 
 
 > [!IMPORTANT]
-> The Time Series ID is case-sensitive.
+> Time Series IDs are:
+>
+> * A *case-sensitive* property: letter and character casings are used in searches, comparisons, updates, and when partitioning.
+> * An *immutable* property: once created it cannot be changed.
 
-Selecting an appropriate Time Series ID is critical. Here are some of the best practices that you can follow:
+> [!TIP]
+> If your event source is an IoT hub, your Time Series ID will likely be ***iothub-connection-device-id***.
+
+Key best practices to follow include:
 
 * Pick a partition key with many distinct values (for example, hundreds or thousands). In many cases, this might be the device ID, sensor ID, or tag ID in your JSON.
 * The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
-* If your event source is an IoT hub, your Time Series ID will most likely be *iothub-connection-device-id*.
 * The character limit for the Time Series ID's property name string is 128. For the Time Series ID's property value, the character limit is 1,024.
 * If a unique property value for the Time Series ID is missing, it's treated as a null value and follows the same rule of the uniqueness constraint.
 * You can also select up to *three* key properties as your Time Series ID. Their combination will be a composite key that represents the Time Series ID.  
-
   > [!NOTE]
   > Your three key properties must be strings.
   > You would have to query against this composite key instead of one property at a time.
+
+## Select more than one key property
 
 The following scenarios describe selecting more than one key property as your Time Series ID.  
 
@@ -46,7 +52,7 @@ The following scenarios describe selecting more than one key property as your Ti
 
 ### Example 2: Time Series ID with a composite key
 
-* You require multiple properties to be unique within the same fleet of assets. 
+* You require multiple properties to be unique within the same fleet of assets.
 * You're a manufacturer of smart buildings and deploy sensors in every room. In each room, you typically have the same values for **sensorId**. Examples are **sensor1**, **sensor2**, and **sensor3**.
 * Your building has overlapping floor and room numbers across sites in the property **flrRm**. These numbers have values such as **1a**, **2b**, and **3a**.
 * You have a property, **location**, that contains values such as **Redmond**, **Barcelona**, and **Tokyo**. To create uniqueness, you designate the following three properties as your Time Series ID keys: **sensorId**, **flrRm**, and **location**.
@@ -62,9 +68,9 @@ Example raw event:
 }
 ```
 
-In the Azure portal, you can enter this composite key as: 
+In the Azure portal, you can then enter the composite key as follows:
 
-`[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]`
+[![Configure Time Series ID for the environment.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## Next steps
 

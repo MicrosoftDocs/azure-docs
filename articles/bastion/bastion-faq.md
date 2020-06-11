@@ -2,12 +2,12 @@
 title: Azure Bastion FAQ | Microsoft Docs
 description: The FAQ for Azure Bastion
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.author: cherylmc
+ms.date: 05/04/2020
+ms.author: charwen
 ---
 # Azure Bastion FAQ
 

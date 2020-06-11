@@ -20,10 +20,28 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
   - name: Azure PowerShell
     href: samples-powershell.md
+    items:
+    - name: Add an external user to a lab
+      href: scripts/add-external-user-to-lab.md
+    - name: Add marketplace images to a lab
+      href: scripts/add-marketplace-images-to-lab.md
+    - name: Create a custom image from a VHD
+      href: scripts/create-custom-image-from-vhd.md
+    - name: Create a custom role in a lab
+      href: scripts/create-custom-role-in-lab.md
+    - name: Set allowed VM sizes in a lab
+      href: scripts/set-allowed-vm-sizes-in-lab.md
   - name: Azure PowerShell - Az.DevTestLabs2 module
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library      
   - name: Azure CLI
-    href: samples-cli.md    
+    href: samples-cli.md
+    items:
+    - name: Create and verify availability of a VM
+      href: scripts/create-verify-virtual-machine-in-lab-cli.md
+    - name: Start a VM
+      href: scripts/start-connect-virtual-machine-in-lab-cli.md
+    - name: Stop and delete a VM
+      href: scripts/stop-delete-virtual-machine-in-lab-cli.md
 - name: Concepts
   items:
   - name: DevTest Labs concepts
@@ -66,10 +84,12 @@
       href: enable-browser-connection-lab-virtual-machines.md        
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md
-    - name: Send autoshutdown notifications
-      href: devtest-lab-auto-shutdown.md
+    - name: Set auto startup for lab virtual machines
+      href: devtest-lab-auto-startup-vm.md      
     - name: Scale your lab
       href: devtest-lab-scale-lab.md
+    - name: Enable managed identities for lab VMs
+      href: enable-managed-identities-lab-vms.md
     - name: Manage virtual machine bases
       items:        
       - name: Configure Azure Marketplace images
@@ -120,8 +140,8 @@
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
-    - name: Configure autoshutdown of a VM 
-      href: devtest-lab-auto-shutdown-vm.md
+    - name: Configure autoshutdown of compute and lab VMs 
+      href: devtest-lab-auto-shutdown.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
@@ -150,6 +170,8 @@
       href: deploy-nested-template-environments.md
     - name: Use Azure managed identities to deploy environments
       href: use-managed-identities-environments.md
+    - name: Security alerts for environments
+      href: environment-security-alerts.md
   - name: Manage reusable templates
     items: 
     - name: Custom images vs. formulas
@@ -193,6 +215,8 @@
       href: add-artifact-repository.md
     - name: Specify mandatory artifacts 
       href: devtest-lab-mandatory-artifacts.md
+    - name: Troubleshoot issues with applying artifacts
+      href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Integrate with CI/CD
     items:
     - name: Integrate labs into your Azure Pipelines CI/CD pipeline
@@ -255,8 +279,8 @@
     href: https://azure.microsoft.com/updates/?product=devtest-lab
   - name: Pricing 
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-devtestlabs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-devtest-labs
   - name: Videos

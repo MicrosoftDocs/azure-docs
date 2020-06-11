@@ -1,0 +1,149 @@
+### YamlMime:Hub
+title: Azure Cost Management + Billing documentation
+summary: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+
+metadata:
+  ms.service: cost-management-billing
+  description: Azure Cost Management and Billing help you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+  ms.topic: hub-page
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 01/24/2019
+
+highlightedContent:
+  items:
+    - title: What is Cost Management + Billing?
+      itemType: overview
+      url: cost-management-billing-overview.md
+    - title: Analyze costs and create budgets
+      itemType: learn
+      url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/?WT.mc_id=costmanagementcontent_docsazurebilling_-inproduct-learn
+    - title: Cost Management best practices
+      itemType: concept
+      url: ./costs/cost-mgt-best-practices.md
+
+conceptualContent:
+  items:
+    - title: Get started with Azure Billing
+      links:
+        - url: ./understand/review-individual-bill.md
+          itemType: tutorial
+          text: Review your individual bill
+        - url: ./understand/review-customer-agreement-bill.md
+          itemType: tutorial
+          text: Review your Customer Agreement bill
+        - url: ./understand/review-partner-agreement-bill.md
+          itemType: tutorial
+          text: Review your Partner Agreement bill
+        - url: ./understand/review-enterprise-agreement-bill.md
+          itemType: tutorial
+          text: Review your Enterprise Agreement bill
+      footerLink:
+        text: See more
+        url: ./understand/index.yml
+    - title: Free account
+      links:
+        - url: ./manage/create-free-services.md
+          itemType: concept
+          text: Create free services
+        - url: ./manage/avoid-charges-free-account.md
+          itemType: concept
+          text: Avoid charges
+        - url: ./manage/check-free-service-usage.md
+          itemType: concept
+          text: Check usage
+        - url: ./manage/upgrade-azure-subscription.md
+          itemType: concept
+          text: Upgrade subscription
+    - title: Manage Azure costs and usage
+      links:
+        - url: ./costs/quick-acm-cost-analysis.md
+          itemType: quickstart
+          text: Start analyzing costs
+        - url: ./costs/tutorial-acm-create-budgets.md
+          itemType: tutorial
+          text: Create and manage budgets
+        - url: ./costs/tutorial-export-acm-data.md
+          itemType: tutorial
+          text: Export cost and usage data
+        - url: ./costs/tutorial-acm-opt-recommendations.md
+          itemType: tutorial
+          text: Act on cost-saving recommendations
+        - url: ./costs/cost-analysis-common-uses.md
+          itemType: how-to-guide
+          text: Use cost analysis for common tasks
+      footerLink:
+        text: See more
+        url: ./costs/index.yml
+    - title: Manage Azure accounts and subscriptions
+      links:
+        - url: ./manage/manage-billing-access.md
+          itemType: how-to-guide
+          text: Grant access to billing
+        - url: ./manage/change-azure-account-profile.md
+          itemType: how-to-guide
+          text: Edit profile
+        - url: ./manage/resolve-past-due-balance.md
+          itemType: how-to-guide
+          text: Resolve past due balance
+        - url: ./manage/subscription-disabled.md
+          itemType: how-to-guide
+          text: Reactivate subscription
+        - url: ./manage/billing-subscription-transfer.md
+          itemType: how-to-guide
+          text: Transfer ownership
+        - url: ./manage/cancel-azure-subscription.md
+          itemType: how-to-guide
+          text: Cancel subscription
+        - url: ./manage/change-credit-card.md
+          itemType: how-to-guide
+          text: Change credit card
+        - url: ./manage/add-change-subscription-administrator.md
+          itemType: how-to-guide
+          text: Change administrator
+        - url: ./manage/create-subscription.md
+          itemType: how-to-guide
+          text: Create additional subscriptions
+      footerLink:
+        text: See more
+        url: ./manage/index.yml
+    - title: Save with Azure reservations
+      links:
+        - url: ./reservations/save-compute-costs-reservations.md
+          itemType: concept
+          text: What are Azure reservations?
+        - url: ./reservations/manage-reserved-vm-instance.md
+          itemType: how-to-guide
+          text: Manage Azure reservations
+        - url: ./reservations/monthly-payments-reservations.md
+          itemType: how-to-guide
+          text: Buy a reservation with monthly payments
+        - url: ./reservations/reservation-renew.md
+          itemType: how-to-guide
+          text: Renew reservations
+        - url: ./reservations/exchange-and-refund-azure-reservations.md
+          itemType: how-to-guide
+          text: Reservation exchanges and refunds
+      footerLink:
+        text: See more
+        url: ./reservations/index.yml
+    - title: Get involved
+      links:
+        - url: https://feedback.azure.com/forums/906772-cost-management
+          itemType: how-to-guide
+          text: Cost Management feedback
+        - url: https://twitter.com/azurecostmgmt
+          itemType: how-to-guide
+          text: Cost Management on Twitter
+        - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
+          itemType: how-to-guide
+          text: Azure Cost Management Tech Community
+        - url: https://feedback.azure.com/forums/170030-signup-and-billing
+          itemType: how-to-guide
+          text: Request a Billing service feature
+        - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
+          itemType: how-to-guide
+          text: Azure Billing Tech Community
+        - url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
+          itemType: how-to-guide
+          text: Ask a Cost Management and Billing forum question

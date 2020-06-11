@@ -10,7 +10,6 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
@@ -36,7 +35,11 @@ landingContent:
           url: https://www.youtube.com/embed/ERTaAnwCarM
     - linkListType: reference
       links:
-        - text: Algorithms used in anomaly detection (whitepaper)
+        - text: Introducing Azure Anomaly Detector API
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - text: Overview of SR-CNN algorithm
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798  
+        - text: Algorithm used in anomaly detection (KDD paper)
           url: https://arxiv.org/abs/1906.03821
 
 - title: "Detect anomalies in your data"
@@ -44,15 +47,17 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#
-          url: quickstarts/detect-data-anomalies-csharp-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Using JavaScript
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Using Python
-          url: quickstarts/detect-data-anomalies-python-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
     - linkListType: tutorial
       links:
         - text: Visualize anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
         - text: Detect Anomalies in streaming data using Azure Databricks
-          url: tutorials/batch-anomaly-detection-powerbi.md
+          url: tutorials/anomaly-detection-streaming-databricks.md
     - linkListType: video
       links:
         - text: Anomaly detection on streaming data using Azure Databricks

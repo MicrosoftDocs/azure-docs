@@ -1,10 +1,10 @@
-- name: Translator Text Documentation
+- name: Translator Documentation
   href: index.yml
-- name: Translator Text API
+- name: Translator
   items:
   - name: Overview
     items:
-    - name: What is the Translator Text API?
+    - name: What is Translator?
       href: translator-info-overview.md
   - name: Quickstarts
     items:
@@ -22,7 +22,7 @@
       href: quickstart-sentences.md
   - name: Tutorials
     items:
-    - name: Create a WPF app for Translator Text, C#
+    - name: Create a WPF app for Translator, C#
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
       href: tutorial-build-flask-app-translation-synthesis.md
@@ -34,7 +34,7 @@
       href: character-counts.md
   - name: How-to guides
     items:
-    - name: Sign-up for Translator Text API
+    - name: Sign-up for Translator
       href: translator-text-how-to-signup.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
@@ -46,12 +46,6 @@
       href: prevent-translation.md
     - name: Use the dynamic dictionary feature
       href: dynamic-dictionary.md
-    - name: Use containers
-      items:
-      - name: Install and run containers
-        href: how-to-install-containers.md
-      - name: Configure containers
-        href: translator-text-container-config.md
     - name: Translate behind firewalls
       href: firewalls.md
   - name: Samples
@@ -72,7 +66,7 @@
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
   - name: Reference
     items:
-    - name: v3 Translator Text API reference
+    - name: v3 Translator reference
       href: reference/v3-0-reference.md
       items:
       - name: Languages
@@ -89,7 +83,7 @@
         href: reference/v3-0-dictionary-lookup.md
       - name: Dictionary Examples
         href: reference/v3-0-dictionary-examples.md
-    - name: v2 Translator Text API reference (Deprecated)
+    - name: v2 Translator reference (Deprecated)
       href: reference/v2-0-reference.md
       items:
       - name: Transform text
@@ -104,7 +98,7 @@
       href: https://aka.ms/TranslatorGitHub
     - name: FAQ
       href: https://www.microsoft.com/translator/faq.aspx
-    - name: Language and region support
+    - name: Language support
       href: language-support.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
@@ -178,5 +172,7 @@
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Encryption
+      href: translator-encryption-of-data-at-rest.md
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator

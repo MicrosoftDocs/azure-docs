@@ -1,10 +1,9 @@
 ---
-title: Read captured data from Python app - Azure Event Hubs | Microsoft Docs
-description: Scripts that use the Azure Python SDK to demonstrate the Event Hubs Capture feature.
+title: 'Quickstart: Read captured data from Python app - Azure Event Hubs'
+description: 'Quickstart: Scripts that use the Azure Python SDK to demonstrate the Event Hubs Capture feature.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
@@ -12,18 +11,21 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.custom: seodec18
-ms.date: 10/10/2019
+ms.topic: quickstart
+ms.custom: seodec18, tracking-python
+ms.date: 01/15/2020
 ms.author: shvija
 
 ---
 
-# Event Hubs Capture walkthrough: Python
+# Quickstart: Event Hubs Capture walkthrough: Python (azure-eventhub version 1)
 
 Capture is a feature of Azure Event Hubs. You can use Capture to automatically deliver the streaming data in your event hub to an Azure Blob storage account of your choice. This capability makes it easy to do batch processing on real-time streaming data. This article describes how to use Event Hubs Capture with Python. For more information about Event Hubs Capture, see [Capture events through Azure Event Hubs][Overview of Event Hubs Capture].
 
 This walkthrough uses the [Azure Python SDK](https://azure.microsoft.com/develop/python/) to demonstrate the Capture feature. The *sender.py* program sends simulated environmental telemetry to Event Hubs in JSON format. The event hub uses the Capture feature to write this data to Blob storage in batches. The *capturereader.py* app reads these blobs, creates an append file for each of your devices, and writes the data to *.csv* files on each device.
+
+> [!WARNING]
+> This quickstart is for version 1 of the Azure Event Hubs Python SDK. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) your code to [version 5 of the Python SDK](get-started-capture-python-v2.md).
 
 In this walkthrough, you: 
 

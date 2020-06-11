@@ -1,56 +1,85 @@
 - name: Form Recognizer Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   expaned: true
   items:
+  - name: Using client library
+    href: quickstarts/client-library.md
+  - name: Using the sample labeling tool
+    items:
+    - name: Train custom model with labels
+      href: quickstarts/label-tool.md
   - name: Using the REST API
     items:
-    - name: Train custom model and extract data  
+    - name: Train and use custom model without labels
       items:
       - name: cURL
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
+    - name: Train and use custom model with labels
+      items:
+      - name: Python
+        href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
       - name: cURL
         href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
-  - name: Using the .NET SDK
-    href: quickstarts/dotnet-sdk.md
+    - name: Get text layout information
+      items:
+      - name: Python
+        href: quickstarts/python-layout.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Logic Apps
     href: tutorial-form-recognizer-with-logic-apps.md
+  - name: Use Form Recognizer with Cognitive Search
+    href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Use containers
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: form-recognizer-container-howto.md
     - name: Configure containers
-      href: form-recognizer-container-configuration.md    
+      href: form-recognizer-container-configuration.md
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       href: deploy-form-recognizer-on-container-instances.md
+  - name: Copy models for disaster recovery
+    href: disaster-recovery.md
 - name: Reference
   items:
-  - name: Form Recognizer API
-    href: https://aka.ms/form-recognizer/api
+  - name: Form Recognizer API v2.0
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+  - name: Form Recognizer API v1.0
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview
+    - name: JavaScript
+      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview
 - name: Resources
-  items: 
+  items:
   - name: Pricing and limits
     href: https://go.microsoft.com/fwlink/?linkid=2087258
   - name: UserVoice
@@ -61,5 +90,9 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Language support
+    href: language-support.md
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: form-recognizer-encryption-of-data-at-rest.md

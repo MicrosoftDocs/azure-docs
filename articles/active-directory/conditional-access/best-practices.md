@@ -24,7 +24,7 @@ With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-
 
 This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
-## What’s required to make a policy work?
+## What's required to make a policy work?
 
 When you create a new policy, there are no users, groups, apps, or access controls selected.
 
@@ -42,17 +42,18 @@ To make your policy work, you must configure:
 
 ### How are Conditional Access policies applied?
 
-More than one Conditional Access policy may apply when you access a cloud app. In this case, all policies that apply must be satisfied. For example, if one policy requires MFA and the second requires a compliant device, you must go through MFA, and use a compliant device. 
+More than one Conditional Access policy may apply when you access a cloud app. In this case, all policies that apply must be satisfied. For example, if one policy requires multi-factor authentication (MFA) and another requires a compliant device, you must complete MFA, and use a compliant device. 
 
 All policies are enforced in two phases:
 
-- In the **first** phase, all policies are evaluated and all access controls that aren't satisfied are collected. 
-
-- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If any one of the policies block access, you are blocked and not prompted to satisfy other policy controls. If none of the policies block you, you are prompted to satisfy other policy controls in the following order:
-
-   ![Order](./media/best-practices/06.png)
-    
-   External MFA providers and terms of use come next.
+- Phase 1: 
+   - Detail collection: Gather details to identify policies that would already be satisfied.
+   - During this phase, users may see a certificate prompt if device compliance is part of your Conditional Access policies. This prompt may occur for browser apps when the device operating system is not Windows 10.
+   - Phase 1 of policy evaluation occurs for all enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
+- Phase 2:
+   - Enforcement: Taking in to account the details gathered in phase 1, request user to satisfy any additional requirements that have not been met.
+   - Apply results to session. 
+   - Phase 2 of policy evaluation occurs for all enabled policies.
 
 ### How are assignments evaluated?
 
@@ -94,7 +95,7 @@ Because Office 365 apps are interconnected, we recommend assigning commonly used
 
 Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
 
-It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don’t, users won’t be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won’t be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
+It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don't, users won't be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won't be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
 
 ## What you should avoid doing
 

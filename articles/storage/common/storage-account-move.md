@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 05/11/2020
 ms.author: normesta 
 ms.reviewer: dineshm
 ---
@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 - For preview features, ensure that your subscription is whitelisted for the target region.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## Prepare
 
@@ -46,7 +46,7 @@ This template contains settings that describe your storage account.
 
 To export a template by using Azure portal:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **All resources** and then select your storage account.
 
@@ -169,7 +169,7 @@ To deploy the template by using PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## Move
 
@@ -227,25 +227,10 @@ The following table lists these features along with guidance for adding them to 
 
 ### Move data to the new storage account
 
-Here's some ways to move your data over.
+AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-:heavy_check_mark: **Azure Storage Explorer**
+You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:. 
 
-  It's easy-to-use, and suitable for small data sets. You can copy containers and file shares, and then paste them into the target account.
-
-  See [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
-
-:heavy_check_mark: **AzCopy**
-
-  This is the preferred approach. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script.
-
-  See [Get started with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-:heavy_check_mark: **Azure Data Factory** 
-
-  Use this tool only if you need functionality that isn't supported in the current release of AzCopy. For example, in the current release of AzCopy, you can't copy blobs between accounts that have a hierarchical namespace. Also AzCopy doesn't preserve file access control lists or file timestamps (For example: create and modified time stamps). 
-
-  See these links:
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
@@ -271,7 +256,7 @@ To remove a storage account by using the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) command:
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) command:
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount

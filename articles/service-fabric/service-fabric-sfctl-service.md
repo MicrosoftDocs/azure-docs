@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric CLI- sfctl service | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl service commands.
-services: service-fabric
-documentationcenter: na
+title: Azure Service Fabric CLI- sfctl service
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing services, service types, and service packages.
 author: jeffj6123
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-
 ---
 
 # sfctl service
@@ -116,7 +106,7 @@ Creates the specified Service Fabric service.
 | --int-scheme-low | The start of the key integer range, if using an uniform integer partition scheme. |
 | --load-metrics | JSON encoded list of metrics used when load balancing services across nodes. |
 | --min-replica-set-size | The minimum replica set size as a number. This applies to stateful services only. |
-| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High', 'VeryHigh'. |
 | --named-scheme | Indicates the service should have multiple named partitions. |
 | --named-scheme-list | JSON encoded list of names to partition the service across, if using the named partition scheme. |
 | --no-persisted-state | If true, this indicates the service has no persistent state stored on the local disk, or it only stores state in memory. |
@@ -124,6 +114,7 @@ Creates the specified Service Fabric service.
 | --quorum-loss-wait | The maximum duration, in seconds, for which a partition is allowed to be in a state of quorum loss. This applies to stateful services only. |
 | --replica-restart-wait | The duration, in seconds, between when a replica goes down and when a new replica is created. This applies to stateful services only. |
 | --scaling-policies | JSON encoded list of scaling policies for this service. |
+| --service-placement-time | The duration for which replicas can stay InBuild before reporting that build is stuck. This applies to stateful services only. |
 | --singleton-scheme | Indicates the service should have a single partition or be a non-partitioned service. |
 | --stand-by-replica-keep | The maximum duration, in seconds,  for which StandBy replicas will be maintained before being removed. This applies to stateful services only. |
 | --stateful | Indicates the service is a stateful service. |
@@ -568,11 +559,12 @@ Updates the specified service using the given update description.
 | --instance-count | The instance count. This applies to stateless services only. |
 | --load-metrics | JSON encoded list of metrics used when load balancing across nodes. |
 | --min-replica-set-size | The minimum replica set size as a number. This applies to stateful services only. |
-| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | Specifies the move cost for the service. Possible values are\: 'Zero', 'Low', 'Medium', 'High', 'VeryHigh'. |
 | --placement-policy-list | JSON encoded list of placement policies for the service, and any associated domain names. Policies can be one or more of\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --quorum-loss-wait | The maximum duration, in seconds, for which a partition is allowed to be in a state of quorum loss. This applies to stateful services only. |
 | --replica-restart-wait | The duration, in seconds, between when a replica goes down and when a new replica is created. This applies to stateful services only. |
 | --scaling-policies | JSON encoded list of scaling policies for this service. |
+| --service-placement-time | The duration for which replicas can stay InBuild before reporting that build is stuck. This applies to stateful services only. |
 | --stand-by-replica-keep | The maximum duration, in seconds,  for which StandBy replicas will be maintained before being removed. This applies to stateful services only. |
 | --stateful | Indicates the target service is a stateful service. |
 | --stateless | Indicates the target service is a stateless service. |

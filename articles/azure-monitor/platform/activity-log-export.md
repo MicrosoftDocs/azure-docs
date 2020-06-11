@@ -3,15 +3,20 @@ title: Export the Azure Activity Log
 description: Export Azure Activity log to storage for archiving or Azure Event Hubs for exporting outside of Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
 ---
 
 # Export Azure Activity log to storage or Azure Event Hubs
-The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
+
+> [!IMPORTANT]
+> The method for sending the Azure Activity log to Azure Storage and Azure Event Hubs has changed to [diagnostic settings](diagnostic-settings.md). This article describes the legacy method which is in the process of being deprecated. See Update to [Collect and analyze Azure Activity log in Azure Monitor](activity-log-collect.md) for a comparison.
+
+
+The [Azure Activity Log](platform-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
 ## Archive Activity Log
 Archiving the Activity Log to a storage account is useful if you would like to retain your log data longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days.
@@ -19,16 +24,17 @@ Archiving the Activity Log to a storage account is useful if you would like to r
 ## Stream Activity Log to Event Hub
 [Azure Event Hubs](/azure/event-hubs/) is a data streaming platform and event ingestion service that can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. Two ways you might use the streaming capability for the Activity Log are:
 * **Stream to third-party logging and telemetry systems**: Over time, Azure Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
-* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. 
+* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log.
 
 ## Prerequisites
 
 ### Storage account
-If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+If you're archiving your Activity Log, you need to [create a storage account](../../storage/common/storage-account-create.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
-The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
-> [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
+The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. 
+
+> [!TIP]
+> See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for providing access to a storage account behind a secured virtual network.
 
 ### Event Hubs
 If you're sending your Activity Log to an event hub, then you need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed Activity Log events to this Event Hubs namespace, then that event hub will be reused.
@@ -56,19 +62,24 @@ If retention policies are set, but storing logs in a storage account is disabled
 
 
 > [!IMPORTANT]
-> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md) to register this provider.
 
 
 ### Create log profile using the Azure portal
 
 Create or edit a log profile with the **Export to Event Hub** option in the Azure portal.
 
-1. From the **Monitor** menu in the Azure portal, select  **Export to Event Hub**.
+1. From the **Azure Monitor** menu in the Azure portal, select **Activity log**.
+3. Click **Diagnostic settings**.
 
-    ![Export button in portal](media/activity-log-export/portal-export.png)
+   ![Diagnostic settings](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Click the purple banner for the legacy experience.
+
+    ![Legacy experience](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. In the blade that appears, specify the following:
-   * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them. 
+   * Regions with the events to export. You should select all regions to ensure that you don't miss key events since the Activity Log is a global (non-regional) log and so most events do not have a region associated with them.
    * If you want to write to storage account:
        * The Storage Account to which you would like to save events.
        * The number of days you want to retain these events in storage. A setting of 0 days retains the logs forever.
@@ -156,92 +167,7 @@ If a log profile already exists, you first need to remove the existing log profi
 
 
 
-## Activity log schema
-Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
-
-
-> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor diagnostic logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
-
-``` JSON
-{
-    "records": [
-        {
-            "time": "2015-01-21T22:14:26.9792776Z",
-            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-            "operationName": "microsoft.support/supporttickets/write",
-            "category": "Write",
-            "resultType": "Success",
-            "resultSignature": "Succeeded.Created",
-            "durationMs": 2826,
-            "callerIpAddress": "111.111.111.11",
-            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
-            "identity": {
-                "authorization": {
-                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-                    "action": "microsoft.support/supporttickets/write",
-                    "evidence": {
-                        "role": "Subscription Admin"
-                    }
-                },
-                "claims": {
-                    "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-                    "iat": "1421876371",
-                    "nbf": "1421876371",
-                    "exp": "1421880271",
-                    "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-                    "puid": "20030000801A118C",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-                    "name": "John Smith",
-                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-                    "appidacr": "2",
-                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-                }
-            },
-            "level": "Information",
-            "location": "global",
-            "properties": {
-                "statusCode": "Created",
-                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
-            }
-        }
-    ]
-}
-```
-The elements in this JSON are described in the following table.
-
-| Element name | Description |
-| --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Category of the action, eg. Write, Read, Action. |
-| resultType |The type of the result, eg. Success, Failure, Start |
-| resultSignature |Depends on the resource type. |
-| durationMs |Duration of the operation in milliseconds |
-| callerIpAddress |IP address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| identity |JSON blob describing the authorization and claims. |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| level |Level of the event. One of the following values: _Critical_, _Error_, _Warning_, _Informational_, and _Verbose_ |
-| location |Region in which the location occurred (or global). |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
-
-> [!NOTE]
-> The properties and usage of these properties can vary depending on the resource.
-
-
-
 ## Next steps
 
-* [Learn more about the Activity Log](../../azure-resource-manager/resource-group-audit.md)
+* [Learn more about the Activity Log](../../azure-resource-manager/management/view-activity-logs.md)
 * [Collect Activity Log into Azure Monitor Logs](activity-log-collect.md)

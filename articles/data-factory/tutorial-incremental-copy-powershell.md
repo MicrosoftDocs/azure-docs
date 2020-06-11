@@ -1,52 +1,55 @@
 ---
-title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
+title: Incrementally copy a table using PowerShell
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.author: yexu
 ---
-# Incrementally load data from an Azure SQL database to Azure Blob storage
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
+
+# Incrementally load data from an Azure SQL database to Azure Blob storage using PowerShell
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage.
 
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Prepare the data store to store the watermark value.
 > * Create a data factory.
-> * Create linked services. 
+> * Create linked services.
 > * Create source, sink, and watermark datasets.
 > * Create a pipeline.
 > * Run the pipeline.
-> * Monitor the pipeline run. 
+> * Monitor the pipeline run.
 
 ## Overview
-Here is the high-level solution diagram: 
+Here is the high-level solution diagram:
 
 ![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
-Here are the important steps to create this solution: 
+Here are the important steps to create this solution:
 
 1. **Select the watermark column**.
 	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**.   
 	In this tutorial, you store the watermark value in a SQL database.
-	
-3. **Create a pipeline with the following workflow**: 
-	
+
+3. **Create a pipeline with the following workflow**:
+
 	The pipeline in this solution has the following activities:
-  
-	* Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity. 
-	* Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file. 
-	* Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time. 
+
+	* Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
+	* Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file.
+	* Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time.
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -55,15 +58,15 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
-* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one. Create a container named adftutorial. 
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
+* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 * **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### Create a data source table in your SQL database
 1. Open SQL Server Management Studio. In **Server Explorer**, right-click the database, and choose **New Query**.
 
-2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store: 
-    
+2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store:
+
     ```sql
 	create table data_source_table
 	(
@@ -95,11 +98,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ### Create another table in your SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value:  
-    
+
     ```sql
     create table watermarktable
     (
-    
+
     TableName varchar(255),
     WatermarkValue datetime,
     );
@@ -111,11 +114,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 3. Review the data in the table `watermarktable`.
-    
+
     ```sql
     Select * from watermarktable
     ```
-    Output: 
+    Output:
 
     ```
     TableName  | WatermarkValue
@@ -123,7 +126,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### Create a stored procedure in your SQL database 
+### Create a stored procedure in your SQL database
 
 Run the following command to create a stored procedure in your SQL database:
 
@@ -132,16 +135,16 @@ CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varc
 AS
 
 BEGIN
-    
+
 	UPDATE watermarktable
-	SET [WatermarkValue] = @LastModifiedtime 
+	SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
-	
+
 END
 ```
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`. 
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -149,30 +152,30 @@ END
 
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
-2. Define a variable for the location of the data factory. 
+2. Define a variable for the location of the data factory.
 
     ```powershell
     $location = "East US"
     ```
-3. To create the Azure resource group, run the following command: 
+3. To create the Azure resource group, run the following command:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
+    ```
     If the resource group already exists, you might not want to overwrite it. Assign a different value to the `$resourceGroupName` variable, and run the command again.
 
-4. Define a variable for the data factory name. 
+4. Define a variable for the data factory name.
 
     > [!IMPORTANT]
-    >  Update the data factory name to make it globally unique. An example is ADFTutorialFactorySP1127. 
+    >  Update the data factory name to make it globally unique. An example is ADFTutorialFactorySP1127.
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet: 
-    
+5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
 Note the following points:
@@ -188,7 +191,7 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your storage account and SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your storage account and SQL database.
 
 ### Create a Storage linked service
 1. Create a JSON file named AzureStorageLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace `<accountName>` and `<accountKey>` with the name and key of your storage account before you save the file.
@@ -199,17 +202,14 @@ You create linked services in a data factory to link your data stores and comput
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
     ```
 2. In PowerShell, switch to the ADF folder.
 
-3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureStorageLinkedService. In the following example, you pass values for the *ResourceGroupName* and *DataFactoryName* parameters: 
+3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureStorageLinkedService. In the following example, you pass values for the *ResourceGroupName* and *DataFactoryName* parameters:
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -225,7 +225,7 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create a SQL Database linked service
-1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your server, database, user ID, and password before you save the file. 
+1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your server, database, user ID, and password before you save the file.
 
     ```json
     {
@@ -233,17 +233,14 @@ You create linked services in a data factory to link your data stores and comput
     	"properties": {
     		"type": "AzureSqlDatabase",
     		"typeProperties": {
-    			"connectionString": {
-    				"value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-    				"type": "SecureString"
-    			}
+    			"connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
     		}
     	}
     }
     ```
 2. In PowerShell, switch to the ADF folder.
 
-3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService. 
+3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service AzureSQLDatabaseLinkedService.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -260,11 +257,11 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ## Create datasets
-In this step, you create datasets to represent source and sink data. 
+In this step, you create datasets to represent source and sink data.
 
 ### Create a source dataset
 
-1. Create a JSON file named SourceDataset.json in the same folder with the following content: 
+1. Create a JSON file named SourceDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -280,18 +277,18 @@ In this step, you create datasets to represent source and sink data.
     		}
     	}
     }
-   
+
     ```
     In this tutorial, you use the table name data_source_table. Replace it if you use a table with a different name.
 
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset SourceDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADF
@@ -302,7 +299,7 @@ In this step, you create datasets to represent source and sink data.
 
 ### Create a sink dataset
 
-1. Create a JSON file named SinkDataset.json in the same folder with the following content: 
+1. Create a JSON file named SinkDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -311,7 +308,7 @@ In this step, you create datasets to represent source and sink data.
     		"type": "AzureBlob",
     		"typeProperties": {
     			"folderPath": "adftutorial/incrementalcopy",
-    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
+    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
     			"format": {
     				"type": "TextFormat"
     			}
@@ -328,13 +325,13 @@ In this step, you create datasets to represent source and sink data.
 	> This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. The output folder `incrementalcopy` is automatically created if it doesn't exist in the container. In this tutorial, the file name is dynamically generated by using the expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADF
@@ -344,9 +341,9 @@ In this step, you create datasets to represent source and sink data.
     ```
 
 ## Create a dataset for a watermark
-In this step, you create a dataset for storing a high watermark value. 
+In this step, you create a dataset for storing a high watermark value.
 
-1. Create a JSON file named WatermarkDataset.json in the same folder with the following content: 
+1. Create a JSON file named WatermarkDataset.json in the same folder with the following content:
 
     ```json
     {
@@ -364,13 +361,13 @@ In this step, you create a dataset for storing a high watermark value.
     }    
     ```
 2.  Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset WatermarkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Here is the sample output of the cmdlet:
-    
+
     ```json
     DatasetName       : WatermarkDataset
     ResourceGroupName : ADF
@@ -380,10 +377,10 @@ In this step, you create a dataset for storing a high watermark value.
     ```
 
 ## Create a pipeline
-In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline. 
+In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline.
 
 
-1. Create a JSON file IncrementalCopyPipeline.json in the same folder with the following content: 
+1. Create a JSON file IncrementalCopyPipeline.json in the same folder with the following content:
 
     ```json
     {
@@ -398,7 +395,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     					"type": "SqlSource",
     					"sqlReaderQuery": "select * from watermarktable"
     					},
-    
+
     					"dataset": {
     					"referenceName": "WatermarkDataset",
     					"type": "DatasetReference"
@@ -413,14 +410,14 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     						"type": "SqlSource",
     						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
     					},
-    
+
     					"dataset": {
     					"referenceName": "SourceDataset",
     					"type": "DatasetReference"
     					}
     				}
     			},
-    			
+
     			{
     				"name": "IncrementalCopyActivity",
     				"type": "Copy",
@@ -447,7 +444,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     						]
     					}
     				],
-    
+
     				"inputs": [
     					{
     						"referenceName": "SourceDataset",
@@ -461,24 +458,24 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     					}
     				]
     			},
-    
+
     			{
     				"name": "StoredProceduretoWriteWatermarkActivity",
     				"type": "SqlServerStoredProcedure",
     				"typeProperties": {
-    
+
     					"storedProcedureName": "usp_write_watermark",
     					"storedProcedureParameters": {
     						"LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
     						"TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
     					}
     				},
-    
+
     				"linkedServiceName": {
     					"referenceName": "AzureSQLDatabaseLinkedService",
     					"type": "LinkedServiceReference"
     				},
-    
+
     				"dependsOn": [
     					{
     						"activity": "IncrementalCopyActivity",
@@ -489,19 +486,19 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     				]
     			}
     		]
-    		
+
     	}
     }
     ```
-	
+
 
 2. Run the **Set-AzDataFactoryV2Pipeline** cmdlet to create the pipeline IncrementalCopyPipeline.
-    
+
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Here is the sample output: 
+   Here is the sample output:
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -510,14 +507,14 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
- 
+
 ## Run the pipeline
 
 1. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
 	```powershell
 	$RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-	``` 
+	```
 2. Check the status of the pipeline by running the **Get-AzDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace placeholders with your own appropriate time for the parameters *RunStartedAfter* and *RunStartedBefore*. In this tutorial, you use *-RunStartedAfter "2017/09/14"* and *-RunStartedBefore "2017/09/15"*.
 
 	```powershell
@@ -525,7 +522,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	```
 
 	Here is the sample output:
- 
+
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
@@ -540,7 +537,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 7777
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : LookupOldWaterMarkActivity
@@ -554,7 +551,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 25437
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : IncrementalCopyActivity
@@ -568,7 +565,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 19769
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -595,15 +592,15 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	3,cccc,2017-09-03 02:36:00.0000000
 	4,dddd,2017-09-04 03:21:00.0000000
 	5,eeee,2017-09-05 08:06:00.0000000
-	```	
+	```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
 	```sql
 	Select * from watermarktable
 	```
-	
+
 	Here is the sample output:
- 
+
 	TableName | WatermarkValue
 	--------- | --------------
 	data_source_table | 2017-09-05	8:06:00.000
@@ -615,10 +612,10 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	```sql
 	INSERT INTO data_source_table
 	VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
-	
+
 	INSERT INTO data_source_table
 	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-	```	
+	```
 
 	The updated data in the SQL database is:
 
@@ -645,7 +642,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	```
 
 	Here is the sample output:
- 
+
 	```json
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
@@ -660,7 +657,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 31758
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : LookupOldWaterMarkActivity
@@ -674,7 +671,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 25497
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : IncrementalCopyActivity
@@ -688,7 +685,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	DurationInMs      : 20194
 	Status            : Succeeded
 	Error             : {errorCode, message, failureType, target}
-	
+
 	ResourceGroupName : ADF
 	DataFactoryName   : incrementalloadingADF
 	ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -711,29 +708,26 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 	```sql
 	Select * from watermarktable
 	```
-	sample output: 
-	
+	sample output:
+
 	TableName | WatermarkValue
 	--------- | ---------------
 	data_source_table | 2017-09-07 09:01:00.000
 
-     
+
 ## Next steps
-You performed the following steps in this tutorial: 
+You performed the following steps in this tutorial:
 
 > [!div class="checklist"]
-> * Prepare the data store to store the watermark value. 
+> * Prepare the data store to store the watermark value.
 > * Create a data factory.
-> * Create linked services. 
+> * Create linked services.
 > * Create source, sink, and watermark datasets.
 > * Create a pipeline.
 > * Run the pipeline.
-> * Monitor the pipeline run. 
+> * Monitor the pipeline run.
 
-In this tutorial, the pipeline copied data from a single table in a SQL database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in an on-premises SQL Server database to a SQL database. 
+In this tutorial, the pipeline copied data from a single table in a SQL database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in a SQL Server database to SQL Database.
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from multiple tables in SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
-
-
-

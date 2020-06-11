@@ -1,15 +1,15 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension | Microsoft Docs
+title: Azure Compute - Linux Diagnostic Extension 
 description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: axayjo
 manager: gwallace
 
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018 
-ms.author: gwallace
+ms.author: akjosh
 ---
 # Use Linux Diagnostic Extension to monitor metrics and logs
 
@@ -44,19 +44,34 @@ These installation instructions and a [downloadable sample configuration](https:
 
 The downloadable configuration is just an example; modify it to suit your own needs.
 
+### Supported Linux distributions
+
+The Linux Diagnostic Extension supports the following distributions and versions. The list of distributions and versions applies only to Azure-endorsed Linux vendor images. Third-party BYOL and BYOS images, like appliances, are generally not supported for the Linux Diagnostic Extension.
+
+A distribution that lists only major versions, like Debian 7, is also supported for all minor versions. If a specific minor version is specified, only that specific version is supported; if "+" is appended, minor versions equal to or greater than the specified version are supported.
+
+Supported distributions and versions:
+
+- Ubuntu 18.04, 16.04, 14.04
+- CentOS 7, 6.5+
+- Oracle Linux 7, 6.4+
+- OpenSUSE 13.1+
+- SUSE Linux Enterprise Server 12
+- Debian 9, 8, 7
+- RHEL 7, 6.7+
+
 ### Prerequisites
 
 * **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to update it.
 * **Azure CLI**. [Set up the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) environment on your machine.
 * The wget command, if you don't already have it: Run `sudo apt-get install wget`.
 * An existing Azure subscription and an existing storage account within it to store the data.
-* List of supported Linux distributions is on https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### Sample installation
 
 Fill in the correct values for the variables in the first section before running:
 
-```bash
+```azurecli
 # Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
@@ -84,7 +99,35 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-The URL for the sample configuration, and its contents, are subject to change. Download a copy of the portal settings JSON file and customize it for your needs. Any templates or automation you construct should use your own copy, rather than downloading that URL each time.
+The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
+
+#### PowerShell sample
+
+```powershell
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
+
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
+
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
+
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
+
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
+```
 
 ### Updating the extension settings
 
@@ -130,7 +173,7 @@ storageAccountSasToken | An [Account SAS token](https://azure.microsoft.com/blog
 mdsdHttpProxy | (optional) HTTP proxy information needed to enable the extension to connect to the specified storage account and endpoint.
 sinksConfig | (optional) Details of alternative destinations to which metrics and events can be delivered. The specific details of each data sink supported by the extension are covered in the sections that follow.
 
-To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+To get a SAS token within a Resource Manager template, use the **listAccountSas** function. For an example template, see [List function example](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 You can easily construct the required SAS token through the Azure portal.
 
@@ -188,11 +231,11 @@ The "sasURL" entry contains the full URL, including SAS token, for the Event Hub
 
 If you created a SAS good until midnight UTC on January 1, 2018, the sasURL value might be:
 
-```url
+```https
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-For more information about generating SAS tokens for Event Hubs, see [this web page](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+For more information about generating and retrieving information on SAS tokens for Event Hubs, see [this web page](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### The JsonBlob sink
 
@@ -403,7 +446,7 @@ Controls the capture of log files. LAD captures new text lines as they are writt
 
 Element | Value
 ------- | -----
-file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards.
+file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards. The 'omsagent' user account must have read access to the file path.
 table | (optional) The Azure storage table, in the designated storage account (as specified in the protected configuration), into which new lines from the "tail" of the file are written.
 sinks | (optional) A comma-separated list of names of additional sinks to which log lines sent.
 
@@ -597,8 +640,8 @@ In each case, data is also uploaded to:
 ```json
 {
   "StorageAccount": "yourdiagstgacct",
-  "sampleRateInSeconds": 15,
   "ladCfg": {
+    "sampleRateInSeconds": 15,
     "diagnosticMonitorConfiguration": {
       "performanceCounters": {
         "sinks": "MyMetricEventHub,MyJsonMetricsBlob",

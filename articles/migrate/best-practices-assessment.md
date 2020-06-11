@@ -1,10 +1,10 @@
 ---
-title: Best practices for creating assessment with Azure Migrate Server Assessment
-description: Provides tips for creating assessments with Azure Migrate Server Assessment.
+title: Assessment best practices in Azure Migrate Server Assessment
+description: Tips for creating assessments with Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -78,7 +78,18 @@ If you add or remove machines from a group after you create an assessment, the a
 
 ### Outdated assessments
 
-If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked **outdated**. To reflect the changes, run the assessment again.
+If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked **outdated**. An assessment can be marked as “Outdated” because of one or more changes in below properties:
+
+- Number of processor cores
+- Allocated memory
+- Boot type or firmware
+- Operating system name, version and architecture
+- Number of disks
+- Number of network adaptor
+- Disk size change(GB Allocated)
+- Update to Nic properties. Example: Mac address changes, IP address addition etc.
+
+Run the assessment again (**Recalculate**) to reflect the changes.
 
 ### Low confidence rating
 

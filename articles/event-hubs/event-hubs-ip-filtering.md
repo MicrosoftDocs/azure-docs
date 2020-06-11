@@ -10,50 +10,56 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
 
 ---
 
-# Use Firewall rules
+# Configure IP firewall rules for an Azure Event Hubs namespace
+By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-For scenarios in which Azure Event Hubs should be only accessible from certain well-known sites, firewall rules enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
-
-## When to use
-
-If you are looking to setup your Event Hubs namespace such that it should receive traffic from only a specified range of IP addresses and reject everything else, then you can leverage a *Firewall rule* to block Event Hub endpoints from other IP addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a *Firewall rule* to restrict the traffic from your on-premises infrastructure IP addresses.
-
-## How filter rules are applied
-
-The IP filter rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol.
-
-Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule.
-
-## Default setting
-
-By default, the **IP Filter** grid in the portal for Event Hubs is empty. This default setting means that your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
-
-## IP filter rule evaluation
-
-IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
 >[!WARNING]
-> Implementing Firewalls can prevent other Azure services from interacting with Event Hubs.
+> Enabling IP filtering can prevent other Azure services from interacting with Event Hubs.
 >
-> Trusted Microsoft services are not supported when IP Filtering (Firewalls) are implemented, and will be made available soon.
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
-> Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >
-> The below Microsoft services are required to be on a virtual network
+> The following Microsoft services are required to be on a virtual network
 > - Azure Web Apps
 > - Azure Functions
 
-### Creating a Firewall rule with Azure Resource Manager templates
+
+## IP firewall rules
+The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
+
+## Use Azure portal
+This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
+
+1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
+2. On the left menu, select **Networking** option. If you select the **All networks** option, the event hub accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+    ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
+    1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
+    2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
+    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+
+        > [!WARNING]
+        > If you choose the **Selected networks** option and don't specify an IP address or address range, the service will allow traffic from all networks. 
+
+        ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
+
+
+## Use Resource Manager template
 
 > [!IMPORTANT]
 > Firewall rules are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in basic tier.
@@ -132,6 +138,7 @@ Template parameters:
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,
           "defaultAction": "Deny"
         }
       }
@@ -151,5 +158,5 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 <!-- Links -->
 
 [express-route]:  /azure/expressroute/expressroute-faqs#supported-services
-[lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: event-hubs-service-endpoints.md

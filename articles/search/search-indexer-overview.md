@@ -1,5 +1,5 @@
 ---
-title: Indexers for crawling data sources during indexing
+title: Indexers for crawling data during import
 titleSuffix: Azure Cognitive Search
 description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Cognitive Search index.
 
@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: fasttrack-edit
 ---
 
 # Indexers in Azure Cognitive Search
@@ -42,11 +43,12 @@ All operations related to indexers, including GET requests for status or definit
 Indexers crawl data stores on Azure.
 
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (in preview)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [SQL Managed instances on Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## Basic configuration steps
 Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
@@ -63,7 +65,7 @@ An indexer will automate some tasks related to data ingestion, but creating an i
 > Although indexers cannot generate an index for you, the **Import data** wizard in the portal can help. In most cases, the wizard can infer an index schema from existing metadata in the source, presenting a preliminary index schema which you can edit in-line while the wizard is active. Once the index is created on the service, further edits in the portal are mostly limited to adding new fields. Consider the wizard for creating, but not revising, an index. For hands-on learning, step through the [portal walkthrough](search-get-started-portal.md).
 
 ### Step 3: Create and schedule the indexer
-The indexer definition is a construct that brings together all of the elements related to data ingestion. Required elements include a data source and index. Optional elements include a schedule and field mappings. Field mapping are only optional if source fields and index fields clearly correspond. An indexer can reference a data source from another service, as long as that data source is from the same subscription. For more information about structuring an indexer, see [Create Indexer (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+The indexer definition is a construct that brings together all of the elements related to data ingestion. Required elements include a data source and index. Optional elements include a schedule and field mappings. Field mapping are only optional if source fields and index fields clearly correspond. For more information about structuring an indexer, see [Create Indexer (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 

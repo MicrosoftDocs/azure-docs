@@ -1,13 +1,8 @@
 ---
-title: Back up and restore encrypted Azure VMs with Azure Backup
+title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
 ---
 # Back up and restore encrypted Azure VM
 
@@ -15,7 +10,7 @@ This article describes how to back up and restore Windows or Linux Azure virtual
 
 If you want to learn more about how Azure Backup interacts with Azure VMs before you begin, review these resources:
 
-- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
+- [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
 - [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the Azure Backup extension.
 
 ## Encryption support
@@ -29,21 +24,16 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
 
-- Learn more about [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md), and [KEKs](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
+- Learn more about [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md), and [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Read the [FAQ](../security/azure-security-disk-encryption-faq.md) for Azure VM disk encryption.
-
-
 
 ### Limitations
 
 - You can back up and restore encrypted VMs within the same subscription and region.
-- Azure Backup supports VMs encrypted using standalone keys. Any key which is a part of a certificate used to encrypt a VM isn't currently supported.
+- Azure Backup supports VMs encrypted using standalone keys. Any key that is a part of a certificate used to encrypt a VM isn't currently supported.
 - You can back up and restore encrypted VMs within the same subscription and region as the Recovery Services Backup vault.
 - Encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for encrypted VMs. This option is only supported for unencrypted managed disks.
-
-
-
 
 ## Before you start
 
@@ -57,9 +47,6 @@ Before you start, do the following:
 In addition, there are a couple of things that you might need to do in some circumstances:
 
 - **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Explicitly allow outbound access**: Generally, you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup. However, some VMs might experience connection issues, showing the **ExtensionSnapshotFailedNoNetwork** error when attempting to connect. If this happens, you should [explicitly allow outbound access](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), so the Azure Backup extension can communicate with Azure public IP addresses for backup traffic.
-
-
 
 ## Configure a backup policy
 
@@ -81,7 +68,6 @@ In addition, there are a couple of things that you might need to do in some circ
 
 6. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-
 7. Choose the encrypted VMs you want to back up using the select policy, and select **OK**.
 
       ![Select encrypted VMs](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
@@ -98,22 +84,20 @@ In addition, there are a couple of things that you might need to do in some circ
 
 9. Click **Enable Backup** to deploy the backup policy in the vault, and enable backup for the selected VMs.
 
-
 ## Trigger a backup job
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
 1. In the vault menu, click **Backup items**.
-2. In **Backup Items** click **Azure Virtual Machine**.
+2. In **Backup Items**, click **Azure Virtual Machine**.
 3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
-
 ## Provide permissions
 
-Azure VM needs read-only access to back up the keys and secrets, along with the associated VMs.
+Azure Backup needs read-only access to back up the keys and secrets, along with the associated VMs.
 
 - Your Key Vault is associated with the Azure AD tenant of the Azure subscription. If you're a **Member user**, Azure Backup acquires access to the Key Vault without further action.
 - If you're a **Guest user**, you must provide permissions for Azure Backup to access the key vault.
@@ -134,21 +118,21 @@ To set permissions:
 
     ![Azure backup selection](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Click **OK**. **Backup Management Service** is added to **Access policies**.
+7. Click **OK**. **Backup Management Service** is added to **Access policies**.
 
     ![Access policies](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-7. Click **Save** to provide Azure Backup with the permissions.
+8. Click **Save** to provide Azure Backup with the permissions.
 
 ## Restore an encrypted VM
 
 You restore encrypted VMs as follows:
 
 1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
-2. Then do one of the following:
-    - Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - For Linux VMs, reset the ADE extension so the data disks are open and mounted. 
+2. Recreate the virtual machine instance by doing one of the following:
+    1. Use the template that's generated during the restore operation to customize VM settings, and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+3. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
 
 ## Next steps
 

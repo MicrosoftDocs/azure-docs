@@ -1,5 +1,6 @@
 ---
-title: Communication Security - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Communication security for the Microsoft Threat Modeling Tool 
+titleSuffix: Azure
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
@@ -26,13 +27,13 @@ ms.author: jegeib
 | **Dynamics CRM** | <ul><li>[Check service account privileges and check that the custom Services or ASP.NET Pages respect CRM's security](#priv-aspnet)</li></ul> |
 | **Azure Data Factory** | <ul><li>[Use Data management gateway while connecting On-premises SQL Server to Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Ensure that all traffic to Identity Server is over HTTPS connection](#identity-https)</li></ul> |
-| **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
+| **Web Application** | <ul><li>[Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections](#x509-ssltls)</li><li>[Configure TLS/SSL certificate for custom domain in Azure App Service](#ssl-appservice)</li><li>[Force all traffic to Azure App Service over HTTPS connection](#appservice-https)</li><li>[Enable HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Ensure SQL server connection encryption and certificate validation](#sqlserver-validation)</li><li>[Force Encrypted communication to SQL server](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Ensure that communication to Azure Storage is over HTTPS](#comm-storage)</li><li>[Validate MD5 hash after downloading blob if HTTPS cannot be enabled](#md5-https)</li><li>[Use SMB 3.0 compatible client to ensure in-transit data encryption to Azure File Shares](#smb-shares)</li></ul> |
 | **Mobile Client** | <ul><li>[Implement Certificate Pinning](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Enable HTTPS - Secure Transport channel](#https-transport)</li><li>[WCF: Set Message security Protection level to EncryptAndSign](#message-protection)</li><li>[WCF: Use a least-privileged account to run your WCF service](#least-account-wcf)</li></ul> |
 | **Web API** | <ul><li>[Force all traffic to Web APIs over HTTPS connection](#webapi-https)</li></ul> |
-| **Azure Cache for Redis** | <ul><li>[Ensure that communication to Azure Cache for Redis is over SSL](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Ensure that communication to Azure Cache for Redis is over TLS](#redis-ssl)</li></ul> |
 | **IoT Field Gateway** | <ul><li>[Secure Device to Field Gateway communication](#device-field)</li></ul> |
 | **IoT Cloud Gateway** | <ul><li>[Secure Device to Cloud Gateway communication using SSL/TLS](#device-cloud)</li></ul> |
 
@@ -78,7 +79,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [IdentityServer3 - Keys, Signatures and Cryptography](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html), [IdentityServer3 - Deployment](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Steps** | By default, IdentityServer requires all incoming connections to come over HTTPS. It is absolutely mandatory that communication with IdentityServer is done over secured transports only. There are certain deployment scenarios like SSL offloading where this requirement can be relaxed. See the Identity Server deployment page in the references for more information. |
+| **Steps** | By default, IdentityServer requires all incoming connections to come over HTTPS. It is absolutely mandatory that communication with IdentityServer is done over secured transports only. There are certain deployment scenarios like TLS offloading where this requirement can be relaxed. See the Identity Server deployment page in the references for more information. |
 
 ## <a id="x509-ssltls"></a>Verify X.509 certificates used to authenticate SSL, TLS, and DTLS connections
 
@@ -91,7 +92,7 @@ ms.author: jegeib
 | **References**              | N/A  |
 | **Steps** | <p>Applications that use SSL, TLS, or DTLS must fully verify the X.509 certificates of the entities they connect to. This includes verification of the certificates for:</p><ul><li>Domain name</li><li>Validity dates (both beginning and expiration dates)</li><li>Revocation status</li><li>Usage (for example, Server Authentication for servers, Client Authentication for clients)</li><li>Trust chain. Certificates must chain to a root certification authority (CA) that is trusted by the platform or explicitly configured by the administrator</li><li>Key length of certificate's public key must be >2048 bits</li><li>Hashing algorithm must be SHA256 and above |
 
-## <a id="ssl-appservice"></a>Configure SSL certificate for custom domain in Azure App Service
+## <a id="ssl-appservice"></a>Configure TLS/SSL certificate for custom domain in Azure App Service
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -100,7 +101,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - Azure |
 | **References**              | [Enable HTTPS for an app in Azure App Service](../../app-service/configure-ssl-bindings.md) |
-| **Steps** | By default, Azure already enables HTTPS for every app with a wildcard certificate for the *.azurewebsites.net domain. However, like all wildcard domains, it is not as secure as using a custom domain with own certificate [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). It is recommended to enable SSL for the custom domain which the deployed app will be accessed through|
+| **Steps** | By default, Azure already enables HTTPS for every app with a wildcard certificate for the *.azurewebsites.net domain. However, like all wildcard domains, it is not as secure as using a custom domain with own certificate [Refer](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). It is recommended to enable TLS for the custom domain which the deployed app will be accessed through|
 
 ## <a id="appservice-https"></a>Force all traffic to Azure App Service over HTTPS connection
 
@@ -133,7 +134,7 @@ The following example contains a basic URL Rewrite rule that forces all incoming
   </system.webServer>
 </configuration>
 ```
-This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, HTTP://contoso.com would be redirected to HTTPS://contoso.com. 
+This rule works by returning an HTTP status code of 301 (permanent redirect) when the user requests a page using HTTP. The 301 redirects the request to the same URL as the visitor requested, but replaces the HTTP portion of the request with HTTPS. For example, `HTTP://contoso.com` would be redirected to `HTTPS://contoso.com`. 
 
 ## <a id="http-hsts"></a>Enable HTTP Strict Transport Security (HSTS)
 
@@ -143,8 +144,8 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types https://example.com and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
+| **References**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
+| **Steps** | <p>HTTP Strict Transport Security (HSTS) is an opt-in security enhancement that is specified by a web application through the use of a special response header. Once a supported browser receives this header that browser will prevent any communications from being sent over HTTP to the specified domain and will instead send all communications over HTTPS. It also prevents HTTPS click through prompts on browsers.</p><p>To implement HSTS, the following response header has to be configured for a website globally, either in code or in config. Strict-Transport-Security: max-age=300; includeSubDomains HSTS addresses the following threats:</p><ul><li>User bookmarks or manually types `https://example.com` and is subject to a man-in-the-middle attacker: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP: HSTS automatically redirects HTTP requests to HTTPS for the target domain</li><li>A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate: HSTS does not allow a user to override the invalid certificate message</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Ensure SQL server connection encryption and certificate validation
 
@@ -155,7 +156,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Applicable Technologies** | SQL Azure  |
 | **Attributes**              | SQL Version - V12 |
 | **References**              | [Best Practices on Writing Secure Connection Strings for SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Steps** | <p>All communications between SQL Database and a client application are encrypted using Secure Sockets Layer (SSL) at all times. SQL Database doesn’t support unencrypted connections. To validate certificates with application code or tools, explicitly request an encrypted connection and do not trust the server certificates. If your application code or tools do not request an encrypted connection, they will still receive encrypted connections</p><p>However, they may not validate the server certificates and thus will be susceptible to "man in the middle" attacks. To validate certificates with ADO.NET application code, set `Encrypt=True` and `TrustServerCertificate=False` in the database connection string. To validate certificates via SQL Server Management Studio, open the Connect to Server dialog box. Click Encrypt connection on the Connection Properties tab</p>|
+| **Steps** | <p>All communications between SQL Database and a client application are encrypted using Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), at all times. SQL Database doesn't support unencrypted connections. To validate certificates with application code or tools, explicitly request an encrypted connection and do not trust the server certificates. If your application code or tools do not request an encrypted connection, they will still receive encrypted connections</p><p>However, they may not validate the server certificates and thus will be susceptible to "man in the middle" attacks. To validate certificates with ADO.NET application code, set `Encrypt=True` and `TrustServerCertificate=False` in the database connection string. To validate certificates via SQL Server Management Studio, open the Connect to Server dialog box. Click Encrypt connection on the Connection Properties tab</p>|
 
 ## <a id="encrypted-sqlserver"></a>Force Encrypted communication to SQL server
 
@@ -166,7 +167,7 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **Applicable Technologies** | OnPrem |
 | **Attributes**              | SQL Version - MsSQL2016, SQL Version - MsSQL2012, SQL Version - MsSQL2014 |
 | **References**              | [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192)  |
-| **Steps** | Enabling SSL encryption increases the security of data transmitted across networks between instances of SQL Server and applications. |
+| **Steps** | Enabling TLS encryption increases the security of data transmitted across networks between instances of SQL Server and applications. |
 
 ## <a id="comm-storage"></a>Ensure that communication to Azure Storage is over HTTPS
 
@@ -209,8 +210,8 @@ This rule works by returning an HTTP status code of 301 (permanent redirect) whe
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Windows Phone |
 | **Attributes**              | N/A  |
-| **References**              | [Certificate and Public Key Pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| **Steps** | <p>Certificate pinning defends against Man-In-The-Middle (MITM) attacks. Pinning is the process of associating a host with their expected X509 certificate or public key. Once a certificate or public key is known or seen for a host, the certificate or public key is associated or 'pinned' to the host. </p><p>Thus, when an adversary attempts to do SSL MITM attack, during SSL handshake the key from attacker's server will be different from the pinned certificate's key, and the request will be discarded, thus preventing MITM Certificate pinning can be achieved by implementing ServicePointManager's `ServerCertificateValidationCallback` delegate.</p>|
+| **References**              | [Certificate and Public Key Pinning](https://owasp.org/www-community/controls/Certificate_and_Public_Key_Pinning) |
+| **Steps** | <p>Certificate pinning defends against Man-In-The-Middle (MITM) attacks. Pinning is the process of associating a host with their expected X509 certificate or public key. Once a certificate or public key is known or seen for a host, the certificate or public key is associated or 'pinned' to the host. </p><p>Thus, when an adversary attempts to do TLS MITM attack, during TLS handshake the key from attacker's server will be different from the pinned certificate's key, and the request will be discarded, thus preventing MITM Certificate pinning can be achieved by implementing ServicePointManager's `ServerCertificateValidationCallback` delegate.</p>|
 
 ### Example
 ```csharp
@@ -341,7 +342,7 @@ string GetData(int value);
 | **Steps** | If an application has both an HTTPS and an HTTP binding, clients can still use HTTP to access the site. To prevent this, use an action filter to ensure that requests to protected APIs are always over HTTPS.|
 
 ### Example 
-The following code shows a Web API authentication filter that checks for SSL: 
+The following code shows a Web API authentication filter that checks for TLS: 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
@@ -361,7 +362,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
     }
 }
 ```
-Add this filter to any Web API actions that require SSL: 
+Add this filter to any Web API actions that require TLS: 
 ```csharp
 public class ValuesController : ApiController
 {
@@ -370,7 +371,7 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Ensure that communication to Azure Cache for Redis is over SSL
+## <a id="redis-ssl"></a>Ensure that communication to Azure Cache for Redis is over TLS
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -378,8 +379,8 @@ public class ValuesController : ApiController
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Redis SSL support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Steps** | Redis server does not support SSL out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports SSL, like StackExchange.Redis, then you should use SSL. By default non-SSL port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on SSL support for redis clients. |
+| **References**              | [Azure Redis TLS support](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
+| **Steps** | Redis server does not support TLS out of the box, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports TLS, like StackExchange.Redis, then you should use TLS. By default non-TLS port is disabled for new Azure Cache for Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on TLS support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
 

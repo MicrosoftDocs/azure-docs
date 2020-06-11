@@ -1,19 +1,12 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis with Java'
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 29275a5e-2e39-4ef2-804f-7ecc5161eab9
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.date: 05/23/2018
+ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
@@ -57,7 +50,7 @@ Open the *pom.xml* file and add a dependency for [Jedis](https://github.com/xeto
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>2.9.0</version>
+        <version>3.2.0</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency>
@@ -86,7 +79,7 @@ public class App
         String cacheHostname = System.getenv("REDISCACHEHOSTNAME");
         String cachekey = System.getenv("REDISCACHEKEY");
 
-        // Connect to the Azure Cache for Redis over the SSL port using the key.
+        // Connect to the Azure Cache for Redis over the TLS/SSL port using the key.
         JedisShardInfo shardInfo = new JedisShardInfo(cacheHostname, 6380, useSsl);
         shardInfo.setPassword(cachekey); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);      

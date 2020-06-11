@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure SignalR Service authentication with Azure Functions"
+title: "Tutorial: Authentication with Azure Functions - Azure SignalR"
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding
 author: sffamily
 ms.service: signalr

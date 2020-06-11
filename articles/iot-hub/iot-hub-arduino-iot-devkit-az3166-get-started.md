@@ -1,14 +1,14 @@
 ---
-title: IoT DevKit to cloud -- Connect IoT DevKit AZ3166 to Azure IoT Hub | Microsoft Docs
+title: Connect IoT DevKit AZ3166 to an Azure IoT Hub
 description: In this tutorial, learn how to set up and connect IoT DevKit AZ3166 to Azure IoT Hub so it can send data to the Azure cloud platform.
 author: wesmc7777
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
+ms.custom:  mqtt
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -78,7 +78,13 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
    > [!NOTE]
-   > If you get an error running `device-identity`, install the [Azure IOT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) for more details.
+   > If you get an error running `device-identity`, install the [Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds commands that are specific to IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) to Azure CLI.
+   > 
+   > ```azurecli-interactive
+   > az extension add --name azure-iot
+   >  ```
+   >
   
 1. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
@@ -140,7 +146,7 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
 
 1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
 
-    ```bash
+    ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
@@ -165,12 +171,10 @@ Follow these steps to prepare the development environment for the DevKit:
 
     ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Or use this direct link:
-    > [!div class="nextstepaction"]
-    > [Install Azure IoT Tools extension pack](vscode:extension/vsciot-vscode.azure-iot-tools)
+    Or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
-    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
+    > The Azure IoT Tools extension pack contains the [Azure IoT Device Workbench](https://aka.ms/iot-workbench) which is used to develop and debug on various IoT devkit devices. The [Azure IoT Hub extension](https://aka.ms/iot-toolkit), also included with the Azure IoT Tools extension pack, is used to manage and interact with Azure IoT Hubs.
 
 5. Configure VS Code with Arduino settings.
 
@@ -318,6 +322,17 @@ The sample application is running successfully when you see the following result
 
 ![Serial monitor output](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
 
+> [!NOTE]
+> You might encounter an error during testing in which the LED isn't blinking, the Azure portal doesn't show incoming data from the device, but the device OLED screen shows as **Running...**. To resolve the issue, in the Azure portal, go to the device in the IoT hub and send a message to the device. If you see the following response in the serial monitor in VS Code, it's possible that direct communication from the device is blocked at the router level. Check firewall and router rules that are configured for the connecting devices. Also, ensure that outbound port 1833 is open.
+> 
+> ERROR: mqtt_client.c (ln 454): Error: failure opening connection to endpoint  
+> INFO: >>>Connection status: disconnected  
+> ERROR: tlsio_mbedtls.c (ln 604): Underlying IO open failed  
+> ERROR: mqtt_client.c (ln 1042): Error: io_open failed  
+> ERROR: iothubtransport_mqtt_common.c (ln 2283): failure connecting to address atcsliothub.azure-devices.net.  
+> INFO: >>>Re-connect.  
+> INFO: IoThub Version: 1.3.6  
+
 ### View the telemetry received by Azure IoT Hub
 
 You can use [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) to monitor device-to-cloud (D2C) messages in IoT Hub.
@@ -334,7 +349,7 @@ You can use [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemNam
 
     ![Set Azure IoT Hub connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. Expand the **AZURE IOT HUB DEVICES** pane on the right, right click on the device name you created and select **Start Monitoring Built-in Event Endpoint**.
+1. Expand the **AZURE IOT HUB DEVICES** pane on the left, right click on the device name you created and select **Start Monitoring Built-in Event Endpoint**.
 
     ![Monitor D2C Message](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 

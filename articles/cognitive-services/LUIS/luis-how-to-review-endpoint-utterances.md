@@ -1,91 +1,64 @@
 ---
 title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
-description: Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
+description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 05/07/2020
 ms.author: diberry
 ---
 
-# How to review endpoint utterances in LUIS portal for active learning
+# How to improve the LUIS app by reviewing endpoint utterances
 
-[Active learning](luis-concept-review-endpoint-utterances.md) captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+The process of reviewing endpoint utterances for correct predictions is called [Active learning](luis-concept-review-endpoint-utterances.md). Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 
 ## Enable active learning
 
-To enable active learning, log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=true` querystring parameter and value.
+To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
 
-## Disable active learning
+Use the LUIS portal to construct the correct endpoint query.
 
-To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=false` querystring parameter and value.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Go to the **Manage** section, then select **Azure resources**.
+1. For the assigned prediction resource, select **Change query parameters**.
 
-## Filter utterances
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
-1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.
+1. Toggle **Save logs** then save by selecting **Done**.
 
-1. Under the **Improve app performance**, select **Review endpoint utterances**.
+    > [!div class="mx-imgBorder"]
+    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-1. On the **Review endpoint utterances** page, select in the **Filter list by intent or entity** text box. This drop-down list includes all intents under **INTENTS** and all entities under **ENTITIES**.
+     This action changes the example URL by adding the `log=true` querystring parameter. Copy and use the changed example query URL when making prediction queries to the runtime endpoint.
 
-    ![Utterances filter](./media/label-suggested-utterances/filter.png)
+## Correct intent predictions to align utterances
 
-1. Select a category (intents or entities) in the drop-down list and review the utterances.
+Each utterance has a suggested intent displayed in the **Aligned intent** column.
 
-    ![Intent utterances](./media/label-suggested-utterances/intent-utterances.png)
+> [!div class="mx-imgBorder"]
+> [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-## Label entities
-LUIS replaces entity tokens (words) with entity names highlighted in blue. If an utterance has unlabeled entities, label them in the utterance. 
+If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list.
 
-1. Select on the word(s) in the utterance. 
-
-1. Select an entity from the list.
-
-    ![Label entity](./media/label-suggested-utterances/label-entity.png)
-
-## Align single utterance
-
-Each utterance has a suggested intent displayed in the **Aligned intent** column. 
-
-1. If you agree with that suggestion, select on the check mark.
-
-    ![Keep aligned intent](./media/label-suggested-utterances/align-intent-check.png)
-
-1. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. 
-
-    ![Align intent](./media/label-suggested-utterances/align-intent.png)
-
-1. After you select on the check mark, the utterance is removed from the list. 
-
-## Align several utterances
-
-To align several utterances, check the box to the left of the utterances, then select on the **Add selected** button. 
-
-![Align several](./media/label-suggested-utterances/add-selected.png)
-
-## Verify aligned intent
-
-You can verify the utterance was aligned with the correct intent by going to the **Intents** page, select the intent name, and reviewing the utterances. The utterance from **Review endpoint utterances** is in the list.
+> [!TIP]
+> It is important to go to the Intent details page to review and correct the entity predictions from all example utterances from the **Review Endpoint Utterances** list.
 
 ## Delete utterance
 
-Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint. 
+Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint.
 
-If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as "miscellaneous" and move the utterance to that intent. 
+If you are unsure if you should delete the utterance, either move it to the None intent, or create a new intent such as `miscellaneous` and move the utterance to that intent.
 
-## Delete several utterances
+## Disable active learning
 
-To delete several utterances, select each item and select on the trash bin to the right of the **Add selected** button.
-
-![Delete several](./media/label-suggested-utterances/delete-several.png)
-
+To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=false` querystring parameter and value or not using the querystring value because the default value is false.
 
 ## Next steps
 

@@ -48,7 +48,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `dnf` package manager:
+    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
 
     ```bash
     sudo yum install cifs-utils 
@@ -75,7 +75,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -113,7 +113,7 @@ You can mount the same Azure file share to multiple mount points if desired.
         --resource-group $resourceGroupName \
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShare
+    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
     storageAccountKey=$(az storage account keys list \
         --resource-group $resourceGroupName \
@@ -189,10 +189,57 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     > [!Note]  
     > The above mount command mounts with SMB 3.0. If your Linux distribution does not support SMB 3.0 with encryption or if it only supports SMB 2.1, you may only mount from an Azure VM within the same region as the storage account. To mount your Azure file share on a Linux distribution that does not support SMB 3.0 with encryption, you will need to [disable encryption in transit for the storage account](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### Using autofs to automatically mount the Azure file share(s)
+
+1. **Ensure the autofs package is installed.**  
+
+    The autofs package can be installed using the package manager on the Linux distribution of your choice. 
+
+    On **Ubuntu** and **Debian-based** distributions, use the `apt` package manager:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    On **Fedora**, **Red Hat Enterprise Linux 8+**, and **CentOS 8 +**, use the `dnf` package manager:
+    ```bash
+    sudo dnf install autofs
+    ```
+    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
+    ```bash
+    sudo yum install autofs 
+    ```
+    On **openSUSE**, use the `zypper` package manager:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Create a mount point for the share(s)**:
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Crete a new custom autofs configuration file**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Add the following entries to /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Add the following entry to /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Restart autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Access the folder designated for the share**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## Securing Linux
 In order to mount an Azure file share on Linux, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
-Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
+Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentations), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
 
 | Distribution | Can disable SMB 1 |
 |--------------|-------------------|
@@ -221,7 +268,7 @@ sudo modinfo -p cifs | grep disable_legacy_dialects
 
 This command should output the following message:
 
-```Output
+```output
 disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
 ```
 
@@ -267,11 +314,6 @@ You can verify that this has worked by loading the SMB module:
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
-
-## Feedback
-Linux users, we want to hear from you!
-
-The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## Next steps
 See these links for more information about Azure Files:

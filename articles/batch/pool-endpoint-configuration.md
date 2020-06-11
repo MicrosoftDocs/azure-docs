@@ -1,14 +1,8 @@
 ---
-title: Configure node endpoints in Azure Batch pool | Microsoft Docs
+title: Configure node endpoints in Azure Batch pool
 description: How to configure or disable access to SSH or RDP ports on compute nodes in an Azure Batch pool.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2018
-ms.author: lahugh
 ---
 
 # Configure or disable remote access to compute nodes in an Azure Batch pool
@@ -121,7 +115,5 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## Next steps
 
+- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - For more information about NSG rules in Azure, see [Filter network traffic with network security groups](../virtual-network/security-overview.md).
-
-- For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
-

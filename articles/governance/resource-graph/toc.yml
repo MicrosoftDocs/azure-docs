@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Resource Graph
+  - name: What is Azure Resource Graph?
     displayName: Resource Manager, query language, rbac, permissions
     href: overview.md
 - name: Quickstarts
@@ -17,6 +17,12 @@
   - name: Run your first query - PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: first-query-powershell.md
+  - name: Run your first query - Python
+    displayName: library, azure-mgmt, cli
+    href: first-query-python.md
+  - name: Deploy a shared query - ARM template
+    displayName: resource manager, queries
+    href: shared-query-template.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
@@ -77,14 +83,20 @@
   - name: REST
     href: /rest/api/azure-resourcegraph/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01 
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+  - name: Resource Manager templates
+    href: /azure/templates/microsoft.resourcegraph/allversions
+  - name: Resource Graph tables and resource types
+    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
+  - name: GitHub - Governance samples
+    href: https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345061
-  - name: Governance YouTube Channel
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ

@@ -48,7 +48,7 @@ The following control plane operations on Managed Disks may involve movement of 
 - Create a managed disk from a snapshot.
 - Convert unmanaged disks to managed disks.
 
-# Performance Application Checklist for disks
+## Performance Application Checklist for disks
 
 The first step in designing high-performance applications running on Azure Premium Storage is understanding the performance requirements of your application. After you have gathered performance requirements, you can optimize your application to achieve the most optimal performance.
 
@@ -121,7 +121,7 @@ For more information on VM sizes and on the IOPS, throughput, and latency availa
 | **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
 | **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
-| **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by premium storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
+| **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
 | **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
 | **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. The combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
 | **Stripe Size** |Smaller stripe size for random small IO pattern seen in OLTP applications. For example, use stripe size of 64 KB for SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in Data Warehouse applications. For example, use 256 KB stripe size for SQL Server Data warehouse application. | &nbsp; |
@@ -165,9 +165,9 @@ To witness the effects of IO size on application performance, you can run benchm
 
 ## High scale VM sizes
 
-When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS, DSv2, and GS series VMs.
+When you start designing an application, one of the first things to do is, choose a VM to host your application. Premium Storage comes with High Scale VM sizes that can run applications requiring higher compute power and a high local disk I/O performance. These VMs provide faster processors, a higher memory-to-core ratio, and a Solid-State Drive (SSD) for the local disk. Examples of High Scale VMs supporting Premium Storage are the DS and GS series VMs.
 
-High Scale VMs are available in different sizes with a different number of CPU cores, memory, OS, and temporary disk size. Each VM size also has maximum number of data disks that you can attach to the VM. Therefore, the chosen VM size will affect how much processing, memory, and storage capacity is available for your application. It also affects the Compute and Storage cost. For example, below are the specifications of the largest VM size in a DS series, DSv2 series and a GS series:
+High Scale VMs are available in different sizes with a different number of CPU cores, memory, OS, and temporary disk size. Each VM size also has maximum number of data disks that you can attach to the VM. Therefore, the chosen VM size will affect how much processing, memory, and storage capacity is available for your application. It also affects the Compute and Storage cost. For example, below are the specifications of the largest VM size in a DS series and a GS series:
 
 | VM size | CPU cores | Memory | VM disk sizes | Max. data disks | Cache size | IOPS | Bandwidth Cache IO limits |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -227,12 +227,12 @@ Remember, the Premium Storage disks have higher performance capabilities compare
 
 ## Disk caching
 
-High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
+High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the host RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 > [!WARNING]
 > Disk Caching is not supported for disks 4 TiB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TiB will support caching.
 >
-> Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
+> Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
 
@@ -287,29 +287,31 @@ Some of the versions require the latest Linux Integration Services (LIS), v4.0, 
 
 | Distribution | Version | Supported kernel | Details |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 or newer| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 or newer| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Ubuntu | 12.04 or newer| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 or newer| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7.x, 8.x or newer| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 or newer| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 or newer| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 or newer| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ or newer| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://www.microsoft.com/download/details.aspx?id=51612) <br> *See note in the next section* |
-| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://www.microsoft.com/download/details.aspx?id=51612) <br> *See note in the next section* |
+| CoreOS | 584.0.0+ or newer| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
+| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### LIS drivers for OpenLogic CentOS
 
 If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-To activate the new drivers, restart the VM.
+In some cases the command above will upgrade the kernel as well. If a kernel update is required then you may need to run the above commands again after rebooting to fully install the microsoft-hyper-v package.
+
 
 ## Disk striping
 
@@ -326,7 +328,7 @@ An important configuration in disk striping is the stripe size. The stripe size 
 
 For example, if an IO request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it is time to access that data, it will have to seek across more than one stripe units to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the IO request size is smaller than stripe size, and if it is random in nature, the IO requests may add up on the same disk causing a bottleneck and ultimately degrading the IO performance.
 
-Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) to learn more.
+Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64 KB for OLTP workloads and 256 KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) to learn more.
 
 > [!NOTE]
 > You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.

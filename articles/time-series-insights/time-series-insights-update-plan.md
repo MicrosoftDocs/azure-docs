@@ -1,6 +1,6 @@
 ﻿---
-title: 'Plan your Azure Time Series Insights Preview environment | Microsoft Docs'
-description: Plan your Azure Time Series Insights Preview environment.
+title: 'Plan your Preview environment - Azure Time Series Insights | Microsoft Docs'
+description: Best practices to configure, manage, plan, and deploy your Azure Time Series Insights Preview environment.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 04/27/2020
 ms.custom: seodec18
 ---
 
@@ -17,7 +17,7 @@ ms.custom: seodec18
 This article describes best practices to plan and get started quickly by using Azure Time Series Insights Preview.
 
 > [!NOTE]
-> For best practices to plan a general availability Time Series Insights instance, see [Plan your Azure Time Series Insights general availability environment](time-series-insights-environment-planning.md).
+> For best practices to plan a general availability Time Series Insights instance, read [Plan your Azure Time Series Insights general availability environment](time-series-insights-environment-planning.md).
 
 ## Best practices for planning and preparation
 
@@ -29,7 +29,7 @@ Best practices surrounding planning for and preparing your environment are descr
 * How to [send events efficiently in JSON](#shape-your-events).
 * Time Series Insights [business disaster recovery options](#business-disaster-recovery).
 
-Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, read [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 ## The preview environment
 
@@ -43,7 +43,7 @@ As part of the provisioning process, you specify whether you want to enable a wa
 Queries on warm store are free, while queries on cold store incur costs. It's important to understand your query patterns and plan your warm store configuration accordingly. We recommend that interactive analytics on the most recent data reside in your warm store and pattern analysis and long-term trends reside in cold.
 
 > [!NOTE]
-> We currently support a maximum of 1,000 properties with warm store.
+> To read more about how to query your warm data, read the [API Reference](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 To start, you need three additional items:
 
@@ -75,7 +75,7 @@ When left blank, the Event Enqueue Time of an event source is used as the event 
 
 You can now configure your Time Series Insights environment’s Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 
-The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Time Series Insights. To build your model, see [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
+The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Time Series Insights. To build your model, read [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
 
 For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo).
 
@@ -88,7 +88,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp property.
 
-For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
+For more information, read [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

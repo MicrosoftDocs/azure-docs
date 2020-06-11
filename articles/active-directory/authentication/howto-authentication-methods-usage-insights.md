@@ -1,15 +1,15 @@
 ---
-title: Authentication methods usage & insights reporting (preview) - Azure Active Directory
+title: Authentication methods usage & insights - Azure Active Directory
 description: Reporting on Azure AD self-service password reset and Multi-Factor Authentication authentication method usage
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 06/06/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 
@@ -87,9 +87,11 @@ Using the controls at the top of the list, you can search for a user and filter 
 
 ## Limitations
 
-The data shown in these reports will be delayed by up to 60 minutes. A “Last refreshed" field exists in the Azure portal to identify how recent your data is.
+The data shown in these reports will be delayed by up to 60 minutes. A "Last refreshed" field exists in the Azure portal to identify how recent your data is.
 
 Usage and insights data is not a replacement for the Azure Multi-Factor Authentication activity reports or information contained in the Azure AD sign-ins report.
+
+Report can't currently be filtered to exclude external users.
 
 ## Next steps
 

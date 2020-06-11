@@ -1,17 +1,16 @@
 ---
-title: Deploy Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
+title: Deploy Privileged Identity Management (PIM) - Azure AD | Microsoft Docs
 description: Describes how to plan the deployment of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -116,7 +115,7 @@ The following section helps you identify all the stakeholders that are involved 
 
 As part of the planning process, you must first consent to and enable Privileged Identity Management by following our [start using Privileged Identity Management](pim-getting-started.md) article. Enabling Privileged Identity Management gives you access to some features that are specifically designed to help with your deployment.
 
-If your objective is to deploy Privileged Identity Management for Azure resources, you should follow our [discover Azure resources to manage in Privileged Identity Management](pim-resource-roles-discover-resources.md) article. Only owners of each resource, resource group, and subscription will be able to discover them inside Privileged Identity Management. If you are a Global Administrator trying to deploy Privileged Identity Management for your Azure resources, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with Privileged Identity Management.
+If your objective is to deploy Privileged Identity Management for Azure resources, you should follow our [discover Azure resources to manage in Privileged Identity Management](pim-resource-roles-discover-resources.md) article. Only owners of subscriptions and management groups can discover and onboard these resources onto Privileged Identity Management. After it is onboarded, the PIM functionality is available for owners at all levels including management group, subscription, resource group, and resource. If you are a Global Administrator trying to deploy Privileged Identity Management for your Azure resources, you can [elevate access to manage all Azure subscriptions](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with Privileged Identity Management.
 
 ### Enforce principle of least privilege
 
@@ -194,7 +193,7 @@ If there are any roles with guest users assigned, they are particularly vulnerab
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** you manage all roles with guest users using Privileged Identity Management to reduce risk associated with compromised guest user accounts.
 
-Reader roles like the Directory Reader, Message Center Reader, and Security Reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some customers also protect these roles because attackers who have gained access to these accounts may be able to read sensitive data, such as personally identifiable information (PII). You should take this into consideration when deciding whether reader roles in your organization need to be managed using Privileged Identity Management.
+Reader roles like the Directory Reader, Message Center Reader, and Security Reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some customers also protect these roles because attackers who have gained access to these accounts may be able to read sensitive data, such as personal data. You should take this into consideration when deciding whether reader roles in your organization need to be managed using Privileged Identity Management.
 
 #### Azure resource roles
 
@@ -321,7 +320,7 @@ You should use this stage to verify whether all the configuration you set up for
 
 ### Communicate Privileged Identity Management to affected stakeholders
 
-Deploying Privileged Identity Management will introduce additional steps for users of privileged roles. Although Privileged Identity Management greatly reduces security issues associated with privileged identities, the change needs to be effectively communicated before the tenant-wide deployment. Depending on the number of impacted administrators, organizations often elect to create an internal document, a video, or an email about the change. Frequently included in these communications include:
+Deploying Privileged Identity Management will introduce additional steps for users of privileged roles. Although Privileged Identity Management greatly reduces security issues associated with privileged identities, the change needs to be effectively communicated before the organization-wide deployment. Depending on the number of impacted administrators, organizations often elect to create an internal document, a video, or an email about the change. Frequently included in these communications include:
 
 - What is PIM
 - What is the benefit for the organization
@@ -367,7 +366,7 @@ Successfully deploying Privileged Identity Management in production is a signifi
 
 ### Use Privileged Identity Management alerts to safeguard your privileged access
 
-You should utilize Privileged Identity Management’s built-in alerting functionality to better safeguard your tenant. For more information, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
+You should utilize Privileged Identity Management’s built-in alerting functionality to better safeguard your organization. For more information, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management**.

@@ -1,21 +1,11 @@
 ---
-title: Troubleshoot Azure Cache for Redis timeouts | Microsoft Docs
-description: Learn how to resolve common timeout issues with Azure Cache for Redis
-services: cache
-documentationcenter: ''
+title: Troubleshoot Azure Cache for Redis timeouts
+description: Learn how to resolve common timeout issues with Azure Cache for Redis, such as redis server patching and StackExchange.Redis timeout exceptions.
 author: yegu-ms
-manager: maiye
-editor: ''
-
-ms.assetid: 
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2019
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 10/18/2019
 ---
 # Troubleshoot Azure Cache for Redis timeouts
 
@@ -30,7 +20,7 @@ This section discusses troubleshooting timeout issues that occur when connecting
 
 ## Redis server patching
 
-Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes may experience temporary timeouts as connections are switched between these nodes. See [How does a failover impact my client application](cache-failover.md#how-does-a-failover-impact-my-client-application) for more information on what side-effects patching can have on your application and how you can improve its handling of patching events.
+Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes may experience temporary timeouts as connections are switched between these nodes. See [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application) for more information on what side-effects patching can have on your application and how you can improve its handling of patching events.
 
 ## StackExchange.Redis timeout exceptions
 
@@ -86,7 +76,7 @@ You can use the following steps to investigate possible root causes.
    - Check if you're getting CPU bound on the server by monitoring the CPU [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to time out. To address this condition, you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server-side bandwidth limitation](cache-troubleshoot-server.md#server-side-bandwidth-limitation).
 1. Are there commands taking long time to process on the server? Long-running commands that are taking long time to process on the redis-server can cause timeouts. For more information about long-running commands, see [Long-running commands](cache-troubleshoot-server.md#long-running-commands). You can connect to your Azure Cache for Redis instance using the redis-cli client or the [Redis Console](cache-configure.md#redis-console). Then, run the [SLOWLOG](https://redis.io/commands/slowlog) command to see if there are requests slower than expected. Redis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests. Splitting your data into smaller chunks may improve things here.
 
-    For information on connecting to your cache's SSL endpoint using redis-cli and stunnel, see the blog post [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+    For information on connecting to your cache's TLS/SSL endpoint using redis-cli and stunnel, see the blog post [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 1. High Redis server load can cause timeouts. You can monitor the server load by monitoring the `Redis Server Load` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). A server load of 100 (maximum value) signifies that the redis server has been busy, with no idle time, processing requests. To see if certain requests are taking up all of the server capability, run the SlowLog command, as described in the previous paragraph. For more information, see High CPU usage / Server Load.
 1. Was there any other event on the client side that could have caused a network blip? Common events include: scaling the number of client instances up or down, deploying a new version of the client, or autoscale enabled. In our testing, we have found that autoscale or scaling up/down can cause outbound network connectivity to be lost for several seconds. StackExchange.Redis code is resilient to such events and reconnects. While reconnecting, any requests in the queue can time out.
 1. Was there a large request preceding several small requests to the cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but haven't processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it doesn't stop more data from being sent to or from the server. Other requests will be blocked until the large request is finished and can cause time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. Loading across multiple connection objects should prevent a single timeout from causing other requests to also time out.

@@ -1,16 +1,9 @@
 ---
-title: Azure App Service diagnostics overview | Microsoft Docs
-description: Learn how you can troubleshoot issues with your app with App Service diagnostics. 
+title: Diagnostics and solve tool
+description: Learn how you can troubleshoot issues with your app in Azure App Service with the diagnostics and solve tool in the Azure portal. 
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
-services: app-service
-documentationcenter: ''
 author: jen7714
-manager: cfowler
-editor: ''
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
@@ -34,6 +27,10 @@ For Azure Functions, navigate to your function app, and in the top navigation, c
 In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. See [Diagnostic tools (only for Windows app)](#diagnostic-tools-only-for-windows-app).
 
 ![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> If your app is down or performing slow, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the issue. Profiling is light weight and is designed for production scenarios.
+>
 
 ## Interactive interface
 

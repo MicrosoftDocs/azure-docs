@@ -1,12 +1,8 @@
 ---
-title: Microsoft Azure Backup server & System Center DPM support matrix
-description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server or System Center DPM to back up on-premises and Azure VM resources.
-author: dcurwin
-ms.service: backup
+title: MABS & System Center DPM support matrix
+description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
 ---
 
 # Support matrix for backup with Microsoft Azure Backup Server or System Center DPM
@@ -25,7 +21,7 @@ MABS is based on System Center DPM and provides similar functionality with a few
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
 - You can back up a primary DPM server with a secondary DPM server. The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
-You download MABS from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
+You download MABS from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
 
 DPM and MABS support backing up a wide variety of apps, and server and client operating systems. They provide multiple backup scenarios:
 
@@ -69,10 +65,13 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 
 **Scenario** | **DPM/MABS**
 --- | ---
-**MABS on an Azure VM** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB of RAM.
-**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum A2 Standard with two cores and 3.5 GB of RAM.
-**MABS on-premises** | Supported 64-bit operating systems:<br/><br/> MABS v3 and later: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 and later: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> All MABS versions: Windows Server 2012 R2.<br/><br/>All MABS versions: Windows Storage Server 2012 R2.
+**MABS on an Azure VM** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**DPM on an Azure VM** | System Center 2012 R2 with Update 3 or later.<br/><br/> Windows operating system as [required by System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> We recommend that you start with an image from the marketplace.<br/><br/> Minimum Standard_A4_v2 with four cores and 8-GB RAM.
+**MABS on-premises** |  MABS v3 and later: Windows Server 2016 or Windows Server 2019
 **DPM on-premises** | Physical server/Hyper-V VM: System Center 2012 SP1 or later.<br/><br/> VMware VM: System Center 2012 R2 with Update 5 or later.
+
+>[!NOTE]
+>Installing Azure Backup Server is not supported on Windows Server Core or Microsoft Hyper-V Server.
 
 ## Management support
 
@@ -109,11 +108,34 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 
 The DPM server/MABS needs access to these URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+
+With public peering: Ensure access to the following domains/addresses:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+With Microsoft peering, please select the following services/regions and relevant community values:
+
+- Azure Active Directory (12076:5060)
+- Microsoft Azure Region (according to the location of your Recovery Services vault)
+- Azure Storage (according to the location of your Recovery Services vault)
+
+For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
 
 ### DPM/MABS connectivity to Azure Backup
 
@@ -147,48 +169,11 @@ From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take a
 
 ## Supported backups to MABS
 
-The following table summarizes what can be backed up to MABS from on-premises machines and Azure VMs.
-
-**Backup** | **Versions** | **MABS** | **Details** |
---- | --- | --- | --- |
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bit) | MABS v3, v2 | On-premises. | Volume/share/folder/file.<br/><br/> Deduped volumes supported.<br/><br/> Volumes must be at least 1 GB and NTFS. |
-**Windows Server 2016 (Datacenter, Standard, not Nano)**<br/><br/> 64/32-bit | MABS v3, v2 | On-premises/Azure VM.| Volume/share/folder/file; system-state/bare-metal.<br/><br/> Deduped volumes supported. |
-**Windows Server 2012 R2 (Datacenter and Standard)**<br/><br/> 64/32-bit | MABS v3, v2 | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VMprotection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows Server 2012 with SP1 (Datacenter and Standard)**<br/><br/> 64/32-bit | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) must be installed. | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows 2008 R2 with SP1 (Standard and Enterprise)**<br/><br/> 64/32-bit | Supported by MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) must be installed. | On-premises/Azure VM. |   **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows 2008 R2 (Standard and Enterprise)**<br/><br/> 64/32-bit | For MABS v3, v2 the OS must be running SP1. | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported. |
-**Windows Server 2008 with SP2**<br/><br/> 64/32-bit | MABS v3, v2 | MABS v2, v3 is supported when MABS is deployed as a VMware VM.<br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal. |
-**Windows Storage Server 2008** | MABS v3, v2 | MABS as on-premises physical server/Hyper-V VM. <br/><br/> Not supported for MABS running on Azure VM. | Volume/share/folder/file; system-state/bare-metal.
-**SQL Server 2017** | MABS v3 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
-**SQL Server 2016/2016 with SP1** | MABS v3, v2 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
-**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported. |
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | MABS v3, v2 | On-premises. | Back up standalone Exchange server, database under a DAG.<br/><br/> Recover mailbox, mailbox database under a DAG.<br/><br/> ReFS not supported.<br/><br/> Back up non-shared disk clusters.<br/><br/> Back up Exchange Server configured for continuous replication. |
-**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | MABS v3, v2 | On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases. |
-**Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (with SP1)** | MABS v3, v2 | On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine. |
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine. |
+For information on the various servers and workloads that you can protect with Azure Backup Server, refer to the [Azure Backup Server Protection Matrix](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix#protection-support-matrix).
 
 ## Supported backups to DPM
 
-The following table summarizes what can be backed up to DPM from on-premises machines and Azure VMs.
-
-**Backup** | **DPM** | **Details**
---- | --- | ---
-**Windows 10<br/>Windows 8.1<br/>Windows 8<br/>Windows 7**<br/><br/>(32/64-bit) | On-premises only.<br/><br/> For backing up Windows 10 with DPM 2012 R2, we recommend installing [Update 11](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager). | Volume/share/folder/file.<br/><br/> Deduped volumes supported.<br/><br/> Volumes must be at least 1 GB and NTFS.
-**Windows Server 2016 (Datacenter, Standard, not Nano)**<br/><br/> 64/32-bit | On-premises/Azure VM.<br/><br/> DPM 2016 only.| Volume/share/folder/file; system-state/bare-metal.<br/><br/> Deduped volumes supported.
-**Windows Server 2012 R2 (Datacenter and Standard)**<br/><br/> 64/32-bit | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported with DPM 2012 R2 and later.
-**Windows Server 2012 with SP1 (Datacenter and Standard)**<br/><br/> 64/32-bit | On-premises/Azure VM. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.<br/><br/> Deduped volumes supported with DPM 2012 R2 and later.
-**Windows 2008 R2 with SP1 (Standard and Enterprise)**<br/><br/> 64/32-bit | On-premises/Azure VM.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) must be installed. |   **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.<br/><br/> **Azure VM protection**: Volume/share/folder/file.
-**Windows 2008 R2 (Standard and Enterprise)**<br/><br/> 64/32-bit | On-premises.<br/><br/> DPM can't be installed as a VMware VM.<br/><br/> DPM running on an Azure VM isn't supported. | **On-premises protection**: Volume/share/folder/file; system-state/bare-metal.
-**Windows Server 2008 with SP2**<br/><br/> 64/32-bit | On-premises only.<br/><br/> DPM is supported when running as a VMware VM. Running as a physical server or Hyper-V VM isn't supported. | Volume/share/folder/file; system-state/bare-metal.
-**Windows Storage Server 2008** | DPM on-premises running as a physical server or Hyper-V VM. | Volume/share/folder/file; system-state/bare-metal.
-**SQL Server 2017** | DPM SAC; DPM 2016 running Update Rollup 5 or later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
-**SQL Server 2016 with SP1** | Not supported for DPM 2012 R2; Supported for DPM SAC, DPM 2016 running Update Rollup 4 or later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
-**SQL Server 2016** | Not supported for DPM 2012 R2. Supported for DPM SAC, DPM 2016 from Update Rollup 2 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
-**SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 with DPM 2012 R2 running Update Rollup 4 and later.<br/><br/> On-premises/Azure VM.| Back up SQL Server database.<br/><br/> SQL Server cluster backup supported.<br/><br/>Databases stored on CSVs unsupported.
-**Exchange 2016**<br/><br/> **Exchange 2013**<br/><br/> **Exchange 2010** | For Exchange 2016, DPM 2012 R2 needs Update Rollup 9 or later.<br/><br/> On-premises | Back up standalone Exchange server, database under a DAG.<br/><br/> Recover mailbox, mailbox database under a DAG.<br/><br/> ReFS not supported.<br/><br/> Back up non-shared disk clusters.<br/><br/> Back up Exchange Server configured for continuous replication.
-**SharePoint 2016**<br/><br/> **SharePoint 2013**<br/><br/> **SharePoint 2010** | SharePoint 2016 on DPM 2016 and later.<br/><br/>On-premises/Azure VM. | Back up farm, front-end web server.<br/><br/> Recover farm, database, web app, file or list item, SharePoint search, front-end web server.<br/><br/> You can't back up a farm using SQL Server AlwaysOn for the content databases.
-**Hyper-V on Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (with SP1)** | Hyper-V on 2016 supported for DPM 2016 and later.<br/><br/> On-premises. | **MABS agent on Hyper-V host**: Backup entire VMs and host data files. Back up VMs with local storage, VMs in cluster with CSV storage, VMs with SMB file server storage.<br/><br/> **MABS agent on guest VM**: Back up workloads running on the VM. CSVs.<br/><br/> **Recovery**: VM, item-level recovery of VHD/volume/folders/files.<br/><br/> **Linux VMs**: Back up when Hyper-V is running on Windows Server 2012 R2 and later. Recovery for Linux VMs is for the entire machine.
-**VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) <br/><br/>On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
+For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.

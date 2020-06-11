@@ -54,7 +54,7 @@ This is the maximum number of jobs that can run concurrently in your account. Ab
 
 ## Increase maximum quota limits
 
-You can find more information about Azure limits in the [Azure service-specific limits documentation](../azure-subscription-service-limits.md#data-lake-analytics-limits).
+You can find more information about Azure limits in the [Azure service-specific limits documentation](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Open a support request in Azure portal.
 

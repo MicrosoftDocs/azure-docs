@@ -1,6 +1,6 @@
 ---
-title: 'How to scale your Azure Time Series Insights environment | Microsoft Docs'
-description: This article describes how to scale your Azure Time Series Insights environment. Use the Azure portal to add or subtract capacity within a pricing SKU. 
+title: 'How to scale your environment - Azure Time Series Insights| Microsoft Docs'
+description: Learn how to scale your Azure Time Series Insights environment using the Azure portal.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 04/17/2020
 ms.custom: seodec18
 ---
 
@@ -29,13 +29,13 @@ However, changing the pricing tier SKU is not allowed. For example, an environme
 
 1. In the Azure portal, locate and select your Time Series Insights environment.
 
-1. In the menu for your Time Series Insights environment, select **Configure**.
+1. In the menu for your Time Series Insights environment, select **Storage Configuration**.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [![Configure your Time Series Insights capacity](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Adjust the **Capacity** slider to select the capacity that meets the requirements for your ingress rates and storage capacity. Notice the **Ingress rate**, **Storage capacity**, and **Estimated cost** update dynamically to show the impact of the change.
 
-   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [![Configure your environment using the capacity slider](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    Alternatively, you can type the number of the capacity multiplier into the text box to the right of the slider.
 

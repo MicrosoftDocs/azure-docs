@@ -8,7 +8,7 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -18,11 +18,16 @@ ms.collection: M365-identity-device-management
 
 This article describes how to move your organization domains from Active Directory Federation Services (AD FS) to password hash synchronization.
 
-You can [download this article](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](how-to-connect-staged-rollout.md) provides an alternative way to test and gradually migrate from federation to cloud authentication using password hash synchronization.
+>
+> If you plan on using staged rollout, you should remember to turn off the staged rollout features once you have finished cutting over.  For more information see [Migrate to cloud authentication using staged rollout](how-to-connect-staged-rollout.md)
+
 
 ## Prerequisites for migrating to password hash synchronization
 
 The following prerequisites are required to migrate from using AD FS to using password hash synchronization.
+
 
 ### Update Azure AD Connect
 
@@ -157,7 +162,7 @@ For more information about the **Location** condition in Conditional Access, see
 
 When you join a device to Azure AD, you can create Conditional Access rules that enforce that devices meet your access standards for security and compliance. Also, users can sign in to a device by using an organizational work or school account instead of a personal account. When you use hybrid Azure AD-joined devices, you can join your Active Directory domain-joined devices to Azure AD. Your federated environment might have been set up to use this feature.
 
-To ensure that hybrid join continues to work for any devices that are joined to the domain after your domains are converted to password hash synchronization, for Windows 10 clients, you must use Azure AD Connect device options to populate SCP and then sync Active Directory computer accounts to Azure AD. 
+To ensure that hybrid join continues to work for any devices that are joined to the domain after your domains are converted to password hash synchronization, for Windows 10 clients, you must use Azure AD Connect device options to sync Active Directory computer accounts to Azure AD. 
 
 For Windows 8 and Windows 7 computer accounts, hybrid join uses seamless SSO to register the computer in Azure AD. You don't have to sync Windows 8 and Windows 7 computer accounts like you do for Windows 10 devices. However, you must deploy an updated workplacejoin.exe file (via an .msi file) to Windows 8 and Windows 7 clients so they can register themselves by using seamless SSO. [Download the .msi file](https://www.microsoft.com/download/details.aspx?id=53554).
 

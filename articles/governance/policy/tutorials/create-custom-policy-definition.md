@@ -1,11 +1,8 @@
 ---
-title: Create a custom policy definition
-description: Craft a custom policy definition for Azure Policy to enforce custom business rules.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 04/23/2019
+title: "Tutorial: Create a custom policy definition"
+description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.service: azure-policy
 ---
 # Tutorial: Create a custom policy definition
 
@@ -31,6 +28,8 @@ The approach to creating a custom policy follows these steps:
 > - Determine which effect to use
 > - Compose the policy definition
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
 before you begin.
 
@@ -48,10 +47,11 @@ Your requirements should clearly identify both the "to be" and the "not to be" r
 While we've defined the expected state of the resource, we've not yet defined what we want done with
 non-compliant resources. Azure Policy supports a number of [effects](../concepts/effects.md). For
 this tutorial, we'll define the business requirement as preventing the creation of resources if they
-aren't compliant with the business rules. To meet this goal, we'll use the [Deny](../concepts/effects.md#deny)
-effect. We also want the option to suspend the policy for specific assignments. As such, we'll use
-the [Disabled](../concepts/effects.md#disabled) effect and make the effect a [parameter](../concepts/definition-structure.md#parameters)
-in the policy definition.
+aren't compliant with the business rules. To meet this goal, we'll use the
+[Deny](../concepts/effects.md#deny) effect. We also want the option to suspend the policy for
+specific assignments. As such, we'll use the [Disabled](../concepts/effects.md#disabled) effect and
+make the effect a [parameter](../concepts/definition-structure.md#parameters) in the policy
+definition.
 
 ## Determine resource properties
 
@@ -63,6 +63,7 @@ properties available on that resource.
 There are many ways to determine the properties for an Azure resource. We'll look at each for
 this tutorial:
 
+- Azure Policy extension for VS Code
 - Resource Manager templates
   - Export existing resource
   - Creation experience
@@ -70,10 +71,15 @@ this tutorial:
   - Template reference docs
 - Azure Resource Explorer
 
+### View resources in VS Code extension
+
+The [VS Code extension](../how-to/extension-for-vscode.md#search-for-and-view-resources) can be used
+to browse resources in your environment and see the Resource Manager properties on each resource.
+
 ### Resource Manager templates
 
 There are several ways to look at a [Resource Manager
-template](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)
+template](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md)
 that includes the property you're looking to manage.
 
 #### Existing resource in the portal
@@ -83,7 +89,7 @@ already configured with the setting you want to enforce also provide the value t
 Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Export template page on existing resource" border="false":::
 
 Doing so for a storage account reveals a template similar to this example:
 
@@ -192,14 +198,21 @@ the property description matches what we found in the reference docs earlier.
 
 ## Find the property alias
 
-We've identified the resource property, but we need to map that property to an [alias](../concepts/definition-structure.md#aliases).
+We've identified the resource property, but we need to map that property to an
+[alias](../concepts/definition-structure.md#aliases).
 
 There are a few ways to determine the aliases for an Azure resource. We'll look at each for this
 tutorial:
 
+- Azure Policy extension for VS Code
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
+
+### Get aliases in VS Code extension
+
+The Azure Policy extension for VS Code extension makes it easy to browse your resources and
+[discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
 ### Azure CLI
 
@@ -236,21 +249,22 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 
 ### Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) is a new service in Preview. It enables
-another method to find properties of Azure resources. Here is a sample query for looking at a single
-storage account with Resource Graph:
+[Azure Resource Graph](../../resource-graph/overview.md) is a service that provides another method
+to find properties of Azure resources. Here is a sample query for looking at a single storage
+account with Resource Graph:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 The results look similar to what we see in the Resource Manager templates and through the Azure
@@ -258,17 +272,18 @@ Resource Explorer. However, Azure Resource Graph results can also include [alias
 details by _projecting_ the _aliases_ array:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 Here is example output from a storage account for aliases:
@@ -353,17 +368,18 @@ Here is example output from a storage account for aliases:
 }
 ```
 
-Azure Resource Graph (Preview) can be used through [Cloud Shell](https://shell.azure.com), making it
-a fast and easy way to explore the properties of your resources.
+Azure Resource Graph can be used through [Cloud Shell](https://shell.azure.com), making it a fast
+and easy way to explore the properties of your resources.
 
 ## Determine the effect to use
 
 Deciding what to do with your non-compliant resources is nearly as important as deciding what to
-evaluate in the first place. Each possible response to a non-compliant resource is called an [effect](../concepts/effects.md).
-The effect controls if the non-compliant resource is logged, blocked, has data appended, or has a
-deployment associated to it for putting the resource back into a compliant state.
+evaluate in the first place. Each possible response to a non-compliant resource is called an
+[effect](../concepts/effects.md). The effect controls if the non-compliant resource is logged,
+blocked, has data appended, or has a deployment associated to it for putting the resource back into
+a compliant state.
 
-For our example, Deny is the effect we want as we do not want non-compliant resources created in our
+For our example, Deny is the effect we want as we don't want non-compliant resources created in our
 Azure environment. Audit is a good first choice for a policy effect to determine what the impact of
 a policy is before setting it to Deny. One way to make changing the effect per assignment easier is
 to parameterize the effect. See [parameters](#parameters) below for the details on how.
@@ -513,6 +529,19 @@ The completed definition can be used to create a new policy. Portal and each SDK
 PowerShell, and REST API) accept the definition in different ways, so review the commands for each
 to validate correct usage. Then assign it, using the parameterized effect, to appropriate resources
 to manage the security of your storage accounts.
+
+## Clean up resources
+
+If you're done working with resources from this tutorial, use the following steps to delete any of
+the assignments or definitions created above:
+
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under
+   **Authoring** in the left side of the Azure Policy page.
+
+1. Search for the new initiative or policy definition (or assignment) you want to remove.
+
+1. Right-click the row or select the ellipses at the end of the definition (or assignment), and
+   select **Delete definition** (or **Delete assignment**).
 
 ## Review
 

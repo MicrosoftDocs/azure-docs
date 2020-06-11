@@ -1,11 +1,7 @@
 ---
-title: Smart Detection - Potential Memory Leak detected by Azure Application Insights | Microsoft Docs
+title: Detect memory leak - Azure Application Insights Smart Detection
 description: Monitor applications with Azure Application Insights for potential memory leaks.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/12/2017
 
 ---

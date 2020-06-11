@@ -1,12 +1,11 @@
 ---
-title: Use Azure Resource Manager templates to Create and Configure a Log Analytics Workspace | Microsoft Docs
+title: Azure Resource Manager template for Log Analytics workspace
 description: You can use Azure Resource Manager templates to create and configure Log Analytics workspaces.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/22/2019
+author: bwren
+ms.author: bwren
+ms.date: 01/09/2020
 
 ---
 
@@ -14,9 +13,9 @@ ms.date: 10/22/2019
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
-* Create a workspace including setting pricing tier 
+* Create a workspace including setting pricing tier and capacity reservation
 * Add a solution
 * Create saved searches
 * Create a computer group
@@ -43,7 +42,22 @@ The following table lists the API version for the resources used in this example
 
 ## Create a Log Analytics workspace
 
-The following example creates a workspace using a template from  your local machine. The JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
+The following example creates a workspace using a template from your local machine. The JSON template is configured to only require the name and location of the new workspace. It uses values specified for other workspace parameters such as [access control mode](design-logs-deployment.md#access-control-mode), pricing tier, retention, and capacity reservation level.
+
+> [!WARNING]
+> The following template creates a Log Analytics workspace and configures data collection. This may change your billing settings. Review [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) to understand billing for data collected in a Log Analytics workspace before applying it in your Azure environment.
+
+For capacity reservation, you define a selected capacity reservation for ingesting data by specifying the SKU `CapacityReservation` and a value in GB for the property `capacityReservationLevel`. The following list details the supported values and behavior when configuring it.
+
+- Once you set the reservation limit, you cannot change to a different SKU within 31 days.
+
+- Once you set the reservation value, you can only increase it within 31 days.
+
+- You can only set the value of `capacityReservationLevel` in multiples of 100, with a maximum value of 50000.
+
+- If you increase the reservation level, the timer is reset and you cannot change it for another 31 days from this update.  
+
+- If you modify any other property for the workspace but retain the reservation limit to the same level, the timer is not reset. 
 
 ### Create and deploy template
 
@@ -60,134 +74,24 @@ The following example creates a workspace using a template from  your local mach
               "description": "Specifies the name of the workspace."
             }
         },
-        "location": {
-            "type": "String",
-            "allowedValues": [
-              "australiacentral", 
-              "australiaeast", 
-              "australiasoutheast", 
-              "brazilsouth",
-              "canadacentral", 
-              "centralindia", 
-              "centralus", 
-              "eastasia", 
-              "eastus", 
-              "eastus2", 
-              "francecentral", 
-              "japaneast", 
-              "koreacentral", 
-              "northcentralus", 
-              "northeurope", 
-              "southafricanorth", 
-              "southcentralus", 
-              "southeastasia", 
-              "uksouth", 
-              "ukwest", 
-              "westcentralus", 
-              "westeurope", 
-              "westus", 
-              "westus2" 
-            ],
-            "metadata": {
-              "description": "Specifies the location in which to create the workspace."
-            }
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
-            "location": "[parameters('location')]",
-            "properties": {
-                "features": {
-                    "searchVersion": 1
-                }
-            }
-          }
-       ]
-    }
-    ```
-
-2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
-3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command. The workspace name must be globally unique across all Azure subscriptions.
-
-   * For PowerShell use the following commands from the folder containing the template:
-   
-        ```powershell
-        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
-        ```
-
-   * For command line, use the following commands from the folder containing the template:
-
-        ```cmd
-        azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
-        ```
-
-The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/template-workspace-configuration/template-output-01.png)
-
-## Configure a Log Analytics workspace
-
-The following template sample illustrates how to:
-
-1. Add solutions to the workspace
-2. Create saved searches
-3. Create a computer group
-4. Enable collection of IIS logs from computers with the Windows agent installed
-5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-6. Collect syslog events from Linux computers
-7. Collect Error and Warning events from the Application Event Log from Windows computers
-8. Collect Memory Available Mbytes performance counter from Windows computers
-9. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
-10. Collect custom logs from Windows computer
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Workspace name"
-      }
-    },
-    "pricingTier": {
-      "type": "string",
-      "allowedValues": [
-        "PerGB2018",
-        "Free",
-        "Standalone",
-        "PerNode",
-        "Standard",
-        "Premium"
-      ],
-      "defaultValue": "PerGB2018",
-      "metadata": {
+      "sku": {
+        "type": "string",
+        "allowedValues": [
+          "pergb2018",
+          "Free",
+          "Standalone",
+          "PerNode",
+          "Standard",
+          "Premium"
+          ],
+        "defaultValue": "pergb2018",
+        "metadata": {
         "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-      }
-    },
-    "dataRetention": {
-      "type": "int",
-      "defaultValue": 30,
-      "minValue": 7,
-      "maxValue": 730,
-      "metadata": {
-        "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
-      }
-    },
-    "immediatePurgeDataOn30Days": {
-      "type": "bool",
-      "defaultValue": "[bool('false')]",
-      "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-      }
-    },
-    "location": {
-      "type": "string",
-      "allowedValues": [
+        }
+      },
+      "location": {
+        "type": "String",
+        "allowedValues": [
         "australiacentral", 
         "australiaeast", 
         "australiasoutheast", 
@@ -211,6 +115,145 @@ The following template sample illustrates how to:
         "westcentralus", 
         "westeurope", 
         "westus", 
+        "westus2" 
+        ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+        }
+      }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "name": "[parameters('sku')]"
+                },
+                "retentionInDays": 120,
+                "features": {
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
+                }
+            }
+          }
+       ]
+    }
+    ```
+
+   >[!NOTE]
+   >For capacity reservation settings, use these properties under "sku":
+   >* "name": "CapacityReservation",
+   >* "capacityReservationLevel": 100
+
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
+
+3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
+
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command. The workspace name must be globally unique across all Azure subscriptions.
+
+   * For PowerShell use the following commands from the folder containing the template:
+   
+        ```powershell
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
+        ```
+
+   * For command line, use the following commands from the folder containing the template:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
+        ```
+
+The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/template-workspace-configuration/template-output-01.png)
+
+## Configure a Log Analytics workspace
+
+The following template sample illustrates how to:
+
+1. Add solutions to the workspace
+2. Create saved searches. To ensure that deployments don't override saved searches accidentally, an eTag property should be added in the "savedSearches" resource to override and maintain the idempotency of saved searches.
+3. Create saved function. The eTag should be added to override function and maintain idempotency.
+4. Create a computer group
+5. Enable collection of IIS logs from computers with the Windows agent installed
+6. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+7. Collect syslog events from Linux computers
+8. Collect Error and Warning events from the Application Event Log from Windows computers
+9. Collect Memory Available Mbytes performance counter from Windows computers
+10. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
+11. Collect custom logs from Windows computer
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Workspace name"
+      }
+    },
+    "sku": {
+      "type": "string",
+      "allowedValues": [
+        "PerGB2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
+    "dataRetention": {
+      "type": "int",
+      "defaultValue": 30,
+      "minValue": 7,
+      "maxValue": 730,
+      "metadata": {
+        "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
+      }
+    },
+    "immediatePurgeDataOn30Days": {
+      "type": "bool",
+      "defaultValue": "[bool('false')]",
+      "metadata": {
+        "description": "If set to true, changing retention to 30 days will immediately delete older data. Use this with extreme caution. This only applies when retention is being set to 30 days."
+      }
+    },
+    "location": {
+      "type": "string",
+      "allowedValues": [
+        "australiacentral",
+        "australiaeast",
+        "australiasoutheast",
+        "brazilsouth",
+        "canadacentral",
+        "centralindia",
+        "centralus",
+        "eastasia",
+        "eastus",
+        "eastus2",
+        "francecentral",
+        "japaneast",
+        "koreacentral",
+        "northcentralus",
+        "northeurope",
+        "southafricanorth",
+        "southcentralus",
+        "southeastasia",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westeurope",
+        "westus",
         "westus2"
       ],
       "metadata": {
@@ -218,42 +261,42 @@ The following template sample illustrates how to:
       }
     },
     "applicationDiagnosticsStorageAccountName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account with Azure diagnostics output"
+      }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
-        "type": "string",
-        "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "The resource group name containing the storage account with Azure diagnostics output"
+      }
     },
     "customLogName": {
-    "type": "string",
-    "metadata": {
-      "description": "The custom log name"
+      "type": "string",
+      "metadata": {
+        "description": "The custom log name"
       }
-	 }
+    }
+  },
+  "variables": {
+    "Updates": {
+      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "Updates"
     },
-    "variables": {
-      "Updates": {
-        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "Updates"
-      },
-      "AntiMalware": {
-        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "AntiMalware"
-      },
-      "SQLAssessment": {
-        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "SQLAssessment"
-      },
-      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "AntiMalware": {
+      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "AntiMalware"
+    },
+    "SQLAssessment": {
+      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "SQLAssessment"
+    },
+    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -263,7 +306,7 @@ The following template sample illustrates how to:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('sku')]"
         }
       },
       "resources": [
@@ -275,11 +318,31 @@ The following template sample illustrates how to:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "Category": "VMSS",
-            "ETag": "*",
-            "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
-            "Version": 1
+            "eTag": "*",
+            "category": "VMSS",
+            "displayName": "VMSS Instance Count",
+            "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
+            "version": 1
+          }
+        },
+        {
+          "apiVersion": "2017-04-26-preview",
+          "name": "Cross workspace function",
+          "type": "savedSearches",
+            "dependsOn": [
+             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "properties": {
+              "etag": "*",
+              "displayName": "failedLogOnEvents",
+              "category": "Security",
+              "FunctionAlias": "failedlogonsecurityevents",
+              "query": "
+                union withsource=SourceWorkspace
+                workspace('workspace1').SecurityEvent,
+                workspace('workspace2').SecurityEvent,
+                workspace('workspace3').SecurityEvent,
+                | where EventID == 4625"
           }
         },
         {
@@ -473,8 +536,8 @@ The following template sample illustrates how to:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "containers": [ 
-              "wad-iis-logfiles" 
+            "containers": [
+              "wad-iis-logfiles"
             ],
             "tables": [
               "WADWindowsEventLogsTable"
@@ -562,7 +625,7 @@ The following template sample illustrates how to:
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').customerId]"
     },
-    "pricingTier": {
+    "sku": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').sku.name]"
     },
@@ -570,7 +633,7 @@ The following template sample illustrates how to:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
-    "immediatePurgeDataOn30Days": {  
+    "immediatePurgeDataOn30Days": {
       "type": "bool",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
     },

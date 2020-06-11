@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 11/04/2019
+ ms.date: 12/05/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on **all Azure SKUs except the Basic SKU**.
+Custom IPsec/IKE policy is supported on all Azure SKUs except the Basic SKU.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.
@@ -36,7 +36,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 > [!IMPORTANT]
 > 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group **14** in IKE and IPsec PFS. See [Diffie-Hellman Groups](#DH) for the complete mappings.
 > 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
-> 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
+> 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways.
 > 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
 > 5. UsePolicyBasedTrafficSelector is an option parameter on the connection. See the next FAQ item for "UsePolicyBasedTrafficSelectors"
 
@@ -96,6 +96,18 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
+
+### How do I create connections with IKEv1 or IKEv2 protocol type?
+IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Basic SKU, Standard SKU, and other [legacy SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you do not specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) documentation. For SKU types and IKEv1/IKEv2 support, see [Connect gateways to policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+
+### Is transit between between IKEv1 and IKEv2 connections allowed?
+Yes. Transit between IKEv1 and IKEv2 connections is supported.
+
+### Can I have IKEv1 site-to-site connections on Basic SKUs of RouteBased VPN type?
+No. The Basic SKU does not support this.
+
+### Can I change the connection protocol type after the connection is created (IKEv1 to IKEv2 and vice versa)?
+No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.
 
 ### Where can I find more configuration information for IPsec?
 See [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

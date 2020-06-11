@@ -1,11 +1,11 @@
 ---
-title: Upload or copy a custom Linux VM with Azure CLI | Microsoft Docs
+title: Upload or copy a custom Linux VM with Azure CLI 
 description: Upload or copy a customized virtual machine by using the Resource Manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -86,7 +86,7 @@ Otherwise, you should take a snapshot of the VM and then create a new OS VHD fro
 
 This example creates a snapshot of a VM named *myVM* in resource group *myResourceGroup* and creates a snapshot named *osDiskSnapshot*.
 
-```azure-cli
+```azurecli
 osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
 az snapshot create \
     -g myResourceGroup \
@@ -99,13 +99,13 @@ Create a new managed disk from the snapshot.
 
 Get the ID of the snapshot. In this example, the snapshot is named *osDiskSnapshot* and it is in the *myResourceGroup* resource group.
 
-```azure-cli
+```azurecli
 snapshotId=$(az snapshot show --name osDiskSnapshot --resource-group myResourceGroup --query [id] -o tsv)
 ```
 
 Create the managed disk. In this example, we will create a managed disk named *myManagedDisk* from our snapshot, where the disk is in standard storage and sized at 128 GB.
 
-```azure-cli
+```azurecli
 az disk create \
     --resource-group myResourceGroup \
 	--name myManagedDisk \
@@ -130,4 +130,4 @@ az vm create \
 You should be able to SSH into the VM with the credentials from the source VM. 
 
 ## Next steps
-After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../../azure-resource-manager/management/overview.md). You may also want to [add a data disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,11 +1,7 @@
 ---
 title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
 
 ---
@@ -14,7 +10,7 @@ ms.date: 10/31/2016
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can automate the configuration of [alerts](../../azure-monitor/app/alerts.md) in [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+You can automate the configuration of [alerts](../../azure-monitor/platform/alerts-log.md) in [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 In addition, you can [set webhooks to automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md).
 
@@ -127,7 +123,7 @@ The metrics are sent by different telemetry modules:
 You can [automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
-* [Script to configure Application Insights](powershell-script-create-resource.md)
+* [Script to configure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Create Application Insights and web test resources from templates](powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md)

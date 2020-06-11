@@ -1,22 +1,11 @@
 ---
-title: Azure Service Fabric Auto Scaling Services and Containers | Microsoft Docs
+title: Azure Service Fabric Auto Scaling Services and Containers 
 description: Azure Service Fabric allows you to set auto scaling policies for services and containers.
-services: service-fabric
-documentationcenter: .net
 author: radicmilos
-manager: 
-editor: nipuzovi
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-
-
 ---
 # Introduction to Auto Scaling
 Auto scaling is an additional capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of additional instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation time, or at any time by updating the service.
@@ -136,12 +125,15 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of partitions of the service reaches this limit, then service will not be scaled in regardless of the load.
 
 > [!WARNING] 
-> When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale up operation, new partitions will be empty, and in case of scale down operation, **partition will be deleted together with all the data that it contains**.
+> When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale out operation, new partitions will be empty, and in case of scale in operation, **partition will be deleted together with all the data that it contains**.
 
 ## Setting auto scaling policy
 
 ### Using application manifest
 ``` xml
+<NamedPartition>
+    <Partition Name="0" />
+</NamedPartition>
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>

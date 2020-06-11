@@ -1,6 +1,6 @@
 ---
-title: Configure an ILB listener for Always On availability groups in Azure | Microsoft Docs
-description: This tutorial uses resources created with the classic deployment model, and it creates an Always On availability group listener in Azure that uses an internal load balancer.
+title: Configure an ILB listener for availability groups (Classic)
+description: This tutorial uses resources created with the classic deployment model, and it creates an Always On availability group listener in for a SQL Server VM in Azure that uses an internal load balancer.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -8,7 +8,7 @@ manager: craigg
 editor: ''
 tags: azure-service-management
 
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 
 ms.topic: article
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
-# Configure an ILB listener for Always On availability groups in Azure
+# Configure an ILB listener for availability groups on Azure SQL Server VMs
 > [!div class="op_single_selector"]
 > * [Internal listener](../classic/ps-sql-int-listener.md)
 > * [External listener](../classic/ps-sql-ext-listener.md)
@@ -28,9 +29,9 @@ ms.author: mikeray
 ## Overview
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager and classic](../../../azure-resource-manager/management/deployment-models.md). This article covers the use of the classic deployment model. We recommend that most new deployments use the Resource Manager model.
 
-To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+To configure a listener for an Always On availability group in the Resource Manager model, see [Configure a load balancer for an Always On availability group in Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 Your availability group can contain replicas that are on-premises only or Azure only, or that span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions that use multiple virtual networks. The procedures in this article assume that you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not yet configured a listener.
 

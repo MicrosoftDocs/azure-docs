@@ -1,12 +1,12 @@
 ---
-title: Scenarios for Azure DNS Private Zones
-description: Overview of common scenarios for using Azure DNS Private Zones.
+title: Scenarios for Private Zones - Azure DNS
+description: In this article, learn about common scenarios for using Azure DNS Private Zones.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS Private zones scenarios
@@ -26,7 +26,7 @@ This scenario is the more common case where you need to associate a Private Zone
 
 The following diagram shows a simple version of this scenario where there are only two virtual networks - A and B. A is designated as a Registration virtual network and B is designated as a Resolution virtual network. The intent is for both virtual networks to share a common zone contoso.com. When the zone is created and the Resolution and Registration virtual networks are linked to the zone, Azure will automatically register DNS records for the VMs (VNETA-VM1 and VNETA-VM2) from the virtual network A. You can also manually add DNS records into the zone for VMs in the Resolution virtual network B. With this setup, you will observe the following behavior for forward and reverse DNS queries:
 * A DNS query from VNETB-VM1 in the Resolution virtual network B, for VNETA-VM1.contoso.com, will receive a DNS response containing the Private IP of VNETA-VM1.
-* A Reverse DNS (PTR) query from VNETB-VM2 in the Resolution virtual network B, for 10.1.0.1, will receive a DNS response containing the FQDN VNETB-VM1.contoso.com. The reason is that Reverse DNS queries are scoped to the same virtual network. 
+* A Reverse DNS (PTR) query from VNETB-VM2 in the Resolution virtual network B, for 10.1.0.1, will receive a DNS response containing the FQDN VNETB-VM1.contoso.com.  
 * A Reverse DNS (PTR) query from VNETB-VM3 in the Resolution virtual network B, for 10.0.0.1, will receive NXDOMAIN. The reason is that Reverse DNS queries are only scoped to the same virtual network. 
 
 

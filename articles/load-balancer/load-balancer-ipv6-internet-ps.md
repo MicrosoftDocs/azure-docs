@@ -1,6 +1,6 @@
 ﻿---
-title: Create an Internet-facing load balancer with IPv6 - PowerShell
-titlesuffix: Azure Load Balancer
+title: Create an Internet-facing load balancer with IPv6 - Azure PowerShell
+titleSuffix: Azure Load Balancer
 description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -23,9 +23,9 @@ ms.author: allensu
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Template](load-balancer-ipv6-internet-template.md)
 
->[!NOTE: Change in Best Practice for IPv6] 
->This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity.  More  comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended best practice for IPv6 applications in Azure. 
->Please see [IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>[!NOTE] 
+>This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
+See [IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -51,13 +51,13 @@ The following steps show how to create an Internet facing load balancer using Az
 
 To deploy a load balancer, you create and configure the following objects:
 
-* Front-end IP configuration - contains public IP addresses for incoming network traffic.
-* Back-end address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
+* Frontend IP configuration - contains public IP addresses for incoming network traffic.
+* Backend address pool - contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
 * Load balancing rules - contains rules mapping a public port on the load balancer to port in the back-end address pool.
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+For more information, see [Azure Load Balancer components](./components.md).
 
 ## Set up PowerShell to use Resource Manager
 

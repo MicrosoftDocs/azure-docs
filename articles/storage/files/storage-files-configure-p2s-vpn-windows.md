@@ -19,18 +19,9 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 ## Prerequisites
 - The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
 
-- The Azure Private DNS PowerShell module. This is not currently distributed as part of the Azure PowerShell module, so this may be installed with the following method:
-    ```PowerShell
-    if ($PSVersionTable.PSVersion -ge [System.Version]::new(6, 0)) {
-        Install-Module -Name Az.PrivateDns -AllowClobber -AllowPrerelease
-    } else {
-        Install-Module -Name Az.PrivateDns -RequiredVersion "0.1.3"
-    }
+- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
-    Import-Module -Name Az.PrivateDns
-    ```  
-
-- An Azure file share you would like to mount on-premises. You may use either a [standard](storage-how-to-create-file-share.md) or a [premium Azure file share](storage-how-to-create-premium-fileshare.md) with your Point-to-Site VPN.
+- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
 ## Deploy a virtual network
 To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. The P2S VPN connection you will automatically create is a bridge between your on-premises Windows machine and this Azure virtual network.
@@ -80,91 +71,6 @@ $privateEndpointSubnet = $virtualNetwork.Subnets | `
     Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
 $gatewaySubnet = $virtualNetwork.Subnets | ` 
     Where-Object { $_.Name -eq "GatewaySubnet" }
-```
-
-## Restrict the storage account to the virtual network
-By default when you create a storage account, you can access it from anywhere in the world as long as you have the means to authenticate your request (such as with your Active Directory identity or with the storage account key). To restrict access to this storage account to the virtual network you just created, you need to create a network rule set that allows access within the virtual network and denies all other access.
-
-Restricting the storage account to the virtual network requires the use of a service endpoint. The service endpoint is a networking construct by which the public DNS/public IP can be accessed only from within the virtual network. Since the public IP address is not guaranteed to remain the same, we ultimately want to use a private endpoint rather than a service endpoint for the storage account, however it is not possible to restrict the storage account unless a service endpoint is also exposed.
-
-Remember to replace `<storage-account-name>` with the storage account you want to access.
-
-```PowerShell
-$storageAccountName = "<storage-account-name>"
-
-$storageAccount = Get-AzStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName
-
-$networkRule = Add-AzStorageAccountNetworkRule `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -VirtualNetworkResourceId $serviceEndpointSubnet.Id
-
-Update-AzStorageAccountNetworkRuleSet `
-    -ResourceGroupName $resourceGroupName `
-    -Name $storageAccountName `
-    -Bypass AzureServices `
-    -DefaultAction Deny `
-    -VirtualNetworkRule $networkRule | Out-Null
-``` 
-
-## Create a private endpoint (preview)
-Creating a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
-
-```PowerShell
-$internalVnet = Get-AzResource `
-    -ResourceId $virtualNetwork.Id `
-    -ApiVersion "2019-04-01"
-
-$internalVnet.Properties.subnets[1].properties.privateEndpointNetworkPolicies = "Disabled"
-$internalVnet | Set-AzResource -Force | Out-Null
-
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection `
-    -Name "myConnection" `
-    -PrivateLinkServiceId $storageAccount.Id `
-    -GroupId "file"
-
-$privateEndpoint = New-AzPrivateEndpoint `
-    -ResourceGroupName $resourceGroupName `
-    -Name "$storageAccountName-privateEndpoint" `
-    -Location $region `
-    -Subnet $privateEndpointSubnet `
-    -PrivateLinkServiceConnection $privateEndpointConnection
-
-$zone = Get-AzPrivateDnsZone -ResourceGroupName $resourceGroupName
-if ($null -eq $zone) {
-    $zone = New-AzPrivateDnsZone `
-        -ResourceGroupName $resourceGroupName `
-        -Name "privatelink.file.core.windows.net"
-} else {
-    $zone = $zone[0]
-}
-
-$link = New-AzPrivateDnsVirtualNetworkLink `
-    -ResourceGroupName $resourceGroupName `
-    -ZoneName $zone.Name `
-    -Name ($virtualNetwork.Name + "-link") `
-    -VirtualNetworkId $virtualNetwork.Id
-
-$internalNic = Get-AzResource `
-    -ResourceId $privateEndpoint.NetworkInterfaces[0].Id `
-    -ApiVersion "2019-04-01"
-
-foreach($ipconfig in $internalNic.Properties.ipConfigurations) {
-    foreach($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-        $recordName = $fqdn.split('.', 2)[0]
-        $dnsZone = $fqdn.split('.', 2)[1]
-        New-AzPrivateDnsRecordSet `
-            -ResourceGroupName $resourceGroupName ` 
-            -Name $recordName `
-            -RecordType A `
-            -ZoneName $zone.Name `
-            -Ttl 600 `
-            -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
-                -IPv4Address $ipconfig.properties.privateIPAddress) | Out-Null
-    }
-}
 ```
 
 ## Create root certificate for VPN authentication
@@ -227,7 +133,7 @@ $vpnName = "<desired-vpn-name-here>"
 $publicIpAddressName = "$vpnName-PublicIP"
 
 $publicIPAddress = New-AzPublicIpAddress `
-    -ResourceGroupName $resourceGroupName ` 
+    -ResourceGroupName $resourceGroupName `
     -Name $publicIpAddressName `
     -Location $region `
     -Sku Basic `
@@ -331,7 +237,7 @@ foreach ($session in $sessions) {
         -ArgumentList `
             $mypwd, `
             $vpnTemp, `
-            $virtualNetworkName
+            $virtualNetworkName `
         -ScriptBlock { 
             $mypwd = $args[0] 
             $vpnTemp = $args[1]
@@ -356,7 +262,7 @@ foreach ($session in $sessions) {
 
             Add-VpnConnection `
                 -Name $virtualNetworkName `
-                -ServerAddress $vpnProfile.VpnServer ` 
+                -ServerAddress $vpnProfile.VpnServer `
                 -TunnelType Ikev2 `
                 -EncryptionLevel Required `
                 -AuthenticationMethod MachineCertificate `
@@ -421,7 +327,7 @@ Invoke-Command `
             -Credential $credential `
             -Persist | Out-Null
         Get-ChildItem -Path Z:\
-	    Remove-PSDrive -Name Z
+        Remove-PSDrive -Name Z
     }
 ```
 

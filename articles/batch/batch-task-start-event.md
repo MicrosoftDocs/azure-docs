@@ -1,17 +1,8 @@
 ---
-title: "Azure Batch task start event | Microsoft Docs"
-description: Reference for Batch task start event.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+title: Azure Batch task start event
+description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: lahugh
 ---
 
 # Task start event

@@ -1,8 +1,6 @@
 ---
 title: Set up availability alerts with Azure Application Insights | Microsoft Docs
 description: Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -32,6 +30,9 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
    ![Edit after save](./media/availability-alerts/set-action-group.png)
 
+> [!NOTE]
+> Availability alerts created through this experience are state-based. This means that when the alert criteria is met a single alert is generated when the site is detected as unavailable. If the site is still down the next time the alert criteria is evaluated this won't generate a new alert. So if your site was down for an hour and you had setup an e-mail alert, you would only receive an e-mail when the site went down, and a subsequent e-mail when the site was back up. You would not receive continuous alerts reminding you that the site was still unavailable.
+
 ### Alert on X out of Y locations reporting failures
 
 The X out of Y locations alert rule is enabled by default in the [new unified alerts experience](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), when you create a new availability test. You can opt out by selecting the "classic" option or choosing to disable the alert rule.
@@ -60,7 +61,7 @@ Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-d
 
 ## Automate alerts
 
-To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-availability-test-along-with-availability-test-alert) documentation.
+To automate this process with Azure Resource Manager templates, refer to the [Create a metric alert with Resource Manager template](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) documentation.
 
 ## Troubleshooting
 

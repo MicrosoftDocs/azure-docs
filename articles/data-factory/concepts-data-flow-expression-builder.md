@@ -1,77 +1,129 @@
 ---
-title: Azure Data Factory mapping data flow Expression Builder
-description: The Expression Builder for Azure Data Factory mapping data flows
+title: Expression builder in mapping data flow
+description: Build expressions by using Expression Builder in mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 04/08/2020
 ---
 
-# Mapping data flow Expression Builder
+# Build expressions in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time.
 
-In Azure Data Factory mapping data flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
+
+## Open Expression Builder
+
+The expression editing interface in the Azure Data Factory user experience is known as Expression Builder. As you enter your expression logic, Data Factory uses [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) code completion for highlighting, syntax checking, and autocompleting.
 
 ![Expression Builder](media/data-flow/xpb1.png "Expression Builder")
 
-The Expression Builder tool defaults to the text editor option. the auto-complete feature reads from the entire Azure Data Factory Data Flow object model with syntax checking and highlighting.
+In transformations such as the derived column and filter, where expressions are mandatory, open Expression Builder by selecting the blue expression box.
 
-![Expression Builder auto-complete](media/data-flow/expb1.png "Expression Builder auto-complete")
+![Blue expression box](media/data-flow/expressionbox.png "Expression Builder")
 
-## Build schemas in Output Schema pane
+When you reference columns in a matching or group-by condition, an expression can extract values from columns. To create an expression, select **Computed column**.
 
-![Add complex column](media/data-flow/complexcolumn.png "Add columns")
+![Computed column option](media/data-flow/computedcolumn.png "Expression Builder")
 
-In the left-hand Output Schema pane, you will see the columns that you are modifying and adding to your schema. You can interactively build simple and complex data structures here. Add additional fields using "Add column" and build hierarchies by using "Add subcolumn".
+In cases where an expression or a literal value are valid inputs, select **Add dynamic content** to build an expression that evaluates to a literal value.
 
-![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+![Add dynamic content option](media/data-flow/add-dynamic-content.png "Expression Builder")
 
-## Data Preview in debug mode
+## Expression language reference
 
-![Expression Builder](media/data-flow/exp4b.png "Expression Data Preview")
+Mapping data flows has built-in functions and operators that can be used in expressions. For a list of available functions, see [Expression functions in the mapping data flow](data-flow-expression-functions.md).
 
-When you are working on your data flow expressions, switch on Debug mode from the Azure Data Factory Data Flow design surface, enabling live in-progress preview of your data results from the expression that you are building. Real-time live debugging is enabled for your expressions.
+## Column names with special characters
 
-![Debug Mode](media/data-flow/debugbutton.png "Debug Button")
+When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
-Click the Refresh button to update the results of your expression against a live sample of your source in real-time.
+```{[dbo].this_is my complex name$$$}```
 
-![Expression Builder](media/data-flow/exp5.png "Expression Data Preview")
+## Preview expression results
 
-## Comments
+If [debug mode](concepts-data-flow-debug-mode.md) is switched on, you can use the live Spark cluster to see an in-progress preview of what your expression evaluates to. As you build your logic, you can debug your expression in real time. 
 
-Add comments to your expressions using single line and multi-line comment syntax:
+![In-progress preview](media/data-flow/exp4b.png "Expression Data Preview")
 
-![Comments](media/data-flow/comments.png "Comments")
+Select **Refresh** to update the results of your expression against a live sample of your source.
 
-## Regular Expressions
+![Refresh button](media/data-flow/exp5.png "Expression Data Preview")
 
-The Azure Data Factory Data Flow expression language, [full reference documentation here](https://aka.ms/dataflowexpressions), enables functions that include regular expression syntax. When using regular expression functions, the Expression Builder will try to interpret backslash (\\) as an escape character sequence. When using backslashes in your regular expression, either enclose the entire regex in ticks (\`) or use a double backslash.
+## String interpolation
 
-Example using ticks
+Use quotation marks to enclose literal string text together with expressions. You can include expression functions, columns, and parameters. String interpolation is useful to avoid extensive use of string concatenation when parameters are included in query strings. To use expression syntax, enclose it in curly braces,
+
+Some examples of string interpolation:
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
+
+## Comment expressions
+
+Add comments to your expressions by using single-line and multiline comment syntax.
+
+The following examples are valid comments:
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+
+If you put a comment at the top of your expression, it appears in the transformation text box to document your transformation expressions.
+
+![Comment in the transformation text box](media/data-flow/comments2.png "Comments")
+
+## Regular expressions
+
+Many expression language functions use regular expression syntax. When you use regular expression functions, Expression Builder tries to interpret a backslash (\\) as an escape character sequence. When you use backslashes in your regular expression, either enclose the entire regex in backticks (\`) or use a double backslash.
+
+An example that uses backticks:
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-or using double slash
+An example that uses double slashes:
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## Addressing array indexes
+## Address array indexes
 
-With expression functions that return arrays, use square brackets [] to address specific indexes inside that return array object. The array is ones-based.
+With expression functions that return arrays, use brackets ([]) to address specific indexes inside that return array objects. The array is based on ones.
 
 ![Expression Builder array](media/data-flow/expb2.png "Expression Data Preview")
 
-## Handling names with special characters
+## Keyboard shortcuts
 
-When you have column names that include special characters or spaces, surround the name with curly braces.
-* ```{[dbo].this_is my complex name$$$}```
+* Ctrl+K Ctrl+C: Comment entire line.
+* Ctrl+K Ctrl+U: Uncomment.
+* F1: Provide editor help commands.
+* Alt+Down arrow key: Move down current line.
+* Alt+Up arrow key: Move up current line.
+* Ctrl+Spacebar: Show context help.
+
+## Convert to dates or timestamps
+
+To include string literals in your timestamp output, wrap your conversion in ```toString()```.
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<number of milliseconds>)`. If time is coming in seconds, multiply by 1,000.
+
+```toTimestamp(1574127407*1000l)```
+
+The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
 
 ## Next steps
 

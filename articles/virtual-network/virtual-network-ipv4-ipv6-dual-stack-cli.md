@@ -1,28 +1,26 @@
 ---
-title: Deploy an IPv6 dual stack application using Basic Load Balancer in Azure - CLI
+title: Deploy IPv6 dual stack application - Basic Load Balancer - CLI
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 03/31/2020
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application using Basic Load Balancer - CLI (Preview)
+# Deploy an IPv6 dual stack application using Basic Load Balancer - CLI
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application with Basic Load Balancer using Azure CLI that includes a dual stack virtual network with a dual stack subnet, a Basic Load Balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
 To deploy a dual stack (IPV4 + IPv6) application using Standard Load Balancer, see [Deploy an IPv6 dual stack application with Standard Load Balancer using Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
 
-> [!Important]
-> IPv6 dual stack for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -30,24 +28,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
-## Prerequisites
-To use the IPv6 for Azure virtual network feature, you must configure your subscription using Azure CLI as follows:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
-
-```azurelci
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-After the registration is complete, run the following command:
-
-```azurelci
-az provider register --namespace Microsoft.Network
-```
 ## Create a resource group
 
 Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *DsResourceGroup01* in the *eastus* location:
@@ -147,6 +127,13 @@ az network lb address-pool create \
 --resource-group DsResourceGroup01
 ```
 
+### Create a health probe
+Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
+
+```azurecli
+az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
+```
+
 ### Create a load balancer rule
 
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. 
@@ -162,6 +149,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80  \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v4
 
 
@@ -173,6 +161,7 @@ az network lb rule create \
 --protocol Tcp  \
 --frontend-port 80 \
 --backend-port 80  \
+--probe-name dsProbe \
 --backend-pool-name dsLbBackEndPool_v6
 
 ```
@@ -288,7 +277,7 @@ az network vnet subnet create \
 ### Create NICs
 
 Create virtual NICs for each VM with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). The following example creates a virtual NIC for each VM. Each NIC has two IP configurations (1 IPv4 config, 1 IPv6 config). You create the IPV6 configuration with [az network nic ip-config create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
- 
+
 ```azurecli
 # Create NICs
 az network nic create \
@@ -351,6 +340,7 @@ Create virtual machine *dsVM0* as follows:
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
+
 Create virtual machine *dsVM1* as follows:
 
 ```azurecli
@@ -370,8 +360,6 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
   ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
-> [!NOTE]
-> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
 
 
 ## Clean up resources

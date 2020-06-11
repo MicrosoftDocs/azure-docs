@@ -1,19 +1,17 @@
 ---
-title: Azure Quickstart - Back up a VM with Resource Manager template
+title: Quickstart - Resource Manager template VM Backup
 description: Learn how to back up your virtual machines with Azure Resource Manager template
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.author: dacurwin
-ms.custom: mvc
+ms.custom: mvc,subject-armqs
 ---
 
 # Back up a virtual machine in Azure with Resource Manager template
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with Resource Manager template and Azure PowerShell. This quickstart focuses on the process of deploying a Resource Manager template to create a Recover Services vault. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Alternatively, you can back up a VM using [Azure PowerShell](./quick-backup-vm-powershell.md), the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
 
@@ -21,9 +19,26 @@ Alternatively, you can back up a VM using [Azure PowerShell](./quick-backup-vm-p
 
 A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is a logical container that stores backup data for protected resources, such as Azure VMs. When a backup job runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
+### Review the template
+
 The template used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services Vault configured with the DefaultPolicy for Protection.
 
-To deploy the template, select **Try it** to open the Azure Cloud shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
+:::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
+
+The resources defined in the template are:
+
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.RecoveryServices/vaults**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
+- [**Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults/backupfabrics/protectioncontainers/protecteditems)
+
+### Deploy the template
+
+To deploy the template, select **Try it** to open the Azure Cloud Shell, and then paste the following PowerShell script into the shell window. To paste the code, right-click the shell window and then select **Paste**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -39,13 +54,15 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), and [Rest API](../azure-resource-manager/resource-group-template-deploy-rest.md) can also be used to deploy templates.
+Azure PowerShell is used to deploy the Resource Manager template in this quickstart. The [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), and [Rest API](../azure-resource-manager/templates/deploy-rest.md) can also be used to deploy templates.
 
-## Start a backup job
+## Validate the deployment
+
+### Start a backup job
 
 The template creates a VM and enables back on the VM. After you deploy the template, you need to start a backup job. For more information, see [Start a backup job](./quick-backup-vm-powershell.md#start-a-backup-job).
 
-## Monitor the backup job
+### Monitor the backup job
 
 To monitor the backup job, see [Monitor the backup job](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
@@ -71,3 +88,4 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
+- [Learn how](../azure-resource-manager/templates/template-tutorial-create-first-template.md) to create Resource Manager templates.

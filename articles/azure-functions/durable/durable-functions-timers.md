@@ -1,11 +1,6 @@
 ---
 title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
@@ -29,7 +24,7 @@ When you create a timer that expires at 4:30 pm, the underlying Durable Task Fra
 
 The following example illustrates how to use durable timers for delaying execution. The example is issuing a billing notification every day for 10 days.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -48,7 +43,7 @@ public static async Task Run(
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -56,13 +51,14 @@ const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
         yield context.df.callActivity("SendBillingEvent");
     }
 });
 ```
+
+---
 
 > [!WARNING]
 > Avoid infinite loops in orchestrator functions. For information about how to safely and efficiently implement infinite loop scenarios, see [Eternal Orchestrations](durable-functions-eternal-orchestrations.md).
@@ -71,7 +67,7 @@ module.exports = df.orchestrator(function*(context) {
 
 This example illustrates how to use durable timers to implement timeouts.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +101,7 @@ public static async Task<bool> Run(
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```js
 const df = require("durable-functions");
@@ -131,8 +127,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 > [!WARNING]
-> Use a `CancellationTokenSource` to cancel a durable timer (.NET) or call `cancel()` on the returned `TimerTask` (JavaScript) if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or canceled.
+> Use a `CancellationTokenSource` (.NET) or call `cancel()` on the returned `TimerTask` (JavaScript) to cancel a durable timer if your code will not wait for it to complete. The Durable Task Framework will not change an orchestration's status to "completed" until all outstanding tasks are completed or canceled.
 
 This cancellation mechanism doesn't terminate in-progress activity function or sub-orchestration executions. Rather, it simply allows the orchestrator function to ignore the result and move on. If your function app uses the Consumption plan, you'll still be billed for any time and memory consumed by the abandoned activity function. By default, functions running in the Consumption plan have a timeout of five minutes. If this limit is exceeded, the Azure Functions host is recycled to stop all execution and prevent a runaway billing situation. The [function timeout is configurable](../functions-host-json.md#functiontimeout).
 

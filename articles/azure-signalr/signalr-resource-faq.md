@@ -1,10 +1,10 @@
 ---
 title: Azure SignalR Service frequently asked questions
-description: FAQ for Azure SignalR Service.
+description: Have quick access to frequently asked questions on Azure SignalR Service, about troubleshooting and typical usage scenarios.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Azure SignalR Service FAQ
@@ -31,7 +31,7 @@ If you have application servers, this error message means that no application se
 The possible causes are:
 - No application server is connected with SignalR Service. Check application server logs for possible connection errors. This case is rare in high availability setting with more than one application servers.
 - There are connectivity issues with SignalR Service instances. This issue is transient and will automatically recover.
-If it persists for more than an hour, [open an issue on GitHub](https://github.com/Azure/azure-signalr/issues/new) or [create a support request in Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+If it persists for more than an hour, [open an issue on GitHub](https://github.com/Azure/azure-signalr/issues/new) or [create a support request in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -61,4 +61,4 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It is not configurable. SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).

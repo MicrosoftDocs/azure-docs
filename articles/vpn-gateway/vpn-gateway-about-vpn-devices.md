@@ -1,12 +1,12 @@
 ---
-title: About VPN devices for cross-premises Azure connections | Microsoft Docs
+title: 'Azure VPN Gateway: About VPN devices for connections'
 description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
 
 ---
@@ -137,7 +137,7 @@ In the following tables:
 | IKE Version                   |IKEv1          |IKEv1 and IKEv2                              |
 | Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | SA Lifetime (Time)            |3,600 seconds  |27,000 seconds                               |
-| SA Lifetime (Bytes)           |102,400,000 KB | -                                           |
+| SA Lifetime (Bytes)           |102,400,000 KB |102,400,000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
 

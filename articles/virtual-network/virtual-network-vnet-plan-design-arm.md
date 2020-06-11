@@ -4,16 +4,13 @@ description: Learn how to plan for virtual networks based on your isolation, con
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
-editor: ''
-
-ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/16/2018
+ms.date: 04/08/2020
 ms.author: kumud
 
 ---
@@ -23,7 +20,7 @@ Creating a virtual network to experiment with is easy enough, but chances are, y
 
 ## Naming
 
-All Azure resources have a name. The name must be unique within a scope, that may vary for each resource type. For example, the name of a virtual network must be unique within a [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), but can be duplicated within a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) or Azure [region](https://azure.microsoft.com/regions/#services). Defining a naming convention that you can use consistently when naming resources is helpful when managing several network resources over time. For suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking).
+All Azure resources have a name. The name must be unique within a scope, that may vary for each resource type. For example, the name of a virtual network must be unique within a [resource group](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), but can be duplicated within a [subscription](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) or Azure [region](https://azure.microsoft.com/regions/#services). Defining a naming convention that you can use consistently when naming resources is helpful when managing several network resources over time. For suggestions, see [Naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
 
 ## Regions
 
@@ -35,7 +32,7 @@ All Azure resources are created in an Azure region and subscription. A resource 
 
 ## Subscriptions
 
-You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+You can deploy as many virtual networks as required within each subscription, up to the [limit](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Some organizations have different subscriptions for different departments, for example. For more information and considerations around subscriptions, see [Subscription governance](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
 ## Segmentation
 
@@ -47,14 +44,14 @@ A virtual network is a virtual, isolated portion of the Azure public network. Ea
 
 - Do any organizational security requirements exist for isolating traffic into separate virtual networks? You can choose to connect virtual networks or not. If you connect virtual networks, you can implement a network virtual appliance, such as a firewall, to control the flow of traffic between the virtual networks. For more information, see [security](#security) and [connectivity](#connectivity).
 - Do any organizational requirements exist for isolating virtual networks into separate [subscriptions](#subscriptions) or [regions](#regions)?
-- A [network interface](virtual-network-network-interface.md) enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) do you require in a virtual network? There are [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
+- A [network interface](virtual-network-network-interface.md) enables a VM to communicate with other resources. Each network interface has one or more private IP addresses assigned to it. How many network interfaces and [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) do you require in a virtual network? There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) to the number of network interfaces and private IP addresses that you can have within a virtual network.
 - Do you want to connect the virtual network to another virtual network or on-premises network? You may choose to connect some virtual networks to each other or on-premises networks, but not others. For more information, see [connectivity](#connectivity). Each virtual network that you connect to another virtual network, or on-premises network, must have a unique address space. Each virtual network has one or more public or private address ranges assigned to its address space. An address range is specified in classless internet domain routing (CIDR) format, such as 10.0.0.0/16. Learn more about [address ranges](manage-virtual-network.md#add-or-remove-an-address-range) for virtual networks.
 - Do you have any organizational administration requirements for resources in different virtual networks? If so, you might separate resources into separate virtual network to simplify [permission assignment](#permissions) to individuals in your organization or to assign different policies to different virtual networks.
 - When you deploy some Azure service resources into a virtual network, they create their own virtual network. To determine whether an Azure service creates its own virtual network, see information for each [Azure service that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### Subnets
 
-A virtual network can be segmented into one or more subnets up to the [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Things to consider when deciding whether to create one subnet, or multiple virtual networks in a subscription:
+A virtual network can be segmented into one or more subnets up to the [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Things to consider when deciding whether to create one subnet, or multiple virtual networks in a subscription:
 
 - Each subnet must have a unique address range, specified in CIDR format, within the address space of the virtual network. The address range cannot overlap with other subnets in the virtual network.
 - If you plan to deploy some Azure service resources into a virtual network, they may require, or create, their own subnet, so there must be enough unallocated space for them to do so. To determine whether an Azure service creates its own subnet, see information for each [Azure service that can be deployed into a virtual network](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). For example, if you connect a virtual network to an on-premises network using an Azure VPN Gateway, the virtual network must have a dedicated subnet for the gateway. Learn more about [gateway subnets](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
@@ -109,7 +106,7 @@ Azure utilizes [role based access control](../role-based-access-control/overview
 
 Azure Policy enables you to create, assign, and manage policy definitions. Policy definitions enforce different rules over your resources, so the resources stay compliant with your organizational standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for resources that are not compliant with the policy definitions you have. For example, you can define and apply a policy that allows creation of virtual networks in only a specific resource group or region. Another policy can require that every subnet has a network security group associated to it. The policies are then evaluated when creating and updating resources.
 
-Policies are applied to the following hierarchy: management group, subscription, and resource group. Learn more about [Azure policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or deploy some virtual network [policy template](policy-samples.md) samples.
+Policies are applied to the following hierarchy: management group, subscription, and resource group. Learn more about [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or deploy some virtual network [Azure Policy definitions](policy-samples.md).
 
 ## Next steps
 

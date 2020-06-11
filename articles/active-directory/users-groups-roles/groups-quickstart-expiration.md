@@ -1,20 +1,19 @@
 ---
-title: Expiration policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
+title: Group expiration policy quickstart  - Azure AD | Microsoft Docs
 description: Expiration for Office 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-#As a new Azure AD identity administrator, I want user-created Office 365 groups in my tenant to expire so I can reduce the number of unused groups.
+#As a new Azure AD identity administrator, I want user-created Office 365 groups in my organization to expire so I can reduce the number of unused groups.
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Set Office 365 groups to expire in Azure Active Directory
@@ -69,7 +68,7 @@ That's it! In this quickstart, you successfully set the expiration policy for th
 
 ### To remove the expiration policy
 
-1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your tenant.
+1. Ensure that you are signed in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your Azure AD organization.
 2. Select **Azure Active Directory** > **Groups** > **Expiration**.
 3. Set **Enable expiration for these Office 365 groups** to **None**.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure DSC Extension for Linux
+title: Azure DSC extension for Linux
 description: Installs OMI and DSC packages to allow an Azure Linux VM to be configured using Desired State Configuration.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -14,25 +14,24 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ---
-# DSC Extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
+# DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-Desired State Configuration (DSC) is a management platform that enables you to manage your IT and development infrastructure with configuration as code.
+Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
 
-> !Note
-> The DSC Extension for Linux and the [Azure Monitor virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux) currently present a conflict
-> and are not supported in a side by side configuration.  This means you should not use the two solutions together
-> on the same VM.
+> [!NOTE]
+> The DSC extension for Linux and the [Azure Monitor virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux) currently present a conflict
+> and aren't supported in a side-by-side configuration. Don't use the two solutions together on the same VM.
 
-DSCForLinux Extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. DSC extension can also do the following actions
+The DSCForLinux extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. The DSC extension can also do the following actions:
 
 
-- Register the Linux VM to Azure Automation account in order to pull configurations from Azure Automation service (Register ExtensionAction)
-- Push MOF configurations to the Linux VM (Push ExtensionAction)
-- Apply Meta MOF configuration to the Linux VM to configure Pull Server in order to pull Node Configuration (Pull ExtensionAction)
-- Install custom DSC modules to the Linux VM (Install ExtensionAction)
-- Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
+- Register the Linux VM to an Azure Automation account to pull configurations from the Azure Automation service (Register ExtensionAction).
+- Push MOF configurations to the Linux VM (Push ExtensionAction).
+- Apply meta MOF configuration to the Linux VM to configure a pull server in order to pull node configuration (Pull ExtensionAction).
+- Install custom DSC modules to the Linux VM (Install ExtensionAction).
+- Remove custom DSC modules from the Linux VM (Remove ExtensionAction).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Prerequisites
 
@@ -42,46 +41,46 @@ The DSC Linux extension supports all the [Linux distributions endorsed on Azure]
 
 | Distribution | Version |
 |---|---|
-| Debian | all versions |
+| Debian | All versions |
 | Ubuntu| 18.04 |
  
 ### Internet connectivity
 
-The DSCForLinux extension requires that the target virtual machine is connected to the internet. For example, Register extension requires connectivity to Automation service. 
-For other actions such as Pull, Pull, Install requires connectivity to azure storage/github. It depends on settings provided by Customer.
+The DSCForLinux extension requires the target virtual machine to be connected to the internet. For example, the Register extension requires connectivity to the Automation service. 
+For other actions such as Pull, Pull, Install requires connectivity to Azure Storage and GitHub. It depends on settings provided by the customer.
 
 ## Extension schema
 
-### 1.1 Public configuration
+### Public configuration
 
 Here are all the supported public configuration parameters:
 
-* `FileUri`: (optional, string) the uri of the MOF file/Meta MOF file/custom resource ZIP file.
-* `ResourceName`: (optional, string) the name of the custom resource module
-* `ExtensionAction`: (optional, string) Specifies what an extension does. valid values: Register, Push, Pull, Install, Remove. If not specified, it's considered as Push Action by default.
-* `NodeConfigurationName`: (optional, string) the name of a node configuration to apply.
-* `RefreshFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC attempts to obtain the configuration from the pull server. 
-       If configuration on the pull server differs from the current one on the target node, it is copied to the pending store and applied.
-* `ConfigurationMode`: (optional, string) Specifies how DSC should apply the configuration. Valid values are: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
+* `FileUri`: (optional, string) The uri of the MOF file, meta MOF file, or custom resource zip file.
+* `ResourceName`: (optional, string) The name of the custom resource module.
+* `ExtensionAction`: (optional, string) Specifies what an extension does. Valid values are Register, Push, Pull, Install, and Remove. If not specified, it's considered a Push Action by default.
+* `NodeConfigurationName`: (optional, string) The name of a node configuration to apply.
+* `RefreshFrequencyMins`: (optional, int) Specifies how often (in minutes) that DSC attempts to obtain the configuration from the pull server. 
+       If configuration on the pull server differs from the current one on the target node, it's copied to the pending store and applied.
+* `ConfigurationMode`: (optional, string) Specifies how DSC should apply the configuration. Valid values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC ensures that the configuration is in the desired state.
 
 > [!NOTE]
-> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be an overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+> If you use a version earlier than 2.3, the mode parameter is the same as ExtensionAction. Mode seems to be an overloaded term. To avoid confusion, ExtensionAction is used from version 2.3 onward. For backward compatibility, the extension supports both mode and ExtensionAction. 
 >
 
-### 1.2 Protected configuration
+### Protected configuration
 
 Here are all the supported protected configuration parameters:
 
-* `StorageAccountName`: (optional, string) the name of the storage account that contains the file
-* `StorageAccountKey`: (optional, string) the key of the storage account that contains the file
-* `RegistrationUrl`: (optional, string) the URL of the Azure Automation account
-* `RegistrationKey`: (optional, string) the access key of the Azure Automation account
+* `StorageAccountName`: (optional, string) The name of the storage account that contains the file
+* `StorageAccountKey`: (optional, string) The key of the storage account that contains the file
+* `RegistrationUrl`: (optional, string) The URL of the Azure Automation account
+* `RegistrationKey`: (optional, string) The access key of the Azure Automation account
 
 
 ## Scenarios
 
-### Register to Azure Automation account
+### Register an Azure Automation account
 protected.json
 ```json
 {
@@ -100,7 +99,7 @@ public.json
 }
 ```
 
-powershell format
+PowerShell format
 ```powershell
 $privateConfig = '{
   "RegistrationUrl": "<azure-automation-account-url>",
@@ -116,7 +115,7 @@ $publicConfig = '{
 }'
 ```
 
-### Apply a MOF configuration file (in Azure Storage Account) to the VM
+### Apply an MOF configuration file (in an Azure storage account) to the VM
 
 protected.json
 ```json
@@ -134,7 +133,7 @@ public.json
 }
 ```
 
-powershell format
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -148,7 +147,7 @@ $publicConfig = '{
 ```
 
 
-### Apply a MOF configuration file (in public storage) to the VM
+### Apply an MOF configuration file (in public storage) to the VM
 
 public.json
 ```json
@@ -157,14 +156,14 @@ public.json
 }
 ```
 
-powershell format
+PowerShell format
 ```powershell
 $publicConfig = '{
   "FileUri": "<mof-file-uri>"
 }'
 ```
 
-### Apply a meta MOF configuration file (in Azure Storage Account) to the VM
+### Apply a meta MOF configuration file (in an Azure storage account) to the VM
 
 protected.json
 ```json
@@ -182,7 +181,7 @@ public.json
 }
 ```
 
-powershell format
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -203,7 +202,7 @@ public.json
   "ExtensionAction": "Pull"
 }
 ```
-powershell format
+PowerShell format
 ```powershell
 $publicConfig = '{
   "FileUri": "<meta-mof-file-uri>",
@@ -211,7 +210,7 @@ $publicConfig = '{
 }'
 ```
 
-### Install a custom resource module (ZIP file in Azure Storage Account) to the VM
+### Install a custom resource module (a zip file in an Azure storage account) to the VM
 protected.json
 ```json
 {
@@ -227,7 +226,7 @@ public.json
 }
 ```
 
-powershell format
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -240,7 +239,7 @@ $publicConfig = '{
 }'
 ```
 
-### Install a custom resource module (ZIP file in public storage) to the VM
+### Install a custom resource module (a zip file in public storage) to the VM
 public.json
 ```json
 {
@@ -248,7 +247,7 @@ public.json
   "FileUri": "<resource-zip-file-uri>"
 }
 ```
-powershell format
+PowerShell format
 ```powershell
 $publicConfig = '{
   "ExtensionAction": "Install",
@@ -264,7 +263,7 @@ public.json
   "ExtensionAction": "Remove"
 }
 ```
-powershell format
+PowerShell format
 ```powershell
 $publicConfig = '{
   "ResourceName": "<resource-name>",
@@ -274,25 +273,28 @@ $publicConfig = '{
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Automation. 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration, such as onboarding to Azure Automation. 
 
 The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-For more details about Azure Resource Manager template, visit [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
 
 
 ## Azure CLI deployment
 
-### 2.1. Using [**Azure CLI**][azure-cli]
-Before deploying DSCForLinux Extension, you should configure your `public.json` and `protected.json`, according to the different scenarios in section 3.
+### Use [Azure CLI][azure-cli]
+Before you deploy the DSCForLinux extension, configure your `public.json` and `protected.json` according to the different scenarios in section 3.
 
-#### 2.1.1. Classic
-The Classic mode is also called Azure Service Management mode. You can switch to it by running:
+#### Classic
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+The classic deployment mode is also called Azure Service Management mode. You can switch to it by running:
 ```
 $ azure config mode asm
 ```
 
-You can deploy DSCForLinux Extension by running:
+You can deploy the DSCForLinux extension by running:
 ```
 $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
@@ -303,33 +305,33 @@ To learn the latest extension version available, run:
 $ azure vm extension list
 ```
 
-#### 2.1.2. Resource Manager
+#### Resource Manager
 You can switch to Azure Resource Manager mode by running:
 ```
 $ azure config mode arm
 ```
 
-You can deploy DSCForLinux Extension by running:
+You can deploy the DSCForLinux extension by running:
 ```
 $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> In Azure Resource Manager mode, `azure vm extension list` is not available for now.
+> In Azure Resource Manager mode, `azure vm extension list` isn't available for now.
 >
 
-### 2.2. Using [**Azure PowerShell**][azure-powershell]
+### Use [Azure PowerShell][azure-powershell]
 
-#### 2.2.1 Classic
+#### Classic
 
-You can log in to your Azure account (Azure Service Management mode) by running:
+You can sign in to your Azure account in Azure Service Management mode by running:
 
 ```powershell>
 Add-AzureAccount
 ```
 
-And deploy DSCForLinux Extension by running:
+And deploy the DSCForLinux extension by running:
 
 ```powershell>
 $vmname = '<vm-name>'
@@ -339,7 +341,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-You need to change the content of the $privateConfig and $publicConfig according to different scenarios in above section 
+Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -360,17 +362,17 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### 2.2.2.Resource Manager
+#### Resource Manager
 
-You can log in to your Azure account (Azure Resource Manager mode) by running:
+You can sign in to your Azure account in Azure Resource Manager mode by running:
 
 ```powershell>
 Login-AzAccount
 ```
 
-Click [**HERE**](../../azure-resource-manager/manage-resources-powershell.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
+To learn more about how to use Azure PowerShell with Azure Resource Manager, see [Manage Azure resources by using Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md).
 
-You can deploy DSCForLinux Extension by running:
+You can deploy the DSCForLinux extension by running:
 
 ```powershell>
 $rgName = '<resource-group-name>'
@@ -381,7 +383,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-You need to change the content of the $privateConfig and $publicConfig according to different scenarios in above section 
+Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -406,7 +408,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
+Data about the state of extension deployments can be retrieved from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -418,14 +420,14 @@ Extension execution output is logged to the following file:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Error code: 51 represents either unsupported distro or unsupported extension action.
-In some cases, DSC Linux extension fails to install OMI when higher version of OMI is already exists in the machine. [error response: (000003)Downgrade not allowed]
+Error code: 51 represents either unsupported distribution or unsupported extension action.
+In some cases, DSC Linux extension fails to install OMI when a higher version of OMI already exists in the machine. [error response: (000003)Downgrade not allowed]
 
 
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
 For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).

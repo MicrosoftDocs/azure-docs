@@ -4,55 +4,34 @@ titleSuffix: Azure
 description: Azure Machine Learning Studio (classic)  is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
-ms.date: 10/17/2019
+ms.date: 03/24/2020
 ---
 # What is Machine Learning Studio (classic)?
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.  The classic version of Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure Machine Learning Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
 Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
 ## The Machine Learning Studio (classic)  interactive workspace
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
-The classic version of Azure Machine Learning Studio  gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio (classic). To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
+Azure Machine Learning Studio (classic) gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio (classic). To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
 There is no programming required, visually connect datasets and modules to construct your predictive analysis model.
 
-![Azure Machine Learning Studio diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
-
-<a name="compare"></a>
-## How does Machine Learning Studio (classic) differ from Azure Machine Learning?
-
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the Azure Machine Learning designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
-
-Here is a quick comparison:
-
-|| Machine Learning Studio (classic) | Azure Machine Learning |
-|---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/concept-designer.md) |
-| Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-| Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|
-|Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
-| ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines.md) supported |
-| MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
-| Model format | Proprietary format, Studio only | Standard format depending on training job type |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../service/concept-automated-ml.md)) | 
-
-Try out the designer with [Tutorial: Predict automobile price with the designer](../service/tutorial-designer-automobile-price-train-score.md)
-
-> [!NOTE]
-> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
+![Azure Machine Learning Studio (classic) diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## Download the Machine Learning Studio (classic) overview diagram
 Download the **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio (classic). To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
@@ -88,7 +67,7 @@ As you build an experiment, you can choose from the list of datasets available t
 For a list of sample datasets included in Machine Learning Studio (classic), see [Use the sample data sets in Azure Machine Learning Studio (classic)](use-sample-datasets.md).
 
 ### Modules
-A module is an algorithm that you can perform on your data.  The classic version of Machine Learning Studio has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
+A module is an algorithm that you can perform on your data. Azure Machine Learning Studio (classic) has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
 
 * [Convert to ARFF][convert-to-arff] - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF).
 * [Compute Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc.
@@ -102,7 +81,7 @@ A module may have a set of parameters that you can use to configure the module's
 For some help navigating through the large library of machine learning algorithms available, see [How to choose algorithms for Microsoft Azure Machine Learning Studio (classic)](algorithm-choice.md).
 
 ## Deploying a predictive analytics web service
-Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio (classic). For more information on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
+Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio (classic). For more information on this process, see [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md).
 
 ## Next steps
 You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).

@@ -1,18 +1,11 @@
 ---
-title: 'Make the D: drive of a VM a data disk | Microsoft Docs'
+title: 'Make the D: drive of a VM a data disk '
 description: 'Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.'
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn

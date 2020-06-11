@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/06/2019
+author: likebupt
+ms.author: keli19
+ms.date: 11/19/2019
 ---
 # Train Clustering Model
 
@@ -20,7 +20,7 @@ Use this module to train a clustering model.
 The module takes an untrained clustering model that you have already configured using the [K-Means Clustering](k-means-clustering.md) module, and trains the model using a labeled or unlabeled data set. The module creates both a trained model that you can use for prediction, and a set of cluster assignments for each case in the training data.
 
 > [!NOTE]
-> A clustering model cannnot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
+> A clustering model cannot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
   
 ## How to use Train Clustering Model  
 
@@ -38,20 +38,15 @@ The module takes an untrained clustering model that you have already configured 
 
     If you deselect this option, only the cluster assignments are output. 
 
-7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
+7. Submit the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### Results
 
 After training has completed:
 
-
-+  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
-
-+ To save the trained model for later re-use, right-click the module, select **Trained model**, and click **Save As Trained Model**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
-
-
 
 ## Next steps
 

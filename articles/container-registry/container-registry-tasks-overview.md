@@ -1,14 +1,8 @@
 ---
-title: Automate building and patching container images with Azure Container Registry Tasks (ACR Tasks)
+title: ACR Tasks overview
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build, management, and patching in the cloud.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
-ms.date: 09/05/2019
-ms.author: danlep
+ms.date: 01/22/2020
 ---
 
 # Automate container image builds and maintenance with ACR Tasks
@@ -53,7 +47,7 @@ Learn how to use quick tasks in the first ACR Tasks tutorial, [Build container i
 
 ## Trigger task on source code update
 
-Trigger a container image build or multi-step task when code is committed, or a pull request is made or updated, to a Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo. 
+Trigger a container image build or multi-step task when code is committed, or a pull request is made or updated, to a public or private Git repository in GitHub or Azure DevOps. For example, configure a build task with the Azure CLI command [az acr task create][az-acr-task-create] by specifying a Git repository and optionally a branch and Dockerfile. When your team updates code in the repository, an ACR Tasks-created webhook triggers a build of the container image defined in the repo. 
 
 ACR Tasks supports the following triggers when you set a Git repo as the task's context:
 
@@ -62,32 +56,21 @@ ACR Tasks supports the following triggers when you set a Git repo as the task's 
 | Commit | Yes |
 | Pull request | No |
 
-To configure the trigger, you provide the task a personal access token (PAT) to set the webhook in the GitHub or Azure DevOps repo.
+To configure a source code update trigger, you need to provide the task a personal access token (PAT) to set the webhook in the public or private GitHub or Azure DevOps repo.
+
+> [!NOTE]
+> Currently, ACR Tasks doesn't support commit or pull request triggers in GitHub Enterprise repos.
 
 Learn how to trigger builds on source code commit in the second ACR Tasks tutorial, [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
 ## Automate OS and framework patching
 
-The power of ACR Tasks to truly enhance your container build workflow comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, or a base image is updated in a public repo such as in Docker Hub, ACR Tasks can automatically build any application images based on it.
+The power of ACR Tasks to truly enhance your container build workflow comes from its ability to detect an update to a *base image*. A feature of most container images, a base image is a parent image on which one or more application images are based. Base images typically contain the operating system, and sometimes application frameworks. 
 
-Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], or [Node.js][base-node]. Several of your application images might share a common base image.
+You can set up an ACR task to track a dependency on a base image when it builds an application image. When the updated base image is pushed to your registry, or a base image is updated in a public repo such as in Docker Hub, ACR Tasks can automatically build any application images based on it.
+With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
-When an OS or app framework image is updated by the upstream maintainer, for example with a critical OS security patch, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
-
-Because ACR Tasks dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated. With one preconfigured [build task](container-registry-tutorial-base-image-update.md#create-a-task), ACR Tasks then **automatically rebuilds every application image** for you. With this automatic detection and rebuilding, ACR Tasks saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
-
-For image builds from a Dockerfile, an ACR task tracks a base image update when the base image is in one of the following locations:
-
-* The same Azure container registry where the task runs
-* Another Azure container registry in the same region 
-* A public repo in Docker Hub
-* A public repo in Microsoft Container Registry
-
-> [!NOTE]
-> * The base image update trigger is enabled by default in an ACR task. 
-> * Currently, ACR Tasks only tracks base image updates for application (*runtime*) images. ACR Tasks doesn't track base image updates for intermediate (*buildtime*) images used in multi-stage Dockerfiles. 
-
-Learn more about OS and framework patching in the third ACR Tasks tutorial, [Automate image builds on base image update with Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Learn more about [base image update triggers](container-registry-tasks-base-images.md) for ACR Tasks. And learn how to trigger an image build when a base image is pushed to a container registry in the tutorial [Automate container image builds when a base image is updated in a Azure container registry](container-registry-tutorial-base-image-update.md)
 
 ## Schedule a task
 
@@ -117,11 +100,15 @@ The following table shows a few examples of supported context locations for ACR 
 | Context location | Description | Example |
 | ---------------- | ----------- | ------- |
 | Local filesystem | Files within a directory on the local filesystem. | `/home/user/projects/myapp` |
-| GitHub master branch | Files within the master (or other default) branch of a GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub branch | Specific branch of a GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub subfolder | Files within a subfolder in a GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Azure DevOps subfolder | Files within a subfolder in an Azure repo. Example shows combination of branch and subfolder specification. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| GitHub master branch | Files within the master (or other default) branch of a public or private GitHub repository.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub branch | Specific branch of a public or private GitHub repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub subfolder | Files within a subfolder in a public or private GitHub repo. Example shows combination of a branch and subfolder specification. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub commit | Specific commit in a public or private GitHub repo. Example shows combination of a commit hash (SHA) and subfolder specification. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
+| Azure DevOps subfolder | Files within a subfolder in a public or private Azure repo. Example shows combination of branch and subfolder specification. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Remote tarball | Files in a compressed archive on a remote webserver. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> When using a private Git repo as a context for a task, you need to provide a personal access token (PAT).
 
 ## Image platforms
 
@@ -132,15 +119,11 @@ By default, ACR Tasks builds images for the Linux OS and the amd64 architecture.
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |
 
-## View task logs
+## View task output
 
-Each task run generates log output that you can inspect to determine whether the task steps ran successfully. If you use the [az acr build](/cli/azure/acr#az-acr-build), [az acr run](/cli/azure/acr#az-acr-run), or [az acr task run](/cli/azure/acr/task#az-acr-task-run) command to trigger the task, log output for the task run is streamed to the console and also stored for later retrieval. When a task is automatically triggered, for example by a source code commit or a base image update, task logs are only stored. View the logs for a task run in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
+Each task run generates log output that you can inspect to determine whether the task steps ran successfully. When you trigger a task manually, log output for the task run is streamed to the console and also stored for later retrieval. When a task is automatically triggered, for example by a source code commit or a base image update, task logs are only stored. View the run logs in the Azure portal, or use the [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) command.
 
-By default, data and logs for task runs in a registry are retained for 30 days and then automatically purged. If you want to archive the data for a task run, enable archiving using the [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run) command. The following example enables archiving for the task run *cf11* in registry *myregistry*.
-
-```azurecli
-az acr task update-run --registry myregistry --run-id cf11 --no-archive false
-```
+See more about [viewing and managing task logs](container-registry-tasks-logs.md).
 
 ## Next steps
 

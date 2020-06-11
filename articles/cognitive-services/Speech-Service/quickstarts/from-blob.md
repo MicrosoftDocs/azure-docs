@@ -1,16 +1,16 @@
 ---
 title: "Quickstart: Recognize speech stored in blob storage"
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: In this quickstart, you'll use the Batch Transcription REST API to asynchronously recognize speech stored in an SAS blob.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.date: 02/10/2020
+ms.author: dapine
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Quickstart: Recognize speech stored in blob storage
@@ -37,6 +37,12 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-blob/python/header.md)]
 [!INCLUDE [python](../includes/quickstarts/from-blob/python/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-blob/javascript/header.md)]
+[!INCLUDE [python](../includes/quickstarts/from-blob/javascript/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

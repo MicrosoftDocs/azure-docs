@@ -3,7 +3,7 @@ title: Connect Windows firewall data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Windows firewall data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect Windows firewall
@@ -26,7 +26,8 @@ The Windows firewall connector allows you to easily connect your Windows firewal
 
 
 > [!NOTE]
-> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
 
 ## Enable the connector 
 

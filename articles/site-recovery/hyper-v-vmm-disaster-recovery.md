@@ -1,13 +1,13 @@
 ---
-title: Set up disaster recovery for Hyper-V VMs between on-premises sites with Azure Site Recovery 
+title: Set up Hyper-V disaster recovery to a secondary site with Azure Site Recovery 
 description: Learn how to set up disaster recovery for Hyper-V VMs between your on-premises sites with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
-ms.date: 09/09/2019
+ms.topic: how-to
+ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
+
 ---
 # Set up disaster recovery for Hyper-V VMs to a secondary on-premises site
 
@@ -23,8 +23,6 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 > * Create a replication policy
 > * Enable replication for a VM
 
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 ## Prerequisites
 
@@ -41,7 +39,7 @@ To complete this scenario:
 
 - Connects VMs to appropriate target VM networks after failover. 
 - Optimally places replica VMs on target Hyper-V host servers. 
-- If you don’t configure network mapping, replica VMs won’t be connected to a VM network after failover.
+- If you don't configure network mapping, replica VMs won't be connected to a VM network after failover.
 
 Prepare VMM as follows:
 

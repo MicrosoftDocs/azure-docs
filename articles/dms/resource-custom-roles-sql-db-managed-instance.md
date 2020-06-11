@@ -1,19 +1,20 @@
 ---
-title: Custom roles for SQL Server to SQL Database managed instance online migrations | Microsoft Docs
-description: Learn to use the custom roles for SQL Server to SQL Database managed instance online migrations.
+title: "Custom roles: Online SQL Server to SQL managed instance migrations"
+titleSuffix: Azure Database Migration Service
+description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance online migrations.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 10/25/2019
 ---
 
-# Custom roles for SQL Server to SQL Database managed instance online migrations
+# Custom roles for SQL Server to Azure SQL Managed Instance online migrations
 
 Azure Database Migration Service uses an APP ID to interact with Azure Services. The APP ID requires either the Contributor role at the Subscription level (which many Corporate security departments won't allow) or creation of custom roles that grant the specific permissions that Azure database Migrations Service requires. Since there's a limit of 2,000 custom roles in Azure Active Directory, you may want to combine all permissions required specifically by the APP ID into one or two custom roles, and then grant the APP ID the custom role on specific objects or resource groups (vs. at the subscription level). If the number of custom roles isn't a concern, you can split the custom roles by resource type, to create three custom roles in total as described below.
 
@@ -24,7 +25,7 @@ The AssignableScopes section of the role definition json string allows you to co
 We currently recommend creating a minimum of two custom roles for the APP ID, one at the resource level and the other at the subscription level.
 
 > [!NOTE]
-> The last custom role requirement may eventually be removed, as new SQL Database managed instance code is deployed to Azure.
+> The last custom role requirement may eventually be removed, as new SQL Managed Instance code is deployed to Azure.
 
 **Custom Role for the APP ID**. This role is required for Azure Database Migration Service migration at the *resource* or *resource group* level (for more information about the APP ID, see the article [Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)).
 
@@ -81,14 +82,14 @@ For more information, see the article [Custom roles for Azure resources](https:/
 
 After you create these custom roles, you must add role assignments to users and APP ID(s) to the appropriate resources or resource groups:
 
-* The “DMS Role - App ID” role must be granted to the APP ID that will be used for the migrations, and also at the Storage Account, Azure Database Migration Service instance, and SQL Database managed instance resource levels.
+* The “DMS Role - App ID” role must be granted to the APP ID that will be used for the migrations, and also at the Storage Account, Azure Database Migration Service instance, and SQL Managed Instance resource levels.
 * The “DMS Role - App ID - Sub” role must be granted to the APP ID at the subscription level (granting at the resource or resource group will fail). This requirement is temporary until a code update is deployed.
 
 ## Expanded number of roles
 
 If the number of custom roles in your Azure Active Directory isn't a concern, we recommend you create a total of three roles. You'll still need the “DMS Role - App ID – Sub” role, but the “DMS Role - App ID” role above is split by resource type into two different roles.
 
-**Custom role for the APP ID for SQL Database managed instance**
+**Custom role for the APP ID for SQL Managed Instance**
 
 ```json
 {

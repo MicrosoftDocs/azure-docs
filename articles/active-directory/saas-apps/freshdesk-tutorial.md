@@ -270,7 +270,7 @@ In the case of FreshDesk, provisioning is a manual task.
 	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
 	>
 	>[!NOTE]
-	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision AAD user accounts to FreshDesk.
+	>You can use any other Freshdesk user account creation tools or APIs provided by Freshdesk to provision Azure AD user accounts to FreshDesk.
 
 ### Test single sign-on 
 

@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot Azure AD entitlement management - Azure Active Directory
+title: Troubleshoot entitlement management - Azure AD
 description: Learn about some items you should check to help you troubleshoot Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -46,6 +46,10 @@ This article describes some items you should check to help you troubleshoot Azur
 * When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 * Ensure your directory is not configured for multi-geo. Entitlement management currently does not support multi-geo locations for SharePoint Online. SharePoint Online sites must be in the default geo-location to be governed with entitlement management. For more information, see [Multi-Geo Capabilities in OneDrive and SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+
+## Access packages
+
+* If you attempt to delete an access package or policy and see an error message that says there are active assignments, if you don't see any users with assignments, check to see whether any recently deleted users still have assignments. During the 30-day window after a user is deleted, the user account can be restored.   
 
 ## External users
 
@@ -81,13 +85,19 @@ This article describes some items you should check to help you troubleshoot Azur
 
     If the request has any delivery errors, the request status will be **Undelivered** or **Partially delivered**.
 
-    If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
+    If there are any delivery errors, a count of delivery errors will be displayed in the request's detail pane.
 
 1. Click the count to see all of the request's delivery errors.
 
 ### Reprocess a request
 
-If a request encounters an error, you can reprocess the request to try it again. You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+If an error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
+
+You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+
+- If the error is fixed during the trials window, the request status will change to **Delivering**. The request will reprocess without additional actions from the user.
+
+- If the error wasn't fixed during the trials window, the request status may be **Delivery failed** or **partially delivered**. You can then use the **reprocess** button. You'll have seven days to reprocess the request.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 

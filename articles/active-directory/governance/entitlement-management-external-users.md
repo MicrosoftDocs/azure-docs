@@ -3,7 +3,7 @@ title: Govern access for external users in Azure AD entitlement management - Azu
 description: Learn about the settings you can specify to govern access for external users in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/26/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -90,7 +90,7 @@ To ensure people outside of your organization can request access packages and ge
 
 ### Review your Conditional Access policies
 
-- Make sure to exclude guests from any Conditional Access policies that new guest users will not be able to meet as this will block them from being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/conditions.md).
+- Make sure to exclude guests from any Conditional Access policies that new guest users will not be able to meet as this will block them from being able to sign in to your directory. For example, guests likely don't have a registered device, aren't in a known location, and don't want to re-register for multi-factor authentication (MFA), so adding these requirements in a Conditional Access policy will block guests from using entitlement management. For more information, see [What are conditions in Azure Active Directory Conditional Access?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Azure AD Conditional Access policy exclude settings](./media/entitlement-management-external-users/conditional-access-exclude.png)
 
@@ -104,7 +104,7 @@ To ensure people outside of your organization can request access packages and ge
 
 ### Review your Office 365 group sharing settings
 
-- If you want to include Office 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+- If you want to include Office 365 groups in your access packages for external users, make sure the **Let users add new guests to the organization** is set to **On** to allow guest access. For more information, see [Manage guest access to Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
 - If you want external users to be able to access the SharePoint Online site and resources associated with an Office 365 group, make sure you turn on SharePoint Online external sharing. For more information, see [Turn external sharing on or off](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
@@ -112,7 +112,7 @@ To ensure people outside of your organization can request access packages and ge
 
 ### Review your Teams sharing settings
 
-- If you want to include Teams in your access packages for external users, make sure the **Allow guest access in Microsoft Teams** is set to **On** to allow guest access. For more information, see [Configure guest access in the Microsoft Teams admin center](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center).
+- If you want to include Teams in your access packages for external users, make sure the **Allow guest access in Microsoft Teams** is set to **On** to allow guest access. For more information, see [Configure guest access in the Microsoft Teams admin center](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center).
 
 ## Manage the lifecycle of external users
 

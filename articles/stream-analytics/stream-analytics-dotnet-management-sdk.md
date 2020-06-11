@@ -1,10 +1,9 @@
 ---
 title: Management .NET SDK for Azure Stream Analytics
 description: Get started with Stream Analytics Management .NET SDK. Learn how to set up and run analytics jobs. Create a project, inputs, outputs, and transformations.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
@@ -280,7 +279,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
    ```
 
 ## Get support
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following articles:

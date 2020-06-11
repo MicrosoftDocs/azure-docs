@@ -29,7 +29,7 @@ In this article, you learn how to efficiently manage stale devices in your envir
 A stale device is a device that has been registered with Azure AD but has not been used to access any cloud apps for a specific timeframe. Stale devices have an impact on your ability to manage and support your devices and users in the tenant because: 
 
 - Duplicate devices can make it difficult for your helpdesk staff to identify which device is currently active.
-- An increased number of devices creates unnecessary device writebacks increasing the time for AAD connect syncs.
+- An increased number of devices creates unnecessary device writebacks increasing the time for Azure AD connect syncs.
 - As a general hygiene and to meet compliance, you may want to have a clean state of devices. 
 
 Stale devices in Azure AD can interfere with the general lifecycle policies for devices in your organization.
@@ -56,7 +56,7 @@ You have two options to retrieve the value of the activity timestamp:
 
     ![Activity timestamp](./media/manage-stale-devices/01.png)
 
-- The [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- The [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
 
     ![Activity timestamp](./media/manage-stale-devices/02.png)
 
@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as auto-pilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -124,15 +124,15 @@ Disable or delete Azure AD registered devices in the Azure AD.
 
 ## Clean up stale devices in the Azure portal  
 
-While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as auto-pilot. At this point, using PowerShell V2 is not recommended.
+While you can cleanup stale devices in the Azure portal, it is more efficient, to handle this process using a PowerShell script. Use the latest PowerShell V1 module to use the timestamp filter and to filter out system-managed devices such as Autopilot. At this point, using PowerShell V2 is not recommended.
 
 A typical routine consists of the following steps:
 
-1. Connect to Azure Active Directory using the [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
+1. Connect to Azure Active Directory using the [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
 1. Get the list of devices
-1. Disable the device using the [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
+1. Disable the device using the [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
 1. Wait for the grace period of however many days you choose before deleting the device.
-1. Remove the device using the [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
+1. Remove the device using the [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
 
 ### Get the list of devices
 
@@ -175,7 +175,7 @@ To learn more about the different types, see the [device management overview](ov
 
 Any authentication where a device is being used to authenticate to Azure AD are denied. Common examples are:
 
-- **Hybrid Azure AD joined device** - Users might be to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
+- **Hybrid Azure AD joined device** - Users might be able to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
 - **Azure AD joined device** - Users can't use the device to sign in. 
 - **Mobile devices** - User can't access Azure AD resources such as Office 365. 
 

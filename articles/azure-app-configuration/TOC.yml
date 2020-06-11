@@ -1,4 +1,4 @@
-- name: Azure App Configuration Preview documentation
+- name: Azure App Configuration documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,10 +17,13 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: Azure Function in .NET Core
-          href: quickstart-azure-function-csharp.md
+        - name: Azure Functions in .NET Core
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: ARM template
+          href: quickstart-resource-manager.md
+          displayName: ARM, azure resource manager template
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -36,7 +39,11 @@
     - name: Enable dynamic configuration in a .NET Core app
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Enable dynamic configuration in .NET Framework
-      href: enable-dynamic-configuration-dotnet.md      
+      href: enable-dynamic-configuration-dotnet.md
+    - name: Enable dynamic configuration in Azure Functions
+      href: enable-dynamic-configuration-azure-functions-csharp.md
+    - name: Enable dynamic configuration in Spring Boot
+      href: enable-dynamic-configuration-java-spring-app.md      
     - name: Use feature flags in a .NET Core app
       href: use-feature-flags-dotnet-core.md
     - name: Use feature flags in a Spring Boot app
@@ -45,12 +52,19 @@
       href: manage-feature-flags.md
     - name: Use Key Vault references in ASP.NET Core
       href: use-key-vault-references-dotnet-core.md
+    - name: Use Key Vault references in Spring Boot
+      href: use-key-vault-references-spring-boot.md      
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
+    - name: Integrate with Kubernetes deployment using Helm
+      href: integrate-kubernetes-deployment-helm.md
 - name: Samples
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Key-value store
@@ -59,16 +73,32 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Sync using GitHub Actions
+      href: concept-github-action.md
     - name: Event handling
       href: concept-app-configuration-event.md
+    - name: Security
+      items:
+        - name: Encrypt using customer-managed keys
+          href: concept-customer-managed-keys.md
+        - name: Secure your config store using Private Endpoints
+          href: concept-private-endpoint.md
+        - name: Integrate with Azure Managed Identity
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: Enable access using Azure Active Directory
+          href: concept-enable-rbac.md
+        - name: Assign an Azure Managed Identity
+          href: overview-managed-identity.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Integrate with Azure Managed Service Identity
-      href: howto-integrate-azure-managed-service-identity.md
+    - name: Enable a feature for a subset of users
+      href: howto-feature-filters-aspnet-core.md
+    - name: Use labels for per-environment configuration
+      href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
@@ -80,22 +110,22 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+          href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: .NET Azure SDK
+        - name: Azure SDK for .NET
           href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2074659
-        - name: Java Azure SDK
+        - name: Azure SDK for Java
           href: https://go.microsoft.com/fwlink/?linkid=2098196
-        - name: Python Azure SDK
+        - name: Azure SDK for Python
           href: https://go.microsoft.com/fwlink/?linkid=2103727
-        - name: JavaScript Azure SDK
+        - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
-        - name: REST
+        - name: REST API
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
       items:
@@ -103,15 +133,23 @@
           href: https://go.microsoft.com/fwlink/?linkid=2091700
         - name: .NET Core filter library
           href: https://go.microsoft.com/fwlink/?linkid=2091601
+    - name: Config store management
+      items:
+        - name: REST API
+          href: https://docs.microsoft.com/rest/api/appconfiguration/
 - name: Resources
   items:
     - name: Pricing
-      href: https://azure.microsoft.com/en-us/pricing/details/app-configuration/
+      href: https://azure.microsoft.com/pricing/details/app-configuration/
     - name: Videos
       items:
         - name: Getting started
           href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
         - name: Feature management
           href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+        - name: Making centralized configuration easy
+          href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+        - name: Azure App Configuration on Cloud Native Show
+          href: https://www.youtube.com/watch?v=DJqmA5PcfzE
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

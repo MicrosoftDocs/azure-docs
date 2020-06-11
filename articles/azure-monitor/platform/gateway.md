@@ -1,12 +1,11 @@
 ---
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/30/2019
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
 
 ---
 
@@ -22,7 +21,7 @@ The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling 
 
 The Log Analytics gateway supports:
 
-* Reporting up to the same four Log Analytics workspace agents that are behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
+* Reporting up to the same Log Analytics workspaces configured on each agent behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
 * Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
 * Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
@@ -41,7 +40,7 @@ The computer that runs the Log Analytics gateway requires the Log Analytics Wind
 
 A gateway can be multihomed to up to four workspaces. This is the total number of workspaces a Windows agent supports.  
 
-Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller.
+Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](agent-linux.md#install-the-agent-using-wrapper-script) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
 
 The following diagram shows data flowing from direct agents, through the gateway, to Azure Automation and Log Analytics. The agent proxy configuration must match the port that the Log Analytics gateway is configured with.  
 
@@ -56,7 +55,7 @@ The following diagram shows data flow from an Operations Manager management grou
 Computers designated to run the Log Analytics gateway must have the following configuration:
 
 * Windows 10, Windows 8.1, or Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
+* Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
 * Microsoft .NET Framework 4.5
 * At least a 4-core processor and 8 GB of memory 
 * A [Log Analytics agent for Windows](agent-windows.md) that is configured to report to the same workspace as the agents that communicate through the gateway
@@ -99,7 +98,7 @@ The following table shows approximately how many agents can communicate with a g
 
 ## Download the Log Analytics gateway
 
-Get the latest version of the Log Analytics gateway Setup file from either [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=54443) or the Azure portal.
+Get the latest version of the Log Analytics gateway Setup file from either Microsoft Download Center ([Download Link](https://go.microsoft.com/fwlink/?linkid=837444)) or the Azure portal.
 
 To get the Log Analytics gateway from the Azure portal, follow these steps:
 
@@ -145,6 +144,7 @@ To install a gateway using the setup wizard, follow these steps.
    ![Screenshot of local services, showing that OMS Gateway is running](./media/gateway/gateway-service.png)
 
 ## Install the Log Analytics gateway using the command line
+
 The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
  
 The following table highlights the parameters supported by setup.
@@ -154,8 +154,8 @@ The following table highlights the parameters supported by setup.
 |PORTNUMBER | TCP port number for gateway to listen on |
 |PROXY | IP address of proxy server |
 |INSTALLDIR | Fully qualified path to specify install directory of gateway software files |
-|USERNAME | User Id to authenticate with proxy server |
-|PASSWORD | Password of the user Id to authenticate with proxy |
+|USERNAME | User ID to authenticate with proxy server |
+|PASSWORD | Password of the user ID to authenticate with proxy |
 |LicenseAccepted | Specify a value of **1** to verify you accept license agreement |
 |HASAUTH | Specify a value of **1** when USERNAME/PASSWORD parameters are specified |
 |HASPROXY | Specify a value of **1** when specifying IP address for **PROXY** parameter |
@@ -174,15 +174,17 @@ If you need to provide credentials to authenticate with the proxy, type the foll
 Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
-After installation, you can confirm the settings are accepted (exlcuding the username and password) using the following PowerShell cmdlets:
+After installation, you can confirm the settings are accepted (excluding the username and password) using the following PowerShell cmdlets:
 
 - **Get-OMSGatewayConfig** – Returns the TCP Port the gateway is configured to listen on.
 - **Get-OMSGatewayRelayProxy** – Returns the IP address of the proxy server you configured it to communicate with.
 
-## Configure network load balancing 
+## Configure network load balancing
+
 You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), or hardware-based load balancers. The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
 
 ### Microsoft Network Load Balancing
+
 To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). The following steps describe how to configure a Microsoft network load balancing cluster.  
 
 1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
@@ -196,31 +198,34 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
     ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/gateway/nlb03.png) 
 
 ### Azure Load Balancer
-To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
+
+To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
 
 > [!NOTE]
 > Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/windows/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
-After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 >[!NOTE]
 >When configuring the health probe it should be configured to use the TCP port of the gateway server. The health probe dynamically adds or removes the gateway servers from the load balancer rotation based on their response to health checks. 
 >
 
 ## Configure the Log Analytics agent and Operations Manager management group
+
 In this section, you'll see how to configure directly connected Log Analytics agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the Log Analytics gateway to communicate with Azure Automation or Log Analytics.  
 
 ### Configure a standalone Log Analytics agent
+
 When configuring the Log Analytics agent, replace the proxy server value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind a load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the load balancer.  
 
 >[!NOTE]
->To install the Log Analytics agent on the gateway and Windows computers that directly connect to Log Analytics, see [Connect Windows computers to the Log Analytics service in Azure](agent-windows.md). To connect Linux computers, see [Configure a Log Analytics agent for Linux computers in a hybrid environment](../../azure-monitor/learn/quick-collect-linux-computer.md). 
+>To install the Log Analytics agent on the gateway and Windows computers that directly connect to Log Analytics, see [Connect Windows computers to the Log Analytics service in Azure](agent-windows.md). To connect Linux computers, see [Connect Linux computers to Azure Monitor](agent-linux.md). 
 >
 
 After you install the agent on the gateway server, configure it to report to the workspace or workspace agents that communicate with the gateway. If the Log Analytics Windows agent is not installed on the gateway, event 300 is written to the OMS Gateway event log, indicating that the agent needs to be installed. If the agent is installed but not configured to report to the same workspace as the agents that communicate through it, event 105 is written to the same log, indicating that the agent on the gateway needs to be configured to report to the same workspace as the agents that communicate with the gateway.
 
-After you complete configuration, restart the OMS Gateway service to apply the changes. Otherwise, the gateway will reject agents that attempt to communicate with Log Analytics and will report event 105 in the OMS Gateway event log. This will also happen when you add or remove a workspace from the agent configuration on the gateway server.   
+After you complete configuration, restart the **OMS Gateway** service to apply the changes. Otherwise, the gateway will reject agents that attempt to communicate with Log Analytics and will report event 105 in the OMS Gateway event log. This will also happen when you add or remove a workspace from the agent configuration on the gateway server.
 
 For information related to the Automation Hybrid Runbook Worker, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -327,7 +332,7 @@ An error in step 3 means that the module wasn't imported. The error might occur 
 | `Get-OMSGatewayConfig` |Key |Gets the configuration of the service |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Key (required) <br> Value |Changes the configuration of the service |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Gets the address of relay (upstream) proxy |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password |Sets the address (and credential) of relay (upstream) proxy |1. Set a relay proxy and credential:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear the relay proxy setting:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Address<br> Username<br> Password (secure string) |Sets the address (and credential) of relay (upstream) proxy |1. Set a relay proxy and credential:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Set a relay proxy that doesn't need authentication: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Clear the relay proxy setting:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Gets the currently allowed host (only the locally configured allowed host, not automatically downloaded allowed hosts) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (required) |Adds the host to the allowed list |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (required) |Removes the host from the allowed list |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

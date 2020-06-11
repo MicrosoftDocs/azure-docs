@@ -1,17 +1,9 @@
 ---
-title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
+title: Mount Azure File storage on Linux VMs using SMB 
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: ''
-
-ms.assetid:
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
@@ -32,7 +24,7 @@ This guide requires that you're running the Azure CLI version 2.0.4 or later. Ru
 
 Create a resource group named *myResourceGroup* in the *East US* location.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -40,7 +32,7 @@ az group create --name myResourceGroup --location eastus
 
 Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -55,7 +47,7 @@ When you create a storage account, the account keys are created in pairs so that
 
 View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys). This example stores the value of key 1 in the **STORAGEKEY** variable.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -70,7 +62,7 @@ Share names need to be all lower case letters, numbers, and single hyphens but c
 
 This example creates a share named *myshare* with a 10-GiB quota. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -106,6 +98,7 @@ When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 For increased security in production environments, you should store your credentials outside of fstab.
 
 ## Next steps

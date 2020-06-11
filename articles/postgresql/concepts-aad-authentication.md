@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory authentication with Azure Database for PostgreSQL - Single Server
+title: Active Directory authentication - Azure Database for PostgreSQL - Single Server
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Single Server
 author: lfittl
 ms.author: lufittl
@@ -12,11 +12,6 @@ ms.date: 11/04/2019
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
-
-> [!IMPORTANT]
-> Azure AD authentication for Azure Database for PostgreSQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Benefits of using Azure AD include:
 

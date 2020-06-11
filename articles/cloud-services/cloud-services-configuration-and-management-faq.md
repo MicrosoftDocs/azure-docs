@@ -1,5 +1,6 @@
 ---
-title: Configuration and management issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
+title: Configuration and management issues FAQ
+titleSuffix: Azure Cloud Services
 description: This article lists the frequently asked questions about configuration and management for Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -23,11 +24,11 @@ This article includes frequently asked questions about configuration and managem
 
 **Certificates**
 
-- [Why is the certificate chain of my Cloud Service SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete)
+- [Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?](#why-is-the-certificate-chain-of-my-cloud-service-tlsssl-certificate-incomplete)
 - [What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?](#what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions)
 - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
-- [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b)
 - [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoring and logging**
@@ -68,7 +69,7 @@ This article includes frequently asked questions about configuration and managem
 
 ## Certificates
 
-### Why is the certificate chain of my Cloud Service SSL certificate incomplete?
+### Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
     
 We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) shows how to do this.
 
@@ -96,7 +97,7 @@ You can use following PowerShell commands to renew your Management Certificates:
 
 The **Get-AzurePublishSettingsFile** will create a new management certificate in **Subscription** > **Management Certificates** in the Azure portal. The name of the new certificate looks like "YourSubscriptionNam]-[CurrentDate]-credentials".
 
-### How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
+### How to automate the installation of main TLS/SSL certificate(.pfx) and intermediate certificate(.p7b)?
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
 
@@ -130,7 +131,7 @@ You haveâ€¯exhausted the local storage quota for writing to the log directory.â€
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](cloud-services-dotnet-diagnostics-storage.md)
+* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
 * [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### How do I enable WAD logging for Cloud Services?
@@ -167,11 +168,11 @@ See [New: Configurable Idle Timeout for Azure Load Balancer](https://azure.micro
 
 ### How do I associate a static IP address to my Cloud Service?
 To set up a static IP address, you need to create a reserved IP. This reserved IP can be associated to a new Cloud Service or to an existing deployment. See the following documents for details:
-* [How to create a reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reserve the IP address of an existing Cloud Service](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associate a reserved IP to a new Cloud Service](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Associate a reserved IP to a running deployment](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Associate a reserved IP to a Cloud Service by using a service configuration file](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [How to create a reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
+* [Reserve the IP address of an existing Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Associate a reserved IP to a new Cloud Service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associate a reserved IP to a running deployment](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Associate a reserved IP to a Cloud Service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### What are the features and capabilities that Azure basic IPS/IDS and DDOS provides?
 Azure has IPS/IDS in datacenter physical servers to defend against threats. In addition, customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more. For more information, see [Protect your data and assets and comply with global security standards](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
@@ -270,7 +271,7 @@ You can also add this as a setting in IIS. Use the following command with the [c
 Use the IIS startup script from the [common startup tasks](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) article.
 
 ### What is the quota limit for my Cloud Service?
-See [Service-specific limits](../azure-subscription-service-limits.md#subscription-limits).
+See [Service-specific limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### Why does the drive on my Cloud Service VM show very little free disk space?
 This is expected behavior, and it shouldn't cause any issue to your application. Journaling is turned on for the %approot% drive in Azure PaaS VMs, which essentially consumes double the amount of space that files normally take up. However there are several things to be aware of that essentially turn this into a non-issue.

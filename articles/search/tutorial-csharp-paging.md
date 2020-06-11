@@ -1,17 +1,17 @@
 ---
 title: C# tutorial on search results pagination
 titleSuffix: Azure Cognitive Search
-description: This tutorial builds on the "Create your first app - Azure Cognitive Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
+description: Add pagination and navigation buttons to search results, building on an existing hotels project to add first, next, previous, last, and numbered buttons. A second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
-# C# tutorial: Search results pagination - Azure Cognitive Search
+# Tutorial: Add paging to search results using the .NET SDK
 
 Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Cognitive Search](tutorial-csharp-create-first-app.md) tutorial.
 

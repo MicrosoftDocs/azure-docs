@@ -42,7 +42,7 @@ New-AzResourceGroupDeployment `
     -iotHubName $iotHubName
 ```
 
-As you can see from the PowerShell script, the template used is from Azure Quickstart templates. To use your own, you need to first upload the template file to the Cloud shell, and then use the `-TemplateFile` switch to specify the file name.  For an example, see [Deploy the template](../azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
+As you can see from the PowerShell script, the template used is from Azure Quickstart templates. To use your own, you need to first upload the template file to the Cloud shell, and then use the `-TemplateFile` switch to specify the file name.  For an example, see [Deploy the template](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template).
 
 ## Next steps
 
@@ -67,8 +67,8 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-[lnk-powershell-arm]: ../azure-resource-manager/manage-resources-powershell.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
+[lnk-powershell-arm]: ../azure-resource-manager/management/manage-resources-powershell.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

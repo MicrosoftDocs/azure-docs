@@ -3,22 +3,17 @@ title: Configure keychain
 titleSuffix: Microsoft identity platform
 description: Learn how to configure keychain so that your app can cache tokens in the keychain.
 services: active-directory
-documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
-ms.reviewer: ''
+ms.author: marsma
+ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Configure keychain
@@ -47,7 +42,7 @@ On macOS 10.15 onwards (macOS Catalina), MSAL uses keychain access group attribu
 
 If you'd like to use a different keychain access group, you can pass your custom group when creating `MSALPublicClientApplicationConfig` before creating `MSALPublicClientApplication`, like this:
 
-Objective-C:
+# [Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -63,9 +58,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Swift:
+# [Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -81,25 +74,27 @@ do {
 }       
 ```
 
-
+---
 
 ## Disable keychain sharing
 
 If you don't want to share SSO state between multiple apps, or use any keychain access group, disable keychain sharing by passing the application bundle ID as your keychainGroup:
 
-Objective-C:
+# [Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift:
+# [Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## Handle -34018 error (failed to set item into keychain)
 

@@ -5,29 +5,29 @@ description: An overview of the capabilities of the Speech SDK's audio input str
 services: cognitive-services
 author: fmegen
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ---
+
 # About the Speech SDK audio input stream API
 
-The Speech SDK's **Audio Input Stream** API provides a way to stream audio streams into the recognizers instead of using either the microphone or the input file APIs.
+The Speech SDK's **Audio Input Stream** API provides a way to stream audio into the recognizers instead of using either the microphone or the input file APIs.
 
 The following steps are required when using audio input streams:
 
 - Identify the format of the audio stream. The format must be supported by the Speech SDK and the Speech service. Currently, only the following configuration is supported:
 
-  Audio samples in PCM format, one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample.
+  Audio samples in PCM format, one channel, 16 bits per sample, 8000 or 16000 samples per second (16000 or 32000 bytes per second), two block align (16 bit including padding for a sample).
 
   The corresponding code in the SDK to create the audio format looks like this:
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
@@ -35,7 +35,7 @@ The following steps are required when using audio input streams:
 
 - Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code will look similar to this code sample:
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -56,7 +56,7 @@ The following steps are required when using audio input streams:
 
 - Create an audio configuration based on your audio format and input stream. Pass in both your regular speech configuration and the audio input configuration when you create your recognizer. For example:
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -70,5 +70,5 @@ The following steps are required when using audio input streams:
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

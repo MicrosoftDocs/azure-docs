@@ -1,24 +1,32 @@
 ---
-title: Azure Cosmos DB performance tips for Java
-description: Learn client configuration options to improve Azure Cosmos database performance
-author: SnehaGunda
+title: Performance tips for Azure Cosmos DB Sync Java SDK v2
+description: Learn client configuration options to improve Azure Cosmos database performance for Sync Java SDK v2
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 ---
 
-# Performance tips for Azure Cosmos DB and Java
+# Performance tips for Azure Cosmos DB Sync Java SDK v2
 
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](performance-tips-async-java.md)
+> * [Sync Java SDK v2](performance-tips-java.md)
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v2](performance-tips.md)
 > 
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [SQL Java SDK](documentdb-sdk-java.md).
+> [!IMPORTANT]  
+> This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
+> 
+> These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the Azure Cosmos DB Sync Java SDK v2 [Release notes](sql-api-sdk-java.md) and [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
+>
+
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Sync Java SDK v2](documentdb-sdk-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -34,9 +42,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
       Gateway mode is supported on all SDK platforms and is the configured default.  If your application runs within a corporate network with strict firewall restrictions, Gateway is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, DirectHttps mode offers better performance due to fewer network hops. 
 
-      The Java SDK uses HTTPS as a transport protocol. HTTPS uses SSL for initial authentication and encrypting traffic. When using the Java SDK, only HTTPS port 443 needs to be open. 
+      The Azure Cosmos DB Sync Java SDK v2 uses HTTPS as a transport protocol. HTTPS uses TLS for initial authentication and encrypting traffic. When using the Azure Cosmos DB Sync Java SDK v2, only HTTPS port 443 needs to be open. 
 
       The ConnectionMode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. 
+
+    ### <a id="syncjava2-connectionpolicy"></a>Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
 
       ```Java
       public ConnectionPolicy getConnectionPolicy() {
@@ -70,11 +80,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="max-connection"></a>
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Java SDK, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) to change the value.
+    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Azure Cosmos DB Sync Java SDK v2, the default value for [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) to change the value.
 
 4. **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB SQL Java SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+    Azure Cosmos DB Sync Java SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
     (a) ***Tuning setMaxDegreeOfParallelism\:***
     Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setmaxdegreeofparallelism) to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism. 
@@ -88,7 +98,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 5. **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Java SDK](documentdb-sdk-java.md). For more information, see [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
+    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the [Azure Cosmos DB Sync Java SDK](documentdb-sdk-java.md). For more information, see [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclientexception.getretryafterinmilliseconds).
 
 6. **Scale out your client-workload**
 
@@ -111,7 +121,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 1. **Exclude unused paths from indexing for faster writes**
 
-    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) and [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section of the documents (a.k.a. a subtree) from indexing using the "*" wildcard.
+    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths ([setIncludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setincludedpaths) and [setExcludedPaths](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy.setexcludedpaths)). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed.  For example, the following code shows how to exclude an entire section (subtree) of the documents from indexing using the "*" wildcard.
+
+
+    ### <a id="syncjava2-indexing"></a>Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -137,6 +150,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
     To measure the overhead of any operation (create, update, or delete), inspect the [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header (or the equivalent RequestCharge property in [ResourceResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) or [FeedResponse\<T>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) to measure the number of request units consumed by these operations.
+
+
+    ### <a id="syncjava2-requestcharge"></a>Sync Java SDK V2 (Maven com.microsoft.azure::azure-documentdb)
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);

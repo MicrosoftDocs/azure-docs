@@ -5,7 +5,6 @@
   - name: What is Azure Firewall?
     href: overview.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
@@ -15,6 +14,18 @@
     href: tutorial-firewall-dnat.md
   - name: Monitor diagnostic logs
     href: tutorial-diagnostics.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy with IP Groups - ARM template
+    displayName: Resource Manager
+    href: quick-create-ipgroup-template.md
+  - name: Deploy with multiple addresses - ARM template
+    displayName: Resource Manager
+    href: quick-create-multiple-ip-template.md
+  - name: Deploy with Availability Zones - ARM template
+    displayName: Resource Manager
+    href: deploy-template.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -35,6 +46,16 @@
       href: rule-processing.md
     - name: Service tags
       href: service-tags.md
+    - name: IP Groups
+      href: ip-groups.md
+    - name: Forced tunneling
+      href: forced-tunneling.md
+    - name: Certifications
+      href: compliance-certifications.md
+    - name: Central management
+      href: central-management.md
+    - name: Remote work support
+      href: remote-work-support.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell
@@ -43,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Deploy using Azure CLI
       href: deploy-cli.md
-    - name: Deploy using a template
-      href: deploy-template.md
     - name: Deploy with multiple public IP
       href: deploy-multi-public-ip-powershell.md
     - name: Deploy with Availability Zones
@@ -53,6 +72,12 @@
       href: integrate-lb.md
     - name: Application rules with SQL FQDNs
       href: sql-fqdn-filtering.md
+    - name: SNAT private ranges
+      href: snat-private-range.md
+    - name: Create IP Groups
+      href: create-ip-group.md
+    - name: Protect Windows Virtual Desktop
+      href: protect-windows-virtual-desktop.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -70,13 +95,13 @@
   - name: REST
     href: /rest/api/firewall
   - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: FAQ
     href: firewall-faq.md
   - name: Author templates
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

@@ -1,29 +1,27 @@
 ---
-title: Configure Linux Java apps - Azure App Service | Microsoft Docs
-description: Learn how to configure Java apps running in Azure App Service on Linux.
+title: Configure Linux Java apps
+description: Learn how to configure a pre-built Java container for your app. This article shows the most common configuration tasks. 
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+
 ms.devlang: java
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/22/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
 ---
 
 # Configure a Linux Java app for Azure App Service
 
-Azure App Service on Linux lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service on Linux lets Java developers quickly build, deploy, and scale their Tomcat, or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first.
+This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md).
 
 ## Deploying your app
 
-You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy both .jar and .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy both .jar and .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 
@@ -48,7 +46,10 @@ For more information, see [Stream logs in Cloud Shell](../troubleshoot-diagnosti
 
 ### App logging
 
-Enable [application logging](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+Enable [application logging](../troubleshoot-diagnostic-logs.md?toc=/azure/app-service/containers/toc.json#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+
+>[!NOTE]
+>Logging to the local App Service filesystem becoming disabled after 12 hours only applies to Windows based App Services. Azure Blob Storage logging for Linux based App Services can only be configured using [Azure Monitor (preview)](/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) 
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -103,15 +104,15 @@ Use [FTPS](../deploy-ftp.md) to download your JFR file to your local machine. To
 
 Azure App Service for Linux supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
 
-- [Configure app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Set up a custom domain](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configure SSL bindings](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Add a CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure app settings](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings)
+- [Set up a custom domain](../app-service-web-tutorial-custom-domain.md?toc=/azure/app-service/containers/toc.json)
+- [Configure SSL bindings](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json)
+- [Add a CDN](../../cdn/cdn-add-to-web-app.md?toc=/azure/app-service/containers/toc.json)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [app setting](../configure-common.md?toc=/azure/app-service/containers/toc.json#configure-app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
@@ -182,11 +183,11 @@ Java applications running in App Service for Linux have the same set of [securit
 
 ### Authenticate users (Easy Auth)
 
-Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
+Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](../configure-authentication-provider-aad.md?toc=/azure/app-service/containers/toc.json) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=/azure/app-service/containers/toc.json) article.
 
-#### Tomcat and Wildfly
+#### Tomcat
 
-Your Tomcat or Wildfly application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
+Your Tomcat application can access the user's claims directly from the servlet by casting the Principal object to a Map object. The Map object will map each claim type to a collection of the claims for that type. In the code below, `request` is an instance of `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -224,15 +225,49 @@ Spring Boot developers can use the [Azure Active Directory Spring Boot starter](
 
 ### Configure TLS/SSL
 
-Follow the instructions in the [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+Follow the instructions in the [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md?toc=/azure/app-service/containers/toc.json) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
 ### Use KeyVault References
 
-[Azure KeyVault](../../key-vault/key-vault-overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
+[Azure KeyVault](../../key-vault/general/overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
 First, follow the instructions for [granting your app access to Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) and [making a KeyVault reference to your secret in an Application Setting](../app-service-key-vault-references.md#reference-syntax). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
 To inject these secrets in your Spring or Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`). For Spring configuration files, please see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
+
+### Using the Java Key Store
+
+By default, any public or private certificates [uploaded to App Service Linux](../configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
+
+Additional configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Please refer to the documentation for your chosen JDBC driver.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+- [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
+
+#### Initializing the Java Key Store
+
+To initialize the `import java.security.KeyStore` object, load the keystore file with the password. The default password for both key stores is "changeit".
+
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### Manually load the key store
+
+You can load certificates manually to the key store. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
+
+You can interact or debug the Java Key Tool by [opening an SSH connection](app-service-linux-ssh-support.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, please refer to [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## Configure APM platforms
 
@@ -249,7 +284,6 @@ This section shows how to connect Java applications deployed on Azure App Servic
 7. In the Azure portal, browse to your application in App Service and create a new Application Setting.
     - If your app is using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-    - If you're using **WildFly**, see the New Relic documentation [here](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) for guidance about installing the Java agent and JBoss configuration.
 
 ### Configure AppDynamics
 
@@ -260,9 +294,9 @@ This section shows how to connect Java applications deployed on Azure App Servic
 5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
     - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
-    - If you're using **WildFly**, see the AppDynamics documentation [here](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) for guidance about installing the Java agent and JBoss configuration.
 
->  If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+> [!NOTE]
+> If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
 
 ## Configure JAR Applications
 
@@ -293,7 +327,7 @@ These instructions apply to all database connections. You will need to fill plac
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#download)                                                           |
 
 To configure Tomcat to use Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first customize the `CATALINA_OPTS` environment variable that is read in by Tomcat at start-up. Set these values through an app setting in the [App Service Maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
@@ -340,40 +374,79 @@ Next, determine if the data source should be available to one application or to 
 
 #### Shared server-level resources
 
-1. Copy the contents of */usr/local/tomcat/conf* into */home/tomcat/conf* on your App Service Linux instance using SSH if you don't have a configuration there already.
+Adding a shared, server-level data source will require you to edit Tomcat's server.xml. First, upload a [startup script](app-service-linux-faq.md#built-in-images) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](../deploy-ftp.md).
 
-    ```bash
-    mkdir -p /home/tomcat
-    cp -a /usr/local/tomcat/conf /home/tomcat/conf
-    ```
+Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
 
-2. Add a Context element in your *server.xml* within the `<Server>` element.
+```sh
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+apk add --update libxslt
 
-    ```xml
-    <Server>
-    ...
-    <Context>
-        <Resource
-            name="jdbc/dbconnection"
-            type="javax.sql.DataSource"
-            url="${dbuser}"
-            driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
-        />
-    </Context>
-    ...
-    </Server>
-    ```
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+```
 
-3. Update your application's *web.xml* to use the data source in your application.
+An example xsl file is provided below. The example xsl file adds a new connector node to the Tomcat server.xml.
 
-    ```xml
-    <resource-env-ref>
-        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
-        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-    </resource-env-ref>
-    ```
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="@* | node()" name="Copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                 contains(., '&lt;Connector') and
+                                 (contains(., 'scheme=&quot;https&quot;') or
+                                  contains(., &quot;scheme='https'&quot;))]">
+    <xsl:value-of select="." disable-output-escaping="yes" />
+  </xsl:template>
+
+  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                   comment()[contains(., '&lt;Connector') and
+                                             (contains(., 'scheme=&quot;https&quot;') or
+                                              contains(., &quot;scheme='https'&quot;))]
+                                  )]
+                      ">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add the new connector after the last existing Connnector if there is one -->
+  <xsl:template match="Connector[last()]" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+
+    <xsl:call-template name="AddConnector" />
+  </xsl:template>
+
+  <!-- ... or before the first Engine if there is no existing Connector -->
+  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                mode="insertConnector">
+    <xsl:call-template name="AddConnector" />
+
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template name="AddConnector">
+    <!-- Add new line -->
+    <xsl:text>&#xa;</xsl:text>
+    <!-- This is the new connector -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+               maxThreads="150" scheme="https" secure="true" 
+               keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               clientAuth="false" sslProtocol="TLS" />
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
 
 #### Finalize configuration
 
@@ -395,7 +468,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
     3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](../deploy-configure-credentials.md?toc=/azure/app-service/containers/toc.json).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_BASE` to `/home/tomcat` and use the updated configuration.
 
@@ -415,255 +488,35 @@ To connect to data sources in Spring Boot applications, we suggest creating conn
 
 Please see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more information on this topic.
 
-## Configure Java EE (WildFly)
-
-> [!NOTE]
-> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work.
-
-Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [WildFly](https://wildfly.org/) application server.
-
-This section contains the following subsections:
-
-- [Scale with App Service](#scale-with-app-service)
-- [Customize application server configuration](#customize-application-server-configuration)
-- [Install modules and dependencies](#install-modules-and-dependencies)
-- [Configure data sources](#configure-data-sources)
-- [Enable messaging providers](#enable-messaging-providers)
-
-### Scale with App Service
-
-The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. When you scale out the App Service Plan, each WildFly instance is configured as a standalone server.
-
-Scale your application vertically or horizontally with [scale rules](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) and by [increasing your instance count](../manage-scale-up.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
-
-### Customize application server configuration
-
-Web App instances are stateless, so each new instance started must be configured on startup to support the WildFly configuration needed by application.
-You can write a startup Bash script to call the WildFly CLI to:
-
-- Set up data sources
-- Configure messaging providers
-- Add other modules and dependencies to the WildFly server configuration.
-
-The script runs when WildFly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from */opt/jboss/wildfly/bin/jboss-cli.sh* to configure the application server with any configuration or changes needed after the server starts.
-
-Do not use the interactive mode of the CLI to configure WildFly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
-
-```bash
-/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
-```
-
-Use FTP to upload the startup script to a location in your App Service instance under your */home* directory, such as */home/site/deployments/tools*. For more info, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
-
-Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example */home/site/deployments/tools/your-startup-script.sh*.
-
-Supply [app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) in the application configuration to pass environment variables for use in the script. Application settings keep connection strings and other secrets needed to configure your application out of version control.
-
-### Install modules and dependencies
-
-To install modules and their dependencies into the WildFly classpath via the JBoss CLI, you will need to create the following files in their own directory. Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
-
-- An [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
-- Any necessary JAR file dependencies for your module.
-- A script with your JBoss CLI commands to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- A Bash startup script to call the JBoss CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale-out. This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI:
-
-```bash
-/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
-```
-
-Once you have the files and content for your module, follow the steps below to add the module to the WildFly application server.
-
-1. Use FTP to upload your files to a location in your App Service instance under your */home* directory, such as */home/site/deployments/tools*. For more info, see [Deploy your app to Azure App Service using FTP/S](../deploy-ftp.md).
-2. In the **Configuration** > **General settings** page of the Azure portal, set the **Startup Script** field to the location of your startup shell script, for example */home/site/deployments/tools/startup.sh*.
-3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the portal or using the Azure CLI.
-
-### Configure data sources
-
-To configure WildFly/JBoss to access a data source, you use the general process outlined above in the "Install modules and dependencies" section. The following section provides specific details on this process for PostgreSQL, MySQL, and SQL Server data sources.
-
-This section assumes you already have an app, an App Service instance, and an Azure Database service instance. The instructions below refer to your App Service name, its resource group, and your database connection info. You can find this information on the Azure portal.
-
-If you prefer to go through the entire process from the beginning using a sample app, see [Tutorial: Build a Java EE and Postgres web app in Azure](tutorial-java-enterprise-postgresql-app.md).
-
-The following steps explain the requirements for connecting your existing App Service and database.
-
-1. Download the JDBC driver for [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), or [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). Unpack the downloaded archive to get the driver .jar file.
-
-2. Create a file with a name like *module.xml* and add the following markup. Replace the `<module name>` placeholder (including the angle brackets) with `org.postgres` for PostgreSQL, `com.mysql` for MySQL, or `com.microsoft` for SQL Server. Replace `<JDBC .jar file path>` with the name of the .jar file from the previous step, including the full path to the location you will place the file in your App Service instance. This can be any location under the */home* directory.
-
-    ```xml
-    <?xml version="1.0" ?>
-    <module xmlns="urn:jboss:module:1.1" name="<module name>">
-        <resources>
-           <resource-root path="<JDBC .jar file path>" />
-        </resources>
-        <dependencies>
-            <module name="javax.api"/>
-            <module name="javax.transaction.api"/>
-        </dependencies>
-    </module>
-    ```
-
-3. Create a file with a name like *datasource-commands.cli* and add the following code. Replace `<JDBC .jar file path>` with the value you used in the previous step. Replace `<module file path>` with the file name and App Service path from the previous step, for example */home/module.xml*.
-
-    **PostgreSQL**
-
-    ```console
-    module add --name=org.postgres --resources=<JDBC .jar file path> --module-xml=<module file path>
-
-    /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres,driver-module-name=org.postgres,driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
-
-    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=$DATABASE_CONNECTION_URL --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
-
-    reload --use-current-server-config=true
-    ```
-
-    **MySQL**
-
-    ```console
-    module add --name=com.mysql --resources=<JDBC .jar file path> --module-xml=<module file path>
-
-    /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
-
-    data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=$DATABASE_CONNECTION_URL --driver-name=mysql --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
-
-    reload --use-current-server-config=true
-    ```
-
-    **SQL Server**
-
-    ```console
-    module add --name=com.microsoft --resources=<JDBC .jar file path> --module-xml=<module file path>
-
-    /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name=sqlserver,driver-module-name=com.microsoft,driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
-
-    data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=$DATABASE_CONNECTION_URL --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
-
-    reload --use-current-server-config=true
-    ```
-
-    This file is run by the startup script described in the next step. It installs the JDBC driver as a WildFly module, creates the corresponding WildFly data source, and reloads the server to ensure the changes will take effect.
-
-4. Create a file with a name like *startup.sh* and add the following code. Replace `<JBoss CLI script>` with the name of the file you created in the previous step. Be sure to include the full path to the location you will place the file in your App Service instance, for example */home/datasource-commands.cli*.
-
-    ```bash
-    #!/usr/bin/env bash
-    /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=<JBoss CLI script>
-    ```
-
-5. Use FTP to upload the JDBC .jar file, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put these files in the location you specified in the previous steps, such as */home*. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
-
-6. Use the Azure CLI to add settings to your App Service that hold your database connection info. Replace `<resource group>` and `<webapp name>` with the values your App Service uses. Replace `<database server name>`, `<database name>`, `<admin name>`, and `<admin password>` with your database connection info. You can get your App Service and database info from the Azure portal.
-
-    **PostgreSQL:**
-
-    ```bash
-    az webapp config appsettings set \
-        --resource-group <resource group> \
-        --name <webapp name> \
-        --settings \
-            DATABASE_CONNECTION_URL=jdbc:postgresql://<database server name>:5432/<database name>?ssl=true \
-            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
-            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
-    ```
-
-    **MySQL:**
-
-    ```bash
-    az webapp config appsettings set \
-        --resource-group <resource group> \
-        --name <webapp name> \
-        --settings \
-            DATABASE_CONNECTION_URL=jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT \
-            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
-            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
-    ```
-
-    **SQL Server:**
-
-    ```bash
-    az webapp config appsettings set \
-        --resource-group <resource group> \
-        --name <webapp name> \
-        --settings \
-            DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    ```
-
-    The DATABASE_CONNECTION_URL values are different for each database server, and different than the values on the Azure portal. The URL formats shown here (and in the snippets above) are required for use by WildFly:
-
-    * **PostgreSQL:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
-    * **MySQL:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
-    * **SQL Server:** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
-
-7. In the Azure portal, navigate to your App Service and find the **Configuration** > **General settings** page. Set the **Startup Script** field to the name and location of your startup script, for example */home/startup.sh*.
-
-The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. You can also examine the App Service logs. For more info about these options, see [Logging and debugging apps](#logging-and-debugging-apps).
-
-Next, you will need to update the WildFly configuration for your app and redeploy it. Use the following steps:
-
-1. Open the *src/main/resources/META-INF/persistence.xml* file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
-
-    **PostgreSQL**
-
-    ```xml
-    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-    ```
-
-    **MySQL**
-
-    ```xml
-    <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
-    ```
-
-    **SQL Server**
-
-    ```xml
-    <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-    ```
-
-2. Rebuild and redeploy your app using the following command at the Bash prompt:
-
-    ```bash
-    mvn package -DskipTests azure-webapp:deploy
-    ```
-
-3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the Azure portal or by using the Azure CLI.
-
-Your App Service instance is now configured to access your database.
-
-For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
-
-### Enable messaging providers
-
-To enable message driven Beans using Service Bus as the messaging mechanism:
-
-1. Use the [Apache QPId JMS messaging library](https://qpid.apache.org/proton/index.html). Include this dependency in your pom.xml (or other build file) for the application.
-
-2. Create [Service Bus resources](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). Create an Azure Service Bus namespace and queue within that namespace and a Shared Access Policy with send and receive capabilities.
-
-3. Pass the shared access policy key to your code either by URL-encoding the primary key of your policy or [Use the Service Bus SDK](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
-
-4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
-
 ## Use Redis as a session cache with Tomcat
 
 You can configure Tomcat to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). This enables you to preserve user session state (such as shopping cart data) when a user is transferred to another instance of your app, for example when autoscaling, restart, or failover occurs.
 
-To use Tomcat with Redis, you must configure your app to use a [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
+To use Tomcat with Redis, you must configure your app to use a [PersistentManager](https://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
 
-1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
+1. Open a Bash terminal and use `<variable>=<value>` to set each of the following environment variables.
 
     | Variable                 | Value                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | The name of the resource group containing your App Service instance.       |
     | WEBAPP_NAME              | The name of your App Service instance.                                     |
-    | WEBAPP_PLAN_NAME         | The name of your App Service plan                                          |
+    | WEBAPP_PLAN_NAME         | The name of your App Service plan.                                         |
     | REGION                   | The name of the region where your app is hosted.                           |
     | REDIS_CACHE_NAME         | The name of your Azure Cache for Redis instance.                           |
     | REDIS_PORT               | The SSL port that your Redis cache listens on.                             |
     | REDIS_PASSWORD           | The primary access key for your instance.                                  |
     | REDIS_SESSION_KEY_PREFIX | A value that you specify to identify session keys that come from your app. |
+
+    ```bash
+    RESOURCEGROUP_NAME=<resource group>
+    WEBAPP_NAME=<web app>
+    WEBAPP_PLAN_NAME=<App Service plan>
+    REGION=<region>
+    REDIS_CACHE_NAME=<cache>
+    REDIS_PORT=<port>
+    REDIS_PASSWORD=<access key>
+    REDIS_SESSION_KEY_PREFIX=<prefix>
+    ```
 
     You can find the name, port, and access key information on the Azure portal by looking in the **Properties** or **Access keys** sections of your service instance.
 
@@ -707,21 +560,25 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
 
 8. Update the `azure-webapp-maven-plugin` configuration in your app's *pom.xml* file to refer to your Redis account info. This file uses the environment variables you set previously to keep your account information out of your source files.
 
-    If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+    If necessary, change `1.9.1` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-
+        <version>1.9.1</version>
+        <configuration>            
             <!-- Web App information -->
+            <schemaVersion>v2</schemaVersion>
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appServicePlanName>${WEBAPP_PLAN_NAME}-${REGION}</appServicePlanName>
             <appName>${WEBAPP_NAME}-${REGION}</appName>
-            <region>${REGION}</region>
-            <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+            <region>${REGION}</region>            
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 9.0</webContainer>
+            </runtime>
 
             <appSettings>
                 <property>
@@ -754,8 +611,7 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
 9. Rebuild and redeploy your app.
 
     ```bash
-    mvn package
-    mvn azure-webapp:deploy
+    mvn package -DskipTests azure-webapp:deploy
     ```
 
 Your app will now use your Redis cache for session management.
@@ -788,6 +644,8 @@ Patches and fixes for major security vulnerabilities will be released as soon as
 ### Deprecation and retirement
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

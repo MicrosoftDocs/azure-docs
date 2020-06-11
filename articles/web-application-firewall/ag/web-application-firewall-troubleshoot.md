@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot the Web Application Firewall for Azure Application Gateway
+title: Troubleshoot - Azure Web Application Firewall
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2019
+ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ---
@@ -14,6 +14,8 @@ ms.topic: conceptual
 There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
 
 First, ensure you’ve read the [WAF overview](ag-overview.md) and the [WAF configuration](application-gateway-waf-configuration.md) documents. Also, make sure you’ve enabled [WAF monitoring](../../application-gateway/application-gateway-diagnostics.md) These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
+
+The OWASP rulesets are designed to be very strict out of the box, and to be tuned to suit the specific needs of the application or organization using WAF. It is entirely normal, and actually expected in many cases, to create exclusions, custom rules, and even disable rules that may be causing issues or false positives. Per-site and per-URI policies allow for these changes to only affect specific sites/URIs, so any changes shouldn’t have to affect other sites that may not be running into the same issues. 
 
 ## Understanding WAF logs
 
@@ -173,7 +175,7 @@ This is a field you can exclude. To learn more about exclusion lists, See [Web a
 
 ![WAF exclusion](../media/web-application-firewall-troubleshoot/waf-exclusion-02.png)
 
-You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
+You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, resource logs, and metrics for Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Examine the firewall log and view the PT1H.json file for the hour that the request you want to inspect occurred.
 

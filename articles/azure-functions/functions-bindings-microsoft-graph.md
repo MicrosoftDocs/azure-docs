@@ -1,12 +1,8 @@
 ---
 title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
-services: functions
 author: craigshoemaker
-manager: gwallace
-
-ms.service: azure-functions
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
 ---
@@ -27,7 +23,7 @@ The Microsoft Graph extension provides the following bindings:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph bindings are currently in preview for Azure Functions version 2.x. They are not supported in Functions version 1.x.
+> Microsoft Graph bindings are currently in preview for Azure Functions version 2.x and higher. They are not supported in Functions version 1.x.
 
 ## Packages
 
@@ -39,11 +35,11 @@ The auth token input binding is provided in the [Microsoft.Azure.WebJobs.Extensi
 
 Microsoft Graph bindings are available through _binding extensions_. Binding extensions are optional components to the Azure Functions runtime. This section shows how to set up the Microsoft Graph and auth token extensions.
 
-### Enabling Functions 2.0 preview
+### Enabling Functions 2.0
 
-Binding extensions are available only for Azure Functions 2.0 preview. 
+Binding extensions are available only for Azure Functions 2.0. 
 
-For information about how to set a function app to use the preview 2.0 version of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+For information about how to set a function app to use the 2.0 version of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ### Installing the extension
 
@@ -52,7 +48,7 @@ To install an extension from the Azure portal, navigate to either a template or 
 In both cases, a warning will appear which specifies the extension to be installed. Click **Install** to obtain the extension. Each extension only needs to be installed once per function app. 
 
 > [!Note] 
-> The in-portal installation process can take up to 10 minutes on a consumption plan.
+> The in-portal installation process can take up to 10 minutes on a Consumption plan.
 
 If you are using Visual Studio, you can get the extensions by installing [the NuGet packages that are listed earlier in this article](#packages).
 
@@ -206,9 +202,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the auth token. See [Using an auth token input binding from code](#token-input-code).|
-|**type**||Required - must be set to `token`.|
-|**direction**||Required - must be set to `in`.|
+|**name**| n/a |Required - the variable name used in function code for the auth token. See [Using an auth token input binding from code](#token-input-code).|
+|**type**| n/a |Required - must be set to `token`.|
+|**direction**| n/a |Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -341,9 +337,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the Excel table. See [Using an Excel table input binding from code](#excel-input-code).|
-|**type**||Required - must be set to `excel`.|
-|**direction**||Required - must be set to `in`.|
+|**name**| n/a |Required - the variable name used in function code for the Excel table. See [Using an Excel table input binding from code](#excel-input-code).|
+|**type**| n/a |Required - must be set to `excel`.|
+|**direction**| n/a |Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -503,9 +499,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the auth token. See [Using an Excel table output binding from code](#excel-output-code).|
-|**type**||Required - must be set to `excel`.|
-|**direction**||Required - must be set to `out`.|
+|**name**| n/a |Required - the variable name used in function code for the auth token. See [Using an Excel table output binding from code](#excel-output-code).|
+|**type**| n/a |Required - must be set to `excel`.|
+|**direction**| n/a |Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**UserId**	|**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -649,9 +645,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the file. See [Using a OneDrive file input binding from code](#onedrive-input-code).|
-|**type**||Required - must be set to `onedrive`.|
-|**direction**||Required - must be set to `in`.|
+|**name**| n/a |Required - the variable name used in function code for the file. See [Using a OneDrive file input binding from code](#onedrive-input-code).|
+|**type**| n/a |Required - must be set to `onedrive`.|
+|**direction**| n/a |Required - must be set to `in`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -797,9 +793,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for file. See [Using a OneDrive file output binding from code](#onedrive-output-code).|
-|**type**||Required - must be set to `onedrive`.|
-|**direction**||Required - must be set to `out`.|
+|**name**| n/a |Required - the variable name used in function code for file. See [Using a OneDrive file output binding from code](#onedrive-output-code).|
+|**type**| n/a |Required - must be set to `onedrive`.|
+|**direction**| n/a |Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**UserId**	|**userId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -948,9 +944,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
-|**type**||Required - must be set to `outlook`.|
-|**direction**||Required - must be set to `out`.|
+|**name**| n/a |Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
+|**type**| n/a |Required - must be set to `outlook`.|
+|**direction**| n/a |Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |
@@ -1091,9 +1087,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
-|**type**||Required - must be set to `graphWebhook`.|
-|**direction**||Required - must be set to `trigger`.|
+|**name**| n/a |Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
+|**type**| n/a |Required - must be set to `graphWebhook`.|
+|**direction**| n/a |Required - must be set to `trigger`.|
 |**resourceType**|**ResourceType**|Required - the graph resource for which this function should respond to webhooks. Can be one of the following values:<ul><li><code>#Microsoft.Graph.Message</code> - changes made to Outlook messages.</li><li><code>#Microsoft.Graph.DriveItem</code> - changes made to OneDrive root items.</li><li><code>#Microsoft.Graph.Contact</code> - changes made to personal contacts in Outlook.</li><li><code>#Microsoft.Graph.Event</code> - changes made to Outlook calendar items.</li></ul>|
 
 > [!Note]
@@ -1243,9 +1239,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
-|**type**||Required - must be set to `graphWebhookSubscription`.|
-|**direction**||Required - must be set to `in`.|
+|**name**| n/a |Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
+|**type**| n/a |Required - must be set to `graphWebhookSubscription`.|
+|**direction**| n/a |Required - must be set to `in`.|
 |**filter**|**Filter**| If set to `userFromRequest`, then the binding will only retrieve subscriptions owned by the calling user (valid only with [HTTP trigger]).| 
 
 ### Webhook input - usage
@@ -1384,9 +1380,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**name**||Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
-|**type**||Required - must be set to `graphWebhookSubscription`.|
-|**direction**||Required - must be set to `out`.|
+|**name**| n/a |Required - the variable name used in function code for the mail message. See [Using an Outlook message output binding from code](#outlook-output-code).|
+|**type**| n/a |Required - must be set to `graphWebhookSubscription`.|
+|**direction**| n/a |Required - must be set to `out`.|
 |**identity**|**Identity**|Required - The identity that will be used to perform the action. Can be one of the following values:<ul><li><code>userFromRequest</code> - Only valid with [HTTP trigger]. Uses the identity of the calling user.</li><li><code>userFromId</code> - Uses the identity of a previously logged-in user with the specified ID. See the <code>userId</code> property.</li><li><code>userFromToken</code> - Uses the identity represented by the specified token. See the <code>userToken</code> property.</li><li><code>clientCredentials</code> - Uses the identity of the function app.</li></ul>|
 |**userId**|**UserId**	|Needed if and only if _identity_ is set to `userFromId`. A user principal ID associated with a previously logged-in user.|
 |**userToken**|**UserToken**|Needed if and only if _identity_ is set to `userFromToken`. A token valid for the function app. |

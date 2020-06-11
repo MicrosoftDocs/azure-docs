@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
+ms.custom: [amqp, mqtt]
 ---
 
 # Control access to IoT Hub
@@ -59,7 +60,7 @@ Azure IoT Hub grants access to endpoints by verifying a token against the shared
 Security credentials, such as symmetric keys, are never sent over the wire.
 
 > [!NOTE]
-> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> The Azure IoT Hub resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 For more information about how to construct and use security tokens, see [IoT Hub security tokens](iot-hub-devguide-security.md#security-tokens).
 
@@ -87,7 +88,7 @@ HTTPS implements authentication by including a valid token in the **Authorizatio
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (You can generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Password (You can generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -273,7 +274,7 @@ The result, which grants access to all functionality for device1, would be:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> It's possible to generate a SAS token with the [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool, the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> It's possible to generate a SAS token with the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token), or the [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### Use a shared access policy
 
@@ -343,7 +344,7 @@ The result, which would grant access to read all device identities, would be:
 
 ## Supported X.509 certificates
 
-You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints only verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. 
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. Authentication using certificate thumbprints verifies that the presented thumbprint matches the configured thumbprint. Authentication using certificate authority validates the certificate chain. Either way, TLS handshake requires the device to have a valid certificate and private key. Refer to the TLS specification for details, for example: [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/).
 
 Supported certificates include:
 
@@ -361,7 +362,7 @@ For more information about authentication using certificate authority, see [Devi
 
 The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
 
-You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) to configure X.509 certificates for devices.
+You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) to configure X.509 certificates for devices.
 
 ### C\# Support
 
@@ -458,6 +459,8 @@ Other reference topics in the IoT Hub developer guide include:
 * [IoT Hub query language](iot-hub-devguide-query-language.md) describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+
+* [RFC 5246 - The Transport Layer Security (TLS) Protocol Version 1.2](https://tools.ietf.org/html/rfc5246/) provides more information about TLS authentication.
 
 ## Next steps
 

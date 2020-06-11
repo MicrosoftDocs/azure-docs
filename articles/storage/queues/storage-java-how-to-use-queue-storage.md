@@ -2,13 +2,12 @@
 title: How to use Queue storage from Java - Azure Storage
 description: Learn how to use Queue storage to create and delete queues, and insert, get, and delete messages with the Azure Storage client library for Java.
 author: mhopkins-msft
-ms.service: storage
 
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
 ---
 
@@ -16,12 +15,10 @@ ms.reviewer: cbrooks
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
-
 This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in Java and use the [Azure Storage SDK for Java][Azure Storage SDK for Java]. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating** and **deleting** queues. For more information on queues, see the [Next steps](#next-steps) section.
 
-> [!NOTE]
-> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for Java. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for Java](storage-quickstart-queues-java.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -388,6 +385,11 @@ catch (Exception e)
 }
 ```
 
+[!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
+
+> [!NOTE]
+> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
+
 ## Next steps
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
@@ -399,6 +401,6 @@ Now that you've learned the basics of queue storage, follow these links to learn
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
+[Azure Storage Client SDK Reference]: https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

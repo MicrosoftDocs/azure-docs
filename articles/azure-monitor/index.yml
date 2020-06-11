@@ -6,8 +6,6 @@ summary: Monitoring Azure and on-premises services. Aggregate and analyze metric
 metadata:
   title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
-  services: azure-monitor
-  ms.service: azure-monitor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
@@ -25,14 +23,12 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What is Azure Monitor logs / Log Analytics?
-            url: overview.md
-          - text: Azure Monitor logs / Log Analytics content hub page
-            url: azure-monitor-log-hub.md
+          - text: What is Azure Monitor Logs / Log Analytics?
+            url: platform/data-platform-logs.md
           - text: What is Application Insights?
             url: app/app-insights-overview.md
           - text: Application Insights content hub page
-            url: azure-monitor-app-hub.md
+            url: azure-monitor-app-hub.yml
 
   # Card 
   - title: About monitoring data   
@@ -74,7 +70,7 @@ landingContent:
           - text: Node.js
             url: learn/nodejs-quick-start.md
           - text: Mobile
-            url: azure-monitor-app-hub.md
+            url: learn/mobile-center-quickstart.md
           - text: Website
             url: app/website-monitoring.md
 
@@ -83,7 +79,7 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Free Pluralsite Training - Azure Administrator
+          - text: Free Pluralsight Training - Azure Administrator
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
   # Card

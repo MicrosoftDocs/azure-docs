@@ -1,21 +1,14 @@
 ---
-title: Azure PowerShell Script Sample - Delete a backup for a web app | Microsoft Docs
-description: Azure PowerShell Script Sample - Delete a backup for a web app
-services: app-service\web
-documentationcenter: 
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'PowerShell: Delete an app backup'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to delete a an app backup.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Delete a backup for a web using Azure PowerShell

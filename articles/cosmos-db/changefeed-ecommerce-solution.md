@@ -1,6 +1,6 @@
 ---
 title: Use Azure Cosmos DB change feed to visualize real-time data analytics
-description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
+description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
@@ -89,7 +89,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
 
 You will now create a collection to hold e-commerce site events. When a user views an item, adds an item to their cart, or purchases an item, the collection will receive a record that includes the action ("viewed", "added", or "purchased"), the name of the item involved, the price of the item involved, and the ID number of the user cart involved.
 
-1. Go to [Azure Portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
 
 2. From the **Data Explorer** pane, select **New Collection** and fill the form with the following details:  
 
@@ -113,7 +113,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
 
 ### Get the Azure Cosmos DB connection string
 
-1. Go to [Azure Portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
+1. Go to [Azure portal](https://portal.azure.com/) and find the **Azure Cosmos DB Account** that’s created by the template deployment.  
 
 2. Navigate to the **Keys** pane, copy the PRIMARY CONNECTION STRING and copy it to a notepad or another document that you will have access to throughout the lab. You should label it **Cosmos DB Connection String**. You'll need to copy the string into your code later, so take a note and remember where you are storing it.
 
@@ -173,7 +173,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
  
 6. Wait for the program to run. The stars mean that data is coming in! Keep the program running - it is important that lots of data is collected.  
 
-7. If you navigate to [Azure Portal](https://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
+7. If you navigate to [Azure portal](https://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
  
    ![Data generated in portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -181,7 +181,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 Azure Stream Analytics is a fully managed cloud service for real-time processing of streaming data. In this lab, you will use stream analytics to process new events from the Event Hub (i.e. when an item is viewed, added to a cart, or purchased), incorporate those events into real-time data analysis, and send them into Power BI for visualization.
 
-1. From the [Azure Portal](https://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
+1. From the [Azure portal](https://portal.azure.com/), navigate to your resource group, then to **streamjob1** (the stream analytics job that you created in the prelab).  
 
 2. Select **Inputs** as demonstrated below.  
 
@@ -316,7 +316,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
 
-1. Navigate back to the [Azure Portal](https://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
+1. Navigate back to the [Azure portal](https://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
 
    Add two collections under **changefeedlabdatabase** - **products** and **categories** with Fixed storage capacity.
 
@@ -386,9 +386,8 @@ You will now observe how you can use your new data analysis tool to connect with
 
 ## Delete the resources
 
-To delete the resources that you created during this lab, navigate to the resource group on [Azure Portal](https://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
+To delete the resources that you created during this lab, navigate to the resource group on [Azure portal](https://portal.azure.com/), then select **Delete resource group** from the menu at the top of the page and follow the instructions provided.
 
 ## Next steps 
   
 * To learn more about change feed, see [working with change feed support in Azure Cosmos DB](change-feed.md) 
-* [Change feed notification solution](change-feed-hl7-fhir-logic-apps.md) for healthcare organization using Azure Cosmos DB.

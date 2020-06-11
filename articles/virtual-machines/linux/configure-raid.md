@@ -1,19 +1,9 @@
 ---
-title: Configure software RAID on a virtual machine running Linux | Microsoft Docs
+title: Configure software RAID on a Linux VM
 description: Learn how to use mdadm to configure RAID on Linux in Azure.
-services: virtual-machines-linux
-documentationcenter: na
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-
-ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
@@ -23,6 +13,9 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 
 ## Attaching data disks
 Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Microsoft Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
+
+> [!IMPORTANT]
+>Do not mix disks of different sizes, doing so would result in performance of the raidset to be limited to that of the slowest disk. 
 
 ## Install the mdadm utility
 * **Ubuntu**

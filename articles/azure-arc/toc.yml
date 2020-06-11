@@ -1,18 +1,27 @@
 - name: Azure Arc Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
-- name: Quickstarts
-  expanded: true
+- name: How-to guides
   items:
-  - name: Connect machines to Azure using Azure Arc for servers - Portal
-    href: ./servers/quickstart-onboard-portal.md
-  - name: Connect machines to Azure using Azure Arc for servers - PowerShell
-    href: ./servers/quickstart-onboard-powershell.md
-- name: Reference
+  - name: Connect to Azure Arc
+    items:
+    - name: Connected Machine agent overview
+      href: ./servers/agent-overview.md
+    - name: Connect machines to Azure Arc from the Azure portal
+      href: ./servers/onboard-portal.md
+    - name: Connect machines at scale using a service principal
+      href: ./servers/onboard-service-principal.md
+    - name: Connect machines to Azure Arc with PowerShell DSC
+      href: ./servers/onboard-dsc.md
+  - name: Manage
+    items:
+    - name: Manage agent
+      href: ./servers/manage-agent.md
+- name: Samples
   items:
-    - name: Azure Connected Machine Agent CLI interface
-      href: ./servers/azcmagent-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./servers/policy-samples.md

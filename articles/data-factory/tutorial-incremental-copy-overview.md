@@ -1,19 +1,22 @@
 ---
-title: 'Incrementally copy data by using Azure Data Factory | Microsoft Docs'
-description: 'These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.'
+title: Incrementally copy data by
+description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+ms.author: yexu
+manager: anandsub
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
+ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.author: yexu
 ---
+
 # Incrementally load data from a source data store to a destination data store
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
@@ -24,7 +27,7 @@ In this case, you define a watermark in your source database. A watermark is a c
 
 For step-by-step instructions, see the following tutorials: 
 - [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
-- [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Incrementally copy data from multiple tables in a SQL Server instance to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 For templates, see the following:
 - [Delta copy with control table](solution-template-delta-copy-with-control-table.md)

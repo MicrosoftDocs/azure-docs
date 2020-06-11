@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Secure a Linux web server with SSL certificates in Azure | Microsoft Docs
+title: "Tutorial: Secure a Linux web server with TLS/SSL certificates in Azure"
 description: In this tutorial, you learn how to use the Azure CLI to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -17,17 +17,17 @@ ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
 
-#Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with SSL certificates so that I can protect my customer data on web applications that I build and run.
+#Customer intent: As an IT administrator or developer, I want to learn how to secure a web server with TLS/SSL certificates so that I can protect my customer data on web applications that I build and run.
 ---
 
-# Tutorial: Secure a web server on a Linux virtual machine in Azure with SSL certificates stored in Key Vault
-To secure web servers, a Secure Sockets Layer (SSL) certificate can be used to encrypt web traffic. These SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
+# Tutorial: Secure a web server on a Linux virtual machine in Azure with TLS/SSL certificates stored in Key Vault
+To secure web servers, a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), certificate can be used to encrypt web traffic. These TLS/SSL certificates can be stored in Azure Key Vault, and allow secure deployments of certificates to Linux virtual machines (VMs) in Azure. In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Key Vault
 > * Generate or upload a certificate to the Key Vault
 > * Create a VM and install the NGINX web server
-> * Inject the certificate into the VM and configure NGINX with an SSL binding
+> * Inject the certificate into the VM and configure NGINX with a TLS binding
 
 This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
@@ -145,13 +145,13 @@ Your secured NGINX site is then displayed as in the following example:
 
 ## Next steps
 
-In this tutorial, you secured an NGINX web server with an SSL certificate stored in Azure Key Vault. You learned how to:
+In this tutorial, you secured an NGINX web server with a TLS/SSL certificate stored in Azure Key Vault. You learned how to:
 
 > [!div class="checklist"]
 > * Create an Azure Key Vault
 > * Generate or upload a certificate to the Key Vault
 > * Create a VM and install the NGINX web server
-> * Inject the certificate into the VM and configure NGINX with an SSL binding
+> * Inject the certificate into the VM and configure NGINX with a TLS binding
 
 Follow this link to see pre-built virtual machine script samples.
 

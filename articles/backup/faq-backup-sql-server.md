@@ -1,13 +1,9 @@
 ---
-title: FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup
+title: FAQ - Backing up SQL Server databases on Azure VMs
 description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
 ---
 # FAQ about SQL Server databases that are running on an Azure VM backup
 
@@ -35,20 +31,22 @@ Auto-heal as a capability is enabled for all user by default; However in case yo
 - Save your changes and close the file.
 - On the SQL Server instance, open **Task Manage** and then restart the **AzureWLBackupCoordinatorSvc** service.
 
-## Can I control as to how many concurrent backups run on the SQL server?
+## Can I control how many concurrent backups run on the SQL server?
 
 Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
 
 1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
 2. In the *ExtensionSettingsOverrides.json* file, change the **DefaultBackupTasksThreshold** setting to a lower value (for example, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+The default value of DefaultBackupTasksThreshold is **20**.
 
 3. Save your changes and close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
  While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
-> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, as per the above example.
+> In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, according to the above example.
 
 ## Can I run a full backup from a secondary replica?
 
@@ -68,7 +66,7 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
 
-The **Backup Job** menu will only show ad-hoc backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+The **Backup Job** menu will only show on-demand backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
 
@@ -88,7 +86,7 @@ If you do **stop backup with delete data**, no future backups will take place an
 
 ## If I change the name of the database after it has been protected, what will be the behavior?
 
-A renamed database is treated as a new database. Hence, the service will treat this situation as if the database were not found and with fail the backups.
+A renamed database is treated as a new database. So the service will treat this situation as if the database were not found and with fail the backups.
 
 You can select the database, which is now renamed and configure protection on it. In case the auto-protection is enabled on the instance, the renamed database will be automatically detected and protected.
 

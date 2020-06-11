@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure risk polciies
+          - text: Configure risk policies
             url: howto-identity-protection-configure-risk-policies.md
           - text: Investigate risk
             url: howto-identity-protection-investigate-risk.md

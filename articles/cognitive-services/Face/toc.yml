@@ -1,18 +1,14 @@
-- name: Face API Documentation
+- name: Face Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Face API?
+  - name: What is the Face service?
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the client SDK
-    items:
-    - name: .NET SDK
-      href: Quickstarts/csharp-sdk.md
-    - name: Python SDK
-      href: QuickStarts/python-sdk.md
+  - name: Using the client library
+    href: Quickstarts/client-libraries.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -41,8 +37,6 @@
     items:
     - name: C#
       href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Concepts
   items:
   - name: Face detection
@@ -77,8 +71,6 @@
       href: face-resource-container-config.md
     - name: Use container instances
       href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-  - name: Use the Face API Connected Service
-    href: vs-face-connected-service.md
 - name: Reference
   items:
   - name: Face API
@@ -92,7 +84,7 @@
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
     - name: iOS
@@ -101,7 +93,7 @@
   items:
   - name: Samples
     items:
-    - name: Face API samples
+    - name: Face samples
       href: https://docs.microsoft.com/samples/browse/?products=azure&term=face
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
@@ -114,6 +106,8 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
+  - name: Encryption
+    href: face-encryption-of-data-at-rest.md
   - name: Release notes
     href: ReleaseNotes.md

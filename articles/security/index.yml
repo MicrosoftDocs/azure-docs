@@ -1,10 +1,10 @@
-### YamlMime:Hub 
+### YamlMime:Hub
 
-title: Azure security documentation 
+title: Azure security documentation
 summary: Security is integrated into every aspect of Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 brand: azure
 
-metadata: 
+metadata:
   title: Azure security documentation
   description: Security is integrated into every aspect of Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
   services: security
@@ -17,10 +17,10 @@ metadata:
   manager: rkarlin
   ms.date: 08/29/2019
 
-highlightedContent: 
-  items: 
+highlightedContent:
+  items:
     - title: Introduction to Azure security
-      itemType: overview 
+      itemType: overview
       url: ./fundamentals/overview.md
     - title: Security best practices and patterns
       itemType: concept
@@ -31,9 +31,9 @@ highlightedContent:
 
 
 conceptualContent:
-  items: 
+  items:
     - title: Fundamentals
-      links: 
+      links:
         - url: ./fundamentals/technical-capabilities.md
           itemType: overview
           text: Azure security technical capabilities
@@ -43,12 +43,12 @@ conceptualContent:
         - url: ./fundamentals/security-controls.md
           itemType: concept
           text: Security controls for Azure services
-      footerLink: 
+      footerLink:
         url: ./fundamentals/index.yml
         text: See more
 
     - title: Developers
-      links: 
+      links:
         - url: ./develop/secure-dev-overview.md
           itemType: overview
           text: Secure development best practices
@@ -57,22 +57,25 @@ conceptualContent:
           text: Develop a secure web app
         - url: ./develop/threat-modeling-tool.md
           itemType: concept
-          text: Microsoft Threat Modeling tool 
-      footerLink: 
+          text: Microsoft Threat Modeling tool
+      footerLink:
         url: ./develop/index.yml
         text: See more
 
     - title: Benchmarks and recommendations
-      links: 
-        - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+      links:
+        - url: ./benchmarks/introduction.md
           itemType: download
           text: Azure cloud security benchmark
         - url: ../security-center/security-center-using-recommendations.md
           itemType: overview
           text: Azure Security Center recommendations
+      footerLink:
+        url: ./benchmarks/index.yml
+        text: See more
 
     - title: Secrets and keys
-      links: 
+      links:
         - url: ../key-vault/key-vault-overview.md
           itemType: overview
           text:  What is Azure Key Vault?
@@ -82,27 +85,27 @@ conceptualContent:
         - url: ../dedicated-hsm/overview.md
           itemType: overview
           text:  What is Azure Dedicated HSM?
-      footerLink: 
+      footerLink:
         url: /azure/key-vault/
         text: See more
 
     - title: Data protection
-      links: 
+      links:
         - url: ./fundamentals/encryption-atrest.md
           itemType: concept
           text:  Data Encryption-at-Rest
         - url: ./fundamentals/data-encryption-best-practices.md
           itemType: concept
           text:  Data security and encryption best practices
-        - url: ../storage/common/storage-security-guide.md
+        - url: ../storage/blobs/security-recommendations.md
           itemType: concept
           text:  Storage security
-      footerLink: 
+      footerLink:
         url: ./fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management
-      links: 
+      links:
         - url: ./fundamentals/choose-ad-authn.md
           itemType: concept
           text:  Choose the right authentication method
@@ -112,12 +115,12 @@ conceptualContent:
         - url: ./fundamentals/identity-management-best-practices.md
           itemType: concept
           text:  Security best practices
-      footerLink: 
+      footerLink:
         url: ./fundamentals/identity-management-overview.md
         text: See more
 
     - title: Security monitoring
-      links: 
+      links:
         - url: ../security-center/security-center-get-started.md
           itemType: quickstart
           text:  Onboard your subscription to Security Center
@@ -127,12 +130,12 @@ conceptualContent:
         - url: ../security-center/tutorial-security-policy.md
           itemType: how-to-guide
           text:  Working with security policies
-      footerLink: 
+      footerLink:
         url: /azure/security-center/
         text: See more
 
     - title: IoT security monitoring
-      links: 
+      links:
         - url: ../asc-for-iot/overview.md
           itemType: overview
           text:  Introducing Azure Security Center for IoT
@@ -142,12 +145,12 @@ conceptualContent:
         - url: ../asc-for-iot/getting-started.md
           itemType: how-to-guide
           text:  Get started with Azure Security Center for IoT
-      footerLink: 
+      footerLink:
         url: /azure/asc-for-iot/
         text: See more
 
     - title: Security analytics
-      links: 
+      links:
         - url: ../sentinel/overview.md
           itemType: overview
           text:  What is Azure Sentinel preview?
@@ -157,12 +160,12 @@ conceptualContent:
         - url: ../sentinel/quickstart-get-visibility.md
           itemType: quickstart
           text:  Get started with Azure Sentinel preview
-      footerLink: 
+      footerLink:
         url: /azure/sentinel/
         text: See more
 
     - title: Threat protection
-      links: 
+      links:
         - url: ../security-center/security-center-alerts-overview.md
           itemType: concept
           text:  Security alerts in Azure Security Center
@@ -172,27 +175,24 @@ conceptualContent:
         - url: ../sql-database/sql-database-threat-detection-overview.md
           itemType: concept
           text:  Advanced Threat Protection for Azure SQL Database
-      footerLink: 
+      footerLink:
         url: ./fundamentals/threat-detection.md
         text: See more
 
     - title: Logging and auditing
-      links: 
+      links:
         - url: ./fundamentals/log-audit.md
           itemType: concept
           text:  Azure logging & auditing
         - url: ./fundamentals/management-monitoring-overview.md
           itemType: overview
           text:  Management and monitoring overivew
-        - url: ./fundamentals/azure-log-integration-overview.md
-          itemType: overview
-          text:  Introduction to Azure Log Integration
-      footerLink: 
+      footerLink:
         url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
-        text: Search for more 
+        text: Search for more
 
     - title: Network security
-      links: 
+      links:
         - url: ./fundamentals/network-overview.md
           itemType: overview
           text:  Security overview
@@ -204,7 +204,7 @@ conceptualContent:
           text:  DDoS Protection
 
     - title: Infrastructure security
-      links: 
+      links:
         - url: ./fundamentals/physical-security.md
           itemType: concept
           text:  Azure facilities, premises, & physical security
@@ -214,12 +214,12 @@ conceptualContent:
         - url: ./fundamentals/protection-customer-data.md
           itemType: concept
           text:  Customer data protection
-      footerLink: 
+      footerLink:
         url: ./fundamentals/infrastructure.md
         text: See more
 
     - title: Virtual machine security
-      links: 
+      links:
         - url: ./fundamentals/virtual-machines-overview.md
           itemType: overview
           text:  Security overview
@@ -231,28 +231,25 @@ conceptualContent:
           text:  Security configuration recommendations
 
     - title: Database security
-      links: 
-        - url: ./fundamentals/database-security-overview.md
+      links:
+        - url: ./fundamentals/encryption-overview.md#encryption-of-data-at-rest-with-azure-sql-database
           itemType: overview
-          text:  Security overview
-        - url: ./fundamentals/database-best-practices.md
+          text:  Data security
+        - url: ./fundamentals/paas-applications-using-sql.md
           itemType: concept
-          text:  Security best practices
+          text:  Best practices for PaaS databases
         - url: ./fundamentals/database-security-checklist.md
           itemType: concept
           text:  Security checklist
 
     - title: Governance and compliance
-      links: 
-        - url: ./blueprints/au-protected-iaaswa-overview.md
-          itemType: tutorial
-          text:  Compliance solutions
+      links:
         - url: ../governance/policy/overview.md
           itemType: overview
           text:  Azure Policy service
         - url: ../governance/blueprints/overview.md
           itemType: overview
           text:  Azure Blueprints service
-      footerLink: 
+      footerLink:
         url: /azure/governance/
         text: See more

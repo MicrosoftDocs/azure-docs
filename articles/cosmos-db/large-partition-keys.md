@@ -1,5 +1,5 @@
 ---
-title: Create Azure Cosmos containers with large partition key using the Azure portal and various SDKs.
+title: Create Azure Cosmos containers with large partition key
 description: Learn how to create a container in Azure Cosmos DB with large partition key using Azure portal and different SDKs. 
 author: markjbrown
 ms.service: cosmos-db
@@ -24,13 +24,13 @@ To create a large partition key, when you create a new container using the Azure
 
 To create a container with large partition key support see,
 
-* [Create an Azure Cosmos container with a large partition key size](manage-with-powershell.md##create-container-big-pk)
+* [Create an Azure Cosmos container with a large partition key size](manage-with-powershell.md#create-container-big-pk)
 
 ## Create a large partition key (.Net SDK)
 
 To create a container with a large partition key using the .NET SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
 
-### v3 .NET SDK
+# [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 await database.CreateContainerAsync(
@@ -40,7 +40,7 @@ await database.CreateContainerAsync(
     })
 ```
 
-### v2 .NET SDK
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -56,6 +56,7 @@ database,
          },
       new RequestOptions { OfferThroughput = 400 });
 ```
+---
 
 ## Supported SDK versions
 
@@ -67,6 +68,7 @@ The Large partition keys are supported with the following minimum versions of SD
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | REST API | version higher than `2017-05-03` by using the `x-ms-version` request header.|
+| Resource Manager template | version 2 by using the `"version":2` property within the `partitionKey` object. |
 
 Currently, you cannot use containers with large partition key within in Power BI and Azure Logic Apps. You can use containers without a large partition key from these applications.
 

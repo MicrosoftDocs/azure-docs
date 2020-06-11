@@ -1,5 +1,5 @@
 ---
-title: Getting started with wrangling data flow in Azure Data Factory | Microsoft Docs
+title: Getting started with wrangling data flow in Azure Data Factory 
 description: A tutorial on how to prepare data in Azure Data Factory using wrangling data flow 
 author: djpmsft
 ms.author: daperlov
@@ -10,6 +10,8 @@ ms.date: 11/01/2019
 ---
 
 # Prepare data with wrangling data flow
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ## Create a wrangling data flow
 

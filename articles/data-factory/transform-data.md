@@ -1,19 +1,21 @@
 ---
-title: 'Transform data using Azure Data Factory | Microsoft Docs'
+title: Transform data
 description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 07/31/2018
 ---
+
 # Transform data in Azure Data Factory
+
 > [!div class="op_single_selector"]
+> * [Mapping data flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
@@ -27,8 +29,10 @@ manager: craigg
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 ## Overview
-This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
+This article explains data transformation activities in Azure Data Factory that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
 
 Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
 
@@ -43,6 +47,8 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](https://docs.microsoft.com/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
 
 ## External transformations
+
+Optionally, you can hand-code transformations and manage the external compute environment yourself.
 
 ### HDInsight Hive activity
 The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Hive activity](transform-data-using-hadoop-hive.md) article for details about this activity. 
@@ -74,7 +80,7 @@ Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Ana
 
 ### Databricks Notebook activity
 
-The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace.Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
+The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace. Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
 
 ### Databricks Jar activity
 
@@ -87,7 +93,7 @@ The Azure Databricks Python Activity in a Data Factory pipeline runs a Python fi
 ### Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
 
 ### Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 

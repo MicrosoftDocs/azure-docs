@@ -1,20 +1,10 @@
 ---
-title: App Service plan overview - Azure | Microsoft Docs
-description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
+title: App Service plans
+description: Learn how App Service plans work in Azure App Service, how they're billed to the customer, and how to scale them for your needs.
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -37,12 +27,12 @@ The _pricing tier_ of an App Service plan determines what App Service features y
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Each tier also provides a specific subset of App Service features. These features include custom domains and SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Each tier also provides a specific subset of App Service features. These features include custom domains and TLS/SSL certificates, autoscaling, deployment slots, backups, Traffic Manager integration, and more. The higher the tier, the more features are available. To find out which features are supported in each pricing tier, see [App Service plan details](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/windows/sizes-general.md#dv2-series) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
+> The new **PremiumV2** pricing tier provides [Dv2-series VMs](../virtual-machines/dv2-dsv2-series.md) with faster processors, SSD storage, and double memory-to-core ratio compared to **Standard** tier. **PremiumV2** also supports higher scale via increased instance count while still providing all the advanced capabilities found in the Standard plan. All features available in the existing **Premium** tier are included in **PremiumV2**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >
@@ -76,11 +66,11 @@ Except for **Free** tier, an App Service plan carries an hourly charge on the co
 - In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan has an hourly charge. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
 - In the **Isolated** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged hourly. In addition, there's an hourly base fee for the running the App Service Environment itself.
 
-You don't get charged for using the App Service features that are available to you (configuring custom domains, SSL certificates, deployment slots, backups, etc.). The exceptions are:
+You don't get charged for using the App Service features that are available to you (configuring custom domains, TLS/SSL certificates, deployment slots, backups, etc.). The exceptions are:
 
 - App Service Domains - you pay when you purchase one in Azure and when you renew it each year.
 - App Service Certificates - you pay when you purchase one in Azure and when you renew it each year.
-- IP-based SSL connections - There's an hourly charge for each IP-based SSL connection, but some **Standard** tier or above gives you one IP-based SSL connection for free. SNI-based SSL connections are free.
+- IP-based TLS connections - There's an hourly charge for each IP-based TLS connection, but some **Standard** tier or above gives you one IP-based TLS connection for free. SNI-based TLS connections are free.
 
 > [!NOTE]
 > If you integrate App Service with another Azure service, you may need to consider charges from these other services. For example, if you use Azure Traffic Manager to scale your app geographically, Azure Traffic Manager also charges you based on your usage. To estimate your cross-services cost in Azure, see [Pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
@@ -91,7 +81,7 @@ You don't get charged for using the App Service features that are available to y
 
 Your App Service plan can be scaled up and down at any time. It is as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first and scale up later when you need more App Service features.
 
-For example, you can start testing your web app in a **Free** App Service plan and pay nothing. When you want to add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to **Shared** tier. Later, when you want to [create an SSL binding](configure-ssl-bindings.md), scale your plan up to **Basic** tier. When you want to have [staging environments](deploy-staging-slots.md), scale up to **Standard** tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
+For example, you can start testing your web app in a **Free** App Service plan and pay nothing. When you want to add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to **Shared** tier. Later, when you want to [create a TLS binding](configure-ssl-bindings.md), scale your plan up to **Basic** tier. When you want to have [staging environments](deploy-staging-slots.md), scale up to **Standard** tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
 
 The same works in the reverse. When you feel you no longer need the capabilities or features of a higher tier, you can scale down to a lower tier, which saves you money.
 

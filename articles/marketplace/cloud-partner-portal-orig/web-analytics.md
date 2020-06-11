@@ -1,20 +1,12 @@
 ---
 title: Web Analytics 
-description: .
-services: Azure, Marketplace, Cloud Partner Portal, 
-
-author: pbutlerm
-manager: Ricardo.Villalobos  
-
-
-
+description: This article provides you with instructions on how to learn and use Web Analytics to best grow your business.
+author: dsindona
 ms.service: marketplace
-
-
-
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 
@@ -48,7 +40,7 @@ There are two ways to generate your own campaign.
 1. Add to your URL the query parameter **mktcmpid** that describes what the campaign is and what page/event these customers are coming from.
 
 For example you can use:
-<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
+```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign```
 
 1. (Advanced): Use one of our supported, generic campaign IDs in the
     URL. We want to be accommodating with additional ref tags that you
@@ -60,7 +52,7 @@ For example you can use:
     4. **src**
 
 For example you can use:
-<https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign>
+```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=NewCampaign```
 
 You can choose to have a combination of multiple of these campaign IDs
 to further identify multiple sources driving traffic for the campaign
@@ -69,9 +61,9 @@ such as where the customer came from (email, blog, social media source, etc.).
 For example:
 
 1. Newsletter referrer:
-    <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
+    ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter```
 2. LinkedIn referrer:
-    <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
+    ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn```
 
 ### **Ensuring campaigns pass through all your pages**
 
@@ -81,18 +73,18 @@ that you are driving traffic to that then proceeds to send the customers to the 
 Here is an example:
 
 1. Marketing employee buys ads from Google to drive traffic to the
-    company\'s landing page <https://contoso.com>. This landing page has
-    a \"try my product\" link that goes to <https://appsource.com>.
+    company\'s landing page ```https://contoso.com```. This landing page has
+    a \"try my product\" link that goes to ```https://appsource.com```.
 2. A user clicks the ad and lands on his company\'s landing page.
     1.  Referral URL = google.com
     2.  Landing Page URL =
-        <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+        ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
 3. The user clicks the \"try my product\" link and goes into AppSource.
     1. Referral URL =
-        <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
+        ```https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName```
     2. Landing Page URL (**Ensure that this URL has utm\_campaign and
         utm\_source added to this URL**) =
-        [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+        ```https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**```
 
 How to evaluate the success of a Campaign
 -----------------------------------------

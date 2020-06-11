@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
@@ -102,7 +102,7 @@ The app requires an Azure service principal account to deploy services to your A
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -110,7 +110,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Then create your service principal. (This process might take some time to finish.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 

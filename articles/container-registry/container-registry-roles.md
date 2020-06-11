@@ -1,19 +1,13 @@
 ---
-title: Azure Container Registry - roles and permissions
+title: RBAC roles and permissions
 description: Use Azure role-based access control (RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: danlep
+ms.date: 12/02/2019
 ---
 
 # Azure Container Registry roles and permissions
 
-The Azure Container Registry service supports a set of Azure roles that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users or service principals that need to interact with a registry.
+The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users, service principals, or other identities that need to interact with a registry. 
 
 | Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -69,8 +63,25 @@ The ability to configure policies on a registry. Policies include image purging,
 
 The ability to sign images, usually assigned to an automated process, which would use a service principal. This permission is typically combined with [push image](#push-image) to allow pushing a trusted image to a registry. For details, see [Content trust in Azure Container Registry](container-registry-content-trust.md).
 
+## Custom roles
+
+As with other Azure resources, you can create your own [custom roles](../role-based-access-control/custom-roles.md) with fine-grained permissions to Azure Container Registry. Then assign the custom roles to users, service principals, or other identities that need to interact with a registry. 
+
+To determine which permissions to apply to a custom role, see the list of Microsoft.ContainerRegistry [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry), review the permitted actions of the [built-in ACR roles](../role-based-access-control/built-in-roles.md), or run the following command:
+
+```azurecli
+az provider operation show --namespace Microsoft.ContainerRegistry
+```
+
+To define a custom role, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!IMPORTANT]
+> In a custom role, Azure Container Registry doesn't currently support wildcards such as `Microsoft.ContainerRegistry/*` or `Microsoft.ContainerRegistry/registries/*` that grant access to all matching actions. Specify any required action individually in the role.
+
 ## Next steps
 
 * Learn more about assigning RBAC roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), or other Azure tools.
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
+
+* Learn about enabling [repository-scoped permissions](container-registry-repository-scoped-permissions.md) (preview) in a container registry.

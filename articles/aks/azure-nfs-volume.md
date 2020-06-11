@@ -1,10 +1,9 @@
 ---
-title: Create an NFS (Network File System) Ubuntu Server for use by pods of Azure Kubernetes Service (AKS)
+title: Create NFS Ubuntu Linux Server volume
+titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create an NFS Ubuntu Linux Server volume for use with pods in Azure Kubernetes Service (AKS)
 services: container-service
 author: ozboms
-
-ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
@@ -23,7 +22,7 @@ Your AKS Cluster will need to live in the same or peered virtual networks as the
 
 The steps for configuring with an existing VNET are described in the documentation: [creating AKS Cluster in existing VNET][aks-virtual-network] and [connecting virtual networks with VNET peering][peer-virtual-networks]
 
-It also assumes you've created an Ubuntu Linux Virtual Machine (for example, 18.04 LTS). Settings and size can be to your liking and can be deployed through Azure. For Linux quickstart, see [linux VM management][linux-create].
+It also assumes you've created an Ubuntu Linux Virtual Machine (for example, 18.04 LTS). Settings and size can be to your liking and can be deployed through Azure. For Linux quickstart, see [Linux VM management][linux-create].
 
 If you deploy your AKS Cluster first, Azure will automatically populate the virtual network field when deploying your Ubuntu machine, making them live within the same VNET. But if you want to work with peered networks instead, consult the documentation above.
 
@@ -70,7 +69,7 @@ echo "/export        localhost(rw,async,insecure,fsid=0,crossmnt,no_subtree_chec
 
 nohup service nfs-kernel-server restart
 ```
-The server will restart (because of the script) and you can mount the NFS Server to AKS
+The server will restart (because of the script) and you can mount the NFS Server to AKS.
 
 >[!IMPORTANT]  
 >Make sure to replace the **AKS_SUBNET** with the correct one from your cluster or else "*" will open your NFS Server to all ports and connections.
@@ -89,12 +88,13 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## Connecting AKS Cluster to NFS Server
-We can connect the NFS Server to our cluster by provisioning a persistent volume and persistent volume claim that specifies how to access the volume.  
-Connecting the two services in the same or peered virtual networks is necessary. Instructions for setting up the cluster in the same VNET are here: [creating AKS Cluster in existing VNET][aks-virtual-network]
+We can connect the NFS Server to our cluster by provisioning a persistent volume and persistent volume claim that specifies how to access the volume.
+
+Connecting the two services in the same or peered virtual networks is necessary. Instructions for setting up the cluster in the same VNET are here: [Creating AKS Cluster in existing VNET][aks-virtual-network]
 
 Once they are in the same virtual network (or peered), you need to provision a persistent volume and a persistent volume claim in your AKS Cluster. The containers can then mount the NFS drive to their local directory.
 
-Here is an example kubernetes definition for the persistent volume (This definition assumes your cluster and VM are in the same VNET):
+Here is an example Kubernetes definition for the persistent volume (This definition assumes your cluster and VM are in the same VNET):
 
 ```yaml
 apiVersion: v1

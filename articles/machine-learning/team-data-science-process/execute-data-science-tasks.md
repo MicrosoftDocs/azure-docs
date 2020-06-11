@@ -2,12 +2,12 @@
 title: Execute data science tasks - Team Data Science Process
 description: How a data scientist can execute a data science project in a trackable, version controlled, and collaborative way.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -15,7 +15,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Execute data science tasks: exploration, modeling, and deployment
 
-Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. It also outlines options for deploying a model into a production environment using a variety of toolkits and data platforms, such as the following:
+Typical data science tasks include data exploration, modeling, and deployment. This article shows how to use the **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** and **Automated Modeling and Reporting (AMAR)** utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation. Options for deploying a model into a production environment may include:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server with ML services](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
@@ -26,7 +26,7 @@ Typical data science tasks include data exploration, modeling, and deployment. T
 
 A data scientist can perform exploration and reporting in a variety of ways: by using libraries and packages available for Python (matplotlib for example) or with R (ggplot or lattice for example). Data scientists can customize such code to fit the needs of data exploration for specific scenarios. The needs for dealing with structured data are different that for unstructured data such as text or images. 
 
-Products such as Azure Machine Learning also provide [advanced data preparation](../service/how-to-transform-data.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
+Products such as Azure Machine Learning also provide [advanced data preparation](../how-to-create-register-datasets.md) for data wrangling and exploration, including feature creation. The user should decide on the tools, libraries, and packages that best suite their needs. 
 
 The deliverable at the end of this phase is a data exploration report. The report should provide a fairly comprehensive view of the data to be used for modeling and an assessment of whether the data is suitable to proceed to the modeling step. The Team Data Science Process (TDSP) utilities discussed in the following sections for semi-automated exploration, modeling, and reporting also provide standardized data exploration and modeling reports. 
 
@@ -57,9 +57,9 @@ A YAML file is used to specify:
 - what portion of the data is used for training and what portion for testing
 - which algorithms to run 
 - the choice of control parameters for model optimization:
-	- cross-validation 
-	- bootstrapping
-	- folds of cross-validation
+    - cross-validation 
+    - bootstrapping
+    - folds of cross-validation
 - the hyper-parameter sets for each algorithm. 
 
 The number of algorithms, the number of folds for optimization, the hyper-parameters, and the number of hyper-parameter sets to sweep over can also be modified in the Yaml file to run the models quickly. For example, they can be run with a lower number of CV folds, a lower number of parameter sets. If it is warranted, they can also be run more comprehensively with a higher number of CV folds or a larger number of parameter sets.
@@ -70,7 +70,7 @@ For more information, see [Automated Modeling and Reporting Utility in TDSP Data
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
 1. [Azure Machine Learning - model management service](../index.yml)
-2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
+2. [ModelDB from MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -82,7 +82,7 @@ Production deployment enables a model to play an active role in a business. Pred
 There are various approaches and platforms to put models into production. Here are a few options:
 
 
-- [Model deployment in Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Model deployment in Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Deployment of a model in SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -94,7 +94,7 @@ There are various approaches and platforms to put models into production. Here a
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 > [!NOTE]
-> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/publish-a-machine-learning-web-service.md).
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
 >
 >
 

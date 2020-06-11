@@ -1,90 +1,82 @@
 ---
-title: Troubleshoot Azure Data Factory Data Flows | Microsoft Docs
-description: Learn how to troubleshoot data flow issues in Azure Data Factory. 
+title: Troubleshoot data flows
+description: Learn how to troubleshoot data flow issues in Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
+ms.date: 04/27/2020
 ---
+# Troubleshoot data flows in Azure Data Factory
 
-# Troubleshoot Azure Data Factory Data Flows
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
 ## Common errors and messages
 
-### Error message: DF-SYS-01: shaded.databricks.org.apache.hadoop.fs.azure.AzureException: com.microsoft.azure.storage.StorageException: The specified container does not exist.
+### Error code: DF-Executor-SourceInvalidPayload
+- **Message**: Data preview, debug, and pipeline data flow execution failed because container does not exist
+- **Causes**: When dataset contains a container that does not exist in the storage
+- **Recommendation**: Make sure that the container referenced in your dataset exists or accessible.
 
-- **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
+### Error code: DF-Executor-SystemImplicitCartesian
 
-- **Cause**: When dataset contains a container that does not exist in the storage
+- **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
+- **Causes**: Implicit cartesian product for INNER join between logical plans is not supported. If the columns used in the join creates the unique key, at least one column from both sides of the relationship are required.
+- **Recommendation**: For non-equality based joins you have to opt for CUSTOM CROSS JOIN.
 
-- **Resolution**: Make sure that the container you are referencing in your dataset exists
+### Error code: DF-Executor-SystemInvalidJson
 
-### Error message: DF-SYS-01: java.lang.AssertionError: assertion failed: Conflicting directory structures detected. Suspicious paths
+- **Message**: JSON parsing error, unsupported encoding or multiline
+- **Causes**: Possible issues with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as single document on many nested lines
+- **Recommendation**: Verify the JSON file's encoding is supported. On the Source transformation that is using a JSON dataset, expand 'JSON Settings' and turn on 'Single Document'.
+ 
+### Error code: DF-Executor-BroadcastTimeout
 
-- **Symptoms**: When using wildcards in source transformation with Parquet files
+- **Message**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs
+- **Causes**: Broadcast has a default timeout of 60 secs in debug runs and 300 secs in job runs. Stream chosen for broadcast seems to large to produce data within this limit.
+- **Recommendation**: Check the Optimize tab on your data flow transformations for Join, Exists, and Lookup. The default option for Broadcast is "Auto". If this is set, or if you are manually setting the left or right side to broadcast under "Fixed", then you can either set a larger Azure Integration Runtime configuration, or switch off broadcast. The recommended approach for best performance in data flows is to allow Spark to broadcast using "Auto" and use a Memory Optimized Azure IR.
 
-- **Cause**: Incorrect or invalid wildcard syntax
+### Error code: DF-Executor-Conversion
 
-- **Resolution**: Check the wildcard syntax you are using in your source transformation options
+- **Message**: Converting to a date or time failed due to an invalid character
+- **Causes**: Data is not in the expected format
+- **Recommendation**: Use the correct data type
 
-### Error message: DF-SRC-002: 'container' (Container name) is required
+### Error code: DF-Executor-InvalidColumn
 
-- **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
+- **Message**: Column name needs to be specified in the query, set an alias if using a SQL function
+- **Causes**: No column name was specified
+- **Recommendation**: Set an alias if using a SQL function such as min()/max(), etc.
 
-- **Cause**: When dataset contains a container that does not exist in the storage
+### Error code: GetCommand OutputAsync failed
 
-- **Resolution**: Make sure that the container you are referencing in your dataset exists
+- **Message**: During Data Flow debug and data preview: GetCommand OutputAsync failed with ...
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
 
-### Error message: DF-UNI-001: PrimaryKeyValue has incompatible types IntegerType and StringType
+### Error code: Hit unexpected exception and execution failed
 
-- **Symptoms**: Data preview, debug, and pipeline data flow execution fails because container does not exist
-
-- **Cause**: Happens when trying to insert incorrect primary key type in database sinks
-
-- **Resolution**: Use a Derived Column to cast the column that you are using for the primary key in your data flow to match the data type of your target database
-
-### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: The TCP/IP connection to the host xxxxx.database.windows.net port 1433 has failed. Error: "xxxx.database.windows.net. Verify the connection properties. Make sure that an instance of SQL Server is running on the host and accepting TCP/IP connections at the port. Make sure that TCP connections to the port are not blocked by a firewall."
-
-- **Symptoms**: Unable to preview data or execute pipeline with database source or sink
-
-- **Cause**: Database is protected by firewall
-
-- **Resolution**: Open the firewall access to the database
-
-### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'xxxxxx' in the database.
-
-- **Symptoms**: Sink fails to create table
-
-- **Cause**: There is already an existing table name in the target database with the same name defined in your source or in the dataset
-
-- **Resolution**: Change the name of the table that you are trying to create
-
-### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: String or binary data would be truncated. 
-
-- **Symptoms**: When writing data to a SQL sink, your data flow fails on pipeline execution with possible truncation error.
-
-- **Cause**: A field from your data flow maps to a column in your SQL database is not wide enough to store the value, causing the SQL driver to throw this error
-
-- **Resolution**: You can reduce the length of the data for string columns using ```left()``` in a Derived Column or implement the ["error row" pattern.](how-to-data-flow-error-rows.md)
+- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
+- **Causes**: This is a back-end service error. You can retry the operation and also restart your debug session.
+- **Recommendation**: If retry and restart do not resolve the issue, contact customer support.
 
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
-2. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
-3. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
+1. Check the status of your file and table connections from the data flow designer. Switch on Debug and click on Data Preview on your Source transformations to ensure that you are able to access your data.
+1. If everything looks good from data preview, go into the Pipeline designer and put your data flow in a pipeline activity. Debug the pipeline for an end-to-end test.
 
 ## Next steps
 
 For more troubleshooting help, try these resources:
-
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)

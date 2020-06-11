@@ -1,36 +1,34 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API using Java
+title: Quickstart - Send a query to the API using Java - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use this article to start using the Bing Local Business Search API in Java.
+description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 05/12/2020
 ms.author: aahi
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API using Java
 
-Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service. While this simple application is written in Java, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
+Use this quickstart to learn how to send requests to the Bing Local Business Search API, which is an Azure Cognitive Service. Although this simple application is written in Java, the API is a RESTful Web service compatible with any programming language capable of making HTTP requests and parsing JSON.
 
-This example application gets local response data from the API for the search query `hotel in Bellevue`.
+This example application gets local response data from the API for a search query.
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* A [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. For this quickstart, the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient. Save the API key that's provided when you activate your free trial. For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
-This example application gets local response data from the query for a *hotel in Bellevue*.
 
 ## Create the request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "hotel in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for *hotel in Bellevue*.  It then sends the request and assigns the response to a string to contain the JSON text.
 
-```
+```java
     // construct URL of search request (endpoint + query string)
 	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -46,14 +44,14 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ## Run the complete application
 
-The Bing Local Business Search API returns results from the Bing search engine.
+The following code uses the Bing Local Business Search API to return search results from the Bing search engine. Run this code by following these steps:
 1. Download or install the gson library.
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the code provided below.
-4. Replace the subscriptionKey value with an access key valid for your subscription.
+4. Replace the `subscriptionKey` value with an access key valid for your subscription.
 5. Run the program.
 
-```
+```java
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -160,6 +158,6 @@ public class LocalSearchCls {
 ```
 
 ## Next steps
-- [Local Business Search quickstart](local-quickstart.md)
-- [Local Business Search Node quickstart](local-search-node-quickstart.md)
+- [Local Business Search C# quickstart](local-quickstart.md)
+- [Local Business Search Node.js quickstart](local-search-node-quickstart.md)
 - [Local Business Search Python quickstart](local-search-python-quickstart.md)

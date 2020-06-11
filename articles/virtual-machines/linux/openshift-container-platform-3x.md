@@ -1,20 +1,13 @@
 ---
-title: Deploy OpenShift Container Platform 3.11 in Azure | Microsoft Docs
+title: Deploy OpenShift Container Platform 3.11 in Azure 
 description: Deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/14/2019
+ms.date: 04/05/2020
 ms.author: haroldw
 ---
 
@@ -24,7 +17,7 @@ You can use one of several methods to deploy OpenShift Container Platform 3.11 i
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
-- Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
@@ -300,7 +293,7 @@ Different releases may have different parameters so verify the necessary paramet
 | `masterClusterType` | Specify whether the cluster uses private or public master nodes. If private is chosen, the master nodes won't be exposed to the Internet via a public IP. Instead, it will use the private IP specified in the `masterPrivateClusterIp` | public <br> private | public |
 | `masterPrivateClusterIp` | If private master nodes are selected, then a private IP address must be specified for use by the internal load balancer for master nodes. This static IP must be within the CIDR block for the master subnet and not already in use. If public master nodes are selected, this value won't be used but must still be specified |  | 10.1.0.200 |
 | `routerClusterType` | Specify whether the cluster uses private or public infra nodes. If private is chosen, the infra nodes won't be exposed to the Internet via a public IP. Instead, it will use the private IP specified in the `routerPrivateClusterIp` | public <br> private | public |
-| `routerPrivateClusterIp` | If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. This static IP must be within the CIDR block for the master subnet and not already in use. If public infra nodes are selected, this value won't be used but must still be specified |  | 10.2.0.200 |
+| `routerPrivateClusterIp` | If private infra nodes are selected, then a private IP address must be specified for use by the internal load balancer for infra nodes. This static IP must be within the CIDR block for the infra subnet and not already in use. If public infra nodes are selected, this value won't be used but must still be specified |  | 10.2.0.200 |
 | `routingCertType` | Use custom certificate for routing domain or the default self-signed certificate - follow instructions in **Custom Certificates** section | selfsigned <br> custom | selfsigned |
 | `masterCertType` | Use custom certificate for master domain or the default self-signed certificate - follow instructions in **Custom Certificates** section | selfsigned <br> custom | selfsigned |
 

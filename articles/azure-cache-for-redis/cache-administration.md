@@ -1,24 +1,22 @@
 ---
-title: How to administer Azure Cache for Redis | Microsoft Docs
+title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
 
-ms.assetid: 8c915ae6-5322-4046-9938-8f7832403000
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
 
 ---
 # How to administer Azure Cache for Redis
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Cache for Redis instances.
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

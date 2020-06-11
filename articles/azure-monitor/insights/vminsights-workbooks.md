@@ -1,12 +1,11 @@
 ---
-title: Create interactive reports Azure Monitor for VMs with workbooks | Microsoft Docs
+title: Create interactive reports Azure Monitor for VMs with workbooks
 description: Simplify complex reporting with predefined and custom parameterized workbooks for Azure Monitor for VMs.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
+author: bwren
+ms.author: bwren
+ms.date: 03/12/2020
 
 ---
 
@@ -21,7 +20,7 @@ Workbooks are helpful for scenarios such as:
 * Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above- or below-target.
 * Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
-Azure Monitor for VMs includes several workbooks to get you started, and the following table summarizes them.
+The following table summarizes the workbooks that Azure Monitor for VMs includes to get you started.
 
 | Workbook | Description | Scope |
 |----------|-------------|-------|
@@ -37,7 +36,7 @@ Azure Monitor for VMs includes several workbooks to get you started, and the fol
 | Performance | Provides a customizable version of our Performance view that leverages all of the Log Analytics performance counters that you have enabled. | Single VM | 
 | Connections | Connections provides an in-depth view of the inbound and outbound connections from your VM. | Single VM |
  
-## Starting with a template or saved workbook
+## Creating a new workbook
 
 A workbook is made up of sections consisting of independently editable charts, tables, text, and input controls. To better understand workbooks, let's start by opening a template and walk through creating a custom workbook. 
 
@@ -47,25 +46,21 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 3. From the list, select a VM.
 
-4. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the VM page, in the **Monitoring** section, select **Insights**.
 
-5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. 
-
-    ![Screenshot of navigation to workbooks](media/vminsights-workbooks/workbook-option-01.png)
-
-6. From the drop-down list, select **Go to Gallery** from the bottom of the list.
+5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
 
     ![Screenshot of workbook drop-down list](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    It launches the workbook gallery with a number of prebuilt workbooks to help you get started.
+    This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
-7. We'll start with the **Default Template**, which is located under the heading **Quick start**.
+7. Create a new workbook by selecting **New**.
 
     ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
 
 ## Editing workbook sections
 
-Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
+Workbooks have two modes: **editing mode**, and **reading mode**. When a new workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
 ![Azure Monitor for VMs Workbooks section editing controls](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 

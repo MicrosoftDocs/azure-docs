@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using Java"
+title: "Quickstart: Send a search request to the REST API using Java - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Java, and receive a JSON response.
 services: cognitive-services
@@ -9,26 +9,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 # Quickstart: Send a search request to the Bing Entity Search REST API using Java
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Java application sends a news search query to the API, and displays the response.
 
-While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* The [Gson library](https://github.com/google/gson)
+* The [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* The [Gson library](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
    ```java
    import java.io.*;
@@ -45,7 +45,7 @@ While this application is written in Java, the API is a RESTful Web service comp
    import com.google.gson.JsonParser;
    ```
 
-2. In a new class, create variables for the API endpoint, your subscription key, and a search query.
+2. In a new class, create variables for the API endpoint, your subscription key, and a search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
    ```java
    public class EntitySearch {
@@ -63,7 +63,7 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 ## Construct a search request string
 
-1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the string with `?mkt=`.
+1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the parameter string with `?mkt=`.
  
 2. Create a URL object with your host, path, and parameters strings.
     
@@ -99,7 +99,7 @@ While this application is written in Java, the API is a RESTful Web service comp
     //...
     ```
 
-3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then close the reader, and return the response. 
+3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then, close the reader and return the response. 
     
     ```java
     String line;
@@ -114,9 +114,9 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 ## Format the JSON response
 
-1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, and call `parse()` on the json text, and store it as a JSON object. 
+1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, call `parse()` on the JSON text, and then store it as a JSON object. 
 
-2. Use the Gson library to create a new `GsonBuilder()`, and use `setPrettyPrinting().create()` to format the json. Then return it.    
+2. Use the Gson library to create a new `GsonBuilder()`, use `setPrettyPrinting().create()` to format the JSON, and then return it.    
   
    ```java
    //...
@@ -131,7 +131,7 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 ## Call the search function
 
-1. From the main method of your project, call `search()`, and use `prettify()` to format the text.
+- From the main method of your project, call `search()`, and use `prettify()` to format the text.
     
     ```java
     	public static void main(String[] args) {
@@ -215,5 +215,5 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../overview.md)
+* [Bing Entity Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

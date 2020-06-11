@@ -1,14 +1,13 @@
 ---
-title: "Quickstart: Recognize speech from a microphone, C# (Unity)- Speech Service"
+title: "Quickstart: Recognize speech from a microphone, C# (Unity)- Speech service"
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 04/02/2020
 ms.author: erhopf
 ---
 
@@ -18,12 +17,13 @@ ms.author: erhopf
 
 ## Prerequisites
 
-Before you get started, make sure to:
+Before you get started:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=unity)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
+> * Make sure that you have access to a microphone for audio capture
+
 If you've already done this, great. Let's keep going.
 
 ## Create a Unity project
@@ -83,9 +83,9 @@ To add the sample script code for the Unity project, follow these steps:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Find and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. Find and replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 
@@ -115,7 +115,7 @@ Now you're ready to run the application within the Unity Editor.
 
 1. Go to [**Game** view](https://docs.unity3d.com/Manual/GameView.html), and wait for the **Text** object to display **Click button to recognize speech**. (It displays **New Text** when the application hasn't started or isn't ready to respond.)
 
-1. Select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the **Game** view.
+1. Select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the **Game** view.
 
    [![Game view in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
@@ -130,4 +130,5 @@ For more information, see our [sample repository](https://aka.ms/csspeech/sample
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]
+

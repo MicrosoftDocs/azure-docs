@@ -3,7 +3,7 @@ title: Integrate logs with ArcSight using Azure Monitor  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/19/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To use this feature, you need:
 * An Azure event hub that contains Azure AD activity logs. Learn how to [stream your activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * A configured instance of ArcSight Syslog NG Daemon SmartConnector (SmartConnector) or ArcSight Load Balancer. If the events are sent to ArcSight Load Balancer, they are consequently sent to the SmartConnector by the Load Balancer.
 
-Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
+Download and open the [configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292). This guide contains the steps you need to install and configure the ArcSight SmartConnector for Azure Monitor. 
 
 ## Integrate Azure AD logs with ArcSight
 
@@ -50,10 +50,10 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
     * The application settings from your deployment are persisted in the Application Settings in Azure Function Apps. 
     * A new resource group for ArcSight is created in Azure, with an Azure AD application for the ArcSight connector and storage accounts containing the mapped files in CEF format.
 
-4. Finally, complete the post-deployment steps in the **Post-Deployment Configurations** of the configuration guide. This section explains how to perform additional configuration if you are on an App Service Plan to prevent the function apps from going idle after a timeout period, configure streaming of diagnostic logs from the event hub, and update the SysLog NG Daemon SmartConnector keystore certificate to associate it with the newly created storage account.
+4. Finally, complete the post-deployment steps in the **Post-Deployment Configurations** of the configuration guide. This section explains how to perform additional configuration if you are on an App Service Plan to prevent the function apps from going idle after a timeout period, configure streaming of resource logs from the event hub, and update the SysLog NG Daemon SmartConnector keystore certificate to associate it with the newly created storage account.
 
 5. The configuration guide also explains how to customize the connector properties in Azure, and how to upgrade and uninstall the connector. There is also a section on performance improvements, including upgrading to an [Azure Consumption plan](https://azure.microsoft.com/pricing/details/functions) and configuring an ArcSight Load Balancer if the event load is greater than what a single Syslog NG Daemon SmartConnector can handle.
 
 ## Next steps
 
-[Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

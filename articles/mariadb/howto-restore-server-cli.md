@@ -1,12 +1,12 @@
 ---
-title: How to backup and restore a server in Azure Database for MariaDB
+title: Backup and restore - Azure CLI - Azure Database for MariaDB
 description: Learn how to backup and restore a server in Azure Database for MariaDB by using the Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 3/27/2020
 ---
 # How to back up and restore a server in Azure Database for MariaDB using the Azure CLI
 
@@ -76,7 +76,7 @@ The location and pricing tier values for the restored server remain the same as 
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
-The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Geo restore
 
@@ -117,7 +117,7 @@ When creating a new server by a geo restore, it inherits the same storage size a
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
-The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
 
 ## Next steps
 
