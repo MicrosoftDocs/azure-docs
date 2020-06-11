@@ -93,7 +93,7 @@ Update-AzFrontDoorFireWallPolicy `
 Update-AzFrontDoorFireWallPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
--CustomBlockResponseBody "<html><head><title> Forbidden</title></head><body></body></html>"
+-CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
 ```
 
 ## Next steps
