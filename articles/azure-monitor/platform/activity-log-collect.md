@@ -10,7 +10,7 @@ ms.date: 04/14/2020
 ---
 
 # Collect and analyze Azure Activity log in Azure Monitor
-The [Azure Activity log](platform-logs-overview.md) is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. While you can view the Activity log in the Azure portal, you should configure it to send to a Log Analytics workspace to enable additional features of Azure Monitor. This article describes how to perform this configuration and how to send the Activity log to Azure storage and event hubs.
+The Azure Activity log is a [platform log](platform-logs-overview.md) that provides insight into subscription-level events that have occurred in Azure. While you can view the Activity log in the Azure portal, you should configure it to send to a Log Analytics workspace to enable additional features of Azure Monitor. This article describes how to perform this configuration and how to send the Activity log to Azure storage and event hubs.
 
 Collecting the Activity Log in a Log Analytics workspace provides the following advantages:
 

@@ -113,7 +113,9 @@
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
       displayname: latency
-      href: platform/data-ingestion-time.md         
+      href: platform/data-ingestion-time.md 
+    - name: Stream data to Event Hubs
+      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Insights
     href: insights/insights-overview.md
   - name: Data security
@@ -324,8 +326,6 @@
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
-    - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Log Analytics
     items:
     - name: Log query overview

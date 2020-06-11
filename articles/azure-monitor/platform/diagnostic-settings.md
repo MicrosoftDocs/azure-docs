@@ -47,12 +47,13 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 
 ## Prerequisites
+Any destinations for the diagnostic setting must be created with the required permissions. See the sections below for details for each destination.
 
 ### Log Analytics workspace
-You need to [create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+[Create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Event hub
-You need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you already have a diagnostic setting using this Event Hubs namespace, then that event hub will be reused.
+[Create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you already have a diagnostic setting using this Event Hubs namespace, then that event hub will be reused.
 
 The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies in the Azure portal under the Configure tab for your Event Hubs namespace.
 
@@ -60,16 +61,16 @@ To update the diagnostic setting to include streaming, you must have the ListKey
 
 
 ### Azure storage
-You need to [create an Azure storage account](../../storage/common/storage-account-create.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+[Create an Azure storage account](../../storage/common/storage-account-create.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
-> [!IMPORTANT]
-> To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). You must follow all steps in this article including enabling protected append blobs writes.
+You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.
 
-> [!IMPORTANT]
+To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). You must follow all steps in this article including enabling protected append blobs writes.
+
+> [!NOTE]
 > Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
 
 
-You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.
 
 ## Create diagnostic settings in Azure portal
 
@@ -171,13 +172,17 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## Configure diagnostic settings using REST API
+## Create diagnostic settings using REST API
 
 See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
-## Configure diagnostic settings using Resource Manager template
+## Create diagnostic settings using Resource Manager template
 
 See [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
+
+## Create diagnostic settings using Azure Policy
+Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. See [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details.
+
 
 ## Next steps
 

@@ -11,13 +11,9 @@ ms.subservice: logs
 ---
 
 # Azure resource logs
-[Platform logs](platform-logs-overview.md) in Azure, including Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article describes collecting resource logs in a Log Analytics workspace which allows you to analyze it with other monitoring data collected in Azure Monitor Logs using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. 
+Azure resource logs are [platform logs](platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to [Azure Monitor Logs](data-platform-logs.md). You can also use a diagnostic setting to send the Activity log to Azure Event Hubs to send it outside of Azure or to Azure Storage for archiving.
 
-
-## Diagnostic settings
-Send platform logs to a Log Analytics workspace and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
-
-
+See [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md) for details on creating a diagnostic setting. See [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
 
 ## Log Analytics workspaces
 Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
@@ -26,9 +22,7 @@ Resource log data collected in a Log Analytics workspace is stored in tables as 
 - Resource-specific - Data is written to individual table for each category of the resource.
 
 ### Azure Diagnostics mode 
-In this mode, all data from any [diagnostic setting](diagnostic-settings.md) will be collected in the _AzureDiagnostics_ table. This is the legacy method used today by most Azure services.
-
-Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected.
+In this mode, all data from any diagnostic setting will be collected in the _AzureDiagnostics_ table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected.
 
 Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
 
@@ -106,7 +100,7 @@ You should migrate your logs to use the resource-specific mode as soon as possib
 
 
 ## Event hub
-latform logs from event hubs are consumed in JSON format with the elements in the following table.
+Send resource logs to an event hub to send them outside of Azure, for example to a third-party SIEM or other log analytics solutions. Resource logs from event hubs are consumed in JSON format with the elements in the following table.
 
 | Element Name | Description |
 | --- | --- |
@@ -183,8 +177,7 @@ Following is sample output data from Event Hubs for a resource log:
 ```
 
 ## Azure storage
-
-Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
+Send resource logs to Azure storage to retain it for archiving. Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
 
 ```
 insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
