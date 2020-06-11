@@ -59,7 +59,7 @@ You can access your score via the [secure score API](https://docs.microsoft.com/
 
 ![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
-For examples of tools built on top of the secure score API, see [the secure score area of our Github community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
 
 ## How your secure score is calculated 
 
