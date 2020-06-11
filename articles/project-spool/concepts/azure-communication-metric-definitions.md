@@ -29,7 +29,7 @@ All measures for all primitive types and service-wide data points (i.e. authenti
 Below are the metrics you will find displayed in the azure portal, along with their definitions.
 
 | Metric name | Definition | Notes |
-| *** | *** | *** |
+|-----|:--------------:| :--------------:| 
 | APIRequests |  Count of incoming API requests and their status |  |
 | MessageSendLatency | Time from when the message request is received by Spool to the first delivery attempt that was made to any endpoint. | In milliseconds |
 | ThreadCreationLatency | Time from when the request is received by Spool until we send back a response from API. |  |
