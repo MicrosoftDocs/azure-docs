@@ -305,15 +305,13 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     ### <a id="java4-createitem-good-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
     #### [Sync](#tab/api-sync)
 
     ### <a id="java4-createitem-good-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item,new PartitionKey(pk),new CosmosItemRequestOptions());
-    ```
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKSync)]
 
     ---
 
@@ -323,17 +321,13 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     ### <a id="java4-createitem-bad-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    asyncContainer.createItem(item).block();
-    ```
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
     #### [Sync](#tab/api-sync)
 
     ### <a id="java4-createitem-bad-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-    ```java
-    syncContainer.createItem(item);
-    ```
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKSync)]
 
     ---
 
@@ -374,21 +368,13 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
     ### <a id="java4-request-charge-async"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-    ```java
-    CosmosAsyncItemResponse<CustomPOJO> response = asyncContainer.createItem(item).block();
-
-    response.getRequestCharge();
-    ```     
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]  
 
     #### [Sync](#tab/api-sync)
 
     ### <a id="java4-request-charge-sync"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Sync API    
 
-    ```java
-    CosmosItemResponse<CustomPOJO> response = syncContainer.createItem(item);
-
-    response.getRequestCharge();
-    ```     
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeSync)]   
 
     ---
 
