@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 03/13/2020
-ms.custom: seodec18
+ms.date: 06/11/2020
+ms.custom: seodec18, tracking-python
 ---
 # Set up and use compute targets for model training 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -150,13 +150,6 @@ Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for 
                                                    username='<username>',
                                                    password="<password>")
 
-   # If you authenticate with SSH keys instead, use this code:
-   #                                                  ssh_port=22,
-   #                                                  username='<username>',
-   #                                                  password=None,
-   #                                                  private_key_file="<path-to-file>",
-   #                                                  private_key_passphrase="<passphrase>")
-
    # Attach the compute
    compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
@@ -187,7 +180,7 @@ Azure HDInsight is a popular platform for big-data analytics. The platform provi
 
 1. **Attach**: To attach an HDInsight cluster as a compute target, you must provide the resource ID, user name, and password for the HDInsight cluster. The resource ID of the HDInsight cluster can be constructed using the subscription ID, resource group name, and HDInsight cluster name using the following string format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
-   ```python
+    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
 

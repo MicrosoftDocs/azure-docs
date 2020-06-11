@@ -3,7 +3,7 @@ title: Transactional replication
 titleSuffix: Azure SQL Managed Instance
 description: Learn about using SQL Server transactional replication with Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 

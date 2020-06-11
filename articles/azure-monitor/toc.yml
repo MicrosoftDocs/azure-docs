@@ -155,6 +155,8 @@
       displayname: VM
   - name: Manage and configure
     items:
+    - name: Deploy at scale
+      href: platform/deploy-scale.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses
@@ -622,6 +624,10 @@
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
+        - name: Troubleshoot
+          items: 
+          - name: SDK load failure 
+            href: app/javascript-sdk-load-failure.md
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
@@ -743,6 +749,8 @@
         href: app/profiler-settings.md 
       - name: Track Requests for Profiling
         href: app/profiler-trackrequests.md 
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: app/profiler-bring-your-own-storage.md 
       - name: Profiler Troubleshooting
         href: app/profiler-troubleshooting.md 
     - name: Snapshot Debugger
@@ -756,6 +764,8 @@
         href: app/snapshot-debugger-vm.md
       - name: Upgrade Snapshot Debugger
         href: app/snapshot-debugger-upgrade.md
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: app/profiler-bring-your-own-storage.md
       - name: Snapshot Debugger troubleshooting
         displayname: troubleshoot, troubleshooting
         href: app/snapshot-debugger-troubleshoot.md

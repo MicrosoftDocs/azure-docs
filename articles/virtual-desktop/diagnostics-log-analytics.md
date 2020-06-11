@@ -237,16 +237,6 @@ WVDErrors
 | render barchart 
 ```
 
-To find the occurrence of an error across all users:
-
-```kusto
-WVDErrors 
-| where ServiceError =="false" 
-| summarize usercount = count(UserName) by CodeSymbolic 
-| sort by usercount desc
-| render barchart 
-```
-
 To query apps users have opened, run this query:
 
 ```kusto

@@ -378,8 +378,6 @@
         href: ./partner-center-portal/offer-creation-checklist.md
       - name: Create a SaaS offer
         href: ./partner-center-portal/create-new-saas-offer.md
-      - name: SaaS metered billing
-        href: ./partner-center-portal/saas-metered-billing.md
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
@@ -391,6 +389,8 @@
           href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
         - name: SaaS fulfillment APIs - FAQ
           href: ./partner-center-portal/saas-fulfillment-apis-faq.md  
+      - name: SaaS metered billing
+        href: ./partner-center-portal/saas-metered-billing.md
     - name: Lead Management Overview
       href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
       items:
@@ -408,6 +408,8 @@
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md 
     - name: Marketplace metering service
       items:
+        - name: Anomaly detection service
+          href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
         - name: Authentication strategies
           href: ./partner-center-portal/marketplace-metering-service-authentication.md
         - name: Marketplace metering service APIs

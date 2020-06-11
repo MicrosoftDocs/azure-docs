@@ -6,7 +6,7 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/22/2020
+ms.date: 06/09/2020
 ---
 # Create an Automation account using an Azure Resource Manager template
 
@@ -29,8 +29,8 @@ The following table lists the API version for the resources used in this example
 
 | Resource | Resource type | API version |
 |:---|:---|:---|
-| Workspace | workspaces | 2017-03-15-preview |
-| Automation account | automation | 2015-10-31 | 
+| Workspace | workspaces | 2020-03-01-preview |
+| Automation account | automation | 2018-06-30 | 
 
 ## Before you use the template
 
@@ -42,14 +42,14 @@ The JSON template is configured to prompt you for:
 
 * The name of the workspace.
 * The region to create the workspace in.
+* To enable resource or workspace permissions.
 * The name of the Automation account.
-* The region to create the account in.
+* The region to create the Automation account in.
 
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
 * *sku* defaults to the per GB pricing tier released in the April 2018 pricing model.
 * *dataRetention* defaults to 30 days.
-* *capacityReservationLevel* defaults to 100 GB.
 
 >[!WARNING]
 >If you want to create or configure a Log Analytics workspace in a subscription that has opted into the April 2018 pricing model, the only valid Log Analytics pricing tier is *PerGB2018*.
@@ -57,7 +57,7 @@ The following parameters in the template are set with a default value for the Lo
 
 The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account. 
+If you're new to Azure Automation and Azure Monitor, it's important that you understand the following configuration details. They can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
 * Review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
@@ -101,14 +101,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
-            }
-        },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
+                "description": "Number of days to retain data."
             }
         },
         "location": {
@@ -116,6 +109,12 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+    	"resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -170,13 +169,11 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -188,7 +185,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
     	"resources": [
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [
@@ -203,7 +200,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
     		"resources": [
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('sampleGraphicalRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -223,7 +220,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePowerShellRunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -243,7 +240,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                     },
                     {
                         "type": "runbooks",
-                        "apiVersion": "2015-01-01-preview",
+                        "apiVersion": "2018-06-30",
                         "name": "[parameters('samplePython2RunbookName')]",
                         "location": "[parameters('automationAccountLocation')]",
                         "dependsOn": [
@@ -264,10 +261,10 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
                 ]
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
