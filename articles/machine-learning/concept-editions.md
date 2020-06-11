@@ -98,7 +98,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 <br/>
 <br/>
 
-### Deploy and model management capabilities
+### Deployment and model management capabilities
 
 | Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
