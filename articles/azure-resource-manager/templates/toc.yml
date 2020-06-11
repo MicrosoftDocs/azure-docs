@@ -266,7 +266,9 @@
     - name: What-if deployment
       href: template-deploy-what-if.md
     - name: Test toolkit
-      href: template-test-toolkit.md
+      href: test-toolkit.md
+    - name: Test cases
+      href: test-cases.md
   - name: Deploy templates
     items:
     - name: Deploy - portal

@@ -270,7 +270,7 @@ The following information can be helpful when you work with [resources](template
 
 The ARM template test toolkit is a script that checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with suggested changes. The test toolkit can help you learn how to implement best practices in your template.
 
-After you've completed your template, run the test toolkit to see if there are ways you can improve it implementation. For more information, see [ARM template test toolkit](template-test-toolkit.md).
+After you've completed your template, run the test toolkit to see if there are ways you can improve it implementation. For more information, see [ARM template test toolkit](test-toolkit.md).
 
 ## Next steps
 
