@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
+ms.custom: tracking-python
 
 ---
 # Connect to Media Services v3 API - Python

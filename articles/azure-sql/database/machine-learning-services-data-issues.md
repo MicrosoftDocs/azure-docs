@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 # Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article discusses some of the common issues you may encounter when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
+This article discusses some of the common issues you may encounter when moving data between R and Azure SQL Database in [Machine Learning Services (with R) in Azure SQL Database](machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 

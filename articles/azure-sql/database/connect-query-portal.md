@@ -1,6 +1,7 @@
 ---
 title: Query a SQL Database using the query editor in the Azure portal
 description: Learn how to use the Query Editor to run Transact-SQL (T-SQL) queries against a database in Azure SQL Database.
+titleSuffix: Azure SQL Database
 keywords: connect to sql database,query sql database, azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
@@ -11,10 +12,9 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 03/12/2020
+ms.date: 05/29/2020
 ---
-# Quickstart: Use the Azure portal's query editor to query a database
-
+# Quickstart: Use the Azure portal's query editor to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 The query editor is a tool in the Azure portal for running SQL queries against your database in Azure SQL Database or data warehouse in Azure SQL Data Warehouse. 

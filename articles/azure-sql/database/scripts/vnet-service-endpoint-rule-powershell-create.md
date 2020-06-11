@@ -61,7 +61,7 @@ The following list shows the sequence of other *major* cmdlets that you must run
 
 Our demonstration PowerShell script is divided into a sequence of smaller scripts. The division eases learning and provides flexibility. The scripts must be run in their indicated sequence. If you do not have time now to run the scripts, our actual test output is displayed after script 4.
 
-<a name="a-script-10" />
+<a name="a-script-10"></a>
 
 ### Script 1: Variables
 
@@ -109,7 +109,7 @@ $ServiceEndpointTypeName_SqlDb = 'Microsoft.Sql';  # Official type name.
 Write-Host 'Completed script 1, the "Variables".';
 ```
 
-<a name="a-script-20" />
+<a name="a-script-20"></a>
 
 ### Script 2: Prerequisites
 
@@ -199,7 +199,7 @@ $sqlDbServer                 = $null;
 Write-Host 'Completed script 2, the "Prerequisites".';
 ```
 
-<a name="a-script-30" />
+<a name="a-script-30"></a>
 
 ## Script 3: Create an endpoint and a rule
 
@@ -285,7 +285,7 @@ $vnetRuleObject2;
 Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 ```
 
-<a name="a-script-40" />
+<a name="a-script-40"></a>
 
 ## Script 4: Clean-up
 
@@ -364,9 +364,9 @@ else {
 Write-Host 'Completed script 4, the "Clean-Up".';
 ```
 
-<a name="a-actual-output" />
+<a name="a-actual-output"></a>
 
-<a name="a-verify-subnet-is-endpoint-ps-100" />
+<a name="a-verify-subnet-is-endpoint-ps-100"></a>
 
 ## Verify your subnet is an endpoint
 

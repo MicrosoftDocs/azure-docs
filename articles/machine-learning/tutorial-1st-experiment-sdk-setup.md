@@ -10,6 +10,7 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
+ms.custom: tracking-python
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK

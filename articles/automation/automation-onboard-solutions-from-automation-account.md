@@ -31,10 +31,6 @@ Sign in to Azure at https://portal.azure.com.
 
     ![Enable Update Management](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Limit the scope for the deployment
-
-Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
-
 ## Enable Azure VMs
 
 1. From your Automation account select **Update management** under **Update management**.
@@ -67,16 +63,13 @@ Manually installed machines or machines already reporting to your workspace must
 
 5. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
 
-6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
+6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
 
 7. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
 
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* For scope configurations, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
-* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
-* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

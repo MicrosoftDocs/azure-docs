@@ -8,7 +8,7 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
@@ -47,8 +47,8 @@ You can add private and public IP addresses to an Azure network interface by com
 
 Complete the following steps to add a new private IP address:
 
-1. Complete the steps in the [Core steps](#coreadd) section of this article.
-2. Click **Add**. In the **Add IP configuration** pane that appears, create an IP configuration named *IPConfig-4* with *10.0.0.7* as a *Static* private IP address, then click **OK**.
+1. Complete the steps in the [Core steps](#coreadd) section of this article and ensure you are on the **IP configurations** section of the VM Network Interface.  Review the subnet shown as default (such as 10.0.0.0/24).
+2. Click **Add**. In the **Add IP configuration** pane that appears, create an IP configuration named *IPConfig-4* with a new *Static* private IP address by picking a new number for the final octet, then click **OK**.  (For the 10.0.0.0/24 subnet, an example IP would be *10.0.0.7*.)
 
 	> [!NOTE]
 	> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal displays an X for the IP address and you must select a different one.

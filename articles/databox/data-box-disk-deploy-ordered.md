@@ -100,7 +100,7 @@ Take the following steps to order Data Box Disk.
 
 7. In the **Shipping address** tab, provide your first and last name, name and postal address of the company and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
-   After the order is processed, you will receive an email notification. For more information about self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+   After the order is processed, you will receive an email notification. If you have chosen self-managed shipping, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Provide shipping address](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
