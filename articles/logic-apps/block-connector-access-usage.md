@@ -1,6 +1,6 @@
 ---
-title: Block connectors in logic app workflows
-description: Prevent specific connectors for creating connections in Azure Logic Apps
+title: Block connections in logic app workflows
+description: Lock down or prevent using specific connectors to create connections in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
@@ -10,95 +10,89 @@ ms.date: 06/11/2020
 
 # Block connections created by specific connectors in Azure Logic Apps
 
-If your organization doesn't permit connecting to specific resources through available connectors in Azure Logic Apps, you can prevent creating those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce a [policy](../governance/policy/overview.md#policy-definition) that blocks connections through those connectors.
+If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can prevent creating those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce a [policy](../governance/policy/overview.md#policy-definition) that blocks creating connections through those connectors. For example, for security reasons, you might want to prohibit connections to specific social media platforms or other services.
 
-This topic shows how to create and assign the policy in the Azure portal, but you can also create policies in these ways:
-
-* [Azure PowerShell]
-* [Azure CLI]
-* [Azure Resource Manager template]
+This topic shows how to set up a policy in the Azure portal for blocking specific connections, but you can also create policies in other ways.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
 
-* The reference ID for the connector that you want to block. If you have a logic app that uses this connector, you can [find the connector reference ID](#find-connector-portal) in various ways, based on how you create the connection for your logic app. Regardless, the connector's reference ID follows this format:
+* The reference ID for the connector that you want to block. For more information, see [Find the connector reference ID](#connector-reference-ID).
 
-  `"/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connector-name}"`
-
-  For example, suppose that you want to block connections created by the Instagram connector. The connector's reference ID looks like this example, based on a logic app that's in the West US region:
-
-  `"/subscriptions/xxxxXXXXxxxxXXXXXXXxxxxx/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
-
-<a name="find-connector-portal"></a>
+<a name="connector-reference-ID"></a>
 
 ## Find connector reference ID
 
+If you already have a logic app with the connection that you want to block, follow the steps in this section for the [Azure portal](#find-connector-portal). Otherwise, follow these steps:
+
+1. Visit the [Logic Apps connectors list](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
+
+1. Find the reference page for the connector that you want to block.
+
+   For example, if you want to block the Instagram connector, go to this page: `"https://docs.microsoft.com/connectors/instagram/"`
+
+1. From the page's URL, copy the connector ID at the end without the forward slash (`/`), for example, `instagram`.
+
+   Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
+
+   `"like": "*managedApis/instagram"`
+
+<a name="connector-ID-portal"></a>
+
 ### Azure portal
 
-In the Logic App Designer, you can find the connector's reference ID in these ways:
+1. In the [Azure portal](https://portal.azure.com), find and open your logic app.
 
-* Open code view for the logic app, and find the connector's `id` property for the connector that you want to block, review the underlying JSON definition for logic app:
+1. On the logic app menu, select **Logic app code view** so that you can view your logic app's JSON definition.
 
-  review the network trace 
-  find the PUT call to the 
+   ![Open "Logic app code view" to find connector ID](./media/block-connector-access-usage/code-view-connector-id.png)
 
-
-```json
-{
-   "properties": {
-      "api": {
-         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connector-name}"
-      },
-      "location": "{Azure-region}"
-   }
-}
-```
-
-```json
-{
-   "parameters": {
-      "$connections": {
-         "connectionId": ,
-         "connectionName": ,
-         "id": 
-      }
-   }
-}
-
-
-```
-
-### REST API
-
-1. In a tool such as Postman, make this REST API call:
-
-   `PUT https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Web/connections/{connector-name}?api-version=2018-07-01-preview`
-
-1. In the response's payload, find the connector reference ID, which is located in the `id` property:
+1. Go to the `parameters` section that has the `$connections` section, which specifies the connections that are in your logic app and follows this format:
 
    ```json
    {
-      "properties": {
-         "api": {
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connector-name}"
-         },
-         "location": "{Azure-region}"
+      "parameters": {
+         "$connections": {
+            "value" : {
+               "{connection-name}": {
+                  "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Web/connections/{connection-name}",
+                  "connectionName": "{connection-name}",
+                  "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"
+               }
+            }
+         }
       }
    }
    ```
 
-### Azure Resource Manager template
+   For example, the `instagram` section identifies an Instagram connection:
 
-  In your Resource Manager template, the connections looks like this example:
+   ```json
+   {
+      "parameters": {
+         "$connections": {
+            "value" : {
+               "instagram": {
+                  "connectionId": "/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Web/connections/instagram",
+                  "connectionName": "instagram",
+                  "id": "/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Web/locations/westus/managedApis/instagram"
+               }
+            }
+         }
+      }
+   }
+   ```
 
-  ```json
-  {
+1. For the connection that you want to block, find the `id` property, which follows this format: 
 
-  }
-  ```
+   `"id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"`
 
-For more information, see [Microsoft.Web connections template reference](https://docs.microsoft.com/azure/templates/microsoft.web/2016-06-01/connections).
+   For example, here is the `id` property for an Instagram connection:
+
+   `"id": "/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
+
+<a name="create-policy-definition"></a>
 
 ## Create policy definition
 
@@ -110,17 +104,20 @@ For more information, see [Microsoft.Web connections template reference](https:/
 
    ![Select "Definitions" > "+ Policy Definition"](./media/block-connector-access-usage/add-new-policy-definition.png)
 
-1. Provide this information for your definition:
+1. Under **Policy definition**, provide the information for your policy definition, based on the properties described under the example:
 
-   | Property | Required | Description |
-   |----------|----------|-------------|
-   | **Definition location** | Yes | The Azure subscription to use for the policy definition. <p><p>1. To find your subscription, select the ellipses (**...**) button. <br>2. From the **Subscription** list, find and select your subscription. <br>3. When you're done, select **Select**. |
-   | **Name** | Yes | The name to use for the policy definition |
-   | **Description** | No | A description for the policy definition |
-   | **Category** | Yes | The name for an existing category or new category for the policy definition, which is **Logic Apps** in this scenario |
+   ![Policy definition properties](./media/block-connector-access-usage/policy-definition-basics-1.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Definition location** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for the policy definition <p><p>1. To find your subscription, select the ellipses (**...**) button. <br>2. From the **Subscription** list, find and select your subscription. <br>3. When you're done, select **Select**. |
+   | **Name** | Yes | <*policy-definition-name*> | The name to use for the policy definition |
+   | **Description** | No | <*policy-definition-name*> | A description for the policy definition |
+   | **Category** | Yes | **Logic apps** | The name for an existing category or new category for the policy definition |
+   | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
    ||||
 
-1. Under **POLICY RULE**, in the JSON text box, enter your [policy definition](../governance/policy/concepts/definition-structure.md) by following this syntax and the properties described in the table:
+1. Under **POLICY RULE**, the JSON edit box is already pre-populated with a sample definition template. Replace this sample with your [policy definition](../governance/policy/concepts/definition-structure.md) by following this syntax and based on the properties described in the table below:
 
    ```json
    {
@@ -140,12 +137,15 @@ For more information, see [Microsoft.Web connections template reference](https:/
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | `"mode"` | `"All"` | Determines the resource types that the policy evaluates. For this scenario, set `"mode"` to `"All"`, which applies the policy to Azure resource groups, subscriptions, and all resource types. <p><p>For more information, see [Policy definition structure - mode](../governance/policy/concepts/definition-structure.md#mode). |
-   | `"if"` | - `"field": "Microsoft.Web/connections/api.id"` <p><p>- `"like": "*managedApis/{connector-name}"` | The condition that determines when to enforce the policy rule. In this scenario, the condition is met if the `"api.id"` in `"Microsoft.Web/connections/api.id"` matches on `"*managedApis/{connector-name}"`, which also uses a wildcard (*) value. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
-   | `"then"` | `"effect": "deny"` | The effect to apply when the `"if"` condition is met. In this scenario, the effect is to block a resource request that doesn't comply with the policy and to fail that request. For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
+   | `mode` | `All` | The mode that determines the resource types that the policy evaluates. <p><p>In this scenario, set `mode` to `All`, which applies the policy to Azure resource groups, subscriptions, and all resource types. <p><p>For more information, see [Policy definition structure - mode](../governance/policy/concepts/definition-structure.md#mode). |
+   | `if` | `{condition-to-evaluate}` | The condition that determines when to enforce the policy rule <p><p>In this scenario, the `{condition-to-evaluate}` determines whether the `api.id` value in `Microsoft.Web/connections/api.id` matches on `*managedApis/{connector-name}`, which specifies a wildcard (*) value. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
+   | `field` | `Microsoft.Web/connections/api.id` | The `field` value to compare against the condition <p><p>In this scenario, the `field` is `Microsoft.Web/connections/api.id`, which refers to the connector's `api.id` value. |
+   | `like` | `*managedApis/{connector-name}` | The logical operator and value to use for comparing the `field` value <p><p>In this scenario, the `like` operator makes sure that the rule works regardless of region, and `*managedApis/{connector-name}` is the value to match on where `{connector-name}` is the ID for the connector that you want to block. <p><p>For example, suppose that you want to block access to all social media platforms or lock down connections: <p><p>- Twitter: `twitter` <br>- SQL Server or Azure SQL: `sql` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <p><p>To find these connector IDs, visit the Connectors reference pages and use the connector ID |
+   | `then` | `{effect-to-apply}` | The effect to apply when the `if` condition is met <p><p>In this scenario, the `{effect-to-apply}` is to block and fail a resource request that doesn't comply with the policy. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
+   | `effect` | `deny` | The `effect` is to `deny` or block the request to create the connection <p><p>For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
    ||||
 
-   For example, suppose that you want to block logic apps from creating connections using the Instagram connector. Here is the policy definition that you can use:
+   For example, suppose that you want to block logic apps from creating connections by using the Instagram connector. Here is the policy definition that you can use:
 
    ```json
    {
@@ -163,108 +163,25 @@ For more information, see [Microsoft.Web connections template reference](https:/
     }
     ```
 
-1. When you're done, select **Review + Save**. After you save the policy definition, Azure Policy adds more property values to the policy definition, which now looks like this example:
+   ![Policy definition for a connector](./media/block-connector-access-usage/policy-definition-basics-2.png)
 
-   ```json
-   {
-      "mode": "All",
-      "policyRule": {
-         "if": {
-            "field": "Microsoft.Web/connections/api.id",
-            "like": "*managedApis/instagram"
-         },
-         "then": {
-            "effect": "deny"
-         }
-      },
-      "parameters": {}
-    }
-    ```
+1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
-         "displayName": "Block Instagram connections",
-
-         "metadata": {
-            "category": "Logic Apps",
-            "createdBy": "c8d78a66-0f83-4f76-8201-8315ab9b1c5a",
-            "createdOn": "2019-10-08T18:48:19.7203003Z",
-            "updatedBy": "c8d78a66-0f83-4f76-8201-8315ab9b1c5a",
-            "updatedOn": "2020-05-29T19:08:16.2817462Z"
-    },
-    "parameters": {},
-  },
-  "id": "/subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24",
-  "type": "Microsoft.Authorization/policyDefinitions",
-  "name": "b5ddcfec-1b24-4cac-a353-360846a59f24"
-}
-   ```
-
-   ```json
-   {
-      "properties": {
-         "mode": "{policyDefinitionMode}",
-         "policyRule": {
-            "if": { 
-               "not": { 
-                  "field": "location",
-                  "in": "[parameters('allowedLocations')]"
-               }
-            },
-            "then": { 
-               "effect": "deny"
-            }
-         }
-         "parameters": {
-            "allowedLocations": {
-               "type": "Array",
-               "metadata": {
-                  "description": "The list of allowed locations",
-                  "displayName": "Allowed locations",
-                  "strongType": "location"
-               }
-            }
-         }
-      }
-   }
-   ```
-
-   For example, suppose that you want to block access and usage for the Instagram connector. Here's a sample that shows what a policy definition might look, using `like` as the condition so that the definition works regardless of region, which is part of the `id` value:
-
-   ```json
-   {
-      "properties": {
-         "mode": "All",
-         "policyRule": {
-            "if": {
-               "field": "Microsoft.Web/connections/api.id",
-               "like": "*managedApis/instagram"
-         },
-         "then": {
-            "effect": "deny"
-         }
-      },
-      "parameters": {
-         "description": "{policyDefinitionDescription}",
-         "displayName": "{policyDefinitionDisplayName}"
-      }
-   }
-   ```
-
-1. When you're done, select **Save**.
-
-For more information about the JSON syntax and structure to follow for a policy definition, see these topics:
+For more information about Azure policy definitions, see these topics:
 
 * [Policy structure definition](../governance/policy/concepts/definition-structure.md)
-* [Tutorial: Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
+* [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 * [Azure Policy built-in policy definitions for Azure Logic Apps](../logic-apps/policy-samples.md)
-* [Azure Resource Manager Templates: Microsoft.Authorization policyDefinitions template reference](https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-06-01/policydefinitions)
-* [Azure REST API: Resource Management - Policy Definitions](https://docs.microsoft.com/rest/api/resources/policydefinitions)
+
+<a name="create-policy-assignment"></a>
 
 ## Create policy assignment
 
-Next, you need to assign the policy definition where you want the policy to apply, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. To complete this task, create a policy assignment: 
+Next, you need to assign the policy definition where you want the policy to apply, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
 
-Assign the policy definition
-For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources]().
+1. If you signed out, sign back in to the [Azure portal](https://portal.azure.com). In the portal search box, enter `policy`, and select **Policy**.
+
+   ![In Azure portal, find and select "policy"](./media/block-connector-access-usage/find-select-azure-policy.png)
 
 1. On the **Policy** menu, under **Authoring**, select **Assignments** > **Assign policy**.
 
@@ -288,19 +205,26 @@ For more information, see [Quickstart: Create a policy assignment to identify no
 
    ![Select "Assignments" > "Assign"](./media/block-connector-access-usage/policy-assignment-basics.png)
 
-1. To test the policy after taking effect, in the Logic App Designer, you can try to create a connection with the restricted connector. When you try to sign in, you get this error that your logic app failed to create the connection:
+For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
-   ![Connection failure due to applied policy](./media/block-connector-access-usage/connection-failure-message.png)
+## Test the policy
 
-   `Failed to create connection for connection id '/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX`
-   `/resourceGroups/MyLogicApp-RG/providers/Microsoft.Web/connections/instagram'. Resource`
-   `'instagram' was disallowed by policy. Policy identifiers: '[{"policyAssignment":{"name":"Block`
-   `Instagram connections","id":"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/`
-   `MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"},`
-   `"policyDefinition":{"name":"Block Instagram connections","id":"/subscriptions/xxxxxXXXXXxxxxxXXXXX`
-   `xxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"}}]'.`
+In the Logic App Designer, try to create a connection using the restricted connector. For example, following the Instagram example, when you sign in, you get this error that your logic app failed to create the connection:
 
-For more information, see these topics:
+![Connection failure due to applied policy](./media/block-connector-access-usage/connection-failure-message.png)
 
-* [Azure Resource Manager Templates: Microsoft.Authorization policyAssignments template reference](https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-06-01/policyassignments)
-* [Azure REST API: Resource Management - Policy Assignments](https://docs.microsoft.com/rest/api/resources/policyassignments)
+The message includes this information:
+
+* Reason for the failure: `"Resource 'instagram' was disallowed by policy."`
+
+* Policy assignment information:
+
+  * Assignment name: `"Block Instagram connections"`
+
+  * Assignment ID: `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"`
+
+* Policy definition ID: `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"`
+
+## Next steps
+
+* 
