@@ -99,7 +99,7 @@ From here on, you are entirely working on the compute instance and you can now e
 
 ## Debug and troubleshoot machine learning pipelines
 
-In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD), you can attach to the code as it runs in the training environment.
+In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD), you can attach to the code as it runs in the training environment. 
 
 ### Prerequisites
 
