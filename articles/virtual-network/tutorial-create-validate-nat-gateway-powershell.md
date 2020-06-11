@@ -426,7 +426,7 @@ Copy and paste the following commands to prepare for testing the NAT service.
 ```bash
 sudo apt -y update && \
 sudo apt -y upgrade && \
-sudo apt-get install -y nload golang && \
+sudo apt install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
 . ~/.bashrc &&
