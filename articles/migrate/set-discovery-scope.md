@@ -26,7 +26,8 @@ You can assign permissions on VMware inventory objects using one of two methods:
 
 - On the account used by the appliance, assign a role with the required permissions on the objects you want to scope.
 - Alternatively, assign a role to the account at the datacenter level, and propagate to the child objects. Then give the account a **No access** role, for every object that you don't want in scope. We don't recommend this approach since it's cumbersome, and might expose access controls, because every new child object is automatically granted access inherited from the parent.
-- You can't scope inventory discovery at the vCenter VM folder level. If you need to scope discover to VMs in a VM folder, create a user and grant access individually to each required VM. Host and cluster folders are supported.
+
+You can't scope inventory discovery at the vCenter VM folder level. If you need to scope discover to VMs in a VM folder, create a user and grant access individually to each required VM. Host and cluster folders are supported.
 
 
 ### Assign a role for assessment
