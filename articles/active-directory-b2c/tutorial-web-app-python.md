@@ -72,7 +72,7 @@ In this tutorial, you configure a code sample that you download from GitHub to w
 
 [Download a .ZIP archive](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip) or clone the [code sample repository](https://github.com/Azure-Samples/ms-identity-python-webapp) from GitHub.
 
-```
+```console
 git clone https://github.com/Azure-Samples/ms-identity-python-webapp.git
 ```
 
@@ -89,9 +89,9 @@ Update the newly renamed *app_config.py* with values for your Azure AD B2C tenan
 
 1. Open the *app_config.py* file in your editor.
 1. Update the `b2c_tenant` value with the name of your Azure AD B2C tenant, for example *contosob2c*.
-1. Update each of the `*_user_flow` values to match those you created as part of the prerequisites.
+1. Update each of the `*_user_flow` values to match the names of the user flows you created as part of the prerequisites.
 1. Update the `CLIENT_ID` value with the **Application (client) ID** of the web application you registered as part of the prerequisites.
-1. Update the `CLIENT_SECRET` value with the **Value** of the client secret you created in the prerequisites. Or, for better security, store it in an **environment variable** as recommended in the comments.
+1. Update the `CLIENT_SECRET` value with the value of the **client secret** you created in the prerequisites. For increased security, considering storing it instead in an **environment variable** as recommended in the comments.
 
 The top section of *app_config.py* should now look similar to the following code snippet:
 
@@ -99,9 +99,9 @@ The top section of *app_config.py* should now look similar to the following code
 import os
 
 b2c_tenant = "contosob2c"
-signupsignin_user_flow = "b2c_1_signupsignin1"
-editprofile_user_flow = "b2c_1_profileediting1"
-resetpassword_user_flow = "b2c_1_passwordreset1"
+signupsignin_user_flow = "B2C_1_signupsignin1"
+editprofile_user_flow = "B2C_1_profileediting1"
+resetpassword_user_flow = "B2C_1_passwordreset1"
 authority_template = "https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{user_flow}"
 
 CLIENT_ID = "11111111-1111-1111-1111-111111111111" # Application (client) ID of app registration
@@ -116,11 +116,11 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 ```
 
 > [!WARNING]
-> As noted in comments in the code snippet, we recommend you **do not store secrets in plaintext** in your application code. The hardcoded variable is used in the code sample for *convenience only*.
+> As noted in the code snippet comments, we recommend you **do not store secrets in plaintext** in your application code. The hardcoded variable is used in the code sample for *convenience only*. Consider using an environment variable or a secret store like Azure Key Vault.
 
 ## Run the sample
 
-1. Open a console window and change to the directory containing the sample. For example:
+1. In your console or terminal, switch to the directory containing the sample. For example:
 
     ```console
     cd ms-identity-python-webapp
