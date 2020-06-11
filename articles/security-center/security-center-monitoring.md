@@ -29,7 +29,7 @@ You can view the security state of your resources and any issues per resource ty
 - To monitor your network resources, such as virtual machines, network security groups and endpoints, and receive recommendations for improving their security, see [Protecting your network in Azure Security Center](security-center-network-recommendations.md) for more information. 
 - To monitor your data and storage resources, such as SQL servers and storage accounts, and receive recommendations for improving their security, see [Protecting Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md) for more information. 
 - To monitor your identity and access resources, including MFA and account permissions, and receive recommendations for improving their security, see [Monitor identity and access in Azure Security Center](security-center-identity-access.md) for more information. 
-- To monitor just-in-time access to your resources, see [Manage virtual machine access using just-in-time](security-center-just-in-time.md) for more information. 
+- To monitor just-in-time access to your resources, see [Manage virtual machine access using just-in-time](security-center-just-in-time.md) for more information.
 
 
 For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
