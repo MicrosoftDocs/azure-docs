@@ -249,4 +249,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
-[custom-route-table]: ../virtual-network/manage-route-table
+[custom-route-table]: ../virtual-network/manage-route-table.md
