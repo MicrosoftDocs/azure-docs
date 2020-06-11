@@ -5,15 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/19/2020
 ms.author: victorh
 ---
 
 # Quickstart: Secure your virtual hub using Azure Firewall Manager - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager Preview.
-
-The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
+In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager Preview. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,23 +28,23 @@ This template creates a secured virtual hub using Azure Firewall Manager Preview
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/fwm-docs-qs/azuredeploy.json).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
 Multiple Azure resources are defined in the template:
 
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft.Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
 - [**Microsoft.Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
+- [**Microsoft.Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### Deploy the template
 

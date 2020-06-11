@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ---
 
-# Branching and chaining activities in a Data Factory pipeline
+# Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -40,7 +40,7 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 * **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
-* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
 
 ### Create blob table
 

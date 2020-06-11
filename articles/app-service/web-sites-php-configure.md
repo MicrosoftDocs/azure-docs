@@ -128,7 +128,7 @@ Instead of the default PHP runtime, App Service can use a PHP runtime that you p
 10. At the bottom, click **Update** to finish adding the handler mapping.
 11. Click **Save** to save changes.
 
-<a name="composer" />
+<a name="composer"></a>
 
 ## How to: Enable Composer automation in Azure
 

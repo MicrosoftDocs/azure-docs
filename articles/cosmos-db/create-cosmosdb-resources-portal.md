@@ -22,7 +22,7 @@ ms.date: 01/05/2020
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and container, and add data to the container. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database, and container, and add data to the container. 
 
 ## Prerequisites
 
@@ -50,6 +50,9 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
     |Apply Free Tier Discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 400 RU/s and 5 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
     |Account Type|Production or Non-Production|Select **Production** if the account will be used for a production workload. Select **Non-Production** if the account will be used for non-production, e.g. development, testing, QA, or staging. This is an Azure resource tag setting that tunes the Portal experience but does not affect the underlying Azure Cosmos DB account. You can change this value anytime.|
+    |Geo-Redundancy|Enable or Disable|Enable or disable global distribution on your account by pairing your region with a pair region. You can add more regions to your account later.|
+    |Multi-region Writes|Enable or Disable|Multi-region writes capability allows you to take advantage of the provisioned throughput for your databases and containers across the globe.|
+    |Availability Zones|Enable or Disable|Availability Zones help you further improve availability and resiliency of your application.|
 
 
 > [!NOTE]

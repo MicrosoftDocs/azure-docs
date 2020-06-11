@@ -9,7 +9,7 @@ ms.date: 05/04/2020
 
 During preview, AVS does not allow you to manage your private cloud with your on-premises vCenter. You'll need to perform additional setup and connection to a local vCenter instance through a jump box. 
 
-In this tutorial, you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMWare private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
+In this tutorial, you create a Windows virtual machine for a jump box in the resource group you created in the previous tutorial [Tutorial: Configure networking for your VMware private cloud in Azure](tutorial-configure-networking.md) and sign into vCenter. This is a VM on the same virtual network you created and provides access to vCenter and NSX Manager. 
 
 In this tutorial, you learn how to:
 

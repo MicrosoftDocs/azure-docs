@@ -1,12 +1,12 @@
 ---
- title: DC-series - Azure Virtual Machines
- description: Specifications for the DC-series VMs.
- services: virtual-machines
- author: susaxen
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/20/2020
- ms.author: lahugh
+title: DC-series - Azure Virtual Machines
+description: Specifications for the DC-series VMs.
+author: susaxen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/20/2020
+ms.author: jushiman
 ---
 
 # DCsv2-series
@@ -28,12 +28,12 @@ Memory Preserving Updates: Not Supported
 
 
 
-| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32 (43)                                                            | 3200/48                                   | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2   | 168                                         |
+| Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
+|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
 - DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in UK South, Canada Central, and US East only.

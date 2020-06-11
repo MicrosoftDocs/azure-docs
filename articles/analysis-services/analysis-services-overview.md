@@ -8,7 +8,7 @@ ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
-
+ms.custom: references_regions
 ---
 # What is Azure Analysis Services?
 

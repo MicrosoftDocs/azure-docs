@@ -45,7 +45,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Discovery limits** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
 **OVA template** | Download from portal or from https://aka.ms/migrate/appliance/vmware.<br/><br/> Download size is 11.2 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 **PowerShell script** | Script [download](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> 
-**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a VMware VM, you need enough resources on the vCenter Server to allocate a VM that meets the requirements.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements. 
+**Software/hardware** |  The appliance should run on machine with Windows Server 2016, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance on a VMware VM, you need enough resources on the vCenter Server to allocate a VM that meets the requirements.<br/><br/> If you run the appliance on a physical machine, make sure that it's running Windows Server 2016, and meets hardware requirements.
 **VMware requirements** | If you deploy the appliance as a VMware VM, it  must be deployed on an ESXi host running version 5.5 or later.<br/><br/> vCenter Server running 5.5, 6.0, 6.5, or 6.7.
 **VDDK (agentless migration)** | If you deploy the appliance as a VMware VM, and you're running an agentless migration, the VMware vSphere VDDK must be installed on the appliance VM.
 **Hash value-OVA** | [Verify](tutorial-assess-vmware.md#verify-security) the OVA template hash values.
@@ -202,11 +202,77 @@ Disk writes operations per second | virtualDisk.numberWriteAveraged.average  | C
 NIC read throughput (MB per second) | net.received.average | Calculation for VM size
 NIC writes throughput (MB per second) | net.transmitted.average  |Calculation for VM size
 
+
+### Installed apps metadata
+
+Application discovery collects installed applications and operating system data.
+
+#### Windows VM apps data
+
+Here's the installed application data that the appliance collects from each VM enabled for application discovery. This data is sent to Azure.
+
+**Data** | **Registry Location** | **Key**
+--- | --- | ---
+Application Name  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Version  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Provider  | HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### Windows VM features data
+
+Here's the features data that the appliance collects from each VM enabled for application discovery. This data is sent to Azure.
+
+**Data**  | **PowerShell cmdlet** | **Property**
+--- | --- | ---
+Name  | Get-WindowsFeature  | Name
+Feature Type | Get-WindowsFeature  | FeatureType
+Parent  | Get-WindowsFeature  | Parent
+
+#### Windows VM SQL Server metadata
+
+Here's the SQL server metadata that the appliance collects from VMs running Microsoft SQL server enabled for application discovery. This data is sent to Azure.
+
+**Data**  | **Registry Location**  | **Key**
+--- | --- | ---
+Name  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Edition  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Edition 
+Service Pack  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | SP
+Version  | HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\\\<InstanceName>\Setup  | Version 
+
+#### Windows VM operating system data
+
+Here's the operating system data that the appliance collects each VM enabled for application discovery. This data is sent to Azure.
+
+Data  | WMI class  | WMI Class Property
+--- | --- | ---
+Name  | Win32_operatingsystem  | Caption
+Version  | Win32_operatingsystem  | Version
+Architecture  | Win32_operatingsystem  | OSArchitecture
+
+#### Linux VM apps data
+
+Here's the installed application data that the appliance collects from each VM enabled for application discovery. Based on the operating system of the VM, one or more of the commands are run . This data is sent to Azure.
+
+Data  | Command
+--- | --- 
+Name | rpm, dpkg-query, snap
+Version | rpm, dpkg-query, snap
+Provider | rpm, dpkg-query, snap
+
+#### Linux VM operating system data
+
+Here's the operating system data that the appliance collects each VM enabled for application discovery. This data is sent to Azure.
+
+**Data**  | **Command** 
+--- | --- | ---
+Name <br/> version | Gathered from one or more of the following files:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architecture | uname
+
+
 ### App dependencies metadata
 
 Agentless dependency analysis collects connection and process data.
 
-#### Connection data
+#### Windows VM app dependencies data
 
 Here's the connection data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
 
@@ -220,7 +286,7 @@ TCP connection state | netstat
 Process ID | netstat
 Number of active connections | netstat
 
-#### Process data
+
 Here's the process data that the appliance collects from each VM enabled for agentless dependency analysis. This data is sent to Azure.
 
 **Data** | **WMI class** | **WMI class property**
@@ -229,7 +295,7 @@ Process name | Win32_Process | ExecutablePath
 Process arguments | Win32_Process | CommandLine
 Application name | Win32_Process | VersionInfo.ProductName parameter of ExecutablePath property
 
-#### Linux VM data
+#### Linux VM app dependencies data
 
 Here's the connection and process data that the appliance collects from each Linux VM enabled for agentless dependency analysis. This data is sent to Azure.
 

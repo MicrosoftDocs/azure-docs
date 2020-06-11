@@ -33,7 +33,7 @@ The Office Deployment Tool requires a configuration XML file. To customize the f
 
 This sample configuration XML we've provided will do the following things:
 
-- Install Office from the monthly channel and deliver updates from the monthly channel when they're executed.
+- •	Install Office from the Monthly Enterprise Channel and deliver updates from the Monthly Enterprise Channel when they're executed.
 - Use the x64 architecture.
 - Disable automatic updates.
 - Remove any existing installations of Office and migrate their settings.
@@ -58,11 +58,11 @@ Setup.exe /configure configuration.xml
 
 #### Sample configuration.xml
 
-The following XML sample will install the monthly release.
+The following XML sample will install the Monthly Enterprise Channel release.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -151,9 +151,11 @@ Here's how to install OneDrive in per-machine mode:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## Teams and Skype
+## Microsoft Teams and Skype for Business
 
-Windows Virtual Desktop doesn't support Skype for Business and Teams.
+Windows Virtual Desktop doesn't support Skype for Business.
+
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md).
 
 ## Next steps
 

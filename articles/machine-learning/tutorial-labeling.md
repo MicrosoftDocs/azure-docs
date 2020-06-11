@@ -81,7 +81,7 @@ Now that you have access to the data you want to have labeled, create your label
 
 1. Select **+ Add project**.
 
-    ![Create a project](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Create a project":::
 
 ### Project details
 
@@ -107,6 +107,12 @@ Now that you have access to the data you want to have labeled, create your label
     1. Select the circle next to the dataset name in the list, for example **images-for-tutorial**.
 
 1. Select **Next** to continue creating the project.
+
+### Incremental refresh
+
+If you plan to add new images to your dataset,  incremental refresh will find these new images and add them to your project.  When you enable this feature, the project will periodically check for new images.  You won't be adding new images to the datastore for this tutorial, so leave this feature unchecked.
+
+Select **Next** to continue.
 
 ### Label classes
 

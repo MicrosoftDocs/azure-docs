@@ -219,9 +219,7 @@ When you create a rule, you choose between [*basic* and *path-based*](https://do
 
 #### Order of processing rules
 
-For the v1 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
-
-For the v2 SKU, an exact match is higher priority than path order in the URL path map. If a request matches the pattern in two or more paths, the request is forwarded to the back end that's associated with the path that exactly matches the request. If the path in the incoming request doesn't exactly match any path in the map, pattern matching of the request is processed in the path map order list for the path-based rule.
+For the v1 and v2 SKU, pattern matching of incoming requests is processed in the order that the paths are listed in the URL path map of the path-based rule. If a request matches the pattern in two or more paths in the path map, the path that's listed first is matched. And the request is forwarded to the back end that's associated with that path.
 
 ### Associated listener
 

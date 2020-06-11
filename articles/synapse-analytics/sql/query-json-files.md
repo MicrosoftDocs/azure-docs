@@ -65,7 +65,7 @@ FROM
 
 ## Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
@@ -114,7 +114,7 @@ WHERE
 
 ## Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
 
 ```sql
 SELECT
