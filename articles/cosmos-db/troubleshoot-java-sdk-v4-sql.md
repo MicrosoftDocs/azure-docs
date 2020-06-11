@@ -90,9 +90,7 @@ For example, take a look at the following code snippet which adds items to a con
 
 ### <a id="java4-readtimeout"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-```java
 [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TroubleshootNeedsSchedulerAsync)]
-```
 
 The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
 
