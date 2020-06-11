@@ -24,7 +24,7 @@ This article describes the types of credentials you can use and how credential l
 A user that has logged into a SQL on-demand resource must be authorized to access and query the files in Azure Storage if the files are not publicly available. You can use three authorization types to access non-public storage - [User Identity](?tabs=user-identity), [Shared access signature](?tabs=shared-access-signature), and [Managed Identity](?tabs=managed-identity).
 
 > [!NOTE]
-> [Azure AD pass-through](#force-azure-ad-pass-through) is the default behavior when you create a workspace.
+> **Azure AD pass-through** is the default behavior when you create a workspace.
 
 ### [User Identity](#tab/user-identity)
 
@@ -126,9 +126,6 @@ Server-level CREDENTIAL name must match the full path to the storage account (an
 | Azure Blob Storage         | https  | <storage_account>.blob.core.windows.net             |
 | Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | https  | <storage_account>.dfs.core.windows.net              |
-
-> [!NOTE]
-> There is special server-level CREDENTIAL `UserIdentity` that [forces Azure AD pass-through](?tabs=user-identity#force-azure-ad-pass-through).
 
 Server-scoped credentials enable access to Azure storage using the following authentication types:
 
