@@ -234,7 +234,7 @@ Verify that the web app works by browsing to it (`http://<app-name>.azurewebsite
 
 In your local Git repository, open *app/templates/app/index.html*. Change the first HTML element to match the following code.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
