@@ -107,7 +107,8 @@
       href:  how-to-connect-install-express.md
     - name: Install Azure AD Connect Federation or other Custom settings
       href:  how-to-connect-install-custom.md
-    - name: Install Azure AD Connect with Pass-through Authentication (PTA)
+    - name: Install Azure AD Connect with Pass-through 
+    Authentication (PTA)
       href:  how-to-connect-pta-quick-start.md 
     - name: Install Azure AD Connect Health
       href:  how-to-connect-health-agent-install.md
@@ -191,6 +192,8 @@
       href: how-to-connect-device-writeback.md
     - name: Device options
       href: how-to-connect-device-options.md
+    - name: Enable group writeback
+      href: how-to-connect-group-writeback.md
     - name: Additional features in Azure AD Connect
       href: how-to-connect-preview.md
     - name: Prevent accidental deletes
