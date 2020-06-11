@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/develop/secure-aad-app.md",
+      "redirect_url": "/previous-versions/azure/security/develop/secure-aad-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/secure-web-app.md",
+      "redirect_url": "/previous-versions/azure/security/develop/secure-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/develop/secure-pci-web-app.md",
+      "redirect_url": "/previous-versions/azure/security/develop/secure-pci-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": false
