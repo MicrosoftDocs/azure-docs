@@ -105,8 +105,6 @@ When typing code, use Ctrl+Space to trigger IntelliSense.
 
 Azure Machine Learning creates a checkpoint file when you create an *ipynb* file. In the notebook toolbar, select **Save** tool to manually save the notebook.  Save also updates the checkpoint file associated with the notebook.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot of save tool in notebook toolbar":::
-
 Every notebook is autosaved every 30 seconds. Autosaves update only the initial *ipynb* file, not the checkpoint file.
 
 Use the **Terminal** to access the checkpoint file.  This file is located within a hidden folder named *.ipynb_checkpoints*, located within the same folder as the initial *ipynb* file.
