@@ -199,6 +199,8 @@ With kubenet, a route table must exist on your cluster subnet(s). AKS supports b
 
 If your custom subnet doesn’t contain a route table, AKS creates one for you and adds rules to it. If your custom subnet contains a route table when you create your cluster, AKS acknowledges the existing route table during cluster operations and updates rules accordingly for cloud provider operations.
 
+Learn more about setting up a [custom route table][custom-route-table]. 
+
 Limitations:
 
 * Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
@@ -207,6 +209,21 @@ Limitations:
 * All subnets within an AKS virtual network must use be associated with the same route table.
 * Every AKS cluster must use a unique route table. You can't reuse a route table with multiple clusters.
 
+After you create a custom route table and associate it to your virtual network, you can create a new AKS cluster that uses your custom route table. 
+
+Get the virtual network ID you want to use for your AKS cluster:
+
+```azurecli-interactive
+# list all vnets 
+az network vnet list
+```
+
+Use the virtual network ID with your new AKS cluster:
+
+```azurecli-interactive
+# Create a kubernetes cluster with userDefinedRouting, standard load balancer SKU and a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id customUserSubnetVnetID
+```
 
 ## Next steps
 
@@ -234,3 +251,4 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table
