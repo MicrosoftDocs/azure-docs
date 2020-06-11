@@ -246,7 +246,7 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
->Python on 2020.5.80290 version is not supported on this extention is a [known issue](#known-issues).
+>Ms-python >=2020.5.78807 version is not supported on this extention  is a [known issue](#known-issues).
 
 ## Submit PySpark batch job
 
@@ -450,9 +450,9 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
 ## Known Issues
-### Python on 2020.5.80290 version is not supported on this extention 
+### ms-python >=2020.5.78807 version is not supported on this extention 
 
-"Failed to connect to Jupyter notebook." is a known issue for python version 2020.5.80290. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
+"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
 
 ![known issues](./media/hdinsight-for-vscode/known-issue.png)
 
