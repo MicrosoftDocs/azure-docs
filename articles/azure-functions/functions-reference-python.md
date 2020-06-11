@@ -632,15 +632,15 @@ We recommend that you maintain your tests in a folder separate from the project 
 
 There are a few libraries come with the Python Functions runtime.
 
-### Python Standard library
+### Python Standard Library
 
-The Python Standard library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
+The Python Standard Library contain a list of built-in Python modules that are shipped with each Python distribution. Most of these libraries help you access system functionality, like file I/O. On Windows systems, these libraries are installed with Python. On the Unix-based systems, they are provided by package collections.
 
 To view the full details of the list of these libraries, please visit the links below:
 
-* [Python 3.6 Standard library](https://docs.python.org/3.6/library/)
-* [Python 3.7 Standard library](https://docs.python.org/3.7/library/)
-* [Python 3.8 Standard library](https://docs.python.org/3.8/library/)
+* [Python 3.6 Standard Library](https://docs.python.org/3.6/library/)
+* [Python 3.7 Standard Library](https://docs.python.org/3.7/library/)
+* [Python 3.8 Standard Library](https://docs.python.org/3.8/library/)
 
 ### Azure Functions Python worker dependencies
 
