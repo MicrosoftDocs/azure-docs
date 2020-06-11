@@ -141,13 +141,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your IntelligenceBank company site as an administrator.
 
-1. Click on **Authenticator**
-
-1. In the **Authenticator** Click on **Add New**
+1. Click on **Authenticator** and click on **Add New**
 
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. On the following page, perform the following steps:
+
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/urls.PNG)
 
     a. In the **Name** textbox, enter the name for example like `azureadsso`.
@@ -168,16 +167,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create IntelligenceBank test user
 
-1. In a different web browser window, sign in to your Sugar CRM company site as an administrator.
+1. In a different web browser window, sign in to your IntelligenceBank company site as an administrator.
 
-1. Click on **Admin** -> **Users** and select **Add New User Icon** to add the **User**.
+1. Go to **Admin** -> **Users** and select **Add New User Icon** to add the **User**.
 
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creatinguser.PNG)
 
 1. Fill the necessary fields as per your organization requirements and click **Save**.
 
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creatinguser1.PNG)
-
 
 ## Test SSO 
 
