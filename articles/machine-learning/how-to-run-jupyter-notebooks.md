@@ -91,6 +91,8 @@ Copy and paste the URL to share a notebook or file.  Only other users of the wor
 
 To edit a notebook, open any notebook located in the **User files** section of your workspace. Click on the cell you wish to edit. 
 
+You can edit the notebook without connecting to a compute.  From the notebook toolbar, specify a running compute or create a new compute when you want to run the cells in the notebook.
+
 When a compute instance running is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
@@ -103,13 +105,16 @@ When typing code, use Ctrl+Space to trigger IntelliSense.
 
 ### Save notebooks and checkpoint
 
-Azure Machine Learning creates a checkpoint file when you create an *ipynb* file. In the notebook toolbar, select **Save** tool to manually save the notebook.  Save also updates the checkpoint file associated with the notebook.
+Azure Machine Learning creates a checkpoint file when you create an *ipynb* file.
+
+In the notebook toolbar, select the menu and then File>Save and checkpoint to manually save the notebook and it will add a checkpoint file associated with the notebook.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot of save tool in notebook toolbar":::
 
-Every notebook is autosaved every 30 seconds. Autosaves update only the initial *ipynb* file, not the checkpoint file.
+Every notebook is autosaved every 30 seconds. Autosave updates only the initial *ipynb* file, not the checkpoint file.
+ 
+Select **Checkpoint** in the in the notebook menu to create a named checkpoint and see list of saved checkpoints.
 
-Use the **Terminal** to access the checkpoint file.  This file is located within a hidden folder named *.ipynb_checkpoints*, located within the same folder as the initial *ipynb* file.
 
 ### Useful keyboard shortcuts
 
