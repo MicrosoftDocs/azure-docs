@@ -22,22 +22,9 @@ ms.collection: M365-identity-device-management
 # How managed identities for Azure resources work with with Azure virtual machines
 
 
-A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task. Ideally, the credentials never appear on developer workstations and aren't checked into source control. Azure Key Vault provides a way to securely store credentials, secrets, and other keys, but your code has to authenticate to Key Vault to retrieve them.
-
-The managed identities for Azure resources feature in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
-
-The managed identities for Azure resources feature is free with Azure AD for Azure subscriptions. There's no additional cost.
-
-> [!NOTE]
-> Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
 
-## How do managed identities for Azure resources work with ?
-
-There are two types of managed identities:
-
-- A **system-assigned managed identity** is enabled directly on an Azure service instance. When the identity is enabled, Azure creates an identity for the instance in the Azure AD tenant that's trusted by the subscription of the instance. After the identity is created, the credentials are provisioned onto the instance. The life cycle of a system-assigned identity is directly tied to the Azure service instance that it's enabled on. If the instance is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
-- A **user-assigned managed identity** is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned.
+## How it works
 
 Internally, managed identities are service principals of a special type, which can only be used with Azure resources. When the managed identity is deleted, the corresponding service principal is automatically removed.
 Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity. 
@@ -46,7 +33,7 @@ Your code can use a managed identity to request access tokens for services that 
 
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
-![Managed service identities and Azure VMs](media/overview/data-flow.png)
+![Managed service identities and Azure VMs](media/how-managed-identities-work-vm/data-flow.png)
 
 |  Property    | System-assigned managed identity | User-assigned managed identity |
 |------|----------------------------------|--------------------------------|
@@ -55,7 +42,7 @@ The following diagram shows how managed service identities work with Azure virtu
 | Sharing across Azure resources | Cannot be shared. <br/> It can only be associated with a single Azure resource. | Can be shared. <br/> The same user-assigned managed identity can be associated with more than one Azure resource. |
 | Common use cases | Workloads that are contained within a single Azure resource. <br/> Workloads for which you need independent identities. <br/> For example, an application that runs on a single virtual machine | Workloads that run on multiple resources and which can share a single identity. <br/> Workloads that need pre-authorization to a secure resource as part of a provisioning flow. <br/> Workloads where resources are recycled frequently, but permissions should stay consistent. <br/> For example, a workload where multiple virtual machines need to access the same resource |
 
-### System-assigned managed identity
+## System-assigned managed identity
 
 1. Azure Resource Manager receives a request to enable the system-assigned managed identity on a VM.
 
@@ -73,7 +60,7 @@ The following diagram shows how managed service identities work with Azure virtu
 
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
 
-### User-assigned managed identity
+## User-assigned managed identity
 
 1. Azure Resource Manager receives a request to create a user-assigned managed identity.
 
