@@ -94,7 +94,7 @@ Check that the OVA file is secure, before you deploy it:
         --- | --- | ---
         VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - For Azure Goverment:
+    - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
