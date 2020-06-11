@@ -14,15 +14,21 @@ ms.date: 06/11/2020
 
 Azure Machine Learning offers two editions tailored for your machine learning needs. These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
 
+<br/>
+<br/>
+
 | Basic edition | Enterprise edition                 |
 |------------------------------------------------------------------------------------|-----------|
-|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
+|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and [pay for only the Azure resources consumed during the machine learning process](concept-plan-manage-cost.md). |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
 
 ## How to choose an edition
 
-You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. 
 
-Customers are responsible for costs incurred on compute and other Azure resources during this time.
+Customers are responsible for costs incurred on compute and other Azure resources during this time. Learn how to [manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+
+Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+
 
 ## What's in each edition
 
@@ -103,3 +109,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 ## Next steps
 
 Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+
+Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
+
+
