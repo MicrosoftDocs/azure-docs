@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -55,7 +55,9 @@ Deploy Resource Manager template to Azure:
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Select or create your resource group, type the virtual machine administrator user name and password.
-3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 20 minutes or longer to complete.
+3. Select **Review + Create** and then select **Create**.
+
+   The deployment can take 20 minutes or longer to complete.
 
 ## Validate the deployment
 

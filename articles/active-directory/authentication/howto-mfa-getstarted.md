@@ -52,7 +52,7 @@ Microsoft provides [communication templates](https://aka.ms/mfatemplates) and [e
 
 ## Deployment considerations
 
-Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A [Conditional Access policy](../conditional-access/overview.md) can require users to perform multi-factor authentication when certain criteria are met such as:
+Azure Multi-factor Authentication is deployed by enforcing policies with Conditional Access. A Conditional Access policy can require users to perform multi-factor authentication when certain criteria are met such as:
 
 * All users, a specific user, member of a group, or assigned role
 * Specific cloud application being accessed
@@ -218,7 +218,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## Plan Conditional Access policies
 
-To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
+To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md).
 
 It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../users-groups-roles/directory-emergency-access.md) and excluding them from your Conditional Access policy.
 

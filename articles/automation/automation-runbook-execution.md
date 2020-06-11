@@ -224,6 +224,8 @@ Using child runbooks decreases the total amount of time for the parent runbook t
 
 ## Next steps
 
-* [Manage runbooks in Azure Automation](manage-runbooks.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
+* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

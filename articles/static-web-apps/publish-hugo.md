@@ -104,7 +104,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 1. In _Resource group_, select **New**. In _New resource group name_, enter **hugo-static-app** and select **OK**.
 
-1. Next, provide a globally unique name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`. This value is used as the URL prefix for your static app in the format of `https://<APP_NAME>....`.
+1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
 
 1. For _Region_, select an available region close to you.
 
@@ -134,8 +134,6 @@ Next, you add configuration settings that the build process uses to build your a
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Build Settings":::
-
 ### Review and create
 
 1. Click the **Review + Create** button to verify the details are all correct.
@@ -150,21 +148,25 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Hugo app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Replace the line `- uses: actions/checkout@v1` (line 18) with the following, to build the Hugo application.
+1. Replace the line `- uses: actions/checkout@v2` (line 18) with the following, to build the Hugo application. If you require Hugo Extended, uncomment `extended: true`.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true  # Fetch Hugo themes (true OR recursive)
+       fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
    - name: Setup Hugo
-     uses: peaceiris/actions-hugo@v2.4.8
+     uses: peaceiris/actions-hugo@v2.4.11
      with:
-       hugo-version: "latest"
+       hugo-version: "latest"  # Hugo version: latest OR x.y.z
+       # extended: true
 
    - name: Build
      run: hugo
    ```
+   
+   For more details about installing Hugo to GitHub Actions runner, see [peaceiris/actions-hugo](https://github.com/peaceiris/actions-hugo).
 
 1. Commit the updated workflow and push to GitHub.
 

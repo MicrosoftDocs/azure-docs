@@ -123,7 +123,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 
 ## Offer setup
 
-The **Offer setup** page is where you can configure a test drive and lead management for your offer. 
+The **Offer setup** page is where you can configure a test drive and lead management for your offer.
 
 ### Test drive
 
@@ -136,7 +136,7 @@ For additional information, see [Test drive your offer in the commercial marketp
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-## Lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -349,7 +349,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
@@ -394,7 +394,7 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
-If you make the plant private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
+If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
 >A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.

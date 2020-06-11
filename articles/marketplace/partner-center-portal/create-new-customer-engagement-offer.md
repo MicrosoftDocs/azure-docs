@@ -62,7 +62,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 Select **Save draft** before continuing.
 
@@ -91,7 +91,7 @@ Select from the following options:
 - [Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test drives overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (make sure your pop-up blocker is off)
 
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -310,7 +310,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Instance URL** (required) – The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, `https://testdrive.crm.dynamics.com`).
 
-- **Instance Web API URL** (required) – Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** \&gt; **Customization** \&gt; **Developer Resources** \&gt; **Instance Web API (Service Root URL)**, copy the URL found here (for example, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
+- **Instance Web API URL** (required) – Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** > **Customization** > **Developer Resources** > **Instance Web API (Service Root URL)**, copy the URL found here (for example, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Role name** (required) – Provide the security role name you have defined in your custom Dynamics 365 test drive. This security role name will be assigned to the user during their test drive (for example, test-drive-role).
 

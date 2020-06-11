@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -91,13 +91,13 @@ The following table lists unsupported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Windows Update for Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
 |Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### Client requirements
 
-The following information describes operating system-specific client requirements. For additional guidance, see [Network planning](#ports).
+The following information describes operating system-specific client requirements. For additional guidance, see [Network planning](#ports).  To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### Windows
 
@@ -248,4 +248,6 @@ Here are the ways that you can enable Update Management and select machines to b
 
 ## Next steps
 
-[Azure Automation frequently asked questions](automation-faq.md)
+* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+
+* Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](automation-faq.md).

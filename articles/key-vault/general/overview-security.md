@@ -38,7 +38,7 @@ The model of a single mechanism for authentication to both planes has several be
 
 - Organizations can control access centrally to all key vaults in their organization.
 - If a user leaves, they instantly lose access to all key vaults in the organization.
-- Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security
+- Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security.
 
 ### Managing administrative access to Key Vault
 
@@ -93,6 +93,6 @@ For recommendation on securely managing storage accounts review the [Azure Stora
 
 ## Next Steps
 
-- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)

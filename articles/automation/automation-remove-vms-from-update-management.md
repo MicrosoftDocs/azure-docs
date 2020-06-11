@@ -8,11 +8,9 @@ ms.custom: mvc
 ---
 # Remove VMs from Update Management
 
-## Sign in to Azure
-
-Sign in to the Azure portal at https://portal.azure.com.
-
 When you're finished deploying updates to VMs in your environment, you can remove them from the [Update Management](automation-update-management.md) feature.
+
+## To remove your VMs
 
 1. From your Automation account, select **Update management** under **Update management**.
 
@@ -22,7 +20,7 @@ When you're finished deploying updates to VMs in your environment, you can remov
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. In your Log Analytics workspace under **General**, access the saved searches.
+3. In your Log Analytics workspace under **General**, access the saved searches for the scope configuration `MicrosoftDefaultScopeConfig-Updates`.
 
 4. For the saved search `MicrosoftDefaultComputerGroup`, click the ellipsis to the right and select **Edit**. 
 
@@ -34,12 +32,7 @@ When you're finished deploying updates to VMs in your environment, you can remov
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
-* [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md)
-* [Enable Update Management from an Automation account](automation-onboard-solutions-from-automation-account.md)
-* [Enable Update Management from the Azure portal](automation-onboard-solutions-from-browse.md)
-* [Enable Update Management from a runbook](automation-onboard-solutions.md)
-* [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
-* [Troubleshoot Update Management issues](troubleshoot/update-management.md)
-* [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md)
-* [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md)
+* To continue working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To resolve general feature problems, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* For issues with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* For issues with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

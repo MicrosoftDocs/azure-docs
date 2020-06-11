@@ -67,7 +67,12 @@
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items: 
+        - name: Train & deploy with CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Create workspaces with ARM template
+          displayName: Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
@@ -123,6 +128,8 @@
         href: concept-data.md
       - name: Data ingestion
         href: concept-data-ingestion.md
+      - name: Data processing
+        href: concept-optimize-data-processing.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
@@ -309,11 +316,14 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Define ML tasks
-      displayName: machine learning, task type
+      displayName: machine learning, task type, automl
       href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Featurization in automated ML (Python)
+      displayName: automl, feature engineering, feature importance
+      href: how-to-configure-auto-features.md
     - name: Use automated ML in ML pipelines (Python)
       displayName: machine learning automl 
       href: how-to-use-automlstep-in-pipelines.md
@@ -449,8 +459,6 @@
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: ML at scale
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference

@@ -66,7 +66,7 @@ The following limits apply to Blob Index tags:
 - Tag keys must be between 1 to 128 characters
 - Tag values must be between 0 to 256 characters
 - Tag keys and values are case-sensitive
-- Tag keys and values only support string data types; any numbers or special characters will be saved as strings
+- Tag keys and values only support string data types; any numbers, date, times, or special characters will be saved as strings
 - Tag keys and values must adhere to the following naming rules:
   - Alpha numeric characters: a-z, A-Z, 0-9
   - Special characters: space, plus, minus, period, colon, equals, underscore, forward slash
@@ -102,6 +102,13 @@ The below table shows all the valid operators for FindBlobsByTags:
 |     <=     | 	Less than or equal  | "Company" <= 'Contoso' |
 |    AND     | 	Logical and  | "Rank" >= '010' AND "Rank" < '100' |
 | @container |	Scope to a specific container	| @container = 'videofiles' AND "status" = 'done' |
+
+> [!NOTE]
+> Be familiar with lexicographical ordering when setting and querying on tags.
+> - Numbers are sorted before letters. Numbers are sorted based on the first digit.
+> - Uppercase letters are sorted before lowercase letters.
+> - Symbols are not standard. Some symbols are sorted before numeric values. Other symbols are sorted before or after letters.
+>
 
 ## Conditional Blob operations with Blob Index tags
 In REST versions 2019-10-10 and higher, most [blob service APIs](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) now support a conditional header, x-ms-if-tags, such that the operation will only succeed if the specified blob index condition is met. If the condition is not met, you will get `error 412: The condition specified using HTTP conditional header(s) is not met`.
@@ -197,7 +204,7 @@ Callers using an [AAD identity](../common/storage-auth-aad.md) may be granted th
 
 |   Blob operations   |  RBAC action   |
 |---------------------|----------------|
-| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter |
+| Find Blobs by Tags  | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 
 | Get Blob Tags 	    | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read |
 
@@ -243,9 +250,11 @@ Blob Index pricing is currently in public preview and subject to change for gene
 
 ## Regional availability and storage account support
 
-Blob Index is currently available with General Purpose v2 (GPv2) accounts only. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+Blob Index is currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade any GPv1 account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 In public preview, Blob Index is currently only available in the following select regions:
+- Canada Central
+- Canada East
 - France Central
 - France South
 
@@ -273,7 +282,7 @@ az provider register --namespace 'Microsoft.Storage'
 This section describes known issues and conditions in the current public preview of the Blob Index. As with most previews, this feature should not be used for production workloads until it reaches GA as behaviors may change.
 
 -	For preview, you must first register your subscription before you can use Blob Index for your storage account in the preview regions.
--	Only GPv2 accounts are currently supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts are not currently supported with Blob Index.
+-	Only GPv2 accounts are currently supported in preview. Blob, BlockBlobStorage, and HNS enabled DataLake Gen2 accounts are not currently supported with Blob Index. GPv1 accounts will not be supported.
 -	Uploading page blobs with index tags currently does not persist the tags. You must set the tags after uploading a page blob.
 -	When filtering is scoped to a single container, the @container can only be passed if all the index tags in the filter expression are equality checks (key=value). 
 -	When using the range operator with the AND condition, you can only specify the same index tag key name (Age > ‘013’ AND Age < ‘100’).
@@ -287,6 +296,9 @@ This section describes known issues and conditions in the current public preview
 
 ### Can Blob Index help me filter and query content inside my blobs? 
 No, Blob Index tags can help you find the blobs that you are looking for. If you need to search within your blobs, use Query Acceleration or Azure Search.
+
+### Are there any special considerations regarding Blob Index tag values?
+Blob Index tags only support string data types and querying returns results with lexicographical ordering. For numbers, it is recommended to zero pad the number. For date and times, it is recommended to store as an ISO 8601 compliant format.
 
 ### Are Blob Index tags and Azure Resource Manager tags related?
 No, Azure Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Blob Index tags provide object management and discovery on data plane resources such as blobs within a storage account.

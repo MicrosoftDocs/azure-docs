@@ -44,7 +44,7 @@ Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 

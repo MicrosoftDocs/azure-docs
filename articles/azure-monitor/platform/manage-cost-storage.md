@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/28/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -45,7 +45,14 @@ Log Analytics Dedicated Clusters are collections of workspaces into a single man
 
 The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed [here](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Because the billing for ingested data is done at the cluster level, workspaces associated to a cluster no longer have a pricing tier. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. Data retention is still billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). The two modes are: 
+
+1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
+
+2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for each workspace.) If the total data volume ingested into a workspace for a day is less than the Capacity Reservation, then each workspace is billed for its ingested data at the effective per-GB Capacity Reservation rate by billing them a fraction of the Capacity Reservation, and the unused part of the Capacity Reservation is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the Capacity Reservation, then each workspace is billed for a fraction of the Capacity Reservation based on it’s fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the Capacity Reservation. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the Capacity Reservation.
+
+
+In cluster billing options, data retention is billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, note that workspaces associated to a cluster no longer have a pricing tier.
 
 ## Estimating the costs to manage your environment 
 
@@ -88,14 +95,20 @@ You can also [set the pricing tier via Azure Resource Manager](https://docs.micr
 
 ## Legacy pricing tiers
 
-Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by Azure Security Center) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions who had a Log Analytics workspace or Application Insights resource in it before April 2, 2018, or are linked to an Enterprise Agreement that started prior to February 1, 2019, will continue to have access to use the legacy pricing tiers: **Free**, **Standalone (Per GB)** and **Per Node (OMS)**.  Workspaces in the Free pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/)) and the data retention is limited to 7 days. The Free pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is aggregated at the workspace level. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. 
 
 > [!TIP]
 > If your workspace has access to the **Per Node** pricing tier, but you're wondering whether it would be cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
 
-Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back. 
+Workspaces created prior to April 2016 can also access the original **Standard** and **Premium** pricing tiers which have fixed data retention of 30 and 365 days respectively. New workspaces cannot be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it cannot be moved back.
+
+There are also some behaviors between the use of legacy Log Analytics tiers and how usage is billed for [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+
+1. If the workspace is in the legacy Standard or Premium tier, Azure Security Center will be billed only for Log Analytics data ingestion, not per node.
+2. If the workspace is in the legacy Per Node tier, Azure Security Center will be billed using the current [Azure Security Center node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
+3. In other pricing tiers (including Capacity Reservations), if Azure Security Center was enabled before June 19, 2017, Azure Security Center will be billed only for Log Analytics data ingestion. Otherwise Azure Security Center will be billed using the current Azure Security Center node-based pricing model.
 
 More details of pricing tier limitations are available [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
@@ -121,7 +134,7 @@ When the retention is lowered, there is a several day grace period before the ol
 The retention can also be [set via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via Azure Resource Manager. 
 
 
-Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for for this 90 day retention. These data types are also free from data ingestion charges. 
+Two data types -- `Usage` and `AzureActivity` -- are retained for a minimum of 90 days by default, and there is no charge for for this 90 day retention. If the workspace retention is increased above 90 days, the retention of these data types will also be increased.  These data types are also free from data ingestion charges. 
 
 Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` and `AppTraces`) are also retained for 90 days by default, and there is no charge for for this 90 day retention. Their retention can be adjust using the retention by data type functionality. 
 
@@ -389,12 +402,13 @@ To dig deeper into the source of data for a particular data type, here are some 
 + **AzureDiagnostics** data type
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-### Tips for reducing data volume
+## Tips for reducing data volume
 
 Some suggestions for reducing the volume of logs collected include:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
+| Container Insights         | [Configure Container Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) to collect only the data you required. |
 | Security events            | Select [common or minimal security events](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
 | Performance counters       | Change [performance counter configuration](data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |

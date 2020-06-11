@@ -44,8 +44,6 @@ The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists 
 
 You can encrypt both boot and data volumes, but you can't encrypt the data without first encrypting the OS volume.
 
-After you've encrypted the OS volume, disabling encryption on the OS volume isn't supported.
-
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 
 No, Azure Disk Encryption only encrypts mounted volumes.
@@ -131,7 +129,7 @@ Azure Backup provides a mechanism to backup and restore encrypted VM's within th
 
 ## Where can I go to ask questions or provide feedback?
 
-You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service, see the following articles:

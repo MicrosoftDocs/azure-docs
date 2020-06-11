@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/11/2020
 ms.reviewer: sngun
 ---
 
 # Migrate your application to use the Azure Cosmos DB Java SDK v4
 
 > [!IMPORTANT]  
-> For more information about this SDK, please view the Azure Cosmos DB Java SDK v4 Release notes, [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md).
+> For more information about this SDK, please view the Azure Cosmos DB Java SDK v4 [Release notes](sql-api-sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [performance tips](performance-tips-java-sdk-v4-sql.md), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md).
 >
 
 This article explains how to upgrade your existing Java application that is using an older Azure Cosmos DB Java SDK to the newer Azure Cosmos DB Java SDK 4.0 for Core (SQL) API. Azure Cosmos DB Java SDK v4 corresponds to the `com.azure.cosmos` package. You can use the instructions in this doc if you are migrating your application from any of the following Azure Cosmos DB Java SDKs: 
@@ -30,7 +30,7 @@ The following table lists different Azure Cosmos DB Java SDKs, the package name 
 | Async 2.x.x  | June 2018    | Async(RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Release Notes](sql-api-sdk-async-java.md) |
 | Sync 2.x.x     | Sept 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Release Notes](sql-api-sdk-java.md)  |
 | 3.x.x    | July 2019    | Async(Reactor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
-| 4.0   | April 2020   | Async(Reactor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | -  |
+| 4.0   | June 2020   | Async(Reactor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
 
 ## SDK level implementation changes
 
@@ -67,7 +67,8 @@ The following are the API level changes in Azure Cosmos DB Java SDK 4.x.x compar
 Azure Cosmos DB Java SDK 4.0 and 3.x.x introduce a hierarchical API structure that organizes the clients, databases, and containers in a nested fashion as shown in the following 4.0 SDK code snippet:
 
 ```java
-CosmosContainer = client.getDatabase("MyDatabaseName").getContainer("MyContainerName");
+CosmosContainer container = client.getDatabase("MyDatabaseName").getContainer("MyContainerName");
+
 ```
 
 In version 2.x.x of the Azure Cosmos DB Java SDK, all operations on resources and documents are performed through the client instance.
@@ -109,41 +110,12 @@ The following code snippet shows the differences in how resources are created be
 
 # [Java SDK 4.0 Async API](#tab/java-v4-async)
 
-```java
-ConnectionPolicy defaultPolicy = ConnectionPolicy.getDefaultPolicy();
-//  Setting the preferred location to Cosmos DB Account region
-defaultPolicy.setPreferredLocations(Lists.newArrayList("Your Account Location"));
-// Use Direct Mode for best performance
-defaultPolicy.setConnectionMode(ConnectionMode.DIRECT);
-
-// Create Async client.
-// Building an async client is still a sync operation.
-client = new CosmosClientBuilder()
-        .setEndpoint("your.hostname")
-        .setKey("yourmasterkey")
-        .setConnectionPolicy(ConnectionPolicy.getDefaultPolicy())
-        .setConsistencyLevel(ConsistencyLevel.EVENTUAL)
-        .buildAsyncClient();
-
-// Create database with specified name
-client.createDatabaseIfNotExists("YourDatabaseName")
-      .flatMap(databas'Response -> {
-        database = databaseResponse.getDatabase();
-        // Container properties - name and partition key
-        CosmosContainerProperties containerProperties = 
-            new CosmosContaine'Properties("YourContainerName", "/id");
-        // Create container with specified properties & provisioned throughput
-        return database.createContainerIfNotExists(containerProperties, 400);
-    }).flatMap(containerResponse -> {
-        container = containerResponse.getContainer();
-        return Mono.empty();
-}).subscribe();
-```
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateJavaSDKv4ResourceAsync)]
 
 # [Java SDK 3.x.x Async API](#tab/java-v3-async)
 
 ```java
-ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPo"ic"();
+ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPolicy();
 //  Setting the preferred location to Cosmos DB Account region
 defaultPolicy.preferredLocations(Lists.newArrayList("Your Account Location"));
 

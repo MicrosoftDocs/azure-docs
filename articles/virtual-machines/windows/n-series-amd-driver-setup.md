@@ -1,7 +1,7 @@
 ---
 title: Azure N-series AMD GPU driver setup for Windows 
 description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -34,13 +34,11 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you are a NVv4 preview customer then please stop the VM and wait for it to move to Stopped(Deallocated) state.
+2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
-3. Please start the VM and download the latest [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Uninstall the existing driver by running "amdcleanuputility-x64.exe". Please DO NOT use any existing cleanup utility that was installed with the previous driver.  
+3. Download and install the latest driver.
 
-4. Download and install the latest driver.
-
-5. Reboot the VM.
+4. Reboot the VM.
 
 ## Verify driver installation
 

@@ -316,7 +316,7 @@ conceptualContent:
         url: ../cdn/index.yml
         text: See more  
 
-    - title: Automated branch connectivity
+    - title: Unified hub and spoke networking
       links:
         - url: ../virtual-wan/virtual-wan-about.md
           itemType: overview

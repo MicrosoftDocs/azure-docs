@@ -354,5 +354,5 @@ Now you can call the runbook from your local machine by using Azure PowerShell.
 
 ## Next steps
 
-* [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md)
-* [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
+* To prepare a textual runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
+* To prepare a graphical runbook, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).

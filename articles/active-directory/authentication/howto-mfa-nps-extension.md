@@ -62,6 +62,10 @@ These libraries are installed automatically with the extension.
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
+You need to manually install the following library:
+
+- [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### Azure Active Directory
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be registered for MFA.
@@ -202,9 +206,12 @@ If your previous computer certificate has expired, and a new certificate has bee
 
 ### Microsoft Azure Government additional steps
 
-For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server:
+For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server.
 
-1. Open **Registry Editor** on the NPS server.
+> [!IMPORTANT]
+> Only configure these registry settings if you're an Azure Government customer.
+
+1. If you're an Azure Government customer, open **Registry Editor** on the NPS server.
 1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
 
     | Registry key       | Value |

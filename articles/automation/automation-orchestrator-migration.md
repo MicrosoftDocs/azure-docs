@@ -124,8 +124,8 @@ Orchestrator stores runbooks on a database server and runs them on runbook serve
 
 ## Related articles
 
-* [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
-* [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
-* [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
-* [Orchestrator Standard Activities](https://technet.microsoft.com/library/hh403832.aspx)
-* [Download System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323)
+* For Orchestrator details, see [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx).
+* Learn more about automating the management of services in [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx).
+* Details of Orchestrator activities can be found in [Orchestrator Standard Activities](https://technet.microsoft.com/library/hh403832.aspx).
+* To obtain the Orchestrator migration toolkit, see [Download System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323).
+* For an overview of the Azure Automation Hybrid Runbook Worker, see [Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md).

@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
+ms.custom: tracking-python
 ---
 # Manage Python 2 packages in Azure Automation
 
@@ -83,4 +84,4 @@ To develop and test your Python 2 runbooks offline, you can use the [Azure Autom
 
 ## Next steps
 
-[Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md)
+To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

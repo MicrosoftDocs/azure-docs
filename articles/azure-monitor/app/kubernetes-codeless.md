@@ -1,6 +1,6 @@
 ---
 title: Monitor applications on Azure Kubernetes Service (AKS) with Application Insights - Azure Monitor | Microsoft Docs
-description: Azure Monitor seamlessly integrates with your application running on Kubernetes, and allows you to monitor you spot the problems with your apps in no time.
+description: Azure Monitor seamlessly integrates with your application running on Kubernetes, and allows you to spot the problems with your apps in no time.
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol

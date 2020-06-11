@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
+  ms.date: 05/22/2020
 
 highlightedContent:
   items:
@@ -37,6 +37,8 @@ productDirectory:
       links:
         - url: ./management-groups/overview.md
           text: Overview
+        - url: ./management-groups/how-to/protect-resource-hierarchy.md
+          text: Protect your resource hierarchy
         - url: ./management-groups/index.yml
           text: See more >
     - title: Azure Policy
@@ -167,6 +169,8 @@ additionalContent:
           links:
             - text: Blueprint functions
               url: ./blueprints/reference/blueprint-functions.md
+            - text: Azure CLI
+              url: /cli/azure/ext/blueprint/blueprint
             - text: Azure PowerShell
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell

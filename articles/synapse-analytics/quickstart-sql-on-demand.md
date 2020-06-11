@@ -55,33 +55,24 @@ Use the following query, changing `mydbname` to a name of your choice:
 CREATE DATABASE mydbname
 ```
 
-### Create credentials
+### Create data source
 
-To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
-
-> [!NOTE]
-> In order to successfully run samples in this section you have to use an SAS token.
->
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> SQL on-demand by default always uses AAD pass-through.
-
-For more information on how to manage storage access control, see the[Control storage account access for SQL on-demand ](sql/develop-storage-files-storage-access-control.md) article.
-
-Execute the following code snippet to create credentials used in samples in this section:
+To run queries using SQL on-demand, create data source that SQL on-demand can use use to access files in storage.
+Execute the following code snippet to create data source used in samples in this section:
 
 ```sql
--- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
 
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+-- create credentials for containers in our demo storage account
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
 ## Query CSV files
@@ -96,8 +87,9 @@ The following query shows how to read a CSV file that doesn't contain a header r
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -124,8 +116,9 @@ The following sample shows the automatic schema inference capabilities for query
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
@@ -164,7 +157,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

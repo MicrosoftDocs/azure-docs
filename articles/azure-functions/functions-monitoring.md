@@ -606,7 +606,7 @@ When you choose **Create**, an Application Insights resource is created with you
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
+When you create a function app using [Visual Studio](functions-create-your-first-function-visual-studio.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an [application setting](functions-how-to-use-azure-function-app-settings.md#settings) in your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

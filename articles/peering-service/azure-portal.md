@@ -5,7 +5,7 @@ services: peering-service
 author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
@@ -34,26 +34,9 @@ You must have a valid and active Microsoft Azure account. This account is requir
 
 You can work with an internet service provider or internet exchange partner to obtain Peering Service to connect your network with the Microsoft network.
 
-Make sure the connectivity providers are partnered with Microsoft.
+Make sure the [connectivity providers](location-partners.md) are partnered with Microsoft.
 
-### Register your subscription with the resource provider and feature flag
 
-Before you proceed to the steps of registering the Peering Service, you need to register your subscription with the resource provider and feature flag either via Azure PowerShell or the Azure CLI. 
-
-**Azure PowerShell**
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
-
-Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
-
-```
-
-**Azure CLI**
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Peering --name AllowPeeringService
-```
 
 ## Sign in to the Azure portal
 
@@ -62,11 +45,13 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 ## Register a Peering Service connection
 
 1. To register a Peering Service connection, select **Create a resource** > **Peering Service**.
+
     ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)
 1. Enter the following details on the **Basics** tab on the **Create a peering service connection** page.
 
  
 1. Select the subscription and the resource group associated with the subscription.
+
    ![Register Peering basic tab](./media/peering-service-portal/peering-servicebasics.png)
 
 1. Enter a **Name** to which the Peering Service instance should be registered.
@@ -89,14 +74,17 @@ From a browser, go to the Azure portal and sign in with your Azure account.
 
 1. When you see the **Validation passed** message as shown, select **Create**.
 
+   > ![Register Peering Service configuration tab](./media/peering-service-portal/peering-service-prefix.png)
+
+
 1. After you register a Peering Service connection, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the resource name. If the validation fails, one of the following error messages is displayed:
 
    - Invalid Peering Service prefix, the prefix should be valid format, only Ipv4 prefix is supported.
    - Prefix was not received from Peering Service provider.
-   - Prefix announcement does not have a valid BGP community, please contact Peering Service provider.
-   - Backup route not found, please contact Peering Service provider.
-   - Prefix received with longer AS path, please contact Peering Service provider.
-   - Prefix received with private AS in the path, please contact Peering Service provider.
+   - Prefix announcement does not have a valid BGP community,  contact Peering Service provider.
+   - Backup route not found, contact Peering Service provider.
+   - Prefix received with longer AS path, contact Peering Service provider.
+   - Prefix received with private AS in the path, contact Peering Service provider.
 
 ### Add or remove a prefix
 

@@ -232,7 +232,7 @@ if (!(($AzureRmProfileVersion.Major -ge 3 -and $AzureRmProfileVersion.Minor -ge 
 
 
 Connect-AzAccount -Environment $EnvironmentName
-$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId
+$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId | Set-AzContext
 
 # Create a Run As account by using a service principal
 $CertifcateAssetName = "AzureRunAsCertificate"
@@ -294,7 +294,7 @@ if ($CreateClassicRunAsAccount) {
     CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
     # Populate the ConnectionFieldValues
-    $SubscriptionName = $subscription.Subscription.Name
+    $SubscriptionName = $subscription.Name
     $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
     # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
