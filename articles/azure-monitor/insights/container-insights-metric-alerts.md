@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the pre-defined metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/11/2020
 
 ---
 
@@ -23,12 +23,12 @@ To alert on what matters, Azure Monitor for containers includes the following me
 |Average CPU % |Calculates average CPU used per node. |When average node CPU utilization is greater than 80% |
 |Average Disk Usage % |Calculates average disk usage for a node.|When disk usage for a node is greater than 80%. |
 |Average Working set memory % |Calculates average Working set memory for a node. |When average Working set memory for a node is greater than 80%. |
-|Container restart count |Calculates number of container restarts. | When container restarts are greater than 0. |
+|Restarting container count |Calculates number of restarting containers. | When container restarts are greater than 0. |
 |Failed Pod Counts |Calculates if any pod in failed state.|When a number of pods in failed state are greater than 0. |
 |Node NotReady status |Calculates if any node is in NotReady state.|When a number of nodes in NotReady state are greater than 0. |
 |OOM Killed Containers |Calculates number of OOM killed containers. |When a number of OOM killed containers is greater than 0. |
 |Pods ready % |Calculates the average ready state of pods. |When ready state of pods are less than 80%.|
-|Stale job count |Calculates number of stale jobs that were completed more than six hours ago. |When number of stale jobs older than six hours is greater than 0.|
+|Completed job count |Calculates number of jobs completed more than six hours ago. |When number of stale jobs older than six hours is greater than 0.|
 
 There are common properties across all of these alert rules:
 
