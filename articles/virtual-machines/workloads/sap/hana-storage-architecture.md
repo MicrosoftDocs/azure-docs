@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -42,6 +42,7 @@ See the following table in terms of storage allocation. The table lists the roug
 | S768m | 28,000 GB | 3,100 GB | 2,050 GB | 3,100 GB |
 | S768xm | 40,960 GB | 6,144 GB | 4,096 GB | 6,144 GB |
 | S960m | 36,000 GB | 4,100 GB | 2,050 GB | 4,100 GB |
+| S896m | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
 
 More recent SKUs of HANA Large Instances are delivered with storage configurations looking like:
 
@@ -67,7 +68,6 @@ More recent SKUs of HANA Large Instances are delivered with storage configuratio
 | S672oom | 38,016 GB | 512 GB | 1,024 GB | 512 GB |
 | S896 | 16,896 GB | 512 GB | 1,024 GB | 512 GB |
 | S896oo | 25,344 GB | 512 GB | 1,024 GB | 512 GB |
-| S896m | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
 | S896om | 33,792 GB | 512 GB | 1,024 GB | 512 GB |
 | S896ooo | 42,240 GB | 512 GB | 1,024 GB | 512 GB |
 | S896oom | 50,688 GB | 512 GB | 1,024 GB | 512 GB |
