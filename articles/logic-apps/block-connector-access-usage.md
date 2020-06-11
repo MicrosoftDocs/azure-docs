@@ -227,4 +227,4 @@ The message includes this information:
 
 ## Next steps
 
-* 
+* Learn more about [Azure Policy](../governance/policy/overview.md)
