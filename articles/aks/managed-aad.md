@@ -148,9 +148,9 @@ The cluster is created within a few minutes.
 
 ## Access an Azure AD enabled cluster
 
-You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the following steps:
+You'll need the [Azure Kubernetes Service Cluster User](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-user-role) built-in role to perform the following steps.
 
-To get the user credentials to access the cluster:
+Get the user credentials to access the cluster:
  
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
