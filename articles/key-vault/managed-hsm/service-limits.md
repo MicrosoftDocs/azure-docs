@@ -17,5 +17,5 @@ ms.author: mbaldwin
 
 Here are the service limits for Managed HSM.
 
-[!INCLUDE [limits](../../includeslimits.md)]
+
 
