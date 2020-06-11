@@ -24,15 +24,6 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
-# [Windows](#tab/windows)
-
-This displays Windows content.
-
-# [Azure CLI](#tab/azure-cli)
-
-This displays Azure CLI content.
-
----
 ## Prerequisites
 
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
@@ -47,6 +38,10 @@ Before you begin, make sure that:
 
 * You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+
+# [Portal](#tab/portal)
+
+This displays Windows content.
 
 ## Order Data Box
 
@@ -109,10 +104,12 @@ Perform the following steps in the Azure portal to order a device.
 
 11. Click **Order**. The order takes a few minutes to be created.
 
+# [Azure CLI](#tab/azure-cli)
 
-# [Azure CLI](#tab/cli)
+This displays Azure CLI content.
 
 ---
+
 ## Track the order
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
