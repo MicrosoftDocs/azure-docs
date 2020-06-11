@@ -645,10 +645,10 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
 
 1. Update the following fields, then click **Create**.
 
-    **App name:**
+    **App name:**  
     Enter a globally unique name for the **API App**
 
-    **Subscription**  
+    **Subscription:**  
     Choose the same target **Subscription** you created the notification hub in.
 
     **Resource Group:**  
