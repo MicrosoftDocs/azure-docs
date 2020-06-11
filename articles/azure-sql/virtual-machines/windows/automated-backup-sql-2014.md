@@ -1,10 +1,9 @@
 ---
-title: Automated Backup for SQL Server 2014 Azure Virtual Machines
+title: Automated Backup for SQL Server 2014 Azure virtual machines
 description: Explains the Automated Backup feature for SQL Server 2014 VMs running in Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
@@ -17,21 +16,21 @@ ms.author: mathoma
 ms.reviewer: jroth
 ---
 
-# Automated Backup for SQL Server 2014 Virtual Machines (Resource Manager)
+# Automated Backup for SQL Server 2014 virtual machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure Blob storage. Automated Backup depends on the [SQL Server infrastructure as a service (IaaS) Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Prerequisites
 To use Automated Backup, consider the following prerequisites:
 
-**Operating System**:
+**Operating system**:
 
 - Windows Server 2012
 - Windows Server 2012 R2
@@ -43,12 +42,12 @@ To use Automated Backup, consider the following prerequisites:
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
-> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016/2017, you can use Automated Backup v2 to back up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](automated-backup.md).
+> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016/2017, you can use Automated Backup v2 to back up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure virtual machines](automated-backup.md).
 
 **Database configuration**:
 
-- Target databases must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
-- Target databases must be on the default SQL Server instance. The SQL Server IaaS Extension does not support named instances.
+- Target databases must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup under the full recovery model](https://technet.microsoft.com/library/ms190217.aspx).
+- Target databases must be on the default SQL Server instance. The SQL Server IaaS Agent Extension does not support named instances.
 
 > [!NOTE]
 > Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
@@ -68,17 +67,17 @@ The following table describes the options that can be configured for Automated B
 
 ## Configure new VMs
 
-Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 virtual machine in the Resource Manager deployment model.
 
 On the **SQL Server settings** tab, scroll down to **Automated backup** and select **Enable**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
 
-![SQL Automated Backup configuration in Azure portal](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
+![SQL Automated Backup configuration in the Azure portal](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
 ## Configure existing VMs
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-For existing SQL Server virtual machines, you can enable and disable automated backups, change the retention period, specify the storage account, and enable encryption from the Azure portal. 
+For existing SQL Server VMs, you can enable and disable automated backups, change the retention period, specify the storage account, and enable encryption from the Azure portal. 
 
 Navigate to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) for your SQL Server 2014 virtual machine and then select **Backups**. 
 
@@ -100,8 +99,8 @@ You can use PowerShell to configure Automated Backup. Before you begin, you must
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### Install the SQL IaaS Extension
-If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzVM** command and examining the **Extensions** property.
+### Install the SQL Server IaaS Extension
+If you provisioned a SQL Server VM from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine whether it is installed for your VM by calling **Get-AzVM** command and examining the **Extensions** property.
 
 ```powershell
 $vmname = "vmname"
@@ -110,9 +109,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
 ```
 
-If the SQL Server IaaS Agent extension is installed, you should see it listed as “SqlIaaSAgent” or “SQLIaaSExtension”. **ProvisioningState** for the extension should also show “Succeeded”.
+If the SQL Server IaaS Agent extension is installed, you should see it listed as "SqlIaaSAgent" or "SQLIaaSExtension." **ProvisioningState** for the extension should also show "Succeeded."
 
-If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+If it is not installed or it has failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -121,7 +120,7 @@ New-AzSqlVM  -Name $vmname `
 ```
 
 > [!IMPORTANT]
-> If the extension is not already installed, installing the extension restarts the SQL Server service.
+> If the extension is not already installed, installing the extension restarts SQL Server.
 
 ### <a id="verifysettings"></a> Verify current settings
 
@@ -186,7 +185,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 It could take several minutes to install and configure the SQL Server IaaS Agent.
 
 > [!NOTE]
-> There are other settings for **New-AzVMSqlServerAutoBackupConfig** that apply only to SQL Server 2016 and Automated Backup v2. SQL Server 2014 does not support the following settings: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, and **LogBackupFrequencyInMinutes**. If you attempt to configure these settings on a SQL Server 2014 virtual machine, there is no error, but the settings do not get applied. If you want to use these settings on a SQL Server 2016 virtual machine, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines](automated-backup.md).
+> There are other settings for **New-AzVMSqlServerAutoBackupConfig** that apply only to SQL Server 2016 and Automated Backup v2. SQL Server 2014 does not support the following settings: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, and **LogBackupFrequencyInMinutes**. If you attempt to configure these settings on a SQL Server 2014 virtual machine, there is no error, but the settings do not get applied. If you want to use these settings on a SQL Server 2016 virtual machine, see [Automated Backup v2 for SQL Server 2016 Azure virtual machines](automated-backup.md).
 
 To enable encryption, modify the previous script to pass the **EnableEncryption** parameter along with a password (secure string) for the **CertificatePassword** parameter. The following script enables the Automated Backup settings in the previous example and adds encryption.
 
@@ -228,7 +227,7 @@ $storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 
-# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension
+# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL Server IaaS Extension
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
@@ -275,8 +274,8 @@ Another option is to take advantage of the built-in Database Mail feature for no
 
 Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup on SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-You can find additional backup and restore guidance for SQL Server on Azure VMs in the following article: [Backup and Restore for SQL Server in Azure Virtual Machines](backup-restore.md).
+You can find additional backup and restore guidance for SQL Server on Azure VMs in the following article: [Backup and restore for SQL Server on Azure virtual machines](backup-restore.md).
 
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure virtual machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).

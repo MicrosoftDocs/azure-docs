@@ -10,10 +10,10 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
+ms.date: 06/08/2020
 ---
 
-# Copy multiple tables in bulk by using Azure Data Factory
+# Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to a Azure Synapse Analytics (formerly SQL DW).
+Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics (formerly SQL DW).
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
@@ -103,14 +103,16 @@ In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (for
 ### Create the source Azure SQL Database linked service
 In this step, you create a linked service to link your Azure SQL database to the data factory. 
 
-1. Click **Connections** at the bottom of the window, and click **+ New** on the toolbar (**Connections** button is located
-at the bottom of the left column under **Factory Resources**). 
+1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
 
+1. On the Linked services page, select **+New** to create a new linked service.
+
+   ![New linked service](./media/doc-common-process/new-linked-service.png)
 1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**. 
 1. In the **New Linked Service (Azure SQL Database)** window, do the following steps: 
 
     a. Enter **AzureSqlDatabaseLinkedService** for **Name**.
-    
+
     b. Select your server for **Server name**
     
     c. Select your Azure SQL database for **Database name**. 
@@ -155,7 +157,6 @@ In this tutorial, you use Azure Blob storage as an interim staging area to enabl
     b. Select your **Azure Storage account** for **Storage account name**.
     
     c. Click **Create**.
-
 
 ## Create datasets
 In this tutorial, you create source and sink datasets, which specify the location where the data is stored. 
@@ -209,7 +210,8 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
     ![New pipeline menu](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. In the **General** tab, specify **IterateAndCopySQLTables** for name. 
+ 
+1. In the General panel under **Properties**, specify **IterateAndCopySQLTables** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. Switch to the **Parameters** tab, and do the following actions: 
 
@@ -316,7 +318,7 @@ This pipeline does two actions:
 
 ## Trigger a pipeline run
 
-1. Go to pipeline **GetTableListAndTriggerCopyData**, click **Add Trigger** on the top pipeline tool bar , and then click **Trigger now**. 
+1. Go to pipeline **GetTableListAndTriggerCopyData**, click **Add Trigger** on the top pipeline tool bar, and then click **Trigger now**. 
 
 1. Confirm the run on the **Pipeline run** page, and then select **Finish**.
 

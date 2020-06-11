@@ -1,6 +1,7 @@
 ---
 title: Use Visual Studio with .NET and C# to query
-description: Use Visual Studio to create a C# app that connects to a Microsoft Azure SQL database and queries it with Transact-SQL statements.
+description: Use Visual Studio to create a C# app that connects to a database in Azure SQL Database or Azure SQL Managed Instance and runs queries.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,29 +11,29 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 12/31/2019
+ms.date: 05/29/2020
 ---
-# Quickstart: Use .NET and C# in Visual Studio to connect to and query a Azure SQL database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use .NET and C# in Visual Studio to connect to and query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query an Azure SQL database with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL Database with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL:
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance | SQL Server in Azure VM |
+  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Configure | [Server-level IP firewall rule](firewall-create-server-level-portal-quickstart.md)| [Connectivity from a VM](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Connectivity from on-site](../managed-instance/point-to-site-p2s-configure.md) | [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  |||[Connectivity from on-premises](../managed-instance/point-to-site-p2s-configure.md) | [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Restore Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
-  |||Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Restore or import Adventure Works from a [BACPAC](database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -40,7 +41,7 @@ To complete this quickstart, you need:
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
-## Get SQL server connection information
+## Get server connection information
 
 Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
@@ -48,12 +49,12 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 2. Navigate to the **SQL databases**  or **SQL Managed Instances** page.
 
-3. On the **Overview** page, review the fully qualified server name next to **Server name** for an Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server in an Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
 
 > [!NOTE]
-> For connection information for SQL Server on an Azure VM, see [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
+> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
-## Create code to query the SQL database
+## Create code to query the database in Azure SQL Database
 
 1. In Visual Studio, select **File** > **New** > **Project**. 
    
@@ -137,11 +138,11 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 ## Next steps
 
-- Learn how to [connect and query an Azure SQL database using .NET Core](connect-query-dotnet-core.md) on Windows/Linux/macOS.  
+- Learn how to [connect and query a database in Azure SQL Database by using .NET Core](connect-query-dotnet-core.md) on Windows/Linux/macOS.  
 - Learn about [Getting started with .NET Core on Windows/Linux/macOS using the command line](/dotnet/core/tutorials/using-with-xplat-cli).
-- Learn how to [Design your first Azure SQL database using SSMS](design-first-database-tutorial.md) or [Design your first Azure SQL database using .NET](design-first-database-csharp-tutorial.md).
+- Learn how to [Design your first database in Azure SQL Database by using SSMS](design-first-database-tutorial.md) or [Design your first database in Azure SQL Database by using .NET](design-first-database-csharp-tutorial.md).
 - For more information about .NET, see [.NET documentation](https://docs.microsoft.com/dotnet/).
-- Retry logic example: [Connect resiliently to SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
+- Retry logic example: [Connect resiliently to Azure SQL with ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

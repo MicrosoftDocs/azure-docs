@@ -10,7 +10,6 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.custom: designer
-# As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
 # What is Azure Machine Learning designer (preview)? 
@@ -34,19 +33,19 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 The designer gives you a visual canvas to build, test, and deploy machine learning models. With the designer you can:
 
 + Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
-+ Connect the modules together to create a [pipeline draft](#pipeline-draft).
++ Connect the modules to create a [pipeline draft](#pipeline-draft).
 + Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
 + Convert your **training pipelines** to **inference pipelines**.
-+ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit new pipeline runs with different parameters and datasets.
++ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-+ [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
++ [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real-time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real-time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -69,11 +68,11 @@ Pipeline runs are grouped into [experiments](concept-azure-machine-learning-arch
 
 ## Datasets
 
-A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning dataset makes it easy to access and work with your data. Several sample datasets are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 
-A module is an algorithm that you can perform on your data. The designer has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
+A module is an algorithm that you can perform on your data. The designer has several modules ranging from data ingress functions to training, scoring, and validation processes.
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
 
@@ -95,7 +94,7 @@ Compute targets are attached to your [Azure Machine Learning workspace](concept-
 
 ## Deploy
 
-To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
+To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real-time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 Real-time endpoints must be deployed to an Azure Kubernetes Service cluster.
 
@@ -134,4 +133,3 @@ You can convert existing visual interface experiments and web services to pipeli
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.
-
