@@ -1,7 +1,7 @@
 ---
 title: NC-series - Azure Virtual Machines
 description: Specifications for the NC-series VMs.
-vikancha-MSFT
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article
