@@ -24,6 +24,8 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
+# [Portal](#tab/portal)
+
 ## Prerequisites
 
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
@@ -38,10 +40,6 @@ Before you begin, make sure that:
 
 * You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
-
-# [Portal](#tab/portal)
-
-This displays Windows content.
 
 ## Order Data Box
 
@@ -106,7 +104,157 @@ Perform the following steps in the Azure portal to order a device.
 
 # [Azure CLI](#tab/azure-cli)
 
-This displays Azure CLI content.
+## CLI Prerequisites
+
+Before you begin, you must have:
+
+* Installed [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
+
+### For service
+
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
+
+### For device
+
+Before you begin, make sure that:
+
+* You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+
+### Install Extension
+
+To view the commands in the Azure CLI [extension for Azure Data Box](https://docs.microsoft.com/cli/azure/ext/databox/databox?view=azure-cli-latest).
+
+To install the databox extension:
+
+1. Sign in to Azure using the Windows PowerShell command: `az login`.
+
+   Here is an command line example that shows how to sign in to Azure:
+
+    ```azurecli
+
+    PS C:\Windows> az login
+    You have logged in. Now let us find all the subscriptions to which you have access...
+    [
+      {
+        "cloudName": "AzureCloud",
+        "homeTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "id": "fa68082f-8ff7-4a25-95c7-ce9da541242f",
+        "isDefault": true,
+        "managedByTenants": [],
+        "name": "ExpressPod BVT (Creates order in BVT env)",
+        "state": "Enabled",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "user": {
+          "name": "gusp@contoso.com",
+          "type": "user"
+         }
+       }
+    ]
+    ```
+
+    If you have a valid subscription the command will output your subscription settings.
+
+2. In a Windows PowerShell prompt, type the following command to install the extension: `az extension add --name databox`.
+
+   Here is an example of command usage:
+
+    ```azurecli
+
+    PS C:\Windows> az extension add --name databox
+    The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
+    PS C:\Windows>
+
+    # az databox help
+
+    PS C:\Windows> az databox -h
+
+    Group
+        az databox
+
+    Subgroups:
+        job [Experimental] : Commands to manage databox job.
+
+    For more specific examples, use: az find "az databox"
+
+        Please let us know how we are doing: https://aka.ms/clihats
+    ```
+   
+   For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
+
+## Use CLI to create a Data Box order
+
+Perform the following steps in the Azure CLI to order a device:
+
+1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the settings you will need when creating the order using the CLI:
+   | Setting (parameter) | Description |  Sample value |
+   |---|---|---|
+   |resource-group| Use an existing or create a new one. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |name| The name of the order you are creating. | "mydataboxorder"|
+   |contact-name| The name associated with the shipping address. | "Gus Poland"|
+   |phone| The phone number of the person or business that will receive the order.| "14255551234"
+   |location| The nearest Azure region to you that will be shipping your device.| "US West"|
+   |sku| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
+   |email-list| The email address associated with the order.| "gusp@contoso.com" |
+   |street-address1| The street address to where the order will be shipped. | "15700 NE 39th St" |
+   |street-address2| The secondary address information, such as apartment number or building number. | "Bld 123" |
+   |city| The city that the device will be shipped to. | "Redmond" |
+   |state-or-province| The state where the device will be shipped.| "WA" |
+   |country| The country that the device will be shipped. | "United States" |
+   |postal-code| The zipcode or postal code associated with the shipping address.| "98052"|
+   |company-name| The name of your company you work for.| "Contoso, LTD" |
+   |storage account| The Azure Storage account from where you want to import data.| mystorageaccount|
+
+2. In Windows Powershell, use the `az databox job create` command replacing the sample parameter values with your settings to create your Data Box order.
+
+   ```azurecli
+   az databox job create --resource-group "myresourcegroup" --name "mydataboxtest3" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount
+
+   ```
+
+   After you run the command, Azure CLI will respond with the following console output:
+
+   ```azurecli-interactive
+
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   {
+     "cancellationReason": null,
+     "deliveryInfo": {
+        "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+   },
+   "deliveryType": "NonScheduled",
+   "details": null,
+   "error": null,
+   "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/GDPTest/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+   "identity": {
+     "type": "None"
+   },
+   "isCancellable": true,
+   "isCancellableWithoutFee": true,
+   "isDeletable": false,
+   "isShippingAddressEditable": true,
+   "location": "westus",
+   "name": "mydataboxtest3",
+   "resourceGroup": "myresourcegroup",
+   "sku": {
+     "displayName": null,
+     "family": null,
+     "name": "DataBox"
+   },
+   "startTime": "2020-06-10T23:28:27.354241+00:00",
+   "status": "DeviceOrdered",
+   "tags": {},
+   "type": "Microsoft.DataBox/jobs"
+
+   }
+   PS C:\Windows>
+
+   ```
+
+For CLI command reference information, see [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create).
+
+<!-- 06/11/20 priestlg: More information such as showing the reader how to check the order using Azure portal -->
+
 
 ---
 
@@ -131,11 +279,23 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 
 ## Cancel the order
 
+# [Portal](#tab/portal)
+
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
 After placing an order, you can cancel it at any point before the order status is marked processed.
 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+
+# [Azure CLI](#tab/azure-cli)
+
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
+
+After placing an order, you can cancel it at any point before the order status is marked processed.
+
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+
+---
 
 ## Next steps
 
