@@ -91,7 +91,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > We have configured your project with values of your app's properties and it's ready to run.
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-
+>
 >#### Step 4: Configure your project
 > If you selected Option 1 above, you can skip these steps.
 > 1. Extract the zip file and open the project in XCode.
