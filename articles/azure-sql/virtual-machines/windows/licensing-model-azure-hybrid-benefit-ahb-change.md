@@ -1,10 +1,9 @@
 ---
-title: Change the license model for a SQL Server VM in Azure
-description: Learn how to switch licensing for a SQL Server virtual machine in Azure from pay-as-you-go to bring-your-own-license by using the Azure Hybrid Benefit. 
+title: Change the license model for a SQL VM in Azure
+description: Learn how to switch licensing for a SQL Server VM in Azure from pay-as-you-go to bring-your-own-license by using the Azure Hybrid Benefit. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -16,13 +15,13 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Change the license model for a SQL Server virtual machine in Azure
+# Change the license model for a SQL virtual machine in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL VM resource provider, **Microsoft.SqlVirtualMachine**.
+This article describes how to change the license model for a SQL Server virtual machine (VM) in Azure by using the new SQL Server VM resource provider, **Microsoft.SqlVirtualMachine**.
 
-There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit, and disaster recovery (DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
+There are three license models for a VM that's hosting SQL Server: pay-as-you-go, Azure Hybrid Benefit (AHB), and disaster recovery (DR). You can modify the license model of your SQL Server VM by using the Azure portal, the Azure CLI, or PowerShell. 
 
 - The **pay-as-you-go** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 - [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your own SQL Server license with a VM that's running SQL Server. 
@@ -32,11 +31,11 @@ Azure Hybrid Benefit allows the use of SQL Server licenses with Software Assuran
 
 According to the Microsoft Product Terms: "Customers must indicate that they are using Azure SQL Database (Managed Instance, Elastic Pool, and Single Database), Azure Data Factory, SQL Server Integration Services, or SQL Server Virtual Machines under Azure Hybrid Benefit for SQL Server when configuring workloads on Azure."
 
-To indicate the use of Azure Hybrid Benefit for SQL Server on an Azure VM and be compliant, you have three options:
+To indicate the use of Azure Hybrid Benefit for SQL Server on Azure VM and be compliant, you have three options:
 
 - Provision a virtual machine by using a bring-your-own-license SQL Server image from Azure Marketplace. This option is available only for customers who have an Enterprise Agreement.
 - Provision a virtual machine by using a pay-as-you-go SQL Server image from Azure Marketplace and activate the Azure Hybrid Benefit.
-- Self-install SQL Server on an Azure VM, manually [register with the SQL VM resource provider](sql-vm-resource-provider-register.md), and activate Azure Hybrid Benefit.
+- Self-install SQL Server on Azure VM, manually [register with the SQL VM resource provider](sql-vm-resource-provider-register.md), and activate Azure Hybrid Benefit.
 
 The license type of SQL Server can be configured when the VM is provisioned, or anytime afterward. Switching between license models incurs no downtime, does not restart the VM or the SQL Server service, doesn't add any additional costs, and is effective immediately. In fact, activating Azure Hybrid Benefit *reduces* cost.
 
@@ -51,7 +50,7 @@ Changing the licensing model of your SQL Server VM has the following requirement
 
 ## VMs already registered with the resource provider 
 
-# [Portal](#tab/azure-portal)
+# [The Azure portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -65,12 +64,12 @@ You can modify the license model directly from the portal:
 ![Azure Hybrid Benefit in the portal](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to change your license model.  
 
 
-**Azure hybrid benefit**
+**Azure Hybrid Benefit**
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
@@ -126,9 +125,9 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 
 ## VMs not registered with the resource provider
 
-If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, then the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, then the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#vms-already-registered-with-the-resource-provider).
+If you provisioned a SQL Server VM from pay-as-you-go Azure Marketplace images, the SQL Server license type will be pay-as-you-go. If you provisioned a SQL Server VM by using a bring-your-own-license image from Azure Marketplace, the license type will be AHUB. All SQL Server VMs provisioned from default (pay-as-you-go) or bring-your-own-license Azure Marketplace images will automatically be registered with the SQL VM resource provider, so they can change the [license type](#vms-already-registered-with-the-resource-provider).
 
-You are only eligible to self-install SQL Server on an Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](sql-vm-resource-provider-register.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
+You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit. You should [register these VMs with the SQL VM resource provider](sql-vm-resource-provider-register.md) by setting the SQL Server license as Azure Hybrid Benefit, to indicate the Azure Hybrid Benefit usage according to Microsoft Product Terms.
 
 You can change the license type of a SQL Server VM as pay-as-you-go or Azure Hybrid Benefit only if the SQL Server VM is registered with the SQL VM resource provider.
 

@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
+ms.custom: tracking-python
 
 ---
 
@@ -60,7 +61,7 @@ You could also use app-level credentials i.e. publish profile for deployment. Fo
     ```yaml
         - uses: azure/webapps-deploy@v2
           with:
-            creds: ${{ secrets.azureWebAppPublishProfile }}
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
 5. You see the secret as shown below once defined.

@@ -1,9 +1,9 @@
 ---
-title: "Create an instance (ARM Template & Powershell) "
+title: "Create a managed instance (ARM template & PowerShell)"
 titleSuffix: Azure SQL Managed Instance 
-description: Use this Azure PowerShell example script to create an Azure SQL Managed Instance.
+description: Use this Azure PowerShell example script to create a managed instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: "seo-dt-2019"
 ms.devlang: PowerShell
@@ -13,33 +13,35 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 03/12/2019
 ---
-# Use PowerShell with Azure Resource Manager template to create an Azure SQL Managed Instance
+
+# Use PowerShell with an Azure Resource Manager template to create a managed instance
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-Azure SQL Managed Instance can be created using Azure PowerShell library and Azure Resource Manager templates.
+You can create a managed instance by using the Azure PowerShell library and Azure Resource Manager templates.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, run `Connect-AzAccount` to create a connection to Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, run `Connect-AzAccount` to create a connection to Azure.
 
 Azure PowerShell commands can start deployment using a predefined Azure Resource Manager template. The following properties can be specified in the template:
 
-- SQL Managed Instance name
+- Managed instance name
 - SQL administrator username and password.
 - Size of the instance (number of cores and max storage size).
 - VNet and subnet where the instance will be placed.
-- Server-level collation of the instance (Preview).
+- Server-level collation of the instance (preview).
 
-Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be changed later. Other instance properties can be changed.
+Instance name, SQL administrator username, VNet/subnet, and collation cannot be changed later. Other instance properties can be changed.
 
 ## Prerequisites
 
-This sample assumes that you have [created a valid network environment](../virtual-network-subnet-create-arm-template.md) or [modified an existing VNet](../vnet-existing-add-subnet.md) for your SQL Managed Instance. You can prepare the network environment using a separate [Azure Resource Managed template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), if necessary. 
+This sample assumes that you have [created a valid network environment](../virtual-network-subnet-create-arm-template.md) or [modified an existing VNet](../vnet-existing-add-subnet.md) for your managed instance. You can prepare the network environment using a separate [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment), if necessary. 
 
 
-The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
+The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), so make sure that you have installed the following PowerShell modules:
 
 ```powershell
 Install-Module Az.Network
@@ -106,7 +108,7 @@ Update the following PowerShell script with the correct file path for the .json 
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
-# Managed Instance properties
+# Managed instance properties
 $resourceGroup = "rg_mi"
 $location = "West Central US"
 $name = "managed-instance-name"
@@ -121,16 +123,16 @@ $vNet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGro
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
 $subnetId = $subnet.Id
 
-# Deploy Instance using Azure Resource Manager template:
+# Deploy instance using Azure Resource Manager template:
 New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```
 
-Once the script completes, the SQL Managed Instance can be accessed from all Azure services and the configured IP address.
+Once the script completes, the managed instance can be accessed from all Azure services and the configured IP address.
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).
+Additional PowerShell script samples for Azure SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

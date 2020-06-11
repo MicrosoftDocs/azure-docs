@@ -3,8 +3,8 @@ title: Getting started content reference
 titleSuffix: Azure SQL Managed Instance 
 description: "A reference for content that helps you get started with Azure SQL Managed Instance. "
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: quickstart
@@ -16,7 +16,7 @@ ms.date: 07/11/2019
 # Getting started with Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers.
+[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) creates a database with near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for existing SQL Server customers.
 
 In this article, you will find references to content that teach you how to quickly configure and create a SQL Managed Instance and migrate your databases.
 
@@ -42,18 +42,18 @@ As an alternative to manual creation of SQL Managed Instance, you can use [Power
 
 ### Migrate your databases
 
-After you create a SQL Managed Instance and configure access, you can start migrating your databases from SQL Server on-premises or Azure VMs. Migration can fail f you have some unsupported features in the source database that you want to migrate. To avoid failures and check compatibility, you can use [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) to analyze your databases on SQL Server and find any issue that could block migration to a SQL Managed Instance, such as existence of [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) or multiple log files. If you resolve these issues, your databases are ready to migrate to SQL Managed Instance. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) is another useful tool that can record your workload on SQL Server and replay it on a SQL Managed Instance so you can determine are there going to be any performance issues if you migrate to a SQL Managed Instance.
+After you create a SQL Managed Instance and configure access, you can start migrating your SQL Server databases. Migration can fail if you have some unsupported features in the source database that you want to migrate. To avoid failures and check compatibility, you can use [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) to analyze your databases on SQL Server and find any issue that could block migration to a SQL Managed Instance, such as existence of [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) or multiple log files. If you resolve these issues, your databases are ready to migrate to SQL Managed Instance. [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview) is another useful tool that can record your workload on SQL Server and replay it on a SQL Managed Instance so you can determine are there going to be any performance issues if you migrate to a SQL Managed Instance.
 
-Once you are sure that you can migrate your database to a SQL Managed Instance, you can use the native SQL Server restore capabilities to restore a database into a SQL Managed Instance from a `.bak` file. You can use this method to migrate databases from SQL Server database engine installed on-premises or Azure VM. For a quickstart, see [Restore from backup to a SQL Managed Instance](restore-sample-database-quickstart.md). In this quickstart, you restore from a `.bak` file stored in Azure Blob storage using the `RESTORE` Transact-SQL command.
+Once you are sure that you can migrate your database to a SQL Managed Instance, you can use the native SQL Server restore capabilities to restore a database into a SQL Managed Instance from a `.bak` file. You can use this method to migrate databases from SQL Server database engine installed on-premises or Azure Virtual Machines. For a quickstart, see [Restore from backup to a SQL Managed Instance](restore-sample-database-quickstart.md). In this quickstart, you restore from a `.bak` file stored in Azure Blob storage using the `RESTORE` Transact-SQL command.
 
 > [!TIP]
 > To use the `BACKUP` Transact-SQL command to create a backup of your database in Azure Blob storage, see [SQL Server backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-These quickstarts enable you to quickly create, configure, and restore database backup to a SQL Managed Instance. In some scenarios, you would need to customize or automate deployment of SQL Managed Instances and the required networking environment. These scenarios will be described below.
+These quickstarts enable you to quickly create, configure, and restore database backup to a SQL Managed Instance. In some scenarios, you would need to customize or automate deployment of SQL Managed Instance and the required networking environment. These scenarios will be described below.
 
 ## Customize network environment
 
-Although the VNet/subnet can be automatically configured when the instance is [created using the Azure portal](instance-create-quickstart.md), it might be good to create it before you start creating SQL Managed Instances because you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use the [Azure Resource deployment](virtual-network-subnet-create-arm-template.md) template that creates and configures your network and subnet where the instance will be placed. You just need to press the Azure Resource Manager deploy button and populate the form with parameters.
+Although the VNet/subnet can be automatically configured when the instance is [created using the Azure portal](instance-create-quickstart.md), it might be good to create it before you start creating instances in SQL Managed Instance because you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use the [Azure Resource deployment](virtual-network-subnet-create-arm-template.md) template that creates and configures your network and subnet where the instance will be placed. You just need to press the Azure Resource Manager deploy button and populate the form with parameters.
 
 As an alternative, you can also use this [PowerShell script](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) to automate creation of the network.
 

@@ -26,7 +26,10 @@ For this tutorial you need:
 
 * Your account information (account ID, account key, subscription ID). If you don't have an account, [create an account](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Visual Studio tools for Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
+  * **Desktop development with C++**
+  * **Universal Windows Platform (UWP) development**
 * GIT [(download)](https://git-scm.com/downloads)
 * Unity 2019.3.1 [(download)](https://unity3d.com/get-unity/download)
   * Install these modules in Unity:
@@ -100,6 +103,7 @@ Select the **Main Camera** node.
 
 1. Open *Edit > Project Settings...*
 1. In the list on the left select Quality.
+1. Change the **Active Quality Level** to *Low* by selecting it
 1. Change the **Default Quality Level** to *Low*
 
     ![change project quality settings](media/settings-quality.png)

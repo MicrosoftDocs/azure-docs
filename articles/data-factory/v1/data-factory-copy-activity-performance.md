@@ -365,8 +365,8 @@ If the size of data you want to copy is large, you can adjust your business logi
 
 Be cautious about the number of data sets and copy activities requiring Data Factory to connector to the same data store at the same time. Many concurrent copy jobs might throttle a data store and lead to degraded performance, copy job internal retries, and in some cases, execution failures.
 
-## Sample scenario: Copy from an on-premises SQL Server to Blob storage
-**Scenario**: A pipeline is built to copy data from an on-premises SQL Server to Blob storage in CSV format. To make the copy job faster, the CSV files should be compressed into bzip2 format.
+## Sample scenario: Copy from a SQL Server database to Blob storage
+**Scenario**: A pipeline is built to copy data from a SQL Server database to Blob storage in CSV format. To make the copy job faster, the CSV files should be compressed into bzip2 format.
 
 **Test and analysis**: The throughput of Copy Activity is less than 2 MBps, which is much slower than the performance benchmark.
 
@@ -385,7 +385,7 @@ One or more of the following factors might cause the performance bottleneck:
 
 * **Source**: SQL Server itself has low throughput because of heavy loads.
 * **Data Management Gateway**:
-  * **LAN**: Gateway is located far from the SQL Server machine and has a low-bandwidth connection.
+  * **LAN**: Gateway is located far from the SQL Server computer and has a low-bandwidth connection.
   * **Gateway**: Gateway has reached its load limitations to perform the following operations:
     * **Serialization**: Serializing the data stream to CSV format has slow throughput.
     * **Compression**: You chose a slow compression codec (for example, bzip2, which is 2.8 MBps with Core i7).

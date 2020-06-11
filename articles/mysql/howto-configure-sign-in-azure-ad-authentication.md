@@ -52,21 +52,19 @@ We have also tested most common application drivers, you can see details at the 
 
 These are the steps that a user/application will need to do authenticate with Azure AD described below:
 
+### Prerequisites
+
+You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine. Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
+
 ### Step 1: Authenticate with Azure AD
 
-Make sure you have the [Azure CLI installed](/cli/azure/install-azure-cli).
-
-Invoke the Azure CLI tool to authenticate with Azure AD. It requires you to give your Azure AD user ID and the password.
+Start by authenticating with Azure AD using the Azure CLI tool. This step is not required in Azure Cloud Shell.
 
 ```
 az login
 ```
 
-This command will launch a browser window to the Azure AD authentication page.
-
-> [!NOTE]
-> You can also use Azure Cloud Shell to perform these steps.
-> Please be aware that when retrieving Azure AD access token in the Azure Cloud Shell you will need to explicitly call `az login` and sign in again (in the separate window with a code). After that sign in the `get-access-token` command will work as expected.
+The command will launch a browser window to the Azure AD authentication page. It requires you to give your Azure AD user ID and the password.
 
 ### Step 2: Retrieve Azure AD access token
 
@@ -74,19 +72,19 @@ Invoke the Azure CLI tool to acquire an access token for the Azure AD authentica
 
 Example (for Public Cloud):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The above resource value must be specified exactly as shown. For other clouds, the resource value can be looked up using:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 For Azure CLI version 2.0.71 and later, the command can be specified in the following more convenient version for all clouds:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 
@@ -120,6 +118,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Important considerations when connecting:
+
+* `user@tenant.onmicrosoft.com` is the name of the Azure AD user or group you are trying to connect as
+* Always append the server name after the Azure AD user/group name (e.g. `@mydb`)
+* Make sure to use the exact way the Azure AD user or group name is spelled
+* Azure AD user and group names are case sensitive
+* When connecting as a group, use only the group name (e.g. `GroupName@mydb`)
+* If the name contains spaces, use `\` before each space to escape it
 
 Note the “enable-cleartext-plugin” setting – you need to use a similar configuration with other clients to make sure the token gets sent to the server without being hashed.
 
