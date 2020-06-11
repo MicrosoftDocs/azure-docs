@@ -116,7 +116,7 @@ Here's how to install OneDrive in per-machine mode:
 2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
 
 3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
-    
+
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
@@ -151,9 +151,11 @@ Here's how to install OneDrive in per-machine mode:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## Teams and Skype
+## Microsoft Teams and Skype for Business
 
-Windows Virtual Desktop doesn't support Skype for Business and Teams.
+Windows Virtual Desktop doesn't support Skype for Business.
+
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview. 
 
 ## Next steps
 
