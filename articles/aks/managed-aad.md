@@ -98,7 +98,7 @@ As shown in the graphic below, the API server calls the AKS webhook server and p
 10. Once authorized, the API server returns a response to kubectl.
 11. Kubectl provides feedback to the user.
 
-:::image type="content" source="media/auth_flow.png" alt-text="Webhook and API server authentication flow":::
+:::image type="content" source="media/aad-integration/auth_flow.png" alt-text="Webhook and API server authentication flow":::
 
 ## Create an AKS cluster with Azure AD enabled
 
