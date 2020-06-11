@@ -212,6 +212,13 @@ Limitations:
 After you create a custom route table and associate it to your virtual network, you can create a new AKS cluster that uses your custom route table. You need to use the subnet ID for where you plan to deploy your AKS cluster. 
 
 ```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
 # Create a kubernetes cluster with with a custom subnet preconfigured with a route table
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
