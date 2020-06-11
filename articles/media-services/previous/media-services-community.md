@@ -45,15 +45,15 @@ The following forums can be used for asking questions about current products and
 
 Currently, MSDN is Media Services team's primary community forum.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 The team also monitors questions tagged on Stack Overflow with 'azure-media-services'.
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## Contact the team
+## Need help?
 
-Azure Media Services primary support email is: **amshelp@microsoft.com**.
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: Set up IP addressing to connect to a secondary on-premises site after failover with Azure Site Recovery 
+title: Set up IP addressing after failover to a secondary site with Azure Site Recovery 
 description: Describes how to set up IP addressing for connecting to VMs in a secondary on-premises site after disaster recovery and failover with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ---
 # Set up IP addressing to connect to a secondary on-premises site after failover

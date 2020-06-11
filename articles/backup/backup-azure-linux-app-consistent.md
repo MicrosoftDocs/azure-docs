@@ -1,14 +1,10 @@
 ---
-title: 'Azure Backup: application-consistent backups of Linux VMs'
+title: Application-consistent backups of Linux VMs
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
 ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.author: dacurwin
+
 ---
 
 # Application-consistent backup of Azure Linux VMs
@@ -37,7 +33,7 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
 
    - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
 
-   > [!Important]
+   > [!IMPORTANT]
    > The framework gives users a lot of power. Secure the framework, and ensure only “root” user has access to critical JSON and script files.
    > If the requirements aren't met, the script won't run, which results in a file system crash and inconsistent backup.
    >
@@ -63,6 +59,8 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
 
     - **fsFreezeEnabled**: Specify whether Linux fsfreeze should be called while you're taking the VM snapshot to ensure file system consistency. We recommend keeping this setting set to **true** unless your application has a dependency on disabling fsfreeze.
 
+    - **ScriptsExecutionPollTimeSeconds**: Set the time the extension has to sleep between each poll to the script execution. For example, if the value is 2, the extension checks whether the pre/post script execution completed every 2 seconds. The minimum and maximum value it can take is 1 and 5 respectively. The value should be strictly an integer.
+
 6. The script framework is now configured. If the VM backup is already configured, the next backup invokes the scripts and triggers application-consistent backup. If the VM backup is not configured, configure it by using [Back up Azure virtual machines to Recovery Services vaults.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
 ## Troubleshooting
@@ -71,11 +69,11 @@ Make sure you add appropriate logging while writing your pre-script and post-scr
 
 | Error | Error message | Recommended action |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |The pre-script returned an error, so backup might not be application-consistent.	| Look at the failure logs for your script to fix the issue.|  
-|	Post-ScriptExecutionFailed |	The post-script returned an error that might impact application state. |	Look at the failure logs for your script to fix the issue and check the application state. |
-| Pre-ScriptNotFound |	The pre-script was not found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that pre-script is present at the path that's specified in the config file to ensure application-consistent backup.|
-| Post-ScriptNotFound |	The post-script wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |	Make sure that post-script is present at the path that's specified in the config file to ensure application-consistent backup.|
-| IncorrectPluginhostFile |	The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.	| Uninstall the **VmSnapshotLinux** extension, and it will automatically be reinstalled with the next backup to fix the problem. |
+| Pre-ScriptExecutionFailed |The pre-script returned an error, so backup might not be application-consistent.| Look at the failure logs for your script to fix the issue.|  
+|Post-ScriptExecutionFailed |The post-script returned an error that might impact application state. |Look at the failure logs for your script to fix the issue and check the application state. |
+| Pre-ScriptNotFound |The pre-script was not found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |Make sure that pre-script is present at the path that's specified in the config file to ensure application-consistent backup.|
+| Post-ScriptNotFound |The post-script wasn't found at the location that's specified in the **VMSnapshotScriptPluginConfig.json** config file. |Make sure that post-script is present at the path that's specified in the config file to ensure application-consistent backup.|
+| IncorrectPluginhostFile |The **Pluginhost** file, which comes with the VmSnapshotLinux extension, is corrupted, so pre-script and post-script cannot run and the backup won't be application-consistent.| Uninstall the **VmSnapshotLinux** extension, and it will automatically be reinstalled with the next backup to fix the problem. |
 | IncorrectJSONConfigFile | The **VMSnapshotScriptPluginConfig.json** file is incorrect, so pre-script and post-script cannot run and the backup won't be application-consistent. | Download the copy from [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) and configure it again. |
 | InsufficientPermissionforPre-Script | For running scripts, "root" user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
 | InsufficientPermissionforPost-Script | For running scripts, root user should be the owner of the file and the file should have “700” permissions (that is, only "owner" should have “read”, “write”, and “execute” permissions). | Make sure “root” user is the “owner” of the script file and that only "owner" has “read”, “write” and “execute” permissions. |
@@ -83,4 +81,5 @@ Make sure you add appropriate logging while writing your pre-script and post-scr
 | Post-ScriptTimeout | The execution of the application-consistent backup post-script timed out. | Check the script and increase the timeout in the **VMSnapshotScriptPluginConfig.json** file that's located at **/etc/azure**. |
 
 ## Next steps
+
 [Configure VM backup to a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

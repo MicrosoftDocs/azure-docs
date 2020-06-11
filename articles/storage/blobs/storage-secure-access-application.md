@@ -1,18 +1,20 @@
 ---
-title: Secure access to an application's data in the cloud with Azure Storage | Microsoft Docs 
+title: Secure access to application data
+titleSuffix: Azure Storage 
 description: Use SAS tokens, encryption and HTTPS to secure your application's data in the cloud.
 services: storage
 author: tamram
 
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
 ---
 
-# Secure access to an application's data in the cloud
+# Secure access to application data
 
 This tutorial is part three of a series. You learn how to secure access to the storage account. 
 
@@ -27,113 +29,107 @@ In part three of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you must have completed the previous Storage tutorial: [Automate resizing uploaded images using Event Grid][previous-tutorial]. 
+To complete this tutorial you must have completed the previous Storage tutorial: [Automate resizing uploaded images using Event Grid][previous-tutorial].
 
 ## Set container public access
 
-In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the _thumbnails_ container to `off`.
+In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the *thumbnails* container to `off`.
 
 ```azurecli-interactive 
-blobStorageAccount=<blob_storage_account>
+blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv) 
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
---public-access off
-``` 
+az storage container set-permission \
+    --account-name $blobStorageAccount \
+    --account-key $blobStorageAccountKey \
+    --name thumbnails \
+    --public-access off
+```
 
 ## Configure SAS tokens for thumbnails
 
 In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use shared access signatures (SAS) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 
-In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.  
+In this example, the source code repository uses the `sasTokens` branch, which has an updated code sample. Delete the existing GitHub deployment with the [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Next, configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
-In the following command, `<web-app>` is the name of your web app.  
+In the following command, `<web-app>` is the name of your web app.
 
 ```azurecli-interactive 
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
---resource-group myResourceGroup --branch sasTokens --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-``` 
+    --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
 
-The `sasTokens` branch of the repository updates the `StorageHelper.cs` file. It replaces the `GetThumbNailUrls` task with the code example below. The updated task retrieves the thumbnail URLs by setting a [SharedAccessBlobPolicy](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy) to specify the start time, expiry time, and permissions for  the SAS token. Once deployed the web app now retrieves the thumbnails with a URL using a SAS token. The updated task is shown in the following example:
-    
+The `sasTokens` branch of the repository updates the `StorageHelper.cs` file. It replaces the `GetThumbNailUrls` task with the code example below. The updated task retrieves the thumbnail URLs by using a [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) to specify the start time, expiry time, and permissions for the SAS token. Once deployed the web app now retrieves the thumbnails with a URL using a SAS token. The updated task is shown in the following example:
+
 ```csharp
 public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _storageConfig)
 {
     List<string> thumbnailUrls = new List<string>();
 
-    // Create storagecredentials object by reading the values from the configuration (appsettings.json)
-    StorageCredentials storageCredentials = new StorageCredentials(_storageConfig.AccountName, _storageConfig.AccountKey);
+    // Create a URI to the storage account
+    Uri accountUri = new Uri("https://" + _storageConfig.AccountName + ".blob.core.windows.net/");
 
-    // Create cloudstorage account by passing the storagecredentials
-    CloudStorageAccount storageAccount = new CloudStorageAccount(storageCredentials, true);
-
-    // Create blob client
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Create BlobServiceClient from the account URI
+    BlobServiceClient blobServiceClient = new BlobServiceClient(accountUri);
 
     // Get reference to the container
-    CloudBlobContainer container = blobClient.GetContainerReference(_storageConfig.ThumbnailContainer);
+    BlobContainerClient container = blobServiceClient.GetBlobContainerClient(_storageConfig.ThumbnailContainer);
 
-    BlobContinuationToken continuationToken = null;
-
-    BlobResultSegment resultSegment = null;
-
-    //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-    //When the continuation token is null, the last page has been returned and execution can exit the loop.
-    do
+    if (container.Exists())
     {
-        //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
-        //or by calling a different overload.
-        resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
-
-        foreach (var blobItem in resultSegment.Results)
+        // Set the expiration time and permissions for the container.
+        // In this case, the start time is specified as a few 
+        // minutes in the past, to mitigate clock skew.
+        // The shared access signature will be valid immediately.
+        BlobSasBuilder sas = new BlobSasBuilder
         {
-            CloudBlockBlob blob = blobItem as CloudBlockBlob;
-            //Set the expiry time and permissions for the blob.
-            //In this case, the start time is specified as a few minutes in the past, to mitigate clock skew.
-            //The shared access signature will be valid immediately.
-            SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy();
+            Resource = "c",
+            BlobContainerName = _storageConfig.ThumbnailContainer,
+            StartsOn = DateTimeOffset.UtcNow.AddMinutes(-5),
+            ExpiresOn = DateTimeOffset.UtcNow.AddHours(1)
+        };
 
-            sasConstraints.SharedAccessStartTime = DateTimeOffset.UtcNow.AddMinutes(-5);
+        sas.SetPermissions(BlobContainerSasPermissions.All);
 
-            sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24);
+        // Create StorageSharedKeyCredentials object by reading
+        // the values from the configuration (appsettings.json)
+        StorageSharedKeyCredential storageCredential =
+            new StorageSharedKeyCredential(_storageConfig.AccountName, _storageConfig.AccountKey);
 
-            sasConstraints.Permissions = SharedAccessBlobPermissions.Read;
+        // Create a SAS URI to the storage account
+        UriBuilder sasUri = new UriBuilder(accountUri);
+        sasUri.Query = sas.ToSasQueryParameters(storageCredential).ToString();
 
-            //Generate the shared access signature on the blob, setting the constraints directly on the signature.
-            string sasBlobToken = blob.GetSharedAccessSignature(sasConstraints);
+        foreach (BlobItem blob in container.GetBlobs())
+        {
+            // Create the URI using the SAS query token.
+            string sasBlobUri = container.Uri + "/" +
+                                blob.Name + sasUri.Query;
 
             //Return the URI string for the container, including the SAS token.
-            thumbnailUrls.Add(blob.Uri + sasBlobToken);
-
+            thumbnailUrls.Add(sasBlobUri);
         }
-
-        //Get the continuation token.
-        continuationToken = resultSegment.ContinuationToken;
     }
-
-    while (continuationToken != null);
-
     return await Task.FromResult(thumbnailUrls);
 }
 ```
 
 The following classes, properties, and methods are used in the preceding task:
 
-|Class  |Properties| Methods  |
-|---------|---------|---------|
-|[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
-|[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |
-|[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)     | |[GetContainerReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getcontainerreference)         |
-|[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)     | |[SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync) <br> [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)       |
-|[BlobContinuationToken](/dotnet/api/microsoft.azure.storage.blob.blobcontinuationtoken)     |         |
-|[BlobResultSegment](/dotnet/api/microsoft.azure.storage.blob.blobresultsegment)    | [Results](/dotnet/api/microsoft.azure.storage.blob.blobresultsegment.results)         |
-|[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)    |         | [GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
-|[SharedAccessBlobPolicy](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy)     | [SharedAccessStartTime](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.sharedaccessstarttime)<br>[SharedAccessExpiryTime](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.sharedaccessexpirytime)<br>[Permissions](/dotnet/api/microsoft.azure.storage.blob.sharedaccessblobpolicy.permissions) |        |
+| Class | Properties | Methods |
+|-------|------------|---------|
+|[StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) |  |  |
+|[BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) |  |[GetBlobContainerClient](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainerclient) |
+|[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [Uri](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Exists](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
+|[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
+|[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [Name](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
+|[UriBuilder](/dotnet/api/system.uribuilder) | [Query](/dotnet/api/system.uribuilder.query) |  |
+|[List](/dotnet/api/system.collections.generic.list-1) | | [Add](/dotnet/api/system.collections.generic.list-1.add) |
 
 ## Server-side encryption
 

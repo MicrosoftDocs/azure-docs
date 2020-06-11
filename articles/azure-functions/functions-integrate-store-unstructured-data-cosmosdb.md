@@ -1,18 +1,9 @@
 ---
-title: Store unstructured data using Azure Cosmos DB and Functions | Microsoft Docs
+title: Store unstructured data using Azure Cosmos DB and Functions 
 description: Store unstructured data using Azure Functions and Cosmos DB
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, Cosmos DB, dynamic compute, serverless architecture
 
-ms.assetid: 
-ms.service: azure-functions
-ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: glenga
+ms.date: 04/14/2020
 ms.custom: mvc
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
@@ -23,8 +14,6 @@ ms.custom: mvc
 > At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Graph API accounts only.
 
 In Azure Functions, input and output bindings provide a declarative way to connect to external service data from your function. In this article, learn how to update an existing function to add an output binding that stores unstructured data in an Azure Cosmos DB document.
-
-![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
 ## Prerequisites
 
@@ -40,30 +29,30 @@ You must have an Azure Cosmos DB account that uses the SQL API before you create
 
 ## Add an output binding
 
-1. In the portal, navigate to the function app you created previously and expand both your function app and your function.
+1. In the Azure portal, navigate to and select the function app you created previously.
 
-1. Select **Integrate** and **+ New Output**, which is at the top right of the page. Choose **Azure Cosmos DB**, and click **Select**.
+1. Select **Functions**, and then select the HttpTrigger function.
 
-    ![Add an Azure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-add-new-output-binding.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Select your Http function in the Azure portal." border="true":::
 
-1. If you get an **Extensions not installed** message, choose **Install** to install the Azure Cosmos DB bindings extension in the function app. Installation may take a minute or two.
+1. Select **Integration** and **+ Add output**.
 
-    ![Install the Azure Cosmos DB binding extension](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-install-binding-extension.png)
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Add an Azure Cosmos DB output binding." border="true":::
 
-1. Use the **Azure Cosmos DB output** settings as specified in the table:
+1. Use the **Create Output** settings as specified in the table:
 
-    ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Configure Azure Cosmos DB output binding." border="true":::
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
+    | **Binding Type** | Azure Cosmos DB | Name of the binding type to select to create the output binding to Azure Cosmos DB. |
     | **Document parameter name** | taskDocument | Name that refers to the Cosmos DB object in code. |
     | **Database name** | taskDatabase | Name of database to save documents. |
-    | **Collection name** | TaskCollection | Name of the database collection. |
-    | **If true, creates the Cosmos DB database and collection** | Checked | The collection doesn't already exist, so create it. |
-    | **Azure Cosmos DB account connection** | New setting | Select **New**, then choose your **Subscription**, the **Database account** you created earlier, and **Select**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
-    | **Collection throughput** |400 RU| If you want to reduce latency, you can scale up the throughput later. |
+    | **Collection name** | taskCollection | Name of the database collection. |
+    | **If true, creates the Cosmos DB database and collection** | Yes | The collection doesn't already exist, so create it. |
+    | **Cosmos DB account connection** | New setting | Select **New**, then choose **Azure Cosmos DB Account** and the **Database account** you created earlier, and then select **OK**. Creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
 
-1. Select **Save** to create the binding.
+1. Select **OK** to create the binding.
 
 ## Update the function code
 
@@ -138,25 +127,29 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 ## Test the function and database
 
-1. Expand the right window and select **Test**. Under **Query**, click **+ Add parameter** and add the following parameters to the query string:
+1. Select **Test**. Under **Query**, select **+ Add parameter** and add the following parameters to the query string:
 
     + `name`
     + `task`
     + `duedate`
 
-1. Click **Run** and verify that a 200 status is returned.
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Test the function." border="true":::
 
-    ![Configure Cosmos DB output binding](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png)
 
-1. On the left side of the Azure portal, expand the icon bar, type `cosmos` in the search field, and select **Azure Cosmos DB**.
+1. Select **Run** and verify that a 200 status is returned.
 
-    ![Search for the Cosmos DB service](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Test the function." border="true":::
 
-1. Choose your Azure Cosmos DB account, then select the **Data Explorer**.
 
-1. Expand the **Collections** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
+1. In the Azure portal, search for and select **Azure Cosmos DB**.
 
-    ![Verify Cosmos DB entry](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Search for the Cosmos DB service." border="true":::
+
+1. Choose your Azure Cosmos DB account, then select  **Data Explorer**.
+
+1. Expand the **TaskCollection** nodes, select the new document, and confirm that the document contains your query string values, along with some additional metadata.
+
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Verify the string values in your document." border="true":::
 
 You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB.
 

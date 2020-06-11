@@ -218,7 +218,7 @@ For Azure AD users to be able to sign in, they must be provisioned to the Though
     c. Click **Create This Profile**.
 
 >[!NOTE]
->You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision AAD user accounts.
+>You can use any other Thoughtworks Mingle user account creation tools or APIs provided by Thoughtworks Mingle to provision Azure AD user accounts.
 > 
 
 ### Test single sign-on 

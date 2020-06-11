@@ -1,21 +1,9 @@
 ---
-title: Package an Azure Service Fabric app | Microsoft Docs
-description: How to package a Service Fabric application before deploying to a cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
+title: Package an Azure Service Fabric app 
+description: Learn about packaging an Azure Service Fabric application and how to prepare for deployment to a cluster.
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Package an application
 
@@ -63,9 +51,9 @@ For more information on how to configure the **SetupEntryPoint**, see [Configure
 
 ### Build a package by using Visual Studio
 
-If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
+If you used Visual Studio to create your application, you can use the *Package* command to automatically create a package that matches the layout described above.
 
-To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
+To create a package, right-click the application project in *Solution Explorer* and choose the **Package** command:
 
 ![Packaging an application with Visual Studio][vs-package-command]
 

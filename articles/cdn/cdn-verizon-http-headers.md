@@ -3,7 +3,7 @@ title: Verizon-specific HTTP headers for Azure CDN rules engine | Microsoft Docs
 description: This article describes how to use Verizon-specific HTTP headers with Azure CDN rules engine.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: magattus
 
 For **Azure CDN Premium from Verizon** products, when an HTTP request is sent to the origin server, the point-of-presence (POP) server can add one or more reserved headers (or proxy special headers) in the client request to the POP. These headers are in addition to the standard forwarding headers received. For information about standard request headers, see [Request fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields).
 
-If you want to prevent one of these reserved headers from being added in the Azure CDN (Content Delivery Network) POP request to the origin server, you must create a rule with the [Proxy Special Headers feature](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) in the rules engine. In this rule, exclude the header you want to remove from the default list of headers in the headers field. If you've enabled the [Debug Cache Response Headers feature](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), be sure to add the necessary `X-EC-Debug` headers. 
+If you want to prevent one of these reserved headers from being added in the Azure CDN (Content Delivery Network) POP request to the origin server, you must create a rule with the [Proxy Special Headers feature](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) in the rules engine. In this rule, exclude the header you want to remove from the default list of headers in the headers field. If you've enabled the [Debug Cache Response Headers feature](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm), be sure to add the necessary `X-EC-Debug` headers. 
 
 For example, to remove the `Via` header, the headers field of the rule should include the following list of headers: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 

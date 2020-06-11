@@ -1,12 +1,8 @@
 ---
-title: Sample - ISO 27001 blueprint - Control mapping
-description: Control mapping of the ISO 27001 blueprint sample to Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 07/22/2019
+title: ISO 27001 blueprint sample controls
+description: Control mapping of the ISO 27001 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
+ms.date: 01/13/2020
 ms.topic: sample
-ms.service: blueprints
-manager: carmonm
 ---
 # Control mapping of the ISO 27001 blueprint sample
 
@@ -299,7 +295,7 @@ following articles to learn about the architecture and how to deploy this sample
 > [ISO 27001 blueprint - Overview](./index.md)
 > [ISO 27001 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

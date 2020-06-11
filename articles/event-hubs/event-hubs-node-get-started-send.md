@@ -1,44 +1,43 @@
 ---
-title: Send and receive events using Node.js - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a Node.js application that sends events from Azure Event Hubs.
+title: Send or receive events from Azure Event Hubs using JavaScript (legacy)
+description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the old azure/event-hubs version 2 package. 
 services: event-hubs
 author: spelluru
-manager: kamalb
 
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.custom: seodec18
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 01/15/2020
 ms.author: spelluru
+
 
 ---
 
-# Send events to or receive events from Azure Event Hubs using Node.js
+# Quickstart: Send events to or receive events from Azure Event Hubs using JavaScript (@azure/event-hubs version 2)
+This quickstart shows how to create JavaScript applications to send events to and receive events from an event hub using the azure/event-hubs version 2 JavaScript package. 
 
-Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+> [!WARNING]
+> This quickstart uses the old azure/event-hubs version 2 package. For a quickstart that uses the latest **version 5** of the package, see [Send and receive events using azure/eventhubs version 5](get-started-node-send-v2.md). To move your application from the using the old package to new one, see the [Guide to migrate from azure/eventhubs version 1 to version 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
 
-This tutorial describes how to create Node.js applications to send events to or receive events from an event hub.
-
-> [!NOTE]
-> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following prerequisites:
+If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
-- An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+To complete this quickstart, you need the following prerequisites:
+
+- **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - Node.js version 8.x and higher. Download the latest LTS version from [https://nodejs.org](https://nodejs.org).
 - Visual Studio Code (recommended) or any other IDE
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then continue with the following steps in this tutorial. Then, get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
 
 
 ### Install npm package
-To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has `npm` in its path, change the directory
+To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0), open a command prompt that has `npm` in its path, change the directory
 to the folder where you want to have your samples and then run this command
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 To install the [npm package for Event Processor Host](https://www.npmjs.com/package/@azure/event-processor-host), run the below command instead
@@ -49,13 +48,16 @@ npm install @azure/event-processor-host
 
 ## Send events
 
-This section shows you how to create a Node.js application that sends events to an event hub. 
+This section shows you how to create a JavaScript application that sends events to an event hub. 
+
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `send.js` and paste the below code into it. Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -88,13 +90,13 @@ Congratulations! You have now sent events to an event hub.
 
 ## Receive events
 
-This section shows you how to create a Node.js application that receives events from a single partition
+This section shows you how to create a JavaScript application that receives events from a single partition
 of the default consumer group in an event hub. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `receive.js` and paste the below code into it.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -132,7 +134,7 @@ Congratulations! You have now received events from event hub.
 
 ## Receive events using Event Processor Host
 
-This section shows how to receive events from an event hub by using Azure [EventProcessorHost](event-hubs-event-processor-host.md) in a Node.js application. The EventProcessorHost (EPH) helps you efficiently receive events from an event hub by creating receivers across all partitions in the consumer group of an event hub. It checkpoints metadata on received messages at regular intervals in an Azure Storage Blob. This approach makes it easy to continue receiving messages from where you left off at a later time.
+This section shows how to receive events from an event hub by using Azure [EventProcessorHost](event-hubs-event-processor-host.md) in a JavaScript application. The EventProcessorHost (EPH) helps you efficiently receive events from an event hub by creating receivers across all partitions in the consumer group of an event hub. It checkpoints metadata on received messages at regular intervals in an Azure Storage Blob. This approach makes it easy to continue receiving messages from where you left off at a later time.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `receiveAll.js` and paste the below code into it.
@@ -191,4 +193,4 @@ Read the following articles:
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
-- Check out other Node.js samples for [Event Hubs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) and [Event Processor Host](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-processor-host/samples) on GitHub
+- Check out other JavaScript samples for [Event Hubs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) and [Event Processor Host](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-processor-host/samples) on GitHub

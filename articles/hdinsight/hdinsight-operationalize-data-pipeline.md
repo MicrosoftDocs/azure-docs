@@ -1,18 +1,18 @@
 ---
 title: Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.custom: hdinsightactive
+ms.date: 12/25/2019
 ---
 
 # Operationalize a data analytics pipeline
 
-*Data pipelines* underly many data analytics solutions. As the name suggests, a data pipeline takes in raw data, cleans and reshapes it as needed, and then typically performs calculations or aggregations before storing the processed data. The processed data is consumed by clients, reports, or APIs. A data pipeline must provide repeatable results, whether on a schedule or when triggered by new data.
+*Data pipelines* underly many data analytics solutions. As the name suggests, a data pipeline takes in raw data, cleans, and reshapes it as needed, and then typically performs calculations or aggregations before storing the processed data. The processed data is consumed by clients, reports, or APIs. A data pipeline must provide repeatable results, whether on a schedule or when triggered by new data.
 
 This article describes how to operationalize your data pipelines for repeatability, using Oozie running on HDInsight Hadoop clusters. The example scenario walks you through a data pipeline that prepares and processes airline flight time-series data.
 
@@ -24,7 +24,7 @@ In the following scenario, the input data is a flat file containing a batch of f
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Apache Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
+The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Apache Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL Database to provide reports, such as for a website.
 
 The following diagram illustrates the example pipeline.
 
@@ -40,31 +40,17 @@ The following diagram shows the high-level design of this example Oozie pipeline
 
 ![Oozie Flight example Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
 
-### Provision Azure resources
+## Provision Azure resources
 
-This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in the same location. The Azure SQL Database stores both the summary data produced by the pipeline and the Oozie metadata store.
+This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in the same location. The Azure SQL Database stores both the summary data produced by the pipeline and the Oozie Metadata Store.
 
-#### Provision Azure SQL Database
+### Provision Azure SQL Database
 
-1. Using the Azure portal, create a new Resource Group named `oozie` to contain all the resources used by this example.
-2. Within the `oozie` resource group, provision an Azure SQL Server and Database. You do not need a database larger than the S1 Standard pricing tier.
-3. Using the Azure portal, navigate to the pane for your newly deployed SQL Database, and select **Tools**.
+1. Create an Azure SQL Database. See [Create an Azure SQL Database in the Azure portal](../azure-sql/database/single-database-create-quickstart.md).
 
-    ![HDInsight sql db tools button icon](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-tools-button.png)
+1. To make sure that your HDInsight cluster can access the connected Azure SQL Database, configure Azure SQL Database firewall rules to allow Azure services and resources to access the server. You can enable this option in the Azure portal by selecting **Set server firewall**, and selecting **ON** underneath **Allow Azure services and resources to access this server** for Azure SQL Database. For more information, see [Create and manage IP firewall rules](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
-4. Select **Query Editor**.
-
-    ![Tools sql db query editor preview](./media/hdinsight-operationalize-data-pipeline/sql-db-query-editor1.png)
-
-5. In the **Query Editor** pane, select **Login**.
-
-    ![Query editor sql db login window](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window1.png)
-
-6. Enter your SQL Database credentials and select **OK**.
-
-   ![Query editor sql db login parameters](./media/hdinsight-operationalize-data-pipeline/sql-db-login-window2.png)
-
-7. In the Query Editor text area, enter the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
+1. Use [Query editor](../azure-sql/database/single-database-create-quickstart.md#query-the-database) to execute the following SQL statements to create the `dailyflights` table that will store the summarized data from each run of the pipeline.
 
     ```sql
     CREATE TABLE dailyflights
@@ -83,94 +69,63 @@ This pipeline requires an Azure SQL Database and an HDInsight Hadoop cluster in 
     GO
     ```
 
-8. Select **Run** to execute the SQL statements.
-
-    ![HDInsight sql db execute button](./media/hdinsight-operationalize-data-pipeline/hdi-sql-db-run-button.png)
-
 Your Azure SQL Database is now ready.
 
-#### Provision an HDInsight Hadoop Cluster
+### Provision an Apache Hadoop Cluster
 
-1. In the Azure portal, select **+New** and search for HDInsight.
-2. Select **Create**.
-3. On the Basics pane, provide a unique name for your cluster and choose your Azure Subscription.
+Create an Apache Hadoop cluster with a custom metastore. During cluster creation from the portal, from the **Storage** tab, ensure you select your SQL Database under **Metastore settings**. For more information on selecting a metastore, see [Select a custom metastore during cluster creation](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation). For more information on cluster creation, see [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-    ![HDInsight cluster name and subscription](./media/hdinsight-operationalize-data-pipeline/cluster-name-subscription.png)
-
-4. In the **Cluster type** pane, select the **Hadoop** cluster type, **Linux** operating system, and the latest version of the HDInsight cluster. Leave the **Cluster tier** at **Standard**.
-
-    ![Azure portal cluster configuration type](./media/hdinsight-operationalize-data-pipeline/hdinsight-cluster-type.png)
-
-5. Choose **Select** to apply your cluster type selection.
-6. Complete the **Basics** pane by providing a login password and selecting your `oozie` resource group from the list, then select **Next**.
-
-    ![Azure portal create cluster basics pane](./media/hdinsight-operationalize-data-pipeline/hdinsight-basics-pane.png)
-
-7. In the **Storage** pane, leave the primary storage type set to **Azure Storage**, select **Create new**, and provide a name for the new account.
-
-    ![HDInsight Storage Account Settings](./media/hdinsight-operationalize-data-pipeline/storage-account-settings.png)
-
-8. For the **Metastore Settings**, under **Select a SQL database for Hive**, choose the database you previously created.
-
-    ![HDInsight Hive Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
-
-9. Select **Authenticate SQL Database**.
-
-    ![HDInsight Hive Metastore Authenticate](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
-
-10. Enter your SQL database username and password, and choose **Select**.
-
-       ![HDInsight Hive Metastore Authenticate Login](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
-
-11. Back on the **Metastore Settings** pane, select your database for the Oozie metadata store and authenticate as you did previously.
-
-       ![Azure portal Metastore Settings](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
-
-12. Select **Next**.
-13. On the **Summary** pane, select **Create** to deploy your cluster.
-
-### Verify SSH tunneling setup
+## Verify SSH tunneling set up
 
 To use the Oozie Web Console to view the status of your coordinator and workflow instances, set up an SSH tunnel to your HDInsight cluster. For more information, see [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
 > [!NOTE]  
 > You can also use Chrome with the [Foxy Proxy](https://getfoxyproxy.org/) extension to browse your cluster's web resources across the SSH tunnel. Configure it to proxy all request through the host `localhost` on the tunnel's port 9876. This approach is compatible with the Windows Subsystem for Linux, also known as Bash on Windows 10.
 
-1. Run the following command to open an SSH tunnel to your cluster:
+1. Run the following command to open an SSH tunnel to your cluster, where `CLUSTERNAME` is the name of your cluster:
 
-    ```
-    ssh -C2qTnNf -D 9876 sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
-    ```
-
-2. Verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
-
-    http:\//headnodehost:8080
-
-3. To access the **Oozie Web Console** from within Ambari, select **Oozie**, **Quick Links**, and then select **Oozie Web Console**.
-
-### Configure Hive
-
-1. Download an example CSV file that contains flight data for one month. Download its ZIP file `2017-01-FlightData.zip` from the [HDInsight GitHub repository](https://github.com/hdinsight/hdinsight-dev-guide) and unzip it to the CSV file `2017-01-FlightData.csv`. 
-
-2. Copy this CSV file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
-
-You can copy the file using SCP in your `bash` shell session.
-
-1. Use SCP to copy the files from your local machine to the local storage of your HDInsight cluster head node.
-
-    ```bash
-    scp ./2017-01-FlightData.csv sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:2017-01-FlightData.csv
+    ```cmd
+    ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Use the HDFS command to copy the file from your head node local storage to Azure Storage.
+1. Verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
 
-    ```bash
-    hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
-    ```
+    `http://headnodehost:8080`
+
+1. To access the **Oozie Web Console** from within Ambari, navigate to  **Oozie** > **Quick Links** > [Active server] > **Oozie Web UI**.
+
+## Configure Hive
+
+### Upload data
+
+1. Download an example CSV file that contains flight data for one month. Download its ZIP file `2017-01-FlightData.zip` from the [HDInsight GitHub repository](https://github.com/hdinsight/hdinsight-dev-guide) and unzip it to the CSV file `2017-01-FlightData.csv`.
+
+1. Copy this CSV file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
+
+    1. Use SCP to copy the files from your local machine to the local storage of your HDInsight cluster head node.
+
+        ```cmd
+        scp ./2017-01-FlightData.csv sshuser@CLUSTERNAME-ssh.azurehdinsight.net:2017-01-FlightData.csv
+        ```
+
+    1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing `CLUSTERNAME` with the name of your cluster, and then enter the command:
+
+        ```cmd
+        ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+        ```
+
+    1. From you ssh session, use the HDFS command to copy the file from your head node local storage to Azure Storage.
+
+        ```bash
+        hadoop fs -mkdir /example/data/flights
+        hdfs dfs -put ./2017-01-FlightData.csv /example/data/flights/2017-01-FlightData.csv
+        ```
+
+### Create tables
 
 The sample data is now available. However, the pipeline requires two Hive tables for processing, one for the incoming data (`rawFlights`) and one for the summarized data (`flights`). Create these tables in Ambari as follows.
 
-1. Log in to Ambari by navigating to http:\//headnodehost:8080.
+1. Log in to Ambari by navigating to `http://headnodehost:8080`.
 
 2. From the list of services, select **Hive**.
 
@@ -178,7 +133,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 3. Select **Go To View** next to the Hive View 2.0 label.
 
-    ![Ambari Apache Apache Hive summary list](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    ![Ambari Apache Hive summary list](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
 4. In the query text area, paste the following statements to create the `rawFlights` table. The `rawFlights` table provides a schema-on-read for the CSV files within the `/example/data/flights` folder in Azure Storage.
 
@@ -197,11 +152,11 @@ The sample data is now available. However, the pipeline requires two Hive tables
         ACTUAL_ELAPSED_TIME FLOAT,
         DISTANCE FLOAT)
     ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
-    WITH SERDEPROPERTIES 
+    WITH SERDEPROPERTIES
     (
         "separatorChar" = ",",
         "quoteChar"     = "\""
-    ) 
+    )
     LOCATION '/example/data/flights'
     ```
 
@@ -209,9 +164,9 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
     ![hdi ambari services hive query](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
-6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
+6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive-managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
 
-    ```
+    ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
 
     CREATE TABLE flights
@@ -237,7 +192,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 7. Select **Execute** to create the table.
 
-### Create the Oozie workflow
+## Create the Oozie workflow
 
 Pipelines typically process data in batches by a given time interval. In this case, the pipeline processes the flight data daily. This approach allows for the input CSV files to arrive daily, weekly, monthly, or annually.
 
@@ -247,16 +202,55 @@ The sample workflow processes the flight data day-by-day, in three major steps:
 2. Run a Hive query to dynamically create a staging table in Hive for the day, which contains a copy of the flight data summarized by day and carrier.
 3. Use Apache Sqoop to copy all the data from the daily staging table in Hive to the destination `dailyflights` table in Azure SQL Database. Sqoop reads the source rows from the data behind the Hive table residing in Azure Storage and loads them into SQL Database using a JDBC connection.
 
-These three steps are coordinated by an Oozie workflow. 
+These three steps are coordinated by an Oozie workflow.
 
-1. Create a query in the file `hive-load-flights-partition.hql`.
+1. From your local workstation, create a file called `job.properties`. Use the text below as the starting contents for the file.
+Then update the values for your specific environment. The table below the text summarizes each of the properties and indicates where you can find the values for your own environment.
 
+    ```text
+    nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
+    jobTracker=[ACTIVERESOURCEMANAGER]:8050
+    queueName=default
+    oozie.use.system.libpath=true
+    appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie
+    oozie.wf.application.path=${appBase}/load_flights_by_day
+    hiveScriptLoadPartition=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-load-flights-partition.hql
+    hiveScriptCreateDailyTable=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-create-daily-summary-table.hql
+    hiveDailyTableName=dailyflights${year}${month}${day}
+    hiveDataFolder=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/${year}/${month}/${day}
+    sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
+    sqlDatabaseTableName=dailyflights
+    year=2017
+    month=01
+    day=03
     ```
+
+    | Property | Value source |
+    | --- | --- |
+    | nameNode | The full path to the Azure Storage Container attached to your HDInsight cluster. |
+    | jobTracker | The internal hostname to your active cluster's YARN head node. On the Ambari home page, select YARN from the list of services, then choose Active Resource Manager. The hostname URI is displayed at the top of the page. Append the port 8050. |
+    | queueName | The name of the YARN queue used when scheduling the Hive actions. Leave as default. |
+    | oozie.use.system.libpath | Leave as true. |
+    | appBase | The path to the subfolder in Azure Storage where you deploy the Oozie workflow and supporting files. |
+    | oozie.wf.application.path | The location of the Oozie workflow `workflow.xml` to run. |
+    | hiveScriptLoadPartition | The path in Azure Storage to the  Hive query file `hive-load-flights-partition.hql`. |
+    | hiveScriptCreateDailyTable | The path in Azure Storage to the Hive query file `hive-create-daily-summary-table.hql`. |
+    | hiveDailyTableName | The dynamically generated name to use for the staging table. |
+    | hiveDataFolder | The path in Azure Storage to the data contained by the staging table. |
+    | sqlDatabaseConnectionString | The JDBC syntax connection string to your Azure SQL Database. |
+    | sqlDatabaseTableName | The name of the table in Azure SQL Database into which summary rows are inserted. Leave as `dailyflights`. |
+    | year | The year component of the day for which flight summaries are computed. Leave as is. |
+    | month | The month component of the day for which flight summaries are computed. Leave as is. |
+    | day | The day of month component of the day for which flight summaries are computed. Leave as is. |
+
+1. From your local workstation, create a file called `hive-load-flights-partition.hql`. Use the code below as the contents for the file.
+
+    ```sql
     SET hive.exec.dynamic.partition.mode=nonstrict;
-    
+
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
-    SELECT 	
+    SELECT 
       	FL_DATE,
       	CARRIER,
       	FL_NUM,
@@ -273,11 +267,11 @@ These three steps are coordinated by an Oozie workflow.
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
 
-    Oozie variables use the syntax `${variableName}`. These variables are set in the `job.properties` file as described in a subsequent step. Oozie substitutes the actual values at runtime.
+    Oozie variables use the syntax `${variableName}`. These variables are set in the `job.properties` file. Oozie substitutes the actual values at runtime.
 
-2. Create a query in the file `hive-create-daily-summary-table.hql`.
+1. From your local workstation, create a file called `hive-create-daily-summary-table.hql`. Use the code below as the contents for the file.
 
-    ```
+    ```sql
     DROP TABLE ${hiveTableName};
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
@@ -301,173 +295,133 @@ These three steps are coordinated by an Oozie workflow.
 
     This query creates a staging table that will store only the summarized data for one day, take note of the SELECT statement that computes the average delays and total of distance flown by carrier by day. The data inserted into this table stored at a known location (the path indicated by the hiveDataFolder variable) so that it can be used as the source for Sqoop in the next step.
 
-3. Run the following Sqoop command.
+1. From your local workstation, create a file called `workflow.xml`. Use the code below as the contents for the file. These steps above are expressed as separate actions in Oozie workflow file.
 
+    ```xml
+    <workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
+        <start to = "RunHiveLoadFlightsScript"/>
+        <action name="RunHiveLoadFlightsScript">
+            <hive xmlns="uri:oozie:hive-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+                </configuration>
+                <script>${hiveScriptLoadPartition}</script>
+                <param>year=${year}</param>
+                <param>month=${month}</param>
+                <param>day=${day}</param>
+            </hive>
+            <ok to="RunHiveCreateDailyFlightTableScript"/>
+            <error to="fail"/>
+        </action>
+    
+        <action name="RunHiveCreateDailyFlightTableScript">
+            <hive xmlns="uri:oozie:hive-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>${queueName}</value>
+                </property>
+                </configuration>
+                <script>${hiveScriptCreateDailyTable}</script>
+                <param>hiveTableName=${hiveDailyTableName}</param>
+                <param>year=${year}</param>
+                <param>month=${month}</param>
+                <param>day=${day}</param>
+                <param>hiveDataFolder=${hiveDataFolder}/${year}/${month}/${day}</param>
+            </hive>
+            <ok to="RunSqoopExport"/>
+            <error to="fail"/>
+        </action>
+    
+        <action name="RunSqoopExport">
+            <sqoop xmlns="uri:oozie:sqoop-action:0.2">
+                <job-tracker>${jobTracker}</job-tracker>
+                <name-node>${nameNode}</name-node>
+                <configuration>
+                <property>
+                    <name>mapred.compress.map.output</name>
+                    <value>true</value>
+                </property>
+                </configuration>
+                <arg>export</arg>
+                <arg>--connect</arg>
+                <arg>${sqlDatabaseConnectionString}</arg>
+                <arg>--table</arg>
+                <arg>${sqlDatabaseTableName}</arg>
+                <arg>--export-dir</arg>
+                <arg>${hiveDataFolder}/${year}/${month}/${day}</arg>
+                <arg>-m</arg>
+                <arg>1</arg>
+                <arg>--input-fields-terminated-by</arg>
+                <arg>"\t"</arg>
+                <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
+                </sqoop>
+            <ok to="end"/>
+            <error to="fail"/>
+        </action>
+        <kill name="fail">
+            <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
+        </kill>
+        <end name="end"/>
+    </workflow-app>
     ```
-    sqoop export --connect ${sqlDatabaseConnectionString} --table ${sqlDatabaseTableName} --export-dir ${hiveDataFolder} -m 1 --input-fields-terminated-by "\t"
+
+The two Hive queries are accessed by their path in Azure Storage, and the remaining variable values are provided by the `job.properties` file. This file configures the workflow to run for the date January 3, 2017.
+
+## Deploy and run the Oozie workflow
+
+Use SCP from your bash session to deploy your Oozie workflow (`workflow.xml`), the Hive queries (`hive-load-flights-partition.hql` and `hive-create-daily-summary-table.hql`), and the job configuration (`job.properties`).  In Oozie, only the `job.properties` file can exist on the local storage of the headnode. All other files must be stored in HDFS, in this case Azure Storage. The Sqoop action used by the workflow depends on a JDBC driver for communicating with your SQL Database, which must be copied from the head node to HDFS.
+
+1. Create the `load_flights_by_day` subfolder underneath the user's path in the local storage of the head node. From your open ssh session, execute the following command:
+
+    ```bash
+    mkdir load_flights_by_day
     ```
 
-These three steps are expressed as three separate actions in the following Oozie workflow file, named `workflow.xml`.
+1. Copy all files in the current directory (the `workflow.xml` and `job.properties` files) up to the `load_flights_by_day` subfolder. From your local workstation, execute the following command:
 
-```
-<workflow-app name="loadflightstable" xmlns="uri:oozie:workflow:0.5">
-    <start to = "RunHiveLoadFlightsScript"/>
-    <action name="RunHiveLoadFlightsScript">
-        <hive xmlns="uri:oozie:hive-action:0.2">
-            <job-tracker>${jobTracker}</job-tracker>
-            <name-node>${nameNode}</name-node>
-            <configuration>
-            <property>
-                <name>mapred.job.queue.name</name>
-                <value>${queueName}</value>
-            </property>
-            </configuration>
-            <script>${hiveScriptLoadPartition}</script>
-            <param>year=${year}</param>
-            <param>month=${month}</param>
-            <param>day=${day}</param>
-        </hive>
-        <ok to="RunHiveCreateDailyFlightTableScript"/>
-        <error to="fail"/>
-    </action>
+    ```cmd
+    scp ./* sshuser@CLUSTERNAME-ssh.azurehdinsight.net:load_flights_by_day
+    ```
 
-    <action name="RunHiveCreateDailyFlightTableScript">
-        <hive xmlns="uri:oozie:hive-action:0.2">
-            <job-tracker>${jobTracker}</job-tracker>
-            <name-node>${nameNode}</name-node>
-            <configuration>
-            <property>
-                <name>mapred.job.queue.name</name>
-                <value>${queueName}</value>
-            </property>
-            </configuration>
-            <script>${hiveScriptCreateDailyTable}</script>
-            <param>hiveTableName=${hiveDailyTableName}</param>
-            <param>year=${year}</param>
-            <param>month=${month}</param>
-            <param>day=${day}</param>
-            <param>hiveDataFolder=${hiveDataFolder}/${year}/${month}/${day}</param>
-        </hive>
-        <ok to="RunSqoopExport"/>
-        <error to="fail"/>
-    </action>
+1. Copy workflow files to HDFS. From your open ssh session, execute the following commands:
 
-    <action name="RunSqoopExport">
-        <sqoop xmlns="uri:oozie:sqoop-action:0.2">
-            <job-tracker>${jobTracker}</job-tracker>
-            <name-node>${nameNode}</name-node>
-            <configuration>
-            <property>
-                <name>mapred.compress.map.output</name>
-                <value>true</value>
-            </property>
-            </configuration>
-            <arg>export</arg>
-            <arg>--connect</arg>
-            <arg>${sqlDatabaseConnectionString}</arg>
-            <arg>--table</arg>
-            <arg>${sqlDatabaseTableName}</arg>
-            <arg>--export-dir</arg>
-            <arg>${hiveDataFolder}/${year}/${month}/${day}</arg>
-            <arg>-m</arg>
-            <arg>1</arg>
-            <arg>--input-fields-terminated-by</arg>
-            <arg>"\t"</arg>
-            <archive>sqljdbc41.jar</archive>
-            </sqoop>
-        <ok to="end"/>
-        <error to="fail"/>
-    </action>
-    <kill name="fail">
-        <message>Job failed, error message[${wf:errorMessage(wf:lastErrorNode())}] </message>
-    </kill>
-    <end name="end"/>
-</workflow-app>
-```
+    ```bash
+    cd load_flights_by_day
+    hadoop fs -mkdir -p /oozie/load_flights_by_day
+    hdfs dfs -put ./* /oozie/load_flights_by_day
+    ```
 
-The two Hive queries are accessed by their path in Azure Storage, and the remaining variable values are provided by the following `job.properties` file. This file configures the workflow to run for the date January 3rd, 2017.
+1. Copy `mssql-jdbc-7.0.0.jre8.jar` from the local head node to the workflow folder in HDFS. Revise command as needed if your cluster contains a different jar file. Revise `workflow.xml` as needed to reflect a different jar file. From your open ssh session, execute the following command:
 
-```
-nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
-jobTracker=hn0-[CLUSTERNAME].[UNIQUESTRING].dx.internal.cloudapp.net:8050
-queueName=default
-oozie.use.system.libpath=true
-appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie
-oozie.wf.application.path=${appBase}/load_flights_by_day
-hiveScriptLoadPartition=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-load-flights-partition.hql
-hiveScriptCreateDailyTable=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie/load_flights_by_day/hive-create-daily-summary-table.hql
-hiveDailyTableName=dailyflights${year}${month}${day}
-hiveDataFolder=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/${year}/${month}/${day}
-sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
-sqlDatabaseTableName=dailyflights
-year=2017
-month=01
-day=03
-```
+    ```bash
+    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /oozie/load_flights_by_day
+    ```
 
-The following table summarizes each of the properties and indicates where you can find the values for your own environment.
+1. Run the workflow. From your open ssh session, execute the following command:
 
-| Property | Value source |
-| --- | --- |
-| nameNode | The full path to the Azure Storage Container attached to your HDInsight cluster. |
-| jobTracker | The internal hostname to your active cluster's YARN head node. On the Ambari home page, select YARN from the list of services, then choose Active Resource Manager. The hostname URI is displayed at the top of the page. Append the port 8050. |
-| queueName | The name of the YARN queue used when scheduling the Hive actions. Leave as default. |
-| oozie.use.system.libpath | Leave as true. |
-| appBase | The path to the subfolder in Azure Storage where you deploy the Oozie workflow and supporting files. |
-| oozie.wf.application.path | The location of the Oozie workflow `workflow.xml` to run. |
-| hiveScriptLoadPartition | The path in Azure Storage to the  Hive query file `hive-load-flights-partition.hql`. |
-| hiveScriptCreateDailyTable | The path in Azure Storage to the Hive query file `hive-create-daily-summary-table.hql`. |
-| hiveDailyTableName | The dynamically generated name to use for the staging table. |
-| hiveDataFolder | The path in Azure Storage to the data contained by the staging table. |
-| sqlDatabaseConnectionString | The JDBC syntax connection string to your Azure SQL Database. |
-| sqlDatabaseTableName | The name of the table in Azure SQL Database into which summary rows are inserted. Leave as `dailyflights`. |
-| year | The year component of the day for which flight summaries are computed. Leave as is. |
-| month | The month component of the day for which flight summaries are computed. Leave as is. |
-| day | The day of month component of the day for which flight summaries are computed. Leave as is. |
+    ```bash
+    oozie job -config job.properties -run
+    ```
 
-> [!NOTE]  
-> Be sure to update your copy of the `job.properties` file with the values specific to your environment,  before you can deploy and run your Oozie workflow.
-
-### Deploy and run the Oozie workflow
-
-Use SCP from your bash session to deploy your Oozie workflow (`workflow.xml`), the Hive queries (`hive-load-flights-partition.hql` and `hive-create-daily-summary-table.hql`) and the job configuration (`job.properties`).  In Oozie, only the `job.properties` file can exist on the local storage of the headnode. All other files must be stored in HDFS, in this case Azure Storage. The Sqoop action used by the workflow depends on a JDBC driver for communicating with your SQL Database, which must be copied from the head node to HDFS.
-
-1. Create the `load_flights_by_day` subfolder underneath the user's path in the local storage of the head node.
-
-        ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 'mkdir load_flights_by_day'
-
-2. Copy all files in the current directory (the `workflow.xml` and `job.properties` files) up to the `load_flights_by_day` subfolder.
-
-        scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:load_flights_by_day
-
-3. SSH into your head node and navigate to the `load_flights_by_day` folder.
-
-        ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net
-        cd load_flights_by_day
-
-4. Copy workflow files to HDFS.
-
-        hdfs dfs -put ./* /oozie/load_flights_by_day
-
-5. Copy `sqljdbc41.jar` from the local head node to the workflow folder in HDFS:
-
-        hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /oozie/load_flights_by_day
-
-6. Run the workflow.
-
-        oozie job -config job.properties -run
-
-7. Observe the status using the Oozie Web Console. From within Ambari, select **Oozie**, **Quick Links**, and then **Oozie Web Console**. Under the **Workflow Jobs** tab, select **All Jobs**.
+1. Observe the status using the Oozie Web Console. From within Ambari, select **Oozie**, **Quick Links**, and then **Oozie Web Console**. Under the **Workflow Jobs** tab, select **All Jobs**.
 
     ![hdi oozie web console workflows](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-8. When the status is SUCCEEDED, query the SQL database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select **Tools**, and open the **Query Editor**.
+1. When the status is SUCCEEDED, query the SQL Database table to view the inserted rows. Using the Azure portal, navigate to the pane for your SQL Database, select **Tools**, and open the **Query Editor**.
 
         SELECT * FROM dailyflights
 
 Now that the workflow is running for the single test day, you can wrap this workflow with a coordinator that schedules the workflow so it runs daily.
 
-### Run the workflow with a coordinator
+## Run the workflow with a coordinator
 
 To schedule this workflow so that it runs daily (or all days in a date range), you can use a coordinator. A coordinator is defined by an XML file, for example `coordinator.xml`:
 
@@ -546,7 +500,7 @@ As you can see, the majority of the coordinator is just passing configuration in
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    A coordinator is responsible for scheduling actions within the `start` and `end` date range, according to the interval specified by the `frequency` attribute. Each scheduled action in turn runs the workflow as configured. In the coordinator definition above, the coordinator is configured to run actions from January 1st, 2017 to January 5th, 2017. The frequency is set to 1 day by the [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency expression `${coord:days(1)}`. This results in the coordinator scheduling an action (and hence the workflow) once per day. For date ranges that are in the past, as in this example, the action will be scheduled to run without delay. The start of the date from which an action is scheduled to run is called the *nominal time*. For example, to process the data for January 1st, 2017 the coordinator will schedule action with a nominal time of 2017-01-01T00:00:00 GMT.
+    A coordinator is responsible for scheduling actions within the `start` and `end` date range, according to the interval specified by the `frequency` attribute. Each scheduled action in turn runs the workflow as configured. In the coordinator definition above, the coordinator is configured to run actions from January 1, 2017 to January 5, 2017. The frequency is set to one day by the [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency expression `${coord:days(1)}`. This results in the coordinator scheduling an action (and hence the workflow) once per day. For date ranges that are in the past, as in this example, the action will be scheduled to run without delay. The start of the date from which an action is scheduled to run is called the *nominal time*. For example, to process the data for January 1, 2017 the coordinator will schedule action with a nominal time of 2017-01-01T00:00:00 GMT.
 
 * Point 2: Within the date range of the workflow, the `dataset` element specifies where to look in HDFS for the data for a particular date range, and configures how Oozie determines whether the data is available yet for processing.
 
@@ -557,9 +511,9 @@ As you can see, the majority of the coordinator is just passing configuration in
     </dataset>
     ```
 
-    The path to the data in HDFS is built dynamically according to the expression provided in the `uri-template` element. In this coordinator, a frequency of one day is also used with the dataset. While the start and end dates on the coordinator element control when the actions are scheduled (and defines their nominal times), the `initial-instance` and `frequency` on the dataset control the calculation of the date that is used in constructing the `uri-template`. In this case, set the initial instance to one day before the start of the coordinator to ensure that it picks up the first day's (1/1/2017) worth of data. The dataset's date calculation rolls forward from the value of `initial-instance` (12/31/2016) advancing in increments of dataset frequency (1 day) until it finds the most recent date that does not pass the nominal time set by the coordinator (2017-01-01T00:00:00 GMT for the first action).
+    The path to the data in HDFS is built dynamically according to the expression provided in the `uri-template` element. In this coordinator, a frequency of one day is also used with the dataset. While the start and end dates on the coordinator element control when the actions are scheduled (and defines their nominal times), the `initial-instance` and `frequency` on the dataset control the calculation of the date that is used in constructing the `uri-template`. In this case, set the initial instance to one day before the start of the coordinator to ensure that it picks up the first day's (1/1/2017) worth of data. The dataset's date calculation rolls forward from the value of `initial-instance` (12/31/2016) advancing in increments of dataset frequency (one day) until it finds the most recent date that doesn't pass the nominal time set by the coordinator (2017-01-01T00:00:00 GMT for the first action).
 
-    The empty `done-flag` element indicates that when Oozie checks for the presence of input data at the appointed time, Oozie determines data whether available by presence of a directory or file. In this case it is the presence of a csv file. If a csv file is present, Oozie assumes the data is ready and launches a workflow instance to process the file. If there is no csv file present, Oozie assumes the data is not yet ready and that run of the workflow goes into a waiting state.
+    The empty `done-flag` element indicates that when Oozie checks for the presence of input data at the appointed time, Oozie determines data whether available by presence of a directory or file. In this case, it's the presence of a csv file. If a csv file is present, Oozie assumes the data is ready and launches a workflow instance to process the file. If there's no csv file present, Oozie assumes the data isn't yet ready and that run of the workflow goes into a waiting state.
 
 * Point 3: The `data-in` element specifies the particular timestamp to use as the nominal time when replacing the values in `uri-template` for the associated dataset.
 
@@ -571,7 +525,7 @@ As you can see, the majority of the coordinator is just passing configuration in
 
     In this case, set the instance to the expression `${coord:current(0)}`, which translates to using the nominal time of the action as originally scheduled by the coordinator. In other words, when the coordinator schedules the action to run with a nominal time of 01/01/2017, then 01/01/2017 is what is used to replace the YEAR (2017) and MONTH (01) variables in the URI template. Once the URI template is computed for this instance, Oozie checks whether the expected directory or file is available and schedules the next run of the workflow accordingly.
 
-The three preceding points combine to yield a situation where the coordinator schedules processing of the source data in a day-by-day fashion. 
+The three preceding points combine to yield a situation where the coordinator schedules processing of the source data in a day-by-day fashion.
 
 * Point 1: The coordinator starts with a nominal date of 2017-01-01.
 
@@ -581,9 +535,9 @@ The three preceding points combine to yield a situation where the coordinator sc
 
 As with workflows, the configuration of a coordinator is defined in a `job.properties` file, which has a superset of the settings used by the workflow.
 
-```
+```text
 nameNode=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net
-jobTracker=hn0-[CLUSTERNAME].[UNIQUESTRING].dx.internal.cloudapp.net:8050
+jobTracker=[ACTIVERESOURCEMANAGER]:8050
 queueName=default
 oozie.use.system.libpath=true
 appBase=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/oozie
@@ -595,7 +549,6 @@ hiveDailyTableNamePrefix=dailyflights
 hiveDataFolderPrefix=wasbs://[CONTAINERNAME]@[ACCOUNTNAME].blob.core.windows.net/example/data/flights/day/
 sqlDatabaseConnectionString="jdbc:sqlserver://[SERVERNAME].database.windows.net;user=[USERNAME];password=[PASSWORD];database=[DATABASENAME]"
 sqlDatabaseTableName=dailyflights
-
 ```
 
 The only new properties introduced in this `job.properties` file are:
@@ -606,20 +559,20 @@ The only new properties introduced in this `job.properties` file are:
 | hiveDailyTableNamePrefix | The prefix used when dynamically creating the table name of the staging table. |
 | hiveDataFolderPrefix | The prefix of the path where all the staging tables will be stored. |
 
-### Deploy and run the Oozie Coordinator
+## Deploy and run the Oozie Coordinator
 
 To run the pipeline with a coordinator, proceed in a similar fashion as for the workflow, except you work from a folder one level above the folder that contains your workflow. This folder convention separates the coordinators from the workflows on disk, so you can associate one coordinator with different child workflows.
 
 1. Use SCP from your local machine to copy the coordinator files up to the local storage of the head node of your cluster.
 
     ```bash
-    scp ./* sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net:~
+    scp ./* sshuser@CLUSTERNAME-ssh.azurehdinsight.net:~
     ```
 
 2. SSH into your head node.
 
     ```bash
-    ssh sshuser@[CLUSTERNAME]-ssh.azurehdinsight.net 
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
 3. Copy the coordinator files to HDFS.
@@ -646,6 +599,4 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
 ## Next steps
 
-* [Apache Oozie Documentation](https://oozie.apache.org/docs/4.2.0/index.html)
-
-<!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->
+[Apache Oozie Documentation](https://oozie.apache.org/docs/4.2.0/index.html)

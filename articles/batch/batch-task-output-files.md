@@ -1,17 +1,8 @@
 ---
-title: Persist job and task output to Azure Storage with the Batch service API - Azure Batch | Microsoft Docs
-description: Learn how to use Batch service API to persist Batch task and job output to Azure Storage.
-services: batch
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+title: Persist output data to Azure Storage with Batch service API
+description: Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
+ms.topic: how-to
 ms.date: 03/05/2019
-ms.author: lahugh
 ms.custom: seodec18
 
 ---
@@ -31,7 +22,7 @@ Azure Batch provides more than one way to persist task output. Using the Batch s
 - You want to write code to persist task output from within your client application, without modifying the application that your task is running.
 - You want to persist output from Batch tasks and job manager tasks in pools created with the virtual machine configuration.
 - You want to persist output to an Azure Storage container with an arbitrary name.
-- You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- You want to persist output to an Azure Storage container named according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 If your scenario differs from those listed above, you may need to consider a different approach. For example, the Batch service API does not currently support streaming output to Azure Storage while the task is running. To stream output, consider using the Batch File Conventions library, available for .NET. For other languages, you'll need to implement your own solution. For more information on other options for persisting task output, see [Persist job and task output to Azure Storage](batch-task-output.md).
 
@@ -161,7 +152,7 @@ there are many contributing factors to upload performance, including the size of
 
 ## Use the Batch service API with the Batch File Conventions standard
 
-When you persist task output with the Batch service API, you can name your destination container and blobs however you like. You can also choose to name them according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). The File Conventions standard determines the names of the destination container and blob in Azure Storage for a given output file based on the names of the job and task. If you do use the File Conventions standard for naming output files, then your output files are available for viewing in the [Azure portal](https://portal.azure.com).
+When you persist task output with the Batch service API, you can name your destination container and blobs however you like. You can also choose to name them according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). The File Conventions standard determines the names of the destination container and blob in Azure Storage for a given output file based on the names of the job and task. If you do use the File Conventions standard for naming output files, then your output files are available for viewing in the [Azure portal](https://portal.azure.com).
 
 If you are developing in C#, you can use the methods built into the [Batch File Conventions library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). This library creates the properly named containers and blob paths for you. For example, you can call the API to get the correct name for the container, based on the job name:
 

@@ -1,9 +1,9 @@
 ---
-title: Push notifications to Xamarin.Android apps using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to Xamarin.Android apps using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: xamarin
 
@@ -15,10 +15,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/01/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 08/01/2019
 ---
 
-# Tutorial: Push notifications to Xamarin.Android apps using Azure Notification Hubs
+# Tutorial: Send push notifications to Xamarin.Android apps using Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -242,7 +244,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Add the following code to `MyFirebaseMessagingService.cs` to process messages that are received. 
+18. Add the following code inside `MyFirebaseMessagingService` class, to process messages that are received. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -286,7 +288,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
         }
     ```
 
-19. Add the following methods to the MyFirebaseMessagingService class to receive the FCM registration token and send it to the Notification Hubs instance (hub). 
+19. Add the following methods to the MyFirebaseMessagingService class (right below the code added in the previous step) to receive the FCM registration token and send it to the Notification Hubs instance (hub). 
 
     ```csharp
         public override void OnNewToken(string token)

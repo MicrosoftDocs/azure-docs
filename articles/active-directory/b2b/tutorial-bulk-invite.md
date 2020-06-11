@@ -1,13 +1,13 @@
 ---
 
-title: Tutorial for bulk inviting B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Tutorial for bulk inviting B2B collaboration users - Azure AD
 description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 05/07/2020
 
 ms.author: mimart
 author: msmimart
@@ -19,22 +19,37 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Bulk invite Azure AD B2B collaboration users (preview)
-
-|     |
-| --- |
-| This article describes a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
+# Tutorial: Bulk invite Azure AD B2B collaboration users
 
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
-> * Use **Bulk invite users (Preview)** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
+> * Use **Bulk invite users** to prepare a comma-separated value (.csv) file with the user information and invitation preferences
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
-If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Understand the CSV template
+
+Download and fill in the bulk upload CSV template to help you successfully invite Azure AD guest users in bulk. The CSV template you download might look like this example:
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](media/tutorial-bulk-invite/understand-template.png)
+
+### CSV template structure
+
+The rows in a downloaded CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Email address to invite [inviteeEmail] Required`. Some older versions of the template might have slight variations.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional guidance
+
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- The required columns are listed first.
+- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## Prerequisites
 
@@ -45,11 +60,11 @@ You need two or more test email accounts that you can send the invitations to. T
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users** > **Bulk invite**.
-4. On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties.
+4. On the **Bulk invite users** page, select **Download** to get a valid .csv template with invitation properties.
 
     ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Open the .csv file and add a line for each guest user. Required values are:
+5. Open the .csv template and add a line for each guest user. Required values are:
 
    * **Email address to invite** - the user who will receive an invitation
 
@@ -61,10 +76,10 @@ You need two or more test email accounts that you can send the invitations to. T
    > Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
 
 6. Save the file.
-7. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
+7. On the **Bulk invite users** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
 8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
-10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section. For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results** in the **Activity** section. For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 
     ![Example of bulk operation results](media/tutorial-bulk-invite/bulk-operation-results.png)
 

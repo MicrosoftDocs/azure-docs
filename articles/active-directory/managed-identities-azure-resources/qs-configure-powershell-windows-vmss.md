@@ -1,6 +1,6 @@
 ---
-title: How to configure managed identities for Azure resources on a virtual machine scale set using PowerShell
-description: Step by step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
+title: Configure managed identities on virtual machine scale sets using PowerShell - Azure AD
+description: Step-by-step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, using PowerShell, you learn how to perform the managed identities for Azure resources operations on a virtual machine scale set:
 - Enable and disable the system-assigned managed identity on a virtual machine scale set
@@ -32,9 +32,9 @@ In this article, using PowerShell, you learn how to perform the managed identiti
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user managed assigned identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user managed assigned identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+- To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
@@ -57,8 +57,7 @@ To create a virtual machine scale set with the system-assigned managed identity 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources virtual machine scale set extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Stop using the VM extension and start using the Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 
 ## Enable system-assigned managed identity on an existing Azure virtual machine scale set
@@ -77,8 +76,7 @@ If you need to enable a system-assigned managed identity on an existing Azure vi
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources virtual machine scale set extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 ### Disable the system-assigned managed identity from an Azure virtual machine scale set
 

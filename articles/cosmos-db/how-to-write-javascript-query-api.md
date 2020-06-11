@@ -1,11 +1,11 @@
 ---
-title: How to write stored procedures and triggers using the JavaScript query API in Azure Cosmos DB 
+title: Write stored procedures and triggers using the JavaScript query API in Azure Cosmos DB 
 description: Learn how to write stored procedures and triggers using the JavaScript Query API in Azure Cosmos DB 
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: mjbrown
+ms.date: 05/07/2020
+ms.author: tisande
 ---
 
 # How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API

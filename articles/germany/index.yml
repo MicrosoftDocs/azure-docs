@@ -1,0 +1,50 @@
+### YamlMime:Landing
+
+title: Azure Germany documentation
+summary: Azure Germany is a physically isolated instance of Microsoft Azure that uses world-class security and compliance services that are critical to German data privacy regulations. Since August 2018, we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations. Based on the evolution in customers' needs, we recently launched two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing.
+
+metadata:
+  title: Azure Germany documentation
+  description: Azure Germany is a physically isolated instance of Microsoft Azure that uses world-class security and compliance services that are critical to German data privacy regulations
+  ms.service: germany
+  ms.topic: landing-page
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Germany
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Germany?
+            url: germany-welcome.md
+      - linkListType: concept
+        links:
+          - text: Available services
+            url: germany-services.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Developer guide
+            url: germany-developer-guide.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect using the Azure portal
+            url: germany-get-started-connect-with-portal.md
+
+  # Card
+  - title: Manage and migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage and connect to your subscription
+            url: germany-manage-subscriptions.md
+          - text: Migration guidance
+            url: germany-migration-main.md

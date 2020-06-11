@@ -1,10 +1,10 @@
 ---
-title: Diagnose a virtual machine network traffic filter problem - quickstart - Azure portal | Microsoft Docs
+title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure portal'
+titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,7 +16,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
 
 ---
@@ -41,7 +41,7 @@ Log in to the Azure portal at https://portal.azure.com.
     |---|---|
     |Name|myVm|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the defined complexity requirements.|
     |Subscription| Select your subscription.|
     |Resource group| Select **Create new** and enter **myResourceGroup**.|
     |Location| Select **East US**|
@@ -56,7 +56,7 @@ To test network communication with Network Watcher, first enable a network watch
 
 ### Enable network watcher
 
-If you already have a network watcher enabled in at least one region, skip to [Use IP flow verify](#use-ip-flow-verify).
+If you already have a network watcher enabled in at least one region, skip to the [Use IP flow verify](#use-ip-flow-verify).
 
 1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 2. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
@@ -95,19 +95,19 @@ Now that you know which security rules are allowing or denying traffic to or fro
 
 ## View details of a security rule
 
-1. To determine why the rules in steps 3-5 of [Use IP flow verify](#use-ip-flow-verify) allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm*. When the  **myvm** (or whatever the name of your network interface is) network interface appears in the search results, select it.
+1. To determine why the rules in steps 3-5 of **Use IP flow verify** allow or deny communication, review the effective security rules for the network interface in the VM. In the search box at the top of the portal, enter *myvm*. When the  **myvm** (or whatever the name of your network interface is) network interface appears in the search results, select it.
 2. Select **Effective security rules** under **SUPPORT + TROUBLESHOOTING**, as shown in the following picture:
 
     ![Effective security rules](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    In step 3 of [Use IP flow verify](#use-ip-flow-verify), you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **DESTINATION** for the rule is **Internet**. It's not clear how 13.107.21.200, the address you tested in step 3 of [Use IP flow verify](#use-ip-flow-verify), relates to **Internet** though.
+    In step 3 of **Use IP flow verify**, you learned that the reason the communication was allowed is because of the **AllowInternetOutbound** rule. You can see in the previous picture that the **DESTINATION** for the rule is **Internet**. It's not clear how 13.107.21.200, the address you tested in step 3 of **Use IP flow verify**, relates to **Internet** though.
 3. Select the **AllowInternetOutBound** rule, and then select **Destination**, as shown in the following picture:
 
     ![Security rule prefixes](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     One of the prefixes in the list is **12.0.0.0/6**, which encompasses the 12.0.0.1-15.255.255.254 range of IP addresses. Since 13.107.21.200 is within that address range, the **AllowInternetOutBound** rule allows the outbound traffic. Additionally, there are no higher priority (lower number) rules shown in the picture in step 2 that override this rule. Close the **Address prefixes** box. To deny outbound communication to 13.107.21.200, you could add a security rule with a higher priority, that denies port 80 outbound to the IP address.
-4. When you ran the outbound check to 172.131.0.100 in step 4 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultOutboundDenyAll** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **DESTINATION**. This rule denies the outbound communication to 172.131.0.100, because the address is not within the **DESTINATION** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 for the 172.131.0.100 address.
-5. When you ran the inbound check from 172.131.0.100 in step 5 of [Use IP flow verify](#use-ip-flow-verify), you learned that the **DefaultInboundDenyAll** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.
+4. When you ran the outbound check to 172.131.0.100 in step 4 of **Use IP flow verify**, you learned that the **DefaultOutboundDenyAll** rule denied communication. That rule equates to the **DenyAllOutBound** rule shown in the picture in step 2 that specifies **0.0.0.0/0** as the **DESTINATION**. This rule denies the outbound communication to 172.131.0.100, because the address is not within the **DESTINATION** of any of the other **Outbound rules** shown in the picture. To allow the outbound communication, you could add a security rule with a higher priority, that allows outbound traffic to port 80 for the 172.131.0.100 address.
+5. When you ran the inbound check from 172.131.0.100 in step 5 of **Use IP flow verify**, you learned that the **DefaultInboundDenyAll** rule denied communication. That rule equates to the **DenyAllInBound** rule shown in the picture in step 2. The **DenyAllInBound** rule is enforced because no other higher priority rule exists that allows port 80 inbound to the VM from 172.31.0.100. To allow the inbound communication, you could add a security rule with a higher priority, that allows port 80 inbound from 172.31.0.100.
 
 The checks in this quickstart tested Azure configuration. If the checks return expected results and you still have network problems, ensure that you don't have a firewall between your VM and the endpoint you're communicating with and that the operating system in your VM doesn't have a firewall that is allowing or denying communication.
 

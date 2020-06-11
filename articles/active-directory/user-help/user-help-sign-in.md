@@ -1,29 +1,28 @@
 ---
-title: Sign in with two-step verification or security info - Azure Active Directory| Microsoft Docs
-description: Learn about how to sign in using the various identity verification methods in security info.
+title: Sign-in using your identity authentication info - Azure AD
+description: Learn about how to sign-in using the various identity verification methods in security info.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help
-ms.collection: M365-identity-device-management
 ---
 
 # Sign in using two-step verification or security info
 
-After you set up two-step verification or security info, you'll be able to sign in to your account using your specified authentication method.
+After you set up two-step verification or security info, you'll be able to sign in to your account using your specified verification method.
 
 > [!Note]
-> If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+> If you're still using the two-step verification experience, you'll need to set up your verification methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 >
-> If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li><li>[Set up security info to use a security key](security-info-setup-security-key.md)</li></ul>
+> If your administrator has turned on the security info experience, you'll need to set your verification methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li><li>[Set up security info to use a security key](security-info-setup-security-key.md)</li></ul>
 
 ## Sign in using an authenticator app notification on your mobile device
 

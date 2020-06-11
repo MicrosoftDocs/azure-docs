@@ -121,7 +121,7 @@ public String Post() throws IOException {
 
 ## Create a function to parse the response
 
-This simple function parses and prettifies the JSON response from the Translator Text service.
+This simple function parses and prettifies the JSON response from the Translator service.
 
 ```java
 // This function prettifies the json response.
@@ -165,7 +165,10 @@ gradle run
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+After you run the sample, you should see the following printed to terminal:
+
+> [!NOTE]
+> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [
@@ -194,7 +197,7 @@ Find the country/region abbreviation in this [list of languages](https://docs.mi
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

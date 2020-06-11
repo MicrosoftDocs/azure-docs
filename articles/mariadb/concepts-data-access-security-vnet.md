@@ -1,11 +1,11 @@
 ---
-title: 'Azure Database for MariaDB Server VNet services endpoint overview | Microsoft Docs'
+title: VNet service endpoints - Azure Database for MariaDB
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 3/18/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MariaDB
 
@@ -18,7 +18,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MariaDB is deployed for General Purpose and Memory Optimized servers.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## Terminology and description
 
@@ -38,7 +38,7 @@ A virtual network rule tells your Azure Database for MariaDB server to accept co
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## Benefits of a virtual network rule
 
@@ -62,7 +62,7 @@ If your **Microsoft.Sql** server was a node on a subnet in your virtual network,
 
 However as of August 2018, the Azure Database for MariaDB service is not yet among the services that can be assigned directly to a subnet.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Details about virtual network rules
 
@@ -142,7 +142,7 @@ For articles on creating VNet rules, see:
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[resource-manager-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -156,4 +156,4 @@ For articles on creating VNet rules, see:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

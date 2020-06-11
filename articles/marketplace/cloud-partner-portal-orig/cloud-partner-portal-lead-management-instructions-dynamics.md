@@ -1,12 +1,12 @@
 ---
 title: Dynamics CRM | Azure Marketplace
 description: Configure lead management for Dynamics CRM.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 
@@ -144,6 +144,6 @@ Finish configuring Dynamics CRM for lead management by adding the generated acco
     *12345678-8af1-4asf-1234-12234d01db47*), and **Application Key**
     (example: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
 -   **Office 365** - **Url** (example:
-    *https://contoso.crm4.dynamics.com*), **User Name** (example:
-    *contoso\@contoso.onmicrosoft.com*), and **Password** (example:
+    **`https://contoso.crm4.dynamics.com`**), **User Name** (example:
+    **`contoso\@contoso.onmicrosoft.com`**), and **Password** (example:
     *P\@ssw0rd*).

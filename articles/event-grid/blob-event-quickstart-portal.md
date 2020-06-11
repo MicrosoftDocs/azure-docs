@@ -1,11 +1,11 @@
 ---
-title: Send Blob storage events to web endpoint - portal | Microsoft Docs
-description: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.
+title: 'Quickstart: Send Blob storage events to web endpoint - portal'
+description: 'Quickstart: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
 services: event-grid 
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 07/11/2019
+ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
@@ -26,28 +26,50 @@ When you're finished, you see that the event data has been sent to the web app.
 
 1. To create a Blob storage, select **Create a resource**. 
 
-   ![Create a resource](./media/blob-event-quickstart-portal/create-resource.png)
-
 1. Select for **Storage** to filter the available options, and select **Storage account - blob, file, table, queue**.
 
    ![Select storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account. For more information, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+   To subscribe to events, create either a general-purpose v2 storage account or a Blob storage account.
+   
+1. On the **Create storage account** page, do the following steps:
+    1. Select your Azure subscription. 
+    2. For **Resource group**, create a new resource group or select an existing one. 
+    3. Enter the name for your storage account. 
+    4. Select **Review + create**. 
 
-   ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)
+       ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)    
+    5. On the **Review + create** page, review the settings, and select **Create**. 
+
+        >[!NOTE]
+        > Only storage accounts of kind **StorageV2 (general purpose v2)** and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
 
 ## Create a message endpoint
 
 Before subscribing to the events for the Blob storage, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
+1. Select **Deploy to Azure** to deploy the solution to your subscription. 
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+2. On the **Custom deployment** page, do the following steps: 
+    1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
+    2. For **Site Name**, enter a name for the web app.
+    3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
+    4. Select the check box for **I agree to the terms and conditions stated above**. 
+    5. Select **Purchase**. 
 
-1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
-`https://<your-site-name>.azurewebsites.net`
+       ![Deployment parameters](./media/blob-event-quickstart-portal/template-deploy-parameters.png)
+1. The deployment may take a few minutes to complete. Select Alerts (bell icon) in the portal, and then select **Go to resource group**. 
 
-1. You see the site but no events have been posted to it yet.
+    ![Alert - navigate to resource group](./media/blob-event-quickstart-portal/navigate-resource-group.png)
+4. On the **Resource group** page, in the list of resources, select the web app that you created. You also see the App Service plan and the storage account in this list. 
+
+    ![Select web site](./media/blob-event-quickstart-portal/resource-group-resources.png)
+5. On the **App Service** page for your web app, select the URL to navigate to the web site. The URL should be in this format: `https://<your-site-name>.azurewebsites.net`.
+    
+    ![Navigate to web site](./media/blob-event-quickstart-portal/web-site.png)
+
+6. Confirm that you see the site but no events have been posted to it yet.
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
 
@@ -57,15 +79,23 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 You subscribe to a topic to tell Event Grid which events you want to track, and where to send the events.
 
-1. In the portal, select your blob storage and select **Events**.
-
-   ![Select events](./media/blob-event-quickstart-portal/select-events.png)
-
-1. To send events to your viewer app, use a web hook for the endpoint. Select **More Options**, and **Web Hook**.
+1. In the portal, navigate to your Azure Storage account that you created earlier. On the left menu, select **All resources** and select your storage account. 
+2. On the **Storage account** page, select **Events** on the left menu. 
+1. Select **More Options**, and **Web Hook**. You are sending events to your viewer app using a web hook for the endpoint. 
 
    ![Select web hook](./media/blob-event-quickstart-portal/select-web-hook.png)
+3. On the **Create Event Subscription** page, do the following steps: 
+    1. Enter a **name** for the event subscription.
+    2. Enter a **name** for the **system topic**. To learn about system topics, see [Overview of system topics](system-topics.md).
 
-1. The event subscription is prefilled with values for your Blob storage. For the web hook endpoint, provide the URL of your web app and add `api/updates` to the home page URL. Give your subscription a name. When done, select **Create**.
+       ![Enter names for event subscription and system topic](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
+    2. Select **Web Hook** for **Endpoint type**. 
+
+       ![Select web hook endpoint type](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)
+4. For **Endpoint**, click **Select an endpoint**, and enter the URL of your web app and add `api/updates` to the home page URL (for example: `https://spegridsite.azurewebsites.net/api/updates`), and then select **Confirm Selection**.
+
+   ![Confirm endpoint selection](./media/blob-event-quickstart-portal/confirm-endpoint-selection.png)
+5. Now, on the **Create Event Subscription** page, select **Create** to create the event subscription. 
 
    ![Select logs](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -79,11 +109,11 @@ Now, let's trigger an event to see how Event Grid distributes the message to you
 
 You trigger an event for the Blob storage by uploading a file. The file doesn't need any specific content. The articles assumes you have a file named testfile.txt, but you can use any file.
 
-1. For your Blob storage, select **Blobs**.
+1. In the Azure portal, navigate to your Blob storage account, and select **Containers** on the **Overview** page.
 
    ![Select blobs](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. Select **+ Container**. Give you container a name, and use any access level.
+1. Select **+ Container**. Give you container a name, and use any access level, and select **Create**. 
 
    ![Add container](./media/blob-event-quickstart-portal/add-container.png)
 
@@ -91,39 +121,15 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
 
    ![Select container](./media/blob-event-quickstart-portal/select-container.png)
 
-1. To upload a file, select **Upload**.
+1. To upload a file, select **Upload**. On the **Upload blob** page, browse and select a file that you want to upload for testing, and then select **Upload** on that page. 
 
    ![Select upload](./media/blob-event-quickstart-portal/upload-file.png)
 
 1. Browse to your test file and upload it.
 
-1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a blob created event was received. 
+1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a **blob created** event was received. 
 
-   ```json
-   [{
-    "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
-    "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
-    "eventType": "Microsoft.Storage.BlobCreated",
-    "eventTime": "2018-06-25T22:50:41.1823131Z",
-    "id": "89a2f9da-c01e-00bb-13d6-0c599506e4e3",
-    "data": {
-      "api": "PutBlockList",
-      "clientRequestId": "41341a9b-e977-4a91-9000-c64125039047",
-      "requestId": "89a2f9da-c01e-00bb-13d6-0c5995000000",
-      "eTag": "0x8D5DAEE13C8F9ED",
-      "contentType": "text/plain",
-      "contentLength": 4,
-      "blobType": "BlockBlob",
-      "url": "https://demoblob0625.blob.core.windows.net/eventcontainer/testfile.txt",
-      "sequencer": "00000000000000000000000000001C24000000000004712b",
-      "storageDiagnostics": {
-        "batchId": "ef633252-32fd-464b-8f5a-0d10d68885e6"
-      }
-    },
-    "dataVersion": "",
-    "metadataVersion": "1"
-   }]
-   ```
+   ![Blob created event](./media/blob-event-quickstart-portal/blob-created-event.png)
 
 ## Clean up resources
 

@@ -1,21 +1,10 @@
 ---
-title: Configure Python apps - Azure App Service
-description: This tutorial describes options for authoring and configuring Python apps for Azure App Service on Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Configure Linux Python apps
+description: Learn how to configure a pre-built Python container for your app. This article shows the most common configuration tasks. 
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
 
 # Configure a Linux Python app for Azure App Service
@@ -54,9 +43,31 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
 ```
 
+## Customize build automation
+
+If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+
+1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `pip install -r requirements.txt`.
+1. If *manage.py* is found in the root of the repository, run *manage.py collectstatic*. However, if `DISABLE_COLLECTSTATIC` is set to `true`, this step is skipped.
+1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`. To disable running collectstatic when building Django apps, set `DISABLE_COLLECTSTATIC=true`.
+
+The following example specifies the two variables to a series of commands, separated by commas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+For more information on how App Service runs and builds Python apps in Linux, see [Oryx documentation: How Python apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
+
 ## Container characteristics
 
-Python apps deployed to App Service on Linux run within a Docker container that's defined in the GitHub repository, [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) or [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Python apps deployed to App Service on Linux run within a Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.
 
 This container has the following characteristics:
 

@@ -1,0 +1,72 @@
+### YamlMime:Landing
+
+title: Azure Relay documentation # < 60 chars
+summary: Learn how Azure Relay service allows you to securely expose services that run in your corporate network to the public cloud.  # < 160 chars
+
+metadata:
+  title: Azure Relay documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how Azure Relay service allows you to securely expose services that run in your corporate network to the public cloud. # Required; article description that is displayed in search results. < 160 chars.
+  services: service-bus-relay
+  ms.service: service-bus-relay #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: spelluru #Required; your GitHub user alias, with correct capitalization.
+  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/06/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Relay
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Relay?
+            url: relay-what-is-it.md
+
+  # Card
+  - title: Hybrid connections
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Send and receive messages using Websockets - .NET
+            url: relay-hybrid-connections-dotnet-get-started.md
+          - text: Send and receive messages using HTTP - .NET
+            url: relay-hybrid-connections-http-requests-dotnet-get-started.md
+          - text: Send and receive messages using Websockets - Node.js 
+            url: relay-hybrid-connections-node-get-started.md
+          - text: Send and receive messages using HTTP - Node.js
+            url: relay-hybrid-connections-http-requests-node-get-started.md
+      - linkListType: download
+        links:
+          - text: Samples on GitHub
+            url: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+  
+  # Card
+  - title: WCF Relay
+    linkLists:
+      - linkListType: tutorial      
+        links:
+          - text: Expose an on-perm WCF service to a web application in the cloud
+            url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md    
+          - text: Expose an on-prem WCF service to a WCF service outside your network
+            url: service-bus-relay-tutorial.md            
+          - text: Expose an on-prem WCF REST service to a client outside your network
+            url: service-bus-relay-rest-tutorial.md
+      - linkListType: download      
+        links:
+          - text: Samples on GitHub
+            url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+  # Card
+  - title: API references
+    linkLists:
+      - linkListType: reference      
+        links:
+          - text: .NET
+            url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+          - text: REST
+            url: /rest/api/relay/            

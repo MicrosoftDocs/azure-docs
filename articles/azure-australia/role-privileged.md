@@ -1,11 +1,12 @@
 ---
-title: Role-Based Access Control and Privileged Identity Management in Azure Australia
+title: Role-Based Access Control and Privileged Identity Management
+titleSuffix: Azure Australia
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: Galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Role-Based Access Control (RBAC) and Privileged Identity Management (PIM)
@@ -22,7 +23,7 @@ At a high level, implementing RBAC requires three components:
 
 ![RBAC-Overview](media/rbac-overview.png)
 
-* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
+* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 
 * **Role Definitions**: A Role Definition, also referred to as a Role, is a collection of permissions. These permissions define the operations that can be performed by the Security Principals assigned to the Role Definition. This functionality is provided by Azure Resource Roles and Azure Active Directory Administrator Roles. Azure comes with a set of built-in roles (link) which can be augmented with custom roles.
 
@@ -57,8 +58,10 @@ Examples of the types of access that can be assigned for Azure AD administration
 It is important to take the time to understand the full list of allowed actions a built-in role provides to ensure that undue access to isn't granted. The list of built-in roles and the access they provide is constantly evolving, the full list of the Roles and their definitions can be viewed by reviewing the documentation linked above or by using the Azure PowerShell cmdlet:
 
 ```PowerShell
-PS C:\> Get-AzRoleDefinition
+Get-AzRoleDefinition
+```
 
+```output
 Name             : AcrDelete
 Id               : <<RoleID>>
 IsCustom         : False
@@ -73,8 +76,11 @@ AssignableScopes : {/}
 
 or the Azure CLI command:
 
-```bash
-PS C:\> az role definition list
+```azurecli-interactive
+az role definition list
+```
+
+```output
 [
   {
     "assignableScopes": [

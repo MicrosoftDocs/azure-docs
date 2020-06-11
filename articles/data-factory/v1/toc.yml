@@ -76,7 +76,7 @@
         href: data-factory-azure-documentdb-connector.md
       - name: Azure Data Lake Storage Gen1
         href: data-factory-azure-datalake-connector.md
-      - name: Azure Search
+      - name: Azure Cognitive Search
         href: data-factory-azure-search-connector.md
       - name: Azure SQL Database
         href: data-factory-azure-sql-connector.md
@@ -150,9 +150,9 @@
     - name: .NET custom activity
       href: data-factory-use-custom-activities.md
     - name: Invoke R scripts
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample
     - name: Reprocess models in Azure Analysis Services
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample
     - name: Compute Linked Services
       href: data-factory-compute-linked-services.md
   - name: Develop
@@ -199,10 +199,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Case Studies
     href: data-factory-customer-case-studies.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Pricing calculator

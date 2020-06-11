@@ -42,14 +42,14 @@ The following sections describe how to deploy a VDI solution using Horizon in yo
 ### Estimate the size of your desktop environment
 
 * Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* Estimate the resources that are needed for all your desktops and your Horizon management components.
 
 ### Create a Private Cloud for your environment
 
 1. Create a Private Cloud from the CloudSimple portal by following the instructions in [Configure a Private Cloud environment](quickstart-create-private-cloud.md).  CloudSimple creates a default vCenter user named 'cloudowner' in every newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permissions model](learn-private-cloud-permissions.md).
 2. Create a VLAN in your Private Cloud for the Horizon management plane and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the solution components (Unified Access Gateway, Connection Server, App Volume Server, and User Environment Manager servers) will be installed.
 3. Decide if you want to use an external identity provider with your Private Cloud vCenter. If yes, choose one of these options:
-    * Use your on-premise Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
+    * Use your on-premises Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
     * Set up an Active Directory server in the Private Cloud in Horizon management plane VLAN to use as your external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
     * Set up a DHCP and DNS server in Horizon management plane VLAN in the Private Cloud. For instructions, see [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
 4. Configure DNS forwarding on the DNS server installed in the Private Cloud. For instructions, see [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
@@ -76,7 +76,7 @@ Follow standard security best practices to secure your Horizon deployment:
 
 * Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
 * Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
-* Allow only management traffic from on-premise network.
+* Allow only management traffic from on-premises network.
 
 You can enforce these best practices by configuring [firewall rules](firewall.md) from the CloudSimple portal.
 
@@ -84,7 +84,7 @@ You can enforce these best practices by configuring [firewall rules](firewall.md
 
 Set up the following rules in the CloudSimple portal. For instructions, see [Set up firewall tables and rules](firewall.md).
 
-1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premise subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
+1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premises subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
 
 2. Create E-W firewall rules between the Horizon management VLAN and desktop pool VLAN in the Private Cloud.
 

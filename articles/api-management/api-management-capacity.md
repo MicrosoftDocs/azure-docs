@@ -13,6 +13,7 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
+ms.custom: fasttrack-edit
 ---
 
 # Capacity of an Azure API Management instance
@@ -20,6 +21,9 @@ ms.author: apimpm
 **Capacity** is the most important [Azure Monitor metric](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) for making informed decisions whether to scale an API Management instance to accommodate more load. Its construction is complex and imposes certain behavior.
 
 This article explains what the **capacity** is and how it behaves. It shows how to access **capacity** metrics in the Azure portal and suggests when to consider scaling or upgrading your API Management instance.
+
+> [!IMPORTANT]
+> This article discusses how you can monitor and scale your Azure API Management instance based upon its capacity metric. However, it is equally important to understand what happens when an individual API Management instance has actually *reached* its capacity. Azure API Management will not apply any service-level throttling to prevent a physical overload of the instances. When an instance reaches its physical capacity, it will behave similar to any overloaded web server that is unable to process incoming requests: latency will increase, connections will get dropped, timeout errors will occur, etc. This means that API clients should be prepared to deal with this possibility similar as with any other external service (e.g. by applying retry policies).
 
 ## Prerequisites
 
@@ -39,8 +43,9 @@ To follow the steps from this article, you must have:
 
 **Capacity** is an indicator of load on an API Management instance. It reflects resources usage (CPU, memory) and network queue lengths. CPU and memory usage reveals resources consumption by:
 
-+ API Management services, such as management actions or request processing, which can include forwarding requests or running a policy
-+ selected operating system processes, including processes that involve cost of SSL handshakes on new connections.
++ API Management data plane services, such as request processing, which can include forwarding requests or running a policy.
++ API Management management plane services, such as management actions applied via the Azure Portal or ARM, or load coming from the [developer portal](api-management-howto-developer-portal.md).
++ Selected operating system processes, including processes that involve cost of TLS handshakes on new connections.
 
 Total **capacity** is an average of its own values from every unit of an API Management instance.
 
@@ -70,7 +75,7 @@ Low **capacity metric** doesn't necessarily mean that your API Management instan
 ![Capacity metric](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
-2. Select **Metrics (preview)**.
+2. Select **Metrics**.
 3. From the purple section, select **Capacity** metric from available metrics and leave the default **Avg** aggregation.
 
     > [!TIP]

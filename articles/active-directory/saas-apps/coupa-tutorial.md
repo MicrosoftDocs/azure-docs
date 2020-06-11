@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -237,7 +238,7 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 	>
 
 >[!NOTE]
->You can use any other Coupa user account creation tools or APIs provided by Coupa to provision AAD user accounts.
+>You can use any other Coupa user account creation tools or APIs provided by Coupa to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

@@ -1,30 +1,16 @@
 ---
 title: Create an Azure application offer | Azure Marketplace 
 description: How to publish a new Azure application offer on the Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Create an Azure application offer
 
-This article describes how to create and publish an Azure application offer entry for the Azure Marketplace. Every offer appears as its own entity in Azure Marketplace and is composed of the following groupings of assets and supporting services: offer details, SKUs, marketing artifacts, and support information.
+The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Azure application  offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create an Azure application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer).
 
-## New Offer form
-
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), and then select **+ New offer** on the left menu bar. On the New offer menu, select **Azure Applications** to display the **New Offer** form and start the process of defining assets for a new offer.
-
-![New offer form](./media/azure-new-managedapp-offer.png)
-
-## Next steps
-
-The New Offer page provides a set of tabs and form fields that you'll use to create a new offer. The following articles explain how to define the asset groups and supporting services for your new offer.
-
-* [Offer Settings tab](./cpp-offer-settings-tab.md)
-* [SKUs tab](./cpp-skus-tab.md)
-* [Test Drive tab](./cpp-testdrive-tab.md)
-* [Marketplace tab](./cpp-marketplace-tab.md)
-* [Support tab](./cpp-support-tab.md)
+Before you create a new Azure application offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create an Azure application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-azure-apps-offer) to create your offer.

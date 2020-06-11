@@ -1,22 +1,19 @@
 ---
-title: Overview of the Azure Automation Grpahical runbook SDK
-description: This article describes how to use the Azure Automation Graphical Runbook SDK
+title: Use the Azure Automation graphical runbook SDK (preview)
+description: This article tells how to use the Azure Automation graphical runbook SDK (preview).
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 07/20/2018
 ms.topic: conceptual
-manager: carmonm
 ---
-# Use the Azure Automation Graphical runbook SDK
 
-[Graphical runbooks](automation-graphical-authoring-intro.md) are runbooks that help manage the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Microsoft Azure Automation Graphical Authoring SDK enables developers to create and edit Graphical Runbooks for use with the Azure Automation service. The following code snippets show the basic flow of creating a graphical runbook from your code.
+# Use the Azure Automation graphical runbook SDK (preview)
 
-## Pre-requisites
+[Graphical runbooks](automation-graphical-authoring-intro.md) help manage the complexities of the underlying Windows PowerShell or PowerShell Workflow code. The Microsoft Azure Automation graphical authoring SDK enables developers to create and edit graphical runbooks for use with Azure Automation. This article describes basic steps in creating a graphical runbook from your code.
 
-To start, import the `Microsoft.Azure.Automation.GraphicalRunbook.Model` package into your project.
+## Prerequisites
+
+Import the `Orchestrator.GraphRunbook.Model.dll` package by downloading the [SDK](https://www.microsoft.com/download/details.aspx?id=50734).
 
 ## Create a runbook object instance
 
@@ -87,7 +84,7 @@ var initializeRunbookVariable = runbook.AddActivity(
  });
 ```
 
-Activities are implemented by the following classes in the `Orchestrator.GraphRunbook.Model` namespace:
+Activities are implemented by the following classes in the `Orchestrator.GraphRunbook.Model` namespace.
 
 |Class  |Activity  |
 |---------|---------|
@@ -97,9 +94,9 @@ Activities are implemented by the following classes in the `Orchestrator.GraphRu
 |WorkflowScriptActivity     | Executes a block of PowerShell or PowerShell Workflow code (depending on the runbook type) in the context of the runbook. This is a powerful tool, but do not overuse it: the UI will show this script block as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. If you just need to invoke a single PowerShell command, prefer CommandActivity.        |
 
 > [!NOTE]
-> Do not derive your own activities from the provided classes: Azure Automation will not be able to use runbooks with custom activity types.
+> Don't derive your own activities from the provided classes. Azure Automation can't use runbooks with custom activity types.
 
-CommandActivity and InvokeRunbookActivity parameters must be provided as value descriptors, not direct values. Value descriptors specify how the actual parameter values should be produced. The following value descriptors are currently provided:
+You must provide `CommandActivity` and `InvokeRunbookActivity` parameters as value descriptors, not direct values. Value descriptors specify how to produce the actual parameter values. The following value descriptors are currently provided:
 
 
 |Descriptor  |Definition  |
@@ -113,7 +110,7 @@ CommandActivity and InvokeRunbookActivity parameters must be provided as value d
 |PowerShellExpressionValueDescriptor     | Specifies a free-form PowerShell expression that will be evaluated just before invoking the activity.  <br/>This is a powerful tool, but do not overuse it: the UI will show this expression as text; the execution engine will treat the provided block as a black box, and will make no attempts to analyze its content, except for a basic syntax check. When possible, prefer more specific value descriptors.      |
 
 > [!NOTE]
-> Do not derive your own value descriptors from the provided classes: Azure Automation will not be able to use runbooks with custom value descriptor types.
+> Don't derive your own value descriptors from the provided classes. Azure Automation can't use runbooks with custom value descriptor types.
 
 Instantiate links connecting activities and add them to the runbook:
 
@@ -134,10 +131,9 @@ Use `Orchestrator.GraphRunbook.Model.Serialization.RunbookSerializer` to seriali
 var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
-This string can be saved to a file with the **.graphrunbook** extension, and this file can be imported into Azure Automation.
-The serialized format may change in the future versions of `Orchestrator.GraphRunbook.Model.dll`. We promise backward compatibility: any runbook serialized with an older version of `Orchestrator.GraphRunbook.Model.dll` can be deserialized by any newer version. Forward compatibility is not guaranteed: a runbook serialized with a newer version may not be deserializable by older versions.
+You can save this string to a file with the **.graphrunbook** extension. The corresponding runbook can be imported into Azure Automation.
+The serialized format might change in the future versions of `Orchestrator.GraphRunbook.Model.dll`. We promise backward compatibility: any runbook serialized with an older version of `Orchestrator.GraphRunbook.Model.dll` can be deserialized by any newer version. Forward compatibility is not guaranteed: a runbook serialized with a newer version may not be deserializable by older versions.
 
 ## Next steps
 
-To learn more about Graphical Runbooks in Azure Automation, see [Graphical Authoring introduction](automation-graphical-authoring-intro.md)
-
+For more information, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).

@@ -29,4 +29,7 @@ From the CloudSimple portal, [escalate privileges](escalate-private-cloud-privil
 
 Users from additional identity sources must be added as members of CloudOwner group.
 
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
+
 During the escalation period, CloudSimple uses automated monitoring with associated alert notifications to identify any inadvertent changes to the environment.

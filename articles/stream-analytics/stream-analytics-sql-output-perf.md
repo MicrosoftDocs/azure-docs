@@ -1,10 +1,8 @@
 ---
 title: Azure Stream Analytics output to Azure SQL Database
 description: Learn about outputting data to SQL Azure from Azure Stream Analytics and achieve higher write throughput rates.
-services: stream-analytics
 author: chetanmsft
 ms.author: chetang
-manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
@@ -12,15 +10,15 @@ ms.date: 03/18/2019
 ---
 # Azure Stream Analytics output to Azure SQL Database
 
-This article discusses tips to achieve better write throughput performance when you're loading data into SQL Azure Database using Azure Stream Analytics.
+This article discusses tips to achieve better write throughput performance when you're loading data into Azure SQL Database using Azure Stream Analytics.
 
-SQL output in Azure Stream Analytics supports writing in parallel as an option. This option allows for [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) job topologies, where multiple output partitions are writing to the destination table in parallel. Enabling this option in Azure Stream Analytics however may not be sufficient to achieve higher throughputs, as it depends significantly on your SQL Azure database configuration and table schema. The choice of indexes, clustering key, index fill factor, and compression have an impact on the time to load tables. For more information about how to optimize your SQL Azure database to improve query and load performance based on internal benchmarks, see [SQL database performance guidance](../sql-database/sql-database-performance-guidance.md). Ordering of writes is not guaranteed when writing in parallel to SQL Azure Database.
+SQL output in Azure Stream Analytics supports writing in parallel as an option. This option allows for [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) job topologies, where multiple output partitions are writing to the destination table in parallel. Enabling this option in Azure Stream Analytics however may not be sufficient to achieve higher throughputs, as it depends significantly on your database configuration and table schema. The choice of indexes, clustering key, index fill factor, and compression have an impact on the time to load tables. For more information about how to optimize your database to improve query and load performance based on internal benchmarks, see [SQL database performance guidance](../azure-sql/database/performance-guidance.md). Ordering of writes is not guaranteed when writing in parallel to SQL Database.
 
 Here are some configurations within each service that can help improve overall throughput of your solution.
 
 ## Azure Stream Analytics
 
-- **Inherit Partitioning** – This SQL output configuration option enables inheriting the partitioning scheme of your previous query step or input. With this enabled, writing to a disk-based table and having a [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topology for your job, expect to see better throughputs. This partitioning already automatically happens for many other [outputs](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Table locking (TABLOCK) is also disabled for bulk inserts made with this option.
+- **Inherit Partitioning** – This SQL output configuration option enables inheriting the partitioning scheme of your previous query step or input. With this enabled, writing to a disk-based table and having a [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topology for your job, expect to see better throughputs. This partitioning already automatically happens for many other [outputs](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Table locking (TABLOCK) is also disabled for bulk inserts made with this option.
 
 > [!NOTE] 
 > When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. This upper limit was observed on a table with a single identity column and a clustered index. In this case, consider using [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 in your query, to explicitly specify the number of output writers. Based on your schema and choice of indexes, your observations may vary.

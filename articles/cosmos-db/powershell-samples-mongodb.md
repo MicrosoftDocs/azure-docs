@@ -1,16 +1,22 @@
 ---
 title: Azure PowerShell samples for Azure Cosmos DB - MongoDB API
-description: Azure PowerShell samples for Azure Cosmos DB - MongoDB API
+description: Get the Azure PowerShell samples to perform various common tasks in Azure Cosmos DB's API for MongoDB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 09/20/2019
+ms.date: 05/13/2020
 ms.author: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB MongoDB API
 
 The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB for MongoDB API.
+
+> [!NOTE]
+> Currently you can only create 3.2 version (that is, accounts using the endpoint in the format `*.documents.azure.com`) of Azure Cosmos DB's API for MongoDB accounts by using PowerShell, CLI, and Resource Manager templates. To create 3.6 version of accounts, use Azure portal instead.
+
+> [!NOTE]
+> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
 | | |
 |---|---|

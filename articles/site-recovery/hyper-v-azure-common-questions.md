@@ -1,13 +1,8 @@
 ---
-title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
 
 ---
 # Common questions - Hyper-V to Azure disaster recovery
@@ -114,7 +109,7 @@ Yes. Site Recovery converts from generation 2 to generation 1 during failover. A
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for replicating Hyper-V to Azure using PowerShell:
 
 - [Replicate Hyper-V without VMM using PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replicating Hyper-V with VMM using Powershell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replicating Hyper-V with VMM using PowerShell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## Replication
 
@@ -142,16 +137,16 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
-Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute public peering. Replication over a site-to-site VPN network isn't supported.
+Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute Microsoft peering. Replication over a site-to-site VPN network isn't supported.
 
 ### Can I replicate to Azure with ExpressRoute?
 
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account. Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account. Thus you can only replicate over the public internet with ExpressRoute (Microsoft peering), and VPN doesn't work. 
 
 ### What are the replicated VM requirements?
 
@@ -159,7 +154,7 @@ For replication, a Hyper-V VM must be running a supported operating system. In a
 
 ### How often can I replicate to Azure?
 
-Hyper-V VMs can be replicated every 30 seconds (except for premium storage), 5 minutes or 15 minutes.
+Hyper-V VMs can be replicated every 30 seconds (except for premium storage) or 5 minutes.
 
 ### Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
@@ -198,14 +193,17 @@ Site Recovery doesn't explicitly install anything on Hyper-V VMs enabled for rep
 ### How do I fail over to Azure?
 
 You can run a planned or unplanned failover from on-premises Hyper-V VMs to Azure.
-    - If you run a planned failover, then source VMs are shut down to ensure no data loss.
-    - You can run an unplanned failover if your primary site isn't accessible.
-    - You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
-    - You run a failover. After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required. You then commit the failover, to start accessing the workload from the replica Azure VM.
+
+- If you run a planned failover, then source VMs are shut down to ensure no data loss.
+- You can run an unplanned failover if your primary site isn't accessible.
+- You can fail over a single machine, or create recovery plans, to orchestrate failover of multiple machines.
+- Failover is in two parts:
+    - After the first stage of failover completes, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required.
+    - You then commit the failover, to start accessing the workload from the replica Azure VM.
    
 
 ### How do I access Azure VMs after failover?
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](failover-failback-overview.md#connect-to-azure-after-failover).
 
 ### Is failed over data resilient?
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
@@ -228,4 +226,4 @@ After your on-premises infrastructure is up and running again, you can fail back
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
 ### Can I fail back to a different location?
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
+Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](hyper-v-azure-failback.md#fail-back-to-an-alternate-location).

@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/26/2019
-ms.author: rosh
+ms.date: 03/31/2019
+ms.author: aahi
 ---
 
 # Tutorial: Crop an image with the Bing Visual Search SDK for C#

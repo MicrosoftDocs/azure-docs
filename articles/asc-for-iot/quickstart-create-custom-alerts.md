@@ -1,6 +1,6 @@
 ---
-title: Create custom alerts for Azure Security Center for IoT| Microsoft Docs
-description: Create and assign custom device alerts for Azure Security Center for IoT.
+title: "Quickstart: Create custom alerts"
+description: Understand, create and assign custom device alerts for the Azure Security Center for IoT security service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-
 ---
+
 # Quickstart: Create custom alerts
 
+Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution.
 
-Using custom security groups and alerts, takes full advantage of the end-to-end security information and categorical device knowledge to ensure better security across your IoT solution. 
-
-## Why use custom alerts? 
+## Why use custom alerts?
 
 You know your IoT devices best.
 
@@ -36,7 +35,7 @@ Security groups enable you to define logical groups of devices, and manage their
 These groups can represent devices with specific hardware, devices deployed in a certain location, or any other group suitable to your specific needs.
 
 Security groups are defined by a device twin tag property named **SecurityGroup**. By default, each IoT solution on IoT Hub has one security group named **default**. Change the value of the **SecurityGroup** property to change the security group of a device.
- 
+
 For example:
 
 ```
@@ -57,50 +56,24 @@ For example:
   "version": 4,
   "tags": {
     "SecurityGroup": "default"
-  }, 
+  },
 ```
 
-Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end IoT security solution. 
+Use security groups to group your devices into logical categories. After creating the groups, assign them to the custom alerts of your choice, for the most effective end-to-end IoT security solution.
 
 ## Customize an alert
 
-1. Open your IoT Hub. 
-2. Click **Custom alerts** in the **Security** section. 
-3. Choose a security group you wish to apply the customization to. 
-4. Click **Add a custom alert**.
-5. Select a custom alert from the dropdown list. 
-6. Edit the required properties, click **OK**.
-7. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
+1. Open your IoT Hub.
+1. Click **Custom alerts** in the **Security** section.
+1. Choose a security group you wish to apply the customization to.
+1. Click **Add a custom alert**.
+1. Select a custom alert from the dropdown list.
+1. Edit the required properties, click **OK**.
+1. Make sure to click **SAVE**. Without saving the new alert, the alert is deleted the next time you close IoT Hub.
 
- 
 ## Alerts available for customization
 
-The following table provides a summary of alerts available for customization.
-
-
-| Severity | Name | Data Source | Description | Suggested remediation|
-|---|---|---|---|---|
-| Low      | Custom alert - number of cloud to device messages in AMQP protocol is outside the allowed range          | IoT Hub     | Number of cloud to device messages (AMQP protocol) within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of rejected cloud to device messages in AMQP protocol is outside the allowed range | IoT Hub     | Number of cloud to device messages (AMQP protocol) rejected by the device, within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of device to cloud messages in AMQP protocol is outside the allowed range      | IoT Hub     | The amount of device to cloud messages (AMQP protocol) within a specific time window is outside the currently configured and allowable range.|   |
-| Low      | Custom alert - number of direct method invokes is outside the allowed range | IoT Hub     | The amount of direct method invokes within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of file uploads is outside the allowed range | IoT Hub     | The amount of file uploads within a specific time window is outside the currently configured and allowable range.| |
-| Low      | Custom alert - number of cloud to device messages in HTTP protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) in a time window is not in the configured allowed range                                  |
-| Low      | Custom alert - number of rejected cloud to device messages in HTTP protocol is not in the allowed range | IoT Hub     | The amount of cloud to device messages (HTTP protocol) within a specific time window is outside the currently configured and allowable range. |
-| Low      | Custom alert - number of device to cloud messages in HTTP protocol is outside the allowed range | IoT Hub| The amount of device to cloud messages (HTTP protocol)within a specific time window is outside the currently configured and allowable range.|    |
-| Low      | Custom alert - number of cloud to device messages in MQTT protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) within a specific time window is outside the currently configured and allowable range.|   |
-| Low      | Custom alert - number of rejected cloud to device messages in MQTT protocol is outside the allowed range | IoT Hub     | The amount of cloud to device messages (MQTT protocol) rejected by the device within a specific time window is outside the currently configured and allowable range. |
-| Low      | Custom alert - number of device to cloud messages in MQTT protocol is outside the allowed range          | IoT Hub     | The amount of device to cloud messages (MQTT protocol) within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of command queue purges is outside the allowed range                               | IoT Hub     | The amount of command queue purges within a specific time window is outside the currently configured and allowable range.||
-| Low      | Custom alert - number of module twin updates is outside the allowed range                                       | IoT Hub     | The amount of module twin updates within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of unauthorized operations is outside the allowed range  | IoT Hub     | The amount of unauthorized operations within a specific time window is outside the currently configured and allowable range.|
-| Low      | Custom alert - number of active connections is outside the allowed range  | Agent       | Number of active connections within a specific time window is outside the currently configured and allowable range.|  Investigate the device logs. Learn where the connection originated and determine if it is benign or malicious. If malicious, remove possible malware and understand source. If benign, add the source to the allowed connection list.  |
-| Low      | Custom alert - outbound connection created to an IP that isn't allowed                             | Agent       | An outbound connection was created to an IP that is outside your allowed IP list. |Investigate the device logs. Learn where the connection originated and determine if it is benign or malicious. If malicious, remove possible malware and understand source. If benign, add the source to the allowed IP list.                        |
-| Low      | Custom alert - number of failed local logins is outside the allowed range                               | Agent       | The amount of failed local logins within a specific time window is outside the currently configured and allowable range. |   |
-| Low      | Custom alert - login of a user that is not on the allowed user list | Agent       | A local user outside your allowed user list, logged in to the device.|  If you are saving raw data, navigate to your log analytics account and use the data to investigate the device, identify the source and then fix the allow/block list for those settings. If you are not currently saving raw data, go to the device and fix the allow/block list for those settings.|
-| Low      | Custom alert - a process was executed that is not allowed | Agent       | A process that is not allowed was executed on the device. |If you are saving raw data, navigate to your log analytics account and use the data to investigate the device, identify the source and then fix the allow/block list for those settings. If you are not currently saving raw data, go to the device and fix the allow/block list for those settings.  |
-|
-
+Azure Security Center for IoT offers a large number of alerts which can be customized according to your specific needs. Review the [customizable alert table](concept-customizable-security-alerts.md) for alert severity, data source, description and our suggested remediation steps if and when each alert is received.
 
 ## Next steps
 

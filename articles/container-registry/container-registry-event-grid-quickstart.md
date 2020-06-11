@@ -1,14 +1,8 @@
 ---
-title: Quickstart - Send Azure Container Registry events to Event Grid
+title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: danlep
 ms.custom: seodec18
 # Customer intent: As a container registry owner, I want to send events to Event Grid
 # when container images are pushed to or deleted from my container registry so that
@@ -114,7 +108,7 @@ az eventgrid event-subscription create \
 
 When the subscription is completed, you should see output similar to the following:
 
-```JSON
+```json
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
@@ -153,8 +147,7 @@ az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://githu
 
 You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
 
-```console
-$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+```output
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -176,8 +169,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 The "v1" tag of the image you built should appear in the output, similar to the following:
 
-```console
-$ az acr repository show-tags --name $ACR_NAME --repository myimage
+```output
 [
   "v1"
 ]
@@ -193,10 +185,9 @@ az acr repository delete --name $ACR_NAME --image myimage:v1
 
 You should see output similar to the following, asking for confirmation to delete the manifest and associated images:
 
-```console
-$ az acr repository delete --name $ACR_NAME --image myimage:v1
+```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 ## View registry events

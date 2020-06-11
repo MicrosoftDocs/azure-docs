@@ -1,12 +1,12 @@
 ---
 title: Overview of log queries in Azure Monitor | Microsoft Docs
 description: Answers common questions related to log queries and gets you started in using them.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/19/2019
+author: bwren
 ms.author: bwren
+ms.date: 06/19/2019
+
 ---
 
 # Overview of log queries in Azure Monitor
@@ -77,7 +77,7 @@ Log Analytics is the primary tool in the Azure portal for writing log queries an
 You can start Log Analytics from several places in the Azure portal. The scope of the data available to Log Analytics is determined by how you start it. See [Query Scope](scope.md) for more details.
 
 - Select **Logs** from the **Azure Monitor** menu or **Log Analytics workspaces** menu.
-- Select **Analytics** from the **Overview** page of an Application Insights application.
+- Select **Logs** from the **Overview** page of an Application Insights application.
 - Select **Logs** from the menu of an Azure resource.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

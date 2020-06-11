@@ -1,15 +1,16 @@
 ---
-title: Troubleshooting Azure Application Gateway Session Affinity Issues
+title: Troubleshoot session affinity issues
+titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot session affinity issues in Azure Application Gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 11/14/2019
 ms.author: absha
 ---
 
-# Troubleshoot Azure Application Gateway Session Affinity Issues
+# Troubleshoot Azure Application Gateway session affinity issues
 
 Learn how to diagnose and resolve session affinity issues with Azure Application Gateway.
 
@@ -69,7 +70,7 @@ If the application cannot handle cookie-based affinity, you must use an external
 
 #### Symptom
 
-You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: [http://website](http://website/) , the request is still bouncing between back-end servers.
+You have enabled the Cookie-based Affinity setting, when you access the Application Gateway by using a short name URL in Internet Explorer, for example: `http://website` , the request is still bouncing between back-end servers.
 
 To identify this issue, follow the instructions:
 
@@ -91,7 +92,7 @@ This issue occurs because Internet Explorer and other browsers may not store or 
 
 #### Resolution
 
-To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
+To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://website.com/) .
 
 ## Additional logs to troubleshoot
 

@@ -1,16 +1,16 @@
 ---
-title: Azure Data Lake Storage Gen2 Performance Tuning Guidelines | Microsoft Docs
+title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Tuning Azure Data Lake Storage Gen2 for performance
+# Optimize Azure Data Lake Storage Gen2 for performance
 
 Azure Data Lake Storage Gen2 supports high-throughput for I/O intensive analytics and data movement.  In Data Lake Storage Gen2, using all available throughput – the amount of data that can be read or written per second – is important to get the best performance.  This is achieved by performing as many reads and writes in parallel as possible.
 

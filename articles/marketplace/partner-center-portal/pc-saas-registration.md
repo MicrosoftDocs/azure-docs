@@ -1,129 +1,115 @@
 ---
-title: Register a SaaS application | Azure Marketplace 
-description: Explains how to register a SaaS application using the Azure portal.
-services: Azure, Marketplace, Cloud Partner Portal, Azure portal
-author: v-miclar
+title: Register a SaaS application - Azure Marketplace 
+description: Learn how to use the Azure portal to register a SaaS application and receive an Azure Active Directory security token.
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: evansma
+ms.date: 06/10/2020
+ms.author: dsindona
 ---
 
 # Register a SaaS application
 
-This article explains how to register a SaaS application using the Microsoft [Azure portal](https://portal.azure.com/).  After a successful registration, you will receive an Azure Active Directory (Azure AD) security token that you can use to access the SaaS Fulfillment APIs.  For more information about Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)
+This article explains how to register a SaaS application using the Microsoft [Azure portal](https://portal.azure.com/) and how to get publisher's access token (Azure Active Directory access token). The publisher will use this token to authenticate the SaaS application by calling the SaaS Fulfillment APIs.  The Fulfillment APIs use the OAuth 2.0 client credentials to grant flow on Azure Active Directory (v1.0) endpoints to make a service-to-service access token request.
 
+Azure Marketplace does not impose any constraints on the authentication method your SaaS service uses for end users. The flow below is required only for authenticating the SaaS Service in Azure Marketplace.
 
-## Service-to-service authentication flow
-
-The following diagram shows the subscription flow of a new customer and when these APIs are used:
-
-![SaaS offer API flow](./media/saas-offer-publish-api-flow-v1.png)
-
-Azure does not impose any constraints on the authentication that the SaaS service exposes to its end users. However, authentication with the SaaS Fulfillment APIs is performed with an Azure AD security token, typically obtained by registering the SaaS app through the Azure portal. 
-
+For more information about Azure AD (Active Directory), see [What is authentication](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)?
 
 ## Register an Azure AD-secured app
 
-Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it's located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.  To register a new application using the Azure portal, perform the following steps:
+Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD some details about your application. To register a new application using the Azure portal, perform the following steps:
 
-1.  Sign in to the [Azure portal](https://portal.azure.com/).
-2.  If your account gives you access to more than one, click your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
-3.  In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, and click **New application registration**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. If your account gives you access to more than one, click your account in the top-right corner, and set your portal session to the desired Azure AD tenant.
+3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, and click **New application registration**.
 
     ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1.png)
 
-4.  On the Create page, enter your application\'s registration information:
+4. On the Create page, enter your application\'s registration information:
     -   **Name**: Enter a meaningful application name
-    -   **Application type**: 
-        - Select **Native** for [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) that are installed locally on a device. This setting is used for OAuth public [native clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-        - Select **Web app / API** for
+    -   **Application type**:  
+        
+        Select **Web app / API** for
         [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
         and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
         that are installed on a secure server. This setting is used for
         OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
         and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         The same application can also expose both a client and resource/API.
-    -   **Sign-On URL**: For Web app/API applications, provide the base URL of your app. For example, **http://localhost:31544** might be the URL for a web app running on your local machine. Users would then use this URL to sign in to a web client application.
-    -   **Redirect URI**: For Native applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example **http://MyFirstAADApp**.
 
-        ![SaaS AD App Registrations](./media/saas-offer-app-registration-v1-2.png)
+        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).
 
-        For specific examples for web applications or native applications, check out the quickstart guided setups that are available in the *Get Started* section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+5. When finished, click **Register**.  Azure AD assigns a unique *Application ID* to your new application. We recommend registering one app that accesses the API only, and as single tenant.
 
-5.  When finished, click **Create**. Azure AD assigns a unique *Application ID* to your application, and you\'re taken to your application\'s main registration page. Depending on whether your application is a web or native application, different options are provided to add additional capabilities to your application.
+6. To create client secret, navigate to **Certificates & secrets page** and click **+New client secret**.  Be sure to copy the secret value to use it in your code.
+
+The **Azure AD app ID** is associated to your publisher ID, so make sure that the same *app ID* is used in all your offers.
 
 >[!Note]
->By default, the newly registered application is configured to allow only users from the same tenant to sign in to your application.
+>If a publisher has two different accounts in Partner Center, two different Azure AD app IDs should be used.  Each partner account in Partner Center should use a unique Azure AD app ID for all the SaaS offers that are published through this account.
 
+## How to get the publisher's authorization token
 
-## Using the Azure AD security token
+Once you have registered your application, you can programmatically request the publisher's authorization token (Azure AD access token, using Azure AD V1 endpoint). The publisher must use this token when calling the various SaaS Fulfillment APIs. This token is only valid for one hour. 
 
-Once you have registered your application, you can programmatically request an Azure AD security token.  The publisher is expected to use this token, and make a request to resolve it.  When using the various Fulfillment APIs, the token query parameter is in the URL when the user is redirected to SaaS website from Azure.  This token is only valid for one hour.  Additionally, you should URL decode the token value from the browser before using it.
+For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Note that in the flow below V1 end point token is used.
 
-For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+### Get the token with an HTTP POST
 
+#### HTTP Method
 
-### Get a token based on the Azure AD app
+Post<br>
 
-HTTP Method
+##### *Request URL* 
 
-`POST`
+`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
-*Request URL*
+##### *URI parameter*
 
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
+|  Parameter name    |  Required         |  Description |
+|  ---------------   |  ---------------  | ------------ |
+|  `tenantId`        |  True      |  Tenant ID of the registered AAD application. |
 
-*URI parameter*
+##### *Request header*
 
-|  **Parameter name**  | **Required**  | **Description**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Tenant ID of the registered AAD application   |
-|  |  |  |
+|  Header name       |  Required         |  Description |
+|  ---------------   |  ---------------  | ------------ |
+|  `content-type`    |  True      |  Content type associated with the request. The default value is `application/x-www-form-urlencoded`. |
 
+##### *Request body*
 
-*Request header*
+|  Property name     |  Required         |  Description |
+|  ---------------   |  ---------------  | ------------ |
+|  `grant-type`      |  True      |  Grant type. Use `"client_credentials"`. |
+|  `client_id`       |  True      |  Client/app identifier associated with the Azure AD app. |
+|  `client_secret`   |  True      |  Secret associated with the Azure AD app. |
+|  `resource`        |  True      |  Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` because Marketplace SaaS API is always the target resource in this case. |
 
-|  **Header name**  | **Required** |  **Description**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Content type associated with the request. The default value is `application/x-www-form-urlencoded`.  |
-|  |  |  |
+##### *Response*
 
+|  Name     |  Type         |  Description |
+|  ------   |  ---------------  | ------------ |
+|  200 OK   |  TokenResponse    |  Request succeeded. |
 
-*Request body*
+##### *TokenResponse*
 
-| **Property name**   | **Required** |  **Description**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Grant type. The default value is `client_credentials`.                    |
-|  Client_id          | True         |  Client/app identifier associated with the Azure AD app.                  |
-|  client_secret      | True         |  Password associated with the Azure AD app.                               |
-|  Resource           | True         |  Target resource for which the token is requested. The default value is `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
+Sample response:
 
-
-*Response*
-
-|  **Name**  | **Type**       |  **Description**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | Request succeeded   |
-|  |  |  |
-
-*TokenResponse*
-
-Sample response token:
-
-``` json
-  {
+```json
+{
       "token_type": "Bearer",
       "expires_in": "3600",
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
+      "resource": "20e940b3-4c77-4b0b-9a53-9e16a1b010a7",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
+  }
 ```
 
+The `"access_token"` field value in the response is the `<access_token>` that you will pass as authorization parameter when calling all SaaS fulfillment and Marketplace metering APIs.
 
 ## Next steps
 

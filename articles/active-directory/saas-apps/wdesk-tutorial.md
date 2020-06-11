@@ -12,74 +12,61 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/02/2020
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Wdesk
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Wdesk
 
-In this tutorial, you learn how to integrate Wdesk with Azure Active Directory (Azure AD).
-Integrating Wdesk with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Wdesk with Azure Active Directory (Azure AD). When you integrate Wdesk with Azure AD, you can:
 
-* You can control in Azure AD who has access to Wdesk.
-* You can enable your users to be automatically signed-in to Wdesk (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Wdesk.
+* Enable your users to be automatically signed-in to Wdesk with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with Wdesk, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Wdesk single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Wdesk single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Wdesk supports **SP** and **IDP** initiated SSO
+* Once you configure Wdesk you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Wdesk from the gallery
 
 To configure the integration of Wdesk into Azure AD, you need to add Wdesk from the gallery to your list of managed SaaS apps.
 
-**To add Wdesk from the gallery, perform the following steps:**
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add new application, click **New application** button on the top of dialog.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, type **Wdesk**, select **Wdesk** from result panel then click **Add** button to add the application.
-
-	 ![Wdesk in the results list](common/search-new-app.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Wdesk** in the search box.
+1. Select **Wdesk** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Wdesk based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Wdesk needs to be established.
 
-To configure and test Azure AD single sign-on with Wdesk, you need to complete the following building blocks:
+To configure and test Azure AD SSO with Wdesk, complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Wdesk Single Sign-On](#configure-wdesk-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Wdesk test user](#create-wdesk-test-user)** - to have a counterpart of Britta Simon in Wdesk that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Wdesk SSO](#configure-wdesk-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Wdesk test user](#create-wdesk-test-user)** - to have a counterpart of B.Simon in Wdesk that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -131,42 +118,6 @@ To configure Azure AD single sign-on with Wdesk, perform the following steps:
 
 	c. Logout URL
 
-### Configure Wdesk Single Sign-On
-
-1. In a different web browser window, sign in to Wdesk as a Security Administrator.
-
-2. In the bottom left, click **Admin** and choose **Account Admin**:
- 
-     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
-
-3. In Wdesk Admin, navigate to **Security**, then **SAML** > **SAML Settings**:
-
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
-
-4. Under **General Settings**, check the **Enable SAML Single Sign On**:
-
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
-
-5. Under **Service Provider Details**, perform the following steps:
-
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
-
-	  a. Copy the **Login URL** and paste it in **Sign-on Url** textbox on Azure portal.
-   
-	  b. Copy the **Metadata Url** and paste it in **Identifier** textbox on Azure portal.
-	   
-	  c. Copy the **Consumer url** and paste it in **Reply Url** textbox on Azure portal.
-   
-	  d. Click **Save** on Azure portal to save the changes.      
-
-6. Click **Configure IdP Settings** to open **Edit IdP Settings** dialog. Click **Choose File** to locate the **Metadata.xml** file you saved from Azure portal, then upload it.
-    
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
-  
-7. Click **Save changes**.
-
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
-
 ### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -217,6 +168,46 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
+## Configure Wdesk SSO
+
+1. In a different web browser window, sign in to Wdesk as a Security Administrator.
+
+2. In the bottom left, click **Admin** and choose **Account Admin**:
+ 
+     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+
+3. In Wdesk Admin, navigate to **Security**, then **SAML** > **SAML Settings**:
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+
+1. Under **SAML User ID Settings**, check **SAML User ID is Wdesk Username**.
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/wdesk-username.png)
+
+4. Under **General Settings**, check the **Enable SAML Single Sign On**:
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+
+5. Under **Service Provider Details**, perform the following steps:
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+
+	  a. Copy the **Login URL** and paste it in **Sign-on Url** textbox on Azure portal.
+   
+	  b. Copy the **Metadata Url** and paste it in **Identifier** textbox on Azure portal.
+	   
+	  c. Copy the **Consumer url** and paste it in **Reply Url** textbox on Azure portal.
+   
+	  d. Click **Save** on Azure portal to save the changes.      
+
+6. Click **Configure IdP Settings** to open **Edit IdP Settings** dialog. Click **Choose File** to locate the **Metadata.xml** file you saved from Azure portal, then upload it.
+    
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+  
+7. Click **Save changes**.
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+
 ### Create Wdesk test user
 
 To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdesk. In Wdesk, provisioning is a manual task.
@@ -235,7 +226,7 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
    
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser1.png)  
 
-5. In **User** text box, enter the username of user like brittasimon@contoso.com and click **Continue** button.
+5. In **User** text box, enter the username of user like b.simon@contoso.com and click **Continue** button.
 
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser3.png)
 
@@ -243,9 +234,9 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
   
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser4.png)
  
-    a. In **E-mail** text box, enter the email of user like brittasimon@contoso.com.
+    a. In **E-mail** text box, enter the email of user like b.simon@contoso.com.
 
-    b. In **First Name** text box, enter the first name of user like **Britta**.
+    b. In **First Name** text box, enter the first name of user like **B**.
 
     c. In **Last Name** text box, enter the last name of user like **Simon**.
 
@@ -253,7 +244,7 @@ To enable Azure AD users to sign in to Wdesk, they must be provisioned into Wdes
 
     ![Creating an Azure AD test user](./media/wdesk-tutorial/createuser5.png)
 
-### Test single sign-on 
+### Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -267,3 +258,4 @@ When you click the Wdesk tile in the Access Panel, you should be automatically s
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

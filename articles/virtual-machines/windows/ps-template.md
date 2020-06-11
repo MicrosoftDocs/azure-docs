@@ -1,18 +1,8 @@
 ﻿---
-title: Create a Windows VM from a template in Azure | Microsoft Docs
+title: Create a Windows VM from a template in Azure 
 description: Use a Resource Manager template and PowerShell to easily create a new Windows VM.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn

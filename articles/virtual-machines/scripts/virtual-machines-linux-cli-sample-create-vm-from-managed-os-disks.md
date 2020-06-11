@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a VM by attaching a managed disk as OS disk | Microsoft Docs
+title: Create a VM by attaching a managed disk as OS disk - CLI Sample 
 description: Azure CLI Script Sample - Create a VM by attaching a managed disk as OS disk
 services: virtual-machines-linux
 documentationcenter: virtual-machines

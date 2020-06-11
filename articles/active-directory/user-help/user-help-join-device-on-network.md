@@ -1,20 +1,19 @@
 ---
-title: Join your work device to your organization's network - Azure Active Directory | Microsoft Docs
+title: Join your work device to your organization's network - AD
 description: Learn how to join your work device to your organization's network.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 
-ms.collection: M365-identity-device-management
 ---
 # Join your work device to your organization's network
 Join your work-owned Windows 10 device to your organization's network so you can access potentially restricted resources.

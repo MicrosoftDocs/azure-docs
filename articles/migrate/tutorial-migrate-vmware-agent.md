@@ -1,20 +1,14 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agent-based Azure Migrate Server Migration  | Microsoft Docs
-description: This article describes how to perform an agent-based migration of on-premises machines to Azure with Azure Migrate Server Migration
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.author: raynew
+ms.date: 03/09/2020
 ms.custom: MVC
 ---
 
 # Migrate VMware VMs to Azure (agent-based)
 
 This article shows you how to migrate on-premises VMware VMs to Azure, using agent-based migration with the Azure Migrate Server Migration tool.
-
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 
 In this tutorial, you learn how to:
@@ -77,7 +71,7 @@ If you have already run an assessment with Azure Migrate Server Assessment, you 
 If you haven't run an assessment, you need to set up Azure permissions before you can migrate with Azure Migrate Server Migration.
 
 - **Create a project**: Your Azure account needs permissions to create an Azure Migrate project. 
-- **Register the Azure Migrate replication appliance**: The replication appliance creates and registers an Azure Active Directory app in your Azure account. You need to delegate permissions for this.
+- **Register the Azure Migrate replication appliance**: The replication appliance creates and registers an Azure Active Directory app in your Azure account. Delegate permissions for this.
 - **Create Key Vault**: To migrate VMware VMs using Azure Migrate Server Migration, Azure Migrate creates a Key Vault in the resource group, to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides. 
 
 
@@ -148,8 +142,8 @@ Create the account as follows:
 
 **Task** | **Role/Permissions** | **Details**
 --- | --- | ---
-**VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
-**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+**VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
+**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMsa, nd networks).
 
 ### Prepare an account for Mobility service installation
 
@@ -157,7 +151,7 @@ The Mobility service must be installed on machines you want to replicate.
 
 - The Azure Migrate replication appliance can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
 - In this tutorial, we're going to install the Mobility service with the push installation.
-- For push installation, you need to prepare an account that Azure Migrate Server Migration can use to access the VM.
+- For push installation, you need to prepare an account that Azure Migrate Server Migration can use to access the VM. This account is used only for the push installation, if you don't install the Mobility service manually.
 
 Prepare the account as follows:
 
@@ -174,9 +168,9 @@ Make sure VMware servers and VMs comply with requirements for migration to Azure
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
-2. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) VM support requirements for migration.
-3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware server requirements.
+2. [Verify](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VM support requirements for migration.
+3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -192,26 +186,18 @@ If you didn't follow the tutorial to assess VMware VMs, set up an Azure Migrate 
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 
-    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
 2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-3. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**
+3. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Create an Azure Migrate project](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
-    You can create an Azure Migrate project in any of these geographies.
 
-    **Geography** | **Region**
-    --- | ---
-    Asia | Southeast Asia
-    Europe | North Europe or West Europe
-    United States | East US or West Central US
-
-    The geography specified for the project is only used to store the metadata gathered from on-premises VMs. You can select any target region for the actual migration.
 4. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
 5. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
-6. In **Review + add tools**, review the settings and click **Add tools**
+6. In **Review + add tools**, review the settings, and click **Add tools**
 7. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
 ## Set up the replication appliance
@@ -222,7 +208,10 @@ The first step of migration is to set up the replication appliance. The replicat
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. The process server also installs the Mobility Service agent on VMs you want to replicate, and performs automatic discovery of on-premises VMware VMs.
 
 
-To set up the replication appliance, you download a prepared Open Virtualization Application (OVA) template. You import the template into VMware, and create the replication appliance VM. 
+You can set up the replication appliance in a couple of ways.
+
+- Set up with a downloaded Open Virtualization Application (OVA) template. You import the template into VMware, and create the replication appliance VM. This is the method used in this tutorial.
+- Set up with a script.
 
 ### Download the replication appliance template
 
@@ -333,7 +322,7 @@ Now, select VMs for migration.
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -403,14 +392,17 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
+    - By default Azure Migrate shuts down the on-premises VM to ensure minimum data loss. 
     - If you don't want to shut down the VM, select **No**
 4. A migration job starts for the VM. Track the job in Azure notifications.
 5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Complete the migration
 
-1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
+1. After the migration is done, right-click the VM > **Stop migration**. This does the following:
+    - Stops replication for the on-premises machine.
+    - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
+    - Cleans up replication state information for the VM.
 2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
@@ -421,7 +413,19 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Post-migration best practices
 
-- For increased resilience:
+- On-premises
+    - Move app traffic over to the app running on the migrated Azure VM instance.
+    - Remove the on-premises VMs from your local VM inventory.
+    - Remove the on-premises VMs from local backups.
+    - Update any internal documentation to show the new location and IP address of the Azure VMs.
+- Tweak Azure VM settings after migration:
+    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMare VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
+    - Manually uninstall the Mobility service from the Azure VM after migration.
+    - Manually uninstall VMware tools after migration.
+- In Azure:
+    - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+    - Perform final application and migration acceptance testing on the migrated application now running in Azure.
+- Business continuity/disaster recovery
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
@@ -430,9 +434,11 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
 
 
-## Next steps
+
+
+ ## Next steps
 
 Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.

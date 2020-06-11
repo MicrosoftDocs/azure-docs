@@ -1,12 +1,12 @@
 ---
 title: How to fill out the Storefront Details form 
 description: Deprecated and linked to corresponding PC articles; was "Explains the values for the Storefront Details form for a new Dynamics 365 Business Central app."
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # How to fill out the Storefront Details form

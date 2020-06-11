@@ -1,26 +1,21 @@
 ---
-title: How to fill out specific fields for a custom-developed application | Microsoft Docs
-description: Guidance on how to fill out specific fields when you are registering a custom developed application with Azure AD
+title: Azure portal registration fields for custom-developed apps
+description: Guidance for registering a custom developed application with Azure AD
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 
-ms.collection: M365-identity-device-management
 ---
 
-# How to fill out specific fields for a custom-developed application
+# Azure portal registration fields for custom-developed apps
 
 This article gives you a brief description of all the available fields in the application registration form in the [Azure portal](https://portal.azure.com).
 
@@ -36,7 +31,6 @@ This article gives you a brief description of all the available fields in the ap
 
 ## Fields in the application registration form
 
-
 | Field            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Name             | The name of the application. It should have a minimum of four characters.                |
@@ -46,6 +40,7 @@ This article gives you a brief description of all the available fields in the ap
 Once you have filled the above fields, the application is registered in the Azure portal, and you are redirected to the application overview page. The settings pages in the left pane under **Manage** have more fields for you to customize your application. The tables below describe all the fields. You would only see a subset of these fields, depending on whether you created a web application or a public client application.
 
 ### Overview
+
 | Field           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Application ID  | When you register an application, Azure AD assigns your application an Application ID. The application ID can be used to uniquely identify your application in authentication requests to Azure AD, as well as to access resources like the Graph API.                                                          |
@@ -73,4 +68,5 @@ Once you have filled the above fields, the application is registered in the Azur
 | Client secrets            | You can create client secrets, or keys, to programmatically access web APIs secured by Azure AD without any user interaction. From the **New client secret** page, enter a key description and the expiration date and save to generate the key. Make sure to save it somewhere secure, as you won't be able to access it later.             |
 
 ## Next steps
+
 [Managing Applications with Azure Active Directory](../manage-apps/what-is-application-management.md)

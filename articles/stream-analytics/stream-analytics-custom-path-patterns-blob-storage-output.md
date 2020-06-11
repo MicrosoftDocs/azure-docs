@@ -1,7 +1,6 @@
 ---
 title: Azure Stream Analytics custom blob output partitioning
 description: This article describes the custom DateTime path patterns and the custom field or attributes features for blob storage output from Azure Stream Analytics jobs.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -73,10 +72,10 @@ The following format specifier tokens can be used alone or in combination to ach
 |{datetime:MM}|Month from 01 to 12|01|
 |{datetime:M}|Month from 1 to 12|1|
 |{datetime:dd}|Day from 01 to 31|02|
-|{datetime:d}|Day from 1 to 12|2|
+|{datetime:d}|Day from 1 to 31|2|
 |{datetime:HH}|Hour using the 24-hour format, from 00 to 23|10|
-|{datetime:mm}|Minutes from 00 to 24|06|
-|{datetime:m}|Minutes from 0 to 24|6|
+|{datetime:mm}|Minutes from 00 to 60|06|
+|{datetime:m}|Minutes from 0 to 60|6|
 |{datetime:ss}|Seconds from 00 to 60|08|
 
 If you do not wish to use custom DateTime patterns, you can add the {date} and/or {time} token to the Path Prefix to generate a dropdown with built-in DateTime formats.

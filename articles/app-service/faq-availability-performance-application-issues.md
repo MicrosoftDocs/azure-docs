@@ -1,17 +1,11 @@
 ---
-title: Application performance FAQs - Azure App Service | Microsoft Docs
-description: Get answers to frequently asked questions about availability, performance, and application issues in the Web Apps feature of Azure App Service.
-services: app-service\web
-documentationcenter: ''
+title: Application performance FAQs
+description: Get answers to frequently asked questions about availability, performance, and application issues in Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
@@ -49,7 +43,7 @@ For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websit
 
 To view your web app's event logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. In the menu, select **Debug Console** > **CMD**.
 3. Select the **LogFiles** folder.
 4. To view event logs, select the pencil icon next to **eventlog.xml**.
@@ -59,7 +53,7 @@ To view your web app's event logs:
 
 To capture a user-mode memory dump of your web app:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the **Process Explorer** menu.
 3. Right-click the **w3wp.exe** process or your WebJob process.
 4. Select **Download Memory Dump** > **Full Dump**.
@@ -72,7 +66,7 @@ You have two options for viewing process-level information for your web app:
     1. Open the **Process Explorer** for the web app.
     2. To see the details, select the **w3wp.exe** process.
 *   In the Kudu console:
-    1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Select the **Process Explorer** menu.
     3. For the **w3wp.exe** process, select **Properties**.
 
@@ -88,15 +82,16 @@ To see what is causing the error and to resolve the issue, follow the steps in [
 
 ## Where can I learn more about quotas and limits for various App Service plans?
 
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
+For information about quotas and limits, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 ## How do I decrease the response time for the first request after idle time?
 
 By default, web apps are unloaded if they are idle for a set period of time. This way, the system can conserve resources. The downside is that the response to the first request after the web app is unloaded is longer, to allow the web app to load and start serving responses. In Basic and Standard service plans, you can turn on the **Always On** setting to keep the app always loaded. This eliminates longer load times after the app is idle. To change the **Always On** setting:
 
 1. In the Azure portal, go to your web app.
-2. Select **Application settings**.
-3. For **Always On**, select **On**.
+2. Select **Configuration**
+3. Select **General settings**.
+4. For **Always On**, select **On**.
 
 ## How do I turn on failed request tracing?
 

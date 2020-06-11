@@ -1,21 +1,9 @@
 ---
-title: Azure Service Fabric application model | Microsoft Docs
-description: How to model and describe applications and services in Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
+title: Azure Service Fabric application model
+description: How to model and describe applications and services in Azure Service Fabric using application and service manifest files.
 
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Model an application in Service Fabric
 This article provides an overview of the Azure Service Fabric application model and how to define an application and service via manifest files.

@@ -1,8 +1,8 @@
 ---
-title: Get shapes data from drawing manager in Azure Maps| Microsoft Docs
-description: How to get shape data using Azure Maps Web SDK
-author: walsehgal
-ms.author: v-musehg
+title: Get data from shapes on a map | Microsoft Azure Maps
+description: In this article learn, how to get shape data drawn on a map using the Microsoft Azure Maps Web SDK.
+author: philmea
+ms.author: philmea
 ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,12 +12,12 @@ manager: philmea
 
 # Get shape data
 
-This article shows you how to get shapes data that have been drawn on the map using the [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager.getSource()** function. There can be various scenarios where you might want to extract geojson data of a drawn shape and utilize it elsewhere.  
+This article shows you how to get data of shapes that are drawn on the map. We use the **drawingManager.getSource()** function inside [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--). There are various scenarios when you want to extract geojson data of a drawn shape and use it elsewhere.  
 
 
 ## Get data from drawn shape
 
-The following function gets the drawn shape's source data and outputs it on the screen. 
+The following function gets the drawn shape's source data and outputs it to the screen. 
 
 ```Javascript
 function getDrawnShapes() {
@@ -37,6 +37,14 @@ Below is the complete running code sample, where you can draw a shape to test th
 
 
 ## Next steps
+
+Learn how to use additional features of the drawing tools module:
+
+> [!div class="nextstepaction"]
+> [React to drawing events](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
 Learn more about the classes and methods used in this article:
 

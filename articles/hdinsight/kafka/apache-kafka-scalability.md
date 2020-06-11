@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.custom: hdinsightactive
+ms.date: 12/09/2019
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
@@ -22,14 +22,14 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
 
 ## Configure managed disks: Azure portal
 
-1. Follow the steps in the [Create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md) to understand the common steps to create a cluster using the portal. Do not complete the portal creation process.
+1. Follow the steps in the [Create an HDInsight cluster](../hdinsight-hadoop-create-linux-clusters-portal.md) to understand the common steps to create a cluster using the portal. Don't complete the portal creation process.
 
-2. From the __Cluster size__ section, use the __Disks per worker node__ field to configure the number of disks.
+2. From the **Configuration & Pricing** section, use the __Number of Nodes__ field to configure the number of disks.
 
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/set-managed-disks-portal.png)
+    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## Configure managed disks: Resource Manager template
 

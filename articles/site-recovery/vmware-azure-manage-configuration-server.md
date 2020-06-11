@@ -1,6 +1,5 @@
 ---
-title: Manage the configuration server for VMware and physical server disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to manage an existing configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
+title: Manage the configuration server for disaster recovery with Azure Site Recovery
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -9,19 +8,23 @@ ms.date: 04/15/2019
 ms.author: ramamill
 ---
 
-# Manage the configuration server for VMware VM disaster recovery
+# Manage the configuration server for VMware VM/physical server disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## Update Windows license
+
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+
 ## Access configuration server
 
 You can access the configuration server as follows:
 
 * Sign in to the VM on which it's deployed, and Start **Azure Site Recovery Configuration Manager** from the desktop shortcut.
-* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/ . Sign in with administrator credentials.
+* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/. Sign in with administrator credentials.
 
 ## Modify VMware server settings
 
@@ -37,7 +40,7 @@ You can access the configuration server as follows:
 
 You can also modify the credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Choose the account you wish to modify and click **Edit**.
 3. Enter the modified credentials and click **Ok**
 
@@ -53,7 +56,7 @@ Modify the credentials used to automatically install Mobility Service on the VMw
 
 You can also modify credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Choose the account you wish to modify and click **Edit**
 3. Enter the new credentials and click **Ok**.
 
@@ -68,7 +71,7 @@ If you missed adding credentials during OVF deployment of configuration server,
 
 You can also add credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Click **Add**, enter the new credentials and click **Ok**.
 
 ## Modify proxy settings
@@ -85,6 +88,32 @@ The Open Virtualization Format (OVF) template deploys the configuration server V
 - You can [add an additional adapter to the VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
 - To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to [re-register](#reregister-a-configuration-server-in-the-same-vault) the server in the vault.
 
+## How to renew SSL certificates
+
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility agents on all protected machines, inbuilt/scale-out process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
+
+### Check expiry
+
+The expiry date appears under **Configuration Server health**. For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
+
+- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
+- A notification banner appears on the vault resource page. For more information, select the banner.
+- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
+
+### If certificates are yet to expire
+
+1. To renew, in the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
+2. Ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
+3. Now, select **Renew Certificates**.
+4. Carefully follow instructions on this page and click okay to renew certificates on selected configuration server and it's associated components.
+
+### If certificates have already expired
+
+1. Post expiry, certificates **cannot be renewed from Azure portal**. Before proceeding, ensure all components scale-out process servers, master target servers and mobility agents on all protected machines are on latest versions and are in connected state.
+2. **Follow this procedure only if certificates have already expired.** Login to configuration server, navigate to C drive > Program Data > Site Recovery > home > svsystems > bin and execute "RenewCerts" executor tool as administrator.
+3. A PowerShell execution window pops-up and triggers renewal of certificates. This can take up to 15 minutes. Do not close the window until completion of renewal.
+
+:::image type="content" source="media/vmware-azure-manage-configuration-server/renew-certificates.png" alt-text="RenewCertificates":::
 
 ## Reregister a configuration server in the same vault
 
@@ -105,7 +134,7 @@ You can reregister the configuration server in the same vault if you need to. If
 
     >[!NOTE]
     >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>"--registermt*
 
 8. Finally, restart the obengine by executing the following command.
    ```
@@ -263,34 +292,12 @@ You can optionally delete the configuration server by using PowerShell.
 3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
 4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## Renew SSL certificates
-
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
-
-### Check expiry
-
-For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
-
-- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
-- A notification banner appears on the vault resource page. For more information, select the banner.
-- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
-
-### Renew the certificate
-
-1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
-2. The expiry date appears under **Configuration Server health**.
-3. Select **Renew Certificates**.
-
 ## Refresh Configuration server
 
 1. In the Azure portal, navigate to **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers**
 2. Click on the configuration server you wish to refresh.
 3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
 4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
-
-## Update Windows license
-
-The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license.
 
 ## Failback requirements
 

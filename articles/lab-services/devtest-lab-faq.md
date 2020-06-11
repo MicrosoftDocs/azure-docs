@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs FAQ | Microsoft Docs
-description: Find answers to common questions about Azure DevTest Labs.
+description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
 
 ---
@@ -43,13 +43,13 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know, so we can help you find an answer.
 
-- Post a question at the end of this FAQ. 
-- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
+- Post a question at the end of this FAQ.
+- To reach a wider audience, post a question on the [Microsoft Q&A question page for Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### What is a Microsoft account?
 A Microsoft account is an account you use for almost everything you do with Microsoft devices and services. It’s an email address and password that you use to sign into Skype, Outlook.com, OneDrive, Windows phone, Azure, and Xbox Live. A single account means that your files, photos, contacts, and settings can follow you on any device.
- 
+
 > [!NOTE]
 > A Microsoft account used to be called a Windows Live ID.
 
@@ -142,28 +142,28 @@ Ultimately, the same type of restrictions needs to be applied across the organiz
 ## Lab configuration
 
 ### How do I create a lab from a Resource Manager template?
-We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+We offer a [GitHub repository of lab Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as it's in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
 
 
-### Can I have all virtual machines to be created in a common resource group instead having each machine in its own resource group? 
-Yes, as a lab owner, you can either let the lab handle resource group allocation for you or have all virtual machines created in a common resource group that you specify. 
+### Can I have all virtual machines to be created in a common resource group instead having each machine in its own resource group?
+Yes, as a lab owner, you can either let the lab handle resource group allocation for you or have all virtual machines created in a common resource group that you specify.
 
 Separate resource group scenario:
 -	DevTest Labs creates a new resource group for every public/private IP virtual machine you spin up
 -	DevTest Labs creates a resource group for shared IP machines that belong to the same size.
 
 Common resource group scenario:
--	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](https://aka.ms/RGControl). 
+-	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](https://aka.ms/RGControl).
 
 ### How do I maintain a naming convention across my DevTest Labs environment?
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment. When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../governance/policy/samples/index.md).
 
 ### How many labs can I create under the same subscription?
-There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### How many VMs can I create per lab?
-There is no specific limit on the number of VMs that can be created per lab. However, the resources (VM cores, public IP addresses, and so on) that are used are limited per subscription. You can read about the [limits and quotas for Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+There is no specific limit on the number of VMs that can be created per lab. However, the resources (VM cores, public IP addresses, and so on) that are used are limited per subscription. You can read about the [limits and quotas for Azure subscriptions](../azure-resource-manager/management/azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### How do I determine the ratio of users per lab and the overall number of labs that are needed across an organization?
 We recommend that business units and development groups that are associated with the same development project are associated with the same lab. It allows for same types of policies, images, and shutdown policies to be applied to both groups.
@@ -193,7 +193,7 @@ When you create a VM in DevTest Labs, you're given permission to access that VM.
 You have two options for simultaneously creating multiple VMs from the same template:
 
 - You can use the [Azure DevOps Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
-- You can [generate a Resource Manager template](devtest-lab-add-vm.md#save-azure-resource-manager-template) while you're creating a VM, and [deploy the Resource Manager template from Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+- You can [generate a Resource Manager template](devtest-lab-add-vm.md#save-azure-resource-manager-template) while you're creating a VM, and [deploy the Resource Manager template from Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 - You can also specify more than one instance of a machine to be created during virtual machine creation. To learn more about creating multiple instances of virtual machines, see the doc on [creating a lab virtual machine](devtest-lab-add-vm.md).
 
 ### How do I move my existing Azure VMs into my DevTest Labs lab?
@@ -206,6 +206,9 @@ To copy your existing VMs to DevTest Labs:
 ### Can I attach multiple disks to my VMs?
 
 Yes, you can attach multiple disks to your VMs.
+
+### Are Gen 2 images supported by DevTest Labs?
+No. The DevTest Labs service doesn't support [Gen 2 images](../virtual-machines/windows/generation-2.md). If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You won't see an image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
@@ -249,7 +252,7 @@ foreach($labVM in $labVMs)
 }
 ```
 
-## Environments 
+## Environments
 
 ### How can I use Resource Manager templates in my DevTest Labs Environment?
 You deploy your Resource Manager templates into a DevTest Labs environment by using steps mentioned in the [Environments feature in DevTest Labs](devtest-lab-test-env.md) article. Basically, you check your Resource Manager templates into a Git Repository (either Azure Repos or GitHub), and add a [private repository for your templates](devtest-lab-test-env.md) to the lab. This scenario may not be useful if you're using DevTest Labs to host development machines but may be useful if you're building a staging environment, which is representative of production.
@@ -261,7 +264,7 @@ It's also worth noting that the number of virtual machines per lab or per user o
 ### How can I set up an easily repeatable process to bring my custom organizational images into a DevTest Labs environment?
 See this [video on Image Factory pattern](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
-For detailed information on creating an image factory, see [Create a custom image factory in Azure DevTest Labs](image-factory-create.md). 
+For detailed information on creating an image factory, see [Create a custom image factory in Azure DevTest Labs](image-factory-create.md).
 
 ### What is the difference between a custom image and a formula?
 A custom image is a managed image. A formula is an image that you can configure with additional settings, and then save and reproduce. A custom image might be preferable if you want to quickly create several environments by using the same basic, immutable image. A formula might be better if you want to reproduce the configuration of your VM with the latest bits, as part of a virtual network or subnet, or as a VM of a specific size. For a more in-depth explanation, see [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -340,19 +343,19 @@ The following blog posts offer guidance and information about using the Azure De
 - [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 - [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.
+For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/) by using [Azure PowerShell cmdlets](../azure-resource-manager/templates/deploy-powershell.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.
 
 ## Networking
 
 ### When should I create a new virtual network for my DevTest Labs environment vs. using an existing virtual network?
-If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions. 
+If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions.
 
-Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network. 
+Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network.
 
-There are [limits](../azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
+There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 
 ### When should I use a shared IP vs. public IP vs. private IP?
- 
+
 If you use a site-to-site VPN or Express Route, consider using private IPs so that your machines are accessible via your internal network, and inaccessible over public internet.
 
 > [!NOTE]
@@ -380,15 +383,15 @@ One possibility is that your virtual network name contains periods. If so, try r
 ### Why do I get a "Parent resource not found" error when I provision a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before you create the child resource. If the parent resource doesn't exist, you see a **ParentResourceNotFound** message. If you don't specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ### Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM page (the page appears after you select the VM from the My virtual machines list).
 
-Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
+Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
 
 ### Why do I get "location is not available for resource type" error when trying to create a lab?
-You may see an error message similar to the following one when you try to create a lab: 
+You may see an error message similar to the following one when you try to create a lab:
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
@@ -397,9 +400,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 You can resolve this error by taking one of the following steps:
 
 #### Option 1
-Check availability of the resource type in Azure regions on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. If the resource type isn't available in a certain region, DevTest Labs doesn't support creation of a lab in that region. Select another region when creating your lab. 
+Check availability of the resource type in Azure regions on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. If the resource type isn't available in a certain region, DevTest Labs doesn't support creation of a lab in that region. Select another region when creating your lab.
 
 #### Option 2
-If the resource type is available in your region, check if it's registered with your subscription. It can be done at the subscription owner level as shown in [this article](../azure-resource-manager/resource-manager-supported-services.md). 
-
-
+If the resource type is available in your region, check if it's registered with your subscription. It can be done at the subscription owner level as shown in [this article](../azure-resource-manager/management/resource-providers-and-types.md).

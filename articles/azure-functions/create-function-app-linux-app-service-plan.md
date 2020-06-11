@@ -1,16 +1,8 @@
 ---
-title: Create a function app on Linux from the Azure portal | Microsoft Docs
+title: Create a function app on Linux from the Azure portal 
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-
-ms.service: azure-functions
-ms.topic: quickstart
-ms.date: 02/28/2019
-ms.author: glenga
-ms.custom: 
+ms.topic: how-to
+ms.date: 04/29/2020
 #Customer intent: As a developer, learn how to use the Azure portal so that I can create a function app that runs on Linux in App Service plan so that I can have more control over how my functions are scaled.
 
 ---
@@ -28,69 +20,90 @@ Sign in to the Azure portal at <https://portal.azure.com> with your Azure accoun
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. In this article, you create an App Service plan when you create your function app.
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logical unit for easier management, deployment, scaling, and sharing of resources. In this article, you create an App Service plan when you create your function app.
 
-1. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute** > **Function App**.
+1. From the Azure portal menu or the **Home** page, select **Create a resource**.
 
-    ![Create a function app in the Azure portal](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
+1. In the **New** page, select **Compute** > **Function App**.
 
-2. Use the function app settings as specified in the table below the image.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-flow.png" alt-text="Create a function app in the Azure portal":::
 
-    ![Define new function app settings](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
+1. On the **Basics** page, use the function app settings as specified in the following table.
 
-    | Setting      | Suggested value  | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
-    | **OS** | Linux | The function app runs on Linux. |
-    | **Publish** | Code | The default Linux container for your **Runtime Stack** is used. All you need to provide is your function app project code. Another option is to publish a custom [Docker image](functions-create-function-linux-custom-image.md). |
-    | **[Hosting plan](functions-scale.md)** | App Service plan | Hosting plan that defines how resources are allocated to your function app. When you run in an App Service plan, you can control the [scaling of your function app](functions-scale.md).  |
-    | **App Service plan/Location** | Create plan | Choose **Create new** and supply an **App Service plan** name. Choose a **Location** in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. Choose your desired **[Pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>You can't run both Linux and Windows function apps in the same App Service plan. |
-    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. [Python support](functions-reference-python.md) is in preview at this time. |
-    | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](functions-scale.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights is disabled by default. We recommend enabling Application Insights integration now and choosing a hosting location near your App Service plan location. If you want to do this later, see [Monitor Azure Functions](functions-monitoring.md).  |
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **Subscription** | Your subscription | The subscription under which this new function app is created. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Publish**| **Code** (default) | Option to publish code files or a Docker container. |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET Core** for C# and F# functions. |
+    |**Version**| Version number | Choose the version of your installed runtime.  |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
-3. Select **Create** to provision and deploy the function app.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Basics page":::
 
-4. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+1. Select **Next : Hosting**. On the **Hosting** page, enter the following settings.
 
-    ![Define new function app settings](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Operating system**| **Linux** | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
+    | **[Plan](../azure-functions/functions-scale.md)** | **Consumption (Serverless)** | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption** plan, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you pay only for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../azure-functions/functions-scale.md).  |
 
-5. Select **Go to resource** to view your new function app.
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Hosting page":::
 
-Next, you create a function in the new function app. Even after your function app is available, it may take a few minutes to be fully initialized.
+1. Select **Next : Monitoring**. On the **Monitoring** page, enter the following settings.
 
-## <a name="create-function"></a>Create an HTTP triggered function
+    | Setting      | Suggested value  | Description |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Yes** (default) | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting or selecting **Create new**, you can change the Application Insights name or choose a different region in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
+
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Monitoring page":::
+
+1. Select **Review + create** to review the app configuration selections.
+
+1. On the **Review + create** page, review your settings, and then select **Create** to provision and deploy the function app.
+
+1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+
+1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
+
+    ![Deployment notification](./media/create-function-app-linux-app-service-plan/function-app-create-notification2.png)
+
+    Even after your function app is available, it may take a few minutes to be fully initialized.
+
+Next, you create a function in the new function app.
+
+## <a name="create-function"></a>Create an HTTP trigger function
 
 This section shows you how to create a function in your new function app in the portal.
 
 > [!NOTE]
 > The portal development experience can be useful for trying out Azure Functions. For most scenarios, consider developing your functions locally and publishing the project to your function app using either [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) or the [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
-1. In your new function app, choose the **Overview** tab, and after it loads completely choose **+ New function**.
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
+ 
+1. From the **New Function** window, select **Http trigger**.
 
-    ![Create a new function from the Overview tab](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+    ![Choose HTTP trigger function](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. In the **Quickstart** tab, choose **In-portal**, and select **Continue**.
+1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
 
-    ![Choose your function development platform.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+1. Choose **Anonymous** from the **Authorization level** drop-down list, and then select **Create Function**.
 
-1. Choose **WebHook + API** and then select **Create**.
-
-    ![Functions quickstart in the Azure portal.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
-
-A function is created using a language-specific template for an HTTP triggered function.
-
-Now, you can run the new function by sending an HTTP request.
+    Azure creates the HTTP trigger function. Now, you can run the new function by sending an HTTP request.
 
 ## Test the function
 
-1. In your new function, click **</> Get function URL** at the top right, select **default (Function key)**, and then click **Copy**. 
+1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
+
+    ![Select Get function URL](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
+
+1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon. 
 
     ![Copy the function URL from the Azure portal](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 
-2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press Enter to run the request. 
 
     The following example shows the response in the browser:
 
@@ -98,7 +111,7 @@ Now, you can run the new function by sending an HTTP request.
 
     The request URL includes a key that is required, by default, to access your function over HTTP.
 
-3. When your function runs, trace information is written to the logs. To see the trace output from the previous execution, return to your function in the portal and click the arrow at the bottom of the screen to expand the **Logs**.
+1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page.
 
    ![Functions log viewer in the Azure portal.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
@@ -108,7 +121,7 @@ Now, you can run the new function by sending an HTTP request.
 
 ## Next steps
 
-You have created a function app with a simple HTTP triggered function.  
+You have created a function app with a simple HTTP trigger function.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 

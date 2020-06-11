@@ -1,14 +1,14 @@
 ---
-title: 'Example: Creating a custom cognitive skill with the Bing Entity Search API - Azure Search'
-description: Demonstrates using the Bing Entity Search service in a custom skill mapped to a cognitive search indexing pipeline in Azure Search.
+title: 'Custom skill example using Bing Entity Search API'
+titleSuffix: Azure Cognitive Search
+description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.subservice: cognitive-search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
 # Example: Create a custom skill using the Bing Entity Search API
@@ -65,7 +65,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {
@@ -472,9 +472,10 @@ Here, we're counting on the built-in [entity recognition skill](cognitive-search
 ```
 
 ## Next steps
-Congratulations! You've created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
+Congratulations! You've created your first custom skill. Now you can follow the same pattern to add your own custom functionality. Click the following links to learn more.
 
-+ [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)
++ [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

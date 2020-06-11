@@ -1,5 +1,5 @@
 ---
-title: "Deploy a model for Custom Speech - Speech Service"
+title: "Deploy a model for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document, you'll learn how to create and deploy an endpoint using the Custom Speech portal."
 services: cognitive-services
@@ -37,7 +37,7 @@ Logging data is available for download under **Endpoint > Details**.
 
 ## Next steps
 
-* Use your custom endpoint with the [Speech SDK](speech-sdk.md)
+* Learn how to use your custom model [here](how-to-specify-source-language.md).
 
 ## Additional resources
 

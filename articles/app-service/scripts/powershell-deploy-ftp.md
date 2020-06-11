@@ -1,19 +1,11 @@
 ﻿---
-title: Azure PowerShell Script Sample - Upload files to a web app using FTP | Microsoft Docs
-description: Azure PowerShell Script Sample - Upload files to a web app using FTP
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: erikre
-editor: 
+title: 'PowerShell: Upload files using FTP'
+description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to upload files to an app using FTP.
 tags: azure-service-management
 
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
 ---
 
@@ -34,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
-Remove-AzResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Script explanation

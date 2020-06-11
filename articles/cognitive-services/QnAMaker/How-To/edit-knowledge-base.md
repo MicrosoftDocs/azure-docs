@@ -1,62 +1,94 @@
 ---
 title: Edit a knowledge base - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 05/19/2020
 ---
-# Edit a knowledge base in QnA Maker
+# Edit QnA pairs in your knowledge base
 
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 
-<a name="add-datasource"></a>
+QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
 
-## Edit your knowledge base content
+<a name="add-an-editorial-qna-set"></a>
 
-1.  Select **My knowledge bases** in the top navigation bar. 
+## Add an editorial QnA pair
 
-    You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
+1. Sign in to the [QnA portal](https://www.qnamaker.ai/), then select the knowledge base to add the QnA pair to.
+1. On the **EDIT** page of the knowledge base, select **Add QnA pair** to add a new QnA pair.
 
-    ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-1. Select a particular knowledge base to make edits to it.
- 
-1. Select **Settings**. Here you can edit mandatory field Service Name.
-  
-    |Goal|Action|
+1. In the new QnA pair row, add the required question and answer fields. The other fields are optional. All fields can be changed at any time.
+
+1. Optionally, add **[alternate phrasing](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternate phrasing is any form of the question that is significantly different from the original question but should provide the same answer.
+
+    When your knowledge base is published, and you have [active learning](use-active-learning.md) turned on, QnA Maker collects alternate phrasing choices for you to accept. These choices are selected in order to increase the prediction accuracy.
+
+1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
+
+1. Optionally, add **[follow-up prompts](multiturn-conversation.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
+
+1. Select **Save and train** to see predictions including the new QnA pair.
+
+## Rich-text editing for answer
+
+Rich-text editing of your answer text gives you markdown styling from a simple toolbar.
+
+1. Select the text area for an answer, the rich-text editor toolbar displays on the QnA pair row.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of the rich-text editor with the question and answer of a QnA pair row.](../media/qnamaker-how-to-edit-kb/rich-text-control-qna-pair-row.png)
+
+    Any text already in the answer displays correctly as your user will see it from a bot.
+
+1. Edit the text. Select formatting features from the rich-text editing toolbar or use the toggle feature to switch to markdown syntax.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor to write and format text and save as markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
+
+    |Rich-text editor features|Keyboard shortcut|
     |--|--|
-    |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
-    |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
-    |Refresh URL content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content.|
-    |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
-    |Import|You can also import any existing knowledge base by selecting **Ímport Knowledge base** button. |
-    |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.
+    |Toggle between rich-text editor and markdown. `</>`|CTRL+M|
+    |Bold. **B**|CTR+LB|
+    |Italics, indicated with an italicized **_I_**|CTRL+I|
+    |Unordered list||
+    |Ordered list||
+    |Paragraph style||
+    |Image - add an image available from a public URL.|CTRL+G|
+    |Add link to publicly available URL.|CTRL+K|
+    |Emoticon - add from a selection of emoticons.|CTRL+E|
+    |Advanced menu - undo|CTRL+Z|
+    |Advanced menu - redo|CTRL+Y|
 
-1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.    
+1. Add an image to the answer using the Image icon in the rich-text toolbar. The in-place editor needs the publicly accessible image URL and the alternate text for the image.
 
-    ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!CAUTION]
-	>If you leave the page before selecting **Save and train**, all changes will be lost.
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
-## Add a QnA pair
+1. Add a link to a URL by either selecting the text in the answer, then selecting the Link icon in the toolbar or by selecting the Link icon in the toolbar then entering new text and the URL.
 
-On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
+    > [!div class="mx-imgBorder"]
+    > ![Use the rich-text editor add a publicly accessible image and its ALT text.](../media/qnamaker-how-to-edit-kb/add-link-to-answer-rich-text-editor.png)
 
-![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+## Edit a QnA pair
+
+Any field in any QnA pair can be edited, regardless of the original data source. Some fields may not be visible due to your current **View Options** settings, found in the context tool bar.
 
 ## Delete a QnA pair
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs. 
+To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs.
 
 ![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+
+## Find the QnA pair ID
+
+If you need to find the QnA pair ID, you can find it in two places:
+
+* Hover on the delete icon on the QnA pair row you are interested in. The hover text includes the QnA pair ID.
+* Export the knowledge base. Each QnA pair in the knowledge base includes the QnA pair ID.
 
 ## Add alternate questions
 
@@ -64,40 +96,31 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 
 ![Add Alternate Questions](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
+## Linking QnA pairs
+
+Linking QnA pairs is provided with [follow-up prompts](multiturn-conversation.md). This is a logical connection between QnA pairs, managed at the knowledge base level. You can edit follow-up prompts in the QnA Maker portal.
+
+You can't link QnA pairs in the answer's metadata.
+
 ## Add metadata
 
 Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
 
+## Save changes to the QnA pairs
+
+Periodically select **Save and train** after making edits to avoid losing changes.
+
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
-> [!TIP]
-> Make sure to periodically Save and train the knowledge base after making edits to avoid losing changes.
+## When to use rich-text editing versus markdown
 
-## Manage large knowledge bases
+[Rich-text editing](#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
 
-* **Data source groups**: The QnAs are grouped by the data source from which they were extracted. You can expand or collapse the data source.
-
-    ![Use the QnA Maker data source bar to collapse and expand data source questions and answers](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
-
-* **Search knowledge base**: You can search the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
-
-    ![Use the QnA Maker search box above the questions and answers to reduce the view to only filter-matching items](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
-
-* **Pagination**: Quickly move through data sources to manage large knowledge bases
-
-    ![Use the QnA Maker pagination features above the questions and answers to move through pages of questions and answers](../media/qnamaker-how-to-edit-kb/pagination.png)
-
-## Delete knowledge bases
-
-Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
-
-If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
-
-## Delete Azure resources 
-
-If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page. 
+[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../Quickstarts/batch-testing.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Collaborate on a knowledge base](./collaborate-knowledge-base.md)
+
+* [Manage Azure resources used by QnA Maker](set-up-qnamaker-service-azure.md)

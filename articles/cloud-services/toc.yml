@@ -1,5 +1,5 @@
-- name: Cloud Services Documentation
-  href: index.md
+- name: Cloud Services documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Cloud Services?
@@ -122,7 +122,7 @@
       - name: Visual Studio
         href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
     - name: Store and view diagnostic data in Azure Storage
-      href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json 
+      href: diagnostics-extension-to-storage.md
     - name: Trace Cloud Service with Diagnostics
       href: cloud-services-dotnet-diagnostics-trace-flow.md
   - name: Troubleshoot
@@ -139,6 +139,8 @@
       href: cloud-services-allocation-failures.md
     - name: Common causes of Cloud Service roles recycling
       href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+    - name: Application does not support TLS 1.2
+      href: applications-dont-support-tls-1-2.md
     - name: Default TEMP folder size too small for role
       href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
     - name: Common deployment problems
@@ -188,9 +190,9 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/cloud-services/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment
+    href: /learn/paths/azure-fundamentals/
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cloud-services/
   - name: Pricing calculator

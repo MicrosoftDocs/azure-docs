@@ -1,21 +1,20 @@
 ---
-title: Add your work or school account to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your work or school account to the Microsoft Authenticator app for two-factor verification.
+title: Add a work or school account to the Microsoft Authenticator app - Azure AD
+description: Add your work or school account to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Add your work or school account
+# Add your work or school account to the Microsoft Authenticator app
 
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
@@ -24,7 +23,7 @@ If your organization uses two-factor verification, you can set up your work or s
 
 ## Add your work or school account
 
-1. On your computer, go to the [Additional security verification](https://aka.ms/mfasetup) page.
+1. On your computer, go to the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
     >[!Note]
     >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info (preview) experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Security info (preview) overview](user-help-security-info-overview.md).
@@ -38,7 +37,7 @@ If your organization uses two-factor verification, you can set up your work or s
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
     >[!Note]
-    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
 4. Use your device's camera to scan the QR code from the **Configure mobile app** screen on your computer, and then choose **Done**.
 
