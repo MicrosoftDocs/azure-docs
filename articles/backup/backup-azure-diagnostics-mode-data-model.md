@@ -17,7 +17,7 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 
 ## Using Azure Backup data model
 
-You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard as per your requirements.
+You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard according to your requirements.
 
 ### Alert
 

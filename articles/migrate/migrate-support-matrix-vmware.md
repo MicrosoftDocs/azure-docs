@@ -44,7 +44,7 @@ In addition to discovering machines, Server Assessment can discover apps, role, 
 
 **VMware** | **Details**
 --- | ---
-**VMware VMs** | Assessment is supported for all Windows and Linux operating systems.
+**VMware VMs** | All operating systems can be assessed for migration. 
 **vCenter Server** | Machines you want to discovery and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
 **Permissions (assessment)** | vCenter Server read-only account.
 **Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines > Guest Operations**.

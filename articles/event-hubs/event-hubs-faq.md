@@ -94,11 +94,29 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
+### Where can I find client IP sending or receiving msgs to my namespace?
+First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
+
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## Apache Kafka integration
 

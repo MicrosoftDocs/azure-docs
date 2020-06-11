@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
 ---
@@ -334,14 +334,26 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 The cmdlet performs these checks below in sequence and provides guidance for failures:
-1. CheckPort445Connectivity: check that Port 445 is opened for SMB connection
-2. CheckDomainJoined: validate that the client machine is domain joined to AD
-3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
-4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
-5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
-6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
+1. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection
+2. CheckDomainJoined: Validate that the client machine is domain joined to AD
+3. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name).
+4. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account 
+5. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key
+6. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
+7. CheckAadUserHasSid: Check if an Azure AD user has a SID in AD, this check requires user to input Object Id of the Azure AD user with parameter -ObjectId. 
+8. CheckStorageAccountDomainJoined: Check the storage account's properties to see that AD authentication has been enabled and the account's AD properties are populated.
 
-We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
+## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
+
+### Symptom
+
+You may experience either symptoms described below when trying to configure Windows ACLs with File Explorer on a mounted file share:
+- After you click on Edit permission under the Security tab, the Permission wizard does not load. 
+- When you try to select a new user or group, the domain location does not display the right AD DS domain. 
+
+### Solution
+
+We recommend you to use [icacls tool](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) to configure the directory/file level permissions as a workaround. 
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

@@ -9,14 +9,19 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a job - Azure portal
-    href: stream-analytics-quick-create-portal.md
-  - name: Create a job - PowerShell
-    href: stream-analytics-quick-create-powershell.md
-  - name: Create a job - Visual Studio
-    href: stream-analytics-quick-create-vs.md
-  - name: Create a job - Visual Studio Code
-    href: quick-create-vs-code.md
+  - name: Create a job
+    items:
+    - name: Azure portal
+      href: stream-analytics-quick-create-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quick-create-azure-resource-manager.md
+    - name: PowerShell
+      href: stream-analytics-quick-create-powershell.md
+    - name: Visual Studio
+      href: stream-analytics-quick-create-vs.md
+    - name: Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -44,6 +49,10 @@
     href: feature-comparison.md
   - name: Develop locally
     href: develop-locally.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -110,6 +119,8 @@
   items:
   - name: Manage
     items:
+    - name: Autoscale jobs
+      href: stream-analytics-autoscale.md
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure event ordering policies
@@ -607,6 +618,8 @@
     href: /rest/api/streamanalytics
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
+  - name: Azure CLI
+    href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Resources
   items:
   - name: Stream Analytics previews

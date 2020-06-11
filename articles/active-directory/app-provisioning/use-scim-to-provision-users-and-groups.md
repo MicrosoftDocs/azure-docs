@@ -744,6 +744,8 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
+### IP Ranges
+The Azure AD provisioning service can currently opperate under any Azure IP range. Work is in progress to consolidate the set of IP ranges that the service operates on. This document will be updated once the IP range list is consolidated. 
 
 ## Step 3: Build a SCIM endpoint
 

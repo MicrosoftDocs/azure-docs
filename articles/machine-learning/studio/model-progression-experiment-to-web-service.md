@@ -15,7 +15,6 @@ ms.date: 03/20/2017
 
 # How a Machine Learning Studio (classic) model progresses from an experiment to a Web service
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Azure Machine Learning Studio (classic) provides an interactive canvas that allows you to develop, run, test, and iterate an ***experiment*** representing a predictive analysis model. There are a wide variety of modules available that can:
 
 * Input data into your experiment

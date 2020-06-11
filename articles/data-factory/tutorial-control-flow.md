@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. This article uses Visual Studio 2019.
 * Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
