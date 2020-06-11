@@ -23,8 +23,6 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
 To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](how-to-custom-speech.md).
 
-For more information about how you can improve pronunciation, see [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
-
 <!--
 To get the AM and ML bits:
 https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
