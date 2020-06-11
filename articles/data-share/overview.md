@@ -17,7 +17,7 @@ Azure Data Share enables organizations to simply and securely share data with mu
 
 A data provider can stay in control of how their data is handled by specifying terms of use for their data share. The data consumer must accept these terms before being able to receive the data. Data providers can specify the frequency at which their data consumers receive updates. Access to new updates can be revoked at any time by the data provider. 
 
-Azure Data Share helps enhance insights by making it easy to combine data from third parties to enrich analytics and AI scenarios. Easily use the power ot Azure analytics tools to prepare, process, and analyze data shared using Azure Data Share. 
+Azure Data Share helps enhance insights by making it easy to combine data from third parties to enrich analytics and AI scenarios. Easily use the power of Azure analytics tools to prepare, process, and analyze data shared using Azure Data Share. 
 
 Both the data provider and data consumer must have an Azure subscription to share and receive data. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
@@ -72,15 +72,6 @@ Azure Data Share enables data consumers to:
 * Subscribe to a data share to receive the latest copy of the data through incremental snapshot
 
 All key capabilities listed above are supported through the Azure portal or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
-
-## Security
-
-Azure Data Share leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying data store. Data is also encrypted in transit. Metadata about a data share is also encrypted at rest and in transit. 
-
-Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
-
-Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. Managed identities for Azure Resources are leveraged for access to the data stores that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
-
 
 ## Supported regions
 

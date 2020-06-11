@@ -7,7 +7,7 @@ ms.service: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/09/2019
-ms.topic: conceptual
+ms.topic: how-to
 manager: peterpr
 ---
 
@@ -19,10 +19,10 @@ The IoT Central device bridge is an open-source solution that connects your Sigf
 
 ## What is it and how does it work?
 The IoT Central device bridge is an open-source solution in GitHub. It is ready to go with a "Deploy to Azure" button that deploys a custom Azure Resource Manager template with several Azure resources into your Azure subscription. The resources include:
--	Azure Function app
--	Azure Storage Account
--	Consumption Plan
--	Azure Key Vault
+-    Azure Function app
+-    Azure Storage Account
+-    Consumption Plan
+-    Azure Key Vault
 
 The function app is the critical piece of the device bridge. It receives HTTP POST requests from other IoT platforms or any custom platforms via a simple webhook integration. We have provided examples that show how to connect to Sigfox, Particle, and TTN clouds. You can easily extend this solution to connect to your custom IoT cloud if your platform can send HTTP POST requests to your function app.
 The Function app transforms the data into a format accepted by IoT Central and forwards it along via DPS APIs.

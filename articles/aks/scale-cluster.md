@@ -3,8 +3,6 @@ title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
@@ -24,9 +22,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 
 The following example output shows that the *name* is *nodepool1*:
 
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
-
+```output
 [
   {
     "count": 1,

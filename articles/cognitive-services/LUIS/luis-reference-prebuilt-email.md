@@ -8,13 +8,13 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ---
 
 # Email prebuilt entity for a LUIS app
-Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only. 
+Email extraction includes the entire email address from an utterance. Because this entity is already trained, you do not need to add example utterances containing email to the application intents. Email entity is supported in `en-us` culture only.
 
 ## Resolution for prebuilt email
 
@@ -76,10 +76,10 @@ The following example shows the resolution of the **builtin.email** entity.
     }
 ]
 ```
-* * * 
+* * *
 
 ## Next steps
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 
+Learn about the [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md).

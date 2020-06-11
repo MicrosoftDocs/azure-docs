@@ -4,7 +4,7 @@ description: Learn about Azure File Sync's feature Cloud Tiering
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 03/17/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -15,10 +15,8 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is stored in Azure. 
  
  > [!Important]  
- > Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
+ > Cloud tiering is not supported on the Windows system volume.
     
-Azure File Sync does not support tiering files smaller than 64 KiB as the performance overhead of tiering and recalling such small files would outweigh the space savings.
-
  > [!Important]  
  > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
@@ -29,6 +27,10 @@ Azure File Sync does not support tiering files smaller than 64 KiB as the perfor
 The Azure File Sync system filter builds a "heatmap" of your namespace on each server endpoint. It monitors accesses (read and write operations) over time and then, based on both the frequency and recency of access, assigns a heat score to every file. A frequently accessed file that was recently opened will be considered hot, whereas a file that is barely touched and has not been accessed for some time will be considered cool. When the file volume on a server exceeds the volume free space threshold you set, it will tier the coolest files to Azure Files until your free space percentage is met.
 
 In versions 4.0 and above of the Azure File Sync agent, you can additionally specify a date policy on each server endpoint that will tier any files not accessed or modified within a specified number of days.
+
+<a id="tiering-minimum-file-size"></a>
+### What is the minimum file size for a file to tier?
+For agent versions 9.x and newer, the minimum file size for a file to tier is based on the file system cluster size (double the file system cluster size). For example, if the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. For agent versions 8.x and older, the minimum file size for a file to tier is 64KB.
 
 <a id="afs-volume-free-space"></a>
 ### How does the volume free space tiering policy work?
@@ -44,7 +46,22 @@ When there is more than one server endpoint on a volume, the effective volume fr
 
 <a id="date-tiering-policy"></a>
 ### How does the date tiering policy work in conjunction with the volume free space tiering policy? 
-When enabling cloud tiering on a server endpoint, you set a volume free space policy. It always takes precedence over any other policies, including the date policy. Optionally, you can enable a date policy for each server endpoint on that volume, meaning that only files accessed (that is, read or written to) within the range of days this policy describes will be kept local, with any staler files tiered. Keep in mind that the volume free space policy always takes precedence, and when there isn’t enough free space on the volume to retain as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
+When enabling cloud tiering on a server endpoint, you set a volume free space policy. It always takes precedence over any other policies, including the date policy. Optionally, you can enable a date policy for each server endpoint on that volume. This policy manages that only files accessed (that is, read or written to) within the range of days this policy describes will be kept local. Files not accessed with the number of days specified, will be tiered. 
+
+Cloud Tiering uses the last access time to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can see the heat store using a local PowerShell cmdlet.
+
+```powershell
+Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
+Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+```
+
+> [!IMPORTANT]
+> The last-accessed-timestamp is not a property tracked by NTFS and therefore not visible by default in File Explorer. Don't use the last-modified-timestamp on a file to check whether the date-policy works as expected. This timestamp only tracks writes, not reads. Use the cmdlet shown to get the last-accessed-timestamp for this evaluation.
+
+> [!WARNING]
+> Don't turn on the NTFS feature of tracking last-accessed-timestamp for files and folders. This feature is off by default because it has a large performance impact. Azure File Sync will track last-accessed times automatically and very efficiently and does not utilize this NTFS feature.
+
+Keep in mind that the volume free space policy always takes precedence, and when there isn't enough free space on the volume to retain as many days worth of files as described by the date policy, Azure File Sync will continue tiering the coldest files until the volume free space percentage is met.
 
 For example, say you have a date-based tiering policy of 60 days and a volume free space policy of 20%. If, after applying the date policy, there is less than 20% of free space on the volume, the volume free space policy will kick in and override the date policy. This will result in more files being tiered, such that the amount of data kept on the server may be reduced from 60 days of data to 45 days. Conversely, this policy will force the tiering of files that fall outside of your time range even if you have not hit your free space threshold – so a file that is 61 days old will be tiered even if your volume is empty.
 
@@ -52,10 +69,10 @@ For example, say you have a date-based tiering policy of 60 days and a volume fr
 ### How do I determine the appropriate amount of volume free space?
 The amount of data you should keep local is determined by a few factors: your bandwidth, your dataset's access pattern, and your budget. If you have a low-bandwidth connection, you may want to keep more of your data local to ensure there is minimal lag for your users. Otherwise, you can base it on the churn rate during a given period. For example, if you know that about 10% of your 1 TB dataset changes or is actively accessed each month, then you may want to keep 100 GB local so you are not frequently recalling files. If your volume is 2TB, then you will want to keep 5% (or 100 GB) local, meaning the remaining 95% is your volume free space percentage. However, we recommend that you add a buffer to account for periods of higher churn – in other words, starting with a lower volume free space percentage, and then adjusting it if needed later. 
 
-Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires you to maintain a larger amount of on-premises storage, which comes at its own cost. Once you have an instance of Azure File Sync deployed, you can look at your storage account’s egress to roughly gauge whether your volume free space settings are appropriate for your usage. Assuming the storage account contains only your Azure File Sync Cloud Endpoint (that is, your sync share), then high egress means that many files are being recalled from the cloud, and you should consider increasing your local cache.
+Keeping more data local means lower egress costs as fewer files will be recalled from Azure, but also requires you to maintain a larger amount of on-premises storage, which comes at its own cost. Once you have an instance of Azure File Sync deployed, you can look at your storage account's egress to roughly gauge whether your volume free space settings are appropriate for your usage. Assuming the storage account contains only your Azure File Sync Cloud Endpoint (that is, your sync share), then high egress means that many files are being recalled from the cloud, and you should consider increasing your local cache.
 
 <a id="how-long-until-my-files-tier"></a>
-### I’ve added a new server endpoint. How long until my files on this server tier?
+### I've added a new server endpoint. How long until my files on this server tier?
 In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happen once an hour. On older agents, tiering can take up to 24 hours to happen.
 
 <a id="is-my-file-tiered"></a>
@@ -69,7 +86,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
         |:----------------:|-----------|------------|
         | A | Archive | Indicates that the file should be backed up by backup software. This attribute is always set, regardless of whether the file is tiered or stored fully on disk. |
         | P | Sparse file | Indicates that the file is a sparse file. A sparse file is a specialized type of file that NTFS offers for efficient use when the file on the disk stream is mostly empty. Azure File Sync uses sparse files because a file is either fully tiered or partially recalled. In a fully tiered file, the file stream is stored in the cloud. In a partially recalled file, that part of the file is already on disk. If a file is fully recalled to disk, Azure File Sync converts it from a sparse file to a regular file. This attribute is only set on Windows Server 2016 and older.|
-        | M | Recall on data access | Indicates that the file’s data is not fully present on local storage. Reading the file will cause at least some of the file content to be fetched from an Azure file share to which the server endpoint is connected. This attribute is only set on Windows Server 2019. |
+        | M | Recall on data access | Indicates that the file's data is not fully present on local storage. Reading the file will cause at least some of the file content to be fetched from an Azure file share to which the server endpoint is connected. This attribute is only set on Windows Server 2019. |
         | L | Reparse point | Indicates that the file has a reparse point. A reparse point is a special pointer for use by a file system filter. Azure File Sync uses reparse points to define to the Azure File Sync file system filter (StorageSync.sys) the cloud location where the file is stored. This supports seamless access. Users won't need to know that Azure File Sync is being used or how to get access to the file in your Azure file share. When a file is fully recalled, Azure File Sync removes the reparse point from the file. |
         | O | Offline | Indicates that some or all of the file's content is not stored on disk. When a file is fully recalled, Azure File Sync removes this attribute. |
 
@@ -124,9 +141,9 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 
 <a id="afs-image-thumbnail"></a>
 ### Why are my tiered files not showing thumbnails or previews in Windows Explorer?
-For tiered files, thumbnails and previews won’t be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
+For tiered files, thumbnails and previews won't be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
 
-This behavior is not specific to Azure File Sync, Windows Explorer displays a “grey X” for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 
 ## Next Steps

@@ -1,8 +1,6 @@
 ---
 title: Azure Application Insights Agent - getting started | Microsoft Docs
 description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
@@ -69,7 +67,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  View your telemetry:
 
-- [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
+- [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
 - [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
 - [Create dashboards](../../azure-monitor/app/overview-dashboard.md).

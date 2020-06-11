@@ -39,7 +39,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
     > [!IMPORTANT]
     >
-    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../../cognitive-services/acoustics/known-issues.md). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
+    > If you choose to move the subscription to the new account's Azure AD tenant, all [role-based access control (RBAC)](../../role-based-access-control/overview.md) assignments to manage resources in the subscription are permanently removed. Only the user in the new account who accepts your transfer request will have access to manage resources in the subscription. For more information, see [Transferring subscription to a user in another Azure AD tenant](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories). Alternatively, you can uncheck the box for Subscription Azure AD tenant to transfer billing ownership without moving the subscription to the new account's tenant. If you do so, existing RBAC permissions to manage Azure resources will be maintained.
 
     ![Send transfer page](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
@@ -138,8 +138,8 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer a subscription to an account in another Azure AD tenant, any [administrator roles](add-change-subscription-administrator.md) and [Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) assignments on the subscription [don't transfer](#transfer-a-subscription-to-another-azure-ad-tenant-account). Also, [app registrations](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
 
-### Can I transfer ownership to an account in another country?
-Unfortunately, cross country transfers can't be done in the Azure portal. To transfer your subscription across countries, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### Can I transfer ownership to an account in another country/region?
+Unfortunately, cross country/region transfers can't be done in the Azure portal. To transfer your subscription across countries/regions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### I am an administrator on two accounts. Can I transfer a subscription from one of my accounts to another?
 Yes, you can transfer subscription between your accounts. Your accounts are conceptually considered accounts of two different users so you can use the above steps to transfer subscriptions between your accounts.

@@ -3,7 +3,7 @@ title: Overview of Azure platform logs | Microsoft Docs
 description: Overview of logs in Azure Monitor which provide rich, frequent data about the operation of an Azure resource.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
@@ -41,9 +41,9 @@ You can send platform logs to one or more of the destinations in the following t
 
 | Destination | Scenario | References |
 |:---|:---|:---|:---|
-| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Activity log and Resource logs](resource-logs-collect-workspace.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure storage | Archive the logs for audit, static analysis, or backup. |[Activity log and Resource logs](archive-diagnostic-logs.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Activity log and Resource logs](resource-logs-stream-event-hubs.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Activity log and Resource logs](resource-logs-collect-workspace.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure storage | Archive the logs for audit, static analysis, or backup. |[Activity log and Resource logs](archive-diagnostic-logs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Activity log and Resource logs](resource-logs-stream-event-hubs.md)<br>[Azure Active Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 

@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 #### Process automation
 
-| Resource | Maximum limit |Notes|
+| Resource | Limit |Notes|
 | --- | --- |---|
 | Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account (nonscheduled jobs) |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum number of concurrent running jobs at the same instance of time per Automation account (nonscheduled jobs) |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|

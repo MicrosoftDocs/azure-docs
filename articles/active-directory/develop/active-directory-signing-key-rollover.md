@@ -142,7 +142,7 @@ The following steps will help you verify that the logic is working properly in y
 ### <a name="vs2013"></a>Web APIs protecting resources and created with Visual Studio 2013
 If you created a web API application in Visual Studio 2013 using the Web API template, and then selected **Organizational Accounts** from the **Change Authentication** menu, you already have the necessary logic in your application.
 
-If you manually configured authentication, follow the instructions below to learn how to configure your Web API to automatically update its key information.
+If you manually configured authentication, follow the instructions below to learn how to configure your web API to automatically update its key information.
 
 The following code snippet demonstrates how to get the latest keys from the federation metadata document, and then use the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) to validate the token. The code snippet assumes that you will use your own caching mechanism for persisting the key to validate future tokens from Azure AD, whether it be in a database, configuration file, or elsewhere.
 
@@ -304,4 +304,3 @@ You can validate whether your application supports automatic key rollover by dow
 
 ## How to perform a manual rollover if your application does not support automatic rollover
 If your application does **not** support automatic rollover, you will need to establish a process that periodically monitors Azure AD's signing keys and performs a manual rollover accordingly. [This GitHub repository](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contains scripts and instructions on how to do this.
-

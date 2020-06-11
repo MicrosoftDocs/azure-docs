@@ -14,7 +14,7 @@ manager: dikamath
 
 The Microsoft Azure Data Box cloud solution lets you send terabytes (TBs) of data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. Each storage device has a maximum usable storage capacity of 80 TB and is transported to your datacenter by a regional carrier. The device has a rugged casing to protect and secure your data during transit.
 
-By using Data Box, you can bulk-migrate your VMware data to your AVS Private Cloud. Data from your on-premises VMware vSphere environment is copied to Data Box through the Network File System (NFS) protocol. Bulk data migration involves saving a point-in-time copy of virtual machines, configuration, and associated data to Data Box and then manually shipping it to Azure.
+By using Data Box, you can bulk-migrate your VMware data to your private cloud. Data from your on-premises VMware vSphere environment is copied to Data Box through the Network File System (NFS) protocol. Bulk data migration involves saving a point-in-time copy of virtual machines, configuration, and associated data to Data Box and then manually shipping it to Azure.
 
 In this article, you learn about:
 
@@ -22,7 +22,7 @@ In this article, you learn about:
 * Copying data from the on-premises VMware environment to the Data Box by through NFS.
 * Preparing for the return of Data Box.
 * Preparing blob data for copying to Azure VMware Solution.
-* Copying the data from Azure to your AVS Private Cloud.
+* Copying the data from Azure to your private cloud.
 
 ## Scenarios
 
@@ -39,11 +39,11 @@ Use Data Box in the following scenarios for bulk data migration:
 
 * Create a virtual network and a storage account in the same region where your Azure VMware Solution is provisioned.
 
-* Create an [Azure virtual network connection](cloudsimple-azure-network-connection.md) from your AVS Private Cloud to the virtual network where the storage account is created by following the steps in [Connect Azure virtual network to AVS using ExpressRoute](virtual-network-connection.md).
+* Create an [Azure virtual network connection](cloudsimple-azure-network-connection.md) from your private cloud to the virtual network where the storage account is created by following the steps in [Connect Azure virtual network to CloudSimple using ExpressRoute](virtual-network-connection.md).
 
 ## Set up Data Box for NFS
 
-Connect to your Data Box local web UI by following the steps in the "Connect to your device" section of [Tutorial: Cable and connect to your Azure Data Box](../databox/data-box-deploy-set-up.md). Configure Data Box to allow access to NFS clients:
+Connect to your Data Box local web UI by following the steps in the "Connect to your device" section of [Tutorial: Cable and connect to your Azure Data Box](../databox/data-box-deploy-set-up.md).  Configure Data Box to allow access to NFS clients:
 
 1. In the local web UI, go to the **Connect and copy** page. Under **NFS settings**, select **NFS client access**. 
 
@@ -90,7 +90,7 @@ The NFS share from your Data Box must be mounted as a datastore on your on-premi
 
    ![Add new datastore - NFS configuration](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. In step 4 of the wizard, select the ESXi hosts where you want the datastore to be mounted and then select **Next**. In a cluster, select all the hosts to ensure migration of the virtual machines.
+6. In step 4 of the wizard, select the ESXi hosts where you want the datastore to be mounted and then select **Next**.  In a cluster, select all the hosts to ensure migration of the virtual machines.
 
    ![Add new datastore - Select hosts](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -98,7 +98,7 @@ The NFS share from your Data Box must be mounted as a datastore on your on-premi
 
 ## Copy data to the Data Box NFS datastore
 
-Virtual machines can be migrated or cloned to the new datastore. Any unused virtual machines that you want to migrate can be migrated to the Data Box NFS datastore by using the **storage vMotion** option. Active virtual machines can be cloned to the Data Box NFS datastore.
+Virtual machines can be migrated or cloned to the new datastore.  Any unused virtual machines that you want to migrate can be migrated to the Data Box NFS datastore by using the **storage vMotion** option. Active virtual machines can be cloned to the Data Box NFS datastore.
 
 * Identify and list the virtual machines that can be **moved**.
 * Identify and list the virtual machines that must be **cloned**.
@@ -152,7 +152,7 @@ Virtual machines will be cloned and stored on the NFS datastore from Data Box. A
 
 ### Copy ISO files to the Data Box datastore
 
-1. From your on-premises vCenter web UI, go to **Storage**. Select **Databox-Datastore** and then select **Files**. Create a new folder for storing ISO files.
+1. From your on-premises vCenter web UI, go to **Storage**.  Select **Databox-Datastore** and then select **Files**. Create a new folder for storing ISO files.
 
     ![Copy ISO - create new folder](media/databox-migration-create-folder.png)
 
@@ -208,28 +208,28 @@ Follow the steps outlined in the article [Return Azure Data Box and verify data 
 
 ## Copy data from Azure storage to Azure VMware Solution
 
-Data copied to your Data Box device will be available on your Azure storage account after the order status of your Data Box shows as completed. The data can now be copied to your Azure VMware Solution. Data in the storage account must be copied to the vSAN datastore of your AVS Private Cloud by using the NFS protocol. 
+Data copied to your Data Box device will be available on your Azure storage account after the order status of your Data Box shows as completed. The data can now be copied to your Azure VMware Solution. Data in the storage account must be copied to the vSAN datastore of your private cloud by using the NFS protocol. 
 
-First, copy Blob storage data to a managed disk on a Linux virtual machine in Azure by using **AzCopy**. Make the managed disk available through NFS, mount the NFS share as a datastore on your AVS Private Cloud, and then copy the data. This method enables faster copy of the data to your AVS Private Cloud.
+First, copy Blob storage data to a managed disk on a Linux virtual machine in Azure by using **AzCopy**. Make the managed disk available through NFS, mount the NFS share as a datastore on your private cloud, and then copy the data. This method enables faster copy of the data to your private cloud.
 
-### Copy data to your AVS Private Cloud using a Linux virtual machine and managed disks, and then export as NFS share
+### Copy data to your private cloud using a Linux virtual machine and managed disks, and then export as NFS share
 
-1. Create a [Linux virtual machine](../virtual-machines/linux/quick-create-portal.md) in Azure in the same region where your storage account is created and has an Azure virtual network connection to your AVS Private Cloud.
+1. Create a [Linux virtual machine](../virtual-machines/linux/quick-create-portal.md) in Azure in the same region where your storage account is created and has an Azure virtual network connection to your private cloud.
 
-2. Create a managed disk whose storage capacity is greater than the amount of blob data, and [attach it to your Linux virtual machine](../virtual-machines/linux/attach-disk-portal.md). If the amount of blob data is greater than the capacity of the largest managed disk available, the data must be copied in multiple steps or by using multiple managed disks.
+2. Create a managed disk whose storage capacity is greater than the amount of blob data, and [attach it to your Linux virtual machine](../virtual-machines/linux/attach-disk-portal.md).  If the amount of blob data is greater than the capacity of the largest managed disk available, the data must be copied in multiple steps or by using multiple managed disks.
 
 3. Connect to the Linux virtual machine and mount the managed disk.
 
 4. Install [AzCopy on your Linux virtual machine](../storage/common/storage-use-azcopy-v10.md).
 
-5. Download the data from your Azure Blob storage onto the managed disk using AzCopy. Command syntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`. Replace `<storage-account-name>` with your Azure storage account name and `<container-name>` with the container that holds the data copied through Data Box.
+5. Download the data from your Azure Blob storage onto the managed disk using AzCopy.  Command syntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Replace `<storage-account-name>` with your Azure storage account name and `<container-name>` with the container that holds the data copied through Data Box.
 
 6. Install the NFS server on your Linux virtual machine:
 
     - On an Ubuntu/Debian distribution: `sudo apt install nfs-kernel-server`.
     - On an Enterprise Linux distribution: `sudo yum install nfs-utils`.
 
-7. Change the permission of the folder on your managed disk where data from Azure Blob storage was copied. Change the permissions for all the folders that you want to export as an NFS share.
+7. Change the permission of the folder on your managed disk where data from Azure Blob storage was copied.  Change the permissions for all the folders that you want to export as an NFS share.
 
     ```bash
     chmod -R 755 /<folder>/<subfolder>
@@ -242,7 +242,7 @@ First, copy Blob storage data to a managed disk on a Linux virtual machine in Az
     sudo vi /etc/exports
     ```
     
-    Enter the following lines in the file for every ESXi host IP of your AVS Private Cloud. If you're creating shares for multiple folders, add all the folders.
+    Enter the following lines in the file for every ESXi host IP of your private cloud.  If you're creating shares for multiple folders, add all the folders.
 
     ```bash
     /<folder>/<subfolder> <ESXiNode1IP>(rw,sync,no_root_squash,no_subtree_check)
@@ -256,11 +256,11 @@ First, copy Blob storage data to a managed disk on a Linux virtual machine in Az
 10. Restart NFS kernel server by using the `sudo systemctl restart nfs-kernel-server` command.
 
 
-### Mount the Linux virtual machine NFS share as a datastore on an AVS Private Cloud vCenter cluster and then copy data
+### Mount the Linux virtual machine NFS share as a datastore on a private cloud vCenter cluster and then copy data
 
-The NFS share from your Linux virtual machine must be mounted as a datastore on your AVS Private Cloud vCenter cluster. After it's mounted, data can be copied from the NFS datastore to the AVS Private Cloud vSAN datastore.
+The NFS share from your Linux virtual machine must be mounted as a datastore on your private cloud vCenter cluster. After it's mounted, data can be copied from the NFS datastore to the private cloud vSAN datastore.
 
-1. Log in to your AVS Private Cloud vCenter server.
+1. Log in to your private cloud vCenter server.
 
 2. Right-click **Datacenter**, select **Storage**, select **New Datastore**, and then select **Next**.
 
@@ -274,11 +274,11 @@ The NFS share from your Linux virtual machine must be mounted as a datastore on 
 
    ![Add new datastore - NFS version](media/databox-migration-add-datastore-nfs-version.png)
 
-5. In step 3 of the wizard, specify the name for the datastore, the path, and the server. You can use the IP address of your Linux virtual machine for the server. The folder path will be in the `/<folder>/<subfolder>/` format.
+5. In step 3 of the wizard, specify the name for the datastore, the path, and the server.  You can use the IP address of your Linux virtual machine for the server.  The folder path will be in the `/<folder>/<subfolder>/` format.
 
    ![Add new datastore - NFS configuration](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. In step 4 of the wizard, select the ESXi hosts where you want the datastore to be mounted and then select **Next**. In a cluster, select all the hosts to ensure migration of the virtual machines.
+6. In step 4 of the wizard, select the ESXi hosts where you want the datastore to be mounted and then select **Next**.  In a cluster, select all the hosts to ensure migration of the virtual machines.
 
    ![Add new datastore - Select hosts](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -286,13 +286,13 @@ The NFS share from your Linux virtual machine must be mounted as a datastore on 
 
 ### Add virtual machines and virtual machine templates from an NFS datastore to the inventory
 
-1. From your AVS Private Cloud vCenter web UI, go to **Storage**. Select a Linux virtual machine NFS datastore and then select **Files**.
+1. From your private cloud vCenter web UI, go to **Storage**.  Select a Linux virtual machine NFS datastore and then select **Files**.
 
     ![Select files from NFS datastore](media/databox-migration-datastore-select-files.png)
 
-2. Select a folder that contains a virtual machine or a virtual machine template. In the details pane, select a .vmx file for a virtual machine or a .vmtx file for a virtual machine template.
+2. Select a folder that contains a virtual machine or a virtual machine template.  In the details pane, select a .vmx file for a virtual machine or a .vmtx file for a virtual machine template.
 
-3. Select **Register VM** to register the virtual machine on your AVS Private Cloud vCenter.
+3. Select **Register VM** to register the virtual machine on your private cloud vCenter.
 
     ![Register virtual machine](media/databox-migration-datastore-register-vm.png)
 
@@ -300,29 +300,29 @@ The NFS share from your Linux virtual machine must be mounted as a datastore on 
 
 4. Repeat steps 3 and 4 for all the virtual machines and virtual machine templates.
 
-5. Go to the folder that contains the ISO files. Select the ISO files and then select **Copy to** to copy the files to a folder on your vSAN datastore.
+5. Go to the folder that contains the ISO files.  Select the ISO files and then select **Copy to** to copy the files to a folder on your vSAN datastore.
 
-The virtual machines and virtual machine templates are now available on your AVS Private Cloud vCenter. These virtual machines must be moved from the NFS datastore to the vSAN datastore before you turn them on. You can use the **storage vMotion** option and select the vSAN datastore as the target for the virtual machines.
+The virtual machines and virtual machine templates are now available on your private cloud vCenter. These virtual machines must be moved from the NFS datastore to the vSAN datastore before you turn them on. You can use the **storage vMotion** option and select the vSAN datastore as the target for the virtual machines.
 
 The virtual machine templates must be cloned from your Linux virtual machine NFS datastore to your vSAN datastore.
 
 ### Clean up your Linux virtual machine
 
-After all the data is copied to your AVS Private Cloud, you can remove the NFS datastore from your AVS Private Cloud:
+After all the data is copied to your private cloud, you can remove the NFS datastore from your private cloud:
 
 1. Make sure that all virtual machines and templates are moved and cloned to your vSAN datastore.
 
 2. Remove from inventory all virtual machine templates from the NFS datastore.
 
-3. Unmount the Linux virtual machine datastore from your AVS Private Cloud vCenter.
+3. Unmount the Linux virtual machine datastore from your private cloud vCenter.
 
 4. Delete the virtual machine and managed disk from Azure.
 
-5. If you don't want to keep the data that was transferred by Data Box in your storage account, delete the Azure storage account. 
+5. If you don't want to keep the data that was transferred by Data Box in your storage account, delete the Azure storage account.  
     
 
 
 ## Next steps
 
 * Learn more about [Data Box](../databox/data-box-overview.md).
-* Learn more about different options for [migrating workloads to your AVS Private Cloud](migrate-workloads.md).
+* Learn more about different options for [migrating workloads to your private cloud](migrate-workloads.md).

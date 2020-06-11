@@ -5,7 +5,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev 
@@ -14,6 +13,7 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
+ROBOTS: NOINDEX
 ---
 
 # How to: Migrate from the Azure Access Control Service
@@ -64,13 +64,13 @@ Follow the steps in this section to find out which of your apps will be impacted
 ### Download and install ACS PowerShell
 
 1. Go to the PowerShell Gallery and download [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2).
-1. Install the module by running
+2. Install the module by running
 
     ```powershell
     Install-Module -Name Acs.Namespaces
     ```
 
-1. Get a list of all possible commands by running
+3. Get a list of all possible commands by running
 
     ```powershell
     Get-Command -Module Acs.Namespaces
@@ -90,8 +90,8 @@ Follow the steps in this section to find out which of your apps will be impacted
   
     You may need to run `Set-ExecutionPolicy -ExecutionPolicy Bypass` before you can execute commands and be the admin of those subscriptions in order to execute the commands.
 
-1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
-1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
+2. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
+3. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 
 ### Check which applications will be impacted
 
@@ -99,8 +99,8 @@ Follow the steps in this section to find out which of your apps will be impacted
 
     For example, if one of the namespaces is contoso-test, go to `https://contoso-test.accesscontrol.windows.net`
 
-1. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
-1. Repeat steps 1-2 for any other ACS namespace(s) that you have.
+2. Under **Trust relationships**, select **Relying party applications** to see the list of apps that will be impacted by ACS retirement.
+3. Repeat steps 1-2 for any other ACS namespace(s) that you have.
 
 ## Retirement schedule
 
@@ -206,7 +206,7 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 | Upload custom token-signing certificates | Supported | Supported |
 | Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Cannot pass through claims from federated identity providers<br />- Cannot get access token from identity provider as a claim<br />- Cannot issue output claims based on values of input claims<br />- Can issue output claims with constant values<br />- Can issue output claims based on properties of users synced to Azure AD |
 | **Automation** | | |
-| Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
+| Automate configuration and management tasks | Supported via Access Control Management Service | Supported using the Microsoft Graph API |
 
 If you decide that Azure AD is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Azure AD.
 
@@ -257,7 +257,7 @@ The following table compares the features of Access Control that are relevant to
 | Upload custom token-signing certificates | Supported | Custom signing keys, not certificates, supported via custom policies |
 | Customize claims in tokens |- Pass through input claims from identity providers<br />- Get access token from identity provider as a claim<br />- Issue output claims based on values of input claims<br />- Issue output claims with constant values |- Can pass through claims from identity providers; custom policies required for some claims<br />- Cannot get access token from identity provider as a claim<br />- Can issue output claims based on values of input claims via custom policies<br />- Can issue output claims with constant values via custom policies |
 | **Automation** | | |
-| Automate configuration and management tasks | Supported via Access Control Management Service |- Creation of users allowed via Azure AD Graph API<br />- Cannot create B2C tenants, applications, or policies programmatically |
+| Automate configuration and management tasks | Supported via Access Control Management Service |- Creation of users allowed using the Microsoft Graph API<br />- Cannot create B2C tenants, applications, or policies programmatically |
 
 If you decide that Azure AD B2C is the best migration path for your applications and services, begin with the following resources:
 
@@ -321,7 +321,7 @@ You can also use Azure AD for server-to-server authentication by using the Azure
 | Client authentication methods |- Simple password<br />- Signed SWT<br />- SAML token from a federated identity provider |- Simple password<br />- Signed JWT |
 | Token formats |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT only |
 | Token transformation |- Add custom claims<br />- Simple if-then claim issuance logic | Add custom claims | 
-| Automate configuration and management tasks | Supported via Access Control Management Service | Supported via Microsoft Graph and Azure AD Graph API |
+| Automate configuration and management tasks | Supported via Access Control Management Service | Supported using the Microsoft Graph API |
 
 For guidance about implementing server-to-server scenarios, see the following resources:
 

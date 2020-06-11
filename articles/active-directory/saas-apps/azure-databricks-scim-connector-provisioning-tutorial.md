@@ -92,7 +92,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input your Azure Databricks SCIM Connector admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to Azure Databricks SCIM Connector. If the connection fails, ensure your Azure Databricks SCIM Connector account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the SCIM endpoint value in **Tenant URL**. The tenant URL should be in the format `https://<region>.azuredatabricks.net/api/2.0/preview/scim` where the **region** can be found in your Azure Databricks home page URL. For example, a SCIM endpoint for **westus** region will be `https://westus.azuredatabricks.net/api/2.0/preview/scim`. Input the token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Azure Databricks SCIM Connector. If the connection fails, ensure your Azure Databricks SCIM Connector account has Admin permissions and try again.
 
  	![provisioning](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 

@@ -5,7 +5,6 @@ author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.workload: billing
 ms.date: 02/12/2020
 ms.author: banders
 ---

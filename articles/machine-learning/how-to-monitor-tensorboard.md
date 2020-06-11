@@ -5,10 +5,10 @@ description: Launch TensorBoard to visualize experiment run histories, and ident
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 author: maxluk
 ms.author: maxluk
-ms.date: 11/08/2019
+ms.date: 02/27/2020
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
@@ -178,6 +178,10 @@ tb.start()
 tb.stop()
 ```
 
+>[!Note]
+ While this example used TensorFlow, TensorBoard can be used as easily with PyTorch or Chainer models. TensorFlow must be available on the machine running TensorBoard, but is not necessary on the machine doing PyTorch or Chainer computations. 
+
+
 <a name="export"></a>
 
 ## Option 2: Export history as log to view in TensorBoard
@@ -190,7 +194,7 @@ The following code sets up a new experiment and names the run directory `root_ru
 
 ```python
 from azureml.core import Workspace, Experiment
-import azuremml.core
+import azureml.core
 
 # set experiment name and run name
 ws = Workspace.from_config()
@@ -225,7 +229,7 @@ alphas = [.1, .2, .3, .4, .5, .6 , .7]
 # try a bunch of alpha values in a Linear Regression (aka Ridge regression) mode
 for alpha in tqdm(alphas):
   # create child runs and fit lines for the resulting models
-  with root_run.child_run("alpha" + str(alpha)) as run
+  with root_run.child_run("alpha" + str(alpha)) as run:
  
    reg = Ridge(alpha=alpha)
    reg.fit(data["train"]["x"], data["train"]["y"])    

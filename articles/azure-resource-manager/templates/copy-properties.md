@@ -2,15 +2,15 @@
 title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template to iterate multiple times when creating a property on a resource.
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 04/14/2020
 ---
-# Property iteration in Azure Resource Manager templates
+# Property iteration in ARM templates
 
-This article shows you how to create more than one instance of a property in your Azure Resource Manager template. By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
+This article shows you how to create more than one instance of a property in your Azure Resource Manager (ARM) template. By adding the **copy** element to the properties section of a resource in your template, you can dynamically set the number of items for a property during deployment. You also avoid having to repeat template syntax.
 
-You can also use copy with [resources](copy-resources.md) and [variables](copy-variables.md).
+You can also use copy with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
-## Property iteration
+## Syntax
 
 The copy element has the following general format:
 
@@ -24,15 +24,32 @@ The copy element has the following general format:
 ]
 ```
 
-For **name**, provide the name of the resource property that you want to create. The **count** property specifies the number of iterations you want for the property.
+For **name**, provide the name of the resource property that you want to create.
+
+The **count** property specifies the number of iterations you want for the property.
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
+
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
+
+* Azure PowerShell **2.6** or later
+* Azure CLI **2.0.74** or later
+* REST API version **2019-05-10** or later
+* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+
+Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+## Property iteration
 
 The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {
@@ -72,11 +89,7 @@ The following example shows how to apply `copy` to the dataDisks property on a v
 }
 ```
 
-Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration.
-
-> [!NOTE]
-> Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
->
+Notice that when using `copyIndex` inside a property iteration, you must provide the name of the iteration. Property iteration also supports an offset argument. The offset must come after the name of the iteration, such as copyIndex('dataDisks', 1).
 
 Resource Manager expands the `copy` array during deployment. The name of the array becomes the name of the property. The input values become the object properties. The deployed template becomes:
 
@@ -107,13 +120,73 @@ Resource Manager expands the `copy` array during deployment. The name of the arr
       ...
 ```
 
+The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array.
+
+The following example template creates a failover group for databases that are passed in as an array.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "primaryServerName": {
+            "type": "string"
+        },
+        "secondaryServerName": {
+            "type": "string"
+        },
+        "databaseNames": {
+            "type": "array",
+            "defaultValue": [
+                "mydb1",
+                "mydb2",
+                "mydb3"
+            ]
+        }
+    },
+    "variables": {
+        "failoverName": "[concat(parameters('primaryServerName'),'/', parameters('primaryServerName'),'failovergroups')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/failoverGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('failoverName')]",
+            "properties": {
+                "readWriteEndpoint": {
+                    "failoverPolicy": "Automatic",
+                    "failoverWithDataLossGracePeriodMinutes": 60
+                },
+                "readOnlyEndpoint": {
+                    "failoverPolicy": "Disabled"
+                },
+                "partnerServers": [
+                    {
+                        "id": "[resourceId('Microsoft.Sql/servers', parameters('secondaryServerName'))]"
+                    }
+                ],
+                "copy": [
+                    {
+                        "name": "databases",
+                        "count": "[length(parameters('databaseNames'))]",
+                        "input": "[resourceId('Microsoft.Sql/servers/databases', parameters('primaryServerName'), parameters('databaseNames')[copyIndex('databases')])]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
+```
+
 The copy element is an array so you can specify more than one property for the resource.
 
 ```json
 {
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
-  "name": "examleLB",
+  "name": "exampleLB",
   "properties": {
     "copy": [
       {
@@ -169,12 +242,6 @@ You can use resource and property iteration together. Reference the property ite
 }
 ```
 
-## Copy limits
-
-The count can't exceed 800.
-
-The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
-
 ## Example templates
 
 The following example shows a common scenario for creating more than one value for a property.
@@ -185,8 +252,11 @@ The following example shows a common scenario for creating more than one value f
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](template-tutorial-create-multiple-instances.md).
-* For other uses of the copy element, see [Resource iteration in Azure Resource Manager templates](copy-resources.md) and [Variable iteration in Azure Resource Manager templates](copy-variables.md).
-* If you want to learn about the sections of a template, see [Authoring Azure Resource Manager Templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with Azure Resource Manager Template](deploy-powershell.md).
+* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* For other uses of the copy element, see:
+  * [Resource iteration in ARM templates](copy-resources.md)
+  * [Variable iteration in ARM templates](copy-variables.md)
+  * [Output iteration in ARM templates](copy-outputs.md)
+* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
 

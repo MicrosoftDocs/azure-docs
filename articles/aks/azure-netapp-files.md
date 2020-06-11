@@ -2,12 +2,8 @@
 title: Integrate Azure NetApp Files with Azure Kubernetes Service
 description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
 services: container-service
-author: zr-msft
-
-ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
 ---
@@ -31,7 +27,8 @@ The following limitations apply when you use Azure NetApp Files:
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist]. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
 * Your Azure NetApp Files service must be created in the same virtual network as your AKS cluster.
-* Only static provisioning for Azure NetApp Files is supported on AKS.
+* After the initial deployment of an AKS cluster, only static provisioning for Azure NetApp Files is supported.
+* To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later.
 
 ## Configure Azure NetApp Files
 
@@ -40,7 +37,7 @@ The following limitations apply when you use Azure NetApp Files:
 
 Register the *Microsoft.NetApp* resource provider:
 
-```azure-cli
+```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
@@ -50,14 +47,16 @@ az provider register --namespace Microsoft.NetApp --wait
 When you create an Azure NetApp account for use with AKS, you need to create the account in the **node** resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named *myAKSCluster* in the resource group name *myResourceGroup*:
 
 ```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
 
+```output
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Create an Azure NetApp Files account in the **node** resource group and same region as your AKS cluster using [az netappfiles account create][az-netappfiles-account-create]. The following example creates an account named *myaccount1* in the *MC_myResourceGroup_myAKSCluster_eastus* resource group and *eastus* region:
 
-```azure-cli
+```azurecli
 az netappfiles account create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -66,7 +65,7 @@ az netappfiles account create \
 
 Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
 
-```azure-cli
+```azurecli
 az netappfiles pool create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -78,7 +77,7 @@ az netappfiles pool create \
 
 Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. *This subnet must be in the same virtual network as your AKS cluster.*
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
 VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -93,7 +92,7 @@ az network vnet subnet create \
 
 Create a volume by using [az netappfiles volume create][az-netappfiles-volume-create].
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 LOCATION=eastus
 ANF_ACCOUNT_NAME=myaccount1
@@ -123,9 +122,12 @@ az netappfiles volume create \
 ## Create the PersistentVolume
 
 List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
-```azure-cli
-$ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
 
+```azurecli
+az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+```
+
+```output
 {
   ...
   "creationToken": "myfilepath2",
@@ -243,7 +245,9 @@ Verify your volume has been mounted in the pod by using [kubectl exec][kubectl-e
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash
+```
 
+```output
 root@nginx-nfs:/# df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...

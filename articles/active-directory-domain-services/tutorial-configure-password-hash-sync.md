@@ -77,6 +77,8 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     # Define the Azure AD Connect connector names and import the required PowerShell module
     $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
     $adConnector = "<CASE SENSITIVE AD DS CONNECTOR NAME>"
+    
+    Import-Module "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync\ADSync.psd1"
     Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1"
 
     # Create a new ForceFullPasswordSync configuration parameter object then

@@ -715,7 +715,7 @@ To issue Hive queries in the [Import Data][import-data] module of Machine Learni
 
 Here are some details about the [Import Data][import-data] module and the parameters to input:
 
-**HCatalog server URI**: If the cluster name is **abc123**, then use: https://abc123.azurehdinsight.net.
+**HCatalog server URI**: If the cluster name is **abc123**, then use: https:\//abc123.azurehdinsight.net.
 
 **Hadoop user account name**: The user name chosen for the cluster (not the remote access user name).
 

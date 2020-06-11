@@ -33,7 +33,7 @@ Increase the Apache Ambari Hive View timeouts by setting the following propertie
 ```
 views.ambari.request.read.timeout.millis=300000
 views.request.read.timeout.millis=300000
-views.ambari.hive<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 ```
 
 The value of `HIVE_VIEW_INSTANCE_NAME` is available at the end of the Hive View URL.

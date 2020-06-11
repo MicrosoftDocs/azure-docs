@@ -1,7 +1,6 @@
 ---
 title: Quickstart ASP.NET Core - Azure Monitor Application Insights 
 description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Azure Monitor Application Insights
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
@@ -21,10 +20,10 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- [Install Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the following workloads:
   - ASP.NET and web development
   - Azure development
-- [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+- [Install .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - You will need an Azure subscription and an existing .NET Core web application.
 
 If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)
@@ -96,11 +95,6 @@ Application Insights can gather telemetry data from any internet-connected appli
 5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
-
-## Video
-
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
 
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.

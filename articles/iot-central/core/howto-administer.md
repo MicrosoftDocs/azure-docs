@@ -4,7 +4,7 @@ description: As an administrator, how to manage your Azure IoT Central applicati
 author: viv-liu
 ms.author: viviali
 ms.date: 11/27/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr

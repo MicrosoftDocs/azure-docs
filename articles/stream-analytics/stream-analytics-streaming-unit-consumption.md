@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/27/2020
 ---
 
 # Understand and adjust Streaming Units
@@ -27,7 +27,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
-5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). You job should also have at least 6 SUs in order to change this setting when the job is running. You maybe restricted to choosing from a set of SU values when the job is running. 
+5. You can change the number of SUs assigned to your job even when it is running. This is not possible if your job uses a [non-partitioned output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). You maybe restricted to choosing from a set of SU values when the job is running. 
 
 ## Monitor job performance
 Using the Azure portal, you can track the throughput of a job:

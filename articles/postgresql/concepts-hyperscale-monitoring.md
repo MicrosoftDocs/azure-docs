@@ -4,6 +4,7 @@ description: This article describes monitoring and tuning features in Azure Data
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
 ---

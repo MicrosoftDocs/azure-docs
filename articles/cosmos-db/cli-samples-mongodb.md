@@ -5,13 +5,16 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
 ---
 
 # Azure CLI samples for Azure Cosmos DB MongoDB API
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB MongoDB API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+
+> [!NOTE]
+> Currently you can only create 3.2 version (that is, accounts using the endpoint in the format `*.documents.azure.com`) of Azure Cosmos DB's API for MongoDB accounts by using PowerShell, CLI, and Resource Manager templates. To create 3.6 version of accounts, use Azure portal instead.
 
 | |  |
 |---|---|
@@ -22,4 +25,5 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 | [Secure with IP firewall](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account with IP firewall configured.|
 | [Secure new account with service endpoints](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account and secure with service-endpoints.|
 | [Secure existing account with service endpoints](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
+| [Lock resources from deletion](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||

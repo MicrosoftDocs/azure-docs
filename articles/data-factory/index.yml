@@ -12,7 +12,6 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  monikerRange: ""
 
 landingContent:
   - title: About Azure Data Factory
@@ -105,7 +104,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Migrate SSIS packages to Azure SQL Database managed instance
+          - text: Migrate SSIS packages to Azure SQL Managed Instance
             url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
       - linkListType: tutorial
         links:

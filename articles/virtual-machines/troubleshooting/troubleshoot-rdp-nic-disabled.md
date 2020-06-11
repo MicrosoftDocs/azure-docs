@@ -20,9 +20,6 @@ ms.author: genli
 
 This article explains how to resolve a problem in which you cannot make a Remote Desktop connection to Azure Windows Virtual Machines (VMs) if the network interface is disabled.
 
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:
-[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptoms
 

@@ -1,29 +1,31 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |Resource  |Link  |
@@ -39,23 +41,23 @@ ms.author: dech
 
 ## Release notes
 
-### <a name="3.1.0"/>3.1.0</a>
+### <a name="3.1.0"></a>3.1.0
 * Set default ResponseContinuationTokenLimitInKB to 1kb. By default, we are capping this to 1kb to avoid long headers (Node.js has a global header size limit). A user may set this field to allow for longer headers, which can help the backend optimize query execution.
 * Remove disableSSLVerification. This option has new alternatives described in [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
-### <a name="3.0.4"/>3.0.4</a>
+### <a name="3.0.4"></a>3.0.4
 * Allow initialHeaders to explicitly set partition key header
 * Use package.json#files to prevent extraneous files from being published
 * Fix routing map sort error on older version of node+v8
 * Fixes bug when user supplies partial retry options
 
-### <a name="3.0.3"/>3.0.3</a>
+### <a name="3.0.3"></a>3.0.3
 * Prevent Webpack from resolving modules called with require
 
-### <a name="3.0.2"/>3.0.2</a>
+### <a name="3.0.2"></a>3.0.2
 * Fixes a long outstanding bug where RUs were always being reported as 0 for aggregate queries
 
-### <a name="3.0.0"/>3.0.0</a>
+### <a name="3.0.0"></a>3.0.0
 
 🎉 v3 release! 🎉 Many new features, bug fixes, and a few breaking changes. Primary goals of this release:
 
@@ -206,30 +208,30 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Enable noUnusedLocals and noUnusedParameters (#275)
 * Azure Pipelines YAML for CI builds (#298)
 
-### <a name="2.1.5"/>2.1.5</a>
+### <a name="2.1.5"></a>2.1.5
 * No code changes. Fixes an issue where some extra files were included in 2.1.4 package.
 
-### <a name="2.1.4"/>2.1.4</a>
+### <a name="2.1.4"></a>2.1.4
 * Fix regional failover within retry policy
 * Fix ChangeFeed hasMoreResults property
 * Dev dependency updates
 * Add PolicheckExclusions.txt
 
-### <a name="2.1.3"/>2.1.3</a>
+### <a name="2.1.3"></a>2.1.3
 * Switch _ts type from string to number
 * Fix default indexing tests
 * Backport uniqueKeyPolicy to v2
 * Demo and demo debugging fixes
 
-### <a name="2.1.2"/>2.1.2</a>
+### <a name="2.1.2"></a>2.1.2
 * Backport offer fixes from v3 branch
 * Fix bug in executeNext() type signature
 * Typo fixes
 
-### <a name="2.1.1"/>2.1.1</a>
+### <a name="2.1.1"></a>2.1.1
 * Build restructuring. Allows pulling the SDK version at build time.
 
-### <a name="2.1.0"/>2.1.0</a>
+### <a name="2.1.0"></a>2.1.0
 #### New Features
 * Added ChangeFeed support (#196)
 * Added MultiPolygon datatype for indexing (#191)
@@ -242,164 +244,164 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Add integration test for typescript consumption (#199)
 * Enable installing directly from GitHub (#194)
 
-### <a name="2.0.5"/>2.0.5</a>
+### <a name="2.0.5"></a>2.0.5
 * Adds interface for node Agent type. Typescript users no longer have to install @types/node as a dependency
 * Preferred locations are now properly honored
 * Improvements to contributing developer documentation
 * Various typo fixes
 
-### <a name="2.0.4"/>2.0.4</a>
+### <a name="2.0.4"></a>2.0.4
 * Fixes type definition issue introduced in 2.0.3
 
-### <a name="2.0.3"/>2.0.3</a>
+### <a name="2.0.3"></a>2.0.3
 * Remove `big-integer` dependency
 * Switch to reference directives for AsyncIterable type. Typescript users no longer have to customize their "lib" setting.
 * Typo Fixes
 
-### <a name="2.0.2"/>2.0.2</a>
+### <a name="2.0.2"></a>2.0.2
 * Fix readme links
 
-### <a name="2.0.1"/>2.0.1</a>
+### <a name="2.0.1"></a>2.0.1
 * Fix retry interface implementation
 
-### <a name="2.0.0"/>2.0.0</a>
+### <a name="2.0.0"></a>2.0.0
 * GA of Version 2.0.0 of the JavaScript SDK
 * Added support for multi-region writes.
 
-### <a name="2.0.0-3"/>2.0.0-3</a>
+### <a name="2.0.0-3"></a>2.0.0-3
 * RC1 of Version 2.0.0 of the JavaScript SDK for public preview.
 * New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
 * Support for [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
 * SDK converted to TypeScript.
 
-### <a name="1.14.4"/>1.14.4</a>
+### <a name="1.14.4"></a>1.14.4
 * npm documentation fixed.
 
-### <a name="1.14.3"/>1.14.3</a>
+### <a name="1.14.3"></a>1.14.3
 * Added support for default retries on connection issues.
 * Added support to read collection change feed.
 * Fixed session consistency bug that intermittently caused "read session not available".
 * Added support for query metrics.
 * Modified http Agent's maximum number of connections.
 
-### <a name="1.14.2"/>1.14.2</a>
+### <a name="1.14.2"></a>1.14.2
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 * Added Support for proxyUrl setting in ConnectionPolicy.
 
-### <a name="1.14.1"/>1.14.1</a>
+### <a name="1.14.1"></a>1.14.1
 * Minor fix for case sensitive file systems.
 
-### <a name="1.14.0"/>1.14.0</a>
+### <a name="1.14.0"></a>1.14.0
 * Adds support for Session Consistency.
-* This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
+* This SDK version requires the latest version of [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator).
 
-### <a name="1.13.0"/>1.13.0</a>
+### <a name="1.13.0"></a>1.13.0
 * Split proofed cross partition queries.
 * Adds supports for resource link with leading and trailing slashes (and corresponding tests).
 
-### <a name="1.12.2"/>1.12.2</a>
-*	npm documentation fixed.
+### <a name="1.12.2"></a>1.12.2
+*    npm documentation fixed.
 
-### <a name="1.12.1"/>1.12.1</a>
+### <a name="1.12.1"></a>1.12.1
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
 * Fixed a bug in handling documents with Unicode characters in the partition key.
 * Fixed support for creating collections with the name media. GitHub issue #114.
 * Fixed support for permission authorization token. GitHub issue #178.
 
-### <a name="1.12.0"/>1.12.0</a>
+### <a name="1.12.0"></a>1.12.0
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
 * Added support for UriFactory.
 * Fixed a Unicode support bug. GitHub issue #171.
 
-### <a name="1.11.0"/>1.11.0</a>
+### <a name="1.11.0"></a>1.11.0
 * Added the support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG).
 * Added the option for controlling degree of parallelism for cross partition queries.
-* Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
+* Added the option for disabling TLS verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 * Fixed the continuation token bug for single partition collection. GitHub issue #107.
 * Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
 
-### <a name="1.10.2"/>1.10.2</a>
+### <a name="1.10.2"></a>1.10.2
 * Fixed user-agent header to include the SDK version.
 * Minor code cleanup.
 
-### <a name="1.10.1"/>1.10.1</a>
-* Disabling SSL verification when using the SDK to target the emulator(hostname=localhost).
+### <a name="1.10.1"></a>1.10.1
+* Disabling TLS verification when using the SDK to target the emulator(hostname=localhost).
 * Added support for enabling script logging during stored procedure execution.
 
-### <a name="1.10.0"/>1.10.0</a>
+### <a name="1.10.0"></a>1.10.0
 * Added support for cross partition parallel queries.
 * Added support for TOP/ORDER BY queries for partitioned collections.
 
-### <a name="1.9.0"/>1.9.0</a>
+### <a name="1.9.0"></a>1.9.0
 * Added retry policy support for throttled requests. (Throttled requests receive a request rate too large exception, error code 429.) By default, Azure Cosmos DB retries nine times for each request when error code 429 is encountered, honoring the retryAfter time in the response header. A fixed retry interval time can now be set as part of the RetryOptions property on the ConnectionPolicy object if you want to ignore the retryAfter time returned by server between the retries. Azure Cosmos DB now waits for a maximum of 30 seconds for each request that is being throttled (irrespective of retry count) and returns the response with error code 429. This time can also be overridden in the RetryOptions property on ConnectionPolicy object.
 * Cosmos DB now returns x-ms-throttle-retry-count and x-ms-throttle-retry-wait-time-ms as the response headers in every request to denote the throttle retry count and the cumulative time the request waited between the retries.
 * The RetryOptions class was added, exposing the RetryOptions property on the ConnectionPolicy class that can be used to override some of the default retry options.
 
-### <a name="1.8.0"/>1.8.0</a>
+### <a name="1.8.0"></a>1.8.0
 * Added the support for multi-region database accounts.
 
-### <a name="1.7.0"/>1.7.0</a>
+### <a name="1.7.0"></a>1.7.0
 * Added the support for Time To Live(TTL) feature for documents.
 
-### <a name="1.6.0"/>1.6.0</a>
+### <a name="1.6.0"></a>1.6.0
 * Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
 
-### <a name="1.5.6"/>1.5.6</a>
+### <a name="1.5.6"></a>1.5.6
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
-### <a name="1.5.5"/>1.5.5</a>
+### <a name="1.5.5"></a>1.5.5
 * Fixed hashPartitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
-### <a name="1.5.4"/>1.5.4</a>
-* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.
+### <a name="1.5.4"></a>1.5.4
+* Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib's requests.
 
-### <a name="1.5.3"/>1.5.3</a>
-* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media ids.
+### <a name="1.5.3"></a>1.5.3
+* Fixes issue [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - Properly handle dashes in media IDs.
 
-### <a name="1.5.2"/>1.5.2</a>
+### <a name="1.5.2"></a>1.5.2
 * Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning.
 
-### <a name="1.5.1"/>1.5.1</a>
+### <a name="1.5.1"></a>1.5.1
 * Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case-sensitive systems.
 
-### <a name="1.5.0"/>1.5.0</a>
+### <a name="1.5.0"></a>1.5.0
 * Implement sharding support by adding hash & range partition resolvers.
 
-### <a name="1.4.0"/>1.4.0</a>
+### <a name="1.4.0"></a>1.4.0
 * Implement Upsert. New upsertXXX methods on documentClient.
 
-### <a name="1.3.0"/>1.3.0</a>
+### <a name="1.3.0"></a>1.3.0
 * Skipped to bring version numbers in alignment with other SDKs.
 
-### <a name="1.2.2"/>1.2.2</a>
+### <a name="1.2.2"></a>1.2.2
 * Split Q promises wrapper to new repository.
 * Update to package file for npm registry.
 
-### <a name="1.2.1"/>1.2.1</a>
+### <a name="1.2.1"></a>1.2.1
 * Implements ID Based Routing.
 * Fixes Issue [#49](https://github.com/Azure/azure-documentdb-node/issues/49) - current property conflicts with method current().
 
-### <a name="1.2.0"/>1.2.0</a>
+### <a name="1.2.0"></a>1.2.0
 * Added support for GeoSpatial index.
-* Validates id property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
+* Validates ID property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
-### <a name="1.1.0"/>1.1.0</a>
+### <a name="1.1.0"></a>1.1.0
 * Implements V2 indexing policy.
 
-### <a name="1.0.3"/>1.0.3</a>
+### <a name="1.0.3"></a>1.0.3
 * Issue [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - Implemented eslint and grunt configurations in the core and promise SDK.
 
-### <a name="1.0.2"/>1.0.2</a>
+### <a name="1.0.2"></a>1.0.2
 * Issue [#45](https://github.com/Azure/azure-documentdb-node/issues/45) - Promises wrapper does not include header with error.
 
-### <a name="1.0.1"/>1.0.1</a>
+### <a name="1.0.1"></a>1.0.1
 * Implemented ability to query for conflicts by adding readConflicts, readConflictAsync, and queryConflicts.
 * Updated API documentation.
 * Issue [#41](https://github.com/Azure/azure-documentdb-node/issues/41) - client.createDocumentAsync error.
 
-### <a name="1.0.0"/>1.0.0</a>
+### <a name="1.0.0"></a>1.0.0
 * GA SDK.
 
 ## Release & Retirement Dates

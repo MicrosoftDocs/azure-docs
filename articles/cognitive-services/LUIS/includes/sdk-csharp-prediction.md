@@ -5,10 +5,10 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
 ---
 
@@ -16,6 +16,7 @@ ms.author: diberry
 Use the Language Understanding (LUIS) prediction client library for .NET to:
 
 * Get prediction by slot
+* Prediction by Version
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [Prediction runtime Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
@@ -23,10 +24,7 @@ Use the Language Understanding (LUIS) prediction client library for .NET to:
 
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-
-Looking for more documentation?
-
- * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Setting up
 

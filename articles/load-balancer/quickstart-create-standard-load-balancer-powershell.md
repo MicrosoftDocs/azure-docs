@@ -59,11 +59,14 @@ $publicIp = New-AzPublicIpAddress `
  -Name 'myPublicIP' `
  -Location $location `
  -AllocationMethod static `
- -SKU Standard
+ -SKU Standard `
  -zone 1
 ```
 
-Use ```-SKU Basic``` to create a Basic Public IP. Microsoft recommends using Standard for production workloads.
+Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create Load Balancer
 
@@ -156,6 +159,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 Use ```-SKU Basic``` to create a Basic Load Balancer. Microsoft recommends using Standard for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create network resources
 Before you deploy some VMs and can test your balancer, you must create supporting network resources - virtual network and virtual NICs. 

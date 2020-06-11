@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 03/23/2020
 ---
 
 # Quickstart: Create an Azure Databricks workspace in your own Virtual Network
@@ -95,6 +95,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     The managed resource group is not modifiable, and it is not used to create virtual machines. You can only create virtual machines in the resource group you manage.
 
     ![Azure Databricks managed resource group](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
+
+    When a workspace deployment fails, the workspace is still created in a failed state. Delete the failed workspace and create a new workspace that resolves the deployment errors. When you delete the failed workspace, the managed resource group and any successfully deployed resources are also deleted.
 
 ## Create a cluster
 

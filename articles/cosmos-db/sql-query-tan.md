@@ -4,7 +4,7 @@ description: Learn about SQL system function TAN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -39,6 +39,10 @@ SELECT TAN(PI()/2) AS tan
 ```json
 [{"tan": 16331239353195370 }]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

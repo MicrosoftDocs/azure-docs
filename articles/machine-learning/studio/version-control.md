@@ -5,13 +5,14 @@ description: Apply Application Lifecycle Management best practices in Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
 ---
 # Application Lifecycle Management in Azure Machine Learning Studio (classic)
+
 Azure Machine Learning Studio (classic) is a tool for developing machine learning experiments that are operationalized in the Azure cloud platform. It is like the Visual Studio IDE and scalable cloud service merged into a single platform. You can incorporate standard Application Lifecycle Management (ALM) practices from versioning various assets to automated execution and deployment, into Azure Machine Learning Studio (classic). This article discusses some of the options and approaches.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

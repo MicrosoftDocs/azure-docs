@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 12/30/2019
+ms.topic: how-to
+ms.date: 05/17/2020
 ms.author: diberry
 ---
 
@@ -27,7 +27,10 @@ If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/
 
 ## Access the migration process
 
-On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Lock** icon on the top tool bar of the LUIS portal.
+On a weekly basis, you are prompted to migrate your apps. You can cancel this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Azure** icon on the top tool bar of the LUIS portal.
+
+> [!div class="mx-imgBorder"]
+> ![Migration icon](./media/migrate-authoring-key/migration-button.png)
 
 ## App owner begins the migration process
 
@@ -89,8 +92,8 @@ The migration process is available if you are the owner of any LUIS apps.
 
 1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
-    ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
-
+    > [!div class="mx-imgBorder"]
+    > ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 ## App contributor begins the migration process
 

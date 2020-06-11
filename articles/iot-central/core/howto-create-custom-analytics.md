@@ -4,7 +4,7 @@ description: As a solution developer, configure an IoT Central application to do
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/02/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
@@ -226,4 +226,4 @@ In this how-to guide, you learned how to:
 * Stream telemetry from an IoT Central application using *continuous data export*.
 * Create an Azure Databricks environment to analyze and plot telemetry data.
 
-Now that you know how to create custom analytics, the suggested next step is to learn how to [Manage your application](howto-administer.md).
+Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md).

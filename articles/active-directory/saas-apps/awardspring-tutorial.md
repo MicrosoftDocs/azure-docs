@@ -104,7 +104,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| First Name | user.givenname |
 	| Last Name | user.surname |
 	| Email | user.mail |
-	| Username | user.userprinicipalname |
+	| Username | user.userprincipalname |
 	| StudentID | < Student ID > |
 
 	> [!NOTE]
@@ -157,7 +157,7 @@ To configure single sign-on on **AwardSpring** side, you need to send the downlo
 In this section, a user called B.Simon is created in AwardSpring. AwardSpring supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in AwardSpring, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [AwardSpring support team](maito:support@awardspring.com).
+> If you need to create a user manually, contact [AwardSpring support team](mailto:support@awardspring.com).
 
 ## Test SSO
 

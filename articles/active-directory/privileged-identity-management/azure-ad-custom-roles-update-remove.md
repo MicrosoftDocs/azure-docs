@@ -30,7 +30,9 @@ This article tells you how to use Privileged Identity Management (PIM) to update
 - If you haven't used Privileged Identity Management yet, get more information at [Start using Privileged Identity Management](pim-getting-started.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management role management will take place in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-add-role-to-user.md) and this article does not apply:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Update or remove an assignment
 

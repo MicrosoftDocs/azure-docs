@@ -1,16 +1,16 @@
 ---
-title: 'Create a site-to-site VPN connection over ExpressRoute private peering in Azure Virtual WAN | Microsoft Docs'
+title: 'Configure ExpressRoute encryption: IPsec over ExpressRoute for Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a site-to-site VPN connection over ExpressRoute private peering.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
+
 ---
-# Create a site-to-site VPN connection over ExpressRoute private peering by using Azure Virtual WAN
+# ExpressRoute encryption: IPsec over ExpressRoute for Virtual WAN
 
 This article shows you how to use Azure Virtual WAN to establish an IPsec/IKE VPN connection from your on-premises network to Azure over the private peering of an Azure ExpressRoute circuit. This technique can provide an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public internet or using public IP addresses.
 
@@ -218,13 +218,8 @@ If you need instructions to configure your device, you can use the instructions 
 ## <a name="viewwan"></a>5. View your virtual WAN
 
 1. Go to the virtual WAN.
-1. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub's health summary.
+1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub, site, region, and VPN connection status. You can also view bytes in and out.
-
-## <a name="viewhealth"></a>6. View your resource health
-
-1. Go to your WAN.
-1. In the **SUPPORT + Troubleshooting** section, select **Health** and view your resource.
 
 ## <a name="connectmon"></a>7. Monitor a connection
 

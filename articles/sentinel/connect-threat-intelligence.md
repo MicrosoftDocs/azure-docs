@@ -2,7 +2,7 @@
 title: Connect threat intelligence data to Azure Sentinel| Microsoft Docs
 description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
-ms.author: cabailey
+ms.author: yelevin
 
 ---
 # Connect data from threat intelligence providers
@@ -39,6 +39,10 @@ You can stream threat indicators to Azure Sentinel by using one of the integrate
 - [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/)
     
     For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
+
+- [Anomali ThreatStream](https://www.anomali.com/products/threatstream)
+
+    To download ThreatStream Integrator and Extensions, and the instructions for connecting ThreatStream intelligence to the Microsoft Graph Security API, see the [ThreatStream downloads](https://ui.threatstream.com/downloads) page.
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     

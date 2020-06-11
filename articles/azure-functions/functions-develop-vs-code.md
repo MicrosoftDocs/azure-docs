@@ -92,11 +92,15 @@ Depending on your language, these other files are created:
 
 * [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
 
+At this point, you can add input and output bindings to your function by [adding a parameter to a C# class library function](#add-input-and-output-bindings).
+
 # [JavaScript](#tab/nodejs)
 
 * A package.json file in the root folder.
 
 * An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-input-and-output-bindings).
 
 <!-- # [PowerShell](#tab/powershell)
 
@@ -109,8 +113,6 @@ Depending on your language, these other files are created:
 * An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
      -->
 ---
-
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
@@ -170,7 +172,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) documentation.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) documentation.
 
 # [JavaScript](#tab/nodejs)
 
@@ -208,7 +210,7 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) reference.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) reference.
 
 ---
 
@@ -295,7 +297,7 @@ To run your Functions project locally, you must meet these additional requiremen
 
     | Language | Requirement |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 or later](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended|

@@ -4,8 +4,8 @@ description: Describes metrics in Azure Monitor which are lightweight monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
-ms.service: azure-monitor
+
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -29,7 +29,7 @@ The following table lists the different ways that you can use metric data in Azu
 |  |  |
 |:---|:---|
 | Analyze | Use [metrics explorer](metrics-charts.md) to analyze collected metrics on a chart and compare metrics from different resources. |
-| Visualize | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
+| Visualize | Pin a chart from metrics explorer to an [Azure dashboard](../learn/tutorial-app-dashboards.md).<br>Create a [workbook](../platform/workbooks-overview.md) to combine with multiple sets of data in an interactive report.Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources. |
 | Alert | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
 | Automate |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
 | Export | [Route Metrics to Logs](resource-logs-collect-storage.md) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
@@ -97,7 +97,7 @@ For most resources in Azure, metrics are stored for 93 days. There are some exce
 
 **Guest OS metrics**
 -	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is 14 days.
--	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the Windows Diagnostic Extension (WAD) and send to the [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
+-	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](diagnostics-extension-overview.md) and sent to the [Azure Monitor data sink](diagnostics-extension-overview.md#data-destinations), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
 -	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
 
 **Application Insights log-based metrics**. 
