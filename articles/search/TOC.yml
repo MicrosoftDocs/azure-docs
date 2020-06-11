@@ -466,6 +466,8 @@
       items:
       - name: Custom Web API
         href: cognitive-search-custom-skill-web-api.md
+      - name: Azure Machine Learning (AML)
+        href: cognitive-search-aml-skill.md
     - name: Deprecated skills
       href: cognitive-search-skill-deprecated.md
       items:

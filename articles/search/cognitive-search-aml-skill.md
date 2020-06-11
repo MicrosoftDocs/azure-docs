@@ -38,10 +38,10 @@ Parameters are case-sensitive. Which parameters you choose to use depends on wha
 
 | Parameter name | Description |
 |--------------------|-------------|
-| uri | (Optional) The [scoring URI of the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) to which the _JSON_ payload will be sent. Only the **https** URI scheme is allowed. If the AML service uses [no authentication or key authentication](#WhatSkillParametersToUse), you can use this parameter |
-| key | (Optional) The [key for the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys). If the AML service uses [key authentication](#WhatSkillParametersToUse), you can use this parameter |
-| resourceId | (Optional). The ARM resource ID of the AML service. It should be in the format subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.MachineLearningServices/workspaces/{workspace-name}/services/{service_name}. If the AML service uses [token authentication](#WhatSkillParametersToUse), you can use this parameter |
-| region | (Optional). The [region](https://azure.microsoft.com/global-infrastructure/regions/) the AML service is deployed in. If the AML service uses [token authentication](#WhatSkillParametersToUse), you can use this parameter |
+| uri | (Required for [no authentication or key authentication](#WhatSkillParametersToUse)) The [scoring URI of the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) to which the _JSON_ payload will be sent. Only the **https** URI scheme is allowed. |
+| key | (Required for [key authentication](#WhatSkillParametersToUse)) The [key for the AML service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys). |
+| resourceId | (Required for [token authentication](#WhatSkillParametersToUse)). The Azure Resource Manager resource ID of the AML service. It should be in the format subscriptions/{guid}/resourceGroups/{resource-group-name}/Microsoft.MachineLearningServices/workspaces/{workspace-name}/services/{service_name}. |
+| region | (Optional for [token authentication](#WhatSkillParametersToUse)). The [region](https://azure.microsoft.com/global-infrastructure/regions/) the AML service is deployed in. |
 | timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | degreeOfParallelism | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The degreeOfParallelism can be set to a maximum of 10 and a minimum of 1.
 
@@ -49,7 +49,7 @@ Parameters are case-sensitive. Which parameters you choose to use depends on wha
 
 ## What skill parameters to use
 
-All the AML parameters are optional because they depend on what authentication your AML service requires, if any. AML services provide three authentication options:
+Which AML skill parameters are required depends on what authentication your AML service uses, if any. AML services provide three authentication options:
 
 * [Key-Based Authentication](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication-for-web-service-deployment). A static key is provided to authenticate scoring requests from AML skills
   * Use the _uri_ and _key_ parameters
@@ -71,23 +71,24 @@ There are no "predefined" outputs for this skill. Depending on the response your
 
 ```json
   {
-        "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
-        "description": "A sample model that detects the language of sentence",
-        "uri": "https://contoso.count-things.com/score",
-        "context": "/document",
-        "inputs": [
-          {
-            "name": "text",
-            "source": "/document/content"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "detected_language_code"
-          }
-        ]
+    "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
+    "description": "A sample model that detects the language of sentence",
+    "uri": "https://contoso.count-things.com/score",
+    "context": "/document",
+    "inputs": [
+      {
+        "name": "text",
+        "source": "/document/content"
       }
+    ],
+    "outputs": [
+      {
+        "name": "detected_language_code"
+      }
+    ]
+  }
 ```
+
 ## Sample input JSON structure
 
 This _JSON_ structure represents the payload that will be sent to your AML service. The top-level fields of the structure will correspond to the "names" specified in the `inputs` section of the skill definition. The value of those fields will be from the `source` of those fields (which could be from a field in the document, or potentially from another skill)
@@ -108,13 +109,57 @@ The output corresponds to the response returned from your AML service. The AML s
 }
 ```
 
-## Error cases
-In addition to your AML being unavailable, or sending out non-successful status codes the following are considered erroneous cases:
+## Inline shaping sample definition
 
-* If the AML service returns a success status code but the response indicates that it is not `application/json` then the response is considered invalid and no enrichments will be performed.
+```json
+  {
+    "@odata.type": "#Microsoft.Skills.Custom.AmlSkill",
+    "description": "A sample model that detects the language of sentence",
+    "uri": "https://contoso.count-things.com/score",
+    "context": "/document",
+    "inputs": [
+      {
+        "name": "shapedText",
+        "sourceContext": "/document",
+        "inputs": [
+            {
+              "name": "content",
+              "source": "/document/content"
+            }
+        ]
+      }
+    ],
+    "outputs": [
+      {
+        "name": "detected_language_code"
+      }
+    ]
+  }
+```
+
+## Inline shaping input JSON structure
+
+```json
+{
+  "shapedText": { "content": "Este es un contrato en Inglés" }
+}
+```
+
+## Inline shaping sample output JSON structure
+
+```json
+{
+    "detected_language_code": "es"
+}
+```
+
+## Error cases
+In addition to your AML being unavailable or sending out non-successful status codes, the following are considered erroneous cases:
+
+* If the AML service returns a success status code but the response indicates that it is not `application/json`, then the response is considered invalid and no enrichments will be performed.
 * If the AML service returns invalid json
 
-For cases when the AML service is unavailable or returns a HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
+For cases when the AML service is unavailable or returns an HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
 
 ## See also
 
