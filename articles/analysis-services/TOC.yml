@@ -71,6 +71,8 @@
       href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
     - name: Add a service principal to server administrator role
       href: analysis-services-addservprinc-admins.md
+    - name: Move between regions
+      href: move-between-regions.md
   - name: Model
     items:
     - name: Tabular modeling

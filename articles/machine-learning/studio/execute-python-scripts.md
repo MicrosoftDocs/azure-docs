@@ -5,7 +5,7 @@ description: Learn how to use the Execute Python Script module to use Python cod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
