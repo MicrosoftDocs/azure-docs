@@ -36,14 +36,14 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Labelling Project Management Portal                                                | All                     |
-| Labeller Portal                                                                    | All                     |
-| Labelling using private workforce                                                  | All                     |
+| Create & manage labeling projects in studio (Web)                                                | All                     |
+| Labeler in studio (Web)                                    | All                     |
+| Labeling using private workforce                                                  | All                     |
 | ML assisted labeling (Image classification and Object detection)                   | Enterprise edition only |
-| Create, view or edit datasets and datastores from the SDK                          | All                     |
-| Create, view or edit datasets and datastores from the UI                           | All                     |
-| View, edit or delete dataset drift monitors from the SDK                           | All                     |
-| View, edit or delete dataset drift monitors from the UI                            | Enterprise edition only |
+| Create & manage datasets + datastores in Python                       | All                     |
+| Create & manage datasets + datastores in studio (Web)                         | All                     |
+| Drift: View & manage dataset monitors in Python                           | All                     |
+| Drift: View & manage dataset monitors in studio (Web)                            | Enterprise edition only |
 
 <br/>
 <br/>
@@ -52,10 +52,10 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Automated Machine Learning - Create and run experiments in notebooks               | All                     |
-| Automated Machine Learning - Create and run experiments in studio web experience   | Enterprise edition only |
+| Automated Machine Learning - Create & run experiments in notebooks               | All                     |
+| Automated Machine Learning - Create & run experiments in studio web experience   | Enterprise edition only |
 | Automated Machine Learning - Industry-leading forecasting capabilities             | Enterprise edition only |
-| Automated Machine Learning - Support for deep learning and other advanced learners | Enterprise edition only |
+| Automated Machine Learning - Support for deep learning & other advanced learners | Enterprise edition only |
 | Automated Machine Learning - Large data support (up to 100 GB)                     | Enterprise edition only |
 | Responsible ML - Model Explainability                                              | All                     |
 | Responsible ML - Differential privacy WhiteNoise toolkit                           | All                     |
@@ -64,13 +64,13 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | Visual Studio Code integration                                                     | All                     |
 | Reinforcement Learning                                                             | All                     |
 | Experimentation UI                                                                 | All                     |
-| Create, run and publish pipelines using the Azure ML SDK                           | All                     |
-| Create pipeline endpoints using the Azure ML SDK                                   | All                     |
-| Create, edit and delete scheduled runs of pipelines using the Azure ML SDK         | All                     |
-| View pipeline run details in studio                                                | All                     |
-| Create, run, visualize and publish pipelines in Azure ML designer                  | Enterprise edition only |
-| Create pipeline endpoints in Azure ML designer                                     | Enterprise edition only |
-| Managed compute Instances for integrated Notebooks                                 | All                     |
+| Pipelines: Create, run and publish  in Python                           | All                     |
+| Pipelines: Create, edit and delete scheduled runs of pipelines in Python| All                     |
+| Pipelines: Create pipeline endpoints in Python SDK                                   | All                     |
+| Pipelines: View run details in studio (web)                                              | All                     |
+| Pipelines: Create, run, visualize & publish in designer                  | Enterprise edition only |
+| Pipelines: Create pipeline endpoints in designer | Enterprise edition only |
+| Managed compute instances for integrated notebooks                                 | All                     |
 | Jupyter, JupyterLab Integration                                                    | All                     |
 | R SDK support                                                                      | All                     |
 | Python SDK support                                                                 | All                     |
@@ -84,7 +84,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
-| Event Grid integration                                                             | All                     |
+| [Event Grid integration](how-to-use-event-grid.md)                                                             | All                     |
 | Integrate Azure Stream Analytics with Azure Machine Learning                       | All                     |
 | Create ML pipelines in SDK                                                         | All                     |
 | Batch inferencing                                                                  | All                     |
@@ -99,12 +99,12 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Role-based Access Control (RBAC) support                                           | All                     |
-| Virtual Network (VNet) support for compute                                         | All                     |
+| [Role-based Access Control](how-to-assign-roles.md) (RBAC) support                                           | All                     |
+| [Virtual Network (VNet)](how-to-enable-virtual-network.md) support for compute                                         | All                     |
 | Scoring endpoint authentication                                                    | All                     |
-| Workplace Private link                                                             | All                     |
+| [Workplace Private link](how-to-configure-private-link.md)                                                            | All                     |
 | Managed Identity for AML Compute                                                   | All                     |
-| quota management across workspaces                                                 | Enterprise edition only |
+| [Quota management](how-to-manage-quotas.md) across workspaces                                                 | Enterprise edition only |
 
 ## Next steps
 
