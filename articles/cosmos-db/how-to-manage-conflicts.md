@@ -236,25 +236,21 @@ await container.Scripts.CreateStoredProcedureAsync(
 ```
 ---
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-javav4"></a>Java V4 SDK
+### <a id="create-custom-conflict-resolution-policy-stored-proc-javav4"></a> Java V4 SDK
 
-#### [Async](#tab/async)
+# [Async](#tab/api-async)
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionSprocAsync)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionSprocAsync)]
 
-   After your container is created, you must create the `resolver` stored procedure.
+# [Sync](#tab/api-sync)
 
-#### [Sync](#tab/sync)
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionSprocSync)]
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionSprocSync)]
-
-   After your container is created, you must create the `resolver` stored procedure.
-
----
+--- 
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javav2"></a>Java V2 SDKs
 
@@ -355,25 +351,21 @@ Container container = await createClient.GetDatabase(this.databaseName)
 ```
 ---
 
-### <a id="create-custom-conflict-resolution-policy-javav4"></a>Java V4 SDK
+### <a id="create-custom-conflict-resolution-policy-javav4"></a> Java V4 SDK
 
-#### [Async](#tab/async)
+# [Async](#tab/api-async)
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionCustomAsync)]
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionCustomAsync)]
 
-   After your container is created, you must create the `resolver` stored procedure.
+# [Sync](#tab/api-sync)
 
-#### [Sync](#tab/sync)
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
 
-   [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionCustomSync)]
 
-   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionCustomSync)]
-
-   After your container is created, you must create the `resolver` stored procedure.
-
----
+--- 
 
 ### <a id="create-custom-conflict-resolution-policy-javav2"></a>Java V2 SDKs
 
