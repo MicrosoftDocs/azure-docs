@@ -19,7 +19,7 @@ Azure Machine Learning offers two editions tailored for your machine learning ne
 
 | Basic edition | Enterprise edition                 |
 |------------------------------------------------------------------------------------|-----------|
-|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and [pay for only the Azure resources consumed during the machine learning process](concept-plan-manage-cost.md). |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
+|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and [pay for only the Azure resources consumed](concept-plan-manage-cost.md) during the machine learning process. |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
 
 ## How to choose an edition
 
@@ -45,10 +45,11 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | Drift: View & manage dataset monitors in Python                           | All                     |
 | Drift: View & manage dataset monitors in studio (Web)                            | Enterprise edition only |
 
+
 <br/>
 <br/>
 
-### Build & train capabilities
+### Automated training capabilities (AutoML)
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
@@ -57,23 +58,41 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | Automated Machine Learning - Industry-leading forecasting capabilities             | Enterprise edition only |
 | Automated Machine Learning - Support for deep learning & other advanced learners | Enterprise edition only |
 | Automated Machine Learning - Large data support (up to 100 GB)                     | Enterprise edition only |
-| Responsible ML - Model Explainability                                              | All                     |
-| Responsible ML - Differential privacy WhiteNoise toolkit                           | All                     |
-| Responsible ML - custom tags in Azure Machine Learning to implement datasheets     | All                     |
-| Responsible ML - Fairness AzureML Integration                                      | All                     |
+
+
+<br/>
+<br/>
+
+### Responsible Machine Learning
+
+| Capabilities    | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
+| Model Explainability                                              | All                     |
+| Differential privacy WhiteNoise toolkit                           | All                     |
+| Custom tags to implement datasheets     | All                     |
+| Fairness AzureML Integration                                      | All                     |
+
+<br/>
+<br/>
+
+
+### Build & train capabilities
+
+| Capabilities    | Edition                 |
+|------------------------------------------------------------------------------------|:-----------:|
 | Visual Studio Code integration                                                     | All                     |
 | Reinforcement Learning                                                             | All                     |
 | Experimentation UI                                                                 | All                     |
-| Pipelines: Create, run and publish  in Python                           | All                     |
-| Pipelines: Create, edit and delete scheduled runs of pipelines in Python| All                     |
-| Pipelines: Create pipeline endpoints in Python SDK                                   | All                     |
-| Pipelines: View run details in studio (web)                                              | All                     |
-| Pipelines: Create, run, visualize & publish in designer                  | Enterprise edition only |
-| Pipelines: Create pipeline endpoints in designer | Enterprise edition only |
-| Managed compute instances for integrated notebooks                                 | All                     |
 | Jupyter, JupyterLab Integration                                                    | All                     |
-| R SDK support                                                                      | All                     |
 | Python SDK support                                                                 | All                     |
+| R SDK support                                                                      | All                     |
+| ML Pipelines: Create, run and publish  in Python                           | All                     |
+| ML Pipelines: Create, edit and delete scheduled runs of pipelines in Python| All                     |
+| ML Pipelines: Create pipeline endpoints in Python SDK                                   | All                     |
+| ML Pipelines: View run details in studio (web)                                              | All                     |
+| ML Pipelines: Create, run, visualize & publish in designer                  | Enterprise edition only |
+| ML Pipelines: Create pipeline endpoints in designer | Enterprise edition only |
+| Managed compute instances for integrated notebooks                                 | All                     |
 
 
 <br/>
