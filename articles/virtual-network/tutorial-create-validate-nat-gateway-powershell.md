@@ -40,6 +40,7 @@ $rgname = 'myResourceGroupNAT'
 $loc = 'eastus2'
 
 $rg = New-AzResourceGroup -Name $rgname -Location $loc
+
 ```
 
 ## Create the NAT gateway
@@ -55,6 +56,7 @@ $sku = 'Standard'
 
 $publicIPsource = 
 New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.Name -AllocationMethod $alm -Sku $sku -Location $rg.Location
+
 ```
 
 ### Create a public IP prefix
@@ -66,6 +68,7 @@ $prefixname = 'mypublicIPprefixsource'
 
 $publicIPPrefixsource = 
 New-AzPublicIpPrefix -Name $prefixname -ResourceGroupName $rg.Name -PrefixLength 31 -Location $rg.Location
+
 ```
 
 ### Create a NAT gateway resource
@@ -82,6 +85,7 @@ $natname = 'myNATgateway'
 
 $natGateway = 
 New-AzNatGateway -Name $natname -ResourceGroupName $rg.Name -PublicIpAddress $publicIPsource -PublicIpPrefix $publicIPPrefixsource -Sku $sku -IdleTimeoutInMinutes 10 -Location $rg.Location
+
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
@@ -107,6 +111,7 @@ New-AzVirtualNetworkSubnetConfig -Name $subnetname -AddressPrefix $subnetprefix 
 
 $vnetsource = 
 New-AzVirtualNetwork -Name $vnetname -ResourceGroupName $rg.Name -AddressPrefix $vnetprefix -Subnet $subnetsource -Location $rg.Location
+
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
@@ -126,6 +131,7 @@ $alm = 'Static'
 
 $publicIpsourceVM = 
 New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.Name -AllocationMethod $alm -sku $sku -Location $rg.Location
+
 ```
 
 ### Create an NSG and expose SSH endpoint for VM
@@ -145,6 +151,7 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Prot
 
 $nsgsource = 
 New-AzNetworkSecurityGroup -ResourceGroupName $rg.Name -Name $nsnm -SecurityRules $sshrule -Location $rg.Location
+
 ```
 
 ### Create NIC for source VM
@@ -156,6 +163,7 @@ $nin = 'myNicsource'
 
 $nicsource = 
 New-AzNetworkInterface -ResourceGroupName $rg.Name -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $rg.Location
+
 ```
 
 ### Create a source VM
@@ -168,6 +176,7 @@ Use ssh-keygen to create an SSH key pair.
 
 ```azurepowershell-interactive
 ssh-keygen -t rsa -b 2048
+
 ```
 For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -215,6 +224,7 @@ Combine the configuration definitions to create a VM named **myVMsource** with [
 
 ```azurepowershell-interactive
 New-AzVM -ResourceGroupName $rg.Name -VM $vmConfigsource -Location $rg.Location
+
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -240,6 +250,7 @@ New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
 
 $vnetdestination = 
 New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.Name -AddressPrefix $vpfx -Subnet $subnetdestination -Location $rg.Location
+
 ```
 
 ### Create public IP for destination VM
@@ -253,6 +264,7 @@ $pipd = 'myPublicIPdestinationVM'
 
 $publicIpdestinationVM = 
 New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.Name -AllocationMethod $all -Sku $sku -Location $rg.Location
+
 ```
 
 ### Create an NSG and expose SSH and HTTP endpoint for VM
@@ -277,6 +289,7 @@ New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Prot
 
 $nsgdestination = 
 New-AzNetworkSecurityGroup -ResourceGroupName $rg.Name -Name $nsnm -SecurityRules $sshrule,$httprule -Location $rg.Location
+
 ```
 
 ### Create NIC for destination VM
@@ -288,6 +301,7 @@ $nnm = 'myNicdestination'
 
 $nicdestination = 
 New-AzNetworkInterface -ResourceGroupName $rg.Name -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $rg.Location
+
 ```
 
 ### Create a destination VM
@@ -335,6 +349,7 @@ Combine the configuration definitions to create a VM named **myVMdestination** w
 ```azurepowershell-interactive
 
 New-AzVM -ResourceGroupName $rg.Name -VM $vmConfigdestination -Location $rg.Location
+
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -346,7 +361,8 @@ First we need to discover the IP address of the destination VM.  To get the publ
 ```azurepowershell-interactive
 $pipname = 'myPublicIPdestinationVM'
   
-Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+$destip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+
 ``` 
 
 >[!IMPORTANT]
@@ -356,8 +372,9 @@ Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddr
 
 The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
-```bash
-ssh azureuser@<ip-address-destination>
+```azurepowershell-interactive
+ssh azureuser@$destip
+
 ```
 
 Copy and paste the following commands once you've logged in.  
@@ -373,6 +390,7 @@ sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
+
 ```
 
 These commands will update your virtual machine, install nginx, and create a 100-KBytes file. This file will be retrieved from the source VM using the NAT service.
@@ -386,7 +404,8 @@ First we need to discover the IP address of the source VM.  To get the public IP
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsourceVM'
 
-Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+$srcip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+
 ``` 
 
 >[!IMPORTANT]
@@ -396,8 +415,9 @@ Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddr
 
 Again, the SSH credentials are stored in Cloud Shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
-```bash
-ssh azureuser@<ip-address-source>
+```azurepowershell-interactive
+ssh azureuser@$srcip
+
 ```
 
 Copy and paste the following commands to prepare for testing the NAT service.
@@ -428,12 +448,14 @@ Use curl to retrieve the 100-KBytes file.  Replace **\<ip-address-destination>**
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
+
 ```
 
 You can also generate a series of requests using **hey**. Again, replace **\<ip-address-destination>** with the destination IP address you have previously copied.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
+
 ```
 
 This command will generate 100 requests, 10 concurrently, with a timeout of 30 seconds. The TCP connection won't be reused.  Each request will retrieve 100 Kbytes.  At the end of the run, **hey** will report some statistics about how well the NAT service did.
@@ -444,6 +466,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.mic
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name $rg.Name
+
 ```
 
 ## Next steps
