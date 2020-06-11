@@ -107,11 +107,6 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 
 ## Next steps
 
-
-
 - [Review](best-practices-assessment.md) best practices for creating assessments.
 - [Prepare for VMware](tutorial-prepare-vmware.md) assessment.
 
-
-**Permissions (app-discovery)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines > Guest Operations**.
-**Permissions (dependency visualization)** | vCenter Server account with read-only access, and privileges enabled for **Virtual machines** > **Guest Operations**.
