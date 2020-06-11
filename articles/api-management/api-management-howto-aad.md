@@ -85,7 +85,7 @@ To add an external Azure AD group into APIM, you must first complete the previou
 
 1. Go back to your App Registration that was created in the previous section.
 2. Select **API Permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down and then select the **Azure Active Directory Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
 4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
