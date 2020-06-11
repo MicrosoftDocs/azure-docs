@@ -3,8 +3,8 @@ title: Frequently asked questions (FAQ)
 titleSuffix: Azure SQL Managed Instance 
 description: Azure SQL Managed Instance frequently asked questions (FAQ)
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
