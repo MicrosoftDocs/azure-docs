@@ -61,7 +61,6 @@ az group create --name myResourceGroup --location southeastasia
 ```azurepowershell-interactive
 az group create --name myResourceGroup --location southeastasia
 ```
-
 ---
 
 ## Create a storage account
@@ -90,7 +89,6 @@ $blobStorageAccount="<blob_storage_account>"
 az storage account create --name $blobStorageAccount --location southeastasia \
   --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
 ```
-
 ---
 
 ## Create Blob storage containers
@@ -132,6 +130,7 @@ az storage container create -n thumbnails --account-name $blobStorageAccount \
 echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
 ```
+---
 
 Make a note of your Blob storage account name and key. The sample app uses these settings to connect to the storage account to upload the images. 
 
@@ -154,7 +153,6 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 ```azurepowershell-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
-
 ---
 
 ## Create a web app
@@ -178,7 +176,6 @@ $webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 ```
-
 ---
 
 ## Deploy the sample app from the GitHub repository
@@ -200,11 +197,8 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-az webapp deployment source config --name $webapp --resource-group myResourceGroup \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
-
 ---
 
 # [Node.js v10](#tab/nodejsv10)
@@ -221,11 +215,8 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-az webapp deployment source config --name $webapp --resource-group myResourceGroup \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
 ```
-
 ---
 
 ---
@@ -249,11 +240,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
-  --settings AzureStorageConfig__AccountName=$blobStorageAccount \
-    AzureStorageConfig__ImageContainer=images \
-    AzureStorageConfig__ThumbnailContainer=thumbnails \
-    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AzureStorageConfig__AccountName=$blobStorageAccount AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
 # [Node.js v10](#tab/nodejsv10)
@@ -271,11 +258,8 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell-interactive
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
-  --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
-    AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
 ```
-
 ---
 
 After you deploy and configure the web app, you can test the image upload functionality in the app.
@@ -391,7 +375,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
 
     try {
-      
+
       await uploadStreamToBlockBlob(aborter, stream,
         blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
 
