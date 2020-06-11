@@ -196,7 +196,7 @@ New-Object System.Management.Automation.PSCredential ("azureuser", $securePasswo
 
 # Create a virtual machine configuration
 $vmn = 'myVMsource'
-$vms = 'Standard_D1'
+$vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
 $skus = 'UbuntuLTS'
@@ -323,7 +323,7 @@ New-Object System.Management.Automation.PSCredential ("azureuser", $securePasswo
 
 $rsg = 'myResourceGroupNAT'
 $vmd = 'myVMdestination'
-$vms = 'Standard_D1'
+$vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
 $skus = 'UbuntuLTS'
