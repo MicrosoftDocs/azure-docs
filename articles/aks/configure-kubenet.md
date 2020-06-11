@@ -206,7 +206,8 @@ Limitations:
 
 * Permissions must be assigned before cluster creation, ensure you are using a service principal with write permissions to your custom subnet and custom route table.
 * Managed identities are not currently supported with custom route tables in kubenet.
-* A custom route table must be associated to the subnet before you create the AKS cluster. The route table resource cannot be updated after cluster creation.
+* A custom route table must be associated to the subnet before you create the AKS cluster.
+* The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
 * All subnets within an AKS virtual network must be associated with the same route table.
 * Every AKS cluster must use a unique route table. You can't reuse a route table with multiple clusters.
 
