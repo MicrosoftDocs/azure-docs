@@ -82,7 +82,7 @@ Cluster administrators can configure Kubernetes role-based access control (RBAC)
 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster. For more information on Webhook token authentication, see the [webhook authentication documentation][kubernetes-webhook].
 
-## Webhook and API server - TODO
+## Webhook and API server
 
 As shown in the graphic below, the API server calls the AKS webhook server and performs the following steps:
 
