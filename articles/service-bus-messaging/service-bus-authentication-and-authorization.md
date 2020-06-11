@@ -28,7 +28,7 @@ For more information about authenticating with Azure AD, see the following artic
 - [Authenticate from an application](authenticate-application.md)
 
 > [!NOTE]
-> Service Bus REST API supports OAuth 2.0 authentication with Azure AD.
+> [Service Bus REST API](/rest/api/servicebus/) supports OAuth authentication with Azure AD.
 
 > [!IMPORTANT]
 > Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use using Azure AD with your Azure Service Bus applications when possible. 
@@ -52,7 +52,7 @@ To access an entity, the client requires a SAS token generated using a specific 
 SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). All APIs that accept a connection string as a parameter include support for SAS connection strings.
 
 > [!IMPORTANT]
-> If you are using Azure Active Directory Access Control (also known as Access Control Service or ACS) with Service Bus, note that the support for this method is now limited and you should [migrate your application to use SAS](service-bus-migrate-acs-sas.md) or OAuth 2.0 with Azure AD. We recommend that you migrate to use OAuth 2.0 with Azure AD. For more information about deprecation of ACS, see [this blog post](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> If you are using Azure Active Directory Access Control (also known as Access Control Service or ACS) with Service Bus, note that the support for this method is now limited and you should [migrate your application to use SAS](service-bus-migrate-acs-sas.md) or use OAuth 2.0 authentication with Azure AD (recommended).For more information about deprecation of ACS, see [this blog post](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 
 ## Next steps
 For more information about authenticating with Azure AD, see the following articles:
