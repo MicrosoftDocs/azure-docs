@@ -4,7 +4,6 @@ description: This article describes how to manage the SQL Server IaaS Agent Exte
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
