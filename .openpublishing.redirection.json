@@ -54857,7 +54857,7 @@
     {
       "source_path": "articles/aks/azure-ad-integration.md",
       "redirect_url": "/azure/aks/managed-aad",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
