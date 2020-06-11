@@ -4,7 +4,7 @@ description: Learn how to manage conflicts in Azure Cosmos DB by creating the la
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/11/2020
 ms.author: anfeldma
 ---
 
@@ -47,6 +47,29 @@ Container container = await createClient.GetDatabase(this.databaseName)
     });
 ```
 ---
+
+### <a id="create-custom-conflict-resolution-policy-lww-javav4"></a> Java V4 SDK
+
+# [Async](#tab/api-async)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionLWWAsync)]
+
+# [Sync](#tab/api-sync)
+
+   Java SDK V4 (Maven com.azure::azure-cosmos) Sync API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionLWWSync)]
+
+--- 
+
+
+
+
+
+
+
 
 ### <a id="create-custom-conflict-resolution-policy-lww-javav4"></a>Java V4 SDK
 
