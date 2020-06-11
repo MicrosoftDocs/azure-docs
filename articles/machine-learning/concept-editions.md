@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning Enterprise & Basic Editions
+title: Azure Machine Learning Enterprise and Basic Editions
 description: Learn about the differences between the editions of Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,7 +10,7 @@ ms.author: jmartens
 ms.date: 06/11/2020
 ---
 
-# Enterprise & Basic Editions of Azure Machine Learning 
+# Enterprise and Basic Editions of Azure Machine Learning 
 
 Azure Machine Learning offers two editions tailored for your machine learning needs. These editions determine which machine learning tools are available to developers and data scientists from their workspace.
 
@@ -36,14 +36,14 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Labeling: Create & manage labeling projects in studio (Web)                                                | All                     |
+| Labeling: Create and manage labeling projects in studio (Web)                                                | All                     |
 | Labeling: Labeler in studio (Web)                                    | All                     |
 | Labeling: Use private workforce                               | All                     |
-| Labeling: ML assisted Image classification & Object detection                  | Enterprise edition only |
-| Datasets + datastores: create & manage in Python                       | All                     |
-| Datasets + datastores: create & manage in studio (Web)                         | All                     |
-| Drift: View & manage dataset monitors in Python                           | All                     |
-| Drift: View & manage dataset monitors in studio (Web)                            | Enterprise edition only |
+| Labeling: ML assisted Image classification and Object detection                  | Enterprise edition only |
+| Datasets + datastores: create and manage in Python                       | All                     |
+| Datasets + datastores: create and manage in studio (Web)                         | All                     |
+| Drift: View and manage dataset monitors in Python                           | All                     |
+| Drift: View and manage dataset monitors in studio (Web)                            | Enterprise edition only |
 
 
 <br/>
@@ -53,11 +53,11 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Create & run AutoML experiments in notebooks               | All                     |
-| Create & run  AutoML experiments in studio (web)   | Enterprise edition only |
+| Create and run AutoML experiments in notebooks               | All                     |
+| Create and run  AutoML experiments in studio (web)   | Enterprise edition only |
 | Industry-leading  AutoML forecasting capabilities             | Enterprise edition only |
-| Support for deep learning & other advanced learners | Enterprise edition only |
-| Large data support classification & regression tasks (up to 100 GB)                     | Enterprise edition only |
+| Support for deep learning and other advanced learners | Enterprise edition only |
+| Large data support classification and regression tasks (up to 100 GB)                     | Enterprise edition only |
 
 
 <br/>
@@ -76,7 +76,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 <br/>
 
 
-### Build & train capabilities
+### Build and train capabilities
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
@@ -90,7 +90,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | ML Pipelines: Create, edit and delete scheduled runs of pipelines in Python| All                     |
 | ML Pipelines: Create pipeline endpoints in Python SDK                                   | All                     |
 | ML Pipelines: View run details in studio (web)                                              | All                     |
-| ML Pipelines: Create, run, visualize & publish in designer                  | Enterprise edition only |
+| ML Pipelines: Create, run, visualize and publish in designer                  | Enterprise edition only |
 | ML Pipelines: Create pipeline endpoints in designer | Enterprise edition only |
 | Managed compute instances for integrated notebooks                                 | All                     |
 
@@ -98,11 +98,11 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 <br/>
 <br/>
 
-### Deploy & model management capabilities
+### Deploy and model management capabilities
 
 | Capabilities                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| The Azure DevOps extension for Machine Learning & the Azure ML CLI                 | All                     |
+| The Azure DevOps extension for Machine Learning and the Azure ML CLI                 | All                     |
 | [Event Grid integration](how-to-use-event-grid.md)                                                             | All                     |
 | Integrate Azure Stream Analytics with Azure Machine Learning                       | All                     |
 | Create ML pipelines in SDK                                                         | All                     |
@@ -126,6 +126,6 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 ## Next steps
 
-Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Learn more about what's available in the Azure Machine Learning [edition overview and pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 

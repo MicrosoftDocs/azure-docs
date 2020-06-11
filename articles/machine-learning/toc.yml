@@ -93,7 +93,7 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
-    - name: Enterprise vs Basic editions
+    - name: 'Enterprise vs. Basic editions'
       href: concept-editions.md
     - name: Plan and manage costs
       href: concept-plan-manage-cost.md
