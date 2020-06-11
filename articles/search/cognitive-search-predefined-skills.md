@@ -43,6 +43,7 @@ Several skills are flexible in what they consume or produce. In general, most sk
 | [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extracts content from a file within the enrichment pipeline. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Allows extensibility of an AI enrichment pipeline by making an HTTP call into a custom Web API |
+| [Microsoft.Skills.Custom.AmlSkill](cognitive-search-aml-skill.md) | Allows extensibility of an AI enrichment pipeline with an Azure Machine Learning model |
 
 
 For guidance on creating a [custom skill](cognitive-search-custom-skill-web-api.md), see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
