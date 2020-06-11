@@ -89,7 +89,7 @@ Same Identity types are used to represent all entities in ACS system, e.g. parti
 ```js
 const callClient = CallClientFactory.create('token_for_acs_id_1');
 const callee1Identity = new UserIdentity('acs_id_2');
-const callee2Identity = new UserIdentity('+123456789');
+const callee2Identity = new PstnIdentity('+123456789');
 const call = callClient.call([callee1Identity, callee2Identity]);
 
 // on a callee side
