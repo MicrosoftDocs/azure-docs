@@ -247,7 +247,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     ### <a id="java4-noscheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
     ```
 
     After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work, as shown below (requires `import reactor.core.scheduler.Schedulers`).
@@ -255,7 +255,7 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
     ### <a id="java4-scheduler"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
     ```java
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
+       [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
     ```
 
     Based on the type of your work you should use the appropriate existing Reactor Scheduler for your work. Read here
