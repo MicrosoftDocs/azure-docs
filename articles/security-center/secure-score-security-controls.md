@@ -45,9 +45,19 @@ The secure score page of Security Center includes:
 
 ## Accessing your secure score
 
+You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically with the Azure Security Center REST API.
+
+### Getting your secure score from the portal
+
 Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
 
+![Overall secure score as shown in the portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### Getting your secure score from the REST API
+
 You can also access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). For example, you can use the **Secure Score Control Definitions** API to list the security controls, their recommendations, and the max score available for your subscriptions. In addition, you can use the **Secure Scores** API to get the score for a specific initiative. The API methods provide the flexibility to query your secure score status from Power BI dashboards, your own reporting systems, or however your organization programatically gathers security posture data.
+
+![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 ## How the secure score is calculated 
 
