@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Search
 description: Extend capabilities of Azure Cognitive Search skillsets with Azure Machine Learning models.
 
 manager: nitinme
-author: magottei
+author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
@@ -54,7 +54,8 @@ All the AML parameters are optional because they depend on what authentication y
 * [Key-Based Authentication](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication-for-web-service-deployment). A static key is provided to authenticate scoring requests from AML skills
   * Use the _uri_ and _key_ parameters
 * [Token-Based Authentication](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication). The AML service is [deployed using token based authentication](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service#authentication-with-tokens). The Azure Cognitive Search service's [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) is granted the [Reader Role](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles) in the AML service's workspace. The AML skill then uses the Azure Cognitive Search service's managed identity to authenticate against the AML service, with no static keys required.
-  * Use the _resourceId_ parameter. If the Azure Cognitive Search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML service was deployed in
+  * Use the _resourceId_ parameter.
+  * If the Azure Cognitive Search service is in a different region from the AML workspace, use the _region_ parameter to set the region the AML service was deployed in
 * No Authentication. No authentication is required to use the AML service
   * Use the _uri_ parameter
 
@@ -99,7 +100,7 @@ This _JSON_ structure represents the payload that will be sent to your AML servi
 
 ## Sample output JSON structure
 
-The output corresponds to the response returned from your AML service. The Web API should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should be an object where the fields are enrichments matching the "names" in the `output` and whose value is considered the enrichment.
+The output corresponds to the response returned from your AML service. The AML service should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should be an object where the fields are enrichments matching the "names" in the `output` and whose value is considered the enrichment.
 
 ```json
 {
