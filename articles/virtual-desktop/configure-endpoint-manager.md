@@ -6,8 +6,9 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/12/2020
 ms.author: helohr
+ms.reviewer: v-cawood; clemr
 manager: lizross
 ---
 # Configure Microsoft Endpoint Configuration Manager
@@ -18,8 +19,8 @@ This article explains how to configure Microsoft Endpoint Configuration Manager 
 
 To configure this setting, you'll need the following things:
 
-- Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your virtual machines.
-- Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1906. For best results, use branch level 1910 or higher.
+   - Make sure you've installed the Microsoft Endpoint Configuration Manager Agent on your virtual machines.
+   - Make sure your version of Microsoft Endpoint Configuration Manager is at least on branch level 1906. For best results, use branch level 1910 or higher.
 
 ## Configure the software update point
 
