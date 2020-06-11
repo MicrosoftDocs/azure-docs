@@ -209,7 +209,8 @@ Limitations:
 * All subnets within an AKS virtual network must use be associated with the same route table.
 * Every AKS cluster must use a unique route table. You can't reuse a route table with multiple clusters.
 
-After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your custom route table. You need to use the subnet ID for where you plan to deploy your AKS cluster. 
+After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table. 
+You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
 
 ```azurecli-interactive
 # Find your subnet ID
