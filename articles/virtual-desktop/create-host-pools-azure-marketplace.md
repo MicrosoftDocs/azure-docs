@@ -106,7 +106,7 @@ To set up your virtual machine within the host pool setup process:
 
     - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
 
-      - Windows 10 Enterprise multi-session, Version 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps for enterprise – Gen 1
       - Windows 10 Enterprise multi-session, Version 1909 – Gen 1
       - Windows Server 2019 Datacenter - Gen1
 
