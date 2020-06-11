@@ -104,7 +104,9 @@ We support the following type of Import for PEM file format. A single PEM encode
 -----END PRIVATE KEY-----
 
 When you are importing the certificate, you need to ensure that the key is included in the file itself. If you have the private key separately in a different format, you would need to combine the key with the certificate. Some certificate authorities provide certificates in differnt formats, therefore before importing the certificate, make sure that they are either in .pem or .pfx format. 
-AKV supports 2 PEM based formats. You can either import a single PKCS#8 encoded certificate or a base64 encoded P7B (i.e. the root, intermediates and response certificates) provided that the certificate file extension is .pem
+
+### Formats of Merge CSR we support
+AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA) 
 
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----
