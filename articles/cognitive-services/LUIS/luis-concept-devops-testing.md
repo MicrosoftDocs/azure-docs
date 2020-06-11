@@ -1,13 +1,13 @@
 ---
 title: Testing for DevOps - LUIS
-description: How to test your Language Understanding Intelligent Services (LUIS) app in a DevOps environment.
+description: How to test your Language Understanding (LUIS) app in a DevOps environment.
 ms.topic: conceptual
 ms.date: 06/3/2020
 ---
 
 # Testing for LUIS DevOps
 
-Software engineers who are developing a Language Understanding Intelligent Services (LUIS) app want to follow best practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management).
+Software engineers who are developing a Language Understanding (LUIS) app can apply DevOps practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management) by following these guidelines.
 
 In agile software development methodologies, testing plays an integral role in building quality software. Every significant change to a LUIS app should be accompanied by tests designed to test the new functionality the developer is building into the app. These tests are checked into your source code repository along with the `.lu` source of your LUIS app. The implementation of the change is finished when the app satisfies the tests.
 
@@ -63,10 +63,18 @@ Some test tools, such as [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) a
 
 #### Designing Unit Tests
 
-Unit tests should be relatively few in number and designed to test the core functionality of your LUIS app. Define tests that will:
+Unit tests should be designed to test the core functionality of your LUIS app. In each iteration, or sprint, of your app development, you should write a sufficient number of tests to verify that the key functionality you are implementing in that iteration is working correctly.
+
+In each unit test, for a given test utterance, you can:
 
 * Test that the correct intent is returned
-* Test that the entities that are critical to your solution are being returned.
+* Test that the 'key' entities - those that are critical to your solution - are being returned.
+* Test that the [prediction score](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-prediction-score) for intent and entities exceeds a threshold that you define. For example, you could decide that you will only consider that a test has passed if the prediction score for the intent and for your key entities exceeds 0.75.
+
+In unit tests, it's a good idea to test that your key entities have been returned in the prediction response, but to ignore any false positives. *False positives* are entities that are found in the prediction response but which are not defined in the expected results for your test. By ignoring false positives, it makes it less onerous to author unit tests while still allowing you to focus on testing that the data that is key to your solution is being returned in a prediction response.
+
+> [!TIP]
+> The [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) tool supports all your LUIS testing needs. The `compare` command when used in [unit test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#unit-test-mode) will assert that all tests pass, and will ignore false positive results for entities that are not labeled in the expected results.
 
 #### Designing Batch tests
 
@@ -82,9 +90,13 @@ The LUIS portal offers features to help with interactive testing:
 
 #### Running tests in an automated build workflow
 
-The interactive testing features in the LUIS portal are useful, but for DevOps, a key requirement is that testing can be automated in a CI/CD workflow.
+The interactive testing features in the LUIS portal are useful, but for DevOps, automated testing performed in a CI/CD workflow brings certain requirements:
 
-LUIS does not offer a command-line tool or a high-level API to submit test utterances and to verify the results. We recommend that you use the [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) tool to run tests and verify results, both at the command line and during automated testing within a CI/CD workflow.
+* Test tools must run in a workflow step on a build server. This means the tools must be able to run on the command line.
+* The test tools must be able to execute a group of tests against an endpoint and automatically verify the expected results against the actual results.
+* If the tests fail, the test tools must return a status code to halt the workflow and "fail the build".
+
+LUIS does not offer a command-line tool or a high-level API that offers these features. We recommend that you use the [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) tool to run tests and verify results, both at the command line and during automated testing within a CI/CD workflow.
 
 The testing capabilities that are available in the LUIS portal don't require a published endpoint and are a part of the LUIS authoring capabilities. When you're implementing testing in an automated build workflow, you must publish the LUIS app version to be tested to an endpoint so that test tools such as NLU.DevOps can send prediction requests as part of testing.
 
@@ -104,7 +116,7 @@ You can use the [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) package to
 You can also use the NLU.DevOps package to run batch tests at the command line.
 
 * Use the NLU.DevOps [test command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) to submit tests from a test file to an endpoint and to capture the actual prediction results in a file, same as with unit tests.
-* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) to compare the actual results with the expected results defined in the input test file, but without the `--unit-test` flag. When not in unit test mode, the `compare` command generates NUnit test output and confusion matrix results in JSON format. It can also be used to measure performance against a baseline test run.
+* Use the NLU.DevOps [compare command](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) in [Performance test mode](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) to measure the performance of your app You can also compare the performance of your app against a baseline performance benchmark, for example, the results from the latest commit to master or the current release. In Performance test mode, the `compare` command generates NUnit test output and [batch test results](https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#batch-test) in JSON format.
 
 ## LUIS non-deterministic training and the effect on testing
 

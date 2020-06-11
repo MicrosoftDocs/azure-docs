@@ -1,19 +1,13 @@
 ---
 title: Testing for DevOps - LUIS
-description: How to implement CI/CD workflows for DevOps for Language Understanding Intelligent Services (LUIS).
+description: How to implement CI/CD workflows for DevOps for Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 06/5/2020
 ---
 
 # Continuous Integration and Continuous Delivery workflows for LUIS DevOps
 
-Software engineers who are developing a Language Understanding Intelligent Services (LUIS) app want to follow best practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management).
-
-[Continuous Integration](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us also to test the build. By doing this, not only can we verify that the LUIS app still builds correctly from the LUDown source, but also is still functionally correct.
-
-[Continuous Delivery](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) takes the Continuous Integration concept further to also test deployments of the LUIS app on a replica of the environment it will ultimately be deployed on. CD enables us to learn early about any unforeseen issues that arise from our changes as quickly as possible, and also to learn about gaps in our test coverage.
-
-The goal of continuous integration and continuous delivery is to ensure that "master is always shippable,". For a LUIS app, this means that we could, if we needed to, take any version from the master branch LUIS app and ship it on production.
+Software engineers who are developing a Language Understanding (LUIS) app can apply DevOps practices around [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management). This article describes concepts for implementing automated builds for LUIS.
 
 ## Build automation workflows for LUIS
 
@@ -26,12 +20,15 @@ In your source code management (SCM) system, configure automated build pipelines
 
 The **CI/CD workflow** combines two complementary development processes:
 
-* *Continuous integration (CI)* means that whenever a developer checks in code to the source repository, a build is automatically triggered.
-* *Continuous delivery (CD)* takes this one step further: after a build and automated unit tests are successful, you automatically deploy the application to an environment where you can do more in-depth testing.
+* [Continuous Integration](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing code in a shared repository, and performing an automated build on it. Paired with an automated [testing](luis-concept-devops-testing.md) approach, continuous integration allows us to verify that for each update, the LUDown source is still valid and can be imported into a LUIS app, but also that it passes a group of tests that verify the trained app can recognize the intents and entities required for your solution.
+
+* [Continuous Delivery](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) takes the Continuous Integration concept further to automatically deploy the application to an environment where you can do more in-depth testing. CD enables us to learn early about any unforeseen issues that arise from our changes as quickly as possible, and also to learn about gaps in our test coverage.
+
+The goal of continuous integration and continuous delivery is to ensure that "master is always shippable,". For a LUIS app, this means that we could, if we needed to, take any version from the master branch LUIS app and ship it on production.
 
 ### Tools for building automation workflows for LUIS
 
-There are different build automation technologies available to create build automation workflows. All of them require that you can script steps using a command-line interface (CLI) so that they can execute on a build server.
+There are different build automation technologies available to create build automation workflows. All of them require that you can script steps using a command-line interface (CLI) or REST calls so that they can execute on a build server.
 
 Use the following tools for building automation workflows for LUIS:
 
@@ -47,11 +44,11 @@ As mentioned, you configure this workflow to run when a developer raises a PR to
 
 This workflow should:
 
-* Build a temporary LUIS app by importing the `.lu` source in the PR.
+* Create a temporary LUIS app by importing the `.lu` source in the PR.
 * Train and publish the LUIS app version.
 * Run all the [unit tests](luis-concept-devops-testing.md) against it.
 * Pass the workflow if all the tests pass, otherwise fail it.
-* Deletes the temporary app again.
+* Clean up and delete the temporary app.
 
 If supported by your SCM, configure branch protection rules so that this workflow must complete successfully before the PR can be completed.
 
