@@ -84,15 +84,21 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 ## Webhook and API server - TODO
 
-The API server calls the AKS webhook server and performs the following steps:
+As shown in the graphic below, the API server calls the AKS webhook server and performs the following steps:
 
-* An Azure AD client application is used by kubectl to login user into Azure AD to access "Server application". It corresponds to step 1 and 2 in the chart.
-* kubectl sends the access token to API Server, which is configured with the Authentication Webhook Server. 
-* The job of the Authentication Webhook Server is to validate the Access token and tell API Server who the user is behind the token
-* The Authentication webhook server performs step 5 and 6 in above chart TODO. In addition, the webhook server uses the "Server Application" to query Microsoft Graph api to get group membership of logged in user.
-* Then Authentication webhook server then responds to the API Server with user information such as who he/she is (upn claim of access token), and group membership for the user.
-* Finally, the API Server based on the users information, performs an authorization decision based on Kubernetes Role/RoleBinding. This is the step 7 in above chart.
- 
+1. The Azure AD client application is used by kubectl to log in users with device flow.
+2. Azure AD provides an access_token, id_token, and a refresh_token.
+3. The user makes a request to kubectl with an access_token from kubeconfig.
+4. Kubectl sends the access_token to APIServer.
+5. The API Server is configured with the Auth WebHook Server to perform validation.
+6. The authentication webhook server confirms the JSON Web Token signature is valid by checking the AZURE AD public signing key.
+7. The server application uses user-provided credentials to query group memberships of the logged-in user from the MS Graph API.
+8. A response is sent to the APIServer with user information such as the user principal name (UPN) claim of the access token, and the group membership of the user based on the object ID.
+9. The API performs an authorization decision based on the Kubernetes Role/RoleBinding.
+10. Once authorized, the API server returns a response to kubectl.
+11. Kubectl provides feedback to the user.
+
+:::image type="content" source="media/auth_flow.png" alt-text="Webhook and API server authentication flow":::
 
 ## Create an AKS cluster with Azure AD enabled
 
