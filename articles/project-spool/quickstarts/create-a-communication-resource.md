@@ -21,7 +21,17 @@ ms.service: azure-project-spool
 This page walks through different ways you can create a communication resource and 
 
 ## Azure portal
-In the Azure Marketplace, search for "Communication" and locate the Azure Communication Services resource. 
+
+1. To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left side of the page, select **+ Create a resource**. In the **Search the Marketplace** text box, enter **Azure Communication Service**.
+
+2. Select **Azure Communication Service** in the results, and select **Create**. 
+
+3. On the new **Azure Communication Service** settings page, add the following settings for your new Azure Communication Service
+
+4. Select **Create**. The deployment might take a few minutes to complete
+
+5. After the deployment is complete, Select **Keys**  under **Settings**. Copy your connection string for the primary key. You'll use this string later to configure your app to use the Azure Communication Service resource. 
+
 
 
 ## ARM Client
