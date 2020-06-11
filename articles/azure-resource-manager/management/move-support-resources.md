@@ -53,7 +53,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
@@ -914,13 +913,6 @@ Jump to a resource provider namespace:
 
 > [!IMPORTANT]
 > See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
-
-## Microsoft.Confluent
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | organizations | No | No |
 
 ## Microsoft.Consumption
 
