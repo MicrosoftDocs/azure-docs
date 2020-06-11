@@ -101,7 +101,7 @@ The first thing your app will need to do is authenticate against the Azure Digit
 
 In order to authenticate, you need three pieces of information:
 * The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the service instance earlier
+* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
 * The *hostName* of your Azure Digital Twins instance
 
 >[!TIP]
