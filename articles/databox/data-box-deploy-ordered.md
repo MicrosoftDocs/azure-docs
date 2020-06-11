@@ -39,7 +39,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 Before you begin, make sure that:
 
 * You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ## Order Data Box
 
@@ -119,17 +119,17 @@ Before you begin, you must have:
 Before you begin, make sure that:
 
 * You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used but the copy speeds are impacted.
+* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ### Install Extension
 
 To view the commands in the Azure CLI [extension for Azure Data Box](https://docs.microsoft.com/cli/azure/ext/databox/databox?view=azure-cli-latest).
 
-To install the databox extension:
+To install the Data Box CLI extension:
 
-1. Sign in to Azure using the Windows PowerShell command: `az login`.
+1. Sign in to Azure using the Azure PowerShell command: `az login`.
 
-   Here is an command line example that shows how to sign in to Azure:
+   Here is a command-line example that shows how to sign in to Azure:
 
     ```azurecli
 
@@ -155,7 +155,7 @@ To install the databox extension:
 
     If you have a valid subscription the command will output your subscription settings.
 
-2. In a Windows PowerShell prompt, type the following command to install the extension: `az extension add --name databox`.
+2. In a Azure PowerShell prompt, type the following command to install the extension: `az extension add --name databox`.
 
    Here is an example of command usage:
 
@@ -187,6 +187,7 @@ To install the databox extension:
 Perform the following steps in the Azure CLI to order a device:
 
 1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the settings you will need when creating the order using the CLI:
+
    | Setting (parameter) | Description |  Sample value |
    |---|---|---|
    |resource-group| Use an existing or create a new one. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
@@ -205,7 +206,7 @@ Perform the following steps in the Azure CLI to order a device:
    |company-name| The name of your company you work for.| "Contoso, LTD" |
    |storage account| The Azure Storage account from where you want to import data.| mystorageaccount|
 
-2. In Windows Powershell, use the `az databox job create` command replacing the sample parameter values with your settings to create your Data Box order.
+2. In Azure PowerShell, use the `az databox job create` command replacing the sample parameter values with your settings to create your Data Box order.
 
    ```azurecli
    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest3" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount
@@ -214,8 +215,7 @@ Perform the following steps in the Azure CLI to order a device:
 
    After you run the command, Azure CLI will respond with the following console output:
 
-   ```azurecli-interactive
-
+   ```azurecli
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    {
      "cancellationReason": null,
