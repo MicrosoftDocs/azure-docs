@@ -246,7 +246,7 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
->Python on 2020.5.80290 version is not supported on this extention is a [known issue](#Known-Issues).
+>Python on 2020.5.80290 version is not supported on this extention is a [known issue](#known-issues).
 
 ## Submit PySpark batch job
 
