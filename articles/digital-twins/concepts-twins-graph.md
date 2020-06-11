@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Understand digital twins and their twin graph
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
 
 > [!TIP]

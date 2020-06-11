@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Service limits in public preview
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 These are the service limits of Azure Digital Twins during public preview.
 
 > [!NOTE]

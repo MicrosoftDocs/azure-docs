@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Explore Azure Digital Twins with a sample client app
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.

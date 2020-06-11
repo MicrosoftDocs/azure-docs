@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Route events within and outside of Azure Digital Twins
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 Azure Digital twins uses **event routes** to send data to consumers outside the service. 
 
 During preview, there are two major cases for sending Azure Digital Twins data:

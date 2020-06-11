@@ -17,6 +17,8 @@ ms.reviewer: baanders
 
 # Use Azure Digital Twins to update an Azure Maps indoor map
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 This article walks through the steps required to use Azure Digital Twins data to update information displayed on an *indoor map* using [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it the perfect service for updating informational overlays on maps.
 
 This how-to will cover:

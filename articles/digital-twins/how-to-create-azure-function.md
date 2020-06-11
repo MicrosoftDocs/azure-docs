@@ -17,6 +17,8 @@ ms.service: digital-twins
 
 # Connect Azure Functions apps for processing data
 
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+
 During preview, updating digital twins based on data is handled using [**event routes**](concepts-route-events.md) through compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). An Azure function might be used to update a digital twin in response to:
 * device telemetry data coming from IoT Hub
 * property change or other data coming from another digital twin within the twin graph
