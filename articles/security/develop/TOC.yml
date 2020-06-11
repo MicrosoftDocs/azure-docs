@@ -1,10 +1,5 @@
 - name: Secure Development Documentation
   href: index.yml
-- name: Sample apps
-  items:
-  - name: New to secure development
-  - name: Industry compliant solutions
-  expanded: true
 - name: Concepts
   items:
   - name: Best practices
