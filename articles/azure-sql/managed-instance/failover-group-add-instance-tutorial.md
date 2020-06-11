@@ -3,7 +3,7 @@ title: "Tutorial: Add a managed instance of SQL Managed Instance to a failover g
 titleSuffix: Azure SQL Managed Instance 
 description: In this tutorial, you will create two managed instances as a primary and secondary, and then add them to an auto-failover group. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: 

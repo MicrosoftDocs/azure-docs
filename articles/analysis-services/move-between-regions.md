@@ -41,7 +41,7 @@ Before moving a server to a different region, it's recommended you create a deta
 > This article describes restoring a database backup to a target server from a storage container in the source server's region. In some cases, restoring backups from a different region can have poor performance, especially for large databases. For the best performance during database restore, migrate or create a a new storage container in the target server region. Copy the .abf backup files from the source region storage container to the target region storage container prior to restoring the database to the target server. While out of scope for this article, in some cases, particularly with very large databases, scripting out a database from your source server, recreating, and then processing on the target server to load database data may be more cost effective than using backup/restore.
 
 > [!NOTE]
-> If using an On-premise data gateway to connect to data sources, you must also move the gateway resource to the target server region. To learn more, see [Install and configure an on-premises data gateway](analysis-services-gateway-install.md).
+> If using an On-premises data gateway to connect to data sources, you must also move the gateway resource to the target server region. To learn more, see [Install and configure an on-premises data gateway](analysis-services-gateway-install.md).
 
 ## Prerequisites
 
