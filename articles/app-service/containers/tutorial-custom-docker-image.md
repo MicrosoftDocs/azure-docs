@@ -244,7 +244,17 @@ In your local Git repository, open app/templates/app/index.html. Locate the firs
   </nav>
 ```
 
-Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry). Test the web app by following the instructions in [Test the web app](#test-the-web-app).
+Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry).
+
+After pushing the new image, restart the web app for the changes to take effect by using the following command:
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+Replace `<app_name>` with the specific name used earlier.
+
+Once the app has restarted, test it by following the instructions in [Test the web app](#test-the-web-app).
 
 ## Access diagnostic logs
 
