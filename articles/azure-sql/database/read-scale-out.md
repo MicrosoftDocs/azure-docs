@@ -4,6 +4,7 @@ description: Azure SQL Database provides the ability to load-balance read-only w
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
+titleSuffix: Azure SQL Database & SQL Managed Instance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
