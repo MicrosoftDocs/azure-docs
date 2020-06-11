@@ -1,5 +1,5 @@
 ---
-title: Anomaly detection service for metered billing - Microsoft commercial Marketplace 
+title: Anomaly detection service for metered billing - Microsoft Azure Marketplace 
 description: Describes how anomaly detection works, when notifications are sent and what to do with them, and support options.
 author: anbene
 ms.author: dsindona 
@@ -10,8 +10,6 @@ ms.date: 06/10/2020
 ---
 
 # Anomaly detection service for metered billing
-
-## What is anomaly detection service for metered billing?
 
 The [Marketplace metering service](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis-faq) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
 
@@ -73,6 +71,6 @@ To submit a ticket:
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
 
-## Next Step
+## Next step
 
 - Learn about the [Marketplace metering service API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis).
