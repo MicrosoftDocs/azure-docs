@@ -147,6 +147,7 @@ You can request billing ownership of the subscription types listed below.
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Microsoft Customer Agreement](https://azure.microsoft.com/en-us/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
 - [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
@@ -182,7 +183,7 @@ Azure Marketplace products transfer along with their respective subscriptions.
 
 ### Azure Reservations transfer
 
-If you're transferring Enterprise Agreement (EA) subscriptions, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
 
 ### Access to Azure services
 
