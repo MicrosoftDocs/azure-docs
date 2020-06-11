@@ -363,6 +363,8 @@ $pipname = 'myPublicIPdestinationVM'
   
 $destip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
 
+$destip
+
 ``` 
 
 >[!IMPORTANT]
@@ -380,12 +382,9 @@ ssh azureuser@$destip
 Copy and paste the following commands once you've logged in.  
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get -y install nginx && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt -y install nginx && \
 sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
@@ -406,6 +405,8 @@ $pipname = 'myPublicIPsourceVM'
 
 $srcip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
 
+$srcip
+
 ``` 
 
 >[!IMPORTANT]
@@ -423,11 +424,8 @@ ssh azureuser@$srcip
 Copy and paste the following commands to prepare for testing the NAT service.
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
 sudo apt-get install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
