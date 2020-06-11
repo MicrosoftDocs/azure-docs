@@ -43,7 +43,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Make sure that you create a managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for an managed domain][howto-change-sku].
+    > Make sure that you create a managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments. You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
 ## Sign in to the Azure portal
 
