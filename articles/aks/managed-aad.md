@@ -86,7 +86,7 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 As shown in the graphic below, the API server calls the AKS webhook server and performs the following steps:
 
-1. The Azure AD client application is used by kubectl to log in users with OAuth 2.0 Device Authorization Grant.
+1. The Azure AD client application is used by kubectl to log in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
 2. Azure AD provides an access_token, id_token, and a refresh_token.
 3. The user makes a request to kubectl with an access_token from kubeconfig.
 4. Kubectl sends the access_token to APIServer.
