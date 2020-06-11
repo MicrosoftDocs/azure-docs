@@ -10,7 +10,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions scale and hosting
 
-When you create a function app in Azure, you must choose a hosting plan for your app. There are three hosting plans available for Azure Functions: [Consumption plan](#consumption-plan), [Premium plan](#premium-plan), and [Dedicated (App Service) plan](#app-service-plan).
+When you create a function app in Azure, you must choose a hosting plan for your app. There are three basic hosting plans available for Azure Functions: [Consumption plan](#consumption-plan), [Premium plan](#premium-plan), and [Dedicated (App Service) plan](#app-service-plan). All hosting plans are generally available (GA) on both Linux and Windows virtual machines.
 
 The hosting plan you choose dictates the following behaviors:
 
@@ -24,19 +24,7 @@ Premium plan provides additional features, such as premium compute instances, th
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
 
-## Hosting plan support
-
-Feature support falls into the following two categories:
-
-* _Generally available (GA)_: fully supported and approved for production use.
-* _Preview_: not yet fully supported nor approved for production use.
-
-The following table indicates the current level of support for the three hosting plans, when running on either Windows or Linux:
-
-| | Consumption plan | Premium plan | Dedicated plan |
-|-|:----------------:|:------------:|:----------------:|
-| Windows | GA | GA | GA |
-| Linux | GA | GA | GA |
+For a detailed comparision between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparision section](#hosting-plans-comparison).
 
 ## Consumption plan
 
