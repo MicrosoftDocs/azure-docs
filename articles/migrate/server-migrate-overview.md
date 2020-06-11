@@ -21,14 +21,13 @@ Use these selected comparisons to help you decide which method to use. You can a
 **Setting** | **Agentless** | **Agent-based**
 --- | --- | ---
 **Azure permissions** | You need permissions to create an Azure Migrate project, and to register Azure AD apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
-**Simultaneous replication** | A maximum of 100 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance. | NA
+**Replication** | A maximum of 300 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
 **Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
 **Site Recovery compatibility** | Compatible. | You can't replicate with Azure Migrate Server Migration if you've set up replication for a machine using Site Recovery.
 **Target disk** | Managed disks | Managed disks
 **Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 8 TB<br/><br/> Maximum disks: 63
 **Passthrough disks** | Not supported | Supported
 **UEFI boot** | Not supported | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
-
 
 ## Compare deployment steps
 
