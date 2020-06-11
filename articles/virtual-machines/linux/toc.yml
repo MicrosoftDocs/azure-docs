@@ -13,6 +13,9 @@
     href: quick-create-portal.md
   - name: Create VM - Azure PowerShell
     href: quick-create-powershell.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage VMs
@@ -654,7 +657,7 @@
         href: update-agent.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Monitor metadata
+    - name: Azure Instance Metadata Service
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md

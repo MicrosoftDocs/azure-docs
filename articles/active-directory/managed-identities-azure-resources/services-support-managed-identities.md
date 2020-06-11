@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -90,6 +90,12 @@ Refer to the following list to configure managed identity for Azure Container Re
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### Azure Data Explorer
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | Not available | Not available | Not available | Not available |
 
 ### Azure Data Factory V2
 
@@ -163,6 +169,22 @@ Refer to the following list to configure managed identity for Azure Logic Apps (
 - [Azure Resource Manager template](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
+### Azure Policy
+
+|Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | ![Available][check] | ![Available][check] |
+| User assigned | Not available | Not available | Not available | Not available |
+
+Refer to the following list to configure managed identity for Azure Policy (in regions where available):
+
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
+- [Azure CLI](https://docs.microsoft.com/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
+- [Azure Resource Manager templates](https://docs.microsoft.com/azure/templates/microsoft.authorization/policyassignments)
+- [REST](https://docs.microsoft.com/rest/api/resources/policyassignments/create)
+
+
 ### Azure Service Fabric
 
 [Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
@@ -220,7 +242,14 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [REST](qs-configure-rest-vm.md)
 
 
+### Azure VM Image Builder
 
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Not Available | Not Available | Not Available | Not Available | 
+| User assigned | [Available in supported regions](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Not Available | Not Available | Not Available |
+
+To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
 
 ## Azure services that support Azure AD authentication
 

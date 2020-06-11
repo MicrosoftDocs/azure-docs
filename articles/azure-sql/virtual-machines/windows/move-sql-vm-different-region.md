@@ -4,7 +4,6 @@ description: Learn how you can migrate your SQL Server virtual machine from one 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql

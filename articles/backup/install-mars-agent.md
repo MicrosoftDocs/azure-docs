@@ -62,7 +62,7 @@ To modify the storage replication type:
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`

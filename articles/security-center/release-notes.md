@@ -109,9 +109,9 @@ The three recommendations that moved are:
 
 The two new recommendations added to the control are:
 
-- **[Preview] Guest configuration agent should be installed** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
+- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
 
-- **[Preview] Windows exploit guard should be enabled** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
+- **Windows Defender Exploit Guard should be enabled on your machines (Preview)** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
 
 Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 

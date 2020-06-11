@@ -2,13 +2,13 @@
 title: Pause, resume, scale with REST APIs
 description: Manage compute power in Azure Synapse Analytics data warehouse through REST APIs.
 services: synapse-analytics
-author: kevinvngo
+author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
 ms.date: 03/29/2019
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---

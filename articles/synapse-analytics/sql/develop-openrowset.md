@@ -125,7 +125,7 @@ Below is an example that reads all *csv* files starting with *population* from a
 If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PloyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
 
 In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
