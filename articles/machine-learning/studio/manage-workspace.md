@@ -5,7 +5,7 @@ description: Manage access to Azure Machine Learning Studio (classic) workspaces
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Explore Azure Digital Twins with a sample client app
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
