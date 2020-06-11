@@ -3,6 +3,7 @@ title: Use the Shared Image Gallery to create a custom pool
 description: Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
 ms.date: 05/22/2020
+ms.custom: tracking-python
 ---
 
 # Use the Shared Image Gallery to create a custom pool
@@ -38,6 +39,8 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 > [!NOTE]
 > Your Shared Image must be in the same subscription as the Batch account. The image can be in different regions as long as it has replicas in the same region as your Batch account.
+
+If you use an Azure AD application to create a custom image pool with a Shared Image Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
 ## Prepare a custom image
 

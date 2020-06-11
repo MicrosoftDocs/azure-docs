@@ -5,7 +5,7 @@ description: How to convert a training experiment to a predictive experiment, pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

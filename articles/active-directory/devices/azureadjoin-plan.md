@@ -184,6 +184,8 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
+Starting Windows 10 2004 update, users can alo use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+
 ## Understand your provisioning options
 
 You can provision Azure AD join using the following approaches:

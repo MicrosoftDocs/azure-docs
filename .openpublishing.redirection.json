@@ -1,6 +1,136 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/about-digital-twins.md",
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-device-ingress.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-device-ingress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-events-routing.md",
+      "redirect_url": "/azure/digital-twins/concepts-route-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-objectmodel-spatialgraph.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-objectmodel-spatialgraph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-service-limits.md",
+      "redirect_url": "/azure/digital-twins/reference-service-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/concepts-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-add-blobs.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-add-blobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-configure-monitoring.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-configure-postman.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-configure-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-diagnose-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-diagnose-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-multitenant-applications.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-multitenant-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-navigate-apis.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-query-common-apis.md",
+      "redirect_url": "/azure/digital-twins/how-to-query-graph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-use-swagger.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-use-swagger",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/how-to-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/quickstart-view-occupancy-dotnet.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/reference-user-defined-functions-client-library.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/reference-user-defined-functions-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-authenticating-apis.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-authenticating-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-best-practices.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/security-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-analyze.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-analyze",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-events.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-setup.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/digital-twins/tutorial-facilities-udf.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-udf",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-async-java-samples.md",
       "redirect_url": "/azure/cosmos-db/sql-api-java-sdk-samples",
       "redirect_document_id": false
@@ -237,7 +367,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
-      "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
       "redirect_document_id": false
     },
     {
@@ -7789,6 +7919,11 @@
     {
       "source_path": "articles/application-gateway/application-gateway-ssl.md",
       "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-ingress-controller-add-on.md",
+      "redirect_url": "/azure/application-gateway/tutorial-ingress-controller-add-on-new",
       "redirect_document_id": false
     },
     {
@@ -19534,6 +19669,11 @@
     {
       "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
       "redirect_url": "/azure/backup/backup-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-backup-server-import-export-.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-server-import-export",
       "redirect_document_id": false
     },
     {
@@ -43192,6 +43332,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/learn/tutorial-archive-data.md",
+      "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -47593,11 +47738,6 @@
     {
       "source_path": "articles/iot-central/core/howto-connect-nodejs.md",
       "redirect_url": "/azure/iot-central/core/tutorial-connect-device/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-central/core/howto-connect-powerbi.md",
-      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -52655,6 +52795,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-unresponsive-group-policy-local-users.md",
       "redirect_url": "/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-group-policy",
       "redirect_document_id": false
@@ -54505,8 +54650,208 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-health/service-health-rest.md",
+      "redirect_url": "/azure/service-health/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/video-indexer/video-indexer-concepts.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-compute.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-networking.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-storage.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-webandmobile.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-azure-stack-gov.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-media.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-database.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-dataandanalytics.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-aiandcognitiveservices.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-iot-hub.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-integration.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-securityandidentity.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-backup.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-monitoringandmanagement.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-government/documentation-government-services-devtools.md",
+      "redirect_url": "/azure/azure-government/compare-azure-government-global-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/analytics.md",
+      "redirect_url": "/azure/developer/mobile-apps/analytics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/authentication.md",
+      "redirect_url": "/azure/developer/mobile-apps/authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/azure-cdn.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-content-delivery-network",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/azure-maps.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/azure-search.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-search",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/azure-storage.md",
+      "redirect_url": "/azure/developer/mobile-apps/azure-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/code-hosting-services.md",
+      "redirect_url": "/azure/developer/mobile-apps/code-hosting-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/cognitive-services.md",
+      "redirect_url": "/azure/developer/mobile-apps/cognitive-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/continuous-delivery.md",
+      "redirect_url": "/azure/developer/mobile-apps/continuous-delivery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/continuous-integration.md",
+      "redirect_url": "/azure/developer/mobile-apps/continuous-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/data-storage.md",
+      "redirect_url": "/azure/developer/mobile-apps/data-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/devops.md",
+      "redirect_url": "/azure/developer/mobile-apps/devops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/diagnostics.md",
+      "redirect_url": "/azure/developer/mobile-apps/diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/front-end-development-platform.md",
+      "redirect_url": "/azure/developer/mobile-apps/choose-mobile-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/index.md",
+      "redirect_url": "/azure/developer/mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/push-notifications.md",
+      "redirect_url": "/azure/developer/mobile-apps/push-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/real-time.md",
+      "redirect_url": "/azure/developer/mobile-apps/real-time-communication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/serverless-compute.md",
+      "redirect_url": "/azure/developer/mobile-apps/serverless-compute",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/stages-overview.md",
+      "redirect_url": "/azure/developer/mobile-apps/mobile-cloud-development-stages",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/concepts/test.md",
+      "redirect_url": "/azure/developer/mobile-apps/test-mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mobile-apps/index.yml",
+      "redirect_url": "/azure/developer/mobile-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risk-events.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-risky-sign-ins.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": false
     },
     {
