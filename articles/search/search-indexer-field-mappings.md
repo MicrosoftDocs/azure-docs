@@ -37,7 +37,7 @@ A field mapping consists of three parts:
 Field mappings are added to the `fieldMappings` array of the indexer definition.
 
 > [!NOTE]
-> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as [the Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
+> If no field mappings are added, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping removes these default field mappings for the source and target field. Some indexers, such as [the blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
 
 ## Map fields using the REST API
 
@@ -138,7 +138,7 @@ When you retrieve the encoded key at search time, you can then use the `base64De
 
 #### Example - preserve original values
 
-The [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md) automatically adds a field mapping from`metadata_storage_path`, the URI of the blob, to the index key field if no field mapping is specified. This value is Base64 encoded so it's safe to use as an Azure Cognitive Search document key. The following example shows how to simultaneously map a *URL-safe* Base64 encoded version of `metadata_storage_path` to a `index_key` field and preserve the original value in a `metadata_storage_path` field:
+The [blob storage indexer](search-howto-indexing-azure-blob-storage.md) automatically adds a field mapping from `metadata_storage_path`, the URI of the blob, to the index key field if no field mapping is specified. This value is Base64 encoded so it's safe to use as an Azure Cognitive Search document key. The following example shows how to simultaneously map a *URL-safe* Base64 encoded version of `metadata_storage_path` to a `index_key` field and preserve the original value in a `metadata_storage_path` field:
 
 ```JSON
 
