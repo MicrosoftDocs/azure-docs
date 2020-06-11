@@ -922,13 +922,18 @@ output = service.run(input_payload)
 print(output)
 ```
 
-NOTE: These dependencies are included in the prebuilt sklearn inference container:
+NOTE: These dependencies are included in the prebuilt scikit-learn inference container:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## Package models
