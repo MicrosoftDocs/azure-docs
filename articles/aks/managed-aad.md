@@ -102,7 +102,7 @@ As shown in the graphic below, the API server calls the AKS webhook server and p
 
 ## Create an AKS cluster with Azure AD enabled
 
-You can now create an AKS cluster by using the following CLI commands.
+Create an AKS cluster by using the following CLI commands.
 
 Create an Azure resource group:
 
@@ -118,7 +118,7 @@ You can use an existing Azure AD group, or create a new one. You need the object
 az ad group list
 ```
 
-To create a new Azure AD group for your cluster administrators, use the following command:
+To reate a new Azure AD group for your cluster administrators, use the following command:
 
 ```azurecli-interactive
 # Create an Azure AD group
@@ -147,12 +147,27 @@ A successful creation of an AKS-managed Azure AD cluster has the following secti
 The cluster is created within a few minutes.
 
 ## Access an Azure AD enabled cluster
-To get the admin credentials to access the cluster:
+
+To get the user credentials to access the cluster:
+ 
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+```
+Follow the instructions to sign in.
+
+## Troubleshooting access issues with Azure AD
+
+> [!Important]
+> The steps described below are bypassing the normal Azure AD group authentication. Use them only in an emergency.
+
+If you are permanently blocked by not having access to a valid Azure AD group with access to your cluster, you can still obtain the admin credentials to access the cluster directly.
+
+To perform these steps, you'll need to have access to the [Azure Kubernetes Service Cluster Admin]((https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-cluster-admin-role) built-in role.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
 ```
-Now use the kubectl get nodes command to view nodes in the cluster:
+Use the kubectl get nodes command to view nodes in the cluster:
 
 ```azurecli-interactive
 kubectl get nodes
@@ -162,17 +177,6 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-
-To get the user credentials to access the cluster:
- 
-```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
-```
-Follow the instructions to sign in.
-
-You receive: **You must be logged in to the server (Unauthorized)**
-
-The user above gets an error because the user is not a part of a group that has access to the cluster.
 
 ## Non-interactive login with kubelogin
 
