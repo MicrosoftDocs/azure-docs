@@ -1,5 +1,5 @@
 ---
-title: Interactive debugging in Visual Studio Code
+title: Interactive debugging with Visual Studio Code
 titleSuffix: Azure Machine Learning
 description: Interactively debug Azure Machine Learning code, pipelines and deployments using Visual Studio Code
 services: machine-learning
@@ -11,7 +11,7 @@ ms.author: luquinta
 ms.date: 06/11/2020
 ---
 
-# Interactive Debugging with Visual Studio Code
+# Interactive debugging with Visual Studio Code
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -100,7 +100,6 @@ Now, you should be able to ssh to your compute instance using the shorthand you 
 1. Select **Connect to Host in Current Window**. 
 
 From here on, you are entirely working on the compute instance and you can now edit, debug, use git, use extensions, etc. -- just like you can with your local Visual Studio Code. 
-
 
 ## Debug and troubleshoot machine learning pipelines
 
@@ -513,4 +512,3 @@ docker stop debug
 Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code. 
 
 [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
-
