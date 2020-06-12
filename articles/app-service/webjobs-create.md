@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Run background tasks with WebJobs in Azure App Service
 
-Deploy WebJobs by using the [Azure portal](https://portal.azure.com/?feature.customportal=false) to upload an executable or script. You can run background tasks in the Azure App Service.
+Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
 
 If instead of the Azure App Service you are using Visual Studio 2019 to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
@@ -61,7 +61,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
@@ -99,7 +99,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
@@ -137,7 +137,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com/?feature.customportal=false), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 2. Select **WebJobs**.
 
@@ -181,7 +181,7 @@ To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#s
 
 ## <a name="ViewJobHistory"></a> View the job history
 
-1. Select the WebJob and then to see the history, select the **Logs** button.
+1. Select the WebJob and then to see the history, select **Logs**.
    
    ![Logs button](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
