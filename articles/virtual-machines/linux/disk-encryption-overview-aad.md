@@ -22,8 +22,6 @@ The information in these sections remains the same:
 - [Additional VM requirements](disk-encryption-overview.md#additional-vm-requirements)
 
 
- 
-
 ## Networking and Group Policy
 
 To enable the Azure Disk Encryption feature by using the older AAD parameter syntax, the infrastructure as a service (IaaS) VMs must meet the following network endpoint configuration requirements: 

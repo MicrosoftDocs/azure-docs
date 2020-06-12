@@ -119,7 +119,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -167,27 +167,25 @@ The VM is not able to contact Azure Backup service due to internet connectivity 
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
-* All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
 
-  * Lack of permission to perform backup-related operations on the VM.
-  * Shutdown of the VM, so backups cannot take place.
-  * Network issues.
+  - Lack of permission to perform backup-related operations on the VM.
+  - Shutdown of the VM, so backups cannot take place.
+  - Network issues.
 
    ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
 
-
-
-* In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
+- In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
 
 These symptoms may arise for one or more of the following reasons:
 
-* An extension was deleted or uninstalled from the portal.
-* An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
-* The VM was restored back in time through in-place disk restore.
-* The VM was shut down for an extended period, so the extension configuration on it expired.
-* The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
-* One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
+- An extension was deleted or uninstalled from the portal.
+- An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
+- The VM was restored back in time through in-place disk restore.
+- The VM was shut down for an extended period, so the extension configuration on it expired.
+- The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+- One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
 In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) for instructions on how to perform this task in PowerShell.
 
@@ -217,7 +215,7 @@ If the string size of the content exceeds 20,000 bytes, the database files are s
 
 ### Override the default target restore file path
 
-You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
 
 The content of the file should be in this format:
 
@@ -265,4 +263,4 @@ This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
-For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

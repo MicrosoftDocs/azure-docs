@@ -82,19 +82,20 @@ If the backed up VM has managed disks and if the intent is to restore managed di
         --target-resource-group targetRG
     ```
 
-> [!WARNING]
-> If target-resource-group is not provided then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. Customers will get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then do not provide the target-resource-group parameter and instead provide the parameter restore-as-unmanaged-disk parameter as shown below. This parameter is available from az 3.4.0 onwards.
+    > [!WARNING]
+    > If target-resource-group is not provided then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. Customers will get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then do not provide the target-resource-group parameter and instead provide the parameter restore-as-unmanaged-disk parameter as shown below. This parameter is available from az 3.4.0 onwards.
 
     ```azurecli-interactive
     az backup restore restore-disks \
-        --resource-group myResourceGroup \
-        --vault-name myRecoveryServicesVault \
-        --container-name myVM \
-        --item-name myVM \
-        --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
-        --restore-as-unmanaged-disk
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --container-name myVM \
+    --item-name myVM \
+    --storage-account mystorageaccount \
+    --rp-name myRecoveryPointName
+    --restore-as-unmanaged-disk
     ```
+
 This will restore managed disks as unmanaged disks to the given storage account and will not be leveraging the 'instant' restore functionality. In future versions of CLI, it will be mandatory to provide either the target-resource-group parameter or 'restore-as-unmanaged-disk' parameter.
 
 ### Unmanaged disks restore

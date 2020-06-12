@@ -44,6 +44,8 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
+### New clusters
+
 Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS.
 
 ```azure-cli
@@ -51,6 +53,17 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 ```
 
 If you want to create a regular Ubuntu 16.04 cluster, you can do so by omitting the custom `--aks-custom-headers` tag.
+
+### Existing clusters
+
+Configure a new node pool to use Ubuntu 18.04. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS for that node pool.
+
+```azure-cli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
+```
+
+If you want to create a regular Ubuntu 16.04 node pools, you can do so by omitting the custom `--aks-custom-headers` tag.
+
 
 ## Custom resource group name
 
@@ -62,9 +75,9 @@ To specify your own resource group name, install the aks-preview Azure CLI exten
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-The secondary resource group is automatically created by the Azure resource provider in your own subscription. Note that you can only specify the custom resource group name when the cluster is created. 
+The secondary resource group is automatically created by the Azure resource provider in your own subscription. You can only specify the custom resource group name when the cluster is created. 
 
-As you work with the node resource group, keep in mind that you cannot:
+As you work with the node resource group, keep in mind that you can't:
 
 - Specify an existing resource group for the node resource group.
 - Specify a different subscription for the node resource group.

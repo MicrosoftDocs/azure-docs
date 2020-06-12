@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/31/2017
 ms.author: femila
-
+ms.custom: references_regions
 ---
 
 # GPUs on Azure Government

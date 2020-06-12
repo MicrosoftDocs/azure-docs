@@ -66,7 +66,7 @@ To learn more about Change history, see [Get resource changes](../../governance/
 Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. Following are some common examples.
 
 > [!NOTE]
-> `Get-AzLog` only provides 15 days of history. Use the **-MaxEvents** parameter to query the last N events beyond 15 days. To access events older than 15 days, use the REST API or SDK. If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
+> `Get-AzLog` only provides 15 days of history. Use the **-MaxRecord** parameter to query the last N events beyond 15 days. To access events older than 15 days, use the REST API or SDK. If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 
 
 Get log entries created after a particular date time:
@@ -102,12 +102,12 @@ Get-AzLog -Caller 'myname@company.com'
 Get the last 1000 events:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 1000
 ```
 
 
 ## CLI
-Use [az monitor activity-log](cli-samples.md#view-activity-log-for-a-subscription) to retrieve the Activity Log from CLI. Following are some common examples.
+Use [az monitor activity-log](../samples/cli-samples.md#view-activity-log-for-a-subscription) to retrieve the Activity Log from CLI. Following are some common examples.
 
 
 View all available options.

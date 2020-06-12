@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -47,10 +47,13 @@ The domain you want to federate with must ***not*** be DNS-verified in Azure AD.
 
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
+
 -	accounts.google.com
 -	pingidentity.com
 -	login.pingone.com
 -	okta.com
+-	oktapreview.com
+-	okta-emea.com
 -	my.salesforce.com
 -	federation.exostar.com
 -	federation.exostartest.com
@@ -140,8 +143,8 @@ Next, you'll configure federation with the identity provider configured in step 
 ### To configure direct federation in the Azure AD portal
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then select **New SAML/WS-Fed IdP**.
+2. Select **External Identities** > **All identity providers**.
+3. Select , and then select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -188,8 +191,8 @@ Now test your direct federation setup by inviting a new B2B guest user. For deta
 ## How do I edit a direct federation relationship?
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**
+2. Select **External Identities**.
+3. Select **All identity providers**
 4. Under **SAML/WS-Fed identity providers**, select the provider.
 5. In the identity provider details pane, update the values.
 6. Select **Save**.
@@ -200,8 +203,8 @@ You can remove your direct federation setup. If you do, direct federation guest 
 To remove direct federation with an identity provider in the Azure AD portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**.
+2. Select **External Identities**.
+3. Select **All identity providers**.
 4. Select the identity provider, and then select **Delete**. 
 5. Select **Yes** to confirm deletion. 
 

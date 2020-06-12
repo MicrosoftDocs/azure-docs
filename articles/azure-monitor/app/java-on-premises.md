@@ -14,7 +14,7 @@ Java codeless application monitoring is all about simplicity - there are no code
 
 ## Overview
 
-Once enabled, The Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
+Once enabled, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
 
 Please follow [the detailed instructions](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) for all of the environments, including on-premises.
 

@@ -202,7 +202,7 @@ There are many ways to connect to SQL Database and create a table. The following
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. After the installation finishes, use the following command to connect to the SQL Database server.
+2. After the installation finishes, use the following command to connect to SQL Database.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD

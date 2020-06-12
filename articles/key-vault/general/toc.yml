@@ -1,6 +1,7 @@
 - name: General
   href: index.yml
 - name: Overview 
+  expanded: true
   items:
   - name: About Azure Key Vault
     href: overview.md
@@ -15,8 +16,18 @@
       href: tutorial-net-windows-virtual-machine.md
     - name: Use Azure Key Vault with a Windows virtual machine in Python
       href: tutorial-python-windows-virtual-machine.md
-  - name: Use Azure Key Vault with an Azure web app in .NET
+  - name: Azure Kubernetes Service
+    items: 
+    - name: Integrate Azure Key Vault with Kubernetes
+      href: key-vault-integrate-kubernetes.md
+  - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
+
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Concepts 
   items:
@@ -50,6 +61,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
@@ -95,6 +108,14 @@
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
+  - name: Move Key Vault
+    items: 
+    - name: Move Key Vault to Another Resource Group
+      href: keyvault-moveresourcegroup.md
+    - name: Move Key Vault to Another Subscription
+      href: keyvault-move-subscription.md
+    - name: Move Key Vault to Another Region
+      href: keyvault-moveregion.md
   - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move

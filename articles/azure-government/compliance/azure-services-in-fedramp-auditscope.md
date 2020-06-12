@@ -26,7 +26,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 * Planned 2020 = indicates the service will be reviewed by 3PAO and JAB in 2020. Once the service is authorized, status will be updated 
 
 ## Azure public services by audit scope
-| _Last Updated: April 2020_ |
+| _Last Updated: May 2020_ |
 
 | Azure Service| DoD CC SRG IL 2 | FedRAMP Moderate | FedRAMP High | Planned 2020 |
 | ------------ |:---------------:|:----------------:|:------------:|:------------:|
@@ -50,7 +50,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Stack Edge (Data Box Edge)](https://azure.microsoft.com/services/databox/edge/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Data Share](https://azure.microsoft.com/services/data-share/) | |  |  | :heavy_check_mark: |
+| [Azure Data Share](https://azure.microsoft.com/services/data-share/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -65,15 +65,17 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure File Sync](https://azure.microsoft.com/services/storage/files/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Healthcare Bot](https://www.microsoft.com/en-us/research/project/health-bot/) | |  |  | :heavy_check_mark: |
+| [Azure Healthcare Bot](https://www.microsoft.com/research/project/health-bot/) | |  |  | :heavy_check_mark: |
+| [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Intune](https://docs.microsoft.com/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | |  |  | :heavy_check_mark: |
 | [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) | |  |  | :heavy_check_mark: |
 | [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Marketplace Portal](https://azuremarketplace.microsoft.com/en-us)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Azure Maps](https://azure.microsoft.com/services/azure-maps/) |  |  |  | :heavy_check_mark: |
+| [Azure Maps](https://azure.microsoft.com/services/azure-maps/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -104,9 +106,10 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Cognitive Services: Translator Text](https://azure.microsoft.com/services/cognitive-services/speech-translation/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services: Video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Cognitive Services Containers](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support) | |  |  | :heavy_check_mark: |
-| [Container Instances](https://azure.microsoft.com/services/container-instances/) |  |  |  | :heavy_check_mark: |
+| [Container Instances](https://azure.microsoft.com/services/container-instances/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Container Registry](https://azure.microsoft.com/services/container-registry/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Data Catalog](https://azure.microsoft.com/services/data-catalog/) |  |  |  | :heavy_check_mark: |
 | [Data Factory](https://azure.microsoft.com/services/data-factory/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/en-us/finance-and-operations/overview/) |  |  |  | :heavy_check_mark: |
@@ -117,6 +120,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Flow](https://docs.microsoft.com/flow/getting-started) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Functions](https://azure.microsoft.com/services/functions/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | |
+| [Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Azure for Education (Imagine)](https://azure.microsoft.com/education/) | |  |  | :heavy_check_mark: |
 | [Import / Export](https://azure.microsoft.com/services/storage/import-export/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -141,7 +145,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Redis Cache](https://azure.microsoft.com/services/cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Scheduler](https://azure.microsoft.com/services/scheduler/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Scheduler](https://docs.microsoft.com/azure/scheduler/scheduler-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Security Center](https://azure.microsoft.com/services/security-center/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Service Fabric](https://azure.microsoft.com/services/service-fabric/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -160,15 +164,16 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Machines (incl. Reserved Instances)](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Virtual Network](https://azure.microsoft.com/services/virtual-network/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Virtual WAN](https://azure.microsoft.com/services/virtual-wan/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Web Apps (App Service)](https://azure.microsoft.com/services/app-service/web/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
 
 ## Azure Government services by audit scope
-| _Last Updated: April 2020_ |
+| _Last Updated: May 2020_ |
 
-| Azure Service | DoD CC SRG IL 2 | DoD CC SRG IL 4 | DoD CC SRG IL 5 | FedRAMP High | Planned 2020
+| Azure Service | DoD CC SRG IL 2 | DoD CC SRG IL 4 | DoD CC SRG IL 5 **&ast;&ast;** | FedRAMP High | Planned 2020
 | ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:
 | [API Management](https://azure.microsoft.com/services/api-management/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Application Gateway](https://azure.microsoft.com/services/application-gateway/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -178,6 +183,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Advisor](https://azure.microsoft.com/services/advisor/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) |  |  |  |  | :heavy_check_mark:
 | [Azure Blueprints](https://azure.microsoft.com/services/blueprints/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
@@ -202,7 +208,8 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
-| [Azure Intune](https://docs.microsoft.com/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Azure Intune](https://docs.microsoft.com/intune/what-is-intune) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Azure IoT Security](https://azure.microsoft.com/overview/iot/security/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)| :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -213,6 +220,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
 | [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Service Manager (RDFE)](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -228,6 +236,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Cognitive Services: Translator Text](https://azure.microsoft.com/services/cognitive-services/speech-translation/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Container Instances](https://azure.microsoft.com/services/container-instances/)| :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [D365 Integrator App](https://docs.microsoft.com/power-platform/admin/data-integrator) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Dynamics 365 Service Omni-Channel Engagement Hub](https://docs.microsoft.com/dynamics365/omnichannel/introduction-omnichannel) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Dynamics 365 Forms Pro](https://docs.microsoft.com/forms-pro/get-started) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
@@ -235,6 +244,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [ExpressRoute](https://azure.microsoft.com/services/expressroute/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Flow](https://docs.microsoft.com/flow/getting-started) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark:
 | [Functions](https://azure.microsoft.com/services/functions/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Import / Export](https://azure.microsoft.com/services/storage/import-export/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [IoT Hub](https://azure.microsoft.com/services/iot-hub/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
@@ -242,6 +252,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
+| [Machine Learning Services](https://azure.microsoft.com/services/machine-learning-service/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Media Services](https://azure.microsoft.com/services/media-services/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
 | [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)| :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
@@ -254,7 +265,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Redis Cache](https://azure.microsoft.com/services/cache/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Scheduler](https://azure.microsoft.com/services/scheduler/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Scheduler](https://docs.microsoft.com/azure/scheduler/scheduler-intro) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](https://azure.microsoft.com/services/service-fabric/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -276,3 +287,4 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 
 **&ast;** Some services such as the Azure portal and Azure Resource Manager do not store or process DoD CC SRG IL 5 content, however still inherit the IL5 control set.
 
+**&ast;&ast;** IL5 status in the above table refers to IL5 certification achieved by services in Azure Government DoD regions. For list of services that have achieved IL5 in Azure Government by meeting isolation requirements, please refer to [Azure Government Isolation Guidelines for Impact Level 5](https://docs.microsoft.com/azure/azure-government/documentation-government-impact-level-5)

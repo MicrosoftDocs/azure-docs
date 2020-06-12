@@ -118,7 +118,7 @@ Here is a diagram that will help you understand how the different spaces work. T
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
 ### Test code running in the _dev/scott_ space
-To test your new version of *mywebapi* in conjunction with *webfrontend*, open your browser to the public access point URL for *webfrontend* (for example, http://dev.webfrontend.123456abcdef.eus.azds.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
+To test your new version of *mywebapi* in conjunction with *webfrontend*, open your browser to the public access point URL for *webfrontend* (for example, `http://dev.webfrontend.123456abcdef.eus.azds.io`) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
 Now, add the "scott.s." part to the URL so it reads something like http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io and refresh the browser. The breakpoint you set in your *mywebapi* project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in *mywebapi* is running in the _dev/scott_ space.
 

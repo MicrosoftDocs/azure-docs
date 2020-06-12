@@ -5,12 +5,13 @@ description: Learn how to define a machine learning pipeline using a YAML file. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
+ms.custom: tracking-python
 ---
 
 # Define machine learning pipelines in YAML
@@ -416,7 +417,7 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` of one step's `outputs` become the keys to the `inputs` of the .| 
+| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` keys of one step's `outputs` become the `source` keys to the `inputs` of the next step.| 
 
 ```yaml
 pipeline:

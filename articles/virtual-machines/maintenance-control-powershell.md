@@ -3,7 +3,7 @@ title: Maintenance control for Azure virtual machines using PowerShell
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
@@ -16,11 +16,17 @@ Maintenance control lets you decide when to apply updates to your isolated VMs a
  
 ## Enable the PowerShell module
 
-Make sure `PowerShellGet` is up to date.
+Make sure `PowerShellGet` is up to date.	
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive	
+Install-Module -Name PowerShellGet -Repository PSGallery -Force	
+```	
+
+Install the `Az.Maintenance` PowerShell module.   	
+
+```azurepowershell-interactive	
+Install-Module -Name Az.Maintenance
+```	
 
 If you are installing locally, make sure you open your PowerShell prompt as an administrator.
 

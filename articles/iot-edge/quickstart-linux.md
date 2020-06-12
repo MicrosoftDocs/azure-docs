@@ -97,7 +97,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-cli-iot-ext extension.
+   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-iot extension.
 
 2. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub.
 

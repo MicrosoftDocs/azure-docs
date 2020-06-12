@@ -1,6 +1,6 @@
 ---
-title: Onboarding API for Azure apps in the Commercial Marketplace 
-description: API prerequisites for Azure apps in commercial marketplace on Microsoft Partner Center. 
+title: Partner Center submission API to onboard Azure apps in the Microsoft commercial marketplace 
+description: Learn the prerequisites to use the Partner Center submission API for Azure apps in commercial marketplace on Microsoft Partner Center. 
 author: dsindona 
 ms.author: dsindona
 ms.service: marketplace 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ---
 
-# API for onboarding Azure apps in Partner Center
+# Partner Center submission API to onboard Azure apps in Partner Center
 
 Use the *Partner Center submission API* to programmatically query, create submissions for, and publish Azure offers.  This API is useful if your account manages many offers and you want to automate and optimize the submission process for these offers.
 
@@ -65,3 +65,8 @@ For the *tenant_id* value in the `POST URI` and the *client_id* and *client_secr
 After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the Ingestion API swagger.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## Next steps
+
+* Learn how to create an [Create an Azure VM technical asset](create-azure-container-technical-assets.md)
+* Learn how to Create an [Azure Container offer](create-azure-container-offer.md)

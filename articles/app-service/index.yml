@@ -39,6 +39,8 @@ landingContent:
             url: app-service-web-get-started-nodejs.md
           - text: First PHP app
             url: app-service-web-get-started-php.md
+          - text: First Java app
+            url: app-service-web-get-started-java.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial

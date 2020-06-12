@@ -17,8 +17,8 @@ ms.author: spelluru
 
 ---
 
-# Send events to and receive events from Azure Event Hubs - .NET Core (Azure.Messaging.EventHubs) 
-This quickstart shows how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET Core library. 
+# Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs) 
+This quickstart shows how to send events to and receive events from an event hub using the **Azure.Messaging.EventHubs** .NET library. 
 
 > [!IMPORTANT]
 > This quickstart uses the new **Azure.Messaging.EventHubs** library. For a quickstart that uses the old **Microsoft.Azure.EventHubs** library, see [Send and receive events using Microsoft.Azure.EventHubs library](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -31,7 +31,7 @@ If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md
 To complete this quickstart, you need the following prerequisites:
 
 - **Microsoft Azure subscription**. To use Azure services, including Azure Event Hubs, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with older versions of C#, but some of its functionality won't be available.  To enable these features, you must [target .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) or [specify the language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) you want to use (8.0 or above). If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, it is recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the Event Hubs namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this quickstart.
 
 ## Send events 
@@ -123,7 +123,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 
 1. [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
     Note down the connection string and the container name. You'll use them in the receive code. 
 

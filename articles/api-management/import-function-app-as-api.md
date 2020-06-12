@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 04/22/2020
 ms.author: apimpm
 
 ---
@@ -43,7 +43,7 @@ You will learn how to:
 
 Follow the steps below to create a new API from an Azure Function App.
 
-1. In your **Azure API Management** service instance, select **APIs** from the menu on the left.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 
 2. In the **Add a new API** list, select **Function App**.
 
@@ -68,10 +68,7 @@ Follow the steps below to create a new API from an Azure Function App.
     > [!NOTE]
     > You can import only Functions that are based off HTTP trigger and have the authorization level setting set to *Anonymous* or *Function*.
 
-7. Switch to the **Full** view and assign **Product** to your new API. If needed, edit other pre-populated fields.
-
-    ![Add from Function App](./media/import-function-app-as-api/add-06.png)
-
+7. Switch to the **Full** view and assign **Product** to your new API. If needed, specify other fields during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
 8. Click **Create**.
 
 ## <a name="append-azure-function-app-to-api"></a> Append Azure Function App to an existing API

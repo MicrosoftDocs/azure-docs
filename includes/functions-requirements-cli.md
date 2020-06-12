@@ -15,10 +15,16 @@ Before you begin, you must have the following:
 + The [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-+ Python 3.6 and 3.7 require [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 2.7.1846 or a later 2.x version. Python 3.8 requires [version 3.x](../articles/azure-functions/functions-run-local.md#v2) of the Core Tools.
++ The Azure Functions Core Tools version that corresponds to your installed Python version:
+
+   | Python version | Core Tools version |
+   | -------------- | ------------------ |
+   | Python 3.8     | [version 3.x](../articles/azure-functions/functions-run-local.md#v2) |
+   | Python 3.6<br/>Python 3.7 | [Version 2.7.1846 or a later version](../articles/azure-functions/functions-run-local.md#v2) |
+  
 ::: zone-end
 
-+ The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 or later. 
++ The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 ::: zone-end

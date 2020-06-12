@@ -39,7 +39,7 @@ To set up Hyper-V VM assessment, you create an Azure Migrate project, and add th
 
 | **Support**                  | **Details**               
 | :----------------------------- | :------------------- |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems. |
+| **Operating system** | All operating systems can be assessed for migration.  |
 | **Integration Services**       | [Hyper-V Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) must be running on VMs that you assess, in order to capture operating system information. |
 
 
@@ -49,7 +49,7 @@ Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for disco
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---hyper-v) for Hyper-V.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-- In Azure Government, you must deploy the appliance using the script.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
 ## Port access
 

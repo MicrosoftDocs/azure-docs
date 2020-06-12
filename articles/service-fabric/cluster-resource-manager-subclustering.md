@@ -19,11 +19,11 @@ If the load reported by the services on different nodes differs significantly, i
 
 For example, let's say we have four services and they all report a load for metric Metric1:
 
-* Service A – has a placement constraint "NodeType==Type1", reports a load of 10
-* Service B – has a placement constraint "NodeType==Type1", reports a load of 10
-* Service C – has a placement constraint "NodeType==Type2", reports a load of 100
-* Service D – has a placement constraint "NodeType==Type2", reports a load of 100
-* And we have four nodes. Two of them have NodeType set as "Type1" and the other two are "Type2"
+* Service A – has a placement constraint "NodeType==Frontend", reports a load of 10
+* Service B – has a placement constraint "NodeType==Frontend", reports a load of 10
+* Service C – has a placement constraint "NodeType==Backend", reports a load of 100
+* Service D – has a placement constraint "NodeType==Backend", reports a load of 100
+* And we have four nodes. Two of them have NodeType set as "Frontend" and the other two are "Backend"
 
 And we have the following placement:
 
@@ -55,8 +55,8 @@ This situation happens when a group of nodes allowed for one service is a subset
 Example:
 
 * Service A: no placement constraint
-* Service B: placement constraint "NodeType==Type1"
-* Service C: placement constraint "NodeType==Type2"
+* Service B: placement constraint "NodeType==Frontend"
+* Service C: placement constraint "NodeType==Backend"
 
 This configuration creates a subset-superset relation between node groups for different services.
 
@@ -67,7 +67,7 @@ This configuration creates a subset-superset relation between node groups for di
 
 In this situation, there is a chance that a suboptimal balance gets made.
 
-Resource Manager will recognize this situation and produce a health report advising you to split Service A into two services – Service A1 that can be placed on Type1 nodes and Service A2 that can be placed on Type2 nodes. This will bring us back to first category situation that can be balanced optimally.
+Resource Manager will recognize this situation and produce a health report advising you to split Service A into two services – Service A1 that can be placed on Frontend nodes and Service A2 that can be placed on Backend nodes. This will bring us back to first category situation that can be balanced optimally.
 
 ### Third category – subclustering with partial overlap between node sets
 

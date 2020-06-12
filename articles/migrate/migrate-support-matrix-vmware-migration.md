@@ -22,7 +22,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 ## Migration limitations
 
 - You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10.
-- For VMware agentless migration, you can run up to 100 replications simultaneously.
+- For VMware agentless migration, you can run up to 300 replications simultaneously.
 
 ## Agentless-VMware servers
 
@@ -55,7 +55,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 **Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Simultaneous replication** | 100 VMs per vCenter Server. If you have more, migrate them in batches of 100.
+**Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
 
 
 ## Agentless-Azure Migrate appliance 
@@ -64,7 +64,7 @@ Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). Yo
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-- In Azure Government, you must deploy the appliance using the script.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
 
 ## Agentless-ports
 

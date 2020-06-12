@@ -6,20 +6,20 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Data Box Gateway issues 
+# Troubleshoot your Azure Data Box Gateway issues
 
-This article describes how to troubleshoot issues on your Azure Data Box Gateway. 
+This article describes how to troubleshoot issues on your Azure Data Box Gateway.
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Run diagnostics
 > * Collect Support package
 > * Use logs to troubleshoot
-
 
 ## Run diagnostics
 
@@ -36,7 +36,7 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
 
 ## Collect Support package
 
-A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI.
+A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI. 
 
 Do the following steps to collect a Support package. 
 

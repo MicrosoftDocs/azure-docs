@@ -14,8 +14,6 @@ ms.date: 06/04/2019
 
 Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS Windows Server node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access the AKS Windows Server nodes using RDP. Alternatively, if you want to use SSH to access the AKS Windows Server nodes and you have access to the same keypair that was used during cluster creation, you can follow the steps in [SSH into Azure Kubernetes Service (AKS) cluster nodes][ssh-steps]. For security purposes, the AKS nodes are not exposed to the internet.
 
-Windows Server node support is currently in preview in AKS.
-
 This article shows you how to create an RDP connection with an AKS node using their private IP addresses.
 
 ## Before you begin
@@ -84,7 +82,7 @@ az network nsg rule create --name tempRDPAccess --resource-group $CLUSTER_RG --n
 ## Get the node address
 
 To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli][az-aks-install-cli] command:
-	
+    
 ```azurecli-interactive
 az aks install-cli
 ```

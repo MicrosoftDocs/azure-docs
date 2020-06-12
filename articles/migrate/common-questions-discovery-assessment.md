@@ -102,7 +102,12 @@ Log Analytics | Not required. | Azure Migrate uses the [Service Map](https://doc
 How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
 Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
 Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
-Data export | Can't currently be downloaded in tabular format. | Data can be queried with Log Analytics.
+Data export | Last 30 days data can be downloaded in a CSV format. | Data can be queried with Log Analytics.
+
+
+## Do I need to deploy the appliance for agentless dependency analysis?
+
+Yes, the [Azure Migrate appliance](migrate-appliance.md) must be deployed.
 
 ## Do I pay for dependency visualization?
 
@@ -132,7 +137,7 @@ For agent-based dependency visualization:
 
 - Use a [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples).
 - For MMA, [use the command line or automation](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration), or use a [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
-- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) to deploy the agents.
+- In addition to scripts, you can use deployment tools like Microsoft Endpoint Configuration Manager and [Intigua](https://www.intigua.com/intigua-for-azure-migration) to deploy the agents.
 
 ## What operating systems does MMA support?
 

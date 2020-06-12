@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 # Quickstart: Extract printed text (OCR) using the Computer Vision REST API and Python
 
@@ -62,7 +62,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-ocr_url = endpoint + "vision/v2.1/ocr"
+ocr_url = endpoint + "vision/v3.0/ocr"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \

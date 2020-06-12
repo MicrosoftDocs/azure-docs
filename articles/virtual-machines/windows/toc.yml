@@ -13,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
@@ -134,16 +137,31 @@
       items:
       - name: Encrypt a VM and data disks
         href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-      - name: Monitor
-        items:
-        - name: Azure Monitor
-          href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
+    - name: Monitor
+      items:
+      - name: Azure Monitor
+        href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
 - name: Concepts
   items:
+  - name: Images
+    href: shared-image-galleries.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    items:
+    - name: Resource Manager templates
+      href: template-description.md
   - name: Regions
     href: regions.md
+    items:
+    - name: About Azure Extensions
+      href: ../extensions/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Linux VM Agent
+      href: ../extensions/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Features
+      href: ../extensions/features-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Availability and performance
     items:
     - name: Availability
@@ -174,6 +192,8 @@
         href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Dav4 and Dasv4-series
         href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ddv4 and Ddsv4-series
+        href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Compute optimized
       items:
       - name: Overview
@@ -191,6 +211,8 @@
         href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Eav4 and Easv4-series
         href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Edv4 and Edsv4-series
+        href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: M-series
         href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Mv2-series
@@ -225,7 +247,7 @@
         href: ../nvv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: NVv4-series
         href: ../nvv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: Setup GPU drivers
+      - name: Setup NVIDIA GPU drivers
         href: n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         href: n-series-amd-driver-setup.md
@@ -314,12 +336,18 @@
       href: disk-encryption-overview.md
     - name: Built-in security controls
       href: virtual-machines-windows-security-controls.md
+    - name: Bastion
+      href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
-    href: monitor.md
+    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Backup and recovery
     href: backup-recovery.md
+  - name: Cloud adoption framework
+    href: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+  - name: Architecture center
+    href: https://docs.microsoft.com/en-us/azure/architecture/
   - name: Infrastructure example
     href: infrastructure-example.md
 - name: How-to guides
@@ -387,12 +415,125 @@
       href: migration-classic-resource-manager-community-tools.md
     - name: FAQ
       href: migration-classic-resource-manager-faq.md
+  - name: Use Images
+    displayName: SIG, AMI, image
+    items:
+    - name: Create and share images
+      items:
+      - name: PowerShell
+        items:
+        - name: Create a gallery
+          href: ../shared-images-powershell.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-powershell.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-powershell.md
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-powershell.md             
+        - name: Create a VM
+          items:
+          - name: Generalized
+            href: ../vm-generalized-image-version-powershell.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-powershell.md
+        - name: Update image resources
+          href: ../update-image-resources-powershell.md
+      - name: CLI
+        items:
+        - name: Create a gallery
+          href: ../linux/shared-images.md
+        - name: Create an image
+          items:
+          - name: From a VM
+            href: ../image-version-vm-cli.md
+          - name: Migrate from a managed image
+            href: ../image-version-managed-image-cli.md 
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md
+          - name: Copy from another gallery
+            href: ../image-version-another-gallery-cli.md   
+        - name: Create a VM
+          items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md          
+          - name: Generalized
+            href: ../vm-generalized-image-version-cli.md
+        - name: Update image resources
+          href: ../update-image-resources-cli.md
+      - name: Portal
+        items:
+        - name: Create a gallery, image and VM
+          href: shared-images-portal.md
+      - name: Resource Manager Templates
+        items:
+        - name: Create a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-create/
+        - name: Create an Image Definition in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/
+        - name: Create an Image Version in a Shared Image Gallery
+          href: https://azure.microsoft.com/resources/templates/101-sig-image-version-create/
+        - name: Create a VM from Image Version
+          href: https://azure.microsoft.com/resources/templates/101-vm-from-sig/
+      - name: Troubleshoot shared images
+        href: troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: ../image-version-encryption.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Use Azure CLI
+        href: image-builder.md
+      - name: Build for image galleries
+        href: image-builder-gallery.md
+      - name: Update an existing image
+        href: image-builder-gallery-update-image-version.md
+      - name: Store scripts
+        href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: ARM template reference
+        displayName: Azure Resource Manager
+        href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Troubleshoot
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
+    - name: Find and use images
+      href: cli-ps-findimage.md
+    - name: Prepare VM for upload
+      href: prepare-for-upload-vhd-image.md
+    - name: Capture VM to image
+      href: capture-image-resource.md
+    - name: Use generalized image
+      href: create-vm-generalized-managed.md
+    - name: Build image with Packer
+      href: build-image-with-packer.md
+    - name: Use Windows client images
+      href: client-images.md
+    - name: Download existing disk
+      href: download-vhd.md
   - name: Secure VMs
     items:
     - name: Recommendations
       href: security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
+    - name: Use Bastion
+      items:
+      - name: Create a Bastion host
+        items: 
+        - name: Portal
+          href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: PowerShell
+          href: ../../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: CLI
+          href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Use Bastion to connect
+        items:
+        - name: Bastion SSH connection
+        href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Bastion RDP connection
+        href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Encrypt
       items:
         - name: Disk encryption scenarios for Windows
@@ -483,7 +624,7 @@
       href: ../extensions/agent-windows.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Monitor metadata
+    - name: Azure Instance Metadata Service
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
@@ -515,61 +656,113 @@
       href: scheduled-event-service.md
   - name: Monitor VMs
     items:
-    - name: Azure Monitor for VMs
-      href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Create metric alerts
-      href: ../../azure-monitor/platform/alerts-metric.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Create log alerts
-      href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Get usage metrics with REST
-      href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-  - name: Use Images
-    items:
-    - name: Shared images
+    - name: Monitor Azure virtual machines
+      href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Agents
       items:
-      - name: Overview
-        href: shared-image-galleries.md
-      - name: PowerShell
-        href: shared-images.md
-      - name: Portal
-        href: shared-images-portal.md
-      - name: CLI
-        href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: App registration for sharing
-        href: share-images-across-tenants.md
-      - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
-    - name: Image builder (preview)
-      items:
-      - name: Overview
-        href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: Use Azure CLI
-        href: image-builder.md
-      - name: Build for image galleries
-        href: image-builder-gallery.md
-      - name: Update an existing image
-        href: image-builder-gallery-update-image-version.md
-      - name: Store scripts
-        href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-      - name: ARM template reference
-        displayName: Azure Resource Manager
-        href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Agents overview
+        href: ../../azure-monitor/platform/agents-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: FAQ
+        href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#agents
+      - name: Azure Diagnostics extension
+        items:
+        - name: Overview
+          href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          items:
+          - name: Send to Azure Monitor Metrics
+            items:   
+            - name: Virtual Machine 
+              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json 
+            - name: Scale set 
+              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
+          - name: Send to Event Hubs
+            href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Send to Logs
+            href: ../../azure-monitor/platform/diagnostics-extension-logs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Send to Application Insights
+            href: ../../azure-monitor/platform/diagnostics-extension-to-application-insights.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Version history
+            href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: JSON Lines resource logs format
+            href: ../../azure-monitor/platform/diagnostic-logs-append-blobs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Troubleshooting
+            href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Log Analytics agent
+        items:
+        - name: Overview
+          href: ../../azure-monitor/platform/log-analytics-agent.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Windows agents
+          href: ../../azure-monitor/platform/agent-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: VM Extension for Windows
+          href: ../../azure-monitor/../virtual-machines/windows/extensions-oms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/azure-monitor/toc.json
+        - name: Log Analytics gateway
+          href: ../../azure-monitor/platform/gateway.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Agent management
+          href: ../../azure-monitor/platform/agent-manage.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Agent Health
+          href: ../../azure-monitor/insights/solution-agenthealth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Data sources
+          items:
+          - name: Overview
+            href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Windows events
+            href: ../../azure-monitor/platform/data-sources-windows-events.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Custom JSON data
+            href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: CollectD performance data
+            href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Syslog
+            href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Performance counters
+            href: ../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: IIS logs
+            href: ../../azure-monitor/platform/data-sources-iis-logs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Custom logs
+            href: ../../azure-monitor/platform/data-sources-custom-logs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          - name: Custom fields
+            href: ../../azure-monitor/platform/custom-fields.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Troubleshoot
-        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
-    - name: Find and use images
-      href: cli-ps-findimage.md
-    - name: Prepare VM for upload
-      href: prepare-for-upload-vhd-image.md
-    - name: Capture VM to image
-      href: capture-image-resource.md
-    - name: Use generalized image
-      href: create-vm-generalized-managed.md
-    - name: Build image with Packer
-      href: build-image-with-packer.md
-    - name: Use Windows client images
-      href: client-images.md
-    - name: Download existing disk
-      href: download-vhd.md
+        items:
+        - name: Log Analytics VM Extension
+          displayname: troubleshoot, troubleshooting
+          href: ../../azure-monitor/platform/vmext-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Log Analytics Windows agent
+          displayname: troubleshoot, troubleshooting
+          href: ../../azure-monitor/platform/agent-windows-troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Monitor for VMs
+      items:
+      - name: Overview
+        href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: General Availability FAQ
+        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
+      - name: FAQ
+        href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
+      - name: Enable monitoring
+        items:
+        - name: Enable monitoring overview
+          href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Enable for single Azure VM
+          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Enable using Azure Policy
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Enable using Azure PowerShell
+          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Enable for Hybrid environment
+          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Map dependencies
+        href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Monitor performance
+        href: ../../azure-monitor/insights/vminsights-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Analyze data with log queries
+        href: ../../azure-monitor/insights/vminsights-log-search.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Visualize data with workbooks
+        href: ../../azure-monitor/insights/vminsights-workbooks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Create alert rules
+        href: ../../azure-monitor/insights/vminsights-alerts.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Upgrade Dependency agent
+        href: ../../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Disable monitoring
+        href: ../../azure-monitor/insights/vminsights-optout.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Availability and scale
     items:
     - name: Virtual Machine Scale Sets
@@ -670,8 +863,10 @@
           href: disks-enable-ultra-ssd.md
         - name: Benchmark a disk
           href: disks-benchmarks.md
-    - name: Find unattached disks
+    - name: Find unattached disks - PowerShell
       href: find-unattached-disks.md
+    - name: Find unattached disks - Portal
+      href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking
@@ -698,20 +893,71 @@
   - name: Configure managed identities
     items:
     - name: Portal
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: CLI
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: PowerShell
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Azure Resource Manager Template
       displayName: ARM
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: REST
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Azure SDKs
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
-  - name: Use VM extensions
-    href: ../extensions/overview.md
+      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+  - name: Use extensions
+    items:
+    - name: Restrict extension installation
+      href: ../extensions/extensions-rmpolicy-howto-ps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Export extensions
+      href: ../extensions/export-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Troubleshoot
+      href: ../extensions/troubleshoot.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Disk Encryption
+      href: ../extensions/azure-disk-enc-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Key Vault
+      href: ../extensions/key-vault-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Backup for SQL Server
+      href: ../extensions/backup-azure-sql-server-running-azure-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Custom Script
+      href: ../extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: IaaS antimalware for Windows
+      href: ../extensions/iaas-antimalware-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: VM snapshot
+      href: ../extensions/vmsnapshot-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Network Watcher Agent
+      href: ../extensions/network-watcher-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: NVIDIA GPU Drivers
+      href: ../extensions/hpccompute-gpu-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: AMD GPU Drivers
+      href: ../extensions/hpccompute-amd-gpu-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Azure Monitor
+      items:
+      - name: Diagnostics extension
+        href: ../extensions/../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json?toc=/azure/virtual-machines/extensions/toc.json
+      - name: Log Analytics
+        href: ../extensions/oms-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Azure Monitor Windows Dependency agent
+        href: ../extensions/agent-dependency-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: PowerShell DSC
+      href: ../extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      items:
+      - name: DSC and Windows
+        href: ../extensions/dsc-windows.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Handle credentials
+        href: ../extensions/dsc-credentials.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Use templates
+        href: ../extensions/dsc-template.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Virtual machine access
+      href: ../extensions/vmaccess.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Third-party extensions
+      items:
+      - name: Chef
+        href: ../extensions/chef.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Stackify Retrace
+        href: ../extensions/stackify-retrace-linux.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Symantec
+        href: ../extensions/symantec.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Move VMs
     items:
     - name: Change subscription or resource group
@@ -758,6 +1004,8 @@
     href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
+  - name: Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager
     href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -768,7 +1016,7 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/#Windows
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow

@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
+#Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 
 # Tutorial: Build a Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB 
@@ -433,7 +433,7 @@ The second form contains two input fields and a button that allows you to create
 
 Now that you have built the application, you can run it locally by using the following steps:  
 
-1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the [http://localhost:3000](http://localhost:3000) browser page. The page should now look as shown in the following screenshot:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the `http://localhost:3000` browser page. The page should now look as shown in the following screenshot:
    
     ![Screenshot of the MyTodo List application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

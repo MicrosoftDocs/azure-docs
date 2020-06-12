@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 06/01/2020
 ms.author: v-erkel
 ---
 
@@ -13,6 +13,10 @@ ms.author: v-erkel
 Use the Azure portal to create your cache.
 
 ![screenshot of cache overview in Azure portal, with create button at the bottom](media/hpc-cache-home-page.png)
+
+Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target.
+
+[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## Define basic details
 
@@ -24,7 +28,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 * Virtual network - You can select an existing one or create a new virtual network.
-* Subnet - Choose or create a subnet with at least 64 IP addresses (/24) that will be used only for this Azure HPC Cache instance.
+* Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
 ## Set cache capacity
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
@@ -40,15 +44,15 @@ Choose the capacity by setting these two values:
 
 Choose one of the available throughput values and cache storage sizes.
 
-Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from backend storage.
+Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
 
-Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. The cache contents are continuously assessed and files are moved to long-term storage when they are less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files with additional space for metadata and other overhead.
+Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
 ![screenshot of cache sizing page](media/hpc-cache-create-capacity.png)
 
 ## Enable Azure Key Vault encryption (optional)
 
-If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. As of publication time, this option is supported in East US, South Central US, and West US 2.
+If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. At publication time, this option is supported in East US, South Central US, and West US 2.
 
 If you want to manage the encryption keys used with your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 

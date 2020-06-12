@@ -172,7 +172,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 6. Run the following command to read the text file in your blob storage container to a dataframe. Change the values in the command to match your mount name and file name.
 
    ```python
-   df = spark.read.text("mnt/<mount-name>/<file-name>")
+   df = spark.read.text("/mnt/<mount-name>/<file-name>")
    ```
 
    ![Read file to dataframe](./media/store-secrets-azure-key-vault/command2.png)

@@ -72,6 +72,9 @@ Update the hub with a hub route table. Use the following example values:
 3. Click the **...**, and then click **Edit virtual hub**.
 4. On the **Edit virtual hub** page, scroll down and select the checkbox **Use table for routing**.
 5. In the **If destination prefix is** column, add the address spaces. In the **Send to next hop** column, add the DMZ NVA network interface private IP address.
+>[!NOTE]
+>The DMZ NVA network is applicable to the local hub.
+>
 6. Click **Confirm** to update the hub resource with the route table settings.
 
 ## <a name="connections"></a>5. Create the VNet connections

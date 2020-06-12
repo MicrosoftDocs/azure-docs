@@ -5,17 +5,10 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/20/2018
+ ms.date: 01/28/2020
  ms.author: cynthn
  ms.custom: include file
 ---
-
-
-## Using RBAC to share images
-
-You can share images across subscriptions using Role-Based Access Control (RBAC). Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a Virtual Machine using the image version.
-
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
 
 
 ## List information

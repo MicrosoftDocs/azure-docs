@@ -2,7 +2,7 @@
 title: How to enable Azure Monitor for containers | Microsoft Docs
 description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 05/28/2020
 
 ---
 
@@ -16,7 +16,9 @@ This article provides an overview of the options available to setup Azure Monito
 
 - Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises using AKS Engine.
 
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x and 4.x
+
+- [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Kubernetes using the following supported methods:
 
@@ -58,10 +60,8 @@ The information in the following table lists the proxy and firewall configuratio
 |Agent Resource|Ports |
 |--------------|------|
 | *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 | 
-| *.blob.core.windows.net | 443 |
+| *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -71,8 +71,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Data ingestion |
 | *.oms.opinsights.azure.cn | 443 | OMS onboarding |
-| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
@@ -81,8 +79,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Data ingestion |
 | *.oms.opinsights.azure.us | 443 | OMS onboarding |
-| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components
