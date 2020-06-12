@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How full text search works in Azure Cognitive Search
+# Full text search in Azure Cognitive Search
 
 This article is for developers who need a deeper understanding of how Lucene full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search will seamlessly deliver expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that will deliver the desired outcome. 
 
