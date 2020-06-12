@@ -64,7 +64,7 @@ This is the list of available languages that can be transcribed, use the languag
 
 ## Creating the Live Event
 
-To create the Live Event, you send the PUT operation to the 2019-05-01-preview version, for example:
+To create the Live Event, send the PUT operation to the 2019-05-01-preview version, for example:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
