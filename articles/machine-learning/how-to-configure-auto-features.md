@@ -1,7 +1,7 @@
 ---
 title: Featurization in AutoML experiments
 titleSuffix: Azure Machine Learning
-description: Learn what featurization settings Azure Machine Learning offers and how feature engineering is supported in automated machine-learning experiments.
+description: Learn what featurization settings Azure Machine Learning offers and how feature engineering is supported in automated ML experiments.
 author: nibaccam
 ms.author: nibaccam
 ms.reviewer: nibaccam
@@ -20,28 +20,28 @@ ms.custom: seodec18
 In this guide, you'll learn:
 
 - What featurization settings Azure Machine Learning offers.
-- How to customize those features for your [automated machine-learning experiments](concept-automated-ml.md).
+- How to customize those features for your [automated machine learning experiments](concept-automated-ml.md).
 
-*Feature engineering* is the process of using domain knowledge of the data to create features that help machine-learning algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine-learning, or *AutoML*, experiments.
+*Feature engineering* is the process of using domain knowledge of the data to create features that help machine learning (ML) algorithms to learn better. In Azure Machine Learning, data-scaling and normalization techniques are applied to make feature engineering easier. Collectively, these techniques and this feature engineering are called *featurization* in automated machine learning, or *AutoML*, experiments.
 
 This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
 
-- For a code-first experience: [Configure automated machine-learning experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
-- For a low-code or no-code experience: [Create, review, and deploy automated machine-learning models by using Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+- For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
+- For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Configure featurization
 
-In every automated machine-learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
+In every automated machine learning experiment, [automatic scaling and normalization techniques](#featurization) are applied to your data by default. These techniques are types of featurization that help *certain* algorithms that are sensitive to features on different scales. However, you can also enable additional featurization, such as *missing-values imputation*, *encoding*, and *transforms*.
 
 > [!NOTE]
-> Steps for automated machine-learning featurization (such as feature normalization, handling missing data,
+> Steps for automated machine learning featurization (such as feature normalization, handling missing data,
 > or converting text to numeric) become part of the underlying model. When you use the model for
 > predictions, the same featurization steps that are applied during training are applied to
 > your input data automatically.
 
-For experiments that you configure by using the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+For experiments that you configure with the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
+The following table shows the accepted settings for `featurization` in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
 |Featurization configuration | Description|
 ------------- | ------------- |
@@ -62,7 +62,7 @@ The following table summarizes techniques that are automatically applied to your
 | ------------- | ------------- |
 |**Drop high cardinality or no variance features*** |Drop these features from training and validation sets. Applies to features with all values missing, with the same value across all rows, or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
-|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and tri-character-grams.|
+|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams.|
 |**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
 |**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pretrained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
 |**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
@@ -83,9 +83,9 @@ You can review the data guardrails for your experiment:
 
 - By setting `show_output=True` when you submit an experiment by using the SDK.
 
-- In Machine Learning Studio, on the **Data guardrails** tab of your automated machine-learning run.
+- In Machine Learning Studio, on the **Data guardrails** tab of your automated ML run.
 
-### Data-guardrail states
+### Data guardrail states
 
 Data guardrails display one of three states:
 
@@ -110,7 +110,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 ## Customize featurization
 
-You can customize your featurization settings to ensure that the data and features that are used to train your machine-learning model result in relevant predictions.
+You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
 To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using Machine Learning Studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
@@ -140,10 +140,10 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 ## Next steps
 
-* Learn how to set up your automated machine-learning experiments:
+* Learn how to set up your automated ML experiments:
 
-    * For a code-first experience: [Configure automated machine-learning experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
-    * For low-code or no-code experience: [Create your automated machine-learning experiments in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+    * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
+    * For a low-code or no-code experience: [Create your automated ML experiments in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
