@@ -5,7 +5,7 @@ description: How to import your data into Azure Machine Learning Studio (classic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

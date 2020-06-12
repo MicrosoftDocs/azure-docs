@@ -4,7 +4,6 @@ description: This tutorial shows how to use Azure PowerShell to create a Windows
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 
