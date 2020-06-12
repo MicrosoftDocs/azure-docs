@@ -13,11 +13,13 @@ ms.date: 06/12/2020
 
 # Skillset concepts in Azure Cognitive Search
 
-This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
+This article is for developers who need a deeper understanding of skillset concepts and composition, and assumes familiarity with the AI enrichment process. If you are new to this concept, start with [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
 
 ## Introducing skillsets
 
-A skillset is a reusable resource in Azure Cognitive Search that is attached to an indexer, and specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Skills are backed by Cognitive Services APIs that perform text and image analysis. For example, an indexer that pulls in a JPEG file can leverage an Optical Character Recognition (OCR) skill in a skillset to extract text from the image. The end result of this additional processing is new information and structures that can be used in a search index or a knowledge store.
+A skillset is a reusable resource in Azure Cognitive Search that is attached to an indexer, and specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Skills have inputs and outputs, and often the output of one skill becomes the input of another.
+
+Skills are backed by Cognitive Services APIs that perform text and image analysis. For example, an indexer that pulls in a JPEG file for Optical Character Recognition (OCR) is actually using the Computer Vision technology on the backend. The purpose of this additional processing is to create new information and structures used in a full text search index or in knowledge mining.
 
 A skillset has three main properties:
 
@@ -25,9 +27,7 @@ A skillset has three main properties:
 + `cognitiveServices`, a Cognitive Services resource that performs image and text processing.
 + `knowledgeStore`, (optional) an Azure Storage account where your enriched documents will be projected. Enriched documents are also consumed by search indexes.
 
-Skillsets are authored in JSON. The following example is an abbreviated version of an [example hotels reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) used to illustrate concepts in this article. 
-
-The first two skills are shown below: 
+Skillsets are authored in JSON. The following example is an abbreviated version of an [example hotels reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) used to illustrate concepts in this article. The first two skills are shown below: 
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" field as input, and splits that content into "pages" of 5000 characters as output.
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
@@ -80,7 +80,8 @@ The first two skills are shown below:
   "knowledgeStore": {  }
 }
 ```
-You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A ```"/"``` traverses a level lower in the tree and  ```"*"``` acts as a for-each operator in the context. Later in this article, we'll use an example to illustrate the syntax. 
+> [!NOTE]
+> You can build complex skillsets with looping and branching, using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and  `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the syntax. 
 
 ### Enrichment tree
 
