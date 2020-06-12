@@ -4,7 +4,7 @@ description:  Get the Azure PowerShell samples to perform various common tasks i
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/13/2020
+ms.date: 06/12/2020
 ms.author: mjbrown
 ---
 
