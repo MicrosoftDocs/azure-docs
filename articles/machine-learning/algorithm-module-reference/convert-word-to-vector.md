@@ -28,7 +28,7 @@ Word embeddings can be used as initial input for NLP downstream tasks such as te
 
 Among various word embedding technologies, in this module, we implemented three widely used methods. Two, Word2Vec and FastText, are online-training models. The other is a pretrained model, glove-wiki-gigaword-100. 
 
-Online-training models are trained on your input data, whereas pretrained models are trained offline on a larger text corpus (for example, Wikipedia, Google News) that usually contains about 100 billion words. Word embedding then stays constant during word vectorization. Pretrained word models provide benefits such as reduced training time, better word vectors encoded, and improved overall performance.
+Online-training models are trained on your input data. Pretrained models are trained offline on a larger text corpus (for example, Wikipedia, Google News) that usually contains about 100 billion words. Word embedding then stays constant during word vectorization. Pretrained word models provide benefits such as reduced training time, better word vectors encoded, and improved overall performance.
 
 Here's some information about the methods:
 
