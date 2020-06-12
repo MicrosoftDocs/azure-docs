@@ -123,7 +123,7 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 Here's an example of how offer information appears in Microsoft AppSource:
 
-:::image type="content" source="media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="media/example-appsource-saas.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 #### Call-out descriptions
 
@@ -141,7 +141,7 @@ Here's an example of how offer information appears in Microsoft AppSource:
 
 <br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 #### Call-out descriptions
 

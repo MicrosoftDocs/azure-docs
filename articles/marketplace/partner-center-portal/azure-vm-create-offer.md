@@ -58,7 +58,7 @@ Your engineering team should have a basic understanding and working knowledge of
 2. On the left pane, select **Commercial Marketplace** > **Overview**.
 3. On the **Overview** page, select **New offer** > **Azure Virtual Machine**.
 
-    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/new-offer-azure-vm.png)
+    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > After your offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.

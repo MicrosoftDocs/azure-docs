@@ -165,7 +165,7 @@ This page is where you manage the copy and images for your commercial marketplac
 
 Here's an example of how offer information appears in Azure Marketplace:
 
-:::image type="content" source="media/example-azure-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
+:::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
 #### Call-out descriptions
 
