@@ -115,7 +115,7 @@ In the notebook toolbar, select the menu and then **File&gt;Save and checkpoint*
 
 Every notebook is autosaved every 30 seconds. Autosave updates only the initial *ipynb* file, not the checkpoint file.
  
-Select **Checkpoint** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
+Select **Checkpoints** in the notebook menu to create a named checkpoint and to revert the notebook to a saved checkpoint.
 
 
 ### Useful keyboard shortcuts
@@ -123,7 +123,7 @@ Select **Checkpoint** in the notebook menu to create a named checkpoint and to r
 |Keyboard  |Action  |
 |---------|---------|
 |Shift+Enter     |  Run a cell       |
-| Ctrl+Space | Activate IntelliSense |
+|Ctrl+Space | Activate IntelliSense |
 |Ctrl+M(Windows)     |  Enable/disable tab trapping in notebook.       |
 |Ctrl+Shift+M(Mac & Linux)     |    Enable/disable tab trapping in notebook.     |
 |Tab (when tab trap enabled) | Add a '\t' character (indent)
