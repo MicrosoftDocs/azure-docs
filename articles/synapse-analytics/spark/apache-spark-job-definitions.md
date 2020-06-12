@@ -36,7 +36,7 @@ In this section, you create an Apache Spark job definition for PySpark (Python).
 
 1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark) to download **wordcount.jar** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
+2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) to download **wordcount.jar** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
 
      ![upload python file](./media/apache-spark-job-definitions/upload-python-file.png)
 
@@ -72,7 +72,7 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
 
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark) to download **wordcount.jar** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
+ 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) to download **wordcount.jar** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
  
      ![prepare scala structure](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
@@ -108,7 +108,7 @@ In this section, you create an Apache Spark job definition for Apache Spark(Scal
 In this section, you create an Apache Spark job definition for .NET Spark(C#).
  1. Open [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark) to download **wordcount.zip** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
+ 2. You can go to [Sample files for creating Apache Spark job definitions](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) to download **wordcount.zip** and **shakespear.txt**. And then, upload these files into Azure Storage: Click **Data**, select **Storage accounts**, and upload related files to your ADLS Gen2 filesystem. Skip this step if your files are already in the Azure storage. 
 
      ![prepare dotnet structure](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
