@@ -55,7 +55,7 @@ This is the list of available languages that can be transcribed, use the languag
 | Spanish (Mexico) | es-MX |
 | Finnish (Finland) | fi-FI |
 | French (Canada) | fr-CA |
-| French (Frence) | fr-FR |
+| French (France) | fr-FR |
 | Italian (Italy) | it-IT |
 | Dutch (Netherlands) | nl-NL |
 | Portuguese (Brazil) | pt-BR |
