@@ -8,8 +8,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 06/10/2020
+ms.topic: reference
+ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
