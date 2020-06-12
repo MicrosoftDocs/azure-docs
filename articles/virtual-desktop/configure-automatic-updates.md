@@ -34,7 +34,7 @@ To receive updates:
 4. Select the **Products** tab.
 5. Select the check box that says **Windows Server, version 1903 and later**.
 6. Go to **Software Library** > **Overview** > **Software Updates** > **All Software Updates** and select **Synchronize Software Updates**.
-7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved. It may take a few minutes to syncrhonize the updates.
+7. Check the wsyncmgr.log file in **Program Files** > **Microsoft Configuration Manager** > **Logs** to make sure your changes were saved. It may take a few minutes to synchronize the updates.
 
 ## Create a query-based collection
 
