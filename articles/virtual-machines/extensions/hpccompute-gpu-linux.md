@@ -142,8 +142,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
-  }'
+  --version 1.3 
 ```
 
 The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA tolkit version may not always be compatible with newer kernels.
