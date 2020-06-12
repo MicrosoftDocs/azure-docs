@@ -48,7 +48,7 @@ If you already have a logic app with the connection that you want to block, foll
 
 1. On the logic app menu, select **Logic app code view** so that you can view your logic app's JSON definition.
 
-   ![Open "Logic app code view" to find connector ID](./media/block-connector-access-usage/code-view-connector-id.png)
+   ![Open "Logic app code view" to find connector ID](./media/block-creating-connections-with-connectors/code-view-connector-id.png)
 
 1. Go to the `parameters` section that has the `$connections` section, which specifies the connections that are in your logic app and follows this format:
 
@@ -100,15 +100,15 @@ If you already have a logic app with the connection that you want to block, foll
 
 1. Sign in to the [Azure portal](https://portal.azure.com). In the portal search box, enter `policy`, and select **Policy**.
 
-   ![In Azure portal, find and select "policy"](./media/block-connector-access-usage/find-select-azure-policy.png)
+   ![In Azure portal, find and select "policy"](./media/block-creating-connections-with-connectors/find-select-azure-policy.png)
 
 1. On the **Policy** menu, under **Authoring**, select **Definitions** > **+ Policy definition**.
 
-   ![Select "Definitions" > "+ Policy Definition"](./media/block-connector-access-usage/add-new-policy-definition.png)
+   ![Select "Definitions" > "+ Policy Definition"](./media/block-creating-connections-with-connectors/add-new-policy-definition.png)
 
 1. Under **Policy definition**, provide the information for your policy definition, based on the properties described under the example:
 
-   ![Policy definition properties](./media/block-connector-access-usage/policy-definition-basics-1.png)
+   ![Policy definition properties](./media/block-creating-connections-with-connectors/policy-definition-basics-1.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -165,7 +165,7 @@ If you already have a logic app with the connection that you want to block, foll
     }
     ```
 
-   ![Policy definition for a connector](./media/block-connector-access-usage/policy-definition-basics-2.png)
+   ![Policy definition for a connector](./media/block-creating-connections-with-connectors/policy-definition-basics-2.png)
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
@@ -183,11 +183,11 @@ Next, you need to assign the policy definition where you want the policy to appl
 
 1. If you signed out, sign back in to the [Azure portal](https://portal.azure.com). In the portal search box, enter `policy`, and select **Policy**.
 
-   ![In Azure portal, find and select "policy"](./media/block-connector-access-usage/find-select-azure-policy.png)
+   ![In Azure portal, find and select "policy"](./media/block-creating-connections-with-connectors/find-select-azure-policy.png)
 
 1. On the **Policy** menu, under **Authoring**, select **Assignments** > **Assign policy**.
 
-   ![Select "Assignments" > "Assign"](./media/block-connector-access-usage/add-new-policy-assignment.png)
+   ![Select "Assignments" > "Assign"](./media/block-creating-connections-with-connectors/add-new-policy-assignment.png)
 
 1. Under **Basics**, provide this information for the policy assignment:
 
@@ -205,7 +205,7 @@ Next, you need to assign the policy definition where you want the policy to appl
 
    For example:
 
-   ![Select "Assignments" > "Assign"](./media/block-connector-access-usage/policy-assignment-basics.png)
+   ![Select "Assignments" > "Assign"](./media/block-creating-connections-with-connectors/policy-assignment-basics.png)
 
 1. When you're done, select **Review + create**.
 
@@ -218,7 +218,7 @@ After the policy takes effect, you can test the policy by trying to create a con
 https://medium.com/@derek_li/block-connectors-in-logic-apps-fa8b4f8fc1df
 
 
-![Connection failure due to applied policy](./media/block-connector-access-usage/connection-failure-message.png)
+![Connection failure due to applied policy](./media/block-creating-connections-with-connectors/connection-failure-message.png)
 
 The message includes this information:
 

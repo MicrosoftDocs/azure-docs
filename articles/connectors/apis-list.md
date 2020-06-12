@@ -252,7 +252,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 
 ## Block creating connections
 
-If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can [block the capability to create those connections](../logic-apps/block-connector-access-usage.md) for specific connectors in logic app workflows by using [Azure Policy](../governance/policy/overview.md). For more information, see [Block connections created by specific connectors in Azure Logic Apps](../logic-apps/block-connector-access-usage.md).
+If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can [block the capability to create those connections](../logic-apps/block-creating-connections-with-connectors.md) for specific connectors in logic app workflows by using [Azure Policy](../governance/policy/overview.md). For more information, see [Block connections created by specific connectors in Azure Logic Apps](../logic-apps/block-creating-connections-with-connectors.md).
 
 ## Next steps
 
