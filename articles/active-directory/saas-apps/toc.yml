@@ -79,7 +79,7 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
-      - name: Ally
+      - name: Ally.io
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
@@ -736,6 +736,8 @@
         href: hyperanna-tutorial.md
       - name: IamIP Patent Platform
         href: iamip-patent-platform-tutorial.md
+      - name: IBM Digital Business Automation on Cloud
+        href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
