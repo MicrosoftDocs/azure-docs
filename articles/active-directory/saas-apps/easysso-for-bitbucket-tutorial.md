@@ -23,8 +23,8 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate EasySSO for BitBucket with Azure Active Directory (Azure AD). When you integrate EasySSO for BitBucket with Azure AD, you can:
 
-* Control in Azure AD who has access to BitBucket.
-* Enable your users to be automatically signed-in to BitBucket with their Azure AD accounts.
+* Control in Azure AD who has access to EasySSO for BitBucket.
+* Enable your users to be automatically signed-in to EasySSO for BitBucket with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
