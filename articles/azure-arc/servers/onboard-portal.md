@@ -35,6 +35,7 @@ The script to automate the download and installation, and to establish the conne
 
     >[!NOTE]
     >Azure Arc for servers (preview) supports only the following regions:
+    >- EastUS
     >- WestUS2
     >- WestEurope
     >- SoutheastAsia
