@@ -5,7 +5,7 @@ services: internet-analyzer
 author: diego-perez-botero
 
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: troubleshooting
 ms.date: 12/04/2019
 ms.author: dibotero
 ---
