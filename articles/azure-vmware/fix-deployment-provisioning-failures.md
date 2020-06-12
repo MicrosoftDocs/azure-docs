@@ -44,7 +44,7 @@ You can retrieve past deployments, including failed ones, by searching in the de
 
 In Notifications, select **More events in the activity log**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="More events in the activity log.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/more-events-in-activity-log.png" alt-text="Link: More events in the activity log.":::
 
 Then search on the name of the resource, or on another unique piece of information you used in creating the resource, to find the failed deployment and its correlation ID. The following example shows search results on a private cloud resource (pc03).
  
