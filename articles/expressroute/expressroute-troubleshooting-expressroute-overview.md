@@ -5,7 +5,7 @@ services: expressroute
 author: rambk
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
