@@ -2,7 +2,7 @@
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure delegated resource management.
 ms.date: 04/24/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Remove access to a delegation

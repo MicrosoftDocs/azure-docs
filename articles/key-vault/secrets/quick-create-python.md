@@ -7,6 +7,7 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.custom: tracking-python
 
 ---
 

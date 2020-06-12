@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/12/2020
 ms.author: memildin
 
 ---
@@ -37,15 +37,14 @@ In addition to these roles, there are two specific Security Center roles:
 
 The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts | View alerts and recommendations |
-|:--- |:---:|:---:|:---:|:---:|
-| Subscription Owner | ✔ | ✔ | ✔ | ✔ |
-| Subscription Contributor | -- | ✔ | ✔ | ✔ |
-| Resource Group Owner | -- | ✔ | -- | ✔ |
-| Resource Group Contributor | -- | ✔ | -- | ✔ |
-| Reader | -- | -- | -- | ✔ |
-| Security Admin | ✔ | -- | ✔ | ✔ |
-| Security Reader | -- | -- | -- | ✔ |
+|Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Edit security policy|-|✔|-|-|✔|
+|Change subscription pricing tier|-|✔|-|-|✔|
+|Enable / disable auto-provisioning|-|✔|✔|-|✔|
+|Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Dismiss alerts|-|✔|-|✔|✔|
+|View alerts and recommendations|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
