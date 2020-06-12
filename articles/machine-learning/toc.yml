@@ -70,7 +70,8 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Create workspaces with Resource Manager templates
+        - name: Create workspaces with ARM template
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
@@ -127,6 +128,8 @@
         href: concept-data.md
       - name: Data ingestion
         href: concept-data-ingestion.md
+      - name: Data processing
+        href: concept-optimize-data-processing.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md

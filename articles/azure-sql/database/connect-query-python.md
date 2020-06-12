@@ -1,21 +1,22 @@
 ---
 title: Use Python to query a database
 description: This topic shows you how to use Python to create a program that connects to a database in Azure SQL Database and query it using Transact-SQL statements.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-python-october2019, sqldbrb=2 
+ms.custom: seo-python-october2019, sqldbrb=2, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ---
-# Quickstart: Use Python to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Python to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use Python to connect to Azure SQL Database or Azure SQL Managed Instance, and use T-SQL statements to query data.
 
 ## Prerequisites
 

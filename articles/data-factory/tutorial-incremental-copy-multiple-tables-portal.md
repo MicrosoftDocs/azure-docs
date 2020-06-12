@@ -10,10 +10,10 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
+ms.date: 05/29/2020
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL database
+# Incrementally load data from multiple tables in SQL Server to an Azure SQL database using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -384,7 +384,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
-1. In the **General** tab, enter **IncrementalCopyPipeline** for **Name**. 
+1. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.  
 
 1. In the **Parameters** tab, do the following steps: 
 

@@ -147,7 +147,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *Can I deploy VMs in my cluster subnet?*
 
-  No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same virtual network, but in a different subnet.
+  Yes.
 
 * *Can I configure per-pod network policies?*
 

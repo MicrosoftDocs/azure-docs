@@ -3,7 +3,7 @@ title: Configure Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to configure the Start/Stop VMs during off-hours feature to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ---
 
@@ -41,11 +41,11 @@ You can enable either targeting the action against a subscription and resource g
 
 1. Run the **ScheduledStartStop_Parent** runbook with **ACTION** set to **start**.
 
-2. Add a comma-separated list of VMs (with no whitespaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
+2. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
 3. Set the **WHATIF** parameter field to True.
 
-4. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1, VM2, VM3).
+4. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs (VM1,VM2,VM3), without spaces between comma-separated values.
 
 5. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
 
@@ -72,11 +72,11 @@ In an environment that includes two or more components on multiple VMs supportin
 
 2. Run the **SequencedStartStop_Parent** runbook with **ACTION** set to **start**.
 
-3. Add a comma-separated list of VMs (with no whitespaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
+3. Add a comma-separated list of VMs (without spaces) in the **VMList** parameter field. An example list is `vm1,vm2,vm3`.
 
 4. Set **WHATIF** to True. 
 
-5. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs.
+5. Configure the `External_ExcludeVMNames` variable with a comma-separated list of VMs, without spaces between comma-separated values.
 
 6. This scenario does not honor the `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupnames` variables. For this scenario, you need to create your own Automation schedule. For details, see [Schedule a runbook in Azure Automation](shared-resources/schedules.md).
 
@@ -123,7 +123,7 @@ When you run the **AutoStop_CreateAlert_Parent** runbook, it verifies that the t
 
 1. Create a new [schedule](shared-resources/schedules.md#create-a-schedule) and link it to the **AutoStop_CreateAlert_Parent** runbook, adding a comma-separated list of VM names to the `VMList` parameter.
 
-2. Optionally, if you want to exclude some VMs from the autostop action, you can add a comma-separated list of VM names to the `External_ExcludeVMNames` variable.
+2. Optionally, if you want to exclude some VMs from the autostop action, you can add a comma-separated list of VM names (without spaces) to the `External_ExcludeVMNames` variable.
 
 ## Configure email notifications
 
@@ -154,13 +154,13 @@ The feature allows you to add VMs to be targeted or excluded.
 
 There are two ways to ensure that a VM is included when the feature runs:
 
-* Each of the parent [runbooks](automation-solution-vm-management.md#runbooks) of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
+* Each of the parent [runbooks](automation-solution-vm-management.md#runbooks) of the feature has a `VMList` parameter. You can pass a comma-separated list of VM names (without spaces) to this parameter when scheduling the appropriate parent runbook for your situation, and these VMs will be included when the feature runs.
 
 * To select multiple VMs, set `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` with the resource group names that contain the VMs you want to start or stop. You can also set the variables to a value of `*` to have the feature run against all resource groups in the subscription.
 
 ### Exclude a VM
 
-To exclude a VM from Stop/start VMs during off-hours, you can add its name to the `External_ExcludeVMNames` variable. This variable is a comma-separated list of specific VMs to exclude from the feature. This list is limited to 140 VMs. If you add more than 140 VMs to this list, VMs that are set to be excluded might be inadvertently started or stopped.
+To exclude a VM from Stop/start VMs during off-hours, you can add its name to the `External_ExcludeVMNames` variable. This variable is a comma-separated list of specific VMs (without spaces) to exclude from the feature. This list is limited to 140 VMs. If you add more than 140 VMs to this list, VMs that are set to be excluded might be inadvertently started or stopped.
 
 ## Modify the startup and shutdown schedules
 

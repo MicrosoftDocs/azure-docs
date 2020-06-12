@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
+ms.date: 05/29/2020
 ---
 
 # Incrementally load data from an Azure SQL database to Azure Blob storage using the Azure portal
@@ -177,7 +177,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile.
 
    ![Get started page of Data Factory UI](./media/doc-common-process/get-started-page.png)    
-3. In the **General** page of the **Properties** window for the pipeline, enter **IncrementalCopyPipeline** name.
+3. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
 
