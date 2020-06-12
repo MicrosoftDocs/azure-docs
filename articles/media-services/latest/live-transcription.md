@@ -21,14 +21,13 @@ ms.author: inhenkel
 
 Azure Media Service delivers video, audio, and text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service delivers the transcribed text in IMSC1.1 compatible TTML. The delivery is packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT.
 
-This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
+Additional charges apply when live transcription is turned on. Please review the pricing information in the Live Video section of the [Media Services pricing page](https://azure.microsoft.com/en-us/pricing/details/media-services/).
 
-> [!NOTE]
-> Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English to text. The API reference for this feature is located below—becasuse it's in preview, the details aren't available with our REST documents.
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
 
 ## Live event regions and languages
 
-Live transcription preview has expanded its availability to many more regions, here is the complete list:
+Live transcription is available in the following regions:
 
 - Southeast Asia
 - West Europe
@@ -39,7 +38,7 @@ Live transcription preview has expanded its availability to many more regions, h
 - West US 2
 - Brazil South
 
-Many additional languages are now available to be transcribed.  This is the list of available languages.
+This is the list of available languages that can be transcribed, use the language code in the API.
 
 | Language | Language code |
 | -------- | ------------- |
@@ -121,16 +120,14 @@ The operation has the following body (where a pass-through Live Event is created
 }
 ```
 
-## Start transcription after live event has started
+## Start or stop transcription after the live event has started
 
-Customers now will be able to start and stop live transcription while the live event is in running state. To turn on live transcriptions or to update the transcription language, you will be updating the live event to include a “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
+Customers are able to start and stop live transcription while the live event is in running state. For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations).
 
-To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
-
-For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations)
+To turn on live transcriptions or to update the transcription language, patch the live event to include a “transcriptions” property. To turn off live transcriptions, remove the “transcriptions” property from the live event object.  
 
 > [!NOTE]
-> Turning the transcription on or off more than once during the live event is not a supported scenario.
+> Turning the transcription on or off **more than once** during the live event is not a supported scenario.
 
 This is the sample call to turn on live transcriptions.
 
@@ -195,9 +192,7 @@ Review the [Dynamic packaging overview](dynamic-packaging-overview.md#to-prepare
 
 For preview, the following are known issues with live transcription:
 
-* The feature is available only in West US 2.
 * Apps need to use the preview APIs, described in the [Media Services v3 OpenAPI Specification](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* The only supported language is English (en-us).
 * With content protection, only AES envelope encryption is supported.
 
 ## Next steps
