@@ -358,14 +358,16 @@
     items:
     - name: Azure AD B2C partner gallery
       href: partner-gallery.md
-    - name: Twilio
-      href: partner-twilio.md
+    - name: Arkose Labs
+      href: partner-arkoselabs.md
+    - name: IDology
+      href: partner-idology.md
     - name: Itsme
       href: partner-itsme.md
-    - name: IPification
-      href: partner-ipification.md
     - name: Trusona
       href: partner-trusona.md
+    - name: Twilio
+      href: partner-twilio.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

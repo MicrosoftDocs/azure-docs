@@ -29,7 +29,7 @@ To get started, you'll need:
 
 Arkose Labs architecture diagram
 
-![Arkose Labs architecture diagram](media/partner-arkose/arkose-architecture-diagram.png)
+![Arkose Labs architecture diagram](media/partner-arkoselabs/arkose-architecture-diagram.png)
 
 ## Onboard with Arkose Labs
 
@@ -85,7 +85,7 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 6. For  **Max age**, enter 200.
 
-   ![Arkose Labs sign-up and sign-in](media/partner-arkose/signup-signin-arkose.png)
+   ![Arkose Labs sign-up and sign-in](media/partner-arkoselabs/signup-signin-arkose.png)
 
 7. Select **Save**
 
@@ -121,7 +121,7 @@ Download Git Bash and follow the steps below:
 
 3. Replace <*appname*> with the app name that you created in Part 2 – step 1.
 
-   ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkose/arkose-azure-cli.png)
+   ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkoselabs/arkose-azure-cli.png)
 
 4. Replace *<public_key*> on line 64 with the public key you obtained from Arkose Labs dashboard.
 
@@ -140,7 +140,7 @@ Download Git Bash and follow the steps below:
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
 This custom page URL is obtained from the location of the index.html file inside the blob storage  
 
-   ![Screenshot showing Arkose Labs storage url](media/partner-arkose/arkose-storage-url.png)
+   ![Screenshot showing Arkose Labs storage url](media/partner-arkoselabs/arkose-storage-url.png)
 
 ## Test the user flow
 

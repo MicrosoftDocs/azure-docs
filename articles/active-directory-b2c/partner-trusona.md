@@ -34,7 +34,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 * Trusona added to Azure AD B2C as an identity provider
 * The downloadable Trusona app
 
-    ![Trusona architecture diagram](media/partner-trusona/trusona-architecture-diagram.png)
+![Trusona architecture diagram](media/partner-trusona/trusona-architecture-diagram.png)
 
 1. A user attempts to sign in to or sign up with the application. The user is authenticated via the Azure AD B2C sign-up and sign-in policy. During sign-up, the user's previously verified email address from the Trusona app is used.
 2. Azure B2C redirects the user to the Trusona OpenID Connect (OIDC) identity provider using the implicit flow.
