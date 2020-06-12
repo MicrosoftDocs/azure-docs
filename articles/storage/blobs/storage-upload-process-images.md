@@ -19,9 +19,9 @@ This tutorial is part one of a series. In this tutorial, you will learn how to d
 
 ![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v10](#tab/nodejsv10)
+# [Node.js v12](#tab/nodejs)
 
-![Image resizer app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in Node.js](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -173,20 +173,20 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# [Node.js v10](#tab/nodejsv10)
+# [Node.js v12](#tab/nodejs)
 
-App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
+App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
 ```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node
 ```
 
 ```powershell
 az webapp deployment source config --name $webapp --resource-group myResourceGroup `
   --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node
 ```
 
 ---
@@ -213,7 +213,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# [Node.js v10](#tab/nodejsv10)
+# [Node.js v12](#tab/nodejs)
 
 The sample web app uses the [Azure Storage Client Library](https://github.com/Azure/azure-storage-js) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -279,16 +279,16 @@ The following classes and methods are used in the preceding task:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# [Node.js v10](#tab/nodejsv10)
+# [Node.js v12](#tab/nodejs)
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
-![Upload Photos in Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
+![Upload Photos in Node.js](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
 - [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler.
-- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [uploadStream](/javascript/api/%40azure/storage-blob/blockblobclient#uploadstream-readable--number--number--blockblobuploadstreamoptions-).
 
 As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 
@@ -296,34 +296,34 @@ As the file is sent to the route, the contents of the file stay in memory until 
 > Loading large files into memory may have a negative effect on your web app's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
 
 ```javascript
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').load();
+}
+
 const {
-  Aborter,
-  BlobURL,
-  BlockBlobURL,
-  ContainerURL,
-  ServiceURL,
-  StorageURL,
-  SharedKeyCredential,
-  uploadStreamToBlockBlob
+  BlobServiceClient,
+  StorageSharedKeyCredential,
+  newPipeline
 } = require('@azure/storage-blob');
 
 const express = require('express');
 const router = express.Router();
+const containerName1 = 'thumbnails';
 const multer = require('multer');
 const inMemoryStorage = multer.memoryStorage();
 const uploadStrategy = multer({ storage: inMemoryStorage }).single('image');
 const getStream = require('into-stream');
-const containerName = 'images';
+const containerName2 = 'images';
 const ONE_MEGABYTE = 1024 * 1024;
 const uploadOptions = { bufferSize: 4 * ONE_MEGABYTE, maxBuffers: 20 };
 const ONE_MINUTE = 60 * 1000;
-const aborter = Aborter.timeout(30 * ONE_MINUTE);
 
-const sharedKeyCredential = new SharedKeyCredential(
+const sharedKeyCredential = new StorageSharedKeyCredential(
   process.env.AZURE_STORAGE_ACCOUNT_NAME,
   process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY);
-const pipeline = StorageURL.newPipeline(sharedKeyCredential);
-const serviceURL = new ServiceURL(
+const pipeline = newPipeline(sharedKeyCredential);
+
+const blobServiceClient = new BlobServiceClient(
   `https://${process.env.AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net`,
   pipeline
 );
@@ -331,31 +331,62 @@ const serviceURL = new ServiceURL(
 const getBlobName = originalName => {
   // Use a random number to generate a unique file name, 
   // removing "0." from the start of the string.
-  const identifier = Math.random().toString().replace(/0\./, ''); 
+  const identifier = Math.random().toString().replace(/0\./, '');
   return `${identifier}-${originalName}`;
 };
 
-router.post('/', uploadStrategy, async (req, res) => {
+router.get('/', async (req, res, next) => {
 
-    const blobName = getBlobName(req.file.originalname);
-    const stream = getStream(req.file.buffer);
-    const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
-    const blobURL = BlobURL.fromContainerURL(containerURL, blobName);
-    const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
+  let viewData;
 
-    try {
+  try {
+    const containerClient = blobServiceClient.getContainerClient(containerName1);
+    const listBlobsResponse = await containerClient.listBlobFlatSegment();
 
-      await uploadStreamToBlockBlob(aborter, stream,
-        blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
-
-      res.render('success', { message: 'File uploaded to Azure Blob storage.' });   
-
-    } catch (err) {
-
-      res.render('error', { message: 'Something went wrong.' });
-
+    for await (const blob of listBlobsResponse.segment.blobItems) {
+      console.log(`Blob: ${blob.name}`);
     }
+
+    viewData = {
+      title: 'Home',
+      viewName: 'index',
+      accountName: process.env.AZURE_STORAGE_ACCOUNT_NAME,
+      containerName: containerName1
+    };
+
+    if (listBlobsResponse.segment.blobItems.length) {
+      viewData.thumbnails = listBlobsResponse.segment.blobItems;
+    }
+  } catch (err) {
+    viewData = {
+      title: 'Error',
+      viewName: 'error',
+      message: 'There was an error contacting the blob storage container.',
+      error: err
+    };
+    res.status(500);
+  } finally {
+    res.render(viewData.viewName, viewData);
+  }
 });
+
+router.post('/', uploadStrategy, async (req, res) => {
+  const blobName = getBlobName(req.file.originalname);
+  const stream = getStream(req.file.buffer);
+  const containerClient = blobServiceClient.getContainerClient(containerName2);;
+  const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+  try {
+    await blockBlobClient.uploadStream(stream,
+      uploadOptions.bufferSize, uploadOptions.maxBuffers,
+      { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
+    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+  } catch (err) {
+    res.render('error', { message: err.message });
+  }
+});
+
+module.exports = router;
 ```
 
 ---
@@ -382,9 +413,9 @@ Navigate back to your app to verify that the image uploaded to the **thumbnails*
 
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v10](#tab/nodejsv10)
+# [Node.js v12](#tab/nodejs)
 
-![Node.js V10 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
