@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 06/12/2019
 ms.author: inhenkel
 
 ---
@@ -26,6 +26,43 @@ This article describes how to enable live transcription when streaming a Live Ev
 > [!NOTE]
 > Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English to text. The API reference for this feature is located below—becasuse it's in preview, the details aren't available with our REST documents.
 
+## Live event regions and languages
+
+Live transcription preview has expanded its availability to many more regions, here is the complete list:
+
+- Southeast Asia
+- West Europe
+- North Europe
+- East US
+- Central US
+- South Central US
+- West US 2
+- Brazil South
+
+Many additional languages are now available to be transcribed.  This is the list of available languages.
+
+| Language | Language code |
+| -------- | ------------- |
+| Catalan  | ca-ES |
+| Danish (Denmark) | da-DK |
+| German (Germany) | de-DE |
+| English (Australia) | en-AU |
+| English (Canada) | en-CA |
+| English (United Kingdom) | en-GB |
+| English (India) | en-IN |
+| English (New Zealand) | en-NZ |
+| English (United States) | en-US |
+| Spanish (Spain) | es-ES |
+| Spanish (Mexico) | es-MX |
+| Finnish (Finland) | fi-FI |
+| French (Canada) | fr-CA |
+| French (Frence) | fr-FR |
+| Italian (Italy) | it-IT |
+| Dutch (Netherlands) | nl-NL |
+| Portuguese (Brazil) | pt-BR |
+| Portuguese (Portugal) | pt-PT |
+| Swedish (Sweden) | sv-SE |
+
 ## Creating the Live Event
 
 To create the Live Event, you send the PUT operation to the 2019-05-01-preview version, for example:
@@ -34,7 +71,7 @@ To create the Live Event, you send the PUT operation to the 2019-05-01-preview v
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property. The only allowed value for language is en-US.
+The operation has the following body (where a pass-through Live Event is created with RTMP as the ingest protocol). Note the addition of a transcriptions property.
 
 ```
 {
@@ -84,11 +121,13 @@ The operation has the following body (where a pass-through Live Event is created
 }
 ```
 
-Poll the status of the Live Event until it goes into the "Running" state, which indicates that you can now send a contribution RTMP feed. You can now follow the same steps as in this tutorial, like checking the preview feed and creating Live outputs.
-
 ## Start transcription after live event has started
 
-Live transcription can be started after a live event has begun. To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
+Customers now will be able to start and stop live transcription while the live event is in running state. To turn on live transcriptions or to update the transcription language, you will be updating the live event to include a “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
+
+To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
+
+For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overvie.mdw#long-running-operations)
 
 > [!NOTE]
 > Turning the transcription on or off more than once during the live event is not a supported scenario.
