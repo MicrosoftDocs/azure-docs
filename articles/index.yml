@@ -1398,7 +1398,7 @@ productDirectory:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
     # Card
-    - title: File Storage
+    - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
