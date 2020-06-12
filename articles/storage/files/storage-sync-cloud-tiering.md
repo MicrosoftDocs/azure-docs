@@ -130,8 +130,9 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ``` 
 
-> [!Note]  
-> If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
+> [!Notes]  
+> - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
+>- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
 <a id="sizeondisk-versus-size"></a>
 ### Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync? 
