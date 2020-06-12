@@ -8,7 +8,7 @@ author: johndowns
 ms.service: api-management
 ms.topic: article
 ms.date: 06/12/2020
-ms.author: johndowns
+ms.author: jodowns
 ms.custom: fasttrack-new
 ---
 # Versions in Azure API Management
