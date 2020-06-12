@@ -127,7 +127,7 @@ Customers now will be able to start and stop live transcription while the live e
 
 To turn on live transcriptions, patch the live event to include the “transcriptions” property. To turn off live transcriptions, the “transcriptions” property will be removed from the live event object.
 
-For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overvie.md#long-running-operations)
+For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations)
 
 > [!NOTE]
 > Turning the transcription on or off more than once during the live event is not a supported scenario.
