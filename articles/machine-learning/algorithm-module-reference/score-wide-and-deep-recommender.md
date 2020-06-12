@@ -15,11 +15,11 @@ ms.date: 06/12/2020
 
 This article describes how to use the **Score Wide and Deep Recommender** module in Azure Machine Learning designer (preview), to create predictions based on a trained recommendation model, based on the Wide & Deep learning from Google.
 
-The Wide and Deep recommender can generate four different kinds of predictions:
+The Wide and Deep recommender can generate two different kinds of predictions:
 
-- [Predict ratings for a given user and item](#RatingPredictionOptions)
+- [Predict ratings for a given user and item](#predict-ratings)
 
-- [Recommend items to a given user](#ItemRecommendationOptions)
+- [Recommend items to a given user](#recommend-items)
 
 
 When creating the latter kind of predictions, you can operate in either *production mode* or *evaluation mode*.
