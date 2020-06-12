@@ -168,7 +168,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-1.0.0/status
+/var/log/azure/applicationhealth-extension
 ```
 
 The logs also periodically capture the application health status.
