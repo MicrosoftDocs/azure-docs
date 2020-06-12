@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Skillset concepts and composition in Azure Cognitive Search
+# Skillsets in Azure Cognitive Search
 
 This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with:
 + [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)

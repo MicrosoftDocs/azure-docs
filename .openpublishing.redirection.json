@@ -14262,6 +14262,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/cloudfoundry-get-started.md",
+      "redirect_url": "/azure/cloudfoundry/cloudfoundry-get-started",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/guidance/guidance-multitenant-identity-claims.md",
       "redirect_url": "/azure/architecture/multitenant-identity/claims",
       "redirect_document_id": false
@@ -23713,8 +23718,13 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-cloudfoundry-get-started.md",
-      "redirect_url": "/azure/virtual-machines/linux/cloudfoundry-get-started",
+      "redirect_url": "/azure/cloudfoundry/cloudfoundry-get-started",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/linux/cloudfoundry-deploy-your-first-app.md",
+      "redirect_url": "/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-compute-benchmark-scores.md",
@@ -51639,6 +51649,11 @@
       "source_path": "articles/sql-data-warehouse/guidance-for-loading-data.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql/data-loading-overview.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/performance-tuning-materialized-views.md",
