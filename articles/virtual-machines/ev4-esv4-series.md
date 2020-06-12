@@ -12,7 +12,7 @@ ms.date: 6/8/2020
 
 ---
 
-# Ev4, and Esv4-series
+# Ev4 and Esv4-series
 
 The Ev4, Edv4, Edv4 and Edsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, and are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM.
 
