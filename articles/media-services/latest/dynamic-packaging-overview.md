@@ -131,9 +131,9 @@ Dynamic packaging supports audio that's encoded with the following protocols:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, or HE-AAC v2)
 * [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3)
-* Dolby Atmos<br />
-   Streaming Dolby Atmos content is supported for standards like the MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+* Dolby Atmos
 
+   Streaming Dolby Atmos content is supported for standards like the MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
 * [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)<br />
    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
 
@@ -148,9 +148,12 @@ Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or 
 
 #### iOS limitation on AAC 5.1 audio
 
-Apple iOS devices do not to support 5.1 AAC. Only Dolby Digital or DD+  are supported.  
+Apple iOS devices do not to support 5.1 AAC audio codec. Only Dolby Digital or DD+ codecs are supported.  
 
-For more information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
+For detailed information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
+
+> [!NOTE]
+> Media Services does not support *Dolby Digital Plus with Dolby Atmos* multichannel audio formats.
 
 #### Dolby Digital audio
 
