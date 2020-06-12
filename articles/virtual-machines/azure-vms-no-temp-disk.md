@@ -14,7 +14,7 @@ ms.date: 06/08/2020
 
 This article provides answers to frequently asked questions about Azure VM sizes that do not have a local temporary disk.
 
-For more information about these VM sizes, see the specifications for the [Dv4, Dsv4-series](dv4-dsv-series.md) or the [Ev4, Esv4-series](ev4-esv4-series.md) 
+For more information about these VM sizes, see the specifications for the [Dv4, Dsv4-series](dv4-dsv4-series.md) or the [Ev4, Esv4-series](ev4-esv4-series.md) 
 
 > [!NOTE]
 > If you have questions or feedback, you can reach out by filling out this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u) and we will get back to you.
