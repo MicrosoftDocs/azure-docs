@@ -107,18 +107,46 @@ The next step is making sure that the remote training run has all the dependenci
 ```python
 from azureml.core.runconfig import RunConfiguration
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-aml_run_config.environment.python.user_managed_dependencies = False
 
-# Add some packages relied on by data prep step
-aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-    conda_packages=['pandas','scikit-learn'], 
-    pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
-    pin_sdk_version=False)
+USE_CURATED_ENV = True
+if USE_CURATED_ENV :
+    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    aml_run_config.environment = curated_environment
+else:
+    aml_run_config.environment.python.user_managed_dependencies = False
+    
+    # Add some packages relied on by data prep step
+    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+        conda_packages=['pandas','scikit-learn'], 
+        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pin_sdk_version=False)
 ```
+
+The code above shows two options for handling dependencies. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. This is the path chosen above if `USE_CURATED_ENV = True`. If you set that value to `False`, the code above shows the pattern for explicitly setting your dependencies.
+
+You can search the curated environments to see which have particular pip-installed packages.
+
+```python
+def env_contains(e, deps) : 
+    def env_contains_single(e, dep) : 
+        return True in (dep in p for p in e.python.conda_dependencies.pip_packages)
+    return not (False in (env_contains_single(e, dep) for dep in deps))
+
+def envs_containing(deps) : 
+    for name in ws.environments :
+        if env_contains(ws.environments[name], deps) : 
+            yield name
+
+list(envs_containing(['automl']))
+# ['AzureML-Tutorial', 'AzureML-AutoML', 'AzureML-Hyperdrive-ForecastDNN', 'AzureML-AutoML-DNN']
+```
+
+The `Workspace` object references the curated environments in `ws.environments`. Each `Environment` object, in turn, has a `python.conda_dependencies.pip_packages` list. The `env_contains` function above returns `True` if all of the specified dependencies exist in a particular environment. The `envs_containing` function returns all of the curated environments in the `Workspace` that have all of the packages installed.
 
 ## Prepare data for automated machine learning
 
