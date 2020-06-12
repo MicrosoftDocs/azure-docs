@@ -64,11 +64,11 @@ Migration is the process of changing authoring authentication from an email acco
 > [!div class="mx-imgBorder"]
 > ![Migration icon](./media/migrate-authoring-key/migration-button.png)
 
-1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
+2. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
 
 ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
+3. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
 
 For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
 
@@ -86,7 +86,7 @@ For each collaborator and app, the default email application opens with a lightl
         > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
 
-1. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
+4. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
 
 > [!div class="mx-imgBorder"]
 > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
