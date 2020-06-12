@@ -8,9 +8,7 @@ ms.topic: how-to
 
 Before creating custom policy definitions, it's a good idea to read the conceptual overview information at [Azure Policy Guest Configuration](../concepts/guest-configuration.md). To learn about creating custom Guest Configuration policies for Linux, see [How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md). To learn about creating custom Guest Configuration policies for Windows, see [How to create Guest Configuration policies for Windows](./guest-configuration-create.md). 
 
-When auditing Windows, Guest Configuration uses a [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to create the configuration file. The DSC configuration defines the condition that the machine should be in. If the evaluation of the configuration is **non-compliant**, the policy effect **auditIfNotExists** is triggered.
-
-[Azure Policy Guest Configuration](../concepts/guest-configuration.md) only audits settings inside machines. Remediation of settings inside machines isn't yet available. Use the following actions to create your own configuration for validating the state of an Azure machine.
+When auditing Windows, Guest Configuration uses a [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to create the configuration file. The DSC configuration defines the condition that the machine should be in. If the evaluation of the configuration is **non-compliant**, the policy effect **auditIfNotExists** is triggered. [Azure Policy Guest Configuration](../concepts/guest-configuration.md) only audits settings inside machines. Note, remediation of settings inside machines isn't yet available. 
 
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
@@ -19,9 +17,9 @@ When auditing Windows, Guest Configuration uses a [Desired State Configuration](
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 >   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-The DSC community has published the BaselineManagement module to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration Cmdlet, the BaselineManagement creates Azure Policy for auditing from Windows Group Policy content. For details about using the BaselineManagement tool, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+The DSC community has published the BaselineManagement module to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration Cmdlet, the BaselineManagement creates Guest Configuration Azure Policy for Windows from Group Policy content. For details about using the BaselineManagement tool, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
 
-In this guide, we walk through the complete process of starting from a Group Policy Object (GPO) to creating an Azure Guest Configuration Policy. The walkthrough specifically outlines the process of converting the Server 2019 baseline GPO, but the same process can be applied to other group policy objects.  
+In this guide, we walk through the complete process of starting from a Group Policy Object (GPO) to creating an Azure Guest Configuration Policy. The walkthrough specifically outlines the process of converting the Server 2019 baseline GPO, but the same process can be applied to other GPO's.  
 
 ## Download Server 2019 Baseline and install related PowerShell modules
 
@@ -66,7 +64,7 @@ Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration 
    ConvertFrom-GPO -Path 'C:\git\policyfiles\downloads\GPOs\{3657C7A2-3FF3-4C21-9439-8FDF549F1D68}\' -OutputPath 'C:\git\policyfiles\' -OutputConfigurationScript -Verbose
    ```
 
-1. Rename and reformat the converted scripts to create a policy content package:
+1. Rename, reformat, and run the converted scripts before creating a policy content package:
 
    ```azurepowershell-interactive
    Rename-Item -Path C:\git\policyfiles\DSCFromGPO.ps1 -NewName C:\git\policyfiles\Server2019Baseline.ps1
@@ -145,30 +143,30 @@ The next step is to publish the file to blob storage.
 
    ```azurepowershell-interactive
    $uri = publish `
-            -resourceGroup $resourceGroup `
-            -storageAccountName $storageAccount `
-            -storageContainerName $storageContainer `
-            -filePath $path `
-            -blobName $blob
-            -FullUri
+   	-resourceGroup $resourceGroup `
+   	-storageAccountName $storageAccount `
+   	-storageContainerName $storageContainer `
+   	-filePath $path `
+   	-blobName $blob
+   	-FullUri
     ```
 
-1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest Configuration policy definition. To create the Guest Configuration, we use the `New-GuestConfigurationPolicy` cmdlet:
+1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the Guest Configuration:
 
-```azurepowershell-interactive
-New-GuestConfigurationPolicy `
-	-ContentUri $Uri `
+   ```azurepowershell-interactive
+   New-GuestConfigurationPolicy `
+   	-ContentUri $Uri `
 	-DisplayName 'Server 2019 Configuration Baseline' `
 	-Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
 	-Path C:\git\policyfiles\policy  `
 	-Platform Windows 
-```
+   ```
 	
 1. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet only has the **Path** parameter that points to the location of the JSON files created by `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policies in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md#getting-started) page. The best built-in role is **Resource Policy Contributor**.
 
-```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
-```
+   ```azurepowershell-interactive
+   Publish-GuestConfigurationPolicy -Path C:\git\policyfiles\policy\ -Verbose
+   ```
 
 ## Assign Guest Configuration policy definition
 
@@ -187,18 +185,18 @@ access. To grant the least privilege, you can create a custom role definition th
 **Resource Policy Contributor**. The example below creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
 
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+   ```azurepowershell-interactive
+   $subscriptionid = '00000000-0000-0000-0000-000000000000'
+   $role = Get-AzRoleDefinition "Resource Policy Contributor"
+   $role.Id = $null
+   $role.Name = "Resource Policy Contributor DINE"
+   $role.Description = "Can assign Policies that require remediation."
+   $role.Actions.Clear()
+   $role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
+   $role.AssignableScopes.Clear()
+   $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
+   New-AzRoleDefinition -Role $role
+   ```
 
 ## Next steps
 
