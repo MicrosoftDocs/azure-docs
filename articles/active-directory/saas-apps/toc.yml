@@ -1242,6 +1242,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proto.io
+        href: proto.io-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
