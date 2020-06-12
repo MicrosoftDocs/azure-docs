@@ -51,25 +51,30 @@ When streaming via RTMP, check firewall and/or proxy settings to confirm that ou
 When streaming via RTMPS, check firewall and/or proxy settings to confirm that outbound TCP ports 2935 and 2936 are open.
 
 > [!NOTE]
-> Encoders must support TLS 1.2 when using RTMPS protocols.
+> Encoders must support TLS 1.2 when using the RTMPS protocols.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Blackmagic ATEM Mini and ATEM Mini PRO](https://www.blackmagicdesign.com/products/atemmini)
 - [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
 - Elemental Live (version 2.14.15 and higher)
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
 - Haivision KB
 - Haivision Makito X HEVC
+- [Restream.io](https://restream.io/)
 - OBS Studio
-- Switcher Studio (iOS)
+- [Streamlabs OBS](https://streamlabs.com/)
+- [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
-- Telestream Wirecast S (only RTMP is supported)
+- Telestream Wirecast S (only RTMP is supported. No RTMPS support due to lack of TLS 1.2+)
 - Teradek Slice 756
 - VMIX
 - xStream
-- [Ffmpeg](https://www.ffmpeg.org)
-- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
-- [Restream.io](https://restream.io/)
 
-## Live encoders that output fragmented MP4
+> [!WARNING]
+> The above list of encoders is just a recommendation list. Encoders are not tested or validated by Microsoft on a continual basis and updates or breaking changes can be introduced by encoder vendors or open source projects that could break compatibility. 
+
+## Live encoders that output fragmented MP4 (Smooth Streaming ingest)
 
 Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented MP4) as output. The supported URL schemes are `http://` or `https://`.
 
@@ -80,12 +85,15 @@ Media Services recommends using one of the following live encoders that have mul
 - Cisco Digital Media Encoder 2200
 - Elemental Live (version 2.14.15 and higher due to the TLS 1.2 requirement)
 - Envivio 4Caster C4 Gen III 
+- [Ffmpeg](https://www.ffmpeg.org)
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
-- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  If you are streaming live events in multiple languages (for example, one English audio track and one Spanish audio track), you can accomplish this with the Media Excel live encoder configured to send the live feed to a pass-through Live Event.
+
+> [!WARNING]
+> The above list of encoders is just a recommendation list. Encoders are not tested or validated by Microsoft on a continual basis and support or bugs can be introduced by the encoder vendors or open source projects that break compatibility at any time. 
 
 ## Configuring on-premises live encoder settings
 
@@ -101,8 +109,10 @@ To play back content, both an audio and video stream must be present. Playback o
 - When you're determining bandwidth requirements, double the streaming bitrates. Although not mandatory, this simple rule helps to mitigate the impact of network congestion.
 - When using software-based encoders, close out any unnecessary programs.
 - Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
+- Always test and validate newer versions of encoder software for continued compatibility with Azure Media Services. Microsoft does not re-validate encoders on this list, and most validations are done by the software vendors directly as a "self-certification."
 - Ensure that you give yourself ample time to set up your event. For high-scale events, we recommend starting the setup an hour before your event.
-- Use the H.264 video and AAC audio codec output.
+- Use the H.264 video and AAC-LC audio codec output.
+- Stick to supported resolutions and frame rates for the type of Live Event you are broadcasting to (for example, 60fps is currently rejected.)
 - Ensure that there is key frame or GOP temporal alignment across video qualities.
 - Make sure there is a unique stream name for each video quality.
 - Use strict CBR encoding recommended for optimum adaptive bitrate performance.
