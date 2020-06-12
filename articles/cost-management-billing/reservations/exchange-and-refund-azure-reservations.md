@@ -8,17 +8,16 @@ ms.date: 06/12/2020
 ms.author: banders
 ---
 
->[!NOTE]
->We currently are not charging early termination fees on reservation refunds. We might charge the fees on refunds made in future. We currently don't have a date for enabling this fee.
-
-
 # Self-service exchanges and refunds for Azure Reservations
 
-Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type, that is a virtual machine reservation can be exchanged to purchase reservation for any virtual machine size or region. Likewise, a SQL PaaS Database reservation can be exchanged to purchase any reservation for any SQL PaaS Database type or region. You can also refund reservations; the sum total of cancelled reservation commitment cannot exceed USD 50,000 in a 12 month rolling window. Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and SUSE Linux plans are not eligible for refunds.   
+Azure Reservations provide flexibility to help meet your evolving needs. You can exchange a reservation for another reservation of the same type, that is a virtual machine reservation can be exchanged to purchase reservation for any virtual machine size or region. Likewise, a SQL PaaS Database reservation can be exchanged to purchase any reservation for any SQL PaaS Database type or region. You can also refund reservations but the sum total of canceled reservation commitment can't exceed USD 50,000 in a 12 month rolling window. Azure Databricks reserved capacity, Azure VMware solution by CloudSimple reservation, Azure Red Hat Open Shift reservation, Red Hat plans and, SUSE Linux plans aren't eligible for refunds.
 
-Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and CSP are supported.
+Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and Cloud Solution Provider (CSP) are supported.
 
 You must have owner access on the Reservation Order to exchange or refund an existing reservation. You can [Add or change users who can manage a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+
+> [!NOTE]
+> Microsoft is not currently charging early termination fees on reservation refunds. We might charge the fees on refunds made in future. We currently don't have a date for enabling this fee.
 
 ## How to exchange or refund an existing reservation
 
@@ -45,7 +44,7 @@ First, Microsoft cancels the existing reservation and refunds the pro-rated amou
 
 Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
-If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all subsequent invoices are re-opened and re-adjusted. Microsoft issues a credit memo for the refunds.
+If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all later invoices are reopened and readjusted. Microsoft issues a credit memo for the refunds.
 
 ### Pay-as-you-go invoice payments and CSP program
 
@@ -65,16 +64,16 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 - Only reservation owners can process an exchange. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 - You can exchange or refund reservations even if the enterprise agreement used to purchase the reservation is expired and was renewed as a new agreement.
-- The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a 3-year reservation that's 100$ per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be 1,800$ or more (paid monthly or upfront).   
+- The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 - The new reservation purchased as part of exchange has a new term starting from the time of exchange.
 - There's no penalty or annual limits for exchanges.
 
 **Refund policies**
-- We are currently not charging early termination fee, but may be a 12%  fee for cancellations in future.
-- Total cancelled commitment can't exceed 50,000 USD in a 12-month rolling window. Example: for a 3-year reservation that's 100 USD per month and refunded in the 18th month, the cancelled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from this refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD.  Any other reservation cancellation will deplete the same pool, and the same replenishment logic will apply.    
+
+- We're currently not charging early termination fee, but may be a 12%  fee for cancellations in future.
+- Total canceled commitment can't exceed 50,000 USD in a 12-month rolling window. Example: for a three-year reservation that's 100 USD per month and refunded in the 18th month, the canceled commitment is 1,800 USD. After the refund, your new available limit for refund will be 48,200 USD. In 365 days from this refund, the 48,200 USD limit will be increased by 1,800 USD and your new pool will be 50,000 USD. Any other reservation cancellation will deplete the same pool, and the same replenishment logic will apply.
 - Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation order owners can process a refund. [Learn how to Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-
 
 ## Need help? Contact us.
 
@@ -90,4 +89,4 @@ If you have questions or need help, [create a support request](https://portal.az
     - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
     - [Windows software costs not included with reservations](reserved-instance-windows-software-costs.md)
-    - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
+    - [Azure Reservations in the CSP program](/partner-center/azure-reservations)
