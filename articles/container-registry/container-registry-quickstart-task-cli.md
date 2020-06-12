@@ -32,14 +32,15 @@ az group create --name myResourceGroup --location eastus
 Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry008* is used. Update this to a unique value.
 
 ```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry008 --sku Basic
 ```
 
 This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
-## Build an image from a Dockerfile
+## Build and push image from a Dockerfile
 
-Now use Azure Container Registry to build an image. First, create a working directory and then create a Dockerfile named *Dockerfile* with the following content. This is a simple example to build a Linux container image, but you can create your own standard Dockerfile and build images for other platforms. Command examples in this article are formatted for the bash shell.
+Now use Azure Container Registry to build and push an image. First, create a working directory and then create a Dockerfile named *Dockerfile* with the single line: `FROM hello-world`. This is a simple example to build a Linux container image from the `hello-world` image in Docker Hub. You can create your own standard Dockerfile and build images for other platforms. If you are working at a bash shell, create the Dockerfile with the following command:
 
 ```bash
 echo FROM hello-world > Dockerfile
