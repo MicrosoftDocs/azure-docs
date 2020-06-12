@@ -1,16 +1,16 @@
 ---
 title: Block connections in logic app workflows
-description: Lock down or prevent using specific connectors to create connections in Azure Logic Apps
+description: Restrict API connections created by managed connectors in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/13/2020
 ---
 
-# Block connections created by specific connectors in Azure Logic Apps
+# Block connections created by managed connectors in Azure Logic Apps
 
-If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can prevent creating those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce a [policy](../governance/policy/overview.md#policy-definition) that blocks creating connections through those connectors. For example, for security reasons, you might want to prohibit connections to specific social media platforms or other services.
+If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can block the capability to create those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce a [policy](../governance/policy/overview.md#policy-definition) that prevents people from creating connections with blocked connectors. For example, for security reasons, you might want to prohibit connections to specific social media platforms or other services.
 
 This topic shows how to set up a policy in the Azure portal for blocking specific connections, but you can also create policy definitions in other ways, such as through the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
@@ -166,6 +166,40 @@ If you already have a logic app with the connection that you want to block, foll
     ```
 
    ![Policy definition for a connector](./media/block-creating-connections-with-connectors/policy-definition-basics-2.png)
+
+   For multiple connectors, you can add more conditions, for example:
+
+   ```json
+   {
+      "mode": "All",
+      "policyRule": {
+         "if": {
+            "anyOf": [
+               {
+                  "field": "Microsoft.Web/connections/api.id",
+                  "like": "*managedApis/instagram"
+               },
+               {
+                  "field": "Microsoft.Web/connections/api.id",
+                  "like": "*managedApis/twitter"
+               },
+               {
+                  "field": "Microsoft.Web/connections/api.id",
+                  "like": "*managedApis/facebook"
+               },
+               {
+                  "field": "Microsoft.Web/connections/api.id",
+                  "like": "*managedApis/pinterest"
+               }
+            ]
+         },
+         "then": {
+            "effect": "deny"
+         }
+      },
+      "parameters": {}
+    }
+    ```
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
