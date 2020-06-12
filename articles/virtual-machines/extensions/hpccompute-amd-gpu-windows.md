@@ -5,9 +5,6 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
