@@ -12,7 +12,7 @@ ms.author: allensu
 
 # Quickstart: Create a private endpoint by using an Azure Resource Manager template
 
-In this quickstart, you use an Azure Resource Manager template to create an private endpoint.
+In this quickstart, you use an Azure Resource Manager template to create a private endpoint.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
