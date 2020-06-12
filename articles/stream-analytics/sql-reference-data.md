@@ -34,7 +34,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    ![SQL Database reference configuration](./media/sql-reference-data/sql-input-config.png)
 
-3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../sql-database/sql-database-connect-query-portal.md)
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
 
 ### Specify storage account in Job config
 
@@ -63,7 +63,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Create a SQL Database table
 
-Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL database using SSMS](../sql-database/sql-database-design-first-database.md) for details.
+Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL database using SSMS](../azure-sql/database/design-first-database-tutorial.md) for details.
 
 The example table used in the following example was created from the following statement:
 
@@ -123,7 +123,7 @@ Before deploying the job to Azure, you can test the query logic locally against 
 
 ## Delta query
 
-When using the delta query, [temporal tables in Azure SQL Database](../sql-database/sql-database-temporal-tables.md) are recommended.
+When using the delta query, [temporal tables in Azure SQL Database](../azure-sql/temporal-tables.md) are recommended.
 
 1. Create a temporal table in Azure SQL Database.
    
@@ -155,11 +155,11 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
    For records that were updated, the temporal table does bookkeeping by capturing an insertion and deletion operation. The Stream Analytics runtime will then apply the results of the delta query to the previous snapshot to keep the reference data up to date. An example of delta query is show below:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

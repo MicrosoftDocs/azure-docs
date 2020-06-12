@@ -1,5 +1,5 @@
 ---
-title: Commercial marketplace transact capabilities
+title: Microsoft commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
 author: dsindona
 ms.service: marketplace
@@ -48,7 +48,7 @@ Depending on the transaction option used, software license fees are as follows:
 - **Free** – No charge for software licenses.
 - **Bring your own license** (BYOL) – Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. This applies to Virtual Machines and Azure Applications only.
 - **Pay-as-you-go** – Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This applies to Virtual Machines and Azure Applications only.
-- **Subscription pricing** – Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This applies to SaaS Apps and Azure Applications - Managed Apps only.
+- **Subscription pricing** – Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This applies to SaaS Apps (monthly or annual) and Azure Applications - Managed Apps (monthly) only.
 - **Free software trial** – No charge for software licenses for 30 or 90 days.
 
 ### Free and bring-your-own-license (BYOL) pricing
@@ -160,7 +160,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 For more information and legal policies, see the [Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt) (available in Partner Center).
 
-For help on billing questions, contact [commercial marketplace publisher support](https://partner.microsoft.com/support/v2/?stage=1).
+For help on billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
 
 ## Transact requirements
 

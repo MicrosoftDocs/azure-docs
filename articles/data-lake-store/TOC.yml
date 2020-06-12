@@ -170,7 +170,7 @@
   - name: Python (Account Mgmt.)
     href: https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python
   - name: Python (Filesystem Mgmt.)
-    href: https://azure-datalake-store.readthedocs.io/en/latest
+    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: REST
     href: /rest/api/datalakestore
   - name: Resource Manager template
@@ -185,8 +185,8 @@
     href: https://blogs.msdn.microsoft.com/azuredatalake/
   - name: Give feedback on UserVoice
     href: https://feedback.azure.com/forums/327234-data-lake
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-lake-store/
   - name: Pricing calculator

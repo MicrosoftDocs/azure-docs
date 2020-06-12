@@ -10,7 +10,8 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-two-with-js-go
+ms.custom: tracking-python
+zone_pivot_groups: programming-languages-set-two-with-js-go-spx
 ---
 
 # Quickstart: Recognize speech from a microphone
@@ -54,6 +55,18 @@ zone_pivot_groups: programming-languages-set-two-with-js-go
 [!INCLUDE [Python Header](../includes/quickstarts/from-microphone/python/header.md)]
 
 [!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
+
+::: zone-end
+
+::: zone pivot="programmer-tool-spx"
+
+[!INCLUDE [SPX Header](../includes/quickstarts/from-microphone/spx/header.md)]
+
+[!INCLUDE [](../includes/spx-setup.md)]
+
+[!INCLUDE [spx](../includes/quickstarts/from-microphone/spx/spx.md)]
+
+[!INCLUDE [next steps to spx basics](../includes/quickstarts/spx-next-steps.md)]
 
 ::: zone-end
 

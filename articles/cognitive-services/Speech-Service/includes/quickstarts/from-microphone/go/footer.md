@@ -7,4 +7,4 @@ ms.author: travisw
 ---
 
 > [!div class="nextstepaction"]
-> [Explore Go samples on GitHub](https://aka.ms/speech/github-go)
+> [Explore Go samples on GitHub](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)

@@ -144,7 +144,7 @@ To create your own regional disaster recovery topology, follow these requirement
    clusters_list = []
    ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
 
-   for cluster_info in clusters_info_list: 
+   for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
 
@@ -170,7 +170,7 @@ To create your own regional disaster recovery topology, follow these requirement
       cluster_json_keys = cluster_req_json.keys()
 
       #Don't migrate Job clusters
-      if cluster_req_json['cluster_source'] == u'JOB' : 
+      if cluster_req_json['cluster_source'] == u'JOB' :
          print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
          print ("---------------------------------------------------------")
          continue
@@ -182,10 +182,10 @@ To create your own regional disaster recovery topology, follow these requirement
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
-      strCurrentClusterFile = "tmp_cluster_info.json" 
+      strCurrentClusterFile = "tmp_cluster_info.json"
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
@@ -201,7 +201,7 @@ To create your own regional disaster recovery topology, follow these requirement
       print ("---------------------------------------------------------")
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
@@ -302,7 +302,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 ## Disaster recovery for your Azure ecosystem
 
-If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Database](../azure-sql/database/disaster-recovery-guidance.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## Next steps
 

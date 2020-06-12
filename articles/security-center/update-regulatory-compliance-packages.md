@@ -24,7 +24,7 @@ Azure Security Center continually compares the configuration of your resources w
 
 Industry standards, regulatory standards, and benchmarks are represented in Security Center as *compliance packages*.  Each package is an initiative defined in Azure Policy. To see compliance data mapped as assessments in your dashboard, add a compliance package to your management group or subscription from within the **Security policy** page. (Learn more about Azure Policy and initiatives in [Working with security policies](tutorial-security-policy.md).)
 
-When you've onboarded a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
+When you've onboarded a standard or benchmark to your selected scope, it assigns the initiative to the scope and the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been onboarded.
 
 Microsoft also tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative (new policies that map to more controls in the standard), the additional content appears automatically in your dashboard.
 

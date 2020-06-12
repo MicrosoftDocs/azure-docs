@@ -57,7 +57,7 @@ Consider re-recording any utterances with low pronunciation scores or poor signa
 
 After your dataset has been validated, you can use it to build your custom voice model.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > Training**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Training**.
 
 2.	Click **Train model**.
 
@@ -101,7 +101,7 @@ If you are using the neural voice training capability, you can select to train a
 
 After your voice font is successfully built, you can test it before deploying it for use.
 
-1.	Navigate to **Text-to-Speech > Custom Voice > Testing**.
+1.	Navigate to **Text-to-Speech > Custom Voice > [name of project] > Testing**.
 
 2.	Click **Add test**.
 

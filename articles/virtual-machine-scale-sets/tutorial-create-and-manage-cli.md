@@ -162,6 +162,9 @@ CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20170925   7.3.20170925
 
 To deploy a scale set that uses a specific image, use the value in the *Urn* column. When you specify the image, the image version number can be replaced with *latest*, which selects the latest version of the distribution. In the following example, the `--image` argument is used to specify the latest version of a CentOS 7.3 image.
 
+> [!IMPORTANT]
+> We recommend using the *latest* image version. Specify 'latest' to use the latest version of an image available at deploy time. Note, even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+
 As it takes a few minutes to create and configure all the scale set resources and VM instances, you don't have to deploy the following scale set:
 
 ```azurecli-interactive

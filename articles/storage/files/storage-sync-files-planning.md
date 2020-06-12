@@ -249,9 +249,7 @@ Based on your organization's policy or unique regulatory requirements, you may r
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-To learn more about configuring the networking functionality of Azure File Sync, see:
-- [Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md)
-- [Ensuring Azure File Sync is a good neighbor in your datacenter](storage-sync-files-server-registration.md)
+To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](storage-sync-files-networking-overview.md).
 
 ## Encryption
 When using Azure File Sync, there are three different layers of encryption to consider: encryption on the at-rest storage of Windows Server, encryption in transit between the Azure File Sync agent and Azure, and encryption at rest of your data in the Azure file share. 
@@ -270,7 +268,7 @@ Azure File Sync does not interoperate with NTFS Encrypted File System (NTFS EFS)
 ### Encryption in transit
 
 > [!NOTE]
-> Azure File Sync service will remove support for TLS1.0 and 1.1 in August 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions in August 2020.  For more information, see the [troubleshooting guide](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
 
 Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP. 
 
@@ -353,7 +351,7 @@ If you have an existing Windows file server, Azure File Sync can be directly ins
 
 It is also possible to use Data Box to migrate data into an Azure File Sync deployment. Most of the time, when customers want to use Data Box to ingest data, they do so because they think it will increase the speed of their deployment or because it will help with constrained bandwidth scenarios. While it's true that using a Data Box to ingest data into your Azure File Sync deployment will decrease bandwidth utilization, it will likely be faster for most scenarios to pursue an online data upload through one of the methods described above. To learn more about how to use Data Box to ingest data into your Azure File Sync deployment, see [Migrate data into Azure File Sync with Azure Data Box](storage-sync-offline-data-transfer.md).
 
-A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. Many Azure copy tools, such as AzCopy, have the additional downside of not copying all of the important metadata of a file such as timestamps and ACLs.
+A common mistake customers make when migrating data into their new Azure File Sync deployment is to copy data directly into the Azure file share, rather than on their Windows file servers. Although Azure File Sync will identify all of the new files on the Azure file share, and sync them back to your Windows file shares, this is generally considerably slower than loading data through the Windows file server. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file such as timestamps and ACLs.
 
 ## Antivirus
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 

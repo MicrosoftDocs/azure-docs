@@ -8,7 +8,7 @@ ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, references_regions
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
@@ -151,7 +151,7 @@ For more information, see the [Traffic API documentation](https://docs.microsoft
 
 ### IP to Location service
 
-Use the IP to Location service to preview the retrieved two-letter country code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+Use the IP to Location service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details on the IP to Location service in the REST API, read the [Azure Maps Geolocation API documentation](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -176,7 +176,7 @@ The Azure Maps APIs are currently available in all countries and regions except 
 * China
 * South Korea
 
-Verify that the location of your current IP address is in a supported country.
+Verify that the location of your current IP address is in a supported country/region.
 
 ## Next steps
 

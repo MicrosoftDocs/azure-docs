@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to create an Azure Kubernetes Ser
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-
+ms.custom: references_regions
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes in the Azure portal
@@ -150,8 +150,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Run the application with the [kubectl apply][kubectl-apply] command.

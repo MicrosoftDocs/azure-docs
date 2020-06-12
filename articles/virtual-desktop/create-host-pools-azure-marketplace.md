@@ -13,7 +13,7 @@ manager: lizross
 # Tutorial: Create a host pool with the Azure portal
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any articles you create with Windows Vritual Desktop Fall 2019 can't be managed with the Azure portal.
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Windows Virtual Desktop Fall 2019 can't be managed with the Azure portal.
 >
 > The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -106,7 +106,7 @@ To set up your virtual machine within the host pool setup process:
 
     - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
 
-      - Windows 10 Enterprise multi-session, Version 1909 + Office 365 ProPlus – Gen 1
+      - Windows 10 Enterprise multi-session, Version 1909 + Microsoft 365 Apps for enterprise – Gen 1
       - Windows 10 Enterprise multi-session, Version 1909 – Gen 1
       - Windows Server 2019 Datacenter - Gen1
 

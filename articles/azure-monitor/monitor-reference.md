@@ -23,11 +23,14 @@ Insights provide a customized monitoring experience for particular applications 
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Extensible Application Performance Management (APM) service to monitor your live web application on any platform. |
 | [Azure Monitor for Containers](insights/container-insights-overview.md) | Monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). |
-| [Azure Monitor for Cosmos DB (preview)](insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
+| [Azure Monitor for Cosmos DB](insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
 | [Azure Monitor for Networks (preview)](insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
 [Azure Monitor for Resource Groups (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
-| [Azure Monitor for Storage (preview)](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
-| [Azure Monitor for VMs ](insights/container-insights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
+| [Azure Monitor for Storage](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
+| [Azure Monitor for VMs](insights/container-insights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
+| [Azure Monitor for Key Vault (preview)](insights/key-vaults-insights-overview.md) | Povides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. |
+| [Azure Monitor for Azure Cache for Redis (preview)](insights/redis-cache-insights-overview.md) |  Provides a unified, interactive view of overall performance, failures, capacity, and operational health. |
+
 
 ### Core solutions
 
@@ -111,7 +114,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Intune | No | Yes | No |  |
 |IoT Central | No | No | No |  |
 |IoT Hub | Yes | Yes | No |  |
-|Key Vault | Yes | Yes | No |  |
+|Key Vault | Yes | Yes | [Yes](insights/key-vaults-insights-overview.md) |  |
 |Kubernetes Service (AKS) | No | No | [Yes](insights/container-insights-overview.md)  |  |
 |Load Balancer | Yes | Yes | No |  |
 |Logic Apps | Yes | Yes | No |  |
@@ -135,7 +138,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Private Link | No | No | No |  |
 |Project Spool Communication Platform | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |
-|Redis Cache | Yes | Yes | No |  |
+|Redis Cache | Yes | Yes | [Yes](insights/redis-cache-insights-overview.md) | |
 |Resource Graph | No | No | No |  |
 |Resource Manager | No | No | No |  |
 |Retail Search – by Bing | No | No | No |  |

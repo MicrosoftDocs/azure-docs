@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
+ms.custom: designer
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)

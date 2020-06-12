@@ -19,9 +19,9 @@ This article describes how to exclude disks from replication during disaster rec
 
 You can exclude disks from replication as summarized in the table.
 
-**Azure to Azure** | **VMware to Azure** | **Hyper-V to Azure** 
---- | --- | ---
-Yes | Yes | Yes 
+**Azure to Azure** | **VMware to Azure** | **Hyper-V to Azure** | **Physical Server to Azure**
+--- | --- | --- | ---
+Yes | Yes | Yes | Yes
 
 ## Exclude limitations
 

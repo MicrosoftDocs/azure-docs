@@ -1,6 +1,6 @@
 ---
-title: Incrementally copy data using Change Tracking
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
+title: Incrementally copy data using Change Tracking using Azure portal
+description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to an Azure SQL database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ---
 
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -37,7 +37,7 @@ In a data integration solution, incrementally loading data after initial data lo
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
-> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server.
+> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use a SQL Server instance.
 
 1. **Initial loading of historical data** (run once):
     1. Enable Change Tracking technology in the source Azure SQL database.
@@ -65,11 +65,11 @@ In this tutorial, you create two pipelines that perform the following two operat
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
 ### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server.
+1. Launch **SQL Server Management Studio**, and connect to SQL Database.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
 
@@ -211,8 +211,8 @@ In this step, you link your Azure SQL database to the data factory.
 3. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for the **Name** field.
-    2. Select your Azure SQL server for the **Server name** field.
-    4. Select your Azure SQL database for the **Database name** field.
+    2. Select your server for the **Server name** field.
+    4. Select your database for the **Database name** field.
     5. Enter name of the user for the **User name** field.
     6. Enter password for the user for the **Password** field.
     7. Click **Test connection** to test the connection.

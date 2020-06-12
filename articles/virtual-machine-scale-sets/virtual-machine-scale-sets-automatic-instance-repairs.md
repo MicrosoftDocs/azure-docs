@@ -148,7 +148,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 The above example uses an existing load balancer and health probe for monitoring application health status of instances. If you prefer to use an application health extension for monitoring instead, you can create a scale set, configure the application health extension and then enable the automatic instance repairs policy using the *az vmss update*, as explained in the next section.
@@ -211,7 +211,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## Viewing and updating the service state of automatic instance repairs policy

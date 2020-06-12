@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 06/06/2020
 ms.author: absha
 
 ---
@@ -19,7 +19,7 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+![Diagram of timing metrics, for the Application Gateway.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
