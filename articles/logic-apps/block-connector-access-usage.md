@@ -12,7 +12,7 @@ ms.date: 06/11/2020
 
 If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can prevent creating those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce a [policy](../governance/policy/overview.md#policy-definition) that blocks creating connections through those connectors. For example, for security reasons, you might want to prohibit connections to specific social media platforms or other services.
 
-This topic shows how to set up a policy in the Azure portal for blocking specific connections, but you can also create policies in other ways.
+This topic shows how to set up a policy in the Azure portal for blocking specific connections, but you can also create policy definitions in other ways, such as through the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Prerequisites
 
@@ -213,7 +213,10 @@ For more information, see [Quickstart: Create a policy assignment to identify no
 
 ## Test the policy
 
-In the Logic App Designer, try to create a connection using the restricted connector. For example, following the Instagram example, when you sign in, you get this error that your logic app failed to create the connection:
+After the policy takes effect, you can test the policy by trying to create a connection using the restricted connector in the Logic App Designer. For example, following the Instagram example, when you sign in, you get this error that your logic app failed to create the connection:
+
+https://medium.com/@derek_li/block-connectors-in-logic-apps-fa8b4f8fc1df
+
 
 ![Connection failure due to applied policy](./media/block-connector-access-usage/connection-failure-message.png)
 
