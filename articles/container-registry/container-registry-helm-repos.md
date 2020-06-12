@@ -16,7 +16,7 @@ This article shows you how to host Helm charts repositories in an Azure containe
 
 ## Helm 3 or Helm 2?
 
-To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 3 and Helm 2. Helm 3 supports a new chart format and no longer installs the Tiller server-side component. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 3 and Helm 2. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). 
 
 Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm 3, you:
 
@@ -25,9 +25,8 @@ Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm
 * Authenticate with your registry using the `helm registry login` command.
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
-
 > [!NOTE]
-> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. See the [product roadmap](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). Helm 2 charts can be managed with Helm 3.
+> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. See the [product roadmap](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## Prerequisites
 
@@ -117,7 +116,7 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
   --password-stdin
 ```
 
-## Push chart to Azure Container Registry
+## Push chart to registry
 
 Run the `helm chart push` command in the Helm 3 CLI to push the chart to the fully qualified target repository:
 
