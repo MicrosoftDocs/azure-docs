@@ -39,7 +39,7 @@ The implementation in this module is based on the [scikit-learn library](https:/
 
 For more information, see the [Technical notes](#technical-notes) section.
 
-## How to configure the module
+## How to configure Latent Dirichlet Allocation
 
 This module requires a dataset that contains a column of text, either raw or preprocessed.
 

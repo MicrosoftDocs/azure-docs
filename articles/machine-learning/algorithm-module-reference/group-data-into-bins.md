@@ -43,7 +43,7 @@ You can find an [example from the result of this pipeline run](https://ml.azure.
 
 Because there are so many ways to group data, all customizable, we recommend that you experiment with different methods and values. 
 
-## How to configure the module
+## How to configure Group Data into Bins
 
 1. Add the **Group Data Into Bins** module to your pipeline in the designer (preview). You can find this module in the category **Data Transformation**.
 

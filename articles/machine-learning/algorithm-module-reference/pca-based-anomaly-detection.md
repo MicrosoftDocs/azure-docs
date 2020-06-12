@@ -34,7 +34,7 @@ For more information about how PCA works, and about the implementation for anoma
 
 - [Finding Structure with Randomness: Probabilistic Algorithms for Constructing Approximate Matrix Decompositions](http://users.cms.caltech.edu/~jtropp/papers/HMT11-Finding-Structure-SIREV.pdf) (PDF download), by Halko, Martinsson, and Tropp
 
-## How to configure the module
+## How to configure PCA-Based Anomaly Detection
 
 1. Add the **PCA-Based Anomaly Detection** module to your pipeline in the designer. You can find this module in the **Anomaly Detection** category.
 

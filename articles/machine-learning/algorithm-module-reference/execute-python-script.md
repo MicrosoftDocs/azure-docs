@@ -193,7 +193,7 @@ After the pipeline run is finished, you can preview the image in the right panel
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-python-script.png)
 
-## How to configure the module
+## How to configure Execute Python Script
 
 The Execute Python Script module contains sample Python code that you can use as a starting point. To configure the Execute Python Script module, provide a set of inputs and Python code to run in the **Python script** text box.
 
@@ -216,7 +216,7 @@ The Execute Python Script module contains sample Python code that you can use as
 5. In the **Python script** text box, type or paste valid Python script.
 
     > [!NOTE]
-    >  Be careful when writing your script. Make sure there's no syntax error, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled module list. To import modules that aren't listed, install the corresponding packages in your script, such as:
+    >  Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled module list. To import modules that aren't listed, install the corresponding packages in your script, such as:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")

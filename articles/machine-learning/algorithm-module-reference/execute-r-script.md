@@ -67,7 +67,7 @@ azureml_main <- function(dataframe1, dataframe2){
   
   if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
   library(zoo)
-  # Return datasets as a named list
+  # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
@@ -105,7 +105,7 @@ azureml_main <- function(dataframe1, dataframe2){
   upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
 
 
-  # Return datasets as a named list
+  # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
@@ -115,7 +115,7 @@ After the pipeline run is finished, you can preview the image in the right panel
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-r-script.png)
 
-## How to configure the module
+## How to configure Execute R Script
 
 The Execute R Script module contains sample code that you can use as a starting point. To configure the Execute R Script module, provide a set of inputs and code to run.
 
@@ -136,7 +136,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 1. In the **R script** text box, type or paste valid R script.
 
     > [!NOTE]
-    > Be careful when writing your script. Make sure there's no syntax error, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled package list at the end of this article. To use packages that aren't listed, install them in your script. An example is `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled package list at the end of this article. To use packages that aren't listed, install them in your script. An example is `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
     
     To help you get started, the **R Script** text box is prepopulated with sample code, which you can edit or replace.
     
@@ -161,7 +161,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
     # unzipped under "./Script Bundle". This directory is added
     # to sys.path.
 
-    # Return datasets as a named list
+    # Return datasets as a Named List
     return(list(dataset1=dataframe1, dataset2=dataframe2))
     }
     ```
@@ -238,7 +238,7 @@ azureml_main <- function(dataframe1, dataframe2){
   # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
-  # Return datasets as a named list
+  # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
  ```

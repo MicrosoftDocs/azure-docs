@@ -38,7 +38,7 @@ Here's some information about the methods:
 
 + The GloVe pretrained model is glove-wiki-gigaword-100. It's a collection of pretrained vectors based on a Wikipedia text corpus, which contains 5.6 billion tokens and 400,000 uncased vocabulary words. A PDF download is available: [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf).
 
-## How to configure the module
+## How to configure Convert Word to Vector
 
 This module requires a dataset that contains a column of text. Preprocessed text is better.
 

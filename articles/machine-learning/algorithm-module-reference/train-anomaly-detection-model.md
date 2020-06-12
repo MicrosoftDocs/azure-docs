@@ -20,7 +20,7 @@ The module takes as input a set of parameters for an anomaly detection model and
 
 For more information about the anomaly detection algorithms provided in the designer, see [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md).  
 
-## How to configure the module 
+## How to configure Train Anomaly Detection Model 
 
 1.  Add the **Train Anomaly Detection Model** module to your pipeline in the designer. You can find this module in the **Anomaly Detection** category.
 

@@ -19,7 +19,7 @@ The Web Service Input module can only connect to an input port with the type **D
 
 The Web Service Input module indicates where user data enters the pipeline. The Web Service Output module indicates where user data is returned in a real-time inference pipeline.
 
-## How to use the modules
+## How to use Web Service Input and Output
 
 When you [create a real-time inference pipeline](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) from your training pipeline, the Web Service Input and Web Service Output modules will be automatically added to show where user data enters the pipeline and where data is returned. 
 
