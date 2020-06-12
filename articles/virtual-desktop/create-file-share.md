@@ -121,7 +121,7 @@ Here's how to get the UNC path:
 
 5. After copying the URI, do the following things to change it into the UNC:
 
-    - Remove `https://`
+    - Remove `https://` and replace with `\\`
     - Replace the forward slash `/` with a back slash `\`.
     - Add the name of the file share you created in [Create an Azure file share](#create-an-azure-file-share) to the end of the UNC.
 
