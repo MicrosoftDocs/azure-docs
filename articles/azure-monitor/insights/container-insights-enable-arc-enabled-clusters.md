@@ -151,36 +151,59 @@ Perform the following steps to enable monitoring using the provided bash script.
 1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     ```bash
-    curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.sh
+    curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/managed/enable-monitoring.sh
     ```
 
-2. To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
-
-Run the following command to enable monitoring, replacing the value for the `resourcedIdOfAzureArcCluster` and `workspaceResourceId` parameters:
+2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
 
     ```bash
-    bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context> <workspaceResourceId>`
+    export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-    Example:
+3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
 
     ```bash
-    bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup
+    export kubeContext="<kubeContext name of your k8s cluster>"
     ```
 
-    >[!NOTE]
-    >To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
-
-    The following command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
+4. If you want to use existing Azure Monitor Log Analytics workspace, configure the variable `logAnalyticsWorkspaceResourceId` with the corresponding value representing the resource ID of the workspace. Otherwise, set the variable to `""` and the script creates a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
 
     ```bash
-    bash onboarding_azuremonitor_for_containers.sh <resourcedIdOfAzureArcCluster> <kube-context>
+    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    ``` 
+
+5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server.
+
+    ```bash
+    export proxyEndpoint=https://<proxyhost>:<port>
     ```
 
-    For example:
+    If authentication is required, you need to specify the username and password. For example:
 
     ```bash
-    bash onboarding_azuremonitor_for_containers.sh /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 MyK8sTestCluster
+    export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
+    ```
+
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endoint).
+
+6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
+
+    Run the following command to create a default Log Analytics workspace and without specifying a proxy server:
+
+    ```bash
+   bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
+    ```
+
+    Run the following command to use an existing an existing Log Analytics workspace and without specifying a proxy server:
+
+    ```bash
+    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId
+    ```
+
+    Run the following command to use an existing Log Analytics workspace and specify a proxy server:
+
+    ```bash
+    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
     ```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
