@@ -30,7 +30,9 @@ If you already have a logic app with the connection that you want to block, foll
 
 1. Find the reference page for the connector that you want to block.
 
-   For example, if you want to block the Instagram connector, go to this page: `"https://docs.microsoft.com/connectors/instagram/"`
+   For example, if you want to block the Instagram connector, go to this page: 
+   
+   `"https://docs.microsoft.com/connectors/instagram/"`
 
 1. From the page's URL, copy the connector ID at the end without the forward slash (`/`), for example, `instagram`.
 
@@ -204,6 +206,8 @@ Next, you need to assign the policy definition where you want the policy to appl
    For example:
 
    ![Select "Assignments" > "Assign"](./media/block-connector-access-usage/policy-assignment-basics.png)
+
+1. When you're done, select **Review + create**.
 
 For more information, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
