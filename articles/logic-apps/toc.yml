@@ -317,7 +317,7 @@
     - name: Authenticate with managed identities
       href: create-managed-service-identity.md
     - name: Block connections in logic apps
-      href: block-creating-connections-with-connectors.md
+      href: block-connections-connectors.md
   - name: Manage
     items: 
     - name: Manage logic apps - Azure portal
