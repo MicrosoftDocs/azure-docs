@@ -72,26 +72,7 @@ From the project directory, open the *program.cs* file and add the following `us
 
 [!code-csharp[Dependencies](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Dependencies&highlight=1-2)]
 
-In the application's `Program` class, create variables for your resource's key and endpoint.
-
-[!code-csharp[Variables](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
-
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
-> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-
-[!code-csharp[Create authorization client](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=AuthorizationAuthoring)]
-
-In the application's `Main` method, add code to use the common tasks in this quickstart.
-
-```csharp
-static void Main(string[] args){
-
-    // You will create the below methods later in the quickstart
-    exampleTask1();
-}
-```
+In the application's `Main` method, add variables and code, shown in the following sections, to use the common tasks in this quickstart.
 
 ## Object models
 
@@ -132,6 +113,12 @@ These code snippets show you how to do the following with the QnA Maker client l
 In the **main** method, create a variable for your resource's Azure key and resource name. Both the authoring and prediction URLs use the resource name as the subdomain.
 
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=Resourcevariables)]
+
+
+> [!IMPORTANT]
+> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Next, create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object.
 
