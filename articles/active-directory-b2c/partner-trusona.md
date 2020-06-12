@@ -158,6 +158,6 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in AAD B2C](custom-policy-get-started.md?tabs=applications)

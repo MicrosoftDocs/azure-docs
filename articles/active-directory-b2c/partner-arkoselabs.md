@@ -141,9 +141,9 @@ Download Git Bash and follow the steps below:
 > [!NOTE]
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-1. Create a user flow based on the information [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows). Stop when you reach the section **Test the user flow**.
+1. Create a user flow based on the information [here](tutorial-create-user-flows.md). Stop when you reach the section **Test the user flow**.
 
-2. Enable Javascript in your [user flow](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-javascript-overview).
+2. Enable Javascript in your [user flow](user-flow-javascript-overview.md).
 
 3. In the same user flow page, enable custom page URL: Go to
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
@@ -177,6 +177,6 @@ This custom page URL is obtained from the location of the index.html file inside
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)

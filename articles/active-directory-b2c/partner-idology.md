@@ -79,7 +79,7 @@ Application settings can be [configured in the App service in Azure](https://doc
 
 ### Part 3 - Create API Policy Keys
 
-Follow this [document](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) to create two policy keys: one for the API username, and one for the API password that you defined above.
+Follow this [document](secure-rest-api.md#add-rest-api-username-and-password-policy-keys) to create two policy keys: one for the API username, and one for the API password that you defined above.
 
 The sample policy uses these key names:
 
@@ -88,7 +88,7 @@ The sample policy uses these key names:
 
 ### Part 4 - Configure the Azure AD B2C Policy
 
-1. Follow this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
+1. Follow this [document](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download the [LocalAccounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the policy for the Azure AD B2C tenant. Follow the instructions until you complete the **Test the Custom Policy** section.
 
 2. Download the two sample policies [here](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy).
 
@@ -138,7 +138,7 @@ As a best practice, we recommend that customers add consent notification in the 
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications) 
+- [Get started with custom policies in Azure AD B2C](custom-policy-get-started?tabs=applications.md) 
 

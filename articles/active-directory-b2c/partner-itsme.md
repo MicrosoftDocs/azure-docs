@@ -151,6 +151,6 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 For additional information, review the following articles:
 
-* [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+* [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-* [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+* [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications)

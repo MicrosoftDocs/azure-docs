@@ -33,4 +33,4 @@ Our partner network extends our solution capabilities to help you build seamless
 ## Additional resources
 
 - [B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/)
-- [Custom policies on Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies on Azure AD B2C](custom-policy-overview.md)

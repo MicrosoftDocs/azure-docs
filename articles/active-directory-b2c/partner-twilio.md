@@ -120,6 +120,6 @@ For additional information, review the following articles:
 
 - Refer to GitHub for [Twilio integration code samples](https://github.com/azure-ad-b2c/samples/tree/master/policies/twilio-mfa-psd2)  
 
-- [Custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in AAD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications) 
+- [Get started with custom policies in AAD B2C](custom-policy-get-started.md?tabs=applications)
