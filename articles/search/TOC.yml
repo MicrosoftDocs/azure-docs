@@ -222,6 +222,8 @@
         href: cognitive-search-create-custom-skill-example.md
       - name: Example - Azure Form Recognizer
         href: cognitive-search-custom-skill-form.md
+      - name: Example - Azure Machine Learning
+        href: cognitive-search-tutorial-aml-custom-skill.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
@@ -464,6 +466,8 @@
         href: cognitive-search-skill-text-translation.md
     - name: Custom skills
       items:
+      - name: Azure Machine Learning (AML)
+        href: cognitive-search-aml-skill.md
       - name: Custom Web API
         href: cognitive-search-custom-skill-web-api.md
     - name: Deprecated skills

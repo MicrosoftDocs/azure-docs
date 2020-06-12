@@ -17,7 +17,7 @@ Once inside the unzipped folder, navigate into _digital-twins-samples-master/Adt
 
 In Visual Studio, use the *Solution Explorer* pane to create a copy of the _SampleClientApp > **serviceConfig.json.TEMPLATE**_ file (you can use the right-select menus to copy and paste). Rename the copy *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 
-Select the new file to open it in the editing window. Change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
+Select the *serviceConfig.json* file to open it in the editing window. Change the `tenantId` to your *Directory ID*, `clientId` to your *Application ID*, and `instanceUrl` to your Azure Digital Twins instance *hostName* URL (with *https://* in front of it as shown below).
 
 ```json
 {
