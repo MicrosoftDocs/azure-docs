@@ -47,7 +47,7 @@ The following steps guide you through the process of creating a formula from a c
     ![Add a formula](./media/devtest-lab-create-formulas/add-formula.png)
 6. On the **Choose a base** page, select the base (custom image, Marketplace image, or a Shared Image Gallery image) from which you want to create the formula.
 
-    ![Select the base image](./media/devtest-lab-create-formulas/select-base.png)
+    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Select the base image":::
 1. On the **Basic Settings** tab of the **Create formula** page, specify the following values:
    
 	* **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
