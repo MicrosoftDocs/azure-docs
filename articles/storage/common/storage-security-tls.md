@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 06/12/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
