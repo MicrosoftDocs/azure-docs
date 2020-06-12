@@ -149,7 +149,7 @@ Once you've configured provisioning, use the following resources to monitor your
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   This error indicates an issue communicating with the ServiceNow instance. Double-check to make sure that the following settings are disabled in ServiceNow:
+   This error indicates an issue communicating with the ServiceNow instance. Double-check to make sure that the following settings are *disabled* in ServiceNow:
    
    1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
    2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
