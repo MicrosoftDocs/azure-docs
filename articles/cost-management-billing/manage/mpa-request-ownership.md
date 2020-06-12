@@ -5,7 +5,7 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/11/2020
 ms.author: banders
 
 ---
@@ -29,7 +29,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 ## Request billing ownership
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials.
+1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 
 2. Search for **Cost Management + Billing**.
 

@@ -87,9 +87,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 4: Your app is configured and ready to run
 > We have configured your project with values of your app's properties and it's ready to run.
-> >  [!NOTE]
+> > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
-
+>
 > [!div renderon="docs"]
 >#### Step 4: Configure your project
 > If you selected Option 1 above, you can skip these steps.
