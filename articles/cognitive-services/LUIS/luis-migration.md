@@ -224,7 +224,7 @@ If you select "Create New Authoring Resource" option and migration failed with t
 * Migrate by selecting "Use Existing Authoring Resource" option and select one of the existing resources you have under your subscription.
 
 If you see the error below, check the [Recommended steps to do if you are the owner of the app section]
-![Migration fails for owners](./media/migrate-authoring-key/migration-failed-for-owner-2)
+![Migration fails for owners](./media/migrate-authoring-key/migration-failed-for-owner-2.PNG)
 
 If you see the error below, check the [Recommended steps to do if you are a collaborator on an app Section]
-![Migration fails for collaborators](./media/migrate-authoring-key/migration-failed-for-collab-2)
+![Migration fails for collaborators](./media/migrate-authoring-key/migration-failed-for-collab-2.PNG)
