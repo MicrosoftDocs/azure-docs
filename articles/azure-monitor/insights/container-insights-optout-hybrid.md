@@ -82,7 +82,29 @@ The configuration change can take a few minutes to complete. Because Helm tracks
 
 ### Using bash
 
+1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
+    ```bash
+    curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/managed/enable-monitoring.sh
+    ```
+
+2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
+
+    ```bash
+    export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+    ```
+
+3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
+
+    ```bash
+    export kubeContext="<kubeContext name of your k8s cluster>"
+    ```
+
+4. Run the following command to stop monitoring the cluster.
+
+    ```bash
+    bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
+    ```
 
 ## Next steps
 
