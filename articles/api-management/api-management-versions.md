@@ -20,7 +20,7 @@ For most purposes, each API version can be considered its own independent API. T
 With versions you can:
 
 - Publish multiple versions of your API at the same time.
-- Use path/query string or header to differentiate between versions.
+- Use a path, query string, or header to differentiate between versions.
 - Use any string value you wish to identify your version, which could be a number, a date, or a name.
 - Show your API versions grouped together on the developer portal.
 
