@@ -30,6 +30,8 @@
     href: rule-processing.md
   - name: Architecture options
     href: vhubs-and-vnets.md
+  - name: Threat intelligence settings
+    href: threat-intelligence-settings.md
 - name: How-to guides
   items:
   - name: Deploy security partner providers
