@@ -4,6 +4,10 @@
   items:
   - name: About Azure Arc enabled Kubernetes
     href: overview.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
 - name: How-to guides
   items:
   - name: Cluster operations
