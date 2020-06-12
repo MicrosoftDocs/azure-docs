@@ -39,7 +39,8 @@
       href: temporal-tables.md
     - name: Scale up / down
       href: database/scale-resources.md
-
+    - name: Read Scale-Out
+      href: database/read-scale-out.md
     - name: Security
       items:
       - name: Overview
@@ -299,8 +300,6 @@
       href: database/connectivity-architecture.md
     - name: Connectivity settings
       href: database/connectivity-settings.md
-    - name: Read Scale-Out
-      href: database/read-scale-out.md      
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
