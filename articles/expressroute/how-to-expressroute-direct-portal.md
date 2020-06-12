@@ -5,8 +5,8 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 06/09/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: cherylmc
 
 ---
