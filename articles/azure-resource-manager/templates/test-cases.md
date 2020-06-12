@@ -603,6 +603,6 @@ The following example **fails** because it uses a [list*](template-functions-res
 }
 ```
 
-# Next steps
+## Next steps
 
 To learn about running the test toolkit, see [Use ARM template test toolkit](test-toolkit.md).
