@@ -23,13 +23,13 @@ Select **Create a resource** > **Containers** > **Container Registry**.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-01.png" alt-text="Navigate to container registry in portal":::
 
-In the **Basics** tab, enter values for **Resource group** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. 
+In the **Basics** tab, enter values for **Resource group** and **Registry name**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'.
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-03.png" alt-text="Create container registry in the portal":::
 
 Accept default values for the remaining settings. Then select **Review + create**. After reviewing the settings, select **Create**.
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers (SKUs), see [Container registry service tiers][container-registry-skus].
 
 When the **Deployment succeeded** message appears, select the container registry in the portal. 
 
@@ -39,10 +39,10 @@ Take note of the value of the **Login server**. You use this value in the follow
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI. (Specify only the registry name when logging in. Don't include the 'azurecr.io' suffix.)
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. (Specify only the registry name when logging in with the Azure CLI. Don't include the 'azurecr.io' suffix.)
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 The command returns `Login Succeeded` once completed. 
@@ -90,5 +90,6 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 [container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli]: /cli/azure/install-azure-cli
+[get-started-with-azure-cli]: /cli/azure/get-started-with-azure-cli
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

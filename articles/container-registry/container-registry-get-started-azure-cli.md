@@ -58,7 +58,7 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name.
 
 ## Log in to registry
 
@@ -77,7 +77,7 @@ The command returns a `Login Succeeded` message once completed.
 The following example lists the repositories in your registry:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Output:
@@ -91,7 +91,7 @@ hello-world
 The following example lists the tags on the **hello-world** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Output:
