@@ -2,7 +2,7 @@
 title: ARM template test toolkit
 description: Describes how to run the ARM template test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/12/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -126,8 +126,75 @@ param(
 
 To learn more about implementing the test, look at the other tests in that folder.
 
+## Integrate with Azure Pipelines
+
+You can add the test toolkit to your Azure Pipeline. With a pipeline, you can run the test every time the template is updated, or run it as part of your deployment process.
+
+The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
+
+* [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+* [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
+
+Or, you can implement your own tasks. The following example shows how to download the test toolkit.
+
+```json
+{
+    "environment": {},
+    "enabled": true,
+    "continueOnError": false,
+    "alwaysRun": false,
+    "displayName": "Download TTK",
+    "timeoutInMinutes": 0,
+    "condition": "succeeded()",
+    "task": {
+        "id": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+        "versionSpec": "2.*",
+        "definitionType": "task"
+    },
+    "inputs": {
+        "targetType": "inline",
+        "filePath": "",
+        "arguments": "",
+        "script": "New-Item '$(ttk.folder)' -ItemType Directory\nInvoke-WebRequest -uri '$(ttk.uri)' -OutFile \"$(ttk.folder)/$(ttk.asset.filename)\" -Verbose\nGet-ChildItem '$(ttk.folder)' -Recurse\n\nWrite-Host \"Expanding files...\"\nExpand-Archive -Path '$(ttk.folder)/*.zip' -DestinationPath '$(ttk.folder)' -Verbose\n\nWrite-Host \"Expanded files found:\"\nGet-ChildItem '$(ttk.folder)' -Recurse",
+        "errorActionPreference": "stop",
+        "failOnStderr": "false",
+        "ignoreLASTEXITCODE": "false",
+        "pwsh": "true",
+        "workingDirectory": ""
+    }
+}
+```
+
+The next example shows how to run the tests.
+
+```json
+{
+    "environment": {},
+    "enabled": true,
+    "continueOnError": true,
+    "alwaysRun": false,
+    "displayName": "Run Best Practices Tests",
+    "timeoutInMinutes": 0,
+    "condition": "succeeded()",
+    "task": {
+        "id": "e213ff0f-5d5c-4791-802d-52ea3e7be1f1",
+        "versionSpec": "2.*",
+        "definitionType": "task"
+    },
+    "inputs": {
+        "targetType": "inline",
+        "filePath": "",
+        "arguments": "",
+        "script": "Import-Module $(ttk.folder)/arm-ttk/arm-ttk.psd1 -Verbose\n$testOutput = @(Test-AzTemplate -TemplatePath \"$(sample.folder)\")\n$testOutput\n\nif ($testOutput | ? {$_.Errors }) {\n   exit 1 \n} else {\n    Write-Host \"##vso[task.setvariable variable=result.best.practice]$true\"\n    exit 0\n} \n",
+        "errorActionPreference": "continue",
+        "failOnStderr": "true",
+        "ignoreLASTEXITCODE": "false",
+        "pwsh": "true",
+        "workingDirectory": ""
+    }
+}
+```
+
 ## Next steps
 
 * To learn about the default tests, see [Test cases for toolkit](test-cases.md).
-
-* You can add the test toolkit to your Azure Pipeline through third-party extensions. For more information, see [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension) or [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
