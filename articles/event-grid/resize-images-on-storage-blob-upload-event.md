@@ -14,6 +14,7 @@ ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
 ---
+
 # Tutorial: Automate resizing uploaded images using Event Grid
 
 [Azure Event Grid](overview.md) is an eventing service for the cloud. Event Grid enables you to create subscriptions to events raised by Azure services or third-party resources.  
@@ -122,11 +123,22 @@ In the following command, provide your own unique function app name. The functio
     ```bash
     functionapp="<name of the function app>"
     ```
-2. Create the Azure function.
+
+    ```powershell
+    $functionapp="<name of the function app>"
+    ```
+
+1. Create the Azure function.
 
     ```bash
     az functionapp create --name $functionapp --storage-account $functionstorage \
       --resource-group $resourceGroupName --consumption-plan-location $location \
+      --functions-version 2
+    ```
+
+    ```powershell
+    az functionapp create --name $functionapp --storage-account $functionstorage `
+      --resource-group $resourceGroupName --consumption-plan-location $location `
       --functions-version 2
     ```
 
@@ -276,7 +288,7 @@ An event subscription indicates which provider-generated events you want sent to
 
 1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
-    2. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
+    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
