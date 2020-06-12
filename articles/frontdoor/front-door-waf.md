@@ -6,7 +6,7 @@ documentationcenter: ''
 author: tremansdoerfer
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ---
 
 # Incrementally load data from an Azure SQL database to Azure Blob storage using the Azure portal
@@ -272,7 +272,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. To validate the pipeline settings, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, click >>.   
 
 28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message that the publishing succeeded.
@@ -285,9 +285,9 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 ## Monitor the pipeline run
 
-1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list.
+1. Switch to the **Monitor** tab on the left. You see the status of the pipeline run triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view run details and to rerun the pipeline.
 
-2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
+2. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
 
 ## Review the results
@@ -350,9 +350,9 @@ PersonID | Name | LastModifytime
 
 ## Monitor the second pipeline run
 
-1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list.
+1. Switch to the **Monitor** tab on the left. You see the status of the pipeline run triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
+2. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
 
 ## Verify the second output
