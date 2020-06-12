@@ -87,7 +87,7 @@ There are two kinds of Azure application plans: solution templates and managed a
 
 All Azure applications include at least two files in the root folder of a `.zip` archive:
 
-* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This template defines the resources to deploy into the customer's Azure subscription.  For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This template defines the resources to deploy into the customer's Azure subscription. For examples of Resource Manager templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
@@ -181,7 +181,7 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 <br>Here's an example of how offer information appears in the Azure portal:
 
-:::image type="content" source="media/example-vm-container-iot-sas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
 
 #### Call-out descriptions
 
