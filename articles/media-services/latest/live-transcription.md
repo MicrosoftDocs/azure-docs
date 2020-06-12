@@ -122,7 +122,7 @@ The operation has the following body (where a pass-through Live Event is created
 
 ## Start or stop transcription after the live event has started
 
-Customers are able to start and stop live transcription while the live event is in running state. For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations).
+You can start and stop live transcription while the live event is in running state. For more information about starting and stopping live events, read the Long-running operations section at [Develop with Media Services v3 APIs](media-services-apis-overview.md#long-running-operations).
 
 To turn on live transcriptions or to update the transcription language, patch the live event to include a “transcriptions” property. To turn off live transcriptions, remove the “transcriptions” property from the live event object.  
 
