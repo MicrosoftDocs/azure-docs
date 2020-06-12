@@ -58,13 +58,13 @@ If you add a version to a non-versioned API, an `Original` version will be autom
 
 ## How versions are represented
 
-Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. When you use the Azure Portal to manage versions you don't see the version set, but if you interact with your API Management service using PowerShell, Resource Manager templates, or the Azure Resource Manager API, you can directly view and manage version sets. A version set contains the display name of the versioned API, as well as the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
+Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. When you use the Azure portal to manage versions you don't see the version set, but if you interact with your API Management service using PowerShell, Resource Manager templates, or the Azure Resource Manager API, you can directly view and manage version sets. A version set contains the display name of the versioned API, as well as the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
 
 Each version of an API is maintained as its own API resource, which is then associated with a version set. This means that a version set might contain APIs with very different operations, which reflects the fact that you might make significant changes between versions of your API.
 
 ### Migrating a non-versioned API to a versioned API
 
-When you use the Azure Portal to enable versioning on an existing API, the following changes are made to your API Management resources:
+When you use the Azure portal to enable versioning on an existing API, the following changes are made to your API Management resources:
 
  * A new version set is created.
  * The existing version is maintained and [configured as the `Original` API version](#original-versions). The API is linked to the version set but does not require a version identifier to be specified.
