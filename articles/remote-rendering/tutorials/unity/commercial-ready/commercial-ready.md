@@ -141,10 +141,10 @@ Other potential failure points are routers configured to intentionally throttle 
 
 Whenever you’re planning to use Azure Remote Rendering on an unfamiliar network, we recommend the following:
 
-1. Provide a pre-meeting checklist to assess network readiness.
-1. Ensure that the appropriate regional data center can service the request.
-1. Allow plenty of time to diagnose any issues.
-1. Bring a mobile hotspot with a high-bandwidth data plan as backup.
+* Provide a pre-meeting checklist to assess network readiness.
+* Ensure that the appropriate regional data center can service the request.
+* Allow plenty of time to diagnose any issues.
+* Bring a mobile hotspot with a high-bandwidth data plan as backup.
 
 ### End-to-end bandwidth
 
@@ -202,9 +202,9 @@ Here are a few key considerations when deciding on your model access strategy.
 
 Based on the anticipated use case, determine the best place or combination of places to allow a user to select the 3D assets for viewing. Some common options are:
 
-1. Directly within the mixed reality experience
-1. Via a companion web portal
-1. In a companion desktop or mobile application
+* Directly within the mixed reality experience
+* Via a companion web portal
+* In a companion desktop or mobile application
 
 If your use case has usage patterns where the same 3D asset may be uploaded multiple times, the back-end will track which models are already converted for use with ARR such that a model is only pre-processed one time for multiple future selections. A design review example would be where a team has access to a common original 3D asset. Each team member is expected to review the model using ARR at some point in their work stream. Only the first view would then trigger the pre-processing step. The subsequent views would look up the associated post-processed file in the SAS output container.
 
@@ -245,7 +245,7 @@ A much simpler but slightly less streamlined approach could automate the process
 
 ### Azure Marketplace
 
-Many enterprise clients mandate that your Azure Stack can be deployed under their own Azure accounts and credentials for security reasons. To make this possible, you’ll want to consider packaging your Azure-managed application such that it can be published on the Azure Marketplace as an Azure Application Offer.
+Many enterprise clients mandate that your Azure Stack can be deployed under their own Azure accounts and credentials for security reasons. To make this possible, you’ll want to consider packaging your Azure managed application such that it can be published on the Azure Marketplace as an Azure Application Offer.
 
 For more information:
 
