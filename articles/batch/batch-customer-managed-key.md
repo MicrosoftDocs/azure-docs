@@ -75,7 +75,7 @@ In the **Select** field under **Principal**, fill in the `principalId` that you 
  
 ### Generate a key in Azure Key Vault
 
-In the Azure Portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **Key Size** to be `2048`.
+In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **Key Size** to be `2048`.
 
 ![](./media/batch-customer-managed-key/create-key.png)
 
@@ -105,7 +105,7 @@ az batch account set \
 
 When you create a new version of a key, update the Batch account to use the new version. Follow these steps:
 
-1. Navigate to your Batch account in Azure Portal and display the Encryption settings.
+1. Navigate to your Batch account in Azure portal and display the Encryption settings.
 2. Enter the URI for the new key version. Alternately, you can select the key vault and the key again to update the version.
 3. Save your changes.
 
