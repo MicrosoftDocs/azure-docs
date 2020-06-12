@@ -3,9 +3,8 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 documentationcenter: 'azure'
-author: barbaraselden
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
+ms.author: kenwith
 ms.custom: has-adal-ref
 ---
+
 # Plan an Azure AD Application Proxy deployment
 
 Azure Active Directory (Azure AD) Application Proxy is a secure and cost-effective remote access solution for on-premises applications. It provides an immediate transition path for “Cloud First” organizations to manage access to legacy on-premises applications that aren’t yet capable of using modern protocols. For additional introductory information, see [What is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
