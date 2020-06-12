@@ -102,8 +102,8 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 ```
 
 
-## Diagnostic setting for Azure key vault 
-The following sample creates a diagnostic setting for an Azure Key vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
+## Diagnostic setting for Azure Key Vault 
+The following sample creates a diagnostic setting for an Azure Key Vault by adding a resource of type `Microsoft.KeyVault/vaults/providers/diagnosticSettings` to the template.
 
 ### Template file
 
