@@ -302,7 +302,7 @@ The result returned from the service is similar to the following JSON:
 
 ## Connect to Cognitive Search
 
-For information on using this model from Cognitive Search, see the [[Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
+For information on using this model from Cognitive Search, see the [Build and deploy a custom skill with Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md) tutorial.
 
 ## Clean up the resources
 
