@@ -140,5 +140,5 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](custom-policy-get-started?tabs=applications.md) 
+- [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
 
