@@ -21,7 +21,7 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage (Pre
 
 ## Get the blob change feed processor library
 
-1. Open a command window (For example: Windows Powershell).
+1. Open a command window (For example: Windows PowerShell).
 2. From your project directory, install the **Microsoft.Azure.Storage.Changefeed** NuGet package.
 
 ```console
@@ -32,7 +32,7 @@ dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartif
 > [!NOTE]
 > The change feed is an immutable and read-only entity in your storage account. Any number of applications can read and process the change feed simultaneously and independently at their own convenience. Records aren't removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
 
-This example iterates through all records in the change feed, adds them to a list and returns that list to the caller.
+This example iterates through all records in the change feed, adds them to a list, and then returns that list to the caller.
  
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
@@ -75,9 +75,9 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 
 ## Resume reading records from a saved position
 
-You can choose to save your read position in your change feed and resume iterating the records at a future time. You can save the state of your iteration of the change feed at any time getting the change feed cursor. The cursor is a **string** and your application can save that state based on your application's design (For example: to a database or a file).
+You can choose to save your read position in the change feed, and then resume iterating through the records at a future time. You can save the read position by getting the change feed cursor. The cursor is a **string** and your application can save that string in any way that makes sense for your application's design (For example: to a file, or database).
 
-This example iterates through all records in the change feed, adds them to a list. The cursor is saved to a string. The list and the curser are returned to the caller. 
+This example iterates through all records in the change feed, adds them to a list, and saves the cursor. The list and the cursor are returned to the caller. 
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -114,7 +114,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
 
-This example periodically polls for changes. If change records exist, those records are processed and the change feed cursor is saved. That way if the process is stopped and then started again, the application can use the curser to resume processing records where it last left off. This example saves the curser to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
+This example periodically polls for changes. If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -176,7 +176,7 @@ public void SaveCursor(string cursor)
 
 ## Reading records within a time range
 
-You can read records from change feed segments that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list and returns that list to the caller.
+You can read records that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list, and then returns that list to the caller.
 
 ### Selecting segments for a time range
 
