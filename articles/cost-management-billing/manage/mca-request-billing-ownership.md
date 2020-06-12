@@ -63,7 +63,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 11. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
-    ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request.png)
+    ![Screenshot that shows review transfer request](./media/mca-request-billing-ownership/mca-review-transfer-requests.png)
     
     User can select the billing account that they want to transfer Azure products from. Once selected, eligible products that can be transferred are shown. **Note:** Disabled subscriptions cannot be transferred and will show up in the "Non-transferrable Azure Products" list if applicable. Once the Azure products to be transferred are selected, click **Validate** button.
     
