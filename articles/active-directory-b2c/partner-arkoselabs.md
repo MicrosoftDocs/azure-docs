@@ -27,17 +27,26 @@ To get started, you'll need:
 
 ## Scenario description
 
-Arkose Labs architecture diagram
+The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 
 ![Arkose Labs architecture diagram](media/partner-arkoselabs/arkose-architecture-diagram.png)
+
+|   |   |
+|---|---|
+|1     | A user signs in with a previously created account. When the user selects submit, an Arkose Labs Enforcement challenge appears. After the user completes the challenge, the status is sent to Arkose Labs to generate a token.        |
+|2     |  Arkose Labs sends the token back to Azure AD B2C.       |
+|3     |  Before the login form is submitted, the token is sent to Arkose Labs for verification.       |
+|4     |  Arkose sends back a success or failure result from the challenge.       |
+|5     |  If the challenge is successfully completed, a sign-in form is submitted to Azure AD B2C, and Azure AD B2C completes the authentication.       |
+|   |   |
 
 ## Onboard with Arkose Labs
 
 1. Start by contacting [Arkose Labs](https://www.arkoselabs.com/book-a-demo/) and creating an account.
 
-2. Once your account is created, navigate to https://dashboard.arkoselabs.com/login  
+2. Once your account is created, navigate to https://dashboard.arkoselabs.com/login.
 
-3. Within the dashboard, navigate to site settings to find your public key and private key. This will be needed later to configure Azure AD B2C
+3. Within the dashboard, navigate to site settings to find your public key and private key. This will be needed later to configure Azure AD B2C.
 
 ## Integrate Arkose Labs with Azure AD B2C
 
@@ -47,13 +56,13 @@ To create a storage, follow these steps:
 
 1. Sign in to the Azure portal.
 
-2. Make sure to use the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
+2. Make sure to use the directory that contains your Azure subscription. Select the **Directory + Subscription** filter in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
 
-3. Choose All services in the top-left corner of the Azure portal, search for and select  **Storage accounts**.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select  **Storage accounts**.
 
 4. Select **Add**.
 
-5. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then select  **Ok**.
+5. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then select **OK**.
 
 6. Enter a name for the storage account. The name you choose must be unique across Azure, must be between 3 and 24 characters in length, and may contain numbers and lowercase letters only.
 
@@ -67,7 +76,7 @@ To create a storage, follow these steps:
 
 1. On the overview page of the storage account, select  **Blobs**.
 
-2. Select  **Container**, enter a name for the container, choose  **Blob** (anonymous read access for blobs only), and then select **Ok**.
+2. Select  **Container**, enter a name for the container, choose  **Blob** (anonymous read access for blobs only), and then select **OK**.
 
 #### Enable Cross-origin resource sharing (CORS)
 
@@ -75,37 +84,35 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 1. In the menu, select  **CORS**.
 
-2. For  **Allowed origins**, enter https://your-tenant-name.b2clogin.com. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, https://fabrikam.b2clogin.com. You need to use all lowercase letters when entering your tenant name.
+2. For  **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
 
-3. For  **Allowed Methods**, select **GET**, **PUT**, and **OPTIONS**.
+3. For **Allowed Methods**, select **GET**, **PUT**, and **OPTIONS**.
 
-4. For  **Allowed Headers**, enter an asterisk (*).
+4. For **Allowed Headers**, enter an asterisk (*).
 
-5. For  **Exposed Headers**, enter an asterisk (*).
+5. For **Exposed Headers**, enter an asterisk (*).
 
-6. For  **Max age**, enter 200.
+6. For **Max age**, enter 200.
 
    ![Arkose Labs sign-up and sign-in](media/partner-arkoselabs/signup-signin-arkose.png)
 
-7. Select **Save**
+7. Select **Save**.
 
 ### Part 2 – Set up a back-end server
 
-#### Prerequisites
-
 Download Git Bash and follow the steps below:
 
-1. Follow instructions mentioned [here](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php) to create a web-app up until the message “Congratulations! You've deployed your first PHP app to App Service” is displayed.
+1. Follow the instructions to [create a web app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), up until the message “Congratulations! You've deployed your first PHP app to App Service” displays.
 
-2. Open your local folder and rename index.php file into verify-token.php
+2. Open your local folder and rename the **index.php** file to **verify-token.php**.
 
-3. Open the newly renamed file verify-token.php and
+3. Open the newly renamed file verify-token.php file and:
 
-   a. Replace the content with the content from verify-token.php found in [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C)
+   a. Replace the content with the content from the verify-token.php file found in [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
-   b. Replace <private_key> on line 3 with your private key obtained from Arkose Labs dashboard  
+   b. Replace <private_key> on line 3 with your private key obtained from the Arkose Labs dashboard.
 
-4. In the local terminal window, commit your changes in Git, and then push the code changes to Azure by typing the following in Git bash
+4. In the local terminal window, commit your changes in Git, and then push the code changes to Azure by typing the following in Git Bash:
 
    ``git commit -am "updated output"``
 
@@ -115,28 +122,30 @@ Download Git Bash and follow the steps below:
 
 #### Store the custom HTML
 
-1. Open the index.html file stored in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C)
+1. Open the index.html file stored in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
-2. Replace all instances of <tenantname> with your b2C tenant name (i.e., tenantname.b2clogin.com). There should be 4 instances 
+2. Replace all instances of `<tenantname>` with your b2C tenant name (in other words, `<tenantname>.b2clogin.com`). There should be 4 instances.
 
-3. Replace <*appname*> with the app name that you created in Part 2 – step 1.
+3. Replace the `<appname>` with the app name that you created in Part 2, step 1.
 
    ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkoselabs/arkose-azure-cli.png)
 
-4. Replace *<public_key*> on line 64 with the public key you obtained from Arkose Labs dashboard.
+4. Replace the `<public_key>` on line 64 with the public key you obtained from the Arkose Labs dashboard.
 
 5. Upload the index.html file into the blob storage created above.
 
-6. Go to **Storage** > **Container** > **Upload**
+6. Go to **Storage** > **Container** > **Upload**.
 
 #### Set up Azure AD B2C
 
 > [!NOTE]
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-1. Enable Javascript in your [user flow](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-javascript-overview)
+1. Create a user flow based on the information [here](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-user-flows). Stop when you reach the section **Test the user flow**.
 
-2. In the same user flow page, enable custom page URL
+2. Enable Javascript in your [user flow](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-javascript-overview).
+
+3. In the same user flow page, enable custom page URL: Go to
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
 This custom page URL is obtained from the location of the index.html file inside the blob storage  
 
@@ -144,25 +153,25 @@ This custom page URL is obtained from the location of the index.html file inside
 
 ## Test the user flow
 
-1. Open the B2C tenant and choose under policies **User flows**.
+1. Open the Azure AD B2C tenant, and under **Policies**, select **User flows**.
 
 2. Select your previously created User Flow.
 
-3. Select **Run user flow**.
+3. Select **Run user flow** and select the settings:
 
-   a. Application: select the registered app (sample is JWT)
+   a. **Application** - Select the registered app (sample is JWT).
 
-   b. Reply URL: select the redirect URL
+   b. **Reply URL** - Select the redirect URL.
 
    c. Select **Run user flow**.
 
-4. Go through sign-up flow and create an account
+4. Go through the sign-up flow and create an account.
 
-5. Log-out
+5. Sign out.
 
-6. Go through sign-in flow  
+6. Go through the sign-in flow.
 
-7. Arkose Labs puzzle will pop up after you enter **continue**.
+7. An Arkose Labs puzzle will appear after you select **continue**.
 
 ## Next steps
 

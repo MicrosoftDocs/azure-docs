@@ -32,10 +32,14 @@ To get started, you'll need:
 
 ![itsme architecture diagram](media/partner-itsme/itsme-architecture-diagram.png)
 
+<!--
+Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
+-->
+
 |   |   |
 |------|------|
 |1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C Custom Policy - User Journeys. The interaction flow starts when the user clicks on this button.  |
-|2     | The Azure AD B2C starts the OpenID connect flow by sending a Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
+|2     | Azure AD B2C starts the OpenID connect flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
 |3     | The itsme environment redirects the user to the itsme identify yourself page, allowing the user to fill in their phone number.  |
 |4     | The itsme environment receives the phone number from the user and validates the correctness.  |
 |5     | If the phone number belongs to an active itsme user, an Action is created for the itsme app.  |

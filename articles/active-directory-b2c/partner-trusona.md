@@ -56,7 +56,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 3. Verify your email through the secure "magic link" sent by the software.  
 
-4. Go to the [Trusona Developer’s dashboard](dashboard.trusona.com) for self-service.
+4. Go to the [Trusona Developer’s dashboard](https://dashboard.trusona.com) for self-service.
 
 5. Select **I’m Ready** and authenticate yourself with your Trusona app.
 
@@ -69,7 +69,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
    > [!NOTE]
    > Azure Active Directory’s initial domain name is used as the Client Redirect host.
 
-9. Follow the instructions mentioned in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous section.  
+9. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
 
 ## Integrate Trusona with Azure AD B2C
 
@@ -84,41 +84,41 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 
-4. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**
+4. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
 
-3. Select **Identity providers**
+3. Select **Identity providers**.
 
-4. Select **Add**
+4. Select **Add**.
 
 ### Configure an identity provider  
 
-1. Select **Identity provider type** > **OpenID Connect (Preview)**
+1. Select **Identity provider type** > **OpenID Connect (Preview)**.
 
-2. Fill-out the form below to set up the identity provider  
+2. Fill-out the form to set up the identity provider:  
 
-| Property | Value  |
-| :--- | :--- |
-| Metadata URL | `https://gateway.trusona.net/oidc/.well-known/openid-configuration`|
-| Client ID | Will be emailed to you from Trusona |
-| Scope | OpenID profile email |
-| Response type | Id_token |
-| Response mode  | Form_post |
+   | Property | Value  |
+   | :--- | :--- |
+   | Metadata URL | `https://gateway.trusona.net/oidc/.well-known/openid-configuration`|
+   | Client ID | Will be emailed to you from Trusona |
+   | Scope | OpenID profile email |
+   | Response type | Id_token |
+   | Response mode  | Form_post |
 
-3. Select **Ok**.  
+3. Select **OK**.  
 
 4. Select **Map this identity provider’s claims**.  
 
-5. Fill-out the form below to map the identity provider  
+5. Fill-out the form to map the identity provider:
 
-| Property | Value  |
-| :--- | :--- |
-| UserID | Sub  |
-| Display name | nickname |
-| Given name | given_name |
-| Surname | Family_name |
-| Response mode | email |
+   | Property | Value  |
+   | :--- | :--- |
+   | UserID | Sub  |
+   | Display name | nickname |
+   | Given name | given_name |
+   | Surname | Family_name |
+   | Response mode | email |
 
-6. Select **Ok** to complete the setup for your new OIDC identity Provider.
+6. Select **OK** to complete the setup for your new OIDC identity Provider.
 
 ### Create a user flow policy
 
@@ -126,15 +126,15 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 2. Select **User flows (policies)** from the left navigation panel.
 
-3. Select **Add** > **New user flow** > **Sign up and sign in**
+3. Select **Add** > **New user flow** > **Sign up and sign in**.
 
 ### Configure the Policy
 
-1. Name your policy
+1. Name your policy.
 
 2. Select your newly created **Trusona Identity Provider**.
 
-3. As Trusona is inherently multi-factor, it's best to leave multi-factor authentication disabled.
+3. Because Trusona is inherently multi-factor, it's best to leave multi-factor authentication disabled.
 
 4. Select **Create**.
 
@@ -144,13 +144,13 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 ### Test the Policy
 
-1. Select your newly created policy
+1. Select your newly created policy.
 
-2. Select **Run user flow**
+2. Select **Run user flow**.
 
-3. In the form, enter the Replying URL
+3. In the form, enter the Replying URL.
 
-4. Then select **Run user flow** button and you should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
+4. Select **Run user flow**. You should be redirected to the Trusona OIDC gateway. On the Trusona gateway, scan the displayed Secure QR code with the Trusona app or with a custom app using the Trusona mobile SDK.
 
 5. After scanning the Secure QR code, you should be redirected to the Reply URL you defined in step 3.
 
