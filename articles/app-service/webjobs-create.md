@@ -1,7 +1,7 @@
 ﻿---
 title: Run background tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from a variety of script formats and run them with CRON expressions.
-author: ggailley777
+author: ggailey777
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -105,7 +105,7 @@ when making changes in one don't forget the other two.
 
 1. Select your web app, API app, or mobile app from the list. 
 
-2. In the left pane of your app's **App Service** page, select **WebJobs**.
+1. In the left pane of your app's **App Service** page, select **WebJobs**.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
@@ -113,7 +113,9 @@ when making changes in one don't forget the other two.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Fill in the **Add WebJob** settings as specified in the tab;;;;;;;;;;;;;;;;bJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
+1. Fill in the **Add WebJob** settings as specified in the table 
+
+   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -124,7 +126,7 @@ when making changes in one don't forget the other two.
 
 4. Select **OK**.
 
-   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
+   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
 
@@ -139,17 +141,19 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Service**. 
 
-2. Select **WebJobs**.
+1. Select your web app, API app, or mobile app from the list. 
+
+1. In the left pane of your app's **App Service** page, select **WebJobs**.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In the **WebJobs** page, select **Add**.
+2. On the **WebJobs** page, select **Add**.
 
    ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
+3. Fill in the the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
@@ -163,7 +167,7 @@ when making changes in one don't forget the other two.
 
 4. Select **OK**.
 
-   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
+   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
 
