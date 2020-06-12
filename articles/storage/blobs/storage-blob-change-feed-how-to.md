@@ -126,30 +126,37 @@ public async Task ChangeFeedStreamAsync
     // Get a new change feed client.
     BlobChangeFeedClient changeFeedClient = blobServiceClient.GetChangeFeedClient();
 
-    IAsyncEnumerator<Page<BlobChangeFeedEvent>> enumerator = changeFeedClient
-        .GetChangesAsync(continuation: cursor).AsPages().GetAsyncEnumerator();
-
     while (true)
     {
-        await enumerator.MoveNextAsync();
+        IAsyncEnumerator<Page<BlobChangeFeedEvent>> enumerator = changeFeedClient
+        .GetChangesAsync(continuation: cursor).AsPages().GetAsyncEnumerator();
 
-        if (enumerator.Current.Values != null) 
+        while (true) 
         {
-            foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
+            var result = await enumerator.MoveNextAsync();
+
+            if (result)
             {
-                string subject = changeFeedEvent.Subject;
-                string eventType = changeFeedEvent.EventType.ToString();
-                string api = changeFeedEvent.EventData.Api;
+                foreach (BlobChangeFeedEvent changeFeedEvent in enumerator.Current.Values)
+                {
+                    string subject = changeFeedEvent.Subject;
+                    string eventType = changeFeedEvent.EventType.ToString();
+                    string api = changeFeedEvent.EventData.Api;
 
-                Console.WriteLine("Subject: " + subject + "\n" +
-                    "Event Type: " + eventType + "\n" +
-                    "Api: " + api);
-            }
+                    Console.WriteLine("Subject: " + subject + "\n" +
+                        "Event Type: " + eventType + "\n" +
+                        "Api: " + api);
+                }
             
-            // helper method to save cursor. 
-            SaveCursor(enumerator.Current.ContinuationToken);
-        }
+                // helper method to save cursor. 
+                SaveCursor(enumerator.Current.ContinuationToken);
+            }
+            else
+            {
+                break;
+            }
 
+        }
         await Task.Delay(waitTimeMs);
     }
 
