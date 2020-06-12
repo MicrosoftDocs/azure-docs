@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Service limits in public preview
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 These are the service limits of Azure Digital Twins during public preview.
 
