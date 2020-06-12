@@ -9,7 +9,8 @@ ms.author: banders
 ---
 
 >[!NOTE]
->We are currently not charging penalty fees on reservation refunds. We might charge the fees on refunds made in future but currently don't have a date for enabling this penalty.
+>We currently are not charging early termination fees on reservation refunds. We might charge the fees on refunds made in future. We currently don't have a date for enabling this fee.
+
 
 # Self-service exchanges and refunds for Azure Reservations
 
