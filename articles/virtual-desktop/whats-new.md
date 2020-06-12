@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/10/2020
+ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
