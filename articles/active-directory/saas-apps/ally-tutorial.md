@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you'll learn how to integrate Ally.io with Azure Active Directory (Azure AD). When you integrate Ally.io with Azure AD, you can:
 
 * Control in Azure AD who has access to Ally.io.
-* Enable your users to be automaticAlly.io signed-in to Ally.io with their Azure AD accounts.
+* Enable your users to be automatically signed-in to Ally.io with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
@@ -156,7 +156,7 @@ In this section, a user called B.Simon is created in Ally.io. Ally.io supports j
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Ally.io tile in the Access Panel, you should be automaticAlly.io signed in to the Ally.io for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Ally.io tile in the Access Panel, you should be automatically signed in to the Ally.io for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
