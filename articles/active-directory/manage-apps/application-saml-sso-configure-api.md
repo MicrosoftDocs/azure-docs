@@ -3,14 +3,13 @@ title: Use Microsoft Graph APIs to configure SAML-based single sign-on
 titleSuffix: Azure Active Directory
 description: Need to set up SAML-based single sign-on for multiple instances of an application? Learn how to save time by using the Microsoft Graph APIs to automate the configuration of SAML-based single sign-on.
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ---
 
