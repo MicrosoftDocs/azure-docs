@@ -36,10 +36,10 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Labeling: Create and manage labeling projects in studio (Web)                                                | All                     |
+| Labeling: [Create and manage labeling projects](tutorial-labeling.md) in studio (Web)                                                | All                     |
 | Labeling: Labeler in studio (Web)                                    | All                     |
 | Labeling: Use private workforce                               | All                     |
-| Labeling: ML assisted Image classification and Object detection                  | Enterprise edition only |
+| Labeling: [ML assisted Image classification and Object detection](how-to-label-images.md)                  | Enterprise edition only |
 | Datasets + datastores: create and manage in Python                       | All                     |
 | Datasets + datastores: create and manage in studio (Web)                         | All                     |
 | Drift: View and manage dataset monitors in Python                           | All                     |
@@ -53,9 +53,9 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Create and run AutoML experiments in notebooks               | All                     |
-| Create and run  AutoML experiments in studio (web)   | Enterprise edition only |
-| Industry-leading  AutoML forecasting capabilities             | Enterprise edition only |
+| Create and run [AutoML experiments in notebooks](how-to-configure-auto-train.md)               | All                     |
+| Create and run  [AutoML experiments in studio (web)](how-to-use-automated-ml-for-ml-models.md)   | Enterprise edition only |
+| Industry-leading AutoML forecasting capabilities             | Enterprise edition only |
 | Support for deep learning and other advanced learners | Enterprise edition only |
 | Large data support classification and regression tasks (up to 100 GB)                     | Enterprise edition only |
 
@@ -67,7 +67,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Model Explainability                                              | All                     |
+| [Model Explainability](how-to-machine-learning-interpretability-automl.md)                                              | All                     |
 | Differential privacy WhiteNoise toolkit                           | All                     |
 | Custom tags to implement datasheets     | All                     |
 | Fairness AzureML Integration                                      | All                     |
