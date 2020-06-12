@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 06/12/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -99,9 +99,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [IntelligenceBank Client support team](mailto:helpdesk@intelligencebank.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up IntelligenceBank** section, copy the appropriate URL(s) based on your requirement.
 
@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. In the **Host** textbox, paste the **Entity ID** value, which you have copied from the Azure portal.
 
-    f. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **CertData** textbox
+    f. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **CertData** textbox
 
     g. In the **SingleLogoutService** textbox, paste the **Log out URL** value, which you have copied from the Azure portal.
 
