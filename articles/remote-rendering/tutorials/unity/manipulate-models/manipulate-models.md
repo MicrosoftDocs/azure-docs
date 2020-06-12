@@ -372,7 +372,7 @@ The same process can be done programmatically and is the first step in modifying
 1. Steer the simulated hand so the hand ray is pointing to the test model.
 1. Long click to simulate an air-tap, executing the `OnPointerClicked` event.
 1. Check and expand the Hierarchy to see a new child object, representing the clicked entity.\
-![GameObject representation](./media/gameobject-represent-entity.png)\
+![GameObject representation](./media/gameobject-representing-entity.png)\
 1. After testing, remove the callback for `MakeSyncedGameObject`, since we'll incorporate this as part of other effects later.
 
 > [!NOTE]

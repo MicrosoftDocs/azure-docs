@@ -1,5 +1,5 @@
 ---
-title: ARR Tutorial Landing Page
+title: Azure Remote Rendering tutorial landing page
 description: ARR tutorial overview and navigation
 author: michael-house
 ms.author: v-mihous
@@ -7,7 +7,7 @@ ms.date: 04/09/2020
 ms.topic: tutorial
 ---
 
-# Azure Remote Rendering Tutorials
+# Azure Remote Rendering tutorials
 
 Welcome to the Azure Remote Rendering tutorials. In addition to learning key concepts of Azure Remote Rendering, these interactive lessons will walk you through viewing, manipulating, and customizing remotely rendered models and highlight considerations for building a secure, commercial-ready application.
 

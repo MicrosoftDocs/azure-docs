@@ -54898,6 +54898,21 @@
       "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "articles/remote-rendering/tutorials/unity/manipulate-models",
+      "redirect_document_id": false
     }
   ]
 }

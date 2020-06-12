@@ -630,7 +630,7 @@ public void StopRemoteSession()
 }
 ```
 
-If you want to save time by reusing sessions, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server (The value for *MaxLeaseTime* can be modified in the Remote Rendering Cooridnator, under *New Session Defaults*). On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, which can be a somewhat lengthy process.
+If you want to save time by reusing sessions, make sure to deactivate the option **Auto-Stop Session** in the *ARRServiceUnity* component. Keep in mind that this will leave sessions running, even when no one is connected to them. Your session may run for as long as your *MaxLeaseTime* before it is shut down by the server (The value for *MaxLeaseTime* can be modified in the Remote Rendering Coordinator, under *New Session Defaults*). On the other hand, if you automatically shut down every session when disconnecting, you will have to wait for a new session to be started every time, which can be a somewhat lengthy process.
 
 > [!NOTE]
 > Stopping a session will take immediate effect and cannot be undone. Once stopped, you have to create a new session, with the same startup overhead.

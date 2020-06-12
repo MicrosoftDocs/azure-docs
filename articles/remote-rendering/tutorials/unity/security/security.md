@@ -1,5 +1,5 @@
 ---
-title: Securing Azure Remote Rendering and Model Storage
+title: Securing Azure Remote Rendering and model storage
 description: Hardening a Remote Rendering application for securing content
 author: michael-house
 ms.author: v-mihous
@@ -144,7 +144,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 1. Add your values to the **RemoteRenderingCoordinator** component. Having followed the [Quickstart for model conversion](../../../quickstarts/convert-model.md), your values should be:
 
     * **Storage Account Name**: Your storage account name, the globally unique name you choose for your storage account. In the quickstart this was *arrtutorialstorage*, your value will be different.
-    * **Blob Container Name**: arroutput, the Blob Stroage Container 
+    * **Blob Container Name**: arroutput, the Blob Storage Container
     * **Model Path**: The combination of the "outputFolderPath" and the "outputAssetFileName" defined in the *arrconfig.json* file. In the quickstart this was "outputFolderPath":"converted/robot", "outputAssetFileName": "robot.arrAsset". Which would result in a Model Path value of "converted/robot/robot.arrAsset", your value will be different.
 
     >[!TIP]
@@ -162,7 +162,7 @@ Now the current state of the application and its access to your Azure resources 
 
 We have one more "password", the AccountKey, to remove from the local application. This can be done using Azure Active Directory (AAD) authentication.
 
-## Azure Active Directory (AAD) authentication
+## Azure Active Directory (Azure AD) authentication
 
 AAD authentication will allow you to determine which individuals or groups are using ARR in a more controlled way. ARR has built in support for accepting [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) instead of using an Account Key. You can think of Access Tokens as a time-limited, user-specific key, that only unlocks certain parts of the specific resource it was requested for.
 
@@ -180,7 +180,7 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
     **AAR -> AccessControl (IAM)**\
-    ![ARR Role](./media/arr-role-assignment-complete.png)
+    ![ARR Role](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
@@ -338,7 +338,7 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
 
 1. Add the **AADAuthentication** component to the **RemoteRenderingCoordinator** GameObject.
 
-    ![AAD auth component](./media/aad-auth-component.png)
+    ![AAD auth component](./media/azure-active-directory-auth-component.png)
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
