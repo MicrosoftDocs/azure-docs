@@ -148,19 +148,16 @@ Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or 
 
 #### iOS limitation on AAC 5.1 audio
 
-Apple iOS devices do not to support 5.1 AAC audio codec. Only Dolby Digital or DD+ codecs are supported.  
+Apple iOS devices do not support 5.1 AAC audio codec. Multi-channel audio must be encoded using Dolby Digital or Dolby Digital Plus codecs.
 
 For detailed information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
 
 > [!NOTE]
-> Media Services does not support *Dolby Digital Plus with Dolby Atmos* multichannel audio formats.
+> Media Services does not support encoding of Dolby Digital, Dolby Digital Plus or Dolby Digital Plus with Dolby Atmos multi-channel audio formats.
 
 #### Dolby Digital audio
 
-Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
-
-> [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus via the legacy v2 APIs.
+Media Services dynamic packaging does not currently support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (as this is considered a legacy codec by Dolby).
 
 ## Manifests
 
