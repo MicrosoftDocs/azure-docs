@@ -45,7 +45,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
-| **\*.data.mcr.microsoft.com** | Microsoft Container Registry for base docker images |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ## Python hosts
 
