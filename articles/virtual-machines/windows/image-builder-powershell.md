@@ -40,7 +40,7 @@ cmdlet. For more information about installing the Az PowerShell module, see
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription using the
