@@ -18,15 +18,15 @@ Note that only Azure services can publish events to system topics. Therefore, yo
 ## System topics as Azure resources
 Previously, the system topic resource was implicit and wasn't exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can:
 
-- Manage system topics
-- Manage event subscriptions for system topics
-- Set up diagnostic logs for system topics
+- [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-system-topics)
+- Export Resource Manager templates for system topics and event subscriptions in the Azure portal
+- [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-system-topic)
 - Set up alerts on publish and delivery failures 
 
 ## Lifecycle of system topics
 You can create a system topic in two ways: 
 
-- Create an event subscription on an Azure resource, which automatically creates a system topic with the name in the format: `<Azure resource name>-<GUID>`. The system topic created in this way is automatically deleted when the last event subscription for the topic is deleted. 
+- Create an [event subscription on an Azure resource as an extension resource](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), which automatically creates a system topic with the name in the format: `<Azure resource name>-<GUID>`. The system topic created in this way is automatically deleted when the last event subscription for the topic is deleted. 
 - Create a system topic for an Azure resource, and then create an event subscription for that system topic. When you use this method, you can specify a name for the system topic. The system topic isn't deleted automatically when the last event subscription is deleted. You need to manually delete it. 
 
     When you use the Azure portal, you are always using this method. When you create an event subscription using the [**Events** page of an Azure resource](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), the system topic is created first and then the subscription for the topic is created. You can explicitly create a system topic first by using the [**Event Grid System Topics** page](create-view-manage-system-topics.md#create-a-system-topic) and then create a subscription for that topic. 
