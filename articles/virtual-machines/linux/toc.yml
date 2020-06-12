@@ -849,11 +849,7 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      items:
-      - name: Overview
-        href: cloudfoundry-get-started.md
-      - name: Deploy your first app
-        href: cloudfoundry-deploy-your-first-app.md
+      href: https://docs.microsoft.com/en-us/azure/cloudfoundry/
     - name: Cassandra
       href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: OpenShift

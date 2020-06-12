@@ -101,8 +101,6 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 
 The initial screen presented requires a kubeconfig or token. Both options require resource permissions to display those resources in the dashboard.
 
-For clusters running K8s 1.16 or greater, 
-
 ![login screen](./media/kubernetes-dashboard/login.png)
 
 **Use a kubeconfig**
@@ -120,7 +118,7 @@ For both Azure AD enabled and non-Azure AD enabled clusters, a kubeconfig can be
 1. Paste into the token option at login
 1. Click `Sign In`
 
-For Azure AD enabled clusters, retrieve your AAD token with the following command. Validate you have replaced the resource group and cluster name in the command. Azure AD enabled clusters also support non-interactive login for the dashboard by using [Kubelogin](https://github.com/Azure/kubelogin).
+For Azure AD enabled clusters, retrieve your AAD token with the following command. Validate you have replaced the resource group and cluster name in the command.
 
 ```
 ## Update <RESOURCE_GROUP and <AKS_NAME> with your input.

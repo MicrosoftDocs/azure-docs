@@ -4,7 +4,7 @@ description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/11/2020
 ms.author: banders
 ---
 
@@ -41,7 +41,7 @@ If the original purchase was made as an overage, Microsoft issues a credit memo.
 
 ### Pay-as-you-go invoice payments and CSP program
 
-The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase.
+The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
 
 ### Pay-as-you-go credit card customers
 
