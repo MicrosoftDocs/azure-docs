@@ -46,7 +46,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 1. The **Transfer Validation Result** area will show the impact of the Azure products that are going to be transferred. Here are the possible states:
     * **Passed** - Validation for this Azure product has passed and can be transferred.
     * **Warning** - There's a warning for the selected Azure product. While the product can still be transferred, doing so will have some impact that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription.
-    * **Failed** - The selected Azure product can't be transferred becuase of an error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products.  
+    * **Failed** - The selected Azure product can't be transferred because of an error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products.  
     ![Screenshot that shows validation experience](./media/mca-request-billing-ownership/validate-transfer-request.png)
 
 ## Check the transfer request status
