@@ -75,7 +75,7 @@ Memory Preserving Updates: Supported
 | Standard_E16s_v4 | 16 | 128 | Remote Storage Only | 32 | 154000/968 (400) | 25600/384 | 8/8000 |
 | Standard_E20s_v4 | 20 | 160 | Remote Storage Only | 32 | 193000/1211 (500) | 32000/480  | 8/10000 |
 | Standard_E32s_v4 | 32 | 256 | Remote Storage Only | 32 | 308000/1936 (800) | 51200/768  | 8/16000 |
-| Standard_E48s_v4 | 48 | 384 | Remote Stroage Only | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
+| Standard_E48s_v4 | 48 | 384 | Remote Storage Only | 32 | 462000/2904 (1200) | 76800/1152 | 8/24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| Remote Storage Only | 32 | 615000/3872 (1600) | 80000/1200 | 8/30000 |
 
 <sup>1</sup> [Constrained core sizes available](https://docs.microsoft.com/azure/virtual-machines/windows/constrained-vcpu).
