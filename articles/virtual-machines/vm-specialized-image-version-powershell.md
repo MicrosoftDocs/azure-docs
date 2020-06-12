@@ -13,7 +13,7 @@ ms.reviewer: akjosh
 
 # Create a VM using a specialized image 
 
-Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a specialized image version](vm-generalized-image-version-powershell.md).
+Create a VM from a specialized image version stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM using a generalized image](vm-generalized-image-version-powershell.md).
 
 Once you have a specialized image version, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
 
