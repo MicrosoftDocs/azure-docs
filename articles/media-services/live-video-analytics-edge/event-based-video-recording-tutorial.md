@@ -243,7 +243,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
-   * These messages are discussed in the following section.
+   These messages are discussed in the following section.
      
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. Review the messages as discussed in the following section. Then to stop the instance, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
