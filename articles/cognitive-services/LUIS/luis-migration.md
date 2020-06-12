@@ -144,9 +144,9 @@ If your subscription already is associated with a LUIS authoring azure resource 
 * You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal.
 * If you plan to edit your apps programmatically, you will need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
 
-![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2)
+![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2.PNG)
 
-## Add Co-authors/Contributors to Authoring Resources
+## Add co-authors/Contributors to Authoring Resources
 
 [!INCLUDE [Manage contributors for the Azure authoring resource for language understanding](./includes/manage-contributors-authoring-resource.md)]
 
