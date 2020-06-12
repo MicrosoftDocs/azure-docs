@@ -165,7 +165,7 @@ If you already have a logic app with the connection that you want to block, foll
     }
     ```
 
-   ![Policy definition for a connector](./media/block-creating-connections-with-connectors/policy-definition-basics-2.png)
+   ![Rule for policy definition](./media/block-creating-connections-with-connectors/policy-definition-basics-2.png)
 
    For multiple connectors, you can add more conditions, for example:
 
@@ -217,7 +217,7 @@ Next, you need to assign the policy definition where you want the policy to appl
 
 1. If you signed out, sign back in to the [Azure portal](https://portal.azure.com). In the portal search box, enter `policy`, and select **Policy**.
 
-   ![In Azure portal, find and select "policy"](./media/block-creating-connections-with-connectors/find-select-azure-policy.png)
+   ![In Azure portal, find and select "Policy"](./media/block-creating-connections-with-connectors/find-select-azure-policy.png)
 
 1. On the **Policy** menu, under **Authoring**, select **Assignments** > **Assign policy**.
 
@@ -239,7 +239,7 @@ Next, you need to assign the policy definition where you want the policy to appl
 
    For example:
 
-   ![Select "Assignments" > "Assign"](./media/block-creating-connections-with-connectors/policy-assignment-basics.png)
+   ![Policy assignment properties](./media/block-creating-connections-with-connectors/policy-assignment-basics.png)
 
 1. When you're done, select **Review + create**.
 
