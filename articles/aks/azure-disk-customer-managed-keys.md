@@ -101,7 +101,7 @@ diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceG
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
 ```
 
 When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
