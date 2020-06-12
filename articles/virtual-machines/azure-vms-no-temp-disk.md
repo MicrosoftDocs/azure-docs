@@ -16,9 +16,10 @@ This article provides answers to frequently asked questions (FAQ) about Azure VM
 > Dv4, Dsv4, Ev4 and Esv4-series VM sizes are now in Public Preview. To sign up for Public Preview, fill out this [Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ## What does no local temp disk mean? 
-Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. D: Drive). Now with these specific new VM sizes, a small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.  
+Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. D: Drive). Now with these new VM sizes, that small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.
+
 ## What if I still want local temp disk?
-If your workload requires a local temporary disk, we also have new [Ddv4 and Ddsv4](ddv4-dsv4-series.md) or [Edv4 and Edsv4](edv4-edsv4-series.md) VM sizes available. These sizes offer 50% larger temporary disk compared with the previous v3 sizes.
+If your workload requires a local temporary disk, we also have new [Ddv4 and Ddsv4](ddv4-ddsv4-series.md) or [Edv4 and Edsv4](edv4-edsv4-series.md) VM sizes available. These sizes offer 50% larger temporary disk compared with the previous v3 sizes.
 
 > [!NOTE]
 > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
@@ -40,13 +41,13 @@ No. The only combinations allowed for resizing are:
 > [!NOTE]
 > If an image depends on the resource disk, or a pagefile or swapfile exists on the local temp disk, the diskless images will not work—instead, use the ‘with disk’ alternative. 
 
-## What VM sizes and operating systems support VM sizes with no local temp disk?
-These VM sizes support both Windows and Linux Operating Systems (OS).
+## Do these VM sizes support both Linux and Windows Operating Systems (OS)?
+Yes.
 
-## Will this break my custom script, custom images or OS images that I am using that has scratch file or page file on this local temp disk?
+## Will this break my custom scripts, custom images or OS images that have scratch files or page files on a local temp disk?
 If the custom OS image points to the local temp disk, the image might not work correctly with this diskless size.
 
-## Where can I go to ask questions or provide feedback?
+## Have questions or feedback?
 Fill out the [feedback form]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## Next steps 
