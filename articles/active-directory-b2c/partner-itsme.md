@@ -14,7 +14,7 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Configure itsme OpenID Connect with Azure Active Directory B2C
+# Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C
 
 The itsme digital ID app allows you to log in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client_secret user flow policy.
 
@@ -27,6 +27,25 @@ To get started, you'll need:
 * Your ClientID aka PartnerCode provided by itsme.
 * Your ServiceCode provided by itsme.
 * Your client secret for your itsme account.
+
+## Scenario description
+
+![itsme architecture diagram](media/partner-itsme/itsme-architecture-diagram.png)
+
+|   |   |
+|------|------|
+|1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C Custom Policy - User Journeys. The interaction flow starts when the user clicks on this button.  |
+|2     | The Azure AD B2C starts the OpenID connect flow by sending a Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
+|3     | The itsme environment redirects the user to the itsme identify yourself page, allowing the user to fill in their phone number.  |
+|4     | The itsme environment receives the phone number from the user and validates the correctness.  |
+|5     | If the phone number belongs to an active itsme user, an Action is created for the itsme app.  |
+|6     | The user opens the itsme app, checks the request, and confirms the action.  |
+|7     |  The app informs the itsme environment the action has been confirmed. |
+|8     |  The itsme environment returns the OAuth authorize code to Azure AD B2C. |
+|9     |  Using the authorize code, the Azure AD B2C does a token request. |
+| 10 | The itsme environment checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user information. |
+| 11 | Finally, the user is redirected to the redirect url as an authenticated user.  |
+|   |   |
 
 ## Onboard with itsme
 
@@ -98,7 +117,7 @@ To get started, you'll need:
 
 2. Provide a **Name** for the application and enter your **Redirect URI**. For testing purposes, enter `https://jwt.ms`.
 
-3. Make sure multifactor authentication is **Disabled**.
+3. Make sure multi-factor authentication is **Disabled**.
 
 4. Select **Register**.
 
