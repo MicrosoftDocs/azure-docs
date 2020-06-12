@@ -2,7 +2,7 @@
 title: Quickstart - Create registry - Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
 ms.topic: quickstart
-ms.date: 01/22/2019
+ms.date: 06/12/2020
 ms.custom: "seodec18, H1Hack27Feb2017, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure CLI
@@ -32,7 +32,8 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -58,14 +59,14 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name.
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name, and `<login-server>` is a placeholder for the registry's login server name.
 
 ## Log in to registry
 
 Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 The command returns a `Login Succeeded` message once completed.

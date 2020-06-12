@@ -26,7 +26,7 @@ Tag the image using the [docker tag][docker-tag] command. Replace `<login-server
 docker tag hello-world <login-server>/hello-world:v1
 ```
 
-Finally, use [docker push][docker-push] to push the image to the registry instance. Replace `<acrLoginServer>` with the login server name of your registry instance. This example creates the **hello-world** repository, containing the `hello-world:v1` image.
+Finally, use [docker push][docker-push] to push the image to the registry instance. Replace `<login-server>` with the login server name of your registry instance. This example creates the **hello-world** repository, containing the `hello-world:v1` image.
 
 ```
 docker push <login-server>/hello-world:v1
