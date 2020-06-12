@@ -1,6 +1,6 @@
 ---
-title: Integrating Key vault with DigiCert Certificate Authority
-description: How to integrate Key vault with DigiCert Certificate Authority
+title: Integrating Key Vault with DigiCert Certificate Authority
+description: How to integrate Key Vault with DigiCert Certificate Authority
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,25 +13,25 @@ ms.date: 06/02/2020
 ms.author: sebansal
 ---
 
-# Integrating Key vault with DigiCert Certificate Authority
+# Integrating Key Vault with DigiCert Certificate Authority
 
 Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A Digital certificate is an electronic credential to establish proof of identity in an electronic transaction. 
 
-Azure key vault users can generate DigiCert certificates directly from their key vault and key vault would ensure end-to-end certificate lifecycle management for those certificates issued by DigiCert through AKV’s trusted partnership with DigiCert Certificate Authority.
+Azure key vault users can generate DigiCert certificates directly from their Key Vault. Key Vault would ensure end-to-end certificate lifecycle management for those certificates issued by DigiCert through Key Vault’s trusted partnership with DigiCert Certificate Authority.
 
-For more general information about Certificates, see [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates)
+For more general information about Certificates, see [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this guide, you must have the following resources.
-1. A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
+* A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
    - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
    - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
-2.	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
-3.	Administrator level permissions in your accounts.
+*	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
+*	Administrator level permissions in your accounts.
 
 
 ### Before you begin
@@ -41,17 +41,17 @@ Make sure you have the following information handy from your DigiCert CertCentra
 -	Organization ID
 -	API key
 
-## Adding Certificate Authority in Key vault 
-After gathering above information from DigiCert CertCentral account, you can now add DigiCert to Certificate Authority list in the Key vault.
+## Adding Certificate Authority in Key Vault 
+After gathering above information from DigiCert CertCentral account, you can now add DigiCert to Certificate Authority list in the key vault.
 
-### Azure Portal
+### Azure portal
 
-1.	To add DigiCert certificate authority, navigate to the Key vault you want to add DigiCert. 
+1.	To add DigiCert certificate authority, navigate to the key vault you want to add DigiCert. 
 2.	On the Key Vault properties pages, select **Certificates**.
 3.	Select **Certificate Authorities** tab.
-![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/select-certificateauthorities.png)
+![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.	Select **Add** option.
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/add-certificateauthority.png)
+ ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.	On the **Create a certificate Authority** screen choose the following values:
     - 	**Name**: Add an identifiable Issuer name. Example DigicertCA
     - 	**Provide**: Select DigiCert from the menu.
@@ -112,24 +112,24 @@ $issuerName = "DigiCertCA"
 Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
 ```
 
-5. **Setting Policy for the certificate and issuing certificate** from DigiCert directly inside Key vault.
+5. **Setting Policy for the certificate and issuing certificate** from DigiCert directly inside Key Vault.
 
 ```azurepowershell-interactive
 $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-Certificate has now been successfully issued by Digicert CA inside specified Key vault through this integration.
+Certificate has now been successfully issued by Digicert CA inside specified Key Vault through this integration.
 
 ## Troubleshoot
 
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the DigiCert error message for that certificate.
 
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/Certificate-operation.png)
+ ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation.png)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## See Also
+## Next steps
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
