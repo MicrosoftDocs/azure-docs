@@ -54898,6 +54898,11 @@
       "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/azure-ad-integration.md",
+      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_document_id": false
     }
   ]
 }
