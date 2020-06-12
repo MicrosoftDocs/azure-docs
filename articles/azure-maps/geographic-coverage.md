@@ -1,5 +1,5 @@
 ---
-title: Geographic coverage informatione | Microsoft Azure Maps
+title: Geographic coverage information | Microsoft Azure Maps
 description: Details of where geographic data is available within Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -23,7 +23,7 @@ The following links provide detail coverage information for each of the services
 
 ## Next steps
 
-Learn about supported regions, languages and map styles:
+Learn about supported regions, languages, and map styles:
 
 > [!div class="nextstepaction"]
 > [Supported region](about-azure-maps.md#supported-regions)
