@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name |  |  Source Attribute|
 	| ---------------| --------------- | --------- |
-	| email | | user.userprincipalname |
+	| email | | user.mail |
 	| fname | | user.givenname |
 	| lname | | user.surname |
 
