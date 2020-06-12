@@ -249,22 +249,17 @@ For more information, see [Quickstart: Create a policy assignment to identify no
 
 After the policy takes effect, you can test the policy by trying to create a connection using the restricted connector in the Logic App Designer. For example, following the Instagram example, when you sign in, you get this error that your logic app failed to create the connection:
 
-https://medium.com/@derek_li/block-connectors-in-logic-apps-fa8b4f8fc1df
-
-
 ![Connection failure due to applied policy](./media/block-creating-connections-with-connectors/connection-failure-message.png)
 
 The message includes this information:
 
-* Reason for the failure: `"Resource 'instagram' was disallowed by policy."`
-
-* Policy assignment information:
-
-  * Assignment name: `"Block Instagram connections"`
-
-  * Assignment ID: `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"`
-
-* Policy definition ID: `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"`
+| | | 
+|---|---|
+| Reason for the failure | `"Resource 'instagram' was disallowed by policy."` |
+| Assignment name | `"Block Instagram connections"` |
+| Assignment ID | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |
+| Policy definition ID | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
+|||
 
 ## Next steps
 
