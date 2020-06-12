@@ -13,7 +13,7 @@ ms.custom: fasttrack-new
 ---
 # Revisions in Azure API Management
 
-Revisions allow you to make changes to your APIs in a controlled and safe way. When you want to make changes, create a new revision. You can then edit and test API without disturbing your API consumers. When you are ready, you can then make your revision current. At the same time, you can post an entry to the change log, to keep your API consumers up to date with what has changed. The change log is published to your developer portal.
+Revisions allow you to make changes to your APIs in a controlled and safe way. When you want to make changes, create a new revision. You can then edit and test API without disturbing your API consumers. When you're ready, you then make your revision current. At the same time, you can optionally post an entry to the change log, to keep your API consumers up to date with what has changed. The change log is published to your developer portal.
 
 > [!NOTE]
 > The developer portal is not available in the Consumption tier.
@@ -35,25 +35,25 @@ Each revision to your API can be accessed using a specially formed URL. Append `
 
 While a revision's private URL requires the caller knows the revision number to create a valid API URL, the private address of the revision otherwise has the same security context as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision.
 
-A revision can also be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. This can be done using the Azure portal. Alternatively, if you use PowerShell, you can use the `Set-AzApiManagementApiRevision` cmdlet and set the `Path` argument to `$null`.
+A revision can be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. You can mark a revision as offline using the Azure portal. If you use PowerShell, you can use the `Set-AzApiManagementApiRevision` cmdlet and set the `Path` argument to `$null`.
 
 > [!NOTE]
-> We suggest taking revisions offline when you are not using them for testing.
+> We suggest taking revisions offline when you aren't using them for testing.
 
 ## Current revision
 
-A single revision can be set as the *current* revision. This revision will be the one used for all API requests that do not specify an explicit revision number. 
+A single revision can be set as the *current* revision. This revision will be the one used for all API requests that don't specify an explicit revision number in the URL.
 
-You can set a revision as current using the Azure portal. Alternatively, if you use PowerShell, you can use the `New-AzApiManagementApiRelease` cmdlet.
+You can set a revision as current using the Azure portal. If you use PowerShell, you can use the `New-AzApiManagementApiRelease` cmdlet.
 
 ## Revision descriptions
 
-When you create a revision, you can set a description. This can be used for your own internal tracking purposes. Descriptions are not displayed to API users.
+When you create a revision, you can set a description for your own tracking purposes. Descriptions aren't played to your API users.
 
-When you set a revision as current you can also optionally specify a public change log note. This will be included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
+When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
 
-## Versioning and revisions
+## Versions and revisions
 
-Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. Alternatively you can use revisions without using versions, or vice versa.
+Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around.
 
 Should you find that your revision has breaking changes, or if you wish to formally turn your revision into a beta/test version, you can create a version from a revision. Using the Azure portal, click the 'Create Version from Revision' on the revision context menu on the Revisions tab.
