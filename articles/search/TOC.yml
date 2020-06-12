@@ -228,8 +228,6 @@
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
-    - name: Documentation links
-      href: cognitive-search-resources-documentation.md
     - name: Knowledge store
       items:
       - name: Create using REST and Postman
@@ -466,6 +464,8 @@
         href: cognitive-search-skill-text-translation.md
     - name: Custom skills
       items:
+      - name: Azure Machine Learning (AML)
+        href: cognitive-search-aml-skill.md
       - name: Custom Web API
         href: cognitive-search-custom-skill-web-api.md
     - name: Deprecated skills
@@ -483,6 +483,8 @@
     href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
     href: https://aka.ms/azurecompliance
+  - name: Documentation links (knowledge mining)
+    href: cognitive-search-resources-documentation.md
   - name: Demo sites
     items:
     - name: Financial files demo
