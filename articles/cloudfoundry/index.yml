@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Overview of Cloud Foundry on Azure
-            url: ../virtual-machines/linux/cloudfoundry-get-started.md
+            url: cloudfoundry-get-started.md
 
   # Card
   - title: Get started
@@ -35,7 +35,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Deploy your first app
-            url: ../virtual-machines/linux/cloudfoundry-deploy-your-first-app.md
+            url: cloudfoundry-deploy-your-first-app.md
 
   # Card
   - title: Resources
