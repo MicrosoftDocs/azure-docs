@@ -95,7 +95,7 @@ For each collaborator and app, the default email application opens with a lightl
 
 If you want to create a new authoring resource, select **create a new Authoring resource** and provide the following information in the next window.
 
-![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.PNG)
 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
@@ -108,13 +108,13 @@ Note that you can have 10 free authoring resources per region, per subscription.
 
 * When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
 
-![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.PNG)
 
 ### Use Existing Authoring resource to migrate
 
 If your subscription already is associated with a LUIS authoring azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
 
-![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
+![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.PNG)
 
 * **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
@@ -126,11 +126,11 @@ If your subscription already is associated with a LUIS authoring azure resource 
 
 * Validate your authoring resource name and click on the **Migrate now** button.
 
-![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.png)
+![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.PNG)
 
 * The success message is shown. Select **Close** to close the pop-up window.
 
-![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.PNG)
 
 ## Accessing my Applications after Migration
 
@@ -213,7 +213,7 @@ If your application is not still not in production using your prediction/runtime
 When you try to migrate but can not find your Azure subscription in the dropdown list:
 * Ensure you have a valid azure subscription that is authorized to create Cognitive Services resources. Go to [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you do not have one, [create a free trial](https://azure.microsoft.com/free/).
 * Ensure that you are in the proper tenant associated with your valid subscription. You can switch tenant from the avatar below:
-![Switch tenants.](./media/migrate-authoring-key/switch-user-tenant-2.png)
+![Switch tenants.](./media/migrate-authoring-key/switch-user-tenant-2.PNG)
 
  If you already have an existing authoring resource but can not find it when selecting the "Use Existing Authoring Resource" option:
 * You resource was probably created in a different location than the portal you have sign in on. Please check  [LUIS Authoring Regions and the portals](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions)
