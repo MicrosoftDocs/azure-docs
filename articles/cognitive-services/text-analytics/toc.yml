@@ -68,6 +68,8 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
+   - name: Text Analytics for healthcare
+     href: How-tos/text-analytics-for-healthcare.md
    - name: Use containers
      items:
       - name: Install and run containers

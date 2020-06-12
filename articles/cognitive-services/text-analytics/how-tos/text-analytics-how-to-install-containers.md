@@ -54,6 +54,8 @@ The following table describes the minimum and recommended specifications for the
 |---|---------|-------------|--|--|
 | **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
 | **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
+| **Text Analytics for health - 1 document/request**   |  4 core, 8GB memory | 6 core, 12GB memory |15 | 30|
+| **Text Analytics for health - 100 documents/request**   |  6 core, 12GB memory | 8 core, 16GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -75,6 +77,26 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# [Text Analytics for health (preview)](#tab/healthcare)
+
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
+
+[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+
+Use the docker login command with credentials provided in your onboarding email to connect to our private container registry for Cognitive Services containers.
+
+```bash
+docker login containerpreview.azurecr.io -u <username> -p <password>
+```
+
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
+
+For a full description of available tags for the Text Analytics containers, see the [Text Analytics for health](https://go.microsoft.com/fwlink/?linkid=2018759) container on the Docker Hub.
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest
+```
+
 ***
 
 ## How to use the container
@@ -87,13 +109,6 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 ## Run the container with `docker run`
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
-
-Replace the placeholders below with your own values:
-
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
@@ -111,6 +126,40 @@ Replace the placeholders below with your own values:
 # [Language Detection (preview)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# [Text Analytics for health (preview)](#tab/healthcare)
+
+To run the container, first find its image ID:
+ 
+```bash
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
+
+Execute the following `docker run` command. Replace the placeholders below with your own values:
+
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| **{IMAGE_ID}** | The image ID for your container. | `1.1.011300001-amd64-preview` |
+| **{INPUT_DIR}** | The input directory for the container. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
+
+```bash
+docker run --rm -it -p 5000:5000 --cpus 6 --memory 8g \
+--mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Disk:Format=json
+```
+
+This command:
+
+- Assumes that the input directory exists on the host machine
+- Runs a Text Analytics for Health container from the container image
+- Allocates 6 CPU core and 8 gigabytes (GB) of memory
+- Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+- Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
 
@@ -156,8 +205,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection (preview)*
-   
-* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
+   * *Text Analytics for health (preview)*
+* Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
