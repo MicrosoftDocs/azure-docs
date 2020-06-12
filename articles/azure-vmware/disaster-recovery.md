@@ -52,7 +52,7 @@ If needed, select the Default replication options:
 
 - **Enable Quiescence:** Pauses the VM to ensure a consistent copy is synced to the remote site.
 
-- **Destination Storage:** Select the remote datastore for the protected VM(s). In an AVS private cloud, this selection should be the VSAN datastore.
+- **Destination Storage:** Select the remote datastore for the protected VM(s). In an AVS private cloud, this selection should be the vSAN datastore.
 
 - **Compute Container:** The remote vSphere Cluster or Resource Pool.
 
