@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/17/2020 
+ms.date: 06/11/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -144,7 +144,15 @@ Dynamic packaging supports audio that's encoded with the following protocols:
 
 Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-### Additional notes
+### Limitations
+
+#### iOS limitation on AAC 5.1 audio
+
+Apple iOS devices do not to support 5.1 AAC. Only Dolby Digital or DD+  are supported.  
+
+For more information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
+
+#### Dolby Digital audio
 
 Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
 
