@@ -87,11 +87,21 @@ The following example **fails** this test:
 }
 ```
 
+The next example **passes** this test:
+
+```json
+"parameters": {
+    "adminPassword": {
+        "type": "SecureString"
+    }
+}
+```
+
 ## Location uses parameter
 
 Test name: **Location Should Not Be Hardcoded**
 
-Users of your template may have limited regions available to them. When you set the resource location to `"[resourceGroup().location]"`, the resource group may have been created in a region that other users can't access. Those users are blocked from using the template. The same problem can happen when you hardcode the location for a resource.
+Users of your template may have limited regions available to them. When you set the resource location to `"[resourceGroup().location]"`, the resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
 
 When defining the location for each resource, use a parameter that defaults to the resource group location. By providing this parameter, users can use the default value when convenient but also specify a different location.
 
@@ -341,14 +351,13 @@ Test name: **artifacts-parameter**
 When you include parameters for `_artifactsLocation` and `_artifactsLocationSasToken`, use the correct defaults and types. The following conditions must be meet to pass this test:
 
 * if you provide one parameter, you must provide the other
-* _artifactsLocation must be a **string**
-* _artifactsLocation must have a default value in the main template
-* _artifactsLocation can't have a default value in a nested template 
-* _artifactsLocation must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value
-* _artifactsLocationSasToken must be a **secureString**
-* _artifactsLocationSasToken can only have an empty string for its default value
-* _artifactsLocationSasToken can't have a default value in a nested template 
-
+* `_artifactsLocation` must be a **string**
+* `_artifactsLocation` must have a default value in the main template
+* `_artifactsLocation` can't have a default value in a nested template 
+* `_artifactsLocation` must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value
+* `_artifactsLocationSasToken` must be a **secureString**
+* `_artifactsLocationSasToken` can only have an empty string for its default value
+* `_artifactsLocationSasToken` can't have a default value in a nested template 
 
 ## Declared variables must be used
 
@@ -366,7 +375,7 @@ The API version for each resource should use a recent version. The test evaluate
 
 Test name: **Providers apiVersions Is Not Permitted**
 
-The API version for a resource type determines which properties are available for the resource. Provide a hardcoded API version in your template. Don't retrieve an API version that is determined during deployment. You won't know which properties are available.
+The API version for a resource type determines which properties are available. Provide a hard-coded API version in your template. Don't retrieve an API version that is determined during deployment. You won't know which properties are available.
 
 The following example **fails** this test.
 
@@ -409,14 +418,6 @@ When specifying a resource ID, use one of the resource ID functions. The allowed
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
 
-The following example **passes** this test.
-
-```json
-"networkSecurityGroup": {
-    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-}
-```
-
 Don't use the concat function to create a resource ID. The following example **fails** this test.
 
 ```json
@@ -425,7 +426,48 @@ Don't use the concat function to create a resource ID. The following example **f
 }
 ```
 
-## DependsOn can't be conditional
+The next example **passes** this test.
+
+```json
+"networkSecurityGroup": {
+    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+}
+```
+
+## ResourceId function has correct parameters
+
+Test name: **ResourceIds should not contain**
+
+When generating resource IDs, don't use unnecessary functions for optional parameters. By default, the [resourceId](template-functions-resource.md#resourceid) function uses the current subscription and resource group. You don't need to provide those values.  
+
+The following example **fails** this test, because you don't need to provide the current subscription ID and resource group name.
+
+```json
+"networkSecurityGroup": {
+    "id": "[resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+}
+```
+
+The next example **passes** this test.
+
+```json
+"networkSecurityGroup": {
+    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+}
+```
+
+This test applies to:
+
+* [resourceId](template-functions-resource.md#resourceid)
+* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](template-functions-resource.md#tenantresourceid)
+* [extensionResourceId](template-functions-resource.md#extensionresourceid)
+* [reference](template-functions-resource.md#reference)
+* [list*](template-functions-resource.md#list)
+
+For `reference` and `list*`, the test **fails** when you use `concat` to construct the resource ID.
+
+## dependsOn can't be conditional
 
 Test name: **DependsOn Must Not Be Conditional**
 
@@ -446,39 +488,6 @@ The next example **passes** this test.
     "[variables('storageAccountName')]"
 ]
 ```
-
-## ResourceId function has correct parameters
-
-Test name: **ResourceIds should not contain**
-
-When generating resource IDs, don't use unnecessary functions for optional parameters. By default, the [resourceId](template-functions-resource.md#resourceid) function uses the current subscription and resource group. You don't need to provide those values.  
-
-The following example **passes** this test.
-
-```json
-"networkSecurityGroup": {
-    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-}
-```
-
-The following example **fails** this test, because you don't need to provide the current subscription ID and resource group name.
-
-```json
-"networkSecurityGroup": {
-    "id": "[resourceId(subscription().subscriptionId, resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-}
-```
-
-This test applies to:
-
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
-* [tenantResourceId](template-functions-resource.md#tenantresourceid)
-* [extensionResourceId](template-functions-resource.md#extensionresourceid)
-* [reference](template-functions-resource.md#reference)
-* [list*](template-functions-resource.md#list)
-
-For `reference` and `list*`, the test **fails** when you use `concat` to construct the resource ID.
 
 ## Admin user names can't be literal value
 

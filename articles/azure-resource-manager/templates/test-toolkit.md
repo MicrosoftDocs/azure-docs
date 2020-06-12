@@ -19,7 +19,7 @@ The toolkit is a set of PowerShell scripts that can be run from a command in Pow
 
 ## Download test toolkit
 
-To use the test toolkit, you can either fork the [repository](https://aka.ms/arm-ttk) containing the scripts or [download the latest .zip file](https://aka.ms/arm-ttk-latest).
+To use the test toolkit, you can either fork and clone the [repository](https://aka.ms/arm-ttk) containing the scripts or [download the latest .zip file](https://aka.ms/arm-ttk-latest).
 
 Depending on the execution policy of the computer where you run the script, you may get an error about running scripts from the Internet. You have to either change the [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) or [unblock the script files](/powershell/module/microsoft.powershell.utility/unblock-file).
 
@@ -97,13 +97,11 @@ To test one file in that folder, add the **-File** parameter.
 Test-AzTemplate -TemplatePath $TemplateFolder -File cdn.json
 ```
 
-By default, all tests are run. To specify individual tests to run, use the **-Test** parameter. Provide the name of the test.
+By default, all tests are run. To specify individual tests to run, use the **-Test** parameter. Provide the name of the test. For the names, see [Test cases for toolkit](test-cases.md).
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Location"
 ```
-
-The following sections of this article provide a description of each test including its name.
 
 ## Customize tests
 
