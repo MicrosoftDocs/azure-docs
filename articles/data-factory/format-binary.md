@@ -96,7 +96,7 @@ Supported **binary read settings** under `formatSettings`:
                 "storeSettings": {
                     "type": "AzureBlobStorageReadSettings",
                     "recursive": true,
-                    "deleteFilesAfterCompletion": "true"
+                    "deleteFilesAfterCompletion": true
                 },
                 "formatSettings": {
                     "type": "BinaryReadSettings",
