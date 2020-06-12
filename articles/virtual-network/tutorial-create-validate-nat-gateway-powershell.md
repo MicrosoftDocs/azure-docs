@@ -55,7 +55,7 @@ $alm = 'Static'
 $sku = 'Standard'
 
 $publicIPsource = 
-New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.Name -AllocationMethod $alm -Sku $sku -Location $rg.Location
+New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $alm -Sku $sku -Location $rg.Location
 
 ```
 
@@ -67,7 +67,7 @@ New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.Name -AllocationMeth
 $prefixname = 'mypublicIPprefixsource'
 
 $publicIPPrefixsource = 
-New-AzPublicIpPrefix -Name $prefixname -ResourceGroupName $rg.Name -PrefixLength 31 -Location $rg.Location
+New-AzPublicIpPrefix -Name $prefixname -ResourceGroupName $rg.ResourceGroupName -PrefixLength 31 -Location $rg.Location
 
 ```
 
@@ -84,7 +84,7 @@ $sku = 'Standard'
 $natname = 'myNATgateway'
 
 $natGateway = 
-New-AzNatGateway -Name $natname -ResourceGroupName $rg.Name -PublicIpAddress $publicIPsource -PublicIpPrefix $publicIPPrefixsource -Sku $sku -IdleTimeoutInMinutes 10 -Location $rg.Location
+New-AzNatGateway -Name $natname -ResourceGroupName $rg.ResourceGroupName -PublicIpAddress $publicIPsource -PublicIpPrefix $publicIPPrefixsource -Sku $sku -IdleTimeoutInMinutes 10 -Location $rg.Location
 
   ```
 
@@ -110,7 +110,7 @@ $subnetsource =
 New-AzVirtualNetworkSubnetConfig -Name $subnetname -AddressPrefix $subnetprefix -NatGateway $natGateway
 
 $vnetsource = 
-New-AzVirtualNetwork -Name $vnetname -ResourceGroupName $rg.Name -AddressPrefix $vnetprefix -Subnet $subnetsource -Location $rg.Location
+New-AzVirtualNetwork -Name $vnetname -ResourceGroupName $rg.ResourceGroupName -AddressPrefix $vnetprefix -Subnet $subnetsource -Location $rg.Location
 
 ```
 
@@ -130,7 +130,7 @@ $pipvmname = 'myPublicIpsourceVM'
 $alm = 'Static'
 
 $publicIpsourceVM = 
-New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.Name -AllocationMethod $alm -sku $sku -Location $rg.Location
+New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $alm -sku $sku -Location $rg.Location
 
 ```
 
@@ -150,7 +150,7 @@ $sshrule =
 New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
 $nsgsource = 
-New-AzNetworkSecurityGroup -ResourceGroupName $rg.Name -Name $nsnm -SecurityRules $sshrule -Location $rg.Location
+New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm -SecurityRules $sshrule -Location $rg.Location
 
 ```
 
@@ -162,7 +162,7 @@ Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.
 $nin = 'myNicsource'
 
 $nicsource = 
-New-AzNetworkInterface -ResourceGroupName $rg.Name -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $rg.Location
+New-AzNetworkInterface -ResourceGroupName $rg.ResourceGroupName -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $rg.Location
 
 ```
 
@@ -201,7 +201,7 @@ $vmn = 'myVMsource'
 $vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
-$skus = 'UbuntuLTS'
+$skus = '18.04-LTS'
 $ver = 'latest'
 
 $vmConfigsource = 
@@ -223,7 +223,7 @@ Add-AzVMSshPublicKey -VM $vmConfigsource -KeyData $sshPublicKey -Path "/home/azu
 Combine the configuration definitions to create a VM named **myVMsource** with [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0) in **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
-New-AzVM -ResourceGroupName $rg.Name -VM $vmConfigsource -Location $rg.Location
+New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigsource -Location $rg.Location
 
 ```
 
@@ -249,7 +249,7 @@ $subnetdestination =
 New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
 
 $vnetdestination = 
-New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.Name -AddressPrefix $vpfx -Subnet $subnetdestination -Location $rg.Location
+New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.ResourceGroupName -AddressPrefix $vpfx -Subnet $subnetdestination -Location $rg.Location
 
 ```
 
@@ -263,7 +263,7 @@ $all = 'Static'
 $pipd = 'myPublicIPdestinationVM'
 
 $publicIpdestinationVM = 
-New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.Name -AllocationMethod $all -Sku $sku -Location $rg.Location
+New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $all -Sku $sku -Location $rg.Location
 
 ```
 
@@ -288,7 +288,7 @@ $httprule =
 New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Protocol $prt -Direction $dir -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
 
 $nsgdestination = 
-New-AzNetworkSecurityGroup -ResourceGroupName $rg.Name -Name $nsnm -SecurityRules $sshrule,$httprule -Location $rg.Location
+New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm -SecurityRules $sshrule,$httprule -Location $rg.Location
 
 ```
 
@@ -300,7 +300,7 @@ Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.
 $nnm = 'myNicdestination'
 
 $nicdestination = 
-New-AzNetworkInterface -ResourceGroupName $rg.Name -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $rg.Location
+New-AzNetworkInterface -ResourceGroupName $rg.ResourceGroupName -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $rg.Location
 
 ```
 
@@ -326,7 +326,7 @@ $vmd = 'myVMdestination'
 $vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
-$skus = 'UbuntuLTS'
+$skus = '18.04-LTS'
 $ver = 'latest'
 
 $vmConfigdestination = New-AzVMConfig -VMName $vmd -VMSize $vms
@@ -348,7 +348,7 @@ Combine the configuration definitions to create a VM named **myVMdestination** w
 
 ```azurepowershell-interactive
 
-New-AzVM -ResourceGroupName $rg.Name -VM $vmConfigdestination -Location $rg.Location
+New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigdestination -Location $rg.Location
 
 ```
 
@@ -361,7 +361,7 @@ First we need to discover the IP address of the destination VM.  To get the publ
 ```azurepowershell-interactive
 $pipname = 'myPublicIPdestinationVM'
   
-$destip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+$destip = Get-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -Name $pipname | select IpAddress
 
 $destip
 
@@ -403,7 +403,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsourceVM'
 
-$srcip = Get-AzPublicIpAddress -ResourceGroupName $rg.Name -Name $pipname | select IpAddress
+$srcip = Get-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -Name $pipname | select IpAddress
 
 $srcip
 
@@ -463,7 +463,7 @@ This command will generate 100 requests, 10 concurrently, with a timeout of 30 s
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
-Remove-AzResourceGroup -Name $rg.Name
+Remove-AzResourceGroup -Name $rg.ResourceGroupName
 
 ```
 
