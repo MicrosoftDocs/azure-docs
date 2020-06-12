@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
+ms.custom: tracking-python
 ---
 
 # Develop for Azure Files with Python
@@ -42,7 +43,6 @@ pip install azure-storage-file
 For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## View the sample application
-f
 To view and run a sample application that shows how to use Python with Azure Files, see [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
 
 To run the sample application, make sure you have installed both the `azure-storage-file` and `azure-storage-common` packages.

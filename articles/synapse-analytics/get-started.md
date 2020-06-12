@@ -160,7 +160,7 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
 
 1. Navigate to the **Data** hub, right-click on **Databases** and select **Refresh**.
 1. Now you should see these databases:
-    - SQLDB (SQL pool)
+    - SQLDB1 (SQL pool)
     - nyctaxi (Spark)
       
 ## Analyze the NYC Taxi data using Spark and notebooks
@@ -186,10 +186,10 @@ We have data available in a table in `SQLDB1`. Now we load it into a Spark datab
       WHERE TripDistanceMiles > 0 AND PassengerCount > 0
       GROUP BY PassengerCount
       ORDER BY PassengerCount
-    """) 
-    display(df)
-    df.write.saveAsTable("nyctaxi.passengercountstats")
-    ```
+   """) 
+   display(df)
+   df.write.saveAsTable("nyctaxi.passengercountstats")
+   ```
 
 1. In the cell results, select **Chart** to see the data visualized
  
@@ -261,7 +261,7 @@ So far, we've covered scenarios were data resided in databases in the workspace.
 * The name of the storage account: `contosolake`
 * The name of the container in the storage account: `users`
 
-### Creating CSV and Parquet files in your Storage account
+### Creating CSV and Parquet files in your storage account
 
 Run the following code in a notebook. It creates a CSV file and a parquet file in the storage account
 
@@ -279,9 +279,9 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Select **Linked**
 1. Navigate to **Storage accounts > myworkspace (Primary - contosolake)**
 1. Select **users (Primary)"**
-1. You should see a folder called `NYCTaxi`. Inside you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
-1. Navigate into the `PassengerCountStats.parquet` folder.
-1. Right-click on the parquet file inside, and select **new notebook**, it will create a notebook with a cell like this:
+1. You should see a folder called `NYCTaxi`. Inside `NYCTaxi` you should see two folders `PassengerCountStats.csv` and `PassengerCountStats.parquet`.
+1. Navigate into the `PassengerCountStats.parquet` folder, inside you'll see a parquent file with a name like `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`
+1. Right-click on the `.parquet`, and select **new notebook**, it will create a notebook with a cell like this:
 
     ```py
     %%pyspark

@@ -99,7 +99,25 @@ You can visualize dependencies around six hours after starting dependency discov
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all machines enabled for dependency analysis. 
 
-    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
+### Dependency information
+
+Each row in the exported CSV corresponds to a dependency observed in the specified time slot. 
+
+The following table summarizes the fields in the exported CSV. Note that server name, application and process fields are populated only for servers that have agentless dependency analysis enabled.
+
+**Field name** | **Details**
+--- | --- 
+Timeslot | The timeslot during which the dependency was observed. <br/> Dependency data is captured over 6-hour slots currently.
+Source server name | Name of the source machine 
+Source application | Name of the application on the source machine 
+Source process | Name of the process on the source machine 
+Destination server name | Name of the destination machine
+Destination IP | IP address of the destination machine
+Destination application | Name of the application on the destination machine
+Destination process | Name of the process on the destination machine 
+Destination port | Port number on the destination machine
 
 
 ## Stop dependency discovery
