@@ -39,7 +39,7 @@ Setting up virtual machine backup ensures the availability of your business-crit
 
 ## Ensure you have access to Azure experts when you need it
 
-When running a business-critical workload, it's important to have access to technical support when you need it. Advisor identifies potential business-critical subscriptions that don't have technical support included in their support plans and recommends upgrading to an option that includes technical support.
+When you're running a business-critical workload, it's important to have access to technical support when you need it. Advisor identifies potential business-critical subscriptions that don't have technical support included in their support plans. It recommends upgrading to an option that includes technical support.
 
 ## Create Azure Service Health alerts to be notified when Azure problems affect you
 
@@ -90,29 +90,29 @@ Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of
 
 Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Azure Cosmos DB Spark connector. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Spark connector.](https://aka.ms/cosmosdb/spark-connector)
 
-## Upgrade recommendation for deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+## Consider moving to Kafka 2.1 on HDInsight 4.0
 
-Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+Starting July 1, 2020, you won't be able to create new Kafka clusters by using Kafka 1.1 on Azure HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30, 2020, to avoid potential system/support interruption.
 
-## Upgrade recommendation for deprecation of Older Spark Versions in HDInsight Spark cluster
+## Consider upgrading older Spark versions in HDInsight Spark clusters
 
-Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. ",
+Starting July 1, 2020, you won't be able to create new Spark clusters by using Spark 2.1 or 2.2 on HDInsight 3.6. You won't be able to create new Spark clusters by using Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. 
 
 ## Enable virtual machine replication
-Virtual machines that do not have replication enabled to another region are not resilient to regional outages. Replicating virtual machines reduces any adverse business impact during the time of an Azure region outage. Advisor will detect VMs that do not have replication enabled and recommend enabling replication so that in the event of an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
-## How to access High Availability recommendations in Advisor
+## How to access high availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, click the **High Availability** tab.
+2.	On the Advisor dashboard, select the **High Availability** tab.
 
 ## Next steps
 
 For more information about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
 * [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

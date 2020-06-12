@@ -35,7 +35,7 @@ Advisor analyses your usage and evaluates whether your MariaDB, MySQL, or Postgr
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
-Advisor identifies Azure ExpressRoute circuits that have been in the provider status of **Not provisioned** for more than one month. It recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
+Advisor identifies Azure ExpressRoute circuits that have been in the provider status of **Not provisioned** for more than one month. It will recommend deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
 
 ## Reduce costs by deleting or reconfiguring idle virtual network gateways
 
@@ -45,7 +45,7 @@ Advisor identifies virtual network gateways that have been idle for more than 90
 
 Advisor reviews your virtual machine usage over the past 30 days to determine if you could save money by purchasing an Azure reservation. Advisor shows you the regions and sizes where the potential for savings are highest and the estimated savings from purchasing reservations. With Azure reservations, you can pre-purchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reservations. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Advisor also notifies you of your reserved instances that will expire in the next 30 days. It recommends that you purchase new reserved instances to avoid pay-as-you-go pricing.
+Advisor also notifies you of your reserved instances that will expire in the next 30 days. It will recommend that you purchase new reserved instances to avoid pay-as-you-go pricing.
 
 ## Buy reserved instances for several resource types to save over your pay-as-you-go costs
 
