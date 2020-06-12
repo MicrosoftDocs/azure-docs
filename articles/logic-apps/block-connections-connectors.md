@@ -213,7 +213,7 @@ For more information about Azure policy definitions, see these topics:
 
 <a name="create-policy-connector-usage"></a>
 
-## Create policy to block connection usage
+## Create policy to block using connections
 
 When you create a connection inside a logic app, that connection exists as separate Azure resource. If you delete only the logic app, the connection isn't automatically deleted and continues to exist until deleted. You might have a scenario where the connection already exists or where you have to create the connection for use outside a logic app. You can still block the capability to use an existing connection in a logic app by creating a policy that prevents saving logic apps that have the restricted or unapproved connection.
 
