@@ -18,6 +18,13 @@ ms.subservice: B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [IDology](https://www.idology.com/solutions/). IDology is an identity verification and proofing provider with multiple solutions. In this sample, we will cover ExpectID solution by IDology.
 
+## Prerequisites
+
+To get started, you'll need:
+
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+
 ## Scenario description
 
 The IDology integration includes the following components:
@@ -38,7 +45,7 @@ Below architecture diagram shows the implementation.
 |4     | Middle layer API collects user attributes and transforms it into a format that IDOlogy API could consume. Then after sends it to IDology. |
 |5     | After IDology consumes the information and processes it, it returns result to middle layer API. |
 |6     | Middle layer API processes the information and sends back relevant information to Azure AD B2C. |
-|7     | Azure AD B2C receives information back from middle layer API and if it shows:<br>Failure response, then an error message will be generated to user.<br>Success, then a user is authenticated and written into the directory. |
+|7     | Azure AD B2C receives information back from middle layer API. If it shows a **Failure** response, an error message will be generated to user. If it shows a **Success** response, the user is authenticated and written into the directory. |
 |      |      |
 
 [!NOTE] Azure AD B2C can ask customer to do a step-up authentication, however it is out of scope of this tutorial.
@@ -127,6 +134,8 @@ As a best practice, we recommend customers to add consent notification in the at
 7. IDology puzzle will pop up after you enter **continue**.
 
 ## Next steps
+
+For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 

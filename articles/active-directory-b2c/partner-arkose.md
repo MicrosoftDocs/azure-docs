@@ -1,5 +1,5 @@
 ---
-title: Arkose with Azure Active Directory B2C
+title: Arkose Labs with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Arkose Labs to help protect against bot attacks, account takeover attacks, and fraudulent account openings.
 services: active-directory-b2c
@@ -18,21 +18,28 @@ ms.subservice: B2C
 
 In this tutorial, learn how to integrate Azure AD B2C authentication with Arkose Labs. Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
 
+## Prerequisites
+
+To get started, you'll need:
+
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+
 ## Scenario description
 
-Arkose architecture diagram
+Arkose Labs architecture diagram
 
-![Arkose architecture diagram](media/partner-arkose/arkose-architecture-diagram.png)
+![Arkose Labs architecture diagram](media/partner-arkose/arkose-architecture-diagram.png)
 
-## Onboard with Arkose
+## Onboard with Arkose Labs
 
-1. Start by contacting [Arkose](https://www.arkoselabs.com/book-a-demo/) and creating an account.
+1. Start by contacting [Arkose Labs](https://www.arkoselabs.com/book-a-demo/) and creating an account.
 
 2. Once your account is created, navigate to https://dashboard.arkoselabs.com/login  
 
 3. Within the dashboard, navigate to site settings to find your public key and private key. This will be needed later to configure Azure AD B2C
 
-## Integrate Arkose with Azure AD B2C
+## Integrate Arkose Labs with Azure AD B2C
 
 ### Part 1 – Create blob storage to store the custom HTML
 
@@ -78,7 +85,7 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 6. For  **Max age**, enter 200.
 
-   ![Arkose sign-up and sign-in](media/partner-arkose/signup-signin-arkose.png)
+   ![Arkose Labs sign-up and sign-in](media/partner-arkose/signup-signin-arkose.png)
 
 7. Select **Save**
 
@@ -96,7 +103,7 @@ Download Git Bash and follow the steps below:
 
    a. Replace the content with the content from verify-token.php found in [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C)
 
-   b. Replace <private_key> on line 3 with your private key obtained from Arkose dashboard  
+   b. Replace <private_key> on line 3 with your private key obtained from Arkose Labs dashboard  
 
 4. In the local terminal window, commit your changes in Git, and then push the code changes to Azure by typing the following in Git bash
 
@@ -114,9 +121,9 @@ Download Git Bash and follow the steps below:
 
 3. Replace <*appname*> with the app name that you created in Part 2 – step 1.
 
-   ![Screenshot showing Arkose Azure CLI](media/partner-arkose/arkose-azure-cli.png)
+   ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkose/arkose-azure-cli.png)
 
-4. Replace *<public_key*> on line 64 with the public key you obtained from Arkose dashboard.
+4. Replace *<public_key*> on line 64 with the public key you obtained from Arkose Labs dashboard.
 
 5. Upload the index.html file into the blob storage created above.
 
@@ -124,15 +131,16 @@ Download Git Bash and follow the steps below:
 
 #### Set up Azure AD B2C
 
-1. Create a **B2C Directory + subscription** as mentioned [here](https://azure.microsoft.com/services/active-directory/external-identities/b2c/)
+> [!NOTE]
+> If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-2. Enable Javascript in your [user flow](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-javascript-overview)
+1. Enable Javascript in your [user flow](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-javascript-overview)
 
-3. In the same user flow page, enable custom page URL
+2. In the same user flow page, enable custom page URL
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
 This custom page URL is obtained from the location of the index.html file inside the blob storage  
 
-   ![Screenshot showing Arkose storage url](media/partner-arkose/arkose-storage-url.png)
+   ![Screenshot showing Arkose Labs storage url](media/partner-arkose/arkose-storage-url.png)
 
 ## Test the user flow
 
@@ -154,9 +162,11 @@ This custom page URL is obtained from the location of the index.html file inside
 
 6. Go through sign-in flow  
 
-7. Arkose puzzle will pop up after you enter **continue**.
+7. Arkose Labs puzzle will pop up after you enter **continue**.
 
 ## Next steps
+
+For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
 

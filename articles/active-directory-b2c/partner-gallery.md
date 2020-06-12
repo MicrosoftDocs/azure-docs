@@ -16,18 +16,18 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C partners
 
-Our partner network extends our solution capabilities to help you build seamless end user experiences. With Azure AD B2C, you can integrate with partners to enable different multi-factor authentication methods, enable Secure Customer Authentication, perform Role Based Access Control, and combat fraud through Identity Verification and Proofing. Use our detailed walkthroughs to learn how to integrate apps with the partners listed below.
+Our partner network extends our solution capabilities to help you build seamless end user experiences. With Azure AD B2C, you can integrate with partners to enable multi-factor authentication methods, enable Secure Customer Authentication (SCA), perform Role-Based Access Control, and combat fraud through identity verification and proofing. Use our detailed walkthroughs to learn how to integrate apps with the partners listed below.
 
 >[!NOTE]
->The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides community sample custom policies.
+>The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides sample custom policies from the community.
 
 ## Partner custom policies
 
 | Partner | Azure AD B2C onboarding to  ISV partner  |
 | :--- | :--- |
-| ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose.md) integration helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
+| ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
 | ![logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with multiple solutions.|
-| ![logo](./media/partner-gallery/itsme-logo.png) | [Itsme](./partner-itsme.md) is a digital ID app that helps you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes|
+| ![logo](./media/partner-gallery/itsme-logo.png) | [Itsme](./partner-itsme.md) is a digital ID app that helps you to log in securely without card readers, passwords, two-factor authentication, and multiple PIN codes|
 | ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you log in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning.|
 | ![logo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) is a sample online payment app that provides dynamic linking and strong customer authentication.|
 ## Additional resources

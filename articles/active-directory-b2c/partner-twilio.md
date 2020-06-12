@@ -20,9 +20,10 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 ## Prerequisites
 
-To get started, you need the following items:
+To get started, you'll need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 * A [trial account](https://www.twilio.com/try-twilio) at Twilio
 
 ## Scenario description
@@ -110,7 +111,9 @@ Add the policy files to Azure AD B2C by doing the following:
 1. Browse to your application and test the sign in/up and Send Money action.
 2. 
 
-## Next steps  
+## Next steps
+
+For additional information, review the following articles:
 
 - Refer to GitHub for [Twilio integration code samples](https://github.com/azure-ad-b2c/samples/tree/master/policies/twilio-mfa-psd2)  
 
