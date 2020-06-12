@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -73,15 +73,15 @@ Open the _index.html_ file using any of the browsers below, with the respective 
 
 After launching the Drawing Error Visualizer tool, you'll be presented with the upload page. The upload page contains a drag and drop box. The drag & drop box also functions as button that launches a File Explorer dialog.
 
-![Drawing Error Visualizer App - Start Page](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Drawing Error Visualizer App - Start Page":::
 
 The  _ConversionWarningsAndErrors.json_ file has been placed at the root of the downloaded directory. To load the _ConversionWarningsAndErrors.json_ you can either drag & drop the file onto the box or click on the box, find the file in the File Explorer dialogue, and then upload the file.
 
-![Drawing Error Visualizer App - Drag and drop to load data](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Drawing Error Visualizer App - Drag and drop to load data":::
 
-Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. You may now navigate to each error to learn more details on how to resolve the error.  
+Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of your Drawing package errors and warnings. Each error or warning is specified by the layer, level, and a detailed message. To view detailed information about an error or warning, click on the **Details** link. An intractable section will then appear below the list. You may now navigate to each error to learn more details on how to resolve the error.
 
-![Drawing Error Visualizer App - Errors and Warnings](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Drawing Error Visualizer App - Errors and Warnings":::
 
 ## Next steps
 
