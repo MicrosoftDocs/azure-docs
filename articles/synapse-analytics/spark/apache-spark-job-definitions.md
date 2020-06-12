@@ -177,9 +177,9 @@ In this section, you add an Apache Spark job definition into pipeline.
 
  2. Click the icon on the top right of Apache Spark job definition, choose **Existing Pipeline**, or **New pipeline**. You can refer to Pipeline page for more information.
 
-     ![add to pipline](./media/apache-spark-job-definitions/add-to-pipeline01.png)
+     ![add to pipeline](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
-     ![add to pipline](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+     ![add to pipeline](./media/apache-spark-job-definitions/add-to-pipeline02.png)
 
 ## Next steps
 
