@@ -101,33 +101,45 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     ```powershell
-    wget https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/haiku/onboarding_azuremonitor_for_containers.ps1 -outfile onboarding_azuremonitor_for_containers.ps1
+    wget https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/managed/enable-monitoring.ps1 -outfile enable-monitoring.ps1
     ```
 
-2. Run the following command to enable monitoring specifying an existing Log Analytics workspace, replacing the value for the `resourceIdOfAzureArcCluster`, `kube-context`, and `workspaceResourceId` parameter.
+2. Configure the `$azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context> -logAnalyticsWorkspaceResourceId <workspaceResourceId>
-    ```
-    Example:
-
-    ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster  -logAnalyticsWorkspaceResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/TestLAWorkspaceGroup/providers/Microsoft.OperationalInsights/workspaces/TestLAWorkspace
+    $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-    >[!NOTE]
-    >To identify the **kube-context** of your cluster, run the command `kubectl config current-context` and copy the value.
-
-     The following command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
+3. Configure the `$kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId <resourcedIdOfAzureArcCluster> -kubeContext <kube-context>
+    $kubeContext = "<kubeContext name of your k8s cluster>"
     ```
 
-    For example:
+4. If you want to use existing Azure Monitor Log Analytics workspace, configure the variable `$logAnalyticsWorkspaceResourceId` with the corresponding value representing the resource ID of the workspace. Otherwise, set the variable to `""` and the script creates a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<SubscriptionID>-\<Region>*.
 
     ```powershell
-    .\onboarding_azuremonitor_for_containers.ps1 -azureArcClusterResourceId /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1 -kubeContext MyK8sTestCluster
+    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    ```
+
+5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `$proxyEndpoint` with the URL of the proxy server.
+
+    ```powershell
+    $proxyEndpoint = https://<proxyhost>:<port>
+    ```
+
+    If authentication is required, you need to specify the username and password. For example:
+
+    ```powershell
+    $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
+    ```
+
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endoint).
+
+6. Run the following command to enable monitoring.
+
+    ```powershell
+    .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
     ```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
