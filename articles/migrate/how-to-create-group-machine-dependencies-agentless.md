@@ -116,7 +116,7 @@ Source process | Name of the process on the source machine
 Destination server name | Name of the destination machine
 Destination IP | IP address of the destination machine
 Destination application | Name of the application on the destination machine
-Destination process | Name of the process on the destination mahine 
+Destination process | Name of the process on the destination machine 
 Destination port | Port number on the destination machine
 
 

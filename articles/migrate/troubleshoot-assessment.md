@@ -100,7 +100,7 @@ Azure Migrate Server Assessment currently considers the operating system license
 
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
-## Why is my assessment showing a warning that it was created with an invalid combintion of Reserved Instances, VM uptime and Discount (%)?
+## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
 When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## Dependency visualization in Azure Government
@@ -127,7 +127,7 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Visualize dependencies for > hour
 
-With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of upto 30 days.
+With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
 
 With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
