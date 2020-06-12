@@ -63,7 +63,17 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 11. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
-    ![Screenshot that shows review transfer request email](./media/mca-request-billing-ownership/mca-review-transfer-request.png)
+    ![Screenshot that shows review transfer request](./media/mca-request-billing-ownership/mca-review-transfer-requests.png)
+    
+    User can select the billing account that they want to transfer Azure products from. Once selected, eligible products that can be transferred are shown. **Note:** Disabled subscriptions cannot be transferred and will show up in the "Non-transferrable Azure Products" list if applicable. Once the Azure products to be transferred are selected, click **Validate** button.
+    
+12. The **Transfer Validation Result** blade will show the impact of the Azure products that are going to be transferred. Here are the  possible states
+
+    * **Passed** - Validation for this Azure product has passed and can be transferred.
+    * **Warning** - There is a warning for the selected Azure product. While the product can still be transferred, doing so will have some impact that the user should be aware of in case they want to take mitigating actions. Eg. Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is reparent to another subscription that can avail its benefits. Alternatively, user can also choose to go back to the selection page and unselect this Azure subscription. 
+    * **Failed** - The selected Azure product cannot be transferred due to error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products. 
+
+    ![Screenshot that shows validation experience](./media/mca-request-billing-ownership/mca-validate-transfer-request.png)
 
 ## Check the transfer request status
 
@@ -137,6 +147,7 @@ You can request billing ownership of the subscription types listed below.
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
 - [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
@@ -172,7 +183,7 @@ Azure Marketplace products transfer along with their respective subscriptions.
 
 ### Azure Reservations transfer
 
-If you're transferring Enterprise Agreement (EA) subscriptions, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations don't automatically move with the subscriptions. [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to move Reservations.
 
 ### Access to Azure services
 

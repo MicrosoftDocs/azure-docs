@@ -53,7 +53,17 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 7. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
-    ![Screenshot that shows review transfer request email](./media/mpa-request-ownership/mpa-review-transfer-request.png)
+    ![Screenshot that shows review transfer request](./media/mpa-request-ownership/mpa-review-transfer-requests.png)
+
+    User can select the billing account that they want to transfer Azure products from. Once selected, eligible products that can be transferred are shown. **Note:** Disabled subscriptions cannot be transferred and will show up in the "Non-transferrable Azure Products" list if applicable. Once the Azure products to be transferred are selected, click **Validate** button.
+
+12. The **Transfer Validation Result** blade will show the impact of the Azure products that are going to be transferred. Here are the  possible states
+
+    * **Passed** - Validation for this Azure product has passed and can be transferred.
+    * **Warning** - There is a warning for the selected Azure product. While the product can still be transferred, doing so will have some impact that the user should be aware of in case they want to take mitigating actions. Eg. Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is reparent to another subscription that can avail its benefits. Alternatively, user can also choose to go back to the selection page and unselect this Azure subscription. 
+    * **Failed** - The selected Azure product cannot be transferred due to error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products. 
+
+    ![Screenshot that shows validation experience](./media/mpa-request-ownership/mpa-validate-transfer-request.png)
 
 ## Check the transfer request status
 
