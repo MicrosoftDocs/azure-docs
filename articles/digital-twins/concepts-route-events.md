@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Route events within and outside of Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital twins uses **event routes** to send data to consumers outside the service. 
 

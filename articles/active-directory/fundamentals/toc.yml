@@ -86,6 +86,8 @@
       href: add-custom-domain.md
     - name: Add company branding
       href: customize-branding.md
+    - name: Configure 'Stay signed in?'
+      href: keep-me-signed-in.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
     - name: Add your privacy info

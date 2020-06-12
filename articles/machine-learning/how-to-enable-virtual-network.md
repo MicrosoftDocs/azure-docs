@@ -74,7 +74,7 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 <a id="amlcompute"></a>
 
-## <a name="compute-instance"></a>Compute clusters & instances
+## <a name="compute-instance"></a>Compute clusters & instances 
 
 To use either a [managed Azure Machine Learning **compute target**](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute **instance**](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
 

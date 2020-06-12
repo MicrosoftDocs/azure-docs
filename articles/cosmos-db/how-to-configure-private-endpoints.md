@@ -4,7 +4,7 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/11/2020
 ms.author: thweiss
 ---
 
@@ -640,6 +640,8 @@ You can use the same steps when you remove a region. After removing the region, 
 ## Current limitations
 
 The following limitations apply when you're using Private Link with an Azure Cosmos account:
+
+* You can't have more than 200 private endpoints on a single Azure Cosmos account.
 
 * When you're using Private Link with an Azure Cosmos account through a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
 
