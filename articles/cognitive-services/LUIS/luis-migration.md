@@ -49,10 +49,10 @@ Migration is the process of changing authoring authentication from an email acco
 * If you are the **owner of the application**, you will not need to export your apps as they will migrate automatically. It is **recommended to save each app's collaborator's list.** An email template that has this list is provided optionally as part of the migration process.
 
 
-        |Portal|Purpose|
-        |--|--|
-        |[Azure](https://azure.microsoft.com/free/)|* Create prediction and authoring resources.<br>* Assign contributors on resources.|
-        |[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authrosing resource to another.  |
+|Portal|Purpose|
+|--|--|
+|[Azure](https://azure.microsoft.com/free/)|* Create prediction and authoring resources.<br>* Assign contributors on resources.|
+|[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authrosing resource to another.  |
 
 > [!Note]
 > **Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
@@ -60,17 +60,17 @@ Migration is the process of changing authoring authentication from an email acco
 
 ## Migration Steps
 
-    1. In the LUIS portal that you are working on, you can begin the migration process from the **Azure** icon on the top tool bar of the LUIS portal.
-    > [!div class="mx-imgBorder"]
+1. In the LUIS portal that you are working on, you can begin the migration process from the **Azure** icon on the top tool bar of the LUIS portal.
+> [!div class="mx-imgBorder"]
 > ![Migration icon](./media/migrate-authoring-key/migration-button.png)
 
-    1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
+1. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
 
-        ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
+![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
 
-    1. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
+1. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
 
-        For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
+For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
 
         ```html
         Dear Sir/Madam,
@@ -86,51 +86,51 @@ Migration is the process of changing authoring authentication from an email acco
         > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
 
-    1. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
+1. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
 
-        > [!div class="mx-imgBorder"]
-        > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
+> [!div class="mx-imgBorder"]
+> ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
 
 ### Create New Authoring Resource from LUIS to migrate
 
-        If you want to create a new authoring resource, select **create a new Authoring resource** and provide the following information in the next window.
+If you want to create a new authoring resource, select **create a new Authoring resource** and provide the following information in the next window.
 
-        ![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
 
-        * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
-        * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
-        * **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
-        * **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
+* **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
+* **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
+* **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
 
-        After you enter the above information, select **Create resource**.
+After you enter the above information, select **Create resource**.
 
 Note that you can have 10 free authoring resources per region, per subscription. If your subscription has more than 10 authoring resources in the same region, you won't be able to create a new one.
 
-      * When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
+* When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
 
-            ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
 
 ### Use Existing Authoring resource to migrate
 
-        If your subscription already is associated with a LUIS authoring azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
+If your subscription already is associated with a LUIS authoring azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
 
-        ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
+![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
 
-        * **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
-        * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
-        * **Resource name** - Select the authoring resource that you want to migrate to.
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
+* **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
+* **Resource name** - Select the authoring resource that you want to migrate to.
 
-        > [!Note]
-        > If you can do see your authoring resource in the dropdown list, make sure that you created it in the **proper location** as per the LUIS portal you are signed in. Also make sure that what you created is indeed an **Authoring resource** and not a **prediction resource**.
+> [!Note]
+> If you can do see your authoring resource in the dropdown list, make sure that you created it in the **proper location** as per the LUIS portal you are signed in. Also make sure that what you created is indeed an **Authoring resource** and not a **prediction resource**.
 
 
-    * Validate your authoring resource name and click on the **Migrate now** button.
+* Validate your authoring resource name and click on the **Migrate now** button.
 
-        ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.png)
+![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.png)
 
-    * The success message is shown. Select **Close** to close the pop-up window.
+* The success message is shown. Select **Close** to close the pop-up window.
 
-            ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
 
 ## Accessing my Applications after Migration
 
@@ -138,13 +138,13 @@ Note that you can have 10 free authoring resources per region, per subscription.
 * The **My apps** list shows the apps migrated to the new authoring resource.
 * Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
-    > [!div class="mx-imgBorder"]
-    > ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
+> [!div class="mx-imgBorder"]
+> ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 * You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal.
 * If you plan to edit your apps programmatically, you will need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
 
-            ![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2)
+![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2)
 
 ## Add Co-authors/Contributors to Authoring Resources
 
