@@ -4,6 +4,7 @@ description: Release notes detailing what is new or what has changed in teh Azur
 keywords: release notes SQL Edge
 services: sql-edge
 ms.service: sql-edge
+ms.topic: conceptual
 ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
