@@ -1,6 +1,6 @@
 ---
-title: Block connections created by API connectors
-description: Restrict API connections created by managed connectors in Azure Logic Apps
+title: Block connections for specific API connectors
+description: Restrict creating and using API connections in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 06/13/2020
 ---
 
-# Block connections created by managed connectors in Azure Logic Apps
+# Block connections created by connectors in Azure Logic Apps
 
-If your organization doesn't permit connecting to restricted or unapproved resources by using their connectors in Azure Logic Apps, you can block the capability to create those connections in logic app workflows. By using [Azure Policy](../governance/policy/overview.md), you can define and enforce [policies](../governance/policy/overview.md#policy-definition) that prevent creating connections or using connections from connectors that you want to block. For example, for security reasons, you might want to prohibit connections to specific social media platforms or other services and systems.
+If your organization doesn't permit connecting to restricted or unapproved resources by using their connectors in Azure Logic Apps, you can block the capability to create and use those connections in logic app workflows. With [Azure Policy](../governance/policy/overview.md), you can define and enforce [policies](../governance/policy/overview.md#policy-definition) that prevent creating or using connections for connectors that you want to block. For example, for security reasons, you might want to block connections to specific social media platforms or other services and systems.
 
 This topic shows how to set up a policy that blocks specific connections by using the Azure portal, but you can create policy definitions in other ways, for example, through the Azure REST API, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. For more information, see [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
@@ -344,7 +344,7 @@ To test your policy, try to create a connection by using the restricted connecto
 
 The message includes this information:
 
-| | | 
+| | |
 |---|---|
 | Reason for the failure | `"Resource 'instagram' was disallowed by policy."` |
 | Assignment name | `"Block Instagram connections"` |
