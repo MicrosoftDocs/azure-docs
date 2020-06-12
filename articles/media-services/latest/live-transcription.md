@@ -23,9 +23,9 @@ Azure Media Service delivers video, audio, and text in different protocols. When
 
 Additional charges apply when live transcription is turned on. Please review the pricing information in the Live Video section of the [Media Services pricing page](https://azure.microsoft.com/pricing/details/media-services/).
 
-This article describes how to enable live transcription when streaming a Live Event with Azure Media Services v3. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
+This article describes how to enable live transcription when streaming a Live Event with Azure Media Services. Before you continue, make sure you're familiar with the use of Media Services v3 REST APIs (see [this tutorial](stream-files-tutorial-with-rest.md) for details). You should also be familiar with the [live streaming](live-streaming-overview.md) concept. It's recommended to complete the [Stream live with Media Services](stream-live-tutorial-with-api.md) tutorial.
 
-## Live event regions and languages
+## Live transcription preview regions and languages
 
 Live transcription is available in the following regions:
 
@@ -62,9 +62,9 @@ This is the list of available languages that can be transcribed, use the languag
 | Portuguese (Portugal) | pt-PT |
 | Swedish (Sweden) | sv-SE |
 
-## Creating the Live Event
+## Create the live event with live transcription
 
-To create the Live Event, send the PUT operation to the 2019-05-01-preview version, for example:
+To create a live event with the transcription turned on, send the PUT operation with the 2019-05-01-preview API version, for example:
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
