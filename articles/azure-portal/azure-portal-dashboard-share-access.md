@@ -32,7 +32,7 @@ All published dashboards are implemented as Azure resources. They exist as manag
 
 With Role-Based Access Control (RBAC), you can assign users to roles at three different levels of scope:
 
-* subscription
+* foo
 * resource group
 * resource
 
