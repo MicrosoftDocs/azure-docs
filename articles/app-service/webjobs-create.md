@@ -5,7 +5,7 @@ author: ggailley777
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 6/16/2020
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
@@ -61,17 +61,19 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Services**. 
 
-2. Select **WebJobs**.
+1. Select your web app, API app, or mobile app from the list.  
+
+1. In the left pane of your app's **App Service** page, search for and select **WebJobs**.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-3. In the **WebJobs** page, select **Add**.
+1. On the **WebJobs** page, select **Add**.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-4. Use the **Add WebJob** settings as specified in the table.
+1. Fill in the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
@@ -82,13 +84,13 @@ when making changes in one don't forget the other two.
    | **Type** | Continuous | The [WebJob types](#webjob-types) are described earlier in this article. |
    | **Scale** | Multi instance | Available only for Continuous WebJobs. Determines whether the program or script runs on all instances or just one instance. The option to run on multiple instances doesn't apply to the Free or Shared [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-5. Select **OK**. 
+1. Select **OK**. 
 
-   If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page.
+   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listcontinuouswebjob.png)
 
-6. To stop or restart a continuous WebJob, right-click the WebJob in the list and select **Stop** or **Start**.
+1. To stop or restart a continuous WebJob, right-click the WebJob in the list and select **Stop** or **Start**.
 
     ![Stop a continuous WebJob](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -99,19 +101,19 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
+1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Services**. 
 
-2. Select **WebJobs**.
+1. Select your web app, API app, or mobile app from the list. 
+
+2. In the left pane of your app's **App Service** page, select **WebJobs**.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. In the **WebJobs** page, select **Add**.
+2. On the **WebJobs** page, select **Add**.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Use the **Add WebJob** settings as specified in the table.
-
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
+3. Fill in the **Add WebJob** settings as specified in the tab;;;;;;;;;;;;;;;;bJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
