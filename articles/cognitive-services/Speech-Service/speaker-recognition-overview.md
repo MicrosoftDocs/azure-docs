@@ -51,6 +51,20 @@ You control how long data should be retained. You can create, update, and delete
 
 As with all of the Cognitive Services resources, developers who use the Speaker Recognition service must be aware of Microsoft's policies on customer data. You should ensure that you have received the appropriate permissions from the users for Speaker Recognition. For more information, see the [Cognitive Services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
 
+## Common questions and solutions
+
+| Question | Solution |
+|---------|----------|
+| What scenarios can Speaker Recognition be used for? | Call center customer verification, voice-based patient check-in, meeting transcription, multi-user device personalization|
+| What is the difference between Identification and Verification? | Identification is the process of detecting which member from a group of speakers is speaking. Verification is the act of confirming that a speaker matches a known, or **enrolled** voice.|
+| What's the difference between text-dependent and text-independent verification? | Text-dependent verification requires a specific pass-phrase for both enrollment and recognition. Text-independent verification requires a longer voice sample for enrollment, but anything can be spoken, including during recognition.|
+| What languages are supported? | English, French, Spanish, Chinese, German, Italian, Japanese and Portuguese |
+| What Azure regions are supported? | Speaker Recognition is a preview service, and currently only available in the West US region.|
+| What audio formats are supported? | Mono 16 bit, 16kHz PCM-encoded WAV |
+| **Accept** and **Reject** responses aren't accurate, how do you tune the threshold? | Since the optimal threshold varies highly with scenarios, the API decides whether to “Accept” or “Reject” simply based on a default threshold of 0.5. Advanced users are advised to override the default decision and fine tune the result based on your own scenario. |
+| Can you enroll one speaker multiple times? | Yes, for text-dependent verification, you can enroll a speaker up to 50 times. For text-independent verification or speaker identification, you can enroll with up to 300 seconds of audio. |
+| What data is stored in Azure? | Enrollment audio is stored in the service until the voice profile is [deleted](speaker-recognition-basics.md#deleting-voice-profile-enrollments). Recognition audio samples are not retained or stored. |
+
 ## Next steps
 
 > [!div class="nextstepaction"]

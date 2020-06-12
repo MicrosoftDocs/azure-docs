@@ -308,6 +308,27 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Welsh                   | `cy`          |
 | Yucatec Maya            | `yua`         |
 
+## Speaker Recognition
+
+See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+
+| Locale | Language | Text-dependent verification | Text-independent verification | Text-independent identification |
+|----|----|----|----|----|
+| en-US | English (US) | yes | yes | yes |
+|zh-CN	|Chinese (Mandarin, simplified)|	n/a|	yes|	yes|
+|de-DE	|German (Germany)	|n/a	|yes	|yes|
+|en-GB	|English (UK)	|n/a	|yes	|yes|
+|fr-FR	|French (France)	|n/a	|yes	|yes|
+|en-AU	|English (Australia)	|n/a	|yes	|yes|
+|en-CA	|English (Canada)	|n/a|	yes|	yes|
+|fr-CA	|French (Canada)	|n/a	|yes|	yes|
+|it-IT	|Italian|	n/a	|yes|	yes|
+|es-ES|	Spanish (Spain)	|n/a	|yes|	yes|
+|es-MX	|Spanish (Mexico)	|n/a|	yes|	yes|
+|ja-JP|	Japanese	|n/a	|yes	|yes|
+|pt-BR|	Portuguese (Brazil)|	n/a|	yes|	yes|
+|ko-KR|	Korean	|n/a	|yes|	yes|
+
 ## Next steps
 
 * [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
