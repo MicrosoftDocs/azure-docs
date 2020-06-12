@@ -82,6 +82,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts

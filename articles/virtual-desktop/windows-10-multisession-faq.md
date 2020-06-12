@@ -48,7 +48,7 @@ Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD
  
 ## Where can I find the Windows 10 Enterprise multi-session image?
 
-Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Office Pro Plus, go to the Azure portal and search for Microsoft Windows 10 + Office 365 ProPlus.
+Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**.
 
 ## Which Windows 10 Enterprise multi-session image should I use?
 

@@ -52,7 +52,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-egress-endpoints",
       "redirect_document_id": false
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-navigate-apis.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-navigate-apis",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-query-common-apis.md",
-      "redirect_url": "/azure/digital-twins/how-to-query-graph",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-query-common-apis",
       "redirect_document_id": false
     },
     {
@@ -97,17 +97,17 @@
     },
     {
       "source_path": "articles/digital-twins/security-best-practices.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-create-manage-role-assignments",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-role-based-access-control.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-role-based-access-control",
       "redirect_document_id": false
     },
     {
@@ -44027,6 +44027,51 @@
       "redirect_document_id": true
     },
     {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/deploy.md",
+        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
       "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
       "redirect_document_id": false
@@ -54852,6 +54897,11 @@
     {
       "source_path": "articles/active-directory/reports-monitoring/concept-user-at-risk.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/azure-ad-integration.md",
+      "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": false
     }
   ]
