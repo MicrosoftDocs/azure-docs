@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft identity platform documentation
-summary: Microsoft identity platform allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs like Microsoft Graph, or APIs you've built. This full-featured platform consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstarts, code samples, tutorials, and how-to guides.
+summary: The Microsoft identity platform consists of an authentication service, open source libraries, and application management tools. It enables developers to create modern, standards-based authentication solutions using concise API calls and app logic, and provides access to the data and intelligence in Microsoft Graph. 
 
 metadata:
    ms.topic: landing-page
