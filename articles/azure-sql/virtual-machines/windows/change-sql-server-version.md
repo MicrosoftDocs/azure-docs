@@ -81,7 +81,8 @@ To downgrade the version of SQL Server, you need to completely uninstall SQL Ser
 
 You can downgrade the version of SQL Server by following these steps:
 
-1. Back up all databases, including the system databases.
+1. Make sure that you are not using any feature that is [available in the later version only](https://social.technet.microsoft.com/wiki/contents/articles/24222.find-enterprise-only-features-in-your-database.aspx).
+1. Back up all system (except tempdb) and user databases.
 1. Export all the necessary server-level objects (such as server triggers, roles, logins, linked servers, jobs, credentials, and certificates).
 1. If you do not have scripts to re-create your user databases on the earlier version, you will need to script out all objects and export all data by using BCP.exe, SSIS, or DACPAC.
 
@@ -95,11 +96,6 @@ You can downgrade the version of SQL Server by following these steps:
 1. Install the latest service packs and cumulative updates.
 1. Import all the necessary server-level objects (which were exported in Step 2).
 1. Re-create all the necessary user databases from scratch (using create scripts and/or the files from Step 3).
-
-You can downgrade the edition of SQL Server by following these steps:
-
-1. Make sure that you are not using any feature that is [available in the later version only](https://social.technet.microsoft.com/wiki/contents/articles/24222.find-enterprise-only-features-in-your-database.aspx).
-1. Back up all system (except tempdb) and user databases.
 
 ## Verify Version and Edition in Portal
 
