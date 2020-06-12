@@ -52,7 +52,7 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-egress-endpoints.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-egress-endpoints",
       "redirect_document_id": false
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "source_path": "articles/digital-twins/how-to-navigate-apis.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-apis-sdks",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-navigate-apis",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-query-common-apis.md",
-      "redirect_url": "/azure/digital-twins/how-to-query-graph",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-query-common-apis",
       "redirect_document_id": false
     },
     {
@@ -97,17 +97,17 @@
     },
     {
       "source_path": "articles/digital-twins/security-best-practices.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-best-practices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-create-manage-role-assignments.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-create-manage-role-assignments",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/security-role-based-access-control.md",
-      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_url": "/previous-versions/azure/digital-twins/security-role-based-access-control",
       "redirect_document_id": false
     },
     {
@@ -51639,6 +51639,11 @@
       "source_path": "articles/sql-data-warehouse/guidance-for-loading-data.md",
       "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/synapse-analytics/sql/data-loading-overview.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/performance-tuning-materialized-views.md",
