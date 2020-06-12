@@ -118,8 +118,154 @@ The tenantId property identifies what Azure AD tenant the identity belongs to. T
 > [!NOTE]
 > An API Management instance can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
 
+### Scenarios Supported
+
+#### Obtain a custom SSL certificate for the API Management instance from Azure Key Vault
+The system-assigned identity of an API Management service can be used to retrieve certificates stored in Azure Key Vault and bind it to the custom hostname.
+
+1. The Key Vault containing the pfx certificate must be in the same Azure subscription and the same Resource Group as the API Management instance. This is a requirement of the Azure Resource Manager template.
+2. The Content Type of the secret must be *application/x-pkcs12*.
+
+> [!Important]
+> If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault within 4 hours
+
+The following example shows an Azure Resource Manager template that contains the following steps:
+
+1. Create an API Management instance with a managed identity.
+2. Update the access policies of an Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
+3. Update the API Management instance by setting a custom domain name through a certificate from the Key Vault instance.
+
+```json
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"publisherEmail": {
+			"type": "string",
+			"minLength": 1,
+			"metadata": {
+				"description": "The email address of the owner of the service"
+			}
+		},
+		"publisherName": {
+			"type": "string",
+			"defaultValue": "Contoso",
+			"minLength": 1,
+			"metadata": {
+				"description": "The name of the owner of the service"
+			}
+		},
+		"sku": {
+			"type": "string",
+			"allowedValues": ["Developer",
+			"Standard",
+			"Premium"],
+			"defaultValue": "Developer",
+			"metadata": {
+				"description": "The pricing tier of this API Management instance"
+			}
+		},
+		"skuCount": {
+			"type": "int",
+			"defaultValue": 1,
+			"metadata": {
+				"description": "The instance size of this API Management instance."
+			}
+		},
+		"keyVaultName": {
+			"type": "string",
+			"metadata": {
+				"description": "Name of the vault"
+			}
+		},
+		"proxyCustomHostname1": {
+			"type": "string",
+			"metadata": {
+				"description": "Proxy Custom hostname."
+			}
+		},
+		"keyVaultIdToCertificate": {
+			"type": "string",
+			"metadata": {
+				"description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
+			}
+		}
+	},
+	"variables": {
+		"apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]",
+		"apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
+	},
+	"resources": [{
+		"apiVersion": "2019-01-01",
+		"name": "[variables('apiManagementServiceName')]",
+		"type": "Microsoft.ApiManagement/service",
+		"location": "[resourceGroup().location]",
+		"tags": {
+		},
+		"sku": {
+			"name": "[parameters('sku')]",
+			"capacity": "[parameters('skuCount')]"
+		},
+		"properties": {
+			"publisherEmail": "[parameters('publisherEmail')]",
+			"publisherName": "[parameters('publisherName')]"
+		},
+		"identity": {
+			"type": "systemAssigned"
+		}
+	},
+	{
+		"type": "Microsoft.KeyVault/vaults/accessPolicies",
+		"name": "[concat(parameters('keyVaultName'), '/add')]",
+		"apiVersion": "2015-06-01",
+		"dependsOn": [
+			"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
+		"properties": {
+			"accessPolicies": [{
+				"tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
+				"objectId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').principalId]",
+				"permissions": {
+					"secrets": ["get"]
+				}
+			}]
+		}
+	},
+	{
+		"apiVersion": "2017-05-10",
+		"name": "apimWithKeyVault",
+		"type": "Microsoft.Resources/deployments",
+		"dependsOn": [
+		"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
+		"properties": {
+			"mode": "incremental",
+			"templateLink": {
+				"uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+				"contentVersion": "1.0.0.0"
+			},
+			"parameters": {
+				"publisherEmail": { "value": "[parameters('publisherEmail')]"},
+				"publisherName": { "value": "[parameters('publisherName')]"},
+				"sku": { "value": "[parameters('sku')]"},
+				"skuCount": { "value": "[parameters('skuCount')]"},
+				"proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+				"keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+			}
+		}
+	}]
+}
+```
+
+#### Authenticate using API Management Identity to the Backend
+
+The system assigned identity can be used to authenticate to your backend using the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
+
 
 ## Create a user-assigned managed identity for an API Management instance
+
+> [!NOTE]
+> An API Management instance can be associated with upto 10 user-assigned managed identity.
 
 ### Using the Azure portal
 
@@ -236,164 +382,12 @@ The principalId is a unique identifier for the identity that's used for Azure AD
 > [!NOTE]
 > An API Management instance can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
 
-## Use the managed service identity to access other resources
+### Scenarios Supported
 
-> [!NOTE]
-> Currently, managed identities can be used to obtain certificates from Azure Key Vault for API Management custom domain names. More scenarios will be supported soon.
->
->
+#### Authenticate using user-assigned identity to the Backend
 
+The user assigned identity can be used to authenticate to your backend using the [authentication-managed-identity](api-management-authentication-policies.md#ManagedIdentity) policy.
 
-### Obtain a certificate from Azure Key Vault
-
-#### Prerequisites
-1. The Key Vault containing the pfx certificate must be in the same Azure subscription and the same Resource Group as the API Management instance. This is a requirement of the Azure Resource Manager template.
-2. The Content Type of the secret must be *application/x-pkcs12*. You can use the following script to upload the certificate:
-
-```powershell
-$pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
-$pwd = "PFX_CERTIFICATE_PASSWORD" # Change this password 
-$flag = [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable 
-$collection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection 
-$collection.Import($pfxFilePath, $pwd, $flag) 
-$pkcs12ContentType = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12 
-$clearBytes = $collection.Export($pkcs12ContentType) 
-$fileContentEncoded = [System.Convert]::ToBase64String($clearBytes) 
-$secret = ConvertTo-SecureString -String $fileContentEncoded -AsPlainText –Force 
-$secretContentType = 'application/x-pkcs12' 
-Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -SecretValue $Secret -ContentType $secretContentType
-```
-
-> [!Important]
-> If the object version of the certificate is not provided, API Management will automatically obtain the newer version of the certificate after it is uploaded to Key Vault.
-
-The following example shows an Azure Resource Manager template that contains the following steps:
-
-1. Create an API Management instance with a managed identity.
-2. Update the access policies of an Azure Key Vault instance and allow the API Management instance to obtain secrets from it.
-3. Update the API Management instance by setting a custom domain name through a certificate from the Key Vault instance.
-
-```json
-{
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"publisherEmail": {
-			"type": "string",
-			"minLength": 1,
-			"metadata": {
-				"description": "The email address of the owner of the service"
-			}
-		},
-		"publisherName": {
-			"type": "string",
-			"defaultValue": "Contoso",
-			"minLength": 1,
-			"metadata": {
-				"description": "The name of the owner of the service"
-			}
-		},
-		"sku": {
-			"type": "string",
-			"allowedValues": ["Developer",
-			"Standard",
-			"Premium"],
-			"defaultValue": "Developer",
-			"metadata": {
-				"description": "The pricing tier of this API Management instance"
-			}
-		},
-		"skuCount": {
-			"type": "int",
-			"defaultValue": 1,
-			"metadata": {
-				"description": "The instance size of this API Management instance."
-			}
-		},
-		"keyVaultName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the vault"
-			}
-		},
-		"proxyCustomHostname1": {
-			"type": "string",
-			"metadata": {
-				"description": "Proxy Custom hostname."
-			}
-		},
-		"keyVaultIdToCertificate": {
-			"type": "string",
-			"metadata": {
-				"description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
-			}
-		}
-	},
-	"variables": {
-		"apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]",
-		"apimServiceIdentityResourceId": "[concat(resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName')),'/providers/Microsoft.ManagedIdentity/Identities/default')]"
-	},
-	"resources": [{
-		"apiVersion": "2017-03-01",
-		"name": "[variables('apiManagementServiceName')]",
-		"type": "Microsoft.ApiManagement/service",
-		"location": "[resourceGroup().location]",
-		"tags": {
-		},
-		"sku": {
-			"name": "[parameters('sku')]",
-			"capacity": "[parameters('skuCount')]"
-		},
-		"properties": {
-			"publisherEmail": "[parameters('publisherEmail')]",
-			"publisherName": "[parameters('publisherName')]"
-		},
-		"identity": {
-			"type": "systemAssigned"
-		}
-	},
-	{
-		"type": "Microsoft.KeyVault/vaults/accessPolicies",
-		"name": "[concat(parameters('keyVaultName'), '/add')]",
-		"apiVersion": "2015-06-01",
-		"dependsOn": [
-			"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-		],
-		"properties": {
-			"accessPolicies": [{
-				"tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
-				"objectId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').principalId]",
-				"permissions": {
-					"secrets": ["get"]
-				}
-			}]
-		}
-	},
-	{
-		"apiVersion": "2017-05-10",
-		"name": "apimWithKeyVault",
-		"type": "Microsoft.Resources/deployments",
-		"dependsOn": [
-		"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-		],
-		"properties": {
-			"mode": "incremental",
-			"templateLink": {
-				"uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-				"contentVersion": "1.0.0.0"
-			},
-			"parameters": {
-				"publisherEmail": { "value": "[parameters('publisherEmail')]"},
-				"publisherName": { "value": "[parameters('publisherName')]"},
-				"sku": { "value": "[parameters('sku')]"},
-				"skuCount": { "value": "[parameters('skuCount')]"},
-				"proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-				"keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
-			}
-		}
-	}]
-}
-```
 
 ## <a name="remove"></a>Remove an identity
 
@@ -408,6 +402,10 @@ To remove all identities in an [ARM template](#using-an-azure-resource-manager-t
     "type": "None"
 }
 ```
+
+> [!Important]
+> If an API Management instance is configured with custom ssl certificate from KeyVault and attempt is made to disable managed identity, the request is failed.
+> Customer can unblock themselves by switching from Azure Key Vault certificate to providing inline encoded certificate and then disabling managed identity. Refer to [Configure Custom Domain](configure-custom-domain.md)
 
 ## Next steps
 
