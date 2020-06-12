@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # What is Azure Digital Twins?
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 **Azure Digital Twins** is an IoT platform that enables the creation of comprehensive digital models of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
 

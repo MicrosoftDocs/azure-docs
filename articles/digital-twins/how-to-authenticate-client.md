@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Authenticate a client application with Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
 
