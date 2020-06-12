@@ -213,10 +213,10 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
      ```
    * A call to GraphInstanceActivate to start the graph instance and to start the flow of video
    * A second call to GraphInstanceList to show that the graph instance is in the running state 
-1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked
+1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
-   * These messages are discussed in the following section.
+   These messages are discussed in the following section.
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. To stop recording, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
    * A call to GraphInstanceDeactivate to deactivate the graph instance.
@@ -354,7 +354,7 @@ You can examine the Media Services asset that was created by the media graph by 
 
     ![New asset](./media/continuous-video-recording-tutorial/new-asset.png)
 
-1. In the wizard that opens, accept the default options and select **Add**. For more information, see [video playback](video-playback-concept.md).
+1. In the wizard that opens, accept the default options and select **Add**. For more information, see [Video playback](video-playback-concept.md).
 
     > [!TIP]
     > Make sure your [streaming endpoint is running](../latest/streaming-endpoint-concept.md).
