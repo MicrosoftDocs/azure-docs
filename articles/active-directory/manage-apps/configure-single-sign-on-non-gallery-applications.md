@@ -2,14 +2,14 @@
 title: SAML single sign-on - non-gallery applications - Microsoft identity platform | Microsoft Docs
 description: Configure single sign-on (SSO) to non-gallery applications in Microsoft identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,7 @@ When you [add a gallery app](add-gallery-app.md) or a [non-gallery web app](add-
 > [!NOTE]
 > Adding a gallery app? Find step-by-step setup instructions in the [list of SaaS app tutorials](../saas-apps/tutorial-list.md)
 
-To configure SAML single sign-on for a non-gallery application without writing code, you need to have a subscription along with an Azure AD Premium license and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+To configure SAML single sign-on for a non-gallery application without writing code, you need to have an Azure AD subscription and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Before you begin
 

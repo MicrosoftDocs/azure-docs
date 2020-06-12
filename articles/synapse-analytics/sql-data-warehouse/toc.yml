@@ -366,7 +366,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
   - name: Troubleshoot
     items:
     - name: Connectivity
@@ -393,8 +393,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
   - name: Pricing calculator
@@ -417,3 +417,5 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Public Preview partners
+      href: sql-data-warehouse-partner-launch.md

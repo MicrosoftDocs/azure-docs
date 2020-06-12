@@ -5,8 +5,8 @@ description: Using report-only mode in Conditional Access to aid in adoption
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

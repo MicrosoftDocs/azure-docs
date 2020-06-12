@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/21/2020
 ms.author: juliako
 ---
 
@@ -112,7 +112,7 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;

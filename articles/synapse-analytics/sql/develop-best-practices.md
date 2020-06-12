@@ -149,7 +149,7 @@ Consequently, you will achieve better performance. For more information, check [
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
-When [querying partitioned Spark tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
+When [querying partitioned Apache Spark for Azure Synapse external tables](develop-storage-files-spark-tables.md) from SQL on-demand, the query will automatically target only files needed.
 
 ### Use CETAS to enhance query performance and joins
 
@@ -161,7 +161,7 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ### Next steps
 
-If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [SQL pool Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to pose questions to other users and to the SQL pool Product Group.  
+If you need information not provided in this article, use the "Search for docs" on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for SQL pool](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the SQL pool Product Group.  
 
 We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

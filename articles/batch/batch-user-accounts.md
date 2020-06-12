@@ -1,7 +1,7 @@
 ---
-title: Run tasks under user accounts - Azure Batch
-description: It's useful to be able to configure the user account under which you want a task to run. Learn the types of user accounts and how to configure them.
-ms.topic: article
+title: Run tasks under user accounts
+description: Learn the types of user accounts and how to configure them.
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
 ---
@@ -34,7 +34,7 @@ Both an auto-user account and a named user account have read/write access to the
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the respective directory.
 
-For more information on accessing files and directories from a task, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md#files-and-directories).
+For more information on accessing files and directories from a task, see [Files and directories](files-and-directories.md).
 
 ## Elevated access for tasks 
 
@@ -316,4 +316,5 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about [files and directories](files-and-directories.md) in Azure Batch.

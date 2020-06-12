@@ -65,7 +65,7 @@ az group create --name myGalleryRG --location eastus
 az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-## Get infornation about the VM
+## Get information about the VM
 
 You can see a list of VMs that are available using [az vm list](/cli/azure/vm#az-vm-list). 
 
@@ -193,5 +193,5 @@ In this tutorial, you created a custom VM image. You learned how to:
 Advance to the next tutorial to learn about highly available virtual machines.
 
 > [!div class="nextstepaction"]
-> [Create highly available VMs](tutorial-availability-sets.md).
+> [Create highly available VMs](tutorial-availability-sets.md)
 

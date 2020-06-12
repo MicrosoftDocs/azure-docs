@@ -5,7 +5,7 @@ description: Learn how to evaluate model performance in Azure Machine Learning S
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,8 +13,6 @@ ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapir
 ms.date: 03/20/2017
 ---
 # How to evaluate model performance in Azure Machine Learning Studio (classic)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio (classic) and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 

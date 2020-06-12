@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -131,7 +131,7 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 ## Error: Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
-**Cause:** Registration token has expired or has been generated with expiration value of 999999.
+**Cause:** Registration token has expired.
 
 **Fix:** Follow these instructions to fix the agent registry error.
 
@@ -330,6 +330,12 @@ If your version number says "1809," install [the KB4516077 update](https://suppo
 ### Version 1903
 
 Redeploy the host operating system with the latest version of the Windows 10, version 1903 image from the Azure Gallery.
+
+## We couldn't connect to the remote PC because of a security error
+
+If your users see an error that says, “We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help,” validate any existing policies that change default RDP permissions. One policy that might cause this error to appear is “Allow log on through Remote Desktop Services security policy."
+
+To learn more about this policy, see [Allow log on through Remote Desktop Services](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## Next steps
 

@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
 services: virtual-network
 documentationcenter: na
-author: jispar
+author: allegradomel
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
-ms.author: jispar
+ms.date: 05/18/2020
+ms.author: kumud
 ms.reviewer: kumud
 ---
 
@@ -57,7 +57,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+| **AzureEventGrid** | Azure Event Grid. | Both | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
@@ -95,7 +95,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **Storage** | Azure Storage. <br/><br/>*Note:* This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
 | **StorageSyncService** | Storage Sync Service. | Both | No | No |
-| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | No |
+| **WindowsVirtualDesktop** | Windows Virtual Desktop. | Both | No | Yes |
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](security-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
 >[!NOTE]
