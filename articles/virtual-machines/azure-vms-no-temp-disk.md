@@ -25,7 +25,7 @@ If your workload requires a local temporary disk, we also have new [Ddv4 and Dds
 > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
 
 ## What are the differences from the General Purpose Dv3/Dsv3 or the Memory Optimized Ev3/Esv3 VM sizes that I am used to? 
-| v3 VM families with local temp disk	| New v4 families with local temp disk | New v4 familes with no local temp disk |
+| v3 VM families with local temp disk	| New v4 families with local temp disk | New v4 families with no local temp disk |
 |---|---|---|
 | Dv3	| Ddv4 | Dv4 |
 | Dsv3 | Ddsv4  | Dsv4 |
