@@ -201,7 +201,7 @@ $vmn = 'myVMsource'
 $vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
-$skus = 'UbuntuLTS'
+$skus = '18.04-LTS'
 $ver = 'latest'
 
 $vmConfigsource = 
@@ -326,7 +326,7 @@ $vmd = 'myVMdestination'
 $vms = 'Standard_DS1_v2'
 $pub = 'Canonical'
 $off = 'UbuntuServer'
-$skus = 'UbuntuLTS'
+$skus = '18.04-LTS'
 $ver = 'latest'
 
 $vmConfigdestination = New-AzVMConfig -VMName $vmd -VMSize $vms
