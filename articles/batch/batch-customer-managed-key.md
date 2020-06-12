@@ -10,7 +10,7 @@ ms.author: peshultz
 
 # Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity
 
-By default Azure Batch uses platform-managed keys to encrypt all the customer data stored in the Azure Batch Service, like certificates, job/task metadata. Optionally, you could use your own keys to encrypt data stored in Azure Batch.
+By default Azure Batch uses platform-managed keys to encrypt all the customer data stored in the Azure Batch Service, like certificates, job/task metadata. Optionally, you can use your own keys, i.e., customer-managed keys, to encrypt data stored in Azure Batch.
 
 The keys you provide must be generated in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/basic-concepts), and the Batch accounts you want to configure with customer-managed keys have to be enabled with [Azure Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -135,12 +135,11 @@ az batch account set \
 ```
 ## Frequently asked questions
   * **Are customer-managed keys supported for existing Batch accounts?** No. Customer-managed keys are only supported for new Batch accounts.
-  * **Which disks is encryption applied to?** Today, encryption is only applied to temporary disks. If you're in a sensitive environment, storing data on OS or data disks is not recommended.
   * **What operations are available after a customer-managed key is revoked?** The only operation allowed is account deletion if Batch loses access to the customer-managed key.
   * **How should I restore access to my Batch account if I accidentally delete the Key Vault key?** Since purge protection and soft delete are enabled, you could restore the existing keys. For more information, see [Recover an Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli#recovering-a-key-vault).
   * **Can I disable customer-managed keys?** You can set the encryption type of the Batch Account back to "Microsoft managed key" at any time. After this, you are free to delete or change the key.
   * **How can I rotate my keys?** Customer-managed keys are not automatically rotated. To rotate the key, update the Key Identifier that the account is associated with.
   * **After I restore access how long will it take for the Batch account to work again?** It can take up to 10 minutes for the account to be accessible again once access is restored.
   * **While the Batch Account is unavailable what happens to my resources?** Any pools that are running when Batch access to customer-managed keys is lost will continue to run. However, the nodes will transition into an unavailable state, and tasks will stop running (and be requeued). Once access is restored, nodes will become available again and tasks will be restarted.
-
-
+  * **Does this encryption mechanism apply to VM disks in a Batch pool?** No. For Cloud Service Configuration Pools, no encryption is applied for the OS and temporary disk. For Virtual Machine Configuration Pools, the OS and any specificed data disks will be encrypted with a Microsoft Platform Managed Key by default. Currently, you cannot specify your own key for these disks. To encrypt the temporary disk of VMs for a Batch pool with a Microsoft Platform Managed Key, you must enable the [diskEncryptionConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#diskencryptionconfiguration) property in your [Virtual Machine Configuration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) Pool. For highly sensitive environments, we recommend enabling temporary disk encryption feature and avoiding storing sensitive data on OS and data disks.
+  
