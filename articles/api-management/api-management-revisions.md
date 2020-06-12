@@ -42,7 +42,7 @@ A revision can be taken offline, which makes it inaccessible to callers even if 
 
 ## Current revision
 
-A single revision can be set as the *current* revision. This revision will be the one used for all API requests that don't specify an explicit revision number in the URL.
+A single revision can be set as the *current* revision. This revision will be the one used for all API requests that don't specify an explicit revision number in the URL. You can roll back to a previous revision by setting that revision as current.
 
 You can set a revision as current using the Azure portal. If you use PowerShell, you can use the `New-AzApiManagementApiRelease` cmdlet.
 
