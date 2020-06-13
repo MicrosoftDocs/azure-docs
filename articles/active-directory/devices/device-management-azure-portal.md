@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Manage device identities using the Azure portal
 
-The Azure AD portal provides you with a central place to manage device identities. You can get to this place by either using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) or:
+Azure AD provides you with a central place to manage device identities.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Devices**.
@@ -58,6 +58,8 @@ Both options allow administrators the ability to:
    - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices must be managed from their respective admin interfaces.
 
 > [!TIP]
+> - Hybrid Azure AD Joined Windows 10 devices do not have an owner. If you are looking for a device by owner and didn't find it, search by the device ID.
+>
 > - If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.md).
 >
 > - For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
@@ -114,9 +116,6 @@ To view or copy the BitLocker keys, you need to be either the owner of the devic
 - Intune Service Administrator
 - Security Administrator
 - Security Reader
-
-> [!NOTE]
-> Hybrid Azure AD Joined Windows 10 devices do not have an owner. If you are looking for a device by owner and didn't find it, search by the device ID.
 
 ### Device list filtering (preview)
 
