@@ -134,7 +134,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
     ```
 
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endoint).
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endpoint).
 
 6. Run the following command to enable monitoring.
 
@@ -184,7 +184,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
     ```
 
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endoint).
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endpoint).
 
 6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
 
@@ -207,6 +207,32 @@ Perform the following steps to enable monitoring using the provided bash script.
     ```
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
+
+## Configure proxy endpoint
+
+With the containerized agent for Azure Monitor for containers, you can configure proxy endpoint to route all outbound traffic of the azure monitor for containers agent go through your proxy server.
+
+Communication between the Azure Monitor for containers agent and Azure Monitor backend can use an HTTP or HTTPS proxy server.
+
+Both anonymous and basic authentication (username/password) proxies are supported.
+
+The proxy configuration value has the following syntax:
+[protocol://][user:password@]proxyhost[:port]
+
+|Property |Description |
+|---------|------------|
+|protocol |HTTP or HTTPS |
+|user |Username for proxy authentication |
+|password |Password for proxy authentication |
+|proxyhost | Address or FQDN of the proxy server |
+|port |Port number for the proxy server |
+
+For example: `http://user01:password@proxy01.contoso.com:8080`
+
+> [!NOTE]
+>Although you do not have any user/password set for the proxy, you still need to add a psuedo user/password. This can be any username or password.
+
+Even if you specify the protocol as http, please note that http requests are created using SSL/TLS secure connection so the proxy must support SSL/TLS.
 
 ## Next steps
 
