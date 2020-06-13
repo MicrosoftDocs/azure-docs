@@ -123,7 +123,7 @@ You grant *role-based access control* (RBAC) by assigning either the created Man
     > [!div class="mx-imgBorder"]
     > ![Add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
-4. You can confirm the Role assignment was applied on the role assignment tab.
+4. You can confirm the role assignment was applied on the role assignment tab.
 
 ## Request token with Managed Identity
 
