@@ -95,6 +95,10 @@
       href: batch-management-dotnet.md
     - name: Cost analysis and budgets
       href: budget.md
+    - name: Use private endpoints with Batch accounts
+      href: private-connectivity.md
+    - name: Configure customer-managed keys
+      href: batch-customer-managed-key.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -132,6 +136,8 @@
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Create a pool with public IP addresses
+      href: create-pool-public-ip.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share

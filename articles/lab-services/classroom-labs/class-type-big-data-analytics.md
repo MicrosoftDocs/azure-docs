@@ -16,7 +16,7 @@ ms.date: 4/15/2020
 ms.author: nicolela
 
 ---
-# Set up a lab to big data analytics using Docker deployment of HortonWorks Data Platform
+# Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform
 
 This article shows you how to set up a lab to teach a big data analytics class.  With this type of class, students learn how to handle large volumes of data and apply machine and statistical learning algorithms to derive data insights.  A key objective for students is to learn to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/) which provides tools for storing, managing, and processing big data.
 

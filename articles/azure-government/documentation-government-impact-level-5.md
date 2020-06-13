@@ -4,18 +4,14 @@ description: 'This article provides guidance for Azure Government Cloud configur
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: dumartinmsft
-manager: zakramer
 
 ms.service: azure-government
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 02/22/2019
-ms.Updated: 03/13/2020
-ms.author: dumartin
-
+ms.date: 05/25/2020
+ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
 # Isolation guidelines for Impact Level 5 Workloads

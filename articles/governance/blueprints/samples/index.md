@@ -1,7 +1,7 @@
 ---
 title: Index of blueprint samples
 description: Index of compliance and standard samples for deploying environments, policies, and Cloud Adoptions Framework foundations with Azure Blueprints.
-ms.date: 02/26/2020
+ms.date: 06/02/2020
 ms.topic: sample
 ---
 # Azure Blueprints samples
@@ -14,8 +14,9 @@ quality and ready to deploy today to assist you in meeting your various complian
 |  |  |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Provides guardrails for compliance to Australian Government ISM PROTECTED. |
+| [Azure Security Benchmark](./azure-security-benchmark.md) | Provides guardrails for compliance to [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
-| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
+| [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark recommendations. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Provides a set of policies to help comply with DoD Impact Level 4. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Provides a set of policies to help comply with FedRAMP Moderate. |
 | [FedRAMP High](./fedramp-h/index.md) | Provides a set of policies to help comply with FedRAMP High. |
@@ -25,7 +26,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides additional infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
 | [Media](./media/index.md) | Provides a set of policies to help comply with Media MPAA. |
-| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-r4.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Aides in SWIFT CSP-CSCF v2020 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL and UK NHS attestation. |

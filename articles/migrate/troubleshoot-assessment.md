@@ -45,13 +45,16 @@ Could not determine suitability for one or more network adapters because of an i
 
 ## Linux VMs are "conditionally ready"
 
-Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap in Server Assessment.
+In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Conditionally ready" due to a known gap in Server Assessment. 
 
 - The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
-- For example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version.
+- For example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version. This is because the vCenter Server ar the Hyper-V host do not provide the kernel version for Linux VM operating systems.
 -  Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment.
 - You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  After you've verified the endorsed distribution, you can ignore this warning.
+
+This gap can be addressed by enabling [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
+
 
 ## Azure SKUs bigger than on-premises
 
@@ -97,6 +100,8 @@ Azure Migrate Server Assessment currently considers the operating system license
 
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
+## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
+When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## Dependency visualization in Azure Government
 
@@ -122,15 +127,14 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Visualize dependencies for > hour
 
-Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
+With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
 
-For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only.
-
-However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ## Visualized dependencies for > 10 machines
 
-In Azure Migrate Server Assessment, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+
 
 ## Machines show "Install agent"
 
@@ -141,6 +145,9 @@ After migrating machines with dependency visualization enabled to Azure, machine
 - Machines might also have a different IP address, based on whether you've retained the on-premises IP address or not.
 - If both MAC and IP addresses are different from on-premises, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. In this case, it will show the option to install the agent rather than to view dependencies.
 - After a test migration to Azure, on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these machines, Azure Migrate won't associate the on-premises machines with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
+
+## Dependencies export CSV shows "Unknown process"
+In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
 
 
 ## Capture network traffic
@@ -160,6 +167,15 @@ Collect network traffic logs as follows:
    - In Chrome, right-click anywhere in the console log. Select **Save as**, to export, and zip the log.
    - In Microsoft Edge or Internet Explorer, right-click the errors and select **Copy all**.
 7. Close Developer Tools.
+
+
+## Where is the operating system data in my assessment discovered from?
+
+- For VMware VMs, by default, it is the operating system data provided by the vCenter. 
+   - For VMware linux VMs, if application discovery is enabled, the OS details are fetched from the guest VM. To check which OS details in the assessment, go to the Discovered servers view, and mouse over the value in the "Operating system" column. In the text that pops up, you would be able to see whether the OS data you see is gathered from vCenter server or from the guest VM using the VM credentials. 
+   - For Windows VMs, the operating system details are always fetched from the vCenter Server.
+- For Hyper-V VMs, the operating system data is gathered from the Hyper-V host
+- For physical servers, it is fetched from the server.
 
 ## Next steps
 

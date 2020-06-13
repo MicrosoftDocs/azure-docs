@@ -19,7 +19,7 @@ After you enable notebook support for your Azure Cosmos accounts, you can open a
 In a new code cell, insert and run the following code, replacing ``PackageToBeInstalled`` with the desired Python package.
 ```python
 import sys
-!{sys.executable} -m pip install PackageToBeInstalled –user
+!{sys.executable} -m pip install PackageToBeInstalled --user
 ```
 This package will be available to use from any notebook in the Azure Cosmos account workspace. 
 

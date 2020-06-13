@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/08/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -120,6 +120,10 @@ Root squashing is currently not supported.
 
 ## SMB FAQs
 
+### Which SMB versions are supported by Azure NetApp Files?
+
+Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0).    
+
 ### Is an Active Directory connection required for SMB access? 
 
 Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) for details. 
@@ -168,7 +172,7 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
 
 For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
 

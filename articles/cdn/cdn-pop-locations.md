@@ -40,10 +40,9 @@ This article lists current Metros containing point-of-presence (POP) locations, 
 | Africa | Cape Town, South Africa<br />Johannesburg, South Africa<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, South Africa | South Africa |
 | Middle East | Dubai, United Arab Emirates<br />Tel Aviv, Israel<br />Istanbul, Turkey | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand<br />Saigon, Vietnam | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand<br />Ho Chi Minh City, Vietnam | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
 | Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 
 ## Next steps
 * To get the latest IP addresses for whitelisting, see the [Azure CDN Edge Nodes API](https://docs.microsoft.com/rest/api/cdn/edgenodes).
-
