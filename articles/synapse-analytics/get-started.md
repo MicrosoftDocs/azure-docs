@@ -87,7 +87,7 @@ A SQL pool consumes billable resources as long as it's active. You can pause the
 
 ## Create an Apache Spark pool
 
-1. In Synapse Studio, on the left side pane, select **Manage** > **Apache Spark pools**.
+1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
 1. Select **New** and enter these settings:
 
     |Setting | Suggested value | 
@@ -379,5 +379,5 @@ You can link a Power BI workspace to your Azure Synapse workspace. This allows y
 
 ## Next steps
 
-Learn more about [Azure Synapse Analytics Preview](overview-what-is.md).
+Learn more about [Azure Synapse Analytics (workspaces preview)](overview-what-is.md).
 
