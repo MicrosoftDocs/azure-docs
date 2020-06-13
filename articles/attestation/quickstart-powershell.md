@@ -24,15 +24,15 @@ For Initial installation, terminate all existing PowerShell windows.
 
 To install for "current user", launch a non-elevated Powershell window and run:
 
-    ```powershell
-    Install-Module -Name Az.Attestation -AllowClobber -Scope CurrentUser
-    ```
+```powershell
+Install-Module -Name Az.Attestation -AllowClobber -Scope CurrentUser
+```
 
 To install for "all users", launch an elevated PowerShell window and run:
 
-    ```powershell
-    Install-Module -Name Az.Attestation -AllowClobber -Scope AllUsers
-    ```
+```powershell
+Install-Module -Name Az.Attestation -AllowClobber -Scope AllUsers
+```
 
 To update the installation:
 
@@ -40,15 +40,15 @@ Terminate all existing PowerShell windows
 
 To update for "current user". Launch a non-elevated Powershell window and run:
 
-    ```powershell
-    Update-Module -Name Az.Attestation
-    ```
+```powershell
+Update-Module -Name Az.Attestation
+```
 
 To update for "all users", launch an elevated PowerShell window and run:
 
-    ```powershell
-    Update-Module -Name Az.Attestation
-    ```
+```powershell
+Update-Module -Name Az.Attestation
+```
 
 ### Sign in to Azure
 
@@ -246,26 +246,26 @@ The following instructions assume there is an active PowerShell session, custome
 
 1.	Enable a system-assigned managed identity for VM.
 
-    ```powershell
-    $vmResourceGroup = "<VM resource group name>"
-    $vmName = "<VM name>"
-    $vm = Get-AzVM -ResourceGroupName $vmResourceGroup -Name $vmName
-    Update-AzVM -ResourceGroupName $vmResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
-    ```
+```powershell
+$vmResourceGroup = "<VM resource group name>"
+$vmName = "<VM name>"
+$vm = Get-AzVM -ResourceGroupName $vmResourceGroup -Name $vmName
+Update-AzVM -ResourceGroupName $vmResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+```
 
 1. Retrieve a service principal representing the VM in Azure AD. It may take a while for the managed identity to propagate in Azure AD. Therefore, if the output of the below commands is empty, wait for a few minutes and repeat them.
 
-    ```powershell
-    $vm = Get-AzVM -ResourceGroupName $vmResourceGroup -Name $vmName
-    $sp = Get-AzADServicePrincipal -ObjectId $vm.Identity.PrincipalId 
-    $sp 
-    ```
+```powershell
+$vm = Get-AzVM -ResourceGroupName $vmResourceGroup -Name $vmName
+$sp = Get-AzADServicePrincipal -ObjectId $vm.Identity.PrincipalId 
+$sp 
+```
 
 3.	Output an application id of the service principal. Take note of the application id, as it will be needed in a later step.
   
-    ```powershell
-    Write-Host "Application Id:" $sp.ApplicationId.Guid 
-    ```
+```powershell
+Write-Host "Application Id:" $sp.ApplicationId.Guid 
+```
 
 ### Provision a service principal
 
@@ -278,24 +278,24 @@ The following instructions assume there is an active PowerShell session, custome
 
 1. Create a service principal in Azure AD.
 
-    ```powershell
-    $servicePrincipalName = "<service principal name>"
-    $sp = New-AzADServicePrincipal -DisplayName $servicePrincipalName
-    ```
+```powershell
+$servicePrincipalName = "<service principal name>"
+$sp = New-AzADServicePrincipal -DisplayName $servicePrincipalName
+```
 
 1. Export the secret of the created service principal.
 
-    ```console
-    $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
-    $UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-      ```
+```console
+$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
+$UnsecureSecret = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
+```
 
 1. Output an application id and the secret of the new service principal. Take note of this information, as it will be needed in a later step.
 
-    ```console
-    Write-Host "Application Id:" $sp.ApplicationId.Guid 
-    Write-Host "Secret:" $UnsecureSecret
-    ```
+```console
+Write-Host "Application Id:" $sp.ApplicationId.Guid 
+Write-Host "Secret:" $UnsecureSecret
+```
 
 ## Grant client application access to Azure Attestation
 
@@ -308,16 +308,16 @@ The following instructions assume there is a retained the PowerShell session fro
 
 1. Assign the service principal from Step 3 of "Configure an Azure AD identity for client application" section to the Attestation Reader role of the resource group containing attestation provider.
 
-    ```powershell
-    $attestationResourceGroup = "<attestation provider resource group name>"
-    New-AzRoleAssignment -ApplicationId $sp.ApplicationId.Guid -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroup
-      ```
+```powershell
+$attestationResourceGroup = "<attestation provider resource group name>"
+New-AzRoleAssignment -ApplicationId $sp.ApplicationId.Guid -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroup
+```
 
 1. Validate the service principal is assigned to the Attestation Reader role.
 
-    ```powershell
-    Get-AzRoleAssignment -ServicePrincipalName $sp.ApplicationId.Guid -ResourceGroupName $attestationResourceGroup
-    ```
+```powershell
+Get-AzRoleAssignment -ServicePrincipalName $sp.ApplicationId.Guid -ResourceGroupName $attestationResourceGroup
+```
 
 ## Access Azure Attestation from client application
 
@@ -332,10 +332,10 @@ In order to perform an attestation operation, a few pieces of data should be pre
 eg. "https://attest.azure.net"
   1. Azure Attestation will respond with an HTTP 401 and standard OAuth 2.0 bearer challenge in the WWW-Authenticate response header when a bearer token is not presented as part of the attestation request.  This challenge can be parsed used to determine the appropriate resource and authority for an Azure AD token request.  An example of such challenge is shown below:
   
-    ```
-    HTTP 401; Unauthorized 
-    WWW-Authenticate: Bearer authorization_uri="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47", resource="https://attest.azure.net" 
-    ```
+```
+HTTP 401; Unauthorized 
+WWW-Authenticate: Bearer authorization_uri="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47", resource="https://attest.azure.net" 
+```
 
 ## Validation of the Attestation Token
 
@@ -344,10 +344,11 @@ One of the important steps in the attestation process is the validation of the r
 For example, the following code will validate the JWT returned by Azure Attestation (using the APIs in the Microsoft.IdentityModel.Tokens namespace).
 Simple validation of the JWT can be done as:
 ```json
-                var jwtHandler = new JsonWebTokenHandler();
-                var validatedToken = jwtHandler.ValidateToken(encodedJwt, tokenValidationParams);
-                Assert.IsTrue(validatedToken.IsValid);
+var jwtHandler = new JsonWebTokenHandler();
+var validatedToken = jwtHandler.ValidateToken(encodedJwt, tokenValidationParams);
+Assert.IsTrue(validatedToken.IsValid);
 ```
+
 For Azure Attestation, the certificate which is used to sign the quote is a self-signed certificate with a subject name, whose name matches the attestUri value for the tenant.
 
 ## Next steps

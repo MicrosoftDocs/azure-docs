@@ -26,7 +26,7 @@ Azure Attestation receives evidence from compute entities, turns them into a set
 - Malicious insiders (tenant employees or Microsoft employees) with administrative privilege or direct access to hardware on which data is being processed
 - Hackers and malware that exploit bugs in the operating system, application, or hypervisor
 - Third parties accessing the data without customer’s consent
-ACC ensures that the data is protected inside a Trusted Execution environment (TEE – also known as enclave). Only authorized code is permitted to run and to access data inside a TEE, so data is protected against viewing and modification from the outside of the TEE 
+ACC ensures that the data is protected inside a Trusted Execution environment (TEE – also known as enclave). Only authorized code is permitted to run and to access data inside a TEE, so data is protected against viewing and modification from the outside of the TEE .
 
 Protection of data using ACC is accomplished in two ways:
 
@@ -40,7 +40,7 @@ Azure Attestation is critical to Confidential Computing scenarios, as Azure Atte
 - Evaluates the enclave evidence against a customer-defined policy 
 - Manages and stores tenant specific policies
 - Generates and signs a token that is used by relying parties to interact with the enclave
-- 
+
 Azure Attestation is built to run in two types of environments:
 - Azure Attestation running in an SGX enabled TEE
 - Azure Attestation running in a non TEE which is currently supported with Business continuity and disaster recovery (BCDR) capability
