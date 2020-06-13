@@ -5,7 +5,6 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 
-ms.assetid: 47e5e535-baa0-457e-8c41-f9fd65478b38
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
