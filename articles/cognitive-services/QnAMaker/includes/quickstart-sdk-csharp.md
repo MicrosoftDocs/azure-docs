@@ -97,7 +97,7 @@ The prediction QnA Maker client is a [QnAMakerRuntimeClient](https://docs.micros
 
 These code snippets show you how to do the following with the QnA Maker client library for .NET:
 
-* [Authenticate the authoring client]()
+* [Authenticate the authoring client](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [Create a knowledge base](#create-a-knowledge-base)
 * [Update a knowledge base](#update-a-knowledge-base)
 * [Download a knowledge base](#download-a-knowledge-base)
@@ -105,7 +105,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 * [Delete a knowledge base](#delete-a-knowledge-base)
 * [Get query runtime key](#get-query-runtime-key)
 * [Get status of an operation](#get-status-of-an-operation)
-* [Authenticate the prediction runtime client]()
+* [Authenticate the query runtime client](#authenticate-the-runtime-for-generating-an-answer)
 * [Generate an answer from the knowledge base](#generate-an-answer-from-the-knowledge-base)
 
 ## Using this example knowledge base
@@ -126,7 +126,7 @@ In the **main** method, create a variable for your resource's Azure key and reso
 > [!IMPORTANT]
 > Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
 > You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure key storage.
 
 Next, create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object.
 
@@ -143,7 +143,7 @@ Next, create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotn
 A knowledge base stores question and answer pairs for the [CreateKbDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.createkbdto?view=azure-dotnet) object from three sources:
 
 * For **editorial content**, use the [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) object.
-    * To use metadata and follow-up prompts, use the editorial content, because this data is added at the individual QnA pair level.
+    * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
 * For **files**, use the [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) object.
 * For **URLs**, use a list of strings.
 
@@ -226,10 +226,3 @@ dotnet run
 ```
 
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
