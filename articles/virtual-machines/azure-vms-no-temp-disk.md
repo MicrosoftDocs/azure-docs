@@ -16,7 +16,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure VM
 > Dv4, Dsv4, Ev4 and Esv4-series VM sizes are now in Public Preview. To sign up for Public Preview, fill out this [Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
 
 ## What does no local temp disk mean? 
-Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. D: Drive). Now with these new VM sizes, that small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.
+Traditionally, we have had VM sizes (e.g. Standard_D2s_v3, Standard_E48_v3) that include a small local disk (i.e. a D: Drive). Now with these new VM sizes, that small local disk no longer exists; however, you can still attach Standard HDD, Premium SSD or Ultra SSD.
 
 ## What if I still want local temp disk?
 If your workload requires a local temporary disk, we also have new [Ddv4 and Ddsv4](ddv4-ddsv4-series.md) or [Edv4 and Edsv4](edv4-edsv4-series.md) VM sizes available. These sizes offer 50% larger temporary disk compared with the previous v3 sizes.
@@ -24,7 +24,7 @@ If your workload requires a local temporary disk, we also have new [Ddv4 and Dds
 > [!NOTE]
 > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
 
-## What are the differences from the General Purpose Dv3/Dsv3 or the Memory Optimized Ev3/Esv3 VM sizes that I am used to? 
+## What are the differences between these new VM sizes and the General Purpose Dv3/Dsv3 or the Memory Optimized Ev3/Esv3 VM sizes that I am used to? 
 | v3 VM families with local temp disk	| New v4 families with local temp disk | New v4 families with no local temp disk |
 |---|---|---|
 | Dv3	| Ddv4 | Dv4 |
