@@ -59,7 +59,7 @@ Managed identities for your Azure Synapse workspace might already have access to
 1. Select **Access control (IAM)** from the left pane.
 1. Assign the following roles or make sure they're already assigned. We use the same name for the workspace identity and the workspace name.
     1. For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity.
-    1. Assign **myworkspaced** as the workspace name.
+    1. Assign **myworkspace** as the workspace name.
 
 1. Select **Save**.
 
