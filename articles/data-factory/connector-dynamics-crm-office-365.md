@@ -375,17 +375,17 @@ Configure the corresponding Data Factory data type in a dataset structure that i
 |:--- |:--- |:--- |:--- |
 | **AttributeTypeCode.BigInt** | **Long** | ✓ | ✓ |
 | **AttributeTypeCode.Boolean** | **Boolean** | ✓ | ✓ |
-| **AttributeType.Customer** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-lookup-field)) |
+| **AttributeType.Customer** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
 | **AttributeType.DateTime** | **Datetime** | ✓ | ✓ |
 | **AttributeType.Decimal** | **Decimal** | ✓ | ✓ |
 | **AttributeType.Double** | **Double** | ✓ | ✓ |
 | **AttributeType.EntityName** | **String** | ✓ | ✓ |
 | **AttributeType.Integer** | **Int32** | ✓ | ✓ |
-| **AttributeType.Lookup** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-lookup-field)) |
+| **AttributeType.Lookup** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
 | **AttributeType.ManagedProperty** | **Boolean** | ✓ | |
 | **AttributeType.Memo** | **String** | ✓ | ✓ |
 | **AttributeType.Money** | **Decimal** | ✓ | ✓ |
-| **AttributeType.Owner** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-lookup-field)) |
+| **AttributeType.Owner** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
 | **AttributeType.Picklist** | **Int32** | ✓ | ✓ |
 | **AttributeType.Uniqueidentifier** | **GUID** | ✓ | ✓ |
 | **AttributeType.String** | **String** | ✓ | ✓ |
