@@ -14,6 +14,9 @@
     href: quickstart-cli.md
 - name: Tutorials
 - name: Samples
+  items:
+    - name: Examples of policy content
+    - href: samples.md
 - name: Concepts
   items:
   - name: Basic concepts
