@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 # Azure Storage types for SAP workload
 Azure has numerous different storage types that differ vastly in capabilities, throughput, latency, and prices. Some of the storage types are not, or only limited usable for SAP scenarios. Other storage types are suitable well for certain SAP workloads. Or, like in the case of SAP HANA, some storage types need to be certified for the usage with certain SAP components or workloads. In this document, we are going through the different types of storage and describe their capability and usability with SAP workloads and SAP components.
 
-Remark about the units used throughout this article. The public cloud vendors moved to use GiB ([Gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) or TiB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) as size units, instead of Gigabyte or Terabyte. Therefore all Azure documentation and prizing are using those units.  Throughout the document, we are referencing these MiB, GiB, and TiB units exclusively. You might need to plan with MB, GB, and TB. So, be aware of some small differences in the calculations if you need to size for a 400 MiB/sec throughput, instead of a 250 MiB/sec throughput.
+Remark about the units used throughout this article. The public cloud vendors moved to use GiB ([Gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) or TiB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) as size units, instead of Gigabyte or Terabyte. Therefore all Azure documentation and prizing are using those units.  Throughout the document, we are referencing these size units of MiB, GiB, and TiB units exclusively. You might need to plan with MB, GB, and TB. So, be aware of some small differences in the calculations if you need to size for a 400 MiB/sec throughput, instead of a 250 MiB/sec throughput.
 
 ## Microsoft Azure Storage resiliency
 
@@ -37,7 +37,7 @@ Conclusions and how these different redundancy methods apply to the different Az
 ## Storage scenarios with SAP workloads
 Persisted storage is needed in SAP workload in various components of the stack that you deploy in Azure. These scenarios list at minimum like:
 
-- Persisted the base VHD of your VM that holds the operating system and other software you install in that disk. This disk/VHD is the root of your VM. Any changes made to it need to be persisted. So, that the next time, you stop and restart the VM, all the changes made before still exist. Especially in cases where the VM is getting deployed by Azure onto another host than it was running originally
+- Persisted the base VHD of your VM that holds the operating system and other software you install in that disk. This disk/VHD is the root of your VM. Any changes made to it, need to be persisted. So, that the next time, you stop and restart the VM, all the changes made before still exist. Especially in cases where the VM is getting deployed by Azure onto another host than it was running originally
 - Persisted data disks. These disks are VHDs you attach to store application data in. This application data could be data and log/redo files of a database, backup files, or software installations. Means any disk beyond your base VHD that holds the operating system
 - Shares or shared disks that contain your global transport directory for NetWeaver or S/4HANA. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
 - The /sapmnt directory or common file shares for EDI orders or similar. Content of those shares is either consumed by software running in multiple VMs or is used to build high-availability failover cluster scenarios
@@ -196,7 +196,7 @@ The ideal cases where this burst functionality can be planned in is likely going
 - Low to moderate read workload since data ideally is cached in memory, or like in the case of HANA should be completely in memory
 - Bursts of write triggered by database checkpoints or savepoints that are issued on a regular basis
 - Backup workload that reads in a continuous stream in cases where backups are not executed via storage snapshots
-- In case of HANA, load of the data into memory after an instance restart
+- For SAP HANA, load of the data into memory after an instance restart
 
 Especially on smaller DBMS systems where your workload is handling a few hundred transactions per seconds only, such a burst functionality can make sense as well for the disks or volumes that store the transaction or redo log. Expected workload against such a disk or volumes looks like:
 
@@ -245,8 +245,7 @@ Ideal for:
 
 - Storing database data or log/redo log files including HANA for cases where read and write performance needs to be lower than 1 millisecond
 - Storing database data or log/redo log files including HANA for cases where limitations of Azure Write Accelerator are exceeded
-- Storing database data or log/redo log files including HANA for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to sto
-- rage workload patterns instead of sizing for maximum usage of bandwidth and IOPS
+- Storing database data or log/redo log files including HANA for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS
 
 
 
@@ -282,7 +281,7 @@ ANF storage is currently supported for several SAP workload scenarios:
 > [!NOTE]
 > No other DBMS workload is supported for Azure NetApp Files based NFS or SMB shares. Updates and changes will be provided if this is going to change.
 
-As already with Azure premium storage, a fixed or linear throughput size per GB can be a problem when you are required to adhere to some minimum numbers in throughput. Like this is the case for SAP HANA. With ANF, this problem can become more pronounced then with Azure premium disk. In case of Azure premium disk, you can take several of the smaller disks with a relatively high throughput per GiB and stripe across those disks to get cost efficient to a relatively high throughput with deploying limited capacity. This kind of striping does not work for NFS or SMB shares hosted on ANF. This restriction resulted in deployment of overcapacity like:
+As already with Azure premium storage, a fixed or linear throughput size per GB can be a problem when you are required to adhere to some minimum numbers in throughput. Like this is the case for SAP HANA. With ANF, this problem can become more pronounced than with Azure premium disk. In case of Azure premium disk, you can take several of the smaller disks with a relatively high throughput per GiB and stripe across those disks to get cost efficient to a relatively high throughput with deploying limited capacity. This kind of striping does not work for NFS or SMB shares hosted on ANF. This restriction resulted in deployment of overcapacity like:
 
 - To achieve, for example, a throughput of 250 MiB/sec on an NFS volume hosted on ANF, you need to deploy 1.95 TiB capacity of the Ultra service level. 
 - To achieve 400 MiB/sec, you would need to deploy 3.125 TiB capacity. This over-provisioning of capacity affects especially relatively HANA instances in VMs with small memory sizes. But you may need the over-provisioning of capacity to achieve the throughput you require of the volume. 
@@ -315,7 +314,7 @@ Ideal for:
 - Storing database SAP HANA data or log/redo log files for cases where read and write performance needs to be lower than 1 millisecond
 - Storing database SAP HANA data or log/redo log files for cases where limitations of Azure Write Accelerator are exceeded
 - /sapmnt directory
-- SMB or NFS based Global transport directory
+- SMB or NFS-based Global transport directory
 - Cases where you want to leverage built-in functions from NetApp that are exposed through Azure
 
 
@@ -332,7 +331,7 @@ Additional built-in functionality of ANF storage:
 - Cloning of ANF volumes from snapshots
 - Restore volumes from snapshots (snap-revert)
 
-**Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The ANF storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is very suitable for providing file shares as needed for /sapmnt or SAP global transport directory. ANF storage come with functionality availability that is available as native NetApp functionality.  
+**Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The ANF storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is suitable for providing file shares as needed for /sapmnt or SAP global transport directory. ANF storage come with functionality availability that is available as native NetApp functionality.  
 
 
 ## Azure VM limits in storage traffic

@@ -527,7 +527,7 @@ Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reb
 
 #### Azure Storage accounts
 
-When deploying services or VMs in Azure, deployment of VHDs and VM Images are organized in units called Azure Storage Accounts. [Azure storage accounts](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview) have limitations either in IOPS, throughput or sizes those can contain. In the past these limitations which are documented in: 
+When deploying services or VMs in Azure, deployment of VHDs and VM Images are organized in units called Azure Storage Accounts. [Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-overview) have limitations either in IOPS, throughput or sizes those can contain. In the past these limitations which are documented in: 
 
 - [Scalability targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md)
 - [Scalability targets for premium page blob storage accounts](../../../storage/blobs/scalability-targets-premium-page-blobs.md)
@@ -555,7 +555,7 @@ We recommend to you use Azure managed disks, because they simplify the deploymen
 #### Azure persisted storage types
 Azure offers a variety of persisted storage option that can be used for SAP workload and specific SAP stack components. For more details, read the document
 
-[Azure storage for SAP workloads](./planning-guide-storage)
+[Azure storage for SAP workloads](.\planning-guide-storage)
 
 
 ### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure Networking
