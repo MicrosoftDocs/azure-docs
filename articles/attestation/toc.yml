@@ -16,7 +16,7 @@
 - name: Samples
 - name: Concepts
   items:
-  - name: Basic conceots
+  - name: Basic concepts
     href: basic-concepts.md
   - name: Workflow
     href: workflow.md
@@ -28,24 +28,22 @@
     href: troubleshoot.md
 - name: Reference
   items:
-  - name: REST API error codes - Azure Key Vault
-    href: rest-error-codes.md
-  - name: Common parameters and headers 
-    href: common-parameters-and-headers.md
+  - name: Attestation APIs
+    href: api.md
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/azure/
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /azure/dotnet/
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /azure/java/
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    href: /azure/javascript/
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /azure/python/
   - name: REST
-    href: /rest/api/keyvault
+    href: /rest/api/
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
