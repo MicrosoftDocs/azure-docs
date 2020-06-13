@@ -156,3 +156,16 @@ Yes, You can link your partner ID for Azure Stack.
 
 If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), your MPN ID will automatically be associated. If you [onboard customers by deploying Azure Resource Manager templates](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), you'll need to associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID and granting it Reader access to every customer you onboard. In this example, the RBAC Reader role is used and it is one of the roles that isn't eligible for Partner Earned Credit. For more information about roles, see [Roles and permissions for partner earned credit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
 
+
+**How do I explain Partner Admin Link (PAL) to my Customer?**
+
+Partner Admin Link (PAL) enables Microsoft to identify and recognize those partners who are helping customers achieve business objectives and realize value in the cloud. Customers must first provide a partner access to their Azure resource. Once access is granted, the partner’s Microsoft Partner Network ID (MPN ID) is associated. This association helps Microsoft understand the ecosystem of IT service providers and to refine the tools and programs needed to best support our common customers.
+
+**What data does PAL collect?**
+
+The PAL association to existing credentials provides no new customer data to Microsoft. It simply provides the telemetry to Microsoft where a partner is actively involved in a customer’s Azure environment. Microsoft can attribute influence and Azure consumed revenue from customer environment to partner organization based on the account's permissions (RBAC role) and scope (Management Group, Subscription, Resource Group, Resource) provided to the partner by customer. 
+
+**Does this impact the security of a customer’s Azure Environment?**
+
+PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (RBAC role) or provide additional Azure service data to partner or Microsoft. 
+

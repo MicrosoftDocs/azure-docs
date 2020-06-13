@@ -65,6 +65,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: Akamai
+        href: akamai-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -77,7 +79,7 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
-      - name: Ally
+      - name: Ally.io
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
@@ -431,8 +433,6 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
-      - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -521,8 +521,6 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
-      - name: EasySSO for Jira
-        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -724,6 +722,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: Hub Planner
+        href: hub-planner-tutorial.md
       - name: HubSpot SAML
         href: hubspot-tutorial.md
       - name: Huddle
@@ -738,6 +738,8 @@
         href: hyperanna-tutorial.md
       - name: IamIP Patent Platform
         href: iamip-patent-platform-tutorial.md
+      - name: IBM Digital Business Automation on Cloud
+        href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -1080,6 +1082,8 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
+      - name: New Relic
+        href: new-relic-tutorial.md
       - name: New Relic by Account
         href: new-relic-tutorial.md
       - name: New Relic (By Organization)
@@ -1242,6 +1246,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proto.io
+        href: proto.io-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
@@ -1458,6 +1464,8 @@
         href: smartfile-tutorial.md
       - name: Smart Global Governance
         href: smart-global-governance-tutorial.md
+      - name: SmartKargo
+        href: smartkargo-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
       - name: SmartRecruiters

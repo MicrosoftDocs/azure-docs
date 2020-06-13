@@ -165,6 +165,9 @@ In this section, you will create a private endpoint to the MariaDB server to it.
     |Private DNS Zone |Select *(New)privatelink.mariadb.database.azure.com* |
     |||
 
+    > [!Note] 
+    > Use the predefined private DNS zone for your service or provide your preferred DNS zone name. Refer to the [Azure services DNS zone configuration](../private-link/private-endpoint-dns.md) for details.
+
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
 2. When you see the **Validation passed** message, select **Create**. 
 
