@@ -161,7 +161,7 @@ The capability matrix for SAP workload looks like:
 | Latency | low-to medium | - |
 | IOPS SLA | YES | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Maximum IOPS per disk | 20,000 [dependent on disk size]((https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) |
+| Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) |
 | Throughput SLA | YES | - |
 | Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | HANA certified | YES | [special for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) |
@@ -356,7 +356,8 @@ As limitations, you can note that:
 ## Striping or not striping
 Striping multiple Azure disks into one larger volume allows you to accumulate the IOPS and throughput of the individual disks into one volume that is based on that stripe set. It is used for Azure standard storage and Azure premium storage only. Azure Ultra disk where you can configure the throughput and IOPS independent of the capacity of a disk, does not require the usage of stripe sets. Shared volumes based on NFS or SMB can't be striped. Due to the non-linear nature of Azure premium storage throughput and IOPS, you can provision smaller capacity with the same IOPS and throughput than large single Azure premium storage disks. With that is a method to achieve highest throughput or IOPS at lowest cost using Azure premium storage. For example:
 
-- Striping across two P15 premium storage disks gets you to a throughput of 250 MiB/sec. Such a volume is going to have 512 GiB capacity. If you want to have a single disk that gives you 250 MiB throughput per second, you would need to pick a P40 disk with 2 TiB capacity. 
+- Striping across two P15 premium storage disks gets you to a throughput of 
+- 250 MiB/sec. Such a volume is going to have 512 GiB capacity. If you want to have a single disk that gives you 250 MiB throughput per second, you would need to pick a P40 disk with 2 TiB capacity. 
 - Or you could achieve a throughput of 400 MiB/sec by striping four P10 premium storage disks with an overall capacity of 512 GiB by striping. If you would like to have a single disk with a minimum of 500 MiB throughput per second, you would need to pick a P60 premium storage disk with 8 TiB. Since costing or premium storage is near linear with the capacity, you can sense the cost savings by using striping.
 
 Some rules need to be followed on striping:
