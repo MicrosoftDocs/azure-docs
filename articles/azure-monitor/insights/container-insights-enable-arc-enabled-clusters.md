@@ -230,9 +230,9 @@ The proxy configuration value has the following syntax:
 For example: `http://user01:password@proxy01.contoso.com:8080`
 
 > [!NOTE]
->Although you do not have any user/password set for the proxy, you still need to add a psuedo user/password. This can be any username or password.
+>If your proxy server does not require authentication, you still need to specify a psuedo user/password. This can be any username or password.
 
-Even if you specify the protocol as http, please note that http requests are created using SSL/TLS secure connection so the proxy must support SSL/TLS.
+If you specify the protocol as **HTTP**, HTTP requests are created using SSL/TLS secure connection. The proxy server must support SSL/TLS.
 
 ## Next steps
 
