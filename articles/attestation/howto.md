@@ -10,11 +10,8 @@ ms.author: mbaldwin
 
 
 ---
-# How To set up Attestation
+# How to author and sign attestation policy
 
-TODO
-
-## Authoring and signing attestation policy
 The Attestation policy is a file which will be uploaded to MAA. MAA offers the flexibility to upload the policy in a MAA specific policy format (details below). Alternatively, a encoded version of the policy, in JSON Web Signature, RFC 7515 format, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the RP (relying party) acts as the policy administrator. The client making the attestation call sends attestation evidence which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what’s defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. A sample policy file looks as below:
@@ -37,7 +34,7 @@ A policy file has 3 segments as seen above:
 - Version
 - Authorizationrules
 - Issuancerules
-- 
+
 Version: The version is the version number of the grammar that is followed.
 
 ```json
@@ -64,7 +61,8 @@ A claim contains the following properties:
 - **valueType**: The data type of information stored in the value property. Supported types are String, Integer, Boolean.
 
   Note: if not defined the default value will be “String”.
-- **issuer: Information(string) regarding the issuer of the claim. The issuer will be one of the below.
+
+  - **issuer**: Information(string) regarding the issuer of the claim. The issuer will be one of the below.
   - **AttestationService**: Certain claims are made available to the policy author by MAA which can be used by the attestation policy author to craft the appropriate policy.
   - **AttestationPolicy**: The policy(as defined by the administrator) itself can add claims to the incoming evidence during processing. The issuer in this case is set as “AttestationPolicy”.
   - **CustomClaim**: The attestor(client) can also add additional claims to the attestation evidence. The issuer in this case is set as “CustomClaim”.
@@ -124,7 +122,8 @@ Evaluation of conditions list
 - A claim is said to satisfy the filtering criterion represented by the condition if each of its properties satisfy the corresponding claim property conditions present in the condition.  
 
 The set of actions that are allowed in a policy are described below.
-| Action Verb | Description | Policy sections to which these apply
+| Action Verb | Description | Policy sections to which these apply |
+|--|--|--|
 | permit() | The incoming claim set can be used to compute the issuancerules. Does not take any claim as a parameter | Authorizationrules |
 | deny() | The incoming claim set should not be used to compute the issuancerules Does not take any claim as a parameter | Authorizationrules |
 | add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |Authorizationrules, issuancerules |
@@ -151,130 +150,69 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 
   Note: Attestation clients provide(use) a unique identifier. 
 
-### Claims issued by MAA in SGX enclaves
+#### Claims issued by MAA in SGX enclaves
 
-#### Incoming claim types issued by MAA (can also be used as outgoing claims)
+##### Incoming claim types issued by MAA (can also be used as outgoing claims)
 
-$is-debuggable:
-Boolean which indicates whether or not the enclave has debugging enabled or not
+- **$is-debuggable**: Boolean which indicates whether or not the enclave has debugging enabled or not
+- **sgx-mrsigner**: hex encoded value of the “mrsigner” field of the quote
+- **sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
+- **product-id**
+- **svn**: security version number encoded in the quote 
+- **tee: type of enclave 
 
-$sgx-mrsigner:
-hex encoded value of the “mrsigner” field of the quote
+##### Outgoing claim types issued by MAA 
 
-$sgx-mrenclave:
-hex encoded value of the “mrenclave” field of the quote
+- **maa-ehd**:  Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
+- **maa-policyhash**: SHA256 hash of the policy document
+- **maa-attestationcollateral**: JSON object describing the collateral used to perform the attestation with the following properties:
+- **maa-quotehash**: SHA256 hash of the quote
+- **maa-qeidhash**: SHA256 hash of the QE ID
+- **maa-qeidcertshash**: SHA256 hash of the QE certs
+- **maa-qeidcrlhash**: SHA256 hash of the QE CRL
+- **maa-tcbinfohash**: SHA256 hash of the tcbinfo structure
+- **maa-tcbinfocertshash**: SHA256 hash of the tcbinfo certs
+- **maa-tcbinfocrlhash**: SHA256 hash of the tcbinfo crl
 
-$product-id 
+#### Claims issued by MAA in VBS enclaves
 
-$svn:
-security version number encoded in the quote 
+##### Incoming claim types issued by MAA (can also be used as outgoing claims)
 
-$tee:
-type of enclave 
+- **aikValidated**:  Boolean value containing information if the Attestation Identity Key (AIK) cert has been validated or not
+- **aikPubHash**:  String containing the base64(SHA256(AIK public key in DER format))
+- **tpmVersion**:   Integer value containing the Trusted Platform Module (TPM) major version         
+- **secureBootEnabled**: Boolean value to indicate if secure boot is enabled 
+- **iommuEnabled**:  Boolean value to indicate if Input-output memory management unit (Iommu) is enabled 
+- **bootDebuggingDisabled**: Boolean value to indicate if boot debugging is disabled 
+- **notSafeMode**:  Boolean value to indicate if the Windows is not running on safe mode.
+- **notWinPE**:  Boolean value indicating if Windows is not running in WinPE mode.
+- **vbsEnabled**:  Boolean value indicating if VBS is enabled.
+- **vbsReportPresent**:  Boolean value indicating if VBS enclave report is available.
+- **enclaveAuthorId**:  String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave.
+- **enclaveImageId**:  String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave.
+- **enclaveOwnerId**:  String value containing the Base64Url encoded value of the enclave Owner id-The identifier of the owner for the enclave.
+- **enclaveFamilyId**:  String value containing the Base64Url encoded value of the enclave Family id. The family identifier of the primary module for the enclave
+- **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave.
+- **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
+- **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
 
-#### Outgoing claim types issued by MAA 
+##### Outgoing claim types issued by MAA
 
-maa-ehd:
-Base64Url encoded version of the “Enclave Held Data” specified in the attestation request 
-
-maa-policyhash : 
-SHA256 hash of the policy document
-
-maa-attestationcollateral:
-JSON object describing the collateral used to perform the attestation with the following properties:
-
-maa-quotehash :
-SHA256 hash of the quote
-
-maa-qeidhash : 
-SHA256 hash of the QE ID
-
-maa-qeidcertshash : 
-SHA256 hash of the QE certs
-
-maa-qeidcrlhash : 
-SHA256 hash of the QE CRL
-
-maa-tcbinfohash : 
-SHA256 hash of the tcbinfo structure
-
-maa-tcbinfocertshash : 
-SHA256 hash of the tcbinfo certs
-
-maa-tcbinfocrlhash : 
-SHA256 hash of the tcbinfo crl
-
-### Claims issued by MAA in VBS enclaves
-
-#### Incoming claim types issued by MAA (can also be used as outgoing claims)
-
-aikValidated: Boolean value containing information if the Attestation Identity Key (AIK) cert has been validated or not
-           
-aikPubHash: 
-String containing the base64(SHA256(AIK public key in DER format))
-
-tpmVersion:  Integer value containing the Trusted Platform Module (TPM) major version         
-
-secureBootEnabled:
-Boolean value to indicate if secure boot is enabled 
-         
-iommuEnabled: Boolean value to indicate if Input-output memory management unit (Iommu) is enabled 
-             
-bootDebuggingDisabled: 
-Boolean value to indicate if boot debugging is disabled 
-
-notSafeMode: Boolean value to indicate if the Windows is not running on safe mode
-
-notWinPE: Boolean value indicating if Windows is not running in WinPE mode
-
-vbsEnabled: Boolean value indicating if VBS is enabled
-
-vbsReportPresent: Boolean value indicating if VBS enclave report is available
-
-enclaveAuthorId: String value containing the Base64Url encoded value of the enclave author id-The author identifier of the primary module for the enclave
-
-enclaveImageId: String value containing the Base64Url encoded value of the enclave Image id-The image identifier of the primary module for the enclave
-
-enclaveOwnerId: String value containing the Base64Url encoded value of the enclave Owner id-The identifier of the owner for the enclave
-
-enclaveFamilyId: String value containing the Base64Url encoded value of the enclave Family id. The family identifier of the primary module for the enclave
-
-enclaveSvn: Integer value containing the security version number of the primary module for the enclave.
-
-enclavePlatformSvn: Integer value containing the security version number of the platform that hosts the enclave
-
-enclaveFlags: The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave
-
-#### Outgoing claim types issued by MAA
-
-policy_hash: String value containing 
-SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text))))
-
-policy_signer: String value containing a JWK with the public key or the certificate chain present in the signed policy header.
-
-If the policy is not signed, a Microsoft generated certificate is used to sign the policy to maintain authenticity.
-
-ver (Version): String value containing version of the report.
+- **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
+- **policy_signer**:  String value containing a JWK with the public key or the certificate chain present in the signed policy header. If the policy is not signed, a Microsoft generated certificate is used to sign the policy to maintain authenticity.
+- **ver (Version)**:  String value containing version of the report.
 Currently 1.0.
+- **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
+- **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
 
-cnf (Confirmation) Claim: The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
+##### property claim types supported by MAA
 
-rp_data (relying party data): Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
+- **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
+  - **Default value(time)**: one day in minutes
+  - **Maximum value(time)**: one year in minutes 
+- **omit_x5c**: A Boolean claim indicating if MAA should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
 
-#### property claim types supported by MAA
-
-report_validity_in_minutes:
-An integer claim signifying how long the token is valid for
-- Default value(time): one day in minutes
-- Maximum value(time):one year in minutes 
-
-omit_x5c: A Boolean claim indicating if MAA should omit the cert used to provide proof of service authenticity.
-
-If true, x5t will be added to the attestation token.
-If false(default), x5c will be added to the attestation token.
-
-
-### Drafting the policy file
+## Drafting the policy file
 1. Create a new file.
 1. Add version to the file.
 1. Add sections for authorizationrules and issuancerules
@@ -306,7 +244,7 @@ If false(default), x5c will be added to the attestation token.
   Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
 1. Save file.
 
-### Policy templates/samples
+## Policy templates/samples
 
 No Security Policy for VBS enclaves:
 
@@ -367,7 +305,7 @@ The policy validates VBS enclave information in the attestation evidence to allo
 
 Please refer to “Attestation policy” section of this document for SGX default policy template.
 
-### Creating the policy file in JSON Web Signature format
+## Creating the policy file in JSON Web Signature format
 
 After creating a policy file, to upload a policy in JWS format, follow the below steps.
 1. Generate the JWS, RFC 7515 with policy (utf-8 encoded) as the payload
@@ -425,5 +363,4 @@ print("\nAttestation Policy JWS:")
 print(encoded.decode('utf-8'))
 ```
 
-## Next steps
-
+# Next steps
