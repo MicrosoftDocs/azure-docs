@@ -3,7 +3,7 @@ title: How to secure a single page application with user sign-in
 description: How to configure a single page application which supports Azure AD single-sign-on with Azure Maps Web SDK.
 author: philmea
 ms.author: philmea
-ms.date: 05/14/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -22,17 +22,20 @@ Create the web application in Azure AD for users to sign in. The web application
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 
-    ![App registration](./media/how-to-manage-authentication/app-registration.png)
+    > [!div class="mx-imgBorder"]
+    > ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
 2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For a detailed sample please see [Azure Maps Azure AD samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Then select **Register**.  
 
 3. To assign delegated API permissions to Azure Maps, go to the application. Then under **App registrations**, select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
-    ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
 
 4. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
 
-    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
 5. Enable `oauth2AllowImplicitFlow`. To enable it, in the **Manifest** section of your app registration, set `oauth2AllowImplicitFlow` to `true`.
 

@@ -3,7 +3,7 @@ title: Authentication methods | Microsoft Azure Maps
 description: In this article, you'll learn about Azure Active Directory and Shared Key authentication. Both are used for Microsoft Azure Maps services. Learn how to get Azure Maps subscription key.
 author: philmea
 ms.author: philmea
-ms.date: 05/13/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -47,7 +47,7 @@ For general information about authenticating with Azure AD, see [What is authent
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provide Azure services with an automatically managed application based security principal which can authenticate with Azure AD. With role-based access control (RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
-### Configuring Application Azure AD Authentication
+### Configuring application Azure AD authentication
 
 Applications will authenticate with the Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. For more information, see [Authentication flows and application scenarios](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
 
@@ -72,9 +72,9 @@ Authorization: Bearer eyJ0e….HNIVN
 
 For information about viewing your client ID, see [View authentication details](https://aka.ms/amauthdetails).
 
-## Authorization with Role Based Access Control
+## Authorization with role-based access control
 
-Azure Maps supports access to all principal types for Azure [role based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
+Azure Maps supports access to all principal types for Azure [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
 
 The next sections discuss concepts and components of Azure Maps integration with Azure AD role based access control. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. 
 
@@ -90,21 +90,13 @@ The following role definition types exist to support application scenarios.
 | Azure Maps Data Contributor | Provides access to mutable Azure Maps REST APIs. Mutability is defined by the actions: write and delete. |
 | Custom Role Definition      | Create a crafted role to enable flexible restricted access to Azure Maps REST APIs.                      |
 
-Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services which provide write or delete actions. The following table describes which services Azure Maps Data Contributor is applicable for use of write or delete actions. 
+Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services which provide write or delete actions. The following table describes which services Azure Maps Data Contributor is applicable for when using write or delete actions on the given service. If only read actions are used on the service, then Azure Maps Data Reader can be used instead of Azure Maps Data Contributor.
 
-| Azure Maps Service | Azure Maps Role Definition                          |
-| :----------------- | :-------------------------------------------------- |
-| Render / Map Tiles | Azure Maps Data Reader                              |
-| Geolocation        | Azure Maps Data Reader                              |
-| Mobility           | Azure Maps Data Reader                              |
-| Route              | Azure Maps Data Reader                              |
-| Search             | Azure Maps Data Reader                              |
-| Timezone           | Azure Maps Data Reader                              |
-| Traffic            | Azure Maps Data Reader                              |
-| Weather            | Azure Maps Data Reader                              |
-| Data               | Azure Maps Data Reader, Azure Maps Data Contributor |
-| Creator            | Azure Maps Data Reader, Azure Maps Data Contributor |
-| Spatial            | Azure Maps Data Reader, Azure Maps Data Contributor |
+| Azure Maps Service | Azure Maps Role Definition  |
+| :----------------- | :-------------------------- |
+| Data               | Azure Maps Data Contributor |
+| Creator            | Azure Maps Data Contributor |
+| Spatial            | Azure Maps Data Contributor |
 
 For information about viewing your RBAC settings, see [How to configure RBAC for Azure Maps](https://aka.ms/amrbac).
 
@@ -112,7 +104,7 @@ For information about viewing your RBAC settings, see [How to configure RBAC for
 
 One aspect of application security is to apply the principle of least privilege. The principle implies that the security principal should only be allowed the access which is required and no additional access. Creating custom role definitions can support use cases which require further granularity to access control. To create a custom role definition you can select specific data actions to include or exclude for the definition. 
 
-The custom role definition can then be used in a role assignment for any security principal. To learn more about Azure custom role definitions, see [Azure Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+The custom role definition can then be used in a role assignment for any security principal. To learn more about Azure custom role definitions, see [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Here are some example scenarios where custom roles can improve application security.
 
@@ -120,12 +112,12 @@ Here are some example scenarios where custom roles can improve application secur
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | A public facing or interactive sign-in web page with base map tiles and no other REST APIs.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | An application which only requires reverse geocoding and no other REST APIs.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
-| A role for a security principal which requests reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                        | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| A role for a security principal which requests reading of Azure Maps Creator based map data and base map tile REST APIs.                                                                                                 | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
 | A role for a security principal which requires reading, writing, and deleting of Creator based map data. This can be defined as a map data editor role but does not allow access to other REST APIs like base map tiles. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
 
-### Understanding Scope
+### Understanding scope
 
-When creating a role assignment it is defined within the Azure resource hierarchy. At the top of the hierarchy is a [management group](https://docs.microsoft.com/azure/governance/management-groups/overview) and the the lowest is an Azure resource like an Azure Maps account.
+When creating a role assignment it is defined within the Azure resource hierarchy. At the top of the hierarchy is a [management group](https://docs.microsoft.com/azure/governance/management-groups/overview) and the lowest is an Azure resource like an Azure Maps account.
 Assigning a role assignment to a resource group can enable access to multiple Azure Maps accounts or resources in the group.
 
 > [!Tip]

@@ -3,7 +3,7 @@ title: How to secure a web application with interactive single-sign-in
 description: How to configure a web application which supports Azure AD single-sign-on with Azure Maps Web SDK using OpenID Connect protocol.
 author: philmea
 ms.author: philmea
-ms.date: 05/14/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -22,7 +22,8 @@ You must create the web application in Azure AD for users to sign in. This web a
 
 1. In the Azure portal, in the list of Azure services, select **Azure Active Directory** > **App registrations** > **New registration**.  
 
-    ![App registration](./media/how-to-manage-authentication/app-registration.png)
+    > [!div class="mx-imgBorder"]
+    > ![App registration](./media/how-to-manage-authentication/app-registration.png)
 
 2. Enter a **Name**, choose a **Support account type**, provide a redirect URI which will represent the url which Azure AD will issue the token and is the url where the map control is hosted. For more details please see Azure AD [Scenario: Web app that signs in users](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-overview). Complete the provided steps from the Azure AD scenario.  
 
@@ -30,11 +31,13 @@ You must create the web application in Azure AD for users to sign in. This web a
     
 4.  To assign delegated API permissions to Azure Maps, go to the application. Then select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
-    ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
 
 5. Select the check box next to **Access Azure Maps**, and then select **Add permissions**.
 
-    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
 6. Enable the web application to call Azure Maps REST APIs by configuring the app registration with an application secret, For detailed steps, see [A web app that calls web APIs: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-app-registration). A secret is required to authenticate to Azure AD on-behalf of the user. The app registration certificate or secret should be stored in a secure store for the web application to retrieve to authenticate to Azure AD. 
    
