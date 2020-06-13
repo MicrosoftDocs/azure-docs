@@ -127,26 +127,7 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. This is the path chosen above if `USE_CURATED_ENV = True`. If you set that value to `False`, the code above shows the pattern for explicitly setting your dependencies.
-
-You can search the curated environments to see which have particular pip-installed packages.
-
-```python
-def env_contains(e, deps) : 
-    def env_contains_single(e, dep) : 
-        return True in (dep in p for p in e.python.conda_dependencies.pip_packages)
-    return not (False in (env_contains_single(e, dep) for dep in deps))
-
-def envs_containing(deps) : 
-    for name in ws.environments :
-        if env_contains(ws.environments[name], deps) : 
-            yield name
-
-list(envs_containing(['automl']))
-# ['AzureML-Tutorial', 'AzureML-AutoML', 'AzureML-Hyperdrive-ForecastDNN', 'AzureML-AutoML-DNN']
-```
-
-The `Workspace` object references the curated environments in `ws.environments`. Each `Environment` object, in turn, has a `python.conda_dependencies.pip_packages` list. The `env_contains` function above returns `True` if all of the specified dependencies exist in a particular environment. The `envs_containing` function returns all of the curated environments in the `Workspace` that have all of the packages installed.
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be significantly faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](https://docs.microsoft.com/azure/container-registry/container-registry-intro)). Building and registering this image can take quite a few minutes. 
 
 ## Prepare data for automated machine learning
 
