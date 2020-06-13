@@ -157,9 +157,9 @@ Download .json config file and modify it based on the settings defined in this a
 
 ```azurepowershell-interactive
 $myRoleImageCreationUrl = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json'
-$myRoleImageCreationPath = 'myRoleImageCreation.json'
+$myRoleImageCreationPath = "$env:TEMP\myRoleImageCreation.json"
 
-Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile -FilePath $myRoleImageCreationPath -UseBasicParsing
+Invoke-WebRequest -Uri $myRoleImageCreationUrl -OutFile $myRoleImageCreationPath -UseBasicParsing
 
 $Content = Get-Content -Path $myRoleImageCreationPath -Raw
 $Content = $Content -replace '<subscriptionID>', $subscriptionID
@@ -171,7 +171,7 @@ $Content | Out-File -FilePath $myRoleImageCreationPath -Force
 Create the role definition.
 
 ```azurepowershell-interactive
-New-AzRoleDefinition -InputFile myRoleImageCreation.json
+New-AzRoleDefinition -InputFile $myRoleImageCreationPath
 ```
 
 Grant the role definition to the image builder service principal.
@@ -204,7 +204,7 @@ New-AzGallery -GalleryName $myGalleryName -ResourceGroupName $imageResourceGroup
 Create a gallery definition.
 
 ```azurepowershell-interactive
-$GalleryParams - @{
+$GalleryParams = @{
   GalleryName = $myGalleryName
   ResourceGroupName = $imageResourceGroup
   Location = $location
@@ -249,19 +249,6 @@ $disObjParams = @{
 $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 ```
 
-Create an Azure image builder customization object.
-
-```azurepowershell-interactive
-$ImgCustomParams = {
-  PowerShellCustomizer = $true
-  CustomizerName = 'settingUpMgmtAgtPath'
-  RunElevated = $false
-  Sha256Checksum = '7541AFFE311AF60BF2F109612453B2928F90FEB0B083B87B2B9C8A200F1CF47E'
-  ScriptUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1'
-}
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
-```
-
 Create an Azure image builder template.
 
 ```azurepowershell-interactive
@@ -270,7 +257,6 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
