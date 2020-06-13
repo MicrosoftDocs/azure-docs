@@ -21,13 +21,13 @@ This article will walk you through the significant decision points for each of t
 
 ## Initial number and properties of cluster node types
 
-A *node type* defines the size, number, and properties for a set of nodes (virtual machines) in the cluster. Service Fabric node types correspond to *roles* in cloud services, and define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster maps to a [virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+A *node type* defines the size, number, and properties for a set of nodes (virtual machines) in the cluster. Every node type that is defined in a Service Fabric cluster maps to a [virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 Because each node type is a distinct scale set, it can be scaled up or down independently, have different sets of ports open, and have different capacity metrics. For more information about the relationship between node types and virtual machine scale sets, see [Service Fabric cluster node types](service-fabric-cluster-nodetypes.md).
 
 Each cluster requires one **primary node type**, which runs critical system services that provide Service Fabric platform capabilities. Although it's possible to also use primary node types to run your applications, it's recommended to dedicate them solely to running system services.
 
-**Non-primary node types** are used to define application roles (such as *front-end* and *back-end* services) for a set of cluster nodes. Service Fabric clusters can have zero or more non-primary node types.
+**Non-primary node types** can be used to define application roles (such as *front-end* and *back-end* services) and to physically isolate services within a cluster. Service Fabric clusters can have zero or more non-primary node types.
 
 The primary node type is configured using the `isPrimary` attribute under the node type definition in the Azure Resource Manager deployment template. See the [NodeTypeDescription object](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) for the full list of node type properties. For example usage, open any *AzureDeploy.json* file in [Service Fabric cluster samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) and *Find on Page* search for the `nodetTypes` object.
 
@@ -37,7 +37,7 @@ The number of initial nodes types depends upon the purpose of you cluster and th
 
 * ***Does your application have multiple services, and do any of them need to be public or internet facing?***
 
-    Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services. These cases typically require three node types: one primary node type, and two non-primary node types (one each for the front and back-end service).
+    Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services, with separate networking between the front-end and back-end services. These cases typically require three node types: one primary node type, and two non-primary node types (one each for the front and back-end service).
 
 * ***Do the services that make up your application have different infrastructure needs such as greater RAM or higher CPU cycles?***
 
@@ -78,7 +78,7 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 
 ### Bronze
 
-Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your stateful workloads won't be stopped or delayed. Use Bronze durability only for node types that run stateless workloads. For production workloads, running Silver or above is recommended.
+Node types running with Bronze durability obtain no privileges. This means that infrastructure jobs that impact your stateful workloads won't be stopped or delayed. Use Bronze durability for node types that only run stateless workloads. For production workloads, running Silver or above is recommended.
 
 ### Silver and Gold
 
@@ -142,7 +142,7 @@ Here is the recommendation on choosing the reliability tier. The number of seed 
 | 7 or 8 | Gold |
 | 9 and up | Platinum |
 
-When you increase or decrease the size of your cluster (the sum of VM instances in all node types), you must update the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+When you increase or decrease the size of your cluster (the sum of VM instances in all node types), consider updating the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### Capacity planning for reliability
 
@@ -152,7 +152,6 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 **For production workloads, the recommended VM size (SKU) is Standard D2_V2 (or equivalent) with a minimum of 50 GB of local SSD.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
 
-- The minimum supported VM sizes are Standard_D2_V3 and Standard D1_V2.
 - Partial core VM sizes like Standard A0 are not supported.
 - *A-series* VM sizes are not supported for performance reasons.
 - Low-priority VMs are not supported.
