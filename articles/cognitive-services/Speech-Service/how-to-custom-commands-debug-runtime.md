@@ -1,5 +1,5 @@
 ---
-title: 'Errors when running an application (Preview)'
+title: 'Debug errors when running a Custom Commands application'
 titleSuffix: Azure Cognitive Services
 description: debug errors when running the custom commands apps 
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/24/2020
 ms.author: xiaojul
 ---
 
-# Errors when running an application (Preview)
+# Debug errors when running a Custom Commands application
 
 This article describes how to debug when you see errors while running Custom Commands application. 
 

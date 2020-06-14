@@ -1,5 +1,5 @@
 ---
-title: 'Send activity to client application (Preview)'                           
+title: 'Send activity to client application'                           
 titleSuffix: Azure Cognitive Services
 description: send activity to client application  
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/14/2020
 ms.author: xiaojul
 ---
 
-# Send activity to client application (Preview)
+# Send activity to client application
 
 To complete tasks using a Custom Commands application, you can send custom payloads to a connected client device.
 
@@ -26,9 +26,9 @@ In this article, you'll:
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * An Azure subscription key for Speech service:
 [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-> * A previously created Custom Commands app
-> * A Speech SDK enabled client application:
-[How-to: Setup client application with Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md)
+> * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
+> * A Speech SDK enabled client app:
+[How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## Setup Send activity to client 
 1. Open the Custom Commands application you previously created

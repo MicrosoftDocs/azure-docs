@@ -1,5 +1,5 @@
 ---
-title: 'Setup client application with Speech SDK (Preview)'                              
+title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure Cognitive Services
 description: set up web endpoints for custom commands 
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/14/2020
 ms.author: xiaojul
 ---
 
-# Setup client application with Speech SDK (Preview)
+# Integrate with a client application using Speech SDK
 
 After creating a hosted Custom Commands application, you can begin talking to it from a client device.
 
@@ -25,8 +25,7 @@ In this article, you'll:
 
 A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application, you can do so following the quickstarts:
 > [!div class = "checklist"]
-> * [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-> * [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> * [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md)
 
 You'll also need:
 > [!div class = "checklist"]
