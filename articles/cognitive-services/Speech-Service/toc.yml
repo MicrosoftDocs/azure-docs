@@ -442,6 +442,8 @@
               items: 
                 - name: Custom Commands concepts
                   href: custom-commands-references.md
+                - name: Custom Commands Samples (GitHub)
+                  href: http://aka.ms/speech/cc-samples
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?
