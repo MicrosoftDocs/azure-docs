@@ -72,20 +72,6 @@ The Azure Standard HDD storage was the only storage type when Azure infrastructu
 | Azure Backup VM snapshots possible | YES | - |
 | Costs | LOW | - |
 
-Ideal for:
-
-- Backups
-
-Could eventually be used for:
-
-- OS disk for non-production systems
-
-Can't be used or not supported for:
-
-- OS disk for production systems
-- Global transport directory
-- Storing database data or log/redo log files
-- /sapmnt directory
 
 
 **Summary:** An Azure storage type that should be used in conjunction with SAP workload to store backups. It should only be used as base VHD for rather inactive systems, like retired systems used for looking up data here and there. But no active development, QA or production VMs should be based on that storage. Nor should database files being hosted on that storage
@@ -112,21 +98,7 @@ Compared to Azure standard HDD storage, Azure standard SSD storage delivers bett
 | Azure Backup VM snapshots possible | YES | - |
 | Costs | LOW | - |
 
-Ideal for:
 
-- Backups
-- Non-production OS disks
-
-Could eventually be used for:
-
-- /sapmnt directory
-- Storing database data or log/redo log files of non-production SAP systems where no low latency requirements exist. Except for SAP HANA.
-
-Can't be used or not supported for:
-
-- OS disk for production systems
-- Global transport directory
-- Storing database data or log/redo log files of production SAP systems
 
 **Summary:** Azure standard SSD storage is the minimum recommendation for non-production VMs for base VHD, eventual DBMS deployments with relative latency insensitivity and/or low IOPS and throughput rates. This Azure storage type is not supported anymore for hosting the SAP Global Transport Directory. 
 
@@ -171,19 +143,6 @@ The capability matrix for SAP workload looks like:
 
 Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA redolog writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
-
-Ideal for:
-
-- Global transport directory
-- Storing database data or log/redo log files for production and non-production systems, Including SAP HANA
-- Storing database data or log/redo log files for production and non-production systems for smaller VMs where Burst functionality of Azure premium storage for smaller disks can be used to size least expensive solution, relying on Burst functionality to serve I/O burst
-- Least expensive storage for data and log/redo log files in conjunction with logical volume managers like Linux LVM or MDADM or Windows Storage Spaces 
-- /sapmnt directory
-- OS disk for production and non-production systems
-
-Can't be used or not supported for:
-
-- SMB or NFS shares you want to host database data or log/redo log files for production and non-production systems
 
 
 **Summary:** Azure premium storage is one of the Azure storage types recommended for SAP workload. This recommendation applies for non-production as well as production systems. Azure premium storage is suited to handle database workloads. The usage of Azure Write Accelerator is going to improve write latency against Azure premium disks substantially. However, for DBMS systems with high IOPS and throughput rates, you need to either over-provision storage capacity or you need to use functionality like Windows Storage Spaces or logical volume managers in Linux to build stripe sets that give you the desired capacity on the one side, but also the necessary IOPS or throughput at best cost efficiency.
@@ -241,23 +200,9 @@ The capability matrix for SAP workload looks like:
 | Azure Backup VM snapshots possible | NO | - |
 | Costs | Higher than Premium storage | - |
 
-Ideal for:
-
-- Storing database data or log/redo log files including HANA for cases where read and write performance needs to be lower than 1 millisecond
-- Storing database data or log/redo log files including HANA for cases where limitations of Azure Write Accelerator are exceeded
-- Storing database data or log/redo log files including HANA for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS
 
 
-
-Can't be used or not supported for:
-
-- OS disk for production and non-production systems - technically not possible
-- Where disk snapshots are required - not yet implemented
-- Where Availability Set deployments are demanded - not yet implemented
-- SMB or NFS shares you want to host database data or log/redo log files for production and non-production systems
-
-
-**Summary:** Azure ultra disks are a suitable storage with low latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). Ultra disk is not supporting storage snapshots at this point in time. In opposite to all other storage, Ultra disk cannot be used for the base VHD disk.
+**Summary:** Azure ultra disks are a suitable storage with low latency for all kinds of SAP workload. So far, Ultra disk can only be used in combinations with VMs that have been deployed through Availability Zones (zonal deployment). Ultra disk is not supporting storage snapshots at this point in time. In opposite to all other storage, Ultra disk cannot be used for the base VHD disk. Ultra disk is ideal for cases where I/O workload fluctuates a lot and you want to adapt deployed storage throughput or IOPS to storage workload patterns instead of sizing for maximum usage of bandwidth and IOPS.
 
 ## Azure NetApp files (ANF)
 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) is the result out of a cooperation between Microsoft and NetApp with the goal to provide high performing Azure native NFS and SMB shares. The emphasis is to provide high bandwidth and low latency storage that enables DBMS deployment scenarios, and over time enable typical operational functionality of the NetApp storage through Azure as well. NFS/SMB shares are offered in three different service levels that differentiate in storage throughput and in price. The service levels are documented in the article [Service levels for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). For the different types of SAP workload the following service levels are highly recommended:
@@ -292,7 +237,7 @@ The capability matrix for SAP workload looks like:
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
 | OS base VHD | does not work | - |
-| Data disk | suitable | all systems  |
+| Data disk | suitable | SAP HANA only  |
 | SAP global transport directory | YES | SMB as well as NFS |
 | SAP sapmnt | suitable | all systems SMB (Windows only) or NFS (Linux only) |
 | Backup storage | suitable | - |
@@ -304,25 +249,9 @@ The capability matrix for SAP workload looks like:
 | Throughput SLA | YES | - |
 | Throughput linear to capacity | semi linear in brackets | Dependent on [Service Level](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) |
 | HANA certified | YES | - |
-| Disk snapshots possible | NO | - |
+| Disk snapshots possible | YES | - |
 | Azure Backup VM snapshots possible | NO | - |
 | Costs | Higher than Premium storage | - |
-
-
-Ideal for:
-
-- Storing database SAP HANA data or log/redo log files for cases where read and write performance needs to be lower than 1 millisecond
-- Storing database SAP HANA data or log/redo log files for cases where limitations of Azure Write Accelerator are exceeded
-- /sapmnt directory
-- SMB or NFS-based Global transport directory
-- Cases where you want to leverage built-in functions from NetApp that are exposed through Azure
-
-
-Can't be used or not supported for:
-
-- OS disk for production and non-production systems - technically not possible
-- Storing database data or log/redo log files for non-HANA databases - not yet supported by Microsoft for SAP workloads
-
 
 
 Additional built-in functionality of ANF storage:
@@ -366,6 +295,40 @@ Some rules need to be followed on striping:
 - The disks the stripe set is applied to, need to be of the same size
 
 Striping across multiple smaller disks is the best way to achieve an extreme good price/performance ratio using Azure premium storage. It is understood that striping has some additional deployment and management overhead
+
+## Summary and recommendations
+Summarizing all the recommendations above in a table, it looks like:
+
+| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
+| --- | --- | --- | --- | --- | --- |
+| OS disk | not suitable |  restricted suitable (non-prod) | recommended | not possible | not possible |
+| Global transport Directory | not supported | not supported | recommended | recommended | recommended |
+| /sapmnt | not suitable | restricted suitable (non-prod) | recommended | recommended | recommended |
+| DBMS Data volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended | recommended | recommended |
+| DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended | 
+| DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended | 
+| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | not supported |
+| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
+| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
+
+<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families
+
+Characteristics you can expect from the different storage types list like:
+
+| Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
+| --- | --- | --- | --- | --- | --- |
+| Throughput/ IOPS SLA | no | no | yes | yes | yes |
+| Latency Reads | -- | - | + | +++ | +++ |
+| Latency Writes | -- - | + (+++<sup>1</sup>) | +++ | +++ |
+| HANA supported | no | no | yes<sup>1</sup> | yes | yes |
+| Disk snapshots possible | yes | yes | yes | no | yes |
+| Costs per GiB | ++++ | +++ | ++ | +<sup>2</sup> | + |
+
+
+<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families for log/redo log volumes
+
+<sup>2</sup> Costs depend on provisioned IOPS and throughput
+
 
 ## Next steps
 Read the articles:
