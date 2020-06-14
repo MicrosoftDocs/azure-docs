@@ -195,7 +195,7 @@ Please note the following restrictions for metric alert rule names:
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
 - Metric alert rule names can’t end with the following character: .
-
+ 
 
 ## Next steps
 
