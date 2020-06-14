@@ -256,12 +256,10 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: Integrate Azure AD (preview)
+        - name: AKS-managed AAD (preview)
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
-        - name: Use the Azure portal
-          href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
