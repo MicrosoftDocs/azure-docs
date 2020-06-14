@@ -42,7 +42,7 @@ To set up a managed identity in the portal, you will first create an API Managem
 
 The following steps will walk you through creating an API Management instance and assigning it an identity using Azure PowerShell. 
 
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/install-az-ps), and then run `Login-AzAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/install-az-ps), and then run `Connect-AzAccount` to create a connection with Azure.
 
 2. Create an API Management instance using Azure PowerShell. For more examples of how to use Azure PowerShell with API Management instance, see [API Management PowerShell samples](powershell-samples.md):
 
@@ -285,7 +285,7 @@ To set up a managed identity in the portal, you will first create an API Managem
 
 The following steps will walk you through creating an API Management instance and assigning it an identity using Azure PowerShell. 
 
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview.md), and then run `Login-AzAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/install-az-ps), and then run `Connect-AzAccount` to create a connection with Azure.
 
 2. Create an API Management instance using Azure PowerShell. For more examples of how to use Azure PowerShell with API Management instance, see [API Management PowerShell samples](powershell-samples.md):
 
