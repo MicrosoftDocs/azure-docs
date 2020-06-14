@@ -57,6 +57,19 @@ For example, `https://apis.contoso.com/products?api-version=v1` and `https://api
 
 If you add a version to a non-versioned API, an `Original` version will be automatically created and will respond on the default URL, without a version identifier specified. The `Original` version ensures that any existing callers are not broken by the process of adding a version. If you create a new API with versions enabled at the start, an `Original` version isn't created.
 
+## Developer portal
+
+The [developer portal](./api-management-howto-developer-portal.md) lists each version of an API separately.
+
+![API Management developer portal displaying a list of versioned APIs](media/api-management-versions/portal-list.png)
+
+The details of an API also show a list of all of the versions of that API. An original version is displayed without a version identifier.
+
+![API Management developer portal displaying an API's details and a list of versions for that API](media/api-management-versions/portal-details.png)
+
+> [!TIP]
+> API versions need to be added to a product before they will be visible on the developer portal.
+
 ## How versions are represented
 
 Azure API Management maintains a resource called a *version set*, which represents a set of versions for a single logical API. When you use the Azure portal to manage versions you don't see the version set, but if you interact with your API Management service using PowerShell, Resource Manager templates, or the Azure Resource Manager API, you can directly view and manage version sets. A version set contains the display name of the versioned API, as well as the [versioning scheme used](#versioning-schemes) to direct requests to specified versions.
