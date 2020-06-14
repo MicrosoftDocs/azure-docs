@@ -70,3 +70,9 @@ When you use the Azure portal to enable versioning on an existing API, the follo
  * A new version set is created.
  * The existing version is maintained and [configured as the `Original` API version](#original-versions). The API is linked to the version set but doesn't require a version identifier to be specified.
  * The new version is created as a new API, and is linked to the version set. This new API must be accessed using the versioning scheme and identifier.
+
+## Versions and revisions
+
+Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
+
+Should you find that your revision has breaking changes, or if you wish to formally turn your revision into a beta/test version, you can create a version from a revision. Using the Azure portal, click the 'Create Version from Revision' on the revision context menu on the Revisions tab.
