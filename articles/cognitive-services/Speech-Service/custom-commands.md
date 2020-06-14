@@ -1,7 +1,7 @@
 ---
-title: Custom Commands (Preview) - Speech service
+title: Custom Commands - Speech service
 titleSuffix: Azure Cognitive Services
-description: An overview of the features, capabilities, and restrictions for Custom Commands (Preview), a solution for creating voice applications.
+description: An overview of the features, capabilities, and restrictions for Custom Commands, a solution for creating voice applications.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -12,19 +12,24 @@ ms.date: 03/11/2020
 ms.author: travisw
 ---
 
-# What is Custom Commands (Preview)?
+# What is Custom Commands?
 
 Voice applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
 
-**Custom Commands (Preview)** is a streamlined solution for creating voice applications. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity versus other options like [Direct Line Speech](direct-line-speech.md). This simplification, however, comes with a reduction in flexibility. So, Custom Commands (Preview) is best suited for task completion or command-and-control scenarios. It's particularly well-matched for Internet of Things (IoT) and headless devices.
+**Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios. 
 
-For complex conversational interaction and integration with other solutions like the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) you're encouraged to use Direct Line Speech.
+Custom Commands is best suited for task completion or command-and-control scenarios, particularly well-matched for Internet of Things (IoT), ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, allowing you to build the best in-room voice-controlled experiences for your guests, manage inventory in your store and control in-car functionality while on the move.
 
-Good candidates for Custom Commands (Preview) have a fixed vocabulary with well-defined sets of variables. For example, home automation tasks, like controlling a thermostat, are ideal.
+> [!TIP]
+> View our sample demos on our landing page at [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands).
+
+If you're interested in building complex conversational app, you're encouraged to try the Bot Framework using the [Virtual Assistant Solution](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). You can add voice to any bot framework bot using Direct Line Speech.
+
+Good candidates for Custom Commands have a fixed vocabulary with well-defined sets of variables. For example, home automation tasks, like controlling a thermostat, are ideal.
 
    ![Examples of task completion scenarios](media/voice-assistants/task-completion-examples.png "task completion examples")
 
-## Getting started with Custom Commands (Preview)
+## Getting started with Custom Commands
 
 The first step for using Custom Commands (Preview) to make a voice application is to [get a speech subscription key](get-started.md) and access the Custom Commands (Preview) Builder on the [Speech Studio](https://speech.microsoft.com). From there, you can author a new Custom Commands (Preview) Application and publish it, after which an on-device application can communicate with it using the Speech SDK.
 

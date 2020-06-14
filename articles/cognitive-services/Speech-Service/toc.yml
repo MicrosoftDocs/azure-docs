@@ -394,8 +394,8 @@
           href: custom-commands.md
         - name: Quickstarts
           items:
-            - name: Custom Commands E-2-E scenario
-              href: quickstart-custom-commands-e2e-application.md
+            - name: Build a Custom Commands App
+              href: quickstart-custom-commands-application.md
         - name: How-to guides
           items:
             - name: Design
