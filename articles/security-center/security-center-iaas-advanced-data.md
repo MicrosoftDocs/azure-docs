@@ -19,14 +19,14 @@ ms.author: memildin
 # Advanced data security for SQL machines (Preview)
 Advanced data security for SQL machines is a unified package for advanced SQL security capabilities. This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database. 
 
-This offering is an extension of the [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse and SQL Managed Instance, all powered by Azure Security Center.  
+This offering is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse, and SQL Managed Instances.
 
 
 ## Overview
 
 Advanced data security provides a set of advanced SQL security capabilities, consisting of Vulnerability assessment and Advanced Threat Protection.
 
-* [Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings. 
+* **Vulnerability assessment** is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings. 
 
 * [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
@@ -34,11 +34,17 @@ Advanced data security provides a set of advanced SQL security capabilities, con
 
 ## Set up advanced data security for SQL machines 
 
-Advanced data security for SQL machines by Azure Security Center requires the SQL server's host to be connected to Azure through the Log Analytics agent, and the optional bundle to be enabled in Azure Security Center's pricing and settings page.
+Setting up Azure Security Center's advanced data security for SQL machines involves two elements:
+
+* Provisioning the Log Analytics agent on your SQL server's host. This provides the connection to Azure. 
+
+* Enabling the optional bundle in Security Center's pricing and settings page
+
+Both of these are described below.
 
 1. Connect your SQL machine's host to your Azure account according to the type of host:
 
-    - **SQL Server on Azure VMs** - If your SQL machine is hosted on an Azure VM, the procedure is the same one you'd use to [add any Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines) and it can even be auto-provisioned.
+    - **SQL Server on Azure VMs** - If your SQL machine is hosted on an Azure VM, the procedure is the same as [adding any Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines). It can even be auto provisioned.
 
     - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, connect it with the Log Analytics agent as described in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows).
 
@@ -50,7 +56,7 @@ Advanced data security for SQL machines by Azure Security Center requires the SQ
         - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-1. Enable advanced data security for SQL machines at the subscription/workspace level:
+1. Enable advanced data security for SQL machines at the subscription or workspace level:
  
     1. From Security Center's sidebar, open the **Pricing & settings** page and select the subscription or workspace for which you want to enable Advanced Data Security for SQL on Azure VMs.
 
@@ -74,11 +80,13 @@ Advanced data security for SQL machines by Azure Security Center requires the SQ
 
 ## Explore vulnerability assessment reports
 
-The vulnerability assessment dashboard provides an overview of your assessment results across all your databases. You can view the distribution of databases according to SQL Server version, along with a summary of failing versus passing databases and an overall summary of failing checks according to risk distribution.
+The vulnerability assessment service scans your databases once a week. The scans run on the same day of the week on which you enabled the service.
+
+The vulnerability assessment dashboard provides an overview of your assessment results across all your databases, along with a summary of healthy and unhealthy databases, and an overall summary of failing checks according to risk distribution.
 
 You can view the vulnerability assessment results directly from Security Center.
 
-1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL databases on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
+1. From Security Center's sidebar, open the **Recommendations** page and select the recommendation **Vulnerabilities on your SQL database servers on machines should be remediated (Preview)**. For more information, see [Security Center Recommendations](security-center-recommendations.md). 
 
 
     [![**Vulnerabilities on your SQL databases on machines should be remediated (Preview)** recommendation](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
