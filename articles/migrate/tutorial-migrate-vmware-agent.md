@@ -120,7 +120,7 @@ Prepare for the appliance as follows:
 
 Make sure VMware servers and VMs comply with requirements for migration to Azure. 
 
-1. [Verify](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agent-based) VMware server requirements.
+1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) VMware server requirements.
 2. [Verify](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VM requirements for migration.
 3. Verify Azure settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 4. There are some changes needed on VMs before you migrate them to Azure.
