@@ -47,7 +47,7 @@ If you don't have an Azure Migrate project, verify permissions to create one.
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and click it to view permissions.
-3. Verify that you have **Contributor** or **Owner**permissions.
+3. Verify that you have **Contributor** or **Owner** permissions.
 
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
