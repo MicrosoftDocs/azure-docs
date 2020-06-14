@@ -43,7 +43,7 @@ View a list of all supported Azure Monitor commands.
 az monitor -h
 ```
 
-## View activity log for a subscription
+## View activity log
 
 View a list of activity log events.
 

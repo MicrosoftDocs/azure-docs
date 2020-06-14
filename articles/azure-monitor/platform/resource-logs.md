@@ -15,7 +15,7 @@ Azure resource logs are [platform logs](platform-logs-overview.md) that provide 
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md) for details on creating a diagnostic setting. See [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
 
-## Log Analytics workspaces
+## Collect to Log Analytics workspace
 Resource log data collected in a Log Analytics workspace is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
@@ -99,7 +99,7 @@ Azure Data Factory, because of a very detailed set of logs, is a service that is
 You should migrate your logs to use the resource-specific mode as soon as possible. If you are unable to do so immediately, an interim alternative is to isolate Azure Data Factory logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces.
 
 
-## Event hub
+## Collect to Event hub
 Send resource logs to an event hub to send them outside of Azure, for example to a third-party SIEM or other log analytics solutions. Resource logs from event hubs are consumed in JSON format with the elements in the following table.
 
 | Element Name | Description |

@@ -10,7 +10,13 @@ ms.author: bwren
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity logs categories and schema. 
+The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity log categories and the schema for each. 
+
+The schema will vary depending on how you access the log:
+ 
+- The schemas described in this article are when you access the Activity log from the [REST API](https://docs.microsoft.com/rest/api/monitor/activitylogs). This is also the schema used when you select the **JSON** option when viewing an event in the Azure portal.
+- See the final section [Schema from storage account and event hubs](#schema-from-storage-account-and-event-hubs) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to Azure Storage or Azure Event Hubs.
+- See [Azure Monitor data reference](https://docs.microsoft.com/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
 
 
 ## Categories
@@ -785,7 +791,7 @@ resource.
 
 
 ## Schema from storage account and event hubs
-When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](diagnostic-logs-schema.md). The table below provides a mapping of properties from the schema above to the resource logs schema.
+When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](diagnostic-logs-schema.md). The table below provides a mapping of properties from the above schemas to the resource logs schema.
 
 > [!IMPORTANT]
 > The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
