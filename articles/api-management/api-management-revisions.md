@@ -33,7 +33,7 @@ Each revision to your API can be accessed using a specially formed URL. Append `
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-While a revision's private URL requires the caller knows the revision number to create a valid API URL, the private address of the revision otherwise has the same security context as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision.
+By default, each revision has the same security settings as the current revision. You can deliberately change the policies for a specific revision if you want to have different security applied for each revision. For example, you might want to perform [IP whitelisting](./api-management-access-restriction-policies.md#RestrictCallerIPs) to prevent external callers from accessing a revision that is still under development.
 
 A revision can be taken offline, which makes it inaccessible to callers even if they try to access the revision through its URL. You can mark a revision as offline using the Azure portal. If you use PowerShell, you can use the `Set-AzApiManagementApiRevision` cmdlet and set the `Path` argument to `$null`.
 
