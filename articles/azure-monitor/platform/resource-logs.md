@@ -176,7 +176,7 @@ Following is sample output data from Event Hubs for a resource log:
 }
 ```
 
-## Azure storage
+## Collect to Azure Storage
 Send resource logs to Azure storage to retain it for archiving. Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
 
 ```
