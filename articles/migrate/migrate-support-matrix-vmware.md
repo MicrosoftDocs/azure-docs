@@ -24,13 +24,17 @@ If you want to migrate VMware VMs to Azure, review the [migration support matrix
 [Learn more](concepts-assessment-calculation.md) about assessments.
 
 
-## Assessment requirements
+## VMware requirements
 
 **VMware** | **Details**
 --- | ---
-**VMware VMs** | All operating systems can be assessed for migration. 
-**vCenter Server** | Machines you want to discovery and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
+**vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, or 6.7.
 **Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account need privileges enable for **Virtual Machines** > **Guest Operations**.
+
+## VM requirements
+**VMware** | **Details**
+--- | ---
+**VMware VMs** | All operating systems can be assessed for migration. 
 
 
 ## Azure Migrate appliance requirements
