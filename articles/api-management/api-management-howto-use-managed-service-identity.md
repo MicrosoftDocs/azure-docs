@@ -33,7 +33,8 @@ To set up a managed identity in the portal, you will first create an API Managem
 2. Select **Managed identities**.
 3. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-![Enable System Assigned Managed-Identity](./media/api-management-msi/enable-system-msi.png)
+    :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Enable System Assigned Managed-Identity." border="true":::
+
 
 ### Using Azure PowerShell
 
@@ -41,7 +42,7 @@ To set up a managed identity in the portal, you will first create an API Managem
 
 The following steps will walk you through creating an API Management instance and assigning it an identity using Azure PowerShell. 
 
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview.md), and then run `Login-AzAccount` to create a connection with Azure.
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/install-az-ps), and then run `Login-AzAccount` to create a connection with Azure.
 
 2. Create an API Management instance using Azure PowerShell. For more examples of how to use Azure PowerShell with API Management instance, see [API Management PowerShell samples](powershell-samples.md):
 
@@ -276,7 +277,7 @@ To set up a managed identity in the portal, you will first create an API Managem
 3. Within the **User assigned** tab, click **Add**.
 4. Search for the identity you created earlier and select it. Click **Add**.
 
-![Enable User Assigned Managed-Identity](./media/api-management-msi/enable-userassigned-msi.png)
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Enable User Assigned Managed-Identity." border="true":::
 
 ### Using Azure PowerShell
 
