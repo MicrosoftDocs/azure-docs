@@ -31,7 +31,7 @@ There are two options for deploying dependency analysis
 
 ## Agentless analysis
 
-Agentless dependency analysis works by capturing TCP connection data from machines for which it's enabled. No agents are installed on VMs. Connections with the same source server and process, and destination server, process, and port are grouped logically into a dependency. You can visualize captured dependency data in a map view, or export it as a CSV. No agents are installed on machines you want to analyse.
+Agentless dependency analysis works by capturing TCP connection data from machines for which it's enabled. No agents are installed on VMs. Connections with the same source server and process, and destination server, process, and port are grouped logically into a dependency. You can visualize captured dependency data in a map view, or export it as a CSV. No agents are installed on machines you want to analyze.
 
 ### Dependency data
 
