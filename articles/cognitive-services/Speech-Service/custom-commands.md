@@ -49,9 +49,12 @@ Once you are done with the quickstart, explore our how-tos guides.
 * [Integrate using the Speech SDK](how-to-custom-commands-setup-speech-sdk)
 * [Setup Continuous Deployment for your Custom Commands app using Azure DevOps](how-to-custom-commands-deploy-cicd)
 
+## Building Voice Assistants with Custom Commands
+> [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
 
 ## Next steps
 
 * [Get a Speech service subscription key for free](get-started.md)
+* [View our Voice Assistants repo on GitHub for samples](http://aka.ms/speech/cc-samples)
 * [Go to the Speech Studio to try out Custom Commands](https://speech.microsoft.com/customcommands)
 * [Get the Speech SDK](speech-sdk.md)
