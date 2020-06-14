@@ -28,7 +28,7 @@ Review [this article](server-migrate-overview.md) to figure out which method you
 
 This section summarizes requirements for agentless migration.
 
-### Hypervisor requirements (agentless)
+### VMware requirements (agentless)
 
 The table summarizes VMware hypervisor requirements.
 
