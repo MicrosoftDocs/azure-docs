@@ -89,7 +89,7 @@ vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data 
 This section summarizes requirements for agent-based migration.
 
 
-### Hypervisor requirements (agent-based)
+### VMware requirements (agent-based)
 
 This table summarizes assessment support and limitations for VMware virtualization servers.
 

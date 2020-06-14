@@ -39,7 +39,7 @@ If you're migrating VMware VMs to Azure, [compare](server-migrate-overview.md#co
 ## Verify hypervisor requirements
 
 - Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless), or [VMware agent-based](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) requirements.
-- Verify [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) requirements.
+- Verify [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) requirements.
 
 
 ## Verify operating system requirements
