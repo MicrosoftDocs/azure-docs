@@ -210,14 +210,9 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ## Configure proxy endpoint
 
-With the containerized agent for Azure Monitor for containers, you can configure proxy endpoint to route all outbound traffic of the azure monitor for containers agent go through your proxy server.
+With the containerized agent for Azure Monitor for containers, you can configure a proxy endpoint to allow it to communicate through the proxy. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
 
-Communication between the Azure Monitor for containers agent and Azure Monitor backend can use an HTTP or HTTPS proxy server.
-
-Both anonymous and basic authentication (username/password) proxies are supported.
-
-The proxy configuration value has the following syntax:
-[protocol://][user:password@]proxyhost[:port]
+The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]`
 
 |Property |Description |
 |---------|------------|
