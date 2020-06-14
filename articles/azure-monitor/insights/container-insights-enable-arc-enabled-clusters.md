@@ -134,7 +134,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
     ```
 
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endpoint).
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint).
 
 6. Run the following command to enable monitoring.
 
@@ -184,7 +184,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
     ```
 
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#-configure-proxy-endpoint).
+    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint).
 
 6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
 
