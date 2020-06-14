@@ -13,7 +13,7 @@ ms.custom: fasttrack-new
 ---
 # Versions in Azure API Management
 
-Versions allow you to present groups of related APIs to your developers. You can use versions to handle breaking changes in your API safely. Clients can choose to use your new API version when they are ready, while existing clients can continue to use an older version. Versions are differentiated through a version identifier (which is any string value you choose), and a versioning scheme allows clients to identify which version of an API they want to use.
+Versions allow you to present groups of related APIs to your developers. You can use versions to handle breaking changes in your API safely. Clients can choose to use your new API version when they're ready, while existing clients continue to use an older version. Versions are differentiated through a version identifier (which is any string value you choose), and a versioning scheme allows clients to identify which version of an API they want to use.
 
 For most purposes, each API version can be considered its own independent API. Two different API versions might have different sets of operations and different policies.
 
@@ -23,7 +23,7 @@ With versions you can:
 - Use a path, query string, or header to differentiate between versions.
 - Use any string value you wish to identify your version, which could be a number, a date, or a name.
 - Show your API versions grouped together on the developer portal.
-- Take an existing, non-versioned, API and create a new version of it without breaking existing clients.
+- Take an existing (non-versioned) API, and create a new version of it without breaking existing clients.
 
 [Get started with versions by following our walkthrough.](./api-management-get-started-publish-versions.md)
 
