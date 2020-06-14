@@ -178,6 +178,14 @@ The terms authoring and query endpoint key are corrective terms. The previous te
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
 
+## Recommended settings for network isolation
+
+* Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protect App Service (QnA Runtime) from public access:
+    * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag "CognitiveServicesManagement". This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly.
+    * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    * Check out [more information about service tags.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+
 ## Next steps
 
 * Learn about the QnA Maker [knowledge base](knowledge-base.md)

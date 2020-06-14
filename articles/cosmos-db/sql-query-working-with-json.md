@@ -4,7 +4,7 @@ description: Learn about to query and access nested JSON properties and use spec
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: tisande
 ---
 
@@ -143,13 +143,11 @@ For example, here's a document with a property named `order` and a property `pri
 ```json
 {
   "id": "AndersenFamily",
-  "order": [
-     {
+  "order": {
          "orderId": "12345",
          "productId": "A17849",
          "price($)": 59.33
-     }
-  ],
+   },
   "creationDate": 1431620472,
   "isRegistered": true
 }

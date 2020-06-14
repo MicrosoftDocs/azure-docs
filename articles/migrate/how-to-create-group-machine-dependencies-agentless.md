@@ -59,9 +59,9 @@ Choose the machines on which you want to enable dependency discovery.
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
 3. Click **Add servers**.
-3. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
-4. From the machine list, select the machines.
-5. Click **Add servers**.
+4. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
+5. From the machine list, select the machines.
+6. Click **Add servers**.
 
     ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -87,6 +87,38 @@ You can visualize dependencies around six hours after starting dependency discov
 
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
+
+## Export dependency data
+
+1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+2. Click the **Dependency analysis** icon.
+3. Click **Export Application Dependencies**.
+4. In the **Export Application Dependencies** page, choose the appliance that's discovering the relevant machines.
+5. Select the start time and end time. Note that you can download the data only for the last 30 days.
+6. Click **Export dependency**.
+
+The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all machines enabled for dependency analysis. 
+
+![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
+### Dependency information
+
+Each row in the exported CSV corresponds to a dependency observed in the specified time slot. 
+
+The following table summarizes the fields in the exported CSV. Note that server name, application and process fields are populated only for servers that have agentless dependency analysis enabled.
+
+**Field name** | **Details**
+--- | --- 
+Timeslot | The timeslot during which the dependency was observed. <br/> Dependency data is captured over 6-hour slots currently.
+Source server name | Name of the source machine 
+Source application | Name of the application on the source machine 
+Source process | Name of the process on the source machine 
+Destination server name | Name of the destination machine
+Destination IP | IP address of the destination machine
+Destination application | Name of the application on the destination machine
+Destination process | Name of the process on the destination machine 
+Destination port | Port number on the destination machine
+
 
 ## Stop dependency discovery
 

@@ -4,18 +4,20 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 
 ---
 
 # Using Private Endpoints for Azure Web App (Preview)
 
 > [!Note]
-> The preview is available in East US and West US 2 regions for all PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+> With the preview refresh, we released the data exfiltration protection feature.
+>
+> The preview is available in all public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -23,6 +25,7 @@ Using Private Endpoint for your Web App enables you to:
 
 - Secure your Web App by configuring the Private Endpoint, eliminating public exposure.
 - Securely connect to Web App from on-premises networks that connect to the VNet using a VPN or ExpressRoute private peering.
+- Avoid any data exfiltration from your VNet. 
 
 If you just need a secure connection between your VNet and your Web App, a Service Endpoint is the simplest solution. If you also need to reach the web app from on-premises through an Azure gateway, a regionally peered VNet, or a globally peered VNet, Private Endpoint is the solution.  
 
@@ -38,7 +41,7 @@ The Subnet where you plug the Private Endpoint can have other resources in it, y
 You can also deploy the Private Endpoint in a different region than the Web App. 
 
 > [!Note]
->The VNet integration feature cannot use the same subnet than Private Endpoint, this is a limitation of the VNet integration feature.
+>The VNet integration feature cannot use the same subnet as Private Endpoint, this is a limitation of the VNet integration feature.
 
 From a security perspective:
 
@@ -48,7 +51,7 @@ From a security perspective:
 - The NIC of the Private Endpoint cannot have an NSG associated.
 - The Subnet that hosts the Private Endpoint can have an NSG associated, but you must disable the network policies enforcement for the Private Endpoint: see [Disable network policies for private endpoints][disablesecuritype]. As a result, you cannot filter by any NSG the access to your Private Endpoint.
 - When you enable Private Endpoint to your Web App, the [access restrictions][accessrestrictions] configuration of the Web App is not evaluated.
-- You can reduce the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. But adding a Web App Private Endpoint in your subnet will let you reach any Web App hosted in the same deployment stamp and exposed to the Internet.
+- You can eliminate the data exfiltration risk from the VNet by removing all NSG rules where destination is tag Internet or Azure services. When you deploy a Private Endpoint for a Web App, you can only reach this specific Web App through the Private Endpoint. If you have another Web App, you must deploy another dedicated Private Endpoint for this other Web App.
 
 In the Web HTTP logs of your Web App, you will find the client source IP. This is implemented using the TCP Proxy protocol, forwarding the client IP property up to the Web App. For more information, see [Getting connection Information using TCP Proxy v2][tcpproxy].
 
@@ -73,7 +76,7 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
 
-During the preview only the production slot is exposed behind the Private Endpoint, other slots are reachable by Public Endpoint only.
+During the preview, only the production slot is exposed behind the Private Endpoint, other slots must be reach by Public Endpoint.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 

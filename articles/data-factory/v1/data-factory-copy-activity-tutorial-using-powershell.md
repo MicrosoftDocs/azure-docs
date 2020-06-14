@@ -185,7 +185,7 @@ In this step, you link your Azure SQL database to your data factory.
 1. Create a JSON file named AzureSqlLinkedService.json in C:\ADFGetStartedPSH folder with the following content:
 
 	> [!IMPORTANT]
-	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, and &lt;password&gt; with names of your Azure SQL server, database, user account, and password.
+	> Replace &lt;servername&gt;, &lt;databasename&gt;, &lt;username@servername&gt;, and &lt;password&gt; with names of your server, database, user account, and password.
 	
 	```json
 	{
@@ -214,7 +214,7 @@ In this step, you link your Azure SQL database to your data factory.
 	ProvisioningState : Succeeded
     ```
 
-   Confirm that **Allow access to Azure services** setting is turned on for your SQL database server. To verify and turn it on, do the following steps:
+   Confirm that **Allow access to Azure services** setting is turned on for your server. To verify and turn it on, do the following steps:
 
 	1. Log in to the [Azure portal](https://portal.azure.com)
 	1. Click **More services >** on the left, and click **SQL servers** in the **DATABASES** category.

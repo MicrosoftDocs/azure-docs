@@ -7,7 +7,7 @@ manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ---
 
 # Create a Managed Service offer
@@ -44,7 +44,7 @@ Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
@@ -75,9 +75,20 @@ This page lets you define marketplace details (such as offer name, description, 
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in the Azure portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Title
+2. Description
+3. Useful links
+4. Screenshots
+
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Search results summary
 
@@ -89,25 +100,11 @@ Provide a longer description of your offer (up to 256 characters). This long sum
 
 ### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Some tips for writing your description:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Clearly describe your offer's value proposition in the first few sentences of your description. Include the following items in your value proposition:
-  - Description of the offer
-  - The type of user that benefits from the offer
-  - Customer needs or pain that the offer addresses
-- Keep in mind that the first few sentences might be displayed in search engine results.  
-- Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible.
-
-To make your offer description more engaging, use the rich text editor to apply formatting.
-
-![Using the rich text editor](./media/rich-text-editor.png)
-
-| <center>Change text format | <center>Add bullets or numbering | <center>Add or remove text indent |
-| --- | --- | --- |
-| <center>![Using the rich text editor to change text format](./media/text-editor3.png) |  <center>![Using the rich text editor to add lists](./media/text-editor4.png) |  <center>![Using the rich text editor to indent](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### Privacy policy link
 

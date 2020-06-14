@@ -216,8 +216,8 @@
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
   - name: Related Microsoft resources
     items:
-    - name: MSDN forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+    - name: Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos

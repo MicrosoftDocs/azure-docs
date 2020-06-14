@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 05/18/2020
 ms.author: danlep
 ms.custom: include file
 ---
@@ -22,9 +22,9 @@ ms.custom: include file
 | Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
-| Virtual network access | N/A | N/A | [Preview][vnet] |
-| Private link integration | N/A | N/A | [Preview][plink] |
-| Customer-managed keys | N/A | N/A | [Preview][cmk] |
+| Private link with private endpoints | N/A | N/A | [Supported][plink] |
+| Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
+| Customer-managed keys | N/A | N/A | [Supported][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
 | &bull; Scope maps | N/A | N/A | 20,000 |

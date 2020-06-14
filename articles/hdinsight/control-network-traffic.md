@@ -31,7 +31,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
-    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
+    * __Network security groups__: allow __inbound__ traffic on port __443__ from the IP addresses. This will ensure that HDInsight management services can reach the cluster from outside the virtual network. For __Kafka REST proxy__ enabled clusters, allow __inbound__ traffic on port __9400__ as well. This will ensure that Kafka REST proxy server is reachable.
 
 For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
 

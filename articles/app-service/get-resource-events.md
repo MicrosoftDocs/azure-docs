@@ -36,29 +36,7 @@ While Activity logs are user-based, there's a new [Event Grid](https://docs.micr
 
 Alternatively, you can use Event Grid with Logic Apps to process data anywhere, without writing code. Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 
-### Supported Event Types
-| Event Type |Description|
-| -----------| ------------- |
-| Microsoft.web/sites | (Webapp) |
-| BackupOperationCompleted |Backup of the webapp completed successfully|
-| BackupOperationFailed | Backup of the webapp failed|
-| RestoreOperationStarted |Restore from backup has started|
-| RestoreOperationCompleted |Restore from backup completed successfully|
-| RestoreOperationFailed |Restore from backup failed|
-| SlotSwapStarted |Slot swap has started|
-| SlotSwapCompleted |Slot swap completed successfully|
-| SlotSwapFailed |Slot swap failed|
-| SlotSwapWithPreviewStarted |Slot swap with preview has started|
-| SlotSwapWithPreviewCancelled |Slot swap with preview failed|
-| AppUpdated | |
-| Restarted | The webapp was restarted |
-| Stopped | The webapp was stopped |
-| ChangedAppSettings | App settings on the webapp were changed |
-| - | - |
-| Microsoft.web/serverfarms | (App Service Plan) |
-| AspUpdated | The app service plan was updated. The event object contains details on the properties that were changed. |
-| Scale up/down | The app service plan scaled up or down. The event object contains the instance count.|
-
+[View the properties and schema for Azure App Service Events.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

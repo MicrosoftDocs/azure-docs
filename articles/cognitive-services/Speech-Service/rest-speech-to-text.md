@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
 ---
 
@@ -49,7 +49,6 @@ These parameters may be included in the query string of the REST request.
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
 | `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include four different representations of display text. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
-| `pronunciationScoreParams` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this parameter. | Optional |
 | `cid` | When using the [Custom Speech portal](how-to-custom-speech.md) to create custom models, you can use custom models via their **Endpoint ID** found on the **Deployment** page. Use the **Endpoint ID** as the argument to the `cid` query string parameter. | Optional |
 
 ## Request headers
@@ -60,6 +59,7 @@ This table lists required and optional headers for speech-to-text requests.
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Pronunciation-Assessment` | Specifies the parameters for showing pronunciation scores in recognition results, which assess the pronunciation quality of speech input, with indicators of accuracy, fluency, completeness, etc. This parameter is a base64 encoded json containing multiple detailed parameters. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this header. | Optional |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
@@ -101,13 +101,18 @@ Below is an example JSON containing the pronunciation assessment parameters:
 }
 ```
 
-The following sample code shows how to build the pronunciation assessment parameters into the URL query parameter:
+The following sample code shows how to build the pronunciation assessment parameters into the `Pronunciation-Assessment` header:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
+
+>[!NOTE]
+>The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
 
 ## Sample request
 
@@ -121,6 +126,12 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
 Expect: 100-continue
+```
+
+To enable pronunciation assessment, you can add below header. See [Pronunciation assessment parameters](#pronunciation-assessment-parameters) for how to build this header.
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
 ## HTTP status codes

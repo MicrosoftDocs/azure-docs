@@ -186,6 +186,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> We recommend using the *latest* image version. Specify 'latest' to use the latest version of an image available at deploy time. Note, even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 
 ## Understand VM instance sizes
 A VM instance size, or *SKU*, determines the amount of compute resources such as CPU, GPU, and memory that are made available to the VM instance. VM instances in a scale set need to be sized appropriately for the expected work load.

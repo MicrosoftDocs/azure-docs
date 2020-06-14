@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Cosmos DB trigger for Azure Functions 2.x

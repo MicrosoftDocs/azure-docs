@@ -169,7 +169,7 @@ These files can be created, deleted, edited, and managed on your local file syst
 >
 > * [Users](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [Subscriptions](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Named Values](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * Named Values
 > * Developer portal entities other than styles
 >
 

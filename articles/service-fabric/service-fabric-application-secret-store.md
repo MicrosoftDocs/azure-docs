@@ -24,7 +24,7 @@ Add the following script to your cluster configuration under `fabricSettings` to
                 },
                 {
                     "name":  "MinReplicaSetSize",
-                    "value":  "3"
+                    "value":  "1"
                 },
                 {
                     "name":  "TargetReplicaSetSize",

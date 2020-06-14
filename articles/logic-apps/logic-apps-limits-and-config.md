@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 05/23/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -140,7 +140,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by HTTP triggers. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include calls made by HTTP triggers. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). To work around timeout limits when you call another logic app that has a [callable endpoint](logic-apps-http-endpoint.md), you can use the built-in Azure Logic Apps action instead, which you can find in the connector picker under **Built-in**. |
 | Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by request triggers and webhook triggers. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
@@ -204,7 +204,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 | Name | Limit |
 |------|-------|
 | Managed identities per logic app | Either the system-assigned identity or 1 user-assigned identity |
-| Number of logic apps that have a managed identity in an Azure subscription per region | 250 |
+| Number of logic apps that have a managed identity in an Azure subscription per region | 500 |
 |||
 
 <a name="integration-account-limits"></a>

@@ -1,6 +1,6 @@
 ---
 title: Use dynamic groups with Azure Automation Update Management
-description: This article describes how dynamic groups work with Azure Automation Update Management.
+description: This article tells how to use dynamic groups with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 11/20/2019
@@ -45,4 +45,4 @@ A dynamic group for non-Azure machines uses saved searches, also called computer
 
 ## Next steps
 
-After creating a dynamic group, you can [Create an update deployment](automation-tutorial-update-management.md).
+To work with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).

@@ -9,7 +9,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
@@ -45,6 +45,10 @@ You can add up to 900 managed domain names. If you're configuring all your domai
 ## Add subdomains of a custom domain
 
 If you want to add a third-level domain name such as ‘europe.contoso.com’ to your directory, you should first add and verify the second-level domain, such as contoso.com. The subdomain is automatically verified by Azure AD. To see that the subdomain you added is verified, refresh the domain list in the browser.
+
+Note
+
+If you have already added a contoso.com domain to an Azure AD tenant, you can also add the subdomain europe.contoso.com to a second Azure AD tenant. When adding the subdomain, you will be prompted to add a TXT record in the DNS hosting provider.
 
 ## What to do if you change the DNS registrar for your custom domain name
 

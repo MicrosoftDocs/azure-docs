@@ -6,11 +6,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/10/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
 ---
 
-# Run Apache Sqoop jobs by using Azure PowerShell for Apache Hadoop in HDInsight
+# Run Apache Sqoop jobs with Azure PowerShell in HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 

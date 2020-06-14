@@ -68,9 +68,9 @@ properties:
     type: Public
     ports:
     - protocol: tcp
-      port: '80'
+      port: 80
     - protocol: tcp
-      port: '8080'
+      port: 8080
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
