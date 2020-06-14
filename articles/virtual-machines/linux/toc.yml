@@ -657,7 +657,7 @@
         href: update-agent.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Monitor metadata
+    - name: Azure Instance Metadata Service
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
@@ -849,11 +849,7 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      items:
-      - name: Overview
-        href: cloudfoundry-get-started.md
-      - name: Deploy your first app
-        href: cloudfoundry-deploy-your-first-app.md
+      href: https://docs.microsoft.com/azure/cloudfoundry/
     - name: Cassandra
       href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: OpenShift
