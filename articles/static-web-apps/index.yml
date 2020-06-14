@@ -33,6 +33,8 @@ landingContent:
             url: /azure/static-web-apps/getting-started?tabs=react
           - text: Create your first Vue app
             url: /azure/static-web-apps/getting-started?tabs=vue
+          - text: Create your first Svelte app
+            url: /azure/static-web-apps/getting-started?tabs=svelte
           - text: Create your first app (no framework)
             url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
       - linkListType: learn
