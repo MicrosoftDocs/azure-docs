@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/14/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -185,6 +185,17 @@ To create a metric alert rule, you’ll need to have the following permissions:
 - Read permission on the target resource of the alert rule
 - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
+
+
+## Naming restrictions for metric alert rules
+
+Please note the following restrictions for metric alert rule names:
+
+- Metric alert rule names can’t be changed (renamed) once created
+- Metric alert rule names must be unique within a resource group
+- Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
+- Metric alert rule names can’t end with the following character: .
+ 
 
 ## Next steps
 

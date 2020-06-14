@@ -849,7 +849,7 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: https://docs.microsoft.com/en-us/azure/cloudfoundry/
+      href: https://docs.microsoft.com/azure/cloudfoundry/
     - name: Cassandra
       href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: OpenShift
