@@ -63,7 +63,7 @@ The [developer portal](./api-management-howto-developer-portal.md) lists each ve
 
 ![API Management developer portal displaying a list of versioned APIs](media/api-management-versions/portal-list.png)
 
-The details of an API also show a list of all of the versions of that API. An original version is displayed without a version identifier.
+The details of an API also show a list of all of the versions of that API. An `Original` version is displayed without a version identifier.
 
 ![API Management developer portal displaying an API's details and a list of versions for that API](media/api-management-versions/portal-details.png)
 
