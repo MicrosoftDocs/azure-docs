@@ -39,7 +39,7 @@ You can't scope inventory discovery at the vCenter VM folder level. If you need 
 
 ### Assign a role for agentless migration
 
-1. On the appliance vCenter account you're using for migration, apply a user-defined role that has the [permissions needed](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless), to all parent objects that host VMs you want to discover and migrate.
+1. On the appliance vCenter account you're using for migration, apply a user-defined role that has the [permissions needed](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless), to all parent objects that host VMs you want to discover and migrate.
 2. You can name the role with something that's easier to identify. For example, <em>Azure_Migrate</em>.
 
 ## Work around VM folder restriction

@@ -91,7 +91,7 @@ To prepare for VMware VM assessment, you need to:
 
 ### Verify VMware settings
 
-1. [Check VMware requirements](migrate-support-matrix-vmware.md#assessment-requirements) for assessment.
+1. [Check VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for assessment.
 2. [Make sure](migrate-support-matrix-vmware.md#port-access-requirements) that the  ports you need are open on vCenter Server.
 3. On vCenter Server, check that your account has permissions to create a VM using an OVA file. This is needed when you deploy the Azure Migrate appliance as a VMware VM, using an OVA file.
 4. There are some changes needed on VMs before you migrate them to Azure.
@@ -133,7 +133,7 @@ In the [next tutorial](tutorial-assess-vmware.md) you set up the Azure Migrate a
 You can migrate VMware VMs using [agentless or agent-based migration](server-migrate-overview.md). This section summarizes the requirements for agentless migration.
 
 1. [Decide](server-migrate-overview.md#compare-migration-methods) whether you want to use agentless migration.
-2. [Review](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless) hypervisor requirements for machines you want to migrate.
+2. [Review](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless) hypervisor requirements for machines you want to migrate.
 3. [Review](migrate-support-matrix-vmware-migration.md#vm-requirements-agentless) the requirements for VMware VMs you want to migrate using agentless migration.
 4. [Review](migrate-support-matrix-vmware-migration.md#appliance-requirements-agentless) the Azure Migrate appliance requirements for agentless migration.
 5. Note the URL access required for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
@@ -148,7 +148,7 @@ Azure Migrate appliance connects to the vCenter Server to discover and migrate V
 1. In the vSphere Web Client, open **Administration** > **Access** > **SSO Users and Groups**.
 2. In **Users**, click the **New User** icon.
 3. Type in the new user details.
-4. Assign [these permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless)
+4. Assign [these permissions](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless)
 
 #### Create a role and assign to an account
 
@@ -156,7 +156,7 @@ Alternatively, you can create an account. Then create a role, and assign it to t
 
 1. Sign into the Sphere Web Client as the vCenter Server administrator
 2. Select the vCenter Server instance >  **Create role**.
-3. Specify a role name, for example <em>Azure_Migrate</em>, and assign the [required permissions](migrate-support-matrix-vmware-migration.md#hypervisor-requirements-agentless) to the role.
+3. Specify a role name, for example <em>Azure_Migrate</em>, and assign the [required permissions](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless) to the role.
 
     ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
 
