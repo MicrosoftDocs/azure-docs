@@ -42,6 +42,12 @@ This article uses GitHub template repositories to make it easy for you to create
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
 
+# [Svelte](#tab/svelte)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/sumitkharche/svelte-swa-starter/generate
+- Name your repository **my-first-static-web-app**
+
 # [No Framework](#tab/vanilla-javascript)
 
 - Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
@@ -113,6 +119,12 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **dist** in the _App artifact location_ box
+
+# [Svelte](#tab/svelte)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **public** in the _App artifact location_ box
 
 # [No Framework](#tab/vanilla-javascript)
 
