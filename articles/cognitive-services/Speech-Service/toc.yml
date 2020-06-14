@@ -390,7 +390,7 @@
           href: voice-assistants.md
     - name: Custom Commands
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
@@ -398,7 +398,6 @@
               href: quickstart-custom-commands-application.md
         - name: How-to guides
           items:
-            - name: Design
             - name: Develop
               items: 
                 - name: Create a Custom Commands application 
@@ -430,7 +429,9 @@
                 - name: Continuous Deployment with Azure DevOps (Preview)
                   href: how-to-custom-commands-deploy-CICD.md
             - name: Test
-              href: how-to-custom-commands-developerflow-test.md
+                items:
+                  - name: Test your Custom Commands app
+                    href: how-to-custom-commands-developerflow-test.md
             - name: Debug
               items:
                 - name: Errors when building the application (Preview)

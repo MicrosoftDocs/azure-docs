@@ -31,25 +31,27 @@ Good candidates for Custom Commands have a fixed vocabulary with well-defined se
 
 ## Getting started with Custom Commands
 
-The first step for using Custom Commands (Preview) to make a voice application is to [get a speech subscription key](get-started.md) and access the Custom Commands (Preview) Builder on the [Speech Studio](https://speech.microsoft.com). From there, you can author a new Custom Commands (Preview) Application and publish it, after which an on-device application can communicate with it using the Speech SDK.
+Our goal with Custom Commands is to reduce your cognitive load to learn all the different technologies and focus building your voice commanding app. First step for using Custom Commands to <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. You can author your Custom Commands app on the Speech Studio and publish it, after which an on-device application can communicate with it using the Speech SDK. [Get started by following our quickstart guide](quickstart-custom-commands-application.md).
 
-   ![Authoring flow for Custom Commands (Preview)](media/voice-assistants/custom-commands-flow.png "The Custom Commands (Preview) authoring flow")
 
-We offer quickstarts designed to have you running code in less than 10 minutes.
+#### Authoring flow for Custom Commands
+   ![Authoring flow for Custom Commands](media/voice-assistants/custom-commands-flow.png "The Custom Commands authoring flow")
 
-* [Create a Custom Commands (Preview) application](quickstart-custom-speech-commands-create-new.md)
-* [Create a Custom Commands (Preview) application with parameters](quickstart-custom-speech-commands-create-parameters.md)
-* [Connect to a Custom Commands (Preview) application with the Speech SDK, C#](quickstart-custom-speech-commands-speech-sdk.md)
+Follow our quickstart to have your first Custom Commands app running code in less than 10 minutes.
 
-Once you are done with the quickstarts, explore our how-tos.
+* [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md)
 
-- [Add validations to Custom Command parameters](./how-to-custom-speech-commands-validations.md)
-- [Fulfill Commands on the client with the Speech SDK](./how-to-custom-speech-commands-fulfill-sdk.md)
-- [Add a confirmation to a Custom Command](./how-to-custom-speech-commands-confirmations.md)
-- [Add a one-step correction to a Custom Command](./how-to-custom-speech-commands-one-step-correction.md)
+Once you are done with the quickstart, explore our how-tos guides.
+
+* [Add simple commands to your Custom Commands app](how-to-custom-commands-add-simple-commands)
+* [Add parameters to your commands](how-to-custom-commands-add-parameters-to-commands)
+* [Add validations to parameters and prompts for correction](how-to-custom-commands-add-validations)
+* [Integrate using the Speech SDK](how-to-custom-commands-setup-speech-sdk)
+* [Setup Continuous Deployment for your Custom Commands app using Azure DevOps](how-to-custom-commands-deploy-cicd)
+
 
 ## Next steps
 
 * [Get a Speech service subscription key for free](get-started.md)
-* [Go to the Speech Studio to try out Custom Commands](https://speech.microsoft.com)
+* [Go to the Speech Studio to try out Custom Commands](https://speech.microsoft.com/customcommands)
 * [Get the Speech SDK](speech-sdk.md)
