@@ -187,19 +187,9 @@ It is recommended to:
 * Collaborators are to migrate and re-assign the prediction resources back to the applications.
 Note this will have cause a break in the application temporarily until the prediction resources are re-assigned.
 
-Another solution here is, before owner migration, collaborators may add app owners as contributors to the prediction/runtime resources <URL to have this>. This will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
-
 ### Recommended steps to do if you are a collaborator on an app
-If you are an collaborating on applications and have assigned prediction/runtime key to these application, an error is shown when you migrate that lists the application IDs and key paths that are blocking the migration.
+If you are collaborating on applications and have assigned prediction/runtime key to these application, an error will be shown that lists the application IDs and key paths that are blocking the migration.
 
-If your application is in production using your prediction/runtime resource and you do not want to break it, it is recommended to:
-* Export applications as backup
-* Add app owners as contributors to the prediction/runtime resources <URL to have this>.
-* Undergo migration process which should succeed.
-* You wont be able to author these applications unless app owner migrates and adds you as a contributor to the authoring resource.
-
-> [!Note]
-> You can import back your applications after you migrate, but they will have different app IDs and will be different than the ones being hit in production.
 
 If your application is not still not in production using your prediction/runtime resource, it is recommended to:
 * Export applications as backup
@@ -207,6 +197,10 @@ If your application is not still not in production using your prediction/runtime
 * Undergo the migration process.
 * Import back applications after migration.
 * Re-assign prediction keys to your applications **Manage -> Azure resources** page.
+
+
+> [!Note]
+> When you import back your applications after you migrate, they will have different app IDs and will be different than the ones being hit in production. You will need to change the endpoint URL and the owner will not have access to hit the endpoint unless shared with him.
 
 ## Troubleshooting the migration process for LUIS authoring
 
