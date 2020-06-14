@@ -194,7 +194,7 @@ Perform the following steps to enable monitoring using the provided bash script.
    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
 
-    Run the following command to use an existing an existing Log Analytics workspace and without specifying a proxy server:
+    Run the following command to use an existing Log Analytics workspace and without specifying a proxy server:
 
     ```bash
     bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId
