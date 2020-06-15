@@ -51,7 +51,7 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 
 This can happen when a user’s on-premises User Principal Name (UPN) is different than the user's cloud UPN.
 
-To confirm that this is the issue, first test that the PTA agent is working correctly. To do that, complete these steps:
+To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
   
 1. Create a test account.  
 2. Import the PowerShell module on the agent machine:
@@ -68,7 +68,7 @@ To confirm that this is the issue, first test that the PTA agent is working corr
 
 4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
 
-If you get the same username/password error, this means that the PTA agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)
+If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
