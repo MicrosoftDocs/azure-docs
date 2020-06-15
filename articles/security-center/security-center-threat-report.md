@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center threat intelligence report | Microsoft Docs
-description: This document helps you to use Azure Security Center Threat Intelligent Reports during an investigation to find more information regarding a security alert.
+description: This document helps you to use Azure Security Center threat intelligence reports during an investigation to find more information regarding a security alert.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 06/15/2020
 ms.author: memildin
 
 ---
-# Azure Security Center Threat Intelligence Report
+# Azure Security Center threat intelligence report
 
-This page explains how Azure Security Center Threat Intelligent Reports can help you learn more about a threat that generated a security alert.
+This page explains how Azure Security Center threat intelligence reports can help you learn more about a threat that generated a security alert.
 
 
 ## What is a threat intelligence report?
@@ -50,22 +50,20 @@ This type of information is useful during the incident response process, where t
 ## How to access the threat intelligence report?
 
 1. From Security Center's sidebar, open the **Security alerts** page.
-1. 
-1.  that contains more details about the alerts and click in the security alert that you want to obtain more information about.
+1. Select an alert. 
+    The alerts details page opens with more details about the alert. Below is the **Potentially Unsafe Action** alert details page.
 
-    ![Security alerts](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. In this case, the **Suspicious process executed** blade shows the details about the alert as shown in the figure below:
+    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-closed.png)](media/security-center-threat-report/threat-intelligence-closed.png#lightbox)
 
-    ![Security alert details](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. The amount of information available for each security alert will vary according to the type of alert. In the **REPORTS** field, you have a link to the threat intelligence report. Click on it and another browser window will appear with PDF file.
+1. The amount of information available for each security alert will vary according to the type of alert. In the **Threat Intelligence** field, select the **View** link to open the threat intelligence report pane.
 
-   ![Storage selection](./media/security-center-threat-report/security-center-threat-report-fig3.png)
+    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-open.png)](media/security-center-threat-report/threat-intelligence-open.png#lightbox)
 
-From here you can download the PDF for this report and read more about the security issue that was detected and take actions based on the information provided.
+From here you can download the PDF for this report, read more about the security issue that was detected, and take actions based on the information provided.
+
 
 ## See also
-In this document, you learned how Azure Security Center Threat Intelligent Reports can help during an investigation about security alerts. To learn more about Azure Security Center, see the following:
+This page explained how to open threat intelligence reports to help an investigation of security alerts. To learn more about Azure Security Center, see the following:
 
-* [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-* [Handling Security Incident in Azure Security Center](security-center-incident.md)
+* [Handling security incidents in Azure Security Center](security-center-incident.md)
