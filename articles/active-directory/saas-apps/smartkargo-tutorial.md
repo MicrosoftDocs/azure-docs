@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SmartKargo SSO
 
-To configure single sign-on on **SmartKargo** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SmartKargo** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SmartKargo test user
 
