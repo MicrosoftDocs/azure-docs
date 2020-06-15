@@ -104,7 +104,7 @@ Perform the following steps in the Azure portal to order a device.
 
 # [Azure CLI](#tab/azure-cli)
 
-## CLI Prerequisites
+## Azure CLI prerequisites
 
 Before you begin, you must have:
 
@@ -121,15 +121,14 @@ Before you begin, make sure that:
 * You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
-### Install Extension
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-To view the commands in the Azure CLI [extension for Azure Data Box](https://docs.microsoft.com/cli/azure/ext/databox/databox?view=azure-cli-latest).
+## Prepare your environment
 
-To install the Data Box CLI extension:
+<!-- To view the commands in the Azure CLI [extension for Azure Data Box](https://docs.microsoft.com/cli/azure/ext/databox/databox?view=azure-cli-latest). -->
+1. Sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
 
-1. Sign in to Azure using the Azure PowerShell command: `az login`.
-
-   Here is a command-line example that shows how to sign in to Azure:
+   Here is an example that shows how to sign in to Azure:
 
     ```azurecli
 
@@ -138,13 +137,13 @@ To install the Data Box CLI extension:
     [
       {
         "cloudName": "AzureCloud",
-        "homeTenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-        "id": "fa68082f-8ff7-4a25-95c7-ce9da541242f",
+        "homeTenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "isDefault": true,
         "managedByTenants": [],
         "name": "ExpressPod BVT (Creates order in BVT env)",
         "state": "Enabled",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
         "user": {
           "name": "gusp@contoso.com",
           "type": "user"
@@ -155,8 +154,12 @@ To install the Data Box CLI extension:
 
     If you have a valid subscription the command will output your subscription settings.
 
-2. In a Azure PowerShell prompt, type the following command to install the extension: `az extension add --name databox`.
+2. Install the Azure Data Box CLI extension.
+   
+   When working with extension references for the Azure CLI, you must first install the extension.Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.For more information about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
+   Install the extension for Azure Data Box by running the following command: `az extension add --name databox`.
+    
    Here is an example of command usage:
 
     ```azurecli
@@ -179,12 +182,14 @@ To install the Data Box CLI extension:
 
         Please let us know how we are doing: https://aka.ms/clihats
     ```
-   
+
    For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
 
-## Use CLI to create a Data Box order
+## Managing Data Box orders using Azure CLI
 
-Perform the following steps in the Azure CLI to order a device:
+### Create a Data Box order
+
+Perform the following steps to order a device using Azure CLI:
 
 1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the settings you will need when creating the order using the CLI:
 
@@ -196,24 +201,30 @@ Perform the following steps in the Azure CLI to order a device:
    |phone| The phone number of the person or business that will receive the order.| "14255551234"
    |location| The nearest Azure region to you that will be shipping your device.| "US West"|
    |sku| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
-   |email-list| The email address associated with the order.| "gusp@contoso.com" |
+   |email-list| The email addresses associated with the order.| "gusp@contoso.com" |
    |street-address1| The street address to where the order will be shipped. | "15700 NE 39th St" |
    |street-address2| The secondary address information, such as apartment number or building number. | "Bld 123" |
    |city| The city that the device will be shipped to. | "Redmond" |
    |state-or-province| The state where the device will be shipped.| "WA" |
    |country| The country that the device will be shipped. | "United States" |
-   |postal-code| The zipcode or postal code associated with the shipping address.| "98052"|
+   |postal-code| The zip code or postal code associated with the shipping address.| "98052"|
    |company-name| The name of your company you work for.| "Contoso, LTD" |
-   |storage account| The Azure Storage account from where you want to import data.| mystorageaccount|
+   |storage account| The Azure Storage account from where you want to import data.| "mystorageaccount"|
 
-2. In Azure PowerShell, use the `az databox job create` command replacing the sample parameter values with your settings to create your Data Box order.
+2. In Azure PowerShell, use the [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
+
+   ```azurecli
+   az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
+   ```
+
+   Here's an example of command usage:
 
    ```azurecli
    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest3" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount
 
    ```
 
-   After you run the command, Azure CLI will respond with the following console output:
+   After you run the command, you see the following output:
 
    ```azurecli
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
@@ -225,7 +236,7 @@ Perform the following steps in the Azure CLI to order a device:
    "deliveryType": "NonScheduled",
    "details": null,
    "error": null,
-   "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/GDPTest/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
    "identity": {
      "type": "None"
    },
@@ -251,11 +262,430 @@ Perform the following steps in the Azure CLI to order a device:
 
    ```
 
-For CLI command reference information, see [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create).
+### Display information for an existing Data Box order
+
+You can get information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
+
+   ```azurecli
+   az databox job show --resource-group <resource-group> --name <order-name>
+   ```
+
+   The following table shows the parameter information for displaying an order:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |resource-group [Required]| The name of the resource group associated with the order. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |name [Required]| The name of the order to be displayed. | "mydataboxorder"|
+   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |help| Display help information for this command. | --help -h |
+   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
+   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Include verbose logging. | --verbose |
+
+   Here's an example of the command with output:
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest3"
+    
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    {
+      "cancellationReason": null,
+      "deliveryInfo": {
+        "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+      },
+      "deliveryType": "NonScheduled",
+      "details": {
+        "chainOfCustodySasKey": null,
+        "contactDetails": {
+          "contactName": "Gus Poland",
+          "emailList": [
+            "gusp@contoso.com"
+          ],
+          "mobile": null,
+          "notificationPreference": [
+            {
+              "sendNotification": true,
+              "stageName": "DevicePrepared"
+            },
+            {
+              "sendNotification": true,
+              "stageName": "Dispatched"
+            },
+            {
+              "sendNotification": true,
+              "stageName": "Delivered"
+            },
+            {
+              "sendNotification": true,
+              "stageName": "PickedUp"
+            },
+            {
+              "sendNotification": true,
+              "stageName": "AtAzureDC"
+            },
+            {
+              "sendNotification": true,
+              "stageName": "DataCopy"
+            }
+          ],
+          "phone": "14255551234",
+          "phoneExtension": null
+        },
+        "copyLogDetails": [],
+        "copyProgress": [],
+        "dataImportDetails": [
+          {
+            "accountDetails": {
+              "dataAccountType": "StorageAccount",
+              "storageAccountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+            }
+          }
+        ],
+        "deliveryPackage": {
+          "carrierName": "",
+          "trackingId": "",
+          "trackingUrl": ""
+        },
+        "destinationAccountDetails": [
+          {
+            "accountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
+            "dataDestinationType": "StorageAccount",
+            "sharePassword": null,
+            "storageAccountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+          }
+        ],
+        "devicePassword": null,
+        "errorDetails": null,
+        "expectedDataSizeInTerabytes": null,
+        "jobDetailsType": "DataBox",
+        "jobStages": [
+          {
+            "displayName": "Ordered",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "DeviceOrdered",
+            "stageStatus": "Succeeded",
+            "stageTime": "2020-06-11T22:05:53.134066+00:00"
+          },
+          {
+            "displayName": "Processed",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "DevicePrepared",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Dispatched",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "Dispatched",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Delivered",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "Delivered",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Picked up",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "PickedUp",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Received",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "AtAzureDC",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Data copy in progress",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "DataCopy",
+            "stageStatus": "None",
+            "stageTime": null
+          },
+          {
+            "displayName": "Completed",
+            "errorDetails": null,
+            "jobStageDetails": null,
+            "stageName": "Completed",
+            "stageStatus": "None",
+            "stageTime": null
+          }
+        ],
+        "keyEncryptionKey": {
+          "kekType": "MicrosoftManaged"
+        },
+        "preferences": null,
+        "returnPackage": {
+          "carrierName": "",
+          "trackingId": "",
+          "trackingUrl": ""
+        },
+        "reverseShipmentLabelSasKey": null,
+        "shippingAddress": {
+          "addressType": "None",
+          "city": "Redmond",
+          "companyName": "Contoso",
+          "country": "US",
+          "postalCode": "98052",
+          "stateOrProvince": "WA",
+          "streetAddress1": "15700 NE 39th St",
+          "streetAddress2": "Bld 25",
+          "streetAddress3": null,
+          "zipExtendedCode": null
+        }
+      },
+      "error": null,
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+      "identity": {
+        "type": "None"
+      },
+      "isCancellable": true,
+      "isCancellableWithoutFee": true,
+      "isDeletable": false,
+      "isShippingAddressEditable": true,
+      "location": "westus",
+      "name": "mydataboxtest3",
+      "resourceGroup": "myresourcegroup",
+      "sku": {
+        "displayName": null,
+        "family": null,
+        "name": "DataBox"
+      },
+      "startTime": "2020-06-11T22:05:49.436622+00:00",
+      "status": "DeviceOrdered",
+      "tags": {},
+      "type": "Microsoft.DataBox/jobs"
+    }
+    PS C:\WINDOWS\system32>
+
+   ```
+
+### Display all orders
+
+If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/en-us/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
+The command also displays time stamps of each order.
+
+   ```azurecli
+   az databox job list --resource-group <resource-group>
+   ```
+
+The following table shows the parameter information for deleting an order:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |resource-group [Required]| The name of the resource group that contains the orders. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |help| Display help information for this command. | --help -h |
+   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
+   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Include verbose logging. | --verbose |
+
+   Here's an example of the command with output:
+
+   ```azurecli
+   PS C:\Windows> az databox job list --resource-group "myresourcegroup"
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   [
+      {
+         "cancellationReason": "OtherReason This was a test order for documentation purposes.",
+         "deliveryInfo": {
+               "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+         },
+         "deliveryType": "NonScheduled",
+         "details": null,
+         "error": null,
+         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxImportTest2",
+         "identity": {
+               "type": "None"
+           },
+         "isCancellable": false,
+         "isCancellableWithoutFee": false,
+         "isDeletable": true,
+         "isShippingAddressEditable": false,
+         "location": "westus",
+         "name": "mydataboxImportTest2",
+         "resourceGroup": "myresourcegroup",
+         "sku": {
+            "displayName": null,
+            "family": null,
+            "name": "DataBox"
+         },
+         "startTime": "2020-05-26T23:20:57.464075+00:00",
+         "status": "Cancelled",
+         "tags": {},
+         "type": "Microsoft.DataBox/jobs"
+      },
+      {
+         "cancellationReason": "I entered erroneous data for the order and needed to cancel.",
+         "deliveryInfo": {
+            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+         },
+         "deliveryType": "NonScheduled",
+         "details": null,
+         "error": null,
+         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxImportTest",
+         "identity": {
+            "type": "None"
+         },
+         "isCancellable": false,
+         "isCancellableWithoutFee": false,
+         "isDeletable": true,
+         "isShippingAddressEditable": false,
+         "location": "westus",
+         "name": "mydataboxImportTest2",
+         "resourceGroup": "myresourcegroup",
+         "sku": {
+            "displayName": null,
+            "family": null,
+            "name": "DataBox"
+         },
+         "startTime": "2020-05-27T00:04:16.640397+00:00",
+         "status": "Cancelled",
+         "tags": {},
+         "type": "Microsoft.DataBox/jobs"
+      },
+      {
+         "cancellationReason": "IncorrectOrder null",
+         "deliveryInfo": {
+            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+         },
+         "deliveryType": "NonScheduled",
+         "details": null,
+         "error": null,
+         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest2",
+         "identity": {
+            "type": "None"
+         },
+         "isCancellable": false,
+         "isCancellableWithoutFee": false,
+         "isDeletable": true,
+         "isShippingAddressEditable": false,
+         "location": "westus",
+         "name": "mydataboxtest2",
+         "resourceGroup": "myresourcegroup",
+         "sku": {
+            "displayName": null,
+            "family": null,
+            "name": "DataBox"
+         },
+         "startTime": "2020-06-10T16:54:23.509181+00:00",
+         "status": "Cancelled",
+         "tags": {},
+         "type": "Microsoft.DataBox/jobs"
+      },
+      {
+         "cancellationReason": "CancelTest",
+         "deliveryInfo": {
+            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
+         },
+         "deliveryType": "NonScheduled",
+         "details": null,
+         "error": null,
+         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
+         "identity": {
+            "type": "None"
+         },
+         "isCancellable": false,
+         "isCancellableWithoutFee": false,
+         "isDeletable": true,
+         "isShippingAddressEditable": false,
+         "location": "westus",
+         "name": "mydataboxtest3",
+         "resourceGroup": "myresourcegroup",
+         "sku": {
+            "displayName": null,
+            "family": null,
+            "name": "DataBox"
+         },
+         "startTime": "2020-06-10T23:28:27.354241+00:00",
+         "status": "Cancelled",
+         "tags": {},
+         "type": "Microsoft.DataBox/jobs"
+      }
+   ]
+
+```
+
+### Cancel a Data Box order
+
+You can cancel an Azure Data Box order using [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel).
+
+   ```azurecli
+   az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
+   ```
+
+   The following table shows the parameter information for deleting an order:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
+   |reason [Required]| The reason for cancelling the order. | "I entered erroneous information and needed to cancel the order." |
+   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |help| Display help information for this command. | --help -h |
+   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
+   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Include verbose logging. | --verbose |
+
+   Here's an example of the command with output:
+
+   ```azurecli
+   PS C:\Windows> az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our budget was slashed due to **redacted** and we can no longer afford this device."
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   Are you sure you want to perform this operation? (y/n): y
+   PS C:\Windows>
+   ```
+
+### Delete a Data Box order
+
+If you have cancelled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
+
+   ```azurecli
+   az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
+   ```
+
+   The following table shows the parameter information for deleting an order:
+
+   | Parameter | Description |  Sample value |
+   |---|---|---|
+   |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
+   |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
+   |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
+   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |help| Display help information for this command. | --help -h |
+   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
+   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Include verbose logging. | --verbose |
+
+Here's an example of the command with output:
+
+   ```azurecli
+   PS C:\Windows> az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
+   Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+   command ran in 1.142 seconds.
+   PS C:\Windows>
+   ```
 
 <!-- 06/11/20 priestlg: More information such as showing the reader how to check the order using Azure portal -->
-
-
 ---
 
 ## Track the order
