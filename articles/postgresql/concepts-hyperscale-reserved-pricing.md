@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/15/2020
 ---
 
 # Prepay for Azure Database for PostgreSQL - Hyperscale (Citus) compute resources with reserved capacity
@@ -43,10 +43,12 @@ In this case, you should purchase one-year reservation for
 
 ## Buy Azure Database for PostgreSQL reserved capacity
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** and then in the Purchase reservations pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your PostgreSQL databases.
-4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for PostgreSQL servers that get the discount depend on the scope and quantity selected.
+3. Select **Add** and then, in the Purchase reservations pane, select **Azure Database for PostgreSQL** to purchase a new reservation for your PostgreSQL databases.
+4. Select Hyperscale (Citus) Compute type to purchase and click the **Select** button.
+5. Review the quantity for selected compute type on the **Products** tab.
+4. Proceed to the **Buy + Review** tab to complete your purchase.
 
 The following table describes required fields.
 
