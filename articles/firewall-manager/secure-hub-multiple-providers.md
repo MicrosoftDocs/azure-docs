@@ -77,7 +77,7 @@ Create your secured virtual hub using Firewall Manager.
 7. Accept the default **Azure Firewall** **Enabled** setting.
 8. For **Specify the number of Public IP addresses**, use the slider to select **2**.
 9. Select **Next: security partner provider**.
-10. For **Security Partner Provider**, select **Enabled** and then select a provider.
+10. For **Security Partner Provider**, select **Enabled** and then select ZScaler.
 11. Select **Next: Review + create**.
 12. Select **Create**. It will take about 30 minutes to deploy.
 
