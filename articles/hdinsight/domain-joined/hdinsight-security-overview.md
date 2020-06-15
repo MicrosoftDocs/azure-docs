@@ -13,7 +13,7 @@ ms.date: 04/20/2020
 
 # Overview of enterprise security in Azure HDInsight
 
-Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions aren't activated by default. This flexibility allows you to choose the security features that are most important to you. And helps you to avoid paying for features that you don't want. This flexibility also means it's your responsibility to make sure correct solutions are enabled for your setup and environment.
+Azure HDInsight offers a number of methods to address your enterprise security needs. Most of these solutions aren't activated by default. This flexibility allows you to choose the security features that are most important to you and helps you to avoid paying for features that you don't want. This flexibility also means it's your responsibility to make sure correct solutions are enabled for your setup and environment.
 
 This article looks at security solutions by dividing security solutions into four traditional security pillars: perimeter security, authentication, authorization, and encryption.
 
