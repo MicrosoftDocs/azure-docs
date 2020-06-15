@@ -70,7 +70,7 @@ On occasion, pre-validation checks may fail prior to a deployment and the only i
 
 For general guidance in creating your support request, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 
-Here is additional guidance specific to creating an SR for Azure VMware Solution deployment or provisioning failures:
+Here is additional guidance specific to creating an SR for AVS deployment or provisioning failures:
 
 Select the **Help** icon and then **+ New support request**.
 
