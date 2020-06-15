@@ -71,7 +71,7 @@ The top-level Resource Manager template for defining a data factory is:
         {
             "name": "[parameters('dataFactoryName')]",
             "apiVersion": "[variables('apiVersion')]",
-            "type": "Microsoft.DataFactory/datafactories",
+            "type": "Microsoft.DataFactory/factories",
             "location": "westus",
             "resources": [
                 { ... },
@@ -111,7 +111,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
       {
         "name": "[variables('dataFactoryName')]",
         "apiVersion": "2015-10-01",
-        "type": "Microsoft.DataFactory/datafactories",
+        "type": "Microsoft.DataFactory/factories",
         "location": "West US",
         "resources": [
           {
@@ -362,7 +362,7 @@ You define a data factory in the Resource Manager template as shown in the follo
 {
     "name": "[variables('dataFactoryName')]",
     "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
+    "type": "Microsoft.DataFactory/factories",
     "location": "West US"
 }
 ```
@@ -593,11 +593,11 @@ Here is a sample Resource Manager template for creating a logical gateway in the
         {
             "name": "[variables('dataFactoryName')]",
             "apiVersion": "[variables('apiVersion')]",
-            "type": "Microsoft.DataFactory/datafactories",
+            "type": "Microsoft.DataFactory/factories",
             "location": "eastus",
             "resources": [
                 {
-                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+                    "dependsOn": [ "[concat('Microsoft.DataFactory/factories/', variables('dataFactoryName'))]" ],
                     "type": "gateways",
                     "apiVersion": "[variables('apiVersion')]",
                     "name": "GatewayUsingARM",

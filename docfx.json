@@ -69,6 +69,7 @@
       "feedback_product_url": "https://feedback.azure.com/forums/34192--general-feedback",
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
+      "uhfHeaderId": "azure",
       "searchScope": [
         "Azure"
       ],
@@ -126,72 +127,6 @@
         "articles/iot-central/": {
           "depot_name": "MSDN.microsoft-iot-central",
           "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-add-change-azure-subscription-administrator.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-add-office-365-tenant-to-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-azure-subscription-past-due-balance.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-buy-sign-up-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-cannot-login-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-credit-card-fails-during-azure-sign-up.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-download-azure-invoice-daily-usage-date.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-cancel-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-change-azure-account-profile.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-change-credit-card.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-how-to-switch-azure-offer.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-set-up-alerts.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-subscription-become-disable.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-subscription-transfer.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-troubleshoot-azure-sign-up-issues.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-understand-your-azure-marketplace-charges.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-understand-your-bill.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-upgrade-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-overview.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-usage-rate-card-partner-solution-cloudyn.md": {
-          "folder_relative_path_in_docset": "articles"
-        },
-        "articles/billing/billing-use-existing-office-365-account-azure-subscription.md": {
-          "folder_relative_path_in_docset": "articles"
         }
       }
     },
@@ -199,7 +134,7 @@
       "author": {
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
-        "articles/batch/*.md": "ju-shim",
+        "articles/batch/**/*.md": "JnHs",
         "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
@@ -218,6 +153,7 @@
         "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/automation/**/*.md": "mgoedtel",
+        "articles/azure-vmware/**/*.md": "dikamath",
         "articles/backup/**/*.md": "dcurwin",
         "articles/blockchain/**/*.md": "PatAltimore",
         "articles/chef/**/*.md": "TomArcherMsft",
@@ -242,14 +178,14 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "IEvangelist",
+        "articles/cognitive-services/Speech-Service/**/*.md": "trevorbye",
         "articles/cognitive-services/text-analytics/**/*.md": "aahill",
         "articles/container-instances/**/*.md": "dlepow",
         "articles/container-registry/**/*.md": "dlepow",
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/lighthouse/**/*.md": "JnHs",
-        "articles/notebooks/*.md": "JasonWHowell",
+        "articles/notebooks/*.md": "JoshuaPartlow",
         "articles/service-health/*.md": "stephbaron",
         "articles/azure-resource-manager/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
@@ -265,7 +201,10 @@
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
         "articles/service-fabric-mesh/*.md": "athinanthny",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/**/*.md": "Juliako",
+        "articles/media-services/**/**/*.md": "Juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -310,6 +249,7 @@
         "articles/azure-signalr/**/*.md": "https://feedback.azure.com/forums/915436-azure-signalr-service",
         "articles/azure-stack/**/*.md": "https://feedback.azure.com/forums/344565-azure-stack",
         "articles/azure-supportability/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/azure-vmware/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/backup/**/*.md": "https://feedback.azure.com/forums/258995-azure-backup-and-scdpm",
         "articles/batch-ai/**/*.md": "https://feedback.azure.com/forums/905575-batch-ai",
         "articles/batch/**/*.md": "https://feedback.azure.com/forums/269742-batch",
@@ -397,7 +337,7 @@
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
-        "articles/machine-learning/service/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
+        "articles/machine-learning/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/studio/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/team-data-science-process/*.md": "https://feedback.azure.com/forums/257792-machine-learning",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/forums/910651-data-science-vms",
@@ -452,20 +392,45 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-sql/**/*.md": "jroth",
+        "articles/synapse-analytics/**/*.md": "jroth",
+        "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
         "articles/azure-monitor/**/*.md": "carmonm",
         "articles/automation/**/*.md": "carmonm",
+        "articles/azure-vmware/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
         "articles/cognitive-services/**/*.md": "nitinme",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
-        "articles/batch/**/*.md": "gwallace",
+        "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
-        "articles/virtual-machine-scale-sets/**/*.md": "gwallace"
-   },
+        "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
+		  "articles/remote-rendering/**/*.md": "jlyons"
+      },
+      "ms.collection": {
+        "articles/application-gateway/*.md": "networking",
+        "articles/cdn/*.md": "networking",
+        "articles/bastion/*.md": "networking",
+        "articles/dns/*.md": "networking",
+        "articles/expressroute/*.md": "networking",
+        "articles/firewall/*.md": "networking",
+        "articles/firewall-manager/*.md": "networking",
+        "articles/frontdoor/*.md": "networking",
+        "articles/internet-peering/*.md": "networking",        
+        "articles/internet-analyzer/*.md": "networking",
+        "articles/networking/*.md": "networking",
+        "articles/network-watcher/*.md": "networking",
+        "articles/peering-service/*.md": "networking",        
+        "articles/private-link/*.md": "networking",
+        "articles/traffic-manager/*.md": "networking",
+        "articles/virtual-network/*.md": "networking",                       
+        "articles/virtual-wan/*.md": "networking",
+        "articles/vpn-gateway/*.md": "networking", 
+        "articles/web-application-firewall/*.md": "networking"       
+      },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
@@ -487,6 +452,7 @@
         "articles/app-service-mobile/**/*.md": "emalani",
         "articles/ansible/**/*.md": "tarcher",
         "articles/automation/**/*.md": "magoedte",
+        "articles/azure-vmware/**/*.md": "dikamath",
         "articles/backup/**/*.md": "dacurwin",
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
@@ -511,7 +477,7 @@
         "articles/cognitive-services/personalizer/**/*.md": "diberry",
         "articles/cognitive-services/QnAMaker/**/*.md": "diberry",
         "articles/cognitive-services/Speech/**/*.md": "nitinme",
-        "articles/cognitive-services/Speech-Service/**/*.md": "dapine",
+        "articles/cognitive-services/Speech-Service/**/*.md": "trbye",
         "articles/cognitive-services/text-analytics/**/*.md": "aahi",
         "articles/container-instances/**/*.md": "danlep",
         "articles/container-registry/**/*.md": "danlep",
@@ -530,14 +496,18 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/batch/*.md": "jushiman",
+        "articles/batch/**/*.md": "jenhayes",
         "articles/service-fabric/*.md": "atsenthi",
         "articles/service-fabric-mesh/*md": "atsenthi",
-        "articles/notebooks/*.md": "jasonh",
+        "articles/notebooks/*.md": "joshuapa",
         "articles/service-health/*.md": "stbaron",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/*.md": "juliako",
+        "articles/media-services/**/*.md": "juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
+        "articles/batch/**/*.md": "batch",
         "articles/connectors/*.md": "logic-apps",
         "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
@@ -551,6 +521,7 @@
         "articles/app-service/**/*.md": "app-service",
         "articles/app-service-mobile/**/*.md": "app-service-mobile",
         "articles/automation/**/*.md": "automation",
+        "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
@@ -574,7 +545,11 @@
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
-        "articles/aks/**/*.md": "container-service"
+        "articles/aks/**/*.md": "container-service",
+        "articles/remote-rendering/**/*.md": "azure-remote-rendering",
+        "articles/media-services/*.md": "media-services",
+        "articles/media-services/**/*.md": "media-services",
+        "articles/azure-government/**/*.md": "azure-government"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -609,7 +584,12 @@
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
         "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
-        "articles/cognitive-services/Translator/**/*.md": "translator-text"
+        "articles/cognitive-services/Translator/**/*.md": "translator-text",
+        "articles/media-services/latest/*.md": "rest-v3",
+        "articles/media-services/previous/*.md": "rest-v2",
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/media-services/azure-media-player/*.md": "media-player",
+        "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
@@ -619,10 +599,8 @@
         "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
         "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
         "articles/azure-databricks/**/*.yml": ["Azure","Azure Databricks"],
-        "articles/billing/**/*.md": ["Azure","Cost Management","Billing"],
-        "articles/billing/**/*.yml": ["Azure","Cost Management","Billing"],
-        "articles/cost-management/**/*.md": ["Azure","Billing","Cost Management"],
-        "articles/cost-management/**/*.yml": ["Azure","Billing","Cost Management"],
+        "articles/cost-management-billing/**/*.md": ["Azure","Cost Management Billing"],
+        "articles/cost-management-billing/**/*.yml": ["Azure","Cost Management Billing"],
         "articles/cosmos-db/**/*.md": ["Azure","Azure Cosmos DB"],
         "articles/cosmos-db/**/*.yml": ["Azure","Azure Cosmos DB"],
         "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
@@ -637,6 +615,8 @@
         "articles/hdinsight/**/*.yml": ["Azure","Azure HDInsight"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
         "articles/mariadb/**/*.yml": ["Azure","Azure Database for MariaDB"],
+        "articles/marketplace/**/*.md": ["Azure","Microsoft commercial marketplace"],
+        "articles/marketplace/**/*.yml": ["Azure","Microsoft commercial marketplace"],
         "articles/mysql/**/*.md": ["Azure","Azure Database for MySQL"],
         "articles/mysql/**/*.yml": ["Azure","Azure Database for MySQL"],
         "articles/notebooks/**/*.yml": ["Azure","Azure Notebooks"],
@@ -659,8 +639,11 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
+        "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
+        "articles/azure-vmware/**/*.md" : "Azure VMWare Solution",
         "articles/connectors/*.md": "Azure Logic Apps",
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/scheduler/*.md": "Azure Scheduler",
@@ -668,6 +651,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
+        "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
         "articles/backup/**/*.md": "Azure Backup",
         "articles/backup/**/*.yml": "Azure Backup",
         "articles/blockchain/**/*.md": "Azure Blockchain",
@@ -677,16 +662,26 @@
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
+        "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
+        "articles/synapse-anlytics/**/*.yml": "Azure Synapse Analytics",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
-        "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
-        "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
-        "articles/sql-database/**/*.md" : "Azure SQL Database",
-        "articles/sql-database/**/*.yml" : "Azure SQL Database",
-        "articles/ansible/**/*.yml" : "Ansible",
-        "articles/chef/**/*.yml" : "Chef",
-        "articles/jenkins/**/*.yml" : "Jenkins",
-        "articles/terraform/**/*.yml" : "Terraform",
+        "articles/virtual-machines/windows/sql/**/*.md": "SQL Server on Azure VM",
+        "articles/virtual-machines/windows/sql/**/*.yml": "SQL Server on Azure VM",
+        "articles/sql-database/**/*.md": "Azure SQL Database",
+        "articles/sql-database/**/*.yml": "Azure SQL Database",
+        "articles/azure-sql/**/*.md": "Azure SQL",
+        "articles/azure-sql/**/*.yml": "Azure SQL",
+        "articles/azure-sql/database/**/*.md": "Azure SQL Database",
+        "articles/azure-sql/database/**/*.yml": "Azure SQL Database",
+        "articles/azure-sql/managed-instance/**/*.md": "Azure SQL Managed Instance",
+        "articles/azure-sql/managed-instance/**/*.yml": "Azure SQL Managed Instance",
+        "articles/azure-sql/virtual-machines/**/*.md": "SQL Server on Azure VM",
+        "articles/azure-sql/virtual-machines/**/*.yml": "SQL Server on Azure VM",
+        "articles/ansible/**/*.yml": "Ansible",
+        "articles/chef/**/*.yml": "Chef",
+        "articles/jenkins/**/*.yml": "Jenkins",
+        "articles/terraform/**/*.yml": "Terraform",
         "articles/azure-resource-manager/**/*.md": "Azure Resource Manager",
         "articles/azure-resource-manager/managed-applications/**/*.md": "Azure Managed Applications",
         "articles/azure-resource-manager/custom-providers/**/*.md": "Azure Custom Providers",
@@ -711,13 +706,22 @@
         "articles/virtual-machines/windows/*.yml": "Azure Windows Virtual Machines",
         "articles/virtual-machine-scale-sets/*.md": "Azure Virtual Machine Scale Sets",
         "articles/virtual-machine-scale-sets/*.yml": "Azure Virtual Machine Scale Sets",
-        "articles/batch/*.md": "Azure Batch",
-        "articles/batch/*.yml": "Azure Batch",
+        "articles/batch/**/*.md": "Azure Batch",
+        "articles/batch/**/*.yml": "Azure Batch",
         "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
         "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps",
         "articles/service-fabric/*.md": "Azure Service Fabric",
         "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
-        "articles/aks/**/*.md": "Azure Kubernetes Service"
+        "articles/aks/**/*.md": "Azure Kubernetes Service",
+        "articles/remote-rendering/**/*.md": "Azure Remote Rendering",
+        "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
+        "articles/media-services/*.yml": "Azure Media Services",
+        "articles/media-services/*.md": "Azure Media Services",
+        "articles/media-services/latest/*.md": "Azure Media Services v3",
+        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
+        "articles/media-services/azure-media-player/*.md": "Azure Media Player",
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
+        "articles/azure-government/**/*.md": "Azure Government"
       },
       "featureFlags": {
         "articles/**/*.md": [

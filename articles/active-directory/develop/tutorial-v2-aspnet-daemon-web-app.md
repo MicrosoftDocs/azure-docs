@@ -2,17 +2,12 @@
 title: Build a multitenant daemon that uses the Microsoft identity platform endpoint
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
@@ -32,11 +27,12 @@ In this tutorial, you learn how to use the Microsoft identity platform to access
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.  
+The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.
 
 The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
 
-For a simpler console daemon application, see the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
 
 ## Scenario
 
@@ -110,7 +106,7 @@ If you don't want to use the automation, use the steps in the following sections
    - In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URIs:
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
@@ -122,7 +118,7 @@ If you don't want to use the automation, use the steps in the following sections
 
    1. Enter a key description (for example, **app secret**),
    1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
-   1. Select the **Add** button. 
+   1. Select the **Add** button.
    1. When the key value appears, copy and save it in a safe location. You'll need this key later to configure the project in Visual Studio. It won't be displayed again or retrievable by any other means.
 1. In the list of pages for the app, select **API permissions**. Then:
    1. Select the **Add a permission** button.
@@ -175,21 +171,21 @@ The relevant code for this sample is in the following files:
 
 ## Re-create the sample app
 
-1. In Visual Studio, create a new **Visual C#** **ASP.NET Web Application (.NET Framework)** project. 
+1. In Visual Studio, create a new **Visual C#** **ASP.NET Web Application (.NET Framework)** project.
 1. On the next screen, choose the **MVC** project template. Also add folder and core references for **Web API**, because you'll add a web API controller later. Leave the project's chosen authentication mode as the default: **No Authentication**.
-1. Select the project in the **Solution Explorer** window and select the **F4** key. 
+1. Select the project in the **Solution Explorer** window and select the **F4** key.
 1. In the project properties, set **SSL Enabled** to **True**. Note the information in **SSL URL**. You'll need it when configuring this application's registration in the Azure portal.
-1. Add the following ASP.NET OWIN middleware NuGet packages: 
+1. Add the following ASP.NET OWIN middleware NuGet packages:
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. In the **App_Start** folder:
-   1. Create a class called **Startup.Auth.cs**. 
-   1. Remove **.App_Start** from the namespace name. 
-   1. Replace the code for the **Startup** class with the code from the same file of the sample app.       
+   1. Create a class called **Startup.Auth.cs**.
+   1. Remove **.App_Start** from the namespace name.
+   1. Replace the code for the **Startup** class with the code from the same file of the sample app.
    Be sure to take the whole class definition. The definition changes from **public class Startup** to **public partial class Startup.**
 1. In **Startup.Auth.cs**, resolve missing references by adding **using** statements as suggested by Visual Studio IntelliSense.
 1. Right-click the project, select **Add**, and then select **Class**.
@@ -221,12 +217,12 @@ This project has web app and web API projects. To deploy them to Azure websites,
 1. After the website is created, find it in the **Dashboard** and select it to open the app service's **Overview** screen.
 1. From the **Overview** tab of the app service, download the publish profile by selecting the **Get publish profile** link and save it. You can use other deployment mechanisms, such as deploying from source control.
 1. Switch to Visual Studio and then:
-   1. Go to the **dotnet-web-daemon-v2** project. 
+   1. Go to the **dotnet-web-daemon-v2** project.
    1. Right-click the project in Solution Explorer, and then select **Publish**.
    1. Select **Import Profile** on the bottom bar, and import the publish profile that you downloaded earlier.
 1. Select **Configure**.
-1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Select **Next**.
-1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.  
+1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Select **Next**.
+1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.
 1. Select **Save**. Select **Publish** on the main screen.
 
 Visual Studio will publish the project and automatically open a browser to the project's URL. If you see the default webpage of the project, the publication was successful.
@@ -236,8 +232,8 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Go back to the [Azure portal](https://portal.azure.com).
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
-1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
 

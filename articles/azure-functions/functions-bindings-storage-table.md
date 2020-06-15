@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 # Azure Table storage bindings for Azure Functions
 
@@ -35,7 +36,7 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ### One entity
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every record inserted in the table, the function will be triggered.
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message send to the queue, the function will be triggered.
 
 The row key value "{queueTrigger}" indicates that the row key comes from the queue message string.
 
@@ -559,7 +560,7 @@ The following table explains the binding configuration properties that you set i
 |**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

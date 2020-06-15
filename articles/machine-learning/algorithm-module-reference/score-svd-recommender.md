@@ -48,7 +48,7 @@ When you predict ratings, the model calculates how a user will react to a partic
 
    The dataset can contain an optional third column of ratings for the user-item pair in the first and second columns. But the third column will be ignored during prediction.
 
-4. Run the pipeline.
+4. Submit the pipeline.
 
 ### Results for rating predictions 
 
@@ -94,7 +94,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
     To apply this filter, connect the original training dataset to the input port.
 
-8. Run the pipeline.
+8. Submit the pipeline.
 
 ### Results of item recommendation
 

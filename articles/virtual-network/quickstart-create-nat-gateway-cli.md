@@ -1,13 +1,14 @@
 ---
-title: 'Quickstart: Create a NAT gateway - Azure CLI'
+title: 'Tutorial: Create a NAT gateway - Azure CLI'
 titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure CLI
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: KumundD
+manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
@@ -15,12 +16,9 @@ ms.date: 02/18/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a NAT gateway using Azure CLI
+# Tutorial: Create a NAT gateway using Azure CLI
 
-This quickstart shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
-
->[!NOTE] 
->Azure Virtual Network NAT is available as public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -231,6 +229,5 @@ Review metrics in Azure Monitor to see your NAT service operating. Diagnose issu
 - Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
-- [Provide feedback on the Public Preview](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

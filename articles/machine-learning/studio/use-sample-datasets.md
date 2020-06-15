@@ -5,7 +5,7 @@ description: Descriptions of the datasets used in sample models included in Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 
 author: likebupt
 ms.author: keli19
@@ -13,6 +13,7 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ---
 # Use the sample datasets in Azure Machine Learning Studio (classic)
+
 [top]: #machine-learning-sample-datasets
 
 When you create a new workspace in Azure Machine Learning Studio (classic), a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure AI Gallery](https://gallery.azure.ai/). Others are included as examples of various types of data typically used in machine learning.

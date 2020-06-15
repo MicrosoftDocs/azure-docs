@@ -161,7 +161,7 @@ To configure Azure AD single sign-on with HR2day by Merces, perform the followin
 To configure single sign-on on **HR2day by Merces** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [HR2day by Merces support team](mailto:servicedesk@merces.nl). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
-> Mention to the Merces team that this integration needs the Entity ID to be set with the pattern **https://hr2day.force.com/INSTANCENAME**.
+> Mention to the Merces team that this integration needs the Entity ID to be set with the pattern **https:\//hr2day.force.com/INSTANCENAME**.
 
 ### Create an Azure AD test user
 

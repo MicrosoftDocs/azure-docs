@@ -23,12 +23,15 @@ ms.custom: mvc
 
 # Azure Media Services v3 overview
 
-Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you're an app developer, a call center, a government agency, or an entertainment company, Media Services helps you create apps that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers.
+Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you're an app developer, a call center, a government agency, or an entertainment company, Media Services helps you create apps that deliver media experiences of outstanding quality to large audiences on today's most popular mobile devices and browsers.
 
 The Media Services v3 SDKs are based on [Media Services v3 OpenAPI Specification (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [Live Events](live-events-outputs-concept.md), view v3 [Assets](assets-concept.md), get info about accessing APIs. For all other management tasks (for example, Transforms and Jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), [get info about accessing APIs](access-api-portal.md). 
+> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](https://docs.microsoft.com/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Compliance, Privacy and Security
 
@@ -36,7 +39,7 @@ As an important reminder, you must comply with all applicable laws in your use o
 
 Before uploading any video/image to Media Services, You must have all the proper rights to use the video/image, including, where required by law, all the necessary consents from individuals (if any) in the video/image, for the use, processing, and storage of their data in Media Services and Azure. Some jurisdictions may impose special legal requirements for the collection, online processing and storage of certain categories of data, such as biometric data. Before using Media Services and Azure for the processing and storage of any data subject to special legal requirements, You must ensure compliance with any such legal requirements that may apply to You.
 
-To learn about compliance, privacy and security in Media Services please visit the Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). For Microsoft’s privacy obligations, data handling and retention practices, including how to delete your data, please review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) (“OST”) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). By using Media Services, you agree to be bound by the OST, DPA and the Privacy Statement.
+To learn about compliance, privacy and security in Media Services please visit the Microsoft [Trust Center](https://www.microsoft.com/trust-center/?rtc=1). For Microsoft's privacy obligations, data handling and retention practices, including how to delete your data, please review Microsoft's [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). By using Media Services, you agree to be bound by the OST, DPA and the Privacy Statement.
  
 ## What can I do with Media Services?
 

@@ -159,6 +159,7 @@ For examples of claims transformations, see the following reference pages:
 - [Date](date-transformations.md)
 - [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
+- [Phone number](phone-number-claims-transformations.md)
 - [General](general-transformations.md)
 - [Social account](social-transformations.md)
 - [String](string-transformations.md)

@@ -311,7 +311,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE]  
-> Any utility or application that creates a valid Public Key Cryptography Standards (PKCS) \#10 request can be used to form the SSL certificate request.
+> Any utility or application that creates a valid Public Key Cryptography Standards (PKCS) \#10 request can be used to form the TLS/SSL certificate request.
 
 Verify that the certificate is installed in the computer's **Personal** store:
 

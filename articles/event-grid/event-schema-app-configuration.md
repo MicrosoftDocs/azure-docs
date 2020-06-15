@@ -1,22 +1,21 @@
 ---
-title: Azure Event Grid Azure App Configuration event schema
-description: Describes the properties that are provided for Azure App Configuration events with Azure Event Grid
+title: Azure App Configuration as Event Grid source
+description: This article describes how to use Azure App Configuration as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 services: event-grid
-author: jimmyca
+author: femila
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 05/30/2019
-ms.author: jimmyca
+ms.topic: conceptual
+ms.date: 04/09/2020
+ms.author: femila
 ---
 
-# Azure Event Grid event schema for Azure App Configuration
+# Azure App Configuration as an Event Grid source
+This article provides the properties and schema for Azure App Configuration events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure App Configuration as an event source.
 
-This article provides the properties and schema for Azure App Configuration events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+## Event Grid event schema
 
-For a list of sample scripts and tutorials, see [Azure App Configuration event source](event-sources.md#app-configuration).
-
-## Available event types
+### Available event types
 
 Azure App Configuration emits the following event types:
 
@@ -25,7 +24,7 @@ Azure App Configuration emits the following event types:
 | Microsoft.AppConfiguration.KeyValueModified | Raised when a key-value is created or replaced. |
 | Microsoft.AppConfiguration.KeyValueDeleted | Raised when a key-value is deleted. |
 
-## Example event
+### Example event
 
 The following example shows the schema of a key-value modified event: 
 
@@ -65,7 +64,7 @@ The schema for a key-value deleted event is similar:
 }]
 ```
  
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -75,7 +74,7 @@ An event has the following top-level data:
 | subject | string | Publisher-defined path to the event subject. |
 | eventType | string | One of the registered event types for this event source. |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
+| ID | string | Unique identifier for the event. |
 | data | object | App Configuration event data. |
 | dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
@@ -87,7 +86,14 @@ The data object has the following properties:
 | key | string | The key of the key-value that was modified or deleted. |
 | label | string | The label, if any, of the key-value that was modified or deleted. |
 | etag | string | For `KeyValueModified` the etag of the new key-value. For `KeyValueDeleted` the etag of the key-value that was deleted. |
- 
+
+## Tutorials and how-tos
+
+|Title | Description |
+|---------|---------|
+| [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
+| [Quickstart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)

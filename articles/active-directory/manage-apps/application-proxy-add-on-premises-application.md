@@ -2,14 +2,14 @@
 title: 'Tutorial - Add an on-premises app - Application Proxy in Azure AD'
 description:  Azure Active Directory (Azure AD) has an Application Proxy service that enables users to access on-premises applications by signing in with their Azure AD account. This tutorial shows you how to prepare your environment for use with Application Proxy. Then, it uses the Azure portal to add an on-premises application to your Azure AD tenant.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -42,10 +42,12 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 For high availability in your production environment, we recommend having more than one Windows server. For this tutorial, one Windows server is sufficient.
 
 > [!IMPORTANT]
-> If you are installing the connector on Windows Server 2019 there is a HTTP2 limitation. A workaround to use the connector on this version is adding the following registry key and restarting the server. Note, this is a machine registry wide key. 
-	```
-	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-	```
+> If you are installing the connector on Windows Server 2019, you must disable HTTP2 protocol support in the WinHttp component. This is disabled by default in earlier versions of supported operating systems. Adding the following registry key and restarting the server disables it on Windows Server 2019. Note that this is a machine-wide registry key.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### Recommendations for the connector server
 
@@ -85,7 +87,7 @@ Open the following ports to **outbound** traffic.
 
    | Port number | How it's used |
    | --- | --- |
-   | 80 | Downloading certificate revocation lists (CRLs) while validating the SSL certificate |
+   | 80 | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
    | 443 | All outbound communication with the Application Proxy service |
 
 If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.

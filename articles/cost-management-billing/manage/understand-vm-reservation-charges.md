@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Reserved VM Instances discount | Microsoft Docs
+title: Understand Azure Reserved VM Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
 author: yashesvi
 ms.service: cost-management-billing
@@ -96,7 +96,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](../reservations/save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage reservations for Azure](../reservations/manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../reservations/understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](../reservations/understand-reserved-instance-usage-ea.md)

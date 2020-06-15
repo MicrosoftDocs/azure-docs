@@ -1,5 +1,5 @@
-﻿---
-title: Push notifications to Swift iOS apps that use Azure Notification Hubs | Microsoft Docs
+---
+title: Send push notifications to Swift iOS apps that use Azure Notification Hubs | Microsoft Docs
 description: Learn how to push notifications to Swift iOS apps that use Azure Notification Hubs. 
 services: notification-hubs
 documentationcenter: ios
@@ -19,7 +19,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ---
 
-# Tutorial: Push notifications to Swift iOS apps that use the Notification Hubs REST API
+# Tutorial: Send push notifications to Swift iOS apps using Notification Hubs REST API
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -37,6 +37,8 @@ This tutorial takes you through the following steps:
 > * Configure the notification hub with APNs information.
 > * Connect your iOS app to a notification hub.
 > * Test the solution.
+
+The complete code for this tutorial can be found [on GitHub](https://github.com/xamcat/mobcat-samples/tree/master/notification_hub_rest).
 
 ## Prerequisites
 
@@ -110,18 +112,18 @@ In this section, you'll build the iOS app that will connect to the notification 
 
 1. Find **Identity** and then set the **Bundle Identifier** value so that it matches `com.<organization>.PushDemo`, which is the value used for the **App ID** from a previous step.
 
-1. Find **Signing**, and then select the appropriate **Team** for your **Apple Developer Account**. The **Team** value should match the one under which you created your certificates and profiles.
+1. Find **Signing & Capabilities**, and then select the appropriate **Team** for your **Apple Developer Account**. The **Team** value should match the one under which you created your certificates and profiles.
 
-1. Xcode should automatically pull down the appropriate **Provisioning Profile** value based on the **Bundle Identifier**. If you don't see the new **Provisioning Profile** value, try refreshing the profiles for the **Signing Identity** by selecting **Xcode** > **Preferences** > **Account** > **View Details**. Select **Signing Identity**, and then select the **Refresh** button in the bottom right to download the profiles.
+1. Xcode should automatically pull down the appropriate **Provisioning Profile** value based on the **Bundle Identifier**. If you don't see the new **Provisioning Profile** value, try refreshing the profiles for the **Signing Identity** by selecting **Xcode** > **Preferences** > **Account** then select the **Download Manual Profiles** button to download the profiles.
 
-1. Select the **Capabilities** tab and ensure that **push notifications** are enabled.
+1. Still on the **Signing & Capabilities** tab, click the **+ Capability** button and double tap on **Push Notifications** from the list to ensure **Push Notifications** are enabled.
 
 1. Open your **AppDelegate.swift** file to implement the **UNUserNotificationCenterDelegate** protocol and add the following code to the top of the class:
 
     ```swift
     @UIApplicationMain
     class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-
+        
         ...
 
         var configValues: NSDictionary?
@@ -130,13 +132,12 @@ In this section, you'll build the iOS app that will connect to the notification 
         var notificationHubKeyName : String?
         var notificationHubKey : String?
         let tags = ["12345"]
-        let genericTemplate = PushTemplate(withBody: "{\"aps\":{\"alert\":\"$(message)\"}}")
-
+        
         ...
     }
     ```
 
-    You'll use these members later. Specifically, you'll use the **tags** and **genericTemplate** members as part of the registration. For more information on tags, see [Tags for registrations](notification-hubs-tags-segment-push-message.md) and [Template registrations](notification-hubs-templates-cross-platform-push-messages.md).
+    You'll use these members later. Specifically, you'll use the **tags** member as part of the registration using a **custom template**. For more information on tags, see [Tags for registrations](notification-hubs-tags-segment-push-message.md) and [Template registrations](notification-hubs-templates-cross-platform-push-messages.md).
 
 1. In the same file, add the following code to the **didFinishLaunchingWithOptions** function:
 
@@ -182,7 +183,8 @@ In this section, you'll build the iOS app that will connect to the notification 
     func showAlert(withText text : String) {
         let alertController = UIAlertController(title: "PushDemo", message: text, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
-        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     ```
 
@@ -207,6 +209,11 @@ In this section, you'll build the iOS app that will connect to the notification 
     ```
 
 1. Add print statements to the bottom of the **didRegisterForRemoteNotificationsWithDeviceToken** function to verify that **installationId** and **pushChannel** are being assigned values.
+
+    ```swift
+    print(installationId)
+    print(pushChannel)
+    ```
 
 1. Create the **Models**, **Services**, and **Utilities** folders for the foundational components you'll be adding to the project later.
 
@@ -309,7 +316,7 @@ To add and configure the bridging header:
 
 1. Update the Target’s **Build Settings** to reference the bridging header:
 
-   1. Open the **Building Settings** tab and scroll down to the **Swift Compiler** section.
+   1. Tap on the **PushDemo** project and scroll down to the **Swift Compiler** section.
 
    1. Ensure that the **Install Objective-C Compatibility Header** option is set to **Yes**.
 
@@ -388,11 +395,25 @@ To add and configure the bridging header:
 
    The [Azure Storage iOS SDK](https://github.com/Azure/azure-storage-ios/blob/master/Lib/Azure%20Storage%20Client%20Library/Azure%20Storage%20Client%20Library/AZSUtil.m) is an excellent example of how to approach these operations in Objective-C. Further information on Azure Service Bus SAS tokens can be found in the [Azure Service Bus documentation](../service-bus-messaging/service-bus-sas.md).
 
+1. In **AppDelegate.swift**, add the following code to the *didRegisterForRemoteNotificationsWithDeviceToken* function to verify that the **TokenUtility.getSasToken** is generating a valid token
+    
+    ```swift
+    let baseAddress = "https://<notificaitonHubNamespace>.servicebus.windows.net/<notifiationHubName>"
+
+    let tokenData = TokenUtility.getSasToken(forResourceUrl: baseAddress,
+                                                withKeyName: self.notificationHubKeyName!,
+                                                andKey: self.notificationHubKey!)
+    
+    print(tokenData.token)
+    ```
+
+    Be sure to replace the placeholder values in the **baseAddress** string with your own
+
 ### Verify the SAS token
 
 Before you implement the installation service in the client, check that our app is correctly generating the SAS token by using your HTTP utility of choice. For the purposes of this tutorial, our tool of choice will be **Postman**.
 
-Use an appropriately placed print statement or breakpoint to note the **installationId** and the **token** values being generated by the app.
+Make a note of the **installationId** and **token** values being generated by the app.
 
 Follow these steps to call the **installations** API:
 
@@ -451,7 +472,8 @@ class NotificationRegistrationService {
     private let keyName : String
     private let key : String
     private var tokenData : TokenData? = nil
-
+    private var tokenExpiryDate : Date? = nil
+    
     init(withInstallationId installationId : String,
             andPushChannel pushChannel : String,
             andHubNamespace hubNamespace : String,
@@ -466,58 +488,67 @@ class NotificationRegistrationService {
         self.key = key
         self.defaultHeaders = ["Content-Type": "application/json", "x-ms-version": apiVersion]
     }
-
+    
     func register(
         withTags tags : [String]? = nil,
         andTemplates templates : Dictionary<String, PushTemplate>? = nil,
         completeWith completion: ((_ result: Bool) -> ())? = nil) {
-
+        
         var deviceInstallation = DeviceInstallation(withInstallationId: installationId, andPushChannel: pushChannel)
-
+        
         if let tags = tags {
             deviceInstallation.tags = tags
         }
-
+        
         if let templates = templates {
             deviceInstallation.templates = templates
         }
-
+        
         if let deviceInstallationJson = encodeToJson(deviceInstallation) {
             let sasToken = getSasToken()
             let requestUrl = String.init(format: tokenizedCreateOrUpdateInstallationRequest, installationId, apiVersion)
             let apiEndpoint = "\(getBaseAddress())\(requestUrl)"
-
+            
             var request = URLRequest(url: URL(string: apiEndpoint)!)
             request.httpMethod = "PUT"
-
+            
             for (key,value) in self.defaultHeaders {
                 request.addValue(value, forHTTPHeaderField: key)
             }
-
+            
             request.addValue(sasToken, forHTTPHeaderField: "Authorization")
             request.httpBody = Data(deviceInstallationJson.utf8)
-
+            
             (self.session.dataTask(with: request) { dat, res, err in
                 if let completion = completion {
-                        completion(err == nil && (res as! HTTPURLResponse).statusCode == 200)
+                        completion(err == nil && 
+                        (res as! HTTPURLResponse).statusCode == 200)
                 }
             }).resume()
         }
     }
-
+    
     private func getBaseAddress() -> String {
         return String.init(format: tokenizedBaseAddress, hubNamespace, hubName)
     }
-
+    
     private func getSasToken() -> String {
         if (tokenData == nil ||
-            Date(timeIntervalSince1970: Double((tokenData?.expiration)!)) < Date(timeIntervalSinceNow: -(5 * 60))) {
-            self.tokenData = TokenUtility.getSasToken(forResourceUrl: getBaseAddress(), withKeyName: self.keyName, andKey: self.key)
+            tokenExpiryDate == nil ||
+            Date() >= tokenExpiryDate!) {
+            
+            self.tokenData = TokenUtility.getSasToken(
+                forResourceUrl: getBaseAddress(),
+                withKeyName: self.keyName,
+                andKey: self.key)
+            
+            self.tokenExpiryDate = Date(timeIntervalSinceNow: -(5 * 60))
+                .addingTimeInterval(TimeInterval(tokenData!.expiration))
         }
 
         return (tokenData?.token)!
     }
-
+    
     private func encodeToJson<T : Encodable>(_ object: T) -> String? {
         do {
             let jsonData = try jsonEncoder.encode(object)
@@ -548,10 +579,11 @@ Finally, **encodeToJson** converts the respective model objects into JSON for us
 
 The last step is updating **AppDelegate** to use **NotificationRegistrationService** to register with our **NotificationHub**.
 
-1. Open **AppDelegate.swift** and add a class-level variable to store a reference to the **NotificationRegistrationService**:
+1. Open **AppDelegate.swift** and add class-level variables to store a reference to the **NoficiationRegistrationService** and the generic **PushTemplate**:
 
     ```swift
     var registrationService : NotificationRegistrationService?
+    let genericTemplate = PushTemplate(withBody: "{\"aps\":{\"alert\":\"$(message)\"}}")
     ```
 
 1. In the same file, update the **didRegisterForRemoteNotificationsWithDeviceToken** function to initialize the **NotificationRegistrationService** with the requisite parameters, and then call the **register** function.
@@ -613,6 +645,8 @@ You can now make the same request as you did previously by using **Postman** for
     }
 }
 ```
+
+If your previous **SAS token** has expired, you can add a **breakpoint** to **line 24** of the **TokenUtility** class to get a new **SAS token** and update the **Authorization** header with that new value.
 
 ### Send a test notification (Azure portal)
 
@@ -688,7 +722,7 @@ You can send notifications via the [REST API](/rest/api/notificationhubs/) by us
 
 1. Select the **Send** button.
 
-You should get a success status code and receive the notification on the client device.
+You should get a **201 Created** success status code and receive the notification on the client device..
 
 ## Next steps
 You now have a basic iOS Swift app connected to a notification hub via the [REST API](/rest/api/notificationhubs/) and can send and receive notifications. For more information, see the following articles:

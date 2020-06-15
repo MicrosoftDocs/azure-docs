@@ -12,6 +12,7 @@ ms.date: 05/22/2019
 # Overview of Insights in Azure Monitor
 Insights provide a customized monitoring experience for particular applications and services. They store data in the [Azure Monitor data platform](../platform/data-platform.md) and leverage other Azure Monitor features for analysis and alerting but may collect additional data and provide a unique user experience in the Azure portal. Access insights from the **Insights** section of the Azure Monitor menu in the Azure portal.
 
+
 The following sections provide a brief description of the insights that are currently available in Azure Monitor. See the detailed documentation for details on each.
 
 ## Application Insights

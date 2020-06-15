@@ -72,11 +72,13 @@ The following list of disks is supported for use with the Import/Export service.
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |
 
 The following disk types are not supported:
+
 - USBs.
 - External HDD with built-in USB adaptor.
 - Disks that are inside the casing of an external HDD.
 
 A single import/export job can have:
+
 - A maximum of 10 HDD/SSDs.
 - A mix of HDD/SSD of any size.
 
@@ -84,9 +86,6 @@ Large number of drives can be spread across multiple jobs and there is no limits
 
 When preparing hard drives and copying the data using the WAImportExport tool, you can use external USB adaptors. Most off-the-shelf USB 3.0 or later adaptors should work.
 
-
 ## Next steps
 
-* [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-* [Azure Import Export REST API sample](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

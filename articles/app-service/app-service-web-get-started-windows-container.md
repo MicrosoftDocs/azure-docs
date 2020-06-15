@@ -3,10 +3,9 @@ title: 'QuickStart: Windows container (Preview)'
 description: Deploy your first custom Windows container to Azure App Service. Take advantage of containerization, customize the Windows container the way you like it. 
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Run a custom Windows container in Azure (Preview)
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
@@ -33,7 +32,7 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
 
-1. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
+1. In **Configure your new project**, name the application _myfirstazurewebapp_, and then select **Create**.
 
    ![Configure your web app project](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -57,7 +56,7 @@ Create an ASP.NET web app by following these steps:
 
 ## Publish to Docker Hub
 
-1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
+1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
 1. Choose **App Service** and then select **Publish**.
 
@@ -141,11 +140,11 @@ The streamed logs looks like this:
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 
-1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and choose **Publish**.
+1. To redeploy to Azure, right-click the **myfirstazurewebapp** project in **Solution Explorer** and choose **Publish**.
 
 1. On the publish page, select **Publish** and wait for publishing to complete.
 

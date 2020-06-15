@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -63,7 +63,8 @@ This type of DBMS deployment is supported for:
 - SQL Server on Windows
 - IBM Db2. Find details in the article [Multiple instances (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - For Oracle. For details see [SAP support note #1778431](https://launchpad.support.sap.com/#/notes/1778431) and related SAP notes
-- For SAP HANA, multiple instances on one VM, SAP calls this deployment method MCOS, is supported. For details see the SAP article [Multiple SAP HANA Systems on One Host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html)
+- For SAP HANA, multiple instances on one VM, SAP calls this deployment method MCOS, is supported. For details see the SAP article [Multiple SAP HANA Systems on One Host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 Running multiple database instances on one host, you need to make sure that the different instances are not competing for resources and thereby exceed the physical resource limits of the VM. This is especially true for memory where you need to cap the memory anyone of the instances sharing the VM can allocate. That also might be true for the CPU resources the different database instances can leverage. All the DBMS mentioned have configurations that allow limiting memory allocation and CPU resources on an instance level.
 In order to have support for such a configuration for Azure VMs, it is expected that the disks or volumes that are used for the data and log/redo log files of the databases managed by the different instances are separate. Or in other words data or log/redo log files of databases managed by different DBMS instance are not supposed to share the same disks or volumes. 
@@ -118,6 +119,8 @@ For Azure VMs, the following high availability configurations are supported on D
 
 > [!IMPORTANT]
 > For none of the scenarios described above, we support configurations of multiple DBMS instances in one VM. Means in each of the cases, only one database instance can be deployed per VM and protected with the described high availability methods. Protecting multiple DBMS instances under the same Windows or Pacemaker failover cluster is **NOT** supported at this point in time. Also Oracle Data Guard is supported for single instance per VM deployment cases only. 
+
+Various database systems allow to host multiple databases under one DBMS instance. As in the case of SAP HANA, multiple databases can be hosted in multiple database containers (MDC). For cases where these multi-database configurations are working within one failover cluster resource, these configurations are supported. Configurations that are not supported are cases where multiple cluster resources would be required. As for configurations where you would define multiple SQL Server Availability Groups, under one SQL Server instance.
 
 
 ![DBMS HA configuration](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
+ms.custom: hdinsightactive
+ms.date: 03/20/2020
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -68,7 +68,7 @@ The important things to understand in the `pom.xml` file are:
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
     * `maven-compiler-plugin`: Used to set the Java version used by the project to 8. Java 8 is required by HDInsight 3.6.
-    * `maven-shade-plugin`: Used to generate an uber jar that contains this application as well as any dependencies. It's also used to set the entry point of the application, so that you can directly run the Jar file without having to specify the main class.
+    * `maven-shade-plugin`: Used to generate an uber jar that contains this application, and any dependencies. It's also used to set the entry point of the application, so that you can directly run the Jar file without having to specify the main class.
 
 ### Stream.java
 
@@ -162,6 +162,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     ```
 
 4. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
+
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
@@ -169,7 +170,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     > [!Note]  
     > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.  
 
-5. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
+5. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account.
 
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
@@ -177,8 +178,8 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-> [!Note]  
-> These commands require Ambari access. If your cluster is behind an NSG, run these commands from a machine that can access Ambari. 
+    > [!Note]  
+    > These commands require Ambari access. If your cluster is behind an NSG, run these commands from a machine that can access Ambari.
 
 6. To create the topics used by the streaming operation, use the following commands:
 

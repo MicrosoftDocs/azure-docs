@@ -1,21 +1,21 @@
 ---
-title: Configure end-to-end SSL with Azure Application Gateway
-description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
+title: Configure end-to-end TLS with Azure Application Gateway
+description: This article describes how to configure end-to-end TLS with Azure Application Gateway by using PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/8/2019
+ms.date: 06/09/2020
 ms.author: victorh
 ---
 
-# Configure end to end SSL by using Application Gateway with PowerShell
+# Configure end to end TLS by using Application Gateway with PowerShell
 
 ## Overview
 
-Azure Application Gateway supports end-to-end encryption of traffic. Application Gateway terminates the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate back-end server based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
+Azure Application Gateway supports end-to-end encryption of traffic. Application Gateway terminates the TLS/SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate back-end server based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
 
-Application Gateway supports defining custom SSL options. It also supports disabling the following protocol versions: **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**, as well defining which cipher suites to use and the order of preference. To learn more about configurable SSL options, see the [SSL policy overview](application-gateway-SSL-policy-overview.md).
+Application Gateway supports defining custom TLS options. It also supports disabling the following protocol versions: **TLSv1.0**, **TLSv1.1**, and **TLSv1.2**, as well defining which cipher suites to use and the order of preference. To learn more about configurable TLS options, see the [TLS policy overview](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
 > SSL 2.0 and SSL 3.0 are disabled by default and cannot be enabled. They are considered unsecure and cannot be used with Application Gateway.
@@ -24,22 +24,22 @@ Application Gateway supports defining custom SSL options. It also supports disab
 
 ## Scenario
 
-In this scenario, you learn how to create an application gateway by using end-to-end SSL with PowerShell.
+In this scenario, you learn how to create an application gateway by using end-to-end TLS with PowerShell.
 
 This scenario will:
 
 * Create a resource group named **appgw-rg**.
 * Create a virtual network named **appgwvnet** with an address space of **10.0.0.0/16**.
 * Create two subnets called **appgwsubnet** and **appsubnet**.
-* Create a small application gateway supporting end-to-end SSL encryption that limits SSL protocol versions and cipher suites.
+* Create a small application gateway supporting end-to-end TLS encryption that limits TLS protocol versions and cipher suites.
 
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To configure end-to-end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to derive a symmetric key as per SSL protocol specification. The symmetric key is then used encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
+To configure end-to-end TLS with an application gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to derive a symmetric key as per TLS protocol specification. The symmetric key is then used encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
-For end-to-end SSL encryption, the back end must be explicitly allowed by the application gateway. Upload the public certificate of the back-end servers to the application gateway. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+For end-to-end TLS encryption, the back end must be explicitly allowed by the application gateway. Upload the public certificate of the back-end servers to the application gateway. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
 The configuration process is described in the following sections.
 
@@ -149,29 +149,31 @@ All configuration items are set before creating the application gateway. The fol
    ```
 
    > [!NOTE]
-   > This sample configures the certificate used for the SSL connection. The certificate needs to be in .pfx format, and the password must be 4 to 12 characters.
+   > This sample configures the certificate used for the TLS connection. The certificate needs to be in .pfx format, and the password must be 4 to 12 characters.
 
-6. Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
+6. Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and TLS/SSL certificate to use.
 
    ```powershell
    $listener = New-AzApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-7. Upload the certificate to be used on the SSL-enabled back-end pool resources.
+7. Upload the certificate to be used on the TLS-enabled back-end pool resources.
 
    > [!NOTE]
-   > The default probe gets the public key from the *default* SSL binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
+   > The default probe gets the public key from the *default* TLS binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
    > 
-   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* SSL binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default SSL binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
+   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* TLS binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default TLS binding on the them. If you do not do so, probes fail and the back end is not allowed.
+   
+   For more information about SNI in Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
-   > The certificate provided in the previous step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
+   > The certificate provided in the previous step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step allows the back end with the application gateway.
 
-   If you are using the Application Gateway v2 SKU, then create a trusted root certificate instead of an authentication certificate. For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+   If you are using the Application Gateway v2 SKU, then create a trusted root certificate instead of an authentication certificate. For more information, see [Overview of end to end TLS with Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 
    ```powershell
    $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
@@ -204,7 +206,7 @@ All configuration items are set before creating the application gateway. The fol
     > [!NOTE]
     > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and is therefore not recommended. Small gateways are to be used for dev test and not for production purposes.
 
-11. Configure the SSL policy to be used on the application gateway. Application Gateway supports the ability to set a minimum version for SSL protocol versions.
+11. Configure the TLS policy to be used on the application gateway. Application Gateway supports the ability to set a minimum version for TLS protocol versions.
 
     The following values are a list of protocol versions that can be defined:
 
@@ -242,7 +244,7 @@ Use this procedure to apply a new certificate if the back-end certificate is exp
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. Add the new certificate resource from the .cer file, which contains the public key of the certificate and can also be the same certificate added to the listener for SSL termination at the application gateway.
+2. Add the new certificate resource from the .cer file, which contains the public key of the certificate and can also be the same certificate added to the listener for TLS termination at the application gateway.
 
    ```powershell
    Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
@@ -295,9 +297,9 @@ Use this procedure to remove an unused expired certificate from HTTP Settings.
    ```
 
    
-## Limit SSL protocol versions on an existing application gateway
+## Limit TLS protocol versions on an existing application gateway
 
-The preceding steps took you through creating an application with end-to-end SSL and disabling certain SSL protocol versions. The following example disables certain SSL policies on an existing application gateway.
+The preceding steps took you through creating an application with end-to-end TLS and disabling certain TLS protocol versions. The following example disables certain TLS policies on an existing application gateway.
 
 1. Retrieve the application gateway to update.
 
@@ -305,14 +307,14 @@ The preceding steps took you through creating an application with end-to-end SSL
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Define an SSL policy. In the following example, **TLSv1.0** and **TLSv1.1** are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
+2. Define a TLS policy. In the following example, **TLSv1.0** and **TLSv1.1** are disabled and the cipher suites **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, and **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** are the only ones allowed.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-3. Finally, update the gateway. This last step is a long-running task. When it is done, end-to-end SSL is configured on the application gateway.
+3. Finally, update the gateway. This last step is a long-running task. When it is done, end-to-end TLS is configured on the application gateway.
 
    ```powershell
    $gw | Set-AzApplicationGateway

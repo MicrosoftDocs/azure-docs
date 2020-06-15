@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -40,11 +40,11 @@ This topic gives you guidance on how to encode your content with Media Services 
 
 To encode with Media Services v3, you need to create a [Transform](https://docs.microsoft.com/rest/api/media/transforms) and a [Job](https://docs.microsoft.com/rest/api/media/jobs). The transform defines a recipe for your encoding settings and outputs; the job is an instance of the recipe. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
-When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content.
+When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. In Media Services v3, you use Standard Encoder to encode your files. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content.
 
 You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](customize-encoder-presets-how-to.md).
 
-Starting with January 2019, when encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
+Starting with January 2019, when encoding with the Standard  Encoder to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
 
 > [!NOTE]
 > You shouldn't modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
@@ -96,7 +96,10 @@ The following presets are currently supported:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: produces a single MP4 file containing only stereo audio encoded at 192 kbps.
 - **EncoderNamedPreset.AdaptiveStreaming** (recommended): For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncodingExperimental**: exposes an experimental preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [Experimental preset for content-aware encoding](content-aware-encoding.md).
+- **EncoderNamedPreset.ContentAwareEncoding**: exposes a preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [content-aware encoding](content-aware-encoding.md).
+
+  > [!NOTE]
+  > Make sure to use **ContentAwareEncoding** not  ContentAwareEncodingExperimental.
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: produces a set of eight GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: produces a set of six GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD**: produces a set of five GOP-aligned MP4 files, ranging from 1600 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p.

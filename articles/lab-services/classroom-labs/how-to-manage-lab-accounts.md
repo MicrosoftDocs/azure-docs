@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.author: spelluru
 
 ---
-# Manage lab accounts in Azure Lab Services 
+# Create and manage lab accounts
 In Azure Lab Services, a lab account is a container for managed lab types such as classroom labs. An administrator sets up a lab account with Azure Lab Services and provides access to lab owners who can create labs in the account. This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
 ## Create a lab account
@@ -41,7 +41,10 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     1. Select an existing **shared image gallery** or create one. You can save the template VM in the shared image gallery for it to be reused by others. For detailed information on shared image galleries, see [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Specify whether you want to **automatically shut down Windows virtual machines** when users disconnect from them. Specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
     3. For **Peer virtual network**, select a peer virtual network (VNet) for the lab network. Labs created in this account are connected to the selected VNet and have access to the resources in the selected VNet. For more information, see [Connect your lab's virtual network with a peer virtual network](how-to-connect-peer-virtual-network.md).    
-    8. Specify an **address range** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)  
+    8. Specify an **address range** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
+
+        > [!NOTE]
+        > The **address range** property applies only if a **peer virtual network** is enabled for the lab.
 
         ![Create lab account -> Advanced](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../../azure-resource-manager/management/tag-resources.md).
@@ -70,28 +73,6 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
     ![All resources -> Lab Accounts](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
 
-## View and manage labs in the lab account
-
-1. On the **Lab Account** page, select **All labs** on the left menu.
-
-    ![Labs in the account](../media/how-to-manage-lab-accounts/labs-in-account.png)
-1. You see a **list of labs** in the account with the following information: 
-    1. Name of the lab.
-    2. The date on which the lab was created. 
-    3. Email address of the user who created the lab. 
-    4. Maximum number of users allowed into the lab. 
-    5. Status of the lab. 
-    6. Role assignments. 
-
-## Delete a lab in the lab account
-Follow instructions in the previous section to see a list of the labs in the lab account.
-
-1. Select **... (ellipsis)**, and select **Delete**. 
-
-    ![Delete a lab - button](../media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. Select **Yes** on the warning message. 
-
-    ![Confirm lab deletion](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## Delete a lab account
 Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
@@ -109,11 +90,4 @@ Follow instructions from the previous section that displays lab accounts in a li
 > You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
-See the following articles:
-
-- [Allow lab creator to pick lab location](allow-lab-creator-pick-lab-location.md)
-- [Connect your lab's network with a peer virtual network](how-to-connect-peer-virtual-network.md)
-- [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
-- [Add a user as a lab owner](how-to-add-user-lab-owner.md)
-- [View firewall settings for a lab](how-to-configure-firewall-settings.md)
-- [Configure other settings for a lab](how-to-configure-lab-accounts.md)
+See other articles in the **How-to guides** -> **Create and configure lab accounts (lab account owner)** section of the table-of-content (TOC). 

@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: tzvikei
-author: tsikiksr
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 02/04/2020
+ms.date: 03/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -20,6 +20,8 @@ ms.date: 02/04/2020
 In this tutorial, you learn how to create a basic classification model without writing a single line of code using Azure Machine Learning's automated machine learning interface. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
+
+For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
 
 In this tutorial, you learn how to do the following tasks:
 
@@ -50,7 +52,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 You complete the following experiment set-up and run steps  via Azure Machine learning at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. This interface is not supported on Internet Explorer browsers.
 
-1. Sign in to Azure Machine Learning at https://ml.azure.com.
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. Select your subscription and the workspace you created.
 
@@ -199,9 +201,9 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 ### Delete the deployment instance
 
-Delete just the deployment instance from Azure Machine Learning at https://ml.azure.com/ , if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from Azure Machine Learning at https:\//ml.azure.com/, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to Azure Machine Learning at https://ml.azure.com/. Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
+1. Go to [Azure Machine Learning](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
@@ -219,8 +221,9 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 > [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
-+ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.+ Learn more about [featurization](how-to-create-portal-experiments.md#featurization).
-+ Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
++ Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
 
 
 >[!NOTE]

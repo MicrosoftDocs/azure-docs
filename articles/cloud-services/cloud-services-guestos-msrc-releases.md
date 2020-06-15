@@ -3,41 +3,194 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: yohaddad
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/20/2020
-ms.author: raiye
+ms.date: 6/12/2020
+ms.author: yohaddad
 ---
+
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## February 2020 Guest OS
+## June 2020 Guest OS
+">[!NOTE]
+>The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change."
 
->[!NOTE]
->The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change.
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537813]  |  Windows Security | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537794]  |  Windows Security | 3.82 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537803]  |  Windows Security | 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537764]  |  Latest Cumulative Update(LCU) | 5.4 | Feb 11, 2020 |
-|  Rel 20-02 |  [4532691]  |  Latest Cumulative Update(LCU) | 6.16 | Feb 11, 2020 |
-|  Rel 20-02 |  [4534310]  |  Monthly Rollup | 2.85 | Jan 14, 2020 |
-|  Rel 20-02 |  [4536952]  |  Servicing Stack update(SSU) | 2.85 | Jan 14, 2020 |
-|  Rel 20-02 |  [4537829]  |  Servicing Stack update(SSU) | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4538483]  |  Extended security updates(ESU) | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537820]  |  Monthly Rollup | 2.85 | Feb 11, 2020 |
-|  Rel 20-02 |  [4537759]  |  Security Update(Flash) | 3.82, 4.75 | Feb 11, 2020 |
-|  Rel 20-02 |  [4534283]  |  Monthly Rollup | 3.82 | Jan 14, 2020 |
-|  Rel 20-02 |  [4532920]  |  Servicing Stack update(SSU) | 3.82 | Dec 10, 2020 |
-|  Rel 20-02 |  [4534297]  |  Non-Security | 4.75 | Jan 14, 2020 |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Latest Cumulative Update(LCU)  |  5.44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Latest Cumulative Update(LCU)  |  6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Servicing Stack update  |  2.99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Monthly Rollup  |  2.99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Servicing Stack update  |  3.86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Monthly Rollup  |  3.86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  3.86, 4.79, 5.44, 6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Servicing Stack update  |  4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Monthly Rollup  |  4.79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Servicing Stack update  |  5.44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Servicing Stack update  |  6.20  |  Jun 9, 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
+
+## May 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2.98],  [3.85], [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556813]  |  Latest Cumulative Update(LCU)   |  [5.43]  |  May 12, 2020  |
+|  Rel 20-05  |  [4551853]  |  Latest Cumulative Update(LCU)   |  [6.19]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552940]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556836]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4555449]  |  Servicing Stack update   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552920]  |  Monthly Rollup   |  [2.98]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552979]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556840]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552947]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552982]  |  Monthly Rollup   |  [3.85]  |  May 12, 2020  |
+|  Rel 20-05  |  [4552946]  |  Monthly Rollup   |  [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4556846]  |  Monthly Rollup   |  [4.78]  |  May 12, 2020  |
+|  Rel 20-05  |  [4550994]  |  Servicing Stack update   |  [5.43]  |  Apr 14, 2020  |
+|  Rel 20-05  |  [4552924]  |  Monthly Rollup   |  [6.19]  |  May 12, 2020  |
+|  Rel 20-05  |  [4549947]  |  Servicing Stack update   |  [6.19]  |  Apr 14, 2020  |
+
+
+[4556798]: https://support.microsoft.com/kb/4556798
+[4556813]: https://support.microsoft.com/kb/4556813
+[4551853]: https://support.microsoft.com/kb/4551853
+[4552940]: https://support.microsoft.com/kb/4552940
+[4556836]: https://support.microsoft.com/kb/4556836
+[4555449]: https://support.microsoft.com/kb/4555449
+[4552920]: https://support.microsoft.com/kb/4552920
+[4552979]: https://support.microsoft.com/kb/4552979
+[4556840]: https://support.microsoft.com/kb/4556840
+[4552947]: https://support.microsoft.com/kb/4552947
+[4552982]: https://support.microsoft.com/kb/4552982
+[4552946]: https://support.microsoft.com/kb/4552946
+[4556846]: https://support.microsoft.com/kb/4556846
+[4550994]: https://support.microsoft.com/kb/4550994
+[4552924]: https://support.microsoft.com/kb/4552924
+[4549947]: https://support.microsoft.com/kb/4549947
+[2.98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
+
+## April 2020 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-04   |  [4550965]  |  Windows Security   |  [2.97]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550971]  |  Windows Security   |  [3.84]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550970]  |  Windows Security   |  [4.77]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4550929]  |  Latest Cumulative Update(LCU)   |  [5.42]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4549949]  |  Latest Cumulative Update(LCU)   |  [6.18]  |  Apr 14, 2020  |
+|  Rel 20-04   |  [4540688]  |  Monthly Rollup   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4550735]  |  Servicing Stack update   |  [2.97]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540726]  |  Servicing Stack update   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541510]  |  Monthly Rollup   |  [3.84]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4541509]  |  Monthly Rollup   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540725]  |  Servicing Stack update   |  [4.77]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4540723]  |  Servicing Stack update   |  [5.42]  |  Mar 10, 2020  |
+|  Rel 20-04   |  [4539571]  |  Servicing Stack update   |  [6.18]  |  Mar 10, 2020  |
+
+
+[4550965]: https://support.microsoft.com/kb/4550965
+[4550905]: https://support.microsoft.com/kb/4550905
+[4550971]: https://support.microsoft.com/kb/4550971
+[4550970]: https://support.microsoft.com/kb/4550970
+[4550929]: https://support.microsoft.com/kb/4550929
+[4549949]: https://support.microsoft.com/kb/4549949
+[4540688]: https://support.microsoft.com/kb/4540688
+[4550735]: https://support.microsoft.com/kb/4550735
+[4540726]: https://support.microsoft.com/kb/4540726
+[4541510]: https://support.microsoft.com/kb/4541510
+[4541509]: https://support.microsoft.com/kb/4541509
+[4540725]: https://support.microsoft.com/kb/4540725
+[4540723]: https://support.microsoft.com/kb/4540723
+[4539571]: https://support.microsoft.com/kb/4539571
+[2.97]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.84]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.42]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.18]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
+
+## March 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-03  |  [4541500]  |  Windows Security  | [2.96] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540671]  |  Internet Explorer  | [2.96], [3.83], [4.76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540694]  |  Windows Security  | [3.83] | Mar 10, 2020 |
+|  Rel 20-03  |  [4541505]  |  Windows Security  | [4.76] | Mar 10, 2020 |
+|  Rel 20-03  |  [4540670]  |  Latest Cumulative Update(LCU)  | [5.41] | Mar 10, 2020 |
+|  Rel 20-03  |  [4538461]  |  Latest Cumulative Update(LCU)  | [6.17] | Mar 10, 2020 |
+|  Rel 20-03  |  [4537820]  |  Monthly Rollup  | [2.96] | Feb 11, 2020 |
+|  Rel 20-03  |  [4537814]  |  Monthly Rollup  | [3.83] | Feb 11, 2020 |
+|  Rel 20-03  |  [4537821]  |  Monthly Rollup  | [4.76] | Feb 11, 2020 |
+
+[4541500]: https://support.microsoft.com/kb/4541500 
+[4540671]: https://support.microsoft.com/kb/4540671 
+[4540694]: https://support.microsoft.com/kb/4540694 
+[4541505]: https://support.microsoft.com/kb/4541505 
+[4540670]: https://support.microsoft.com/kb/4540670 
+[4538461]: https://support.microsoft.com/kb/4538461 
+[4537820]: https://support.microsoft.com/kb/4537820  
+[4537814]: https://support.microsoft.com/kb/4537814 
+[4537821]: https://support.microsoft.com/kb/4537821 
+
+[6.17]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.41]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.96]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
+
+## February 2020 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-02  |  [4537767]  |  Internet Explorer  |  [2.95], [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537813]  |  Windows Security  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537794]  |  Windows Security  |  [3.82]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537803]  |  Windows Security  |  [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537764]  |  Latest Cumulative Update(LCU)  |  [5.40]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4532691]  |  Latest Cumulative Update(LCU)  |  [6.16]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534310]  |  Monthly Rollup  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4536952]  |  Servicing Stack update(SSU)  |  [2.95]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4537829]  |  Servicing Stack update(SSU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4538483]  |  Extended security updates(ESU)  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537820]  |  Monthly Rollup  |  [2.95]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4537759]  |  Security Update(Flash)  |  [3.82], [4.75]  |  Feb 11, 2020  |
+|  Rel 20-02  |  [4534283]  |  Monthly Rollup  |  [3.82]  |  Jan 14, 2020  |
+|  Rel 20-02  |  [4532920]  |  Servicing Stack update(SSU)  |  [3.82]  |  Dec 10, 2020  |
+|  Rel 20-02  |  [4534297]  |  Non-Security  |  [4.75]  |  Jan 14, 2020  |
 
 [4537767]: https://support.microsoft.com/kb/4537767
 [4537813]: https://support.microsoft.com/kb/4537813
@@ -54,6 +207,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4534283]: https://support.microsoft.com/kb/4534283
 [4532920]: https://support.microsoft.com/kb/4532920
 [4534297]: https://support.microsoft.com/kb/4534297
+
+[6.16]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.40]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.75]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.95]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## January 2020 Guest OS

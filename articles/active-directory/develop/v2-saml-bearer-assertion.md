@@ -2,17 +2,12 @@
 title: Microsoft identity platform & SAML bearer assertion flow | Azure
 description: Learn how to fetch data from Microsoft Graph without prompting the user for credentials using the SAML bearer assertion flow.
 services: active-directory
-documentationcenter: ''
 author: umeshbarapatre
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: ryanwi

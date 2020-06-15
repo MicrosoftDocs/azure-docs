@@ -26,17 +26,21 @@
     href: permissions.md
   - name: Configure Alerts for recommendations
     href: advisor-alerts.md
+  - name: Bulk remediation for recommendations
+    href: advisor-quick-fix.md
+  - name: Advisor data in Azure Resource Graph
+    href: advisor-azure-resource-graph.md
 - name: Reference
   items:
   - name: Security Center
     href: https://azure.microsoft.com/services/security-center/
-  - name: SQL DB Advisor
+  - name: SQL Database Advisor
     href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
   - name: App Service
     href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
   - name: REST API
     href: https://docs.microsoft.com/rest/api/advisor/
-  - name: CLI
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
   - name: PowerShell
     href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0

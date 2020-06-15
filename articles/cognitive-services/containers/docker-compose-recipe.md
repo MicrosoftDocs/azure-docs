@@ -3,13 +3,13 @@ title: Use Docker Compose to deploy multiple containers
 titleSuffix: Azure Cognitive Services
 description: Learn how to deploy multiple Cognitive Services containers. This article shows you how to orchestrate multiple Docker container images by using Docker Compose.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 #As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Brendan Walsh

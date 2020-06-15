@@ -84,7 +84,6 @@ Additionally, you should:
 
 - Read and implement this [guidance on addressing unusual activities](https://aka.ms/fixaccount). 
 - [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
-- Use this [script to enable mailbox auditing](https://aka.ms/mailboxaudit1) for all your accounts. 
 - Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 ## Next steps

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
@@ -23,6 +23,9 @@ This article highlights best practices, recommendations, and common oversights w
 If you’re just getting started, check out the [Microsoft identity platform documentation](index.yml) to learn about authentication basics, application scenarios in the Microsoft identity platform, and more.
 
 Use the following checklist to ensure that your application is effectively integrated with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> The *Integration assistant* in the Azure portal can help you apply many of these best practices and recommendations. Select any of your [app registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in the Azure portal, and then select the **Integration assistant (preview)** menu item to get started with the assistant.
 
 ## Basics
 
@@ -53,7 +56,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 |   |   |
 |---|---|
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Manage your redirect URIs: <ul><li>Maintain ownership of all your redirect URIs and keep the DNS records for them up-to-date.</li><li>Don't use wildcards (*) in your URIs.</li><li>For web apps, make sure all URIs are secure and encrypted (for example, using https schemes).</li><li>For public clients, use platform-specific redirect URIs if applicable (mainly for iOS and Android). Otherwise, use redirect URIs with a high amount of randomness to prevent collisions when calling back to your app.</li><li>If your app is being used from an isolated web agent, you may use https://login.microsoftonline.com/common/oauth2/nativeclient.</li><li>Review and trim all unused or unnecessary redirect URIs on a regular basis.</li></ul> |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Manage your redirect URIs: <ul><li>Maintain ownership of all your redirect URIs and keep the DNS records for them up-to-date.</li><li>Don't use wildcards (*) in your URIs.</li><li>For web apps, make sure all URIs are secure and encrypted (for example, using https schemes).</li><li>For public clients, use platform-specific redirect URIs if applicable (mainly for iOS and Android). Otherwise, use redirect URIs with a high amount of randomness to prevent collisions when calling back to your app.</li><li>If your app is being used from an isolated web agent, you may use `https://login.microsoftonline.com/common/oauth2/nativeclient`.</li><li>Review and trim all unused or unnecessary redirect URIs on a regular basis.</li></ul> |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If your app is registered in a directory, minimize and manually monitor the list of app registration owners. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don't enable support for the [OAuth2 implicit grant flow](v2-oauth2-implicit-grant-flow.md) unless explicitly required. Learn about the valid scenario [here](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Move beyond username/password. Don't use [resource owner password credential flow (ROPC)](v2-oauth-ropc.md), which directly handles users’ passwords. This flow requires a high degree of trust and user exposure and should only be used when other, more secure, flows can't be used. This flow is still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application.  For more modern approaches, read [Authentication flows and application scenarios](authentication-flows-app-scenarios.md).|

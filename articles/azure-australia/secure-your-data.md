@@ -1,11 +1,11 @@
 ---
 title: Data security in Azure Australia
 description: Configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: Galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Data security in Azure Australia

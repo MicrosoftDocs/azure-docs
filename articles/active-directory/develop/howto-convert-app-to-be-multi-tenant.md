@@ -6,12 +6,11 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/19/2020
+ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
@@ -172,7 +171,7 @@ In this article, you learned how to build an application that can sign in a user
 
 ## Related content
 
-* [Multi-tenant application sample](https://github.com/mspnp/multitenant-saas-guidance)
+* [Multi-tenant application sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]

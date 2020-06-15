@@ -32,7 +32,7 @@ The following table describes the types of storage accounts and their capabiliti
 
 <div id="encryption"><sup>2</sup>All storage accounts are encrypted using Storage Service Encryption (SSE) for data at rest. For more information, see <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Azure Storage Service Encryption for Data at Rest</a>.</div><br/>
 
-<div id="archive"><sup>3</sup>The Archive tier is available at level of an individual blob only, not at the storage account level. Only block blobs and append blobs can be archived. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob storage: Hot, Cool, and Archive storage tiers</a>.</div><br/>
+<div id="archive"><sup>3</sup> Archive storage and blob-level tiering only support block blobs. The Archive tier is available at the level of an individual blob only, not at the storage account level. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob storage: Hot, Cool, and Archive storage tiers</a>.</div><br/>
 
 <div id="zone-redundant-storage"><sup>4</sup>Zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS/RA-GZRS) (preview) are available only for standard general-purpose V2, BlockBlobStorage, and FileStorage accounts in certain regions. For more information about Azure Storage redundancy options, see <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage redundancy</a>.</div><br/>
 

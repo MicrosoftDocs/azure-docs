@@ -5,32 +5,32 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.custom: hdinsightactive
+ms.date: 04/16/2020
 ---
 
 # Create virtual networks for Azure HDInsight clusters
 
-This article provides examples and code samples for creating and configuring [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) for use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented. 
+This article provides examples and code samples for creating and configuring [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). To use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented.
 
 For background information on using virtual networks with Azure HDInsight, see [Plan a virtual network for Azure HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## Prerequisites for code samples and examples
 
-Before executing any of the code samples in this article, ou should have an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, consult someone who is before making modifications to production networks.
+Before executing any of the code samples in this article, have an understanding of TCP/IP networking. If you aren't familiar with TCP/IP networking, consult someone before making modifications to production networks.
 
-Other prerequisites for the samples in this article include the following:
+Other prerequisites for the samples in this article include the following items:
 
-* If you are using PowerShell, you will need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
-* If you want to use Azure CLI and have not yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If you're using PowerShell, you'll need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## <a id="hdinsight-nsg"></a>Example: network security groups with HDInsight
 
-The examples in this section demonstrate how to create network security group rules that allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you are using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+The examples in this section demonstrate how to create network security group rules. The rules allow HDInsight to communicate with the Azure management services. Before using the examples, adjust the IP addresses to match the ones for the Azure region you're using. You can find this information in [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
 
 ### Azure Resource Management template
 
@@ -146,7 +146,7 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-This example demonstrates how to add rules to allow inbound traffic on the required IP addresses. It does not contain a rule to restrict inbound access from other sources. The following code demonstrates how to enable SSH access from the Internet:
+This example demonstrates how to add rules to allow inbound traffic on the required IP addresses. It doesn't contain a rule to restrict inbound access from other sources. The following code demonstrates how to enable SSH access from the Internet:
 
 ```powershell
 Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
@@ -197,7 +197,6 @@ Use the following steps to create a virtual network that restricts inbound traff
 
     Once this command completes, you can install HDInsight into the Virtual Network.
 
-
 These steps only open access to the HDInsight health and management service on the Azure cloud. Any other access to the HDInsight cluster from outside the Virtual Network is blocked. To enable access from outside the virtual network, you must add additional Network Security Group rules.
 
 The following code demonstrates how to enable SSH access from the Internet:
@@ -233,7 +232,7 @@ On the custom DNS server in the virtual network:
     az network nic list --resource-group RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
+1. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
     ```
     // Forward requests for the virtual network suffix to Azure recursive resolver
@@ -247,7 +246,7 @@ On the custom DNS server in the virtual network:
 
     This configuration routes all DNS requests for the DNS suffix of the virtual network to the Azure recursive resolver.
 
-2. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.options` file:
+1. On the custom DNS server for the virtual network, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
     ```
     // Clients to accept requests from
@@ -283,9 +282,9 @@ On the custom DNS server in the virtual network:
     
     * Replace the value `192.168.0.1` with the IP address of your on-premises DNS server. This entry routes all other DNS requests to the on-premises DNS server.
 
-3. To use the configuration, restart Bind. For example, `sudo service bind9 restart`.
+1. To use the configuration, restart Bind. For example, `sudo service bind9 restart`.
 
-4. Add a conditional forwarder to the on-premises DNS server. Configure the conditional forwarder to send requests for the DNS suffix from step 1 to the custom DNS server.
+1. Add a conditional forwarder to the on-premises DNS server. Configure the conditional forwarder to send requests for the DNS suffix from step 1 to the custom DNS server.
 
     > [!NOTE]  
     > Consult the documentation for your DNS software for specifics on how to add a conditional forwarder.
@@ -321,7 +320,7 @@ This example makes the following assumptions:
     // Forward requests for the virtual network suffix to Azure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
-	    forwarders {10.0.0.4;}; # The IP address of the DNS server in the other virtual network
+        forwarders {10.0.0.4;}; # The IP address of the DNS server in the other virtual network
     };
     ```
 
@@ -346,7 +345,7 @@ This example makes the following assumptions:
             allow-query { goodclients; };
 
             forwarders {
-            168.63.129.16;   # Azure recursive resolver         
+            168.63.129.16;   # Azure recursive resolver
             };
 
             dnssec-validation auto;
@@ -355,10 +354,10 @@ This example makes the following assumptions:
             listen-on { any; };
     };
     ```
-    
+
    Replace the `10.0.0.0/16` and `10.1.0.0/16` values with the IP address ranges of your virtual networks. This entry allows resources in each network to make requests of the DNS servers.
 
-    Any requests that are not for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
+    Any requests that aren't for the DNS suffixes of the virtual networks (for example, microsoft.com) is handled by the Azure recursive resolver.
 
 4. To use the configuration, restart Bind. For example, `sudo service bind9 restart` on both DNS servers.
 
@@ -366,7 +365,7 @@ After completing these steps, you can connect to resources in the virtual networ
 
 ## Next steps
 
-* For an end-to-end example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
+* For a complete example of configuring HDInsight to connect to an on-premises network, see [Connect HDInsight to an on-premises network](./connect-on-premises-network.md).
 * For configuring Apache HBase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
 * For configuring Apache HBase geo-replication, see [Set up Apache HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).

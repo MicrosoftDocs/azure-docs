@@ -8,6 +8,7 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
+manager: lizross
 ---
 # Prepare and customize a master VHD image
 
@@ -52,16 +53,16 @@ If you create a VM from an existing VHD, it creates a dynamic disk by default. I
 You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
 
 ```powershell
-Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
+Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
 ## Software preparation and installation
 
 This section covers how to prepare and install FSLogix and Windows Defender, as well as some basic configuration options for apps and your image's registry. 
 
-If you're installing Office 365 ProPlus and OneDrive on your VM, go to [Install Office on a master VHD image](install-office-on-wvd-master-image.md) and follow the instructions there to install the apps. After you're done, return to this article.
+If you're installing Microsoft 365 Apps for enterprise and OneDrive on your VM, go to [Install Office on a master VHD image](install-office-on-wvd-master-image.md) and follow the instructions there to install the apps. After you're done, return to this article.
 
-If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
+If your users need to access certain LOB applications, we recommend you install them after completing this section's instructions.
 
 ### Set up user profile container (FSLogix)
 
@@ -130,7 +131,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### Include additional language support
 
-This article doesn’t cover how to configure language and regional support. For more information, see the following articles:
+This article doesn't cover how to configure language and regional support. For more information, see the following articles:
 
 - [Add languages to Windows images](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Features on demand](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -177,19 +178,19 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don’t already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
 
-1. Convert the VM image (VHD) to Fixed if you haven’t already. If you don’t convert the image to Fixed, you can't successfully create the image.
+1. Convert the VM image (VHD) to Fixed if you haven't already. If you don't convert the image to Fixed, you can't successfully create the image.
 
 2. Upload the VHD to a blob container in your storage account. You can upload quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
     ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
-3. Next, go to the Azure portal in your browser and search for “Images.” Your search should lead you to the **Create image** page, as shown in the following screenshot:
+3. Next, go to the Azure portal in your browser and search for "Images." Your search should lead you to the **Create image** page, as shown in the following screenshot:
 
     ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
-4. Once you’ve created the image, you should see a notification like the one in the following screenshot:
+4. Once you've created the image, you should see a notification like the one in the following screenshot:
 
     ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
@@ -197,7 +198,7 @@ The following instructions will tell you how to upload your master image into an
 
 Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
 
-- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Create a host pool with an Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)

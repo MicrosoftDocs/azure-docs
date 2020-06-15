@@ -2,7 +2,7 @@
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 05/02/2020
 
 ---
 
@@ -10,17 +10,17 @@ ms.date: 10/17/2019
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/app/alerts.md), set the [pricing scheme](pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/platform/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
 ## One-time setup
 If you haven't used PowerShell with your Azure subscription before:
 
-Install the Azure Powershell module on the machine where you want to run the scripts:
+Install the Azure PowerShell module on the machine where you want to run the scripts:
 
 1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
-2. Use it to install Microsoft Azure Powershell.
+2. Use it to install Microsoft Azure PowerShell.
 
 In addition to using Resource Manager templates, there is a rich set of [Application Insights PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights), which make it easy to configure Application Insights resources programatically. The capabilities enabled by the cmdlets include:
 
@@ -83,20 +83,20 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "defaultValue": 90,
                 "allowedValues": [
                     30,
-					60,
-					90,
-					120,
-					180,
-					270,
-					365,
-					550,
-					730
+                    60,
+                    90,
+                    120,
+                    180,
+                    270,
+                    365,
+                    550,
+                    730
                 ],
                 "metadata": {
                     "description": "Data retention in days"
                 }
             },
-			"ImmediatePurgeDataOn30Days": {
+            "ImmediatePurgeDataOn30Days": {
                 "type": "bool",
                 "defaultValue": false,
                 "metadata": {
@@ -225,7 +225,21 @@ Additional properties are available via the cmdlets:
 
 Refer to the [detailed documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
-## Set the data retention 
+## Set the data retention
+
+Below are three methods to programmatically set the data retention on an Application Insights resource.
+
+### Setting data retention using a PowerShell commands
+
+Here's a simple set of PowerShell commands to set the data retention for your Application Insights resource:
+
+```PS
+$Resource = Get-AzResource -ResourceType Microsoft.Insights/components -ResourceGroupName MyResourceGroupName -ResourceName MyResourceName
+$Resource.Properties.RetentionInDays = 365
+$Resource | Set-AzResource -Force
+```
+
+### Setting data retention using REST
 
 To get the current data retention for your Application Insights resource, you can use the OSS tool [ARMClient](https://github.com/projectkudu/ARMClient).  (Learn more about ARMClient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Here's an example using `ARMClient`, to get the current retention:
 
@@ -247,6 +261,8 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -retentionInDays 365 `
        -appName myApp
 ```
+
+### Setting data retention using a PowerShell script
 
 The following script can also be used to change retention. Copy this script to save as `Set-ApplicationInsightsRetention.ps1`.
 
@@ -303,9 +319,9 @@ This script can then be used as:
 ```PS
 Set-ApplicationInsightsRetention `
         [-SubscriptionId] <String> `
-		[-ResourceGroupName] <String> `
-		[-Name] <String> `
-		[-RetentionInDays <Int>]
+        [-ResourceGroupName] <String> `
+        [-Name] <String> `
+        [-RetentionInDays <Int>]
 ```
 
 ## Set the daily cap
@@ -453,5 +469,4 @@ Other automation articles:
 * [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Deploy to Azure from GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

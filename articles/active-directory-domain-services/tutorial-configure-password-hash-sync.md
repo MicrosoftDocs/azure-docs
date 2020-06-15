@@ -40,7 +40,7 @@ To complete this tutorial, you need the following resources:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
     * If needed, [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
 ## Password hash synchronization using Azure AD Connect
 
@@ -66,7 +66,7 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
 
     In this example screenshot, the following connectors are used:
 
-    * The Azure AD connector is named *aaddscontoso.onmicrosoft.com - AAD*
+    * The Azure AD connector is named *contoso.onmicrosoft.com - AAD*
     * The on-premises AD DS connector is named *onprem.contoso.com*
 
 1. Copy and paste the following PowerShell script to the computer with Azure AD Connect installed. The script triggers a full password sync that includes legacy password hashes. Update the `$azureadConnector` and `$adConnector` variables with the connector names from the previous step.
@@ -95,7 +95,7 @@ With Azure AD Connect installed and configured to synchronize with Azure AD, now
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the Azure AD DS managed domain after they've synchronized to Azure AD.
+    Depending on the size of your directory in terms of number of accounts and groups, synchronization of the legacy password hashes to Azure AD may take some time. The passwords are then synchronized to the managed domain after they've synchronized to Azure AD.
 
 ## Next steps
 

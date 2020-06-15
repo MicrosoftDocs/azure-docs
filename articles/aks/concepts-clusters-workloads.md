@@ -61,9 +61,9 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
+The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale out the number of nodes in your AKS cluster to meet demand.
 
-In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
+In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
 
 If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
@@ -84,7 +84,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 - **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
 
-| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
@@ -92,7 +92,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This is a reactive action once available memory decreases beyond the 750Mi threshold.
 
-2. The second value is a progressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
+2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
     - 20% of the next 4 GB of memory (up to 8 GB)
     - 10% of the next 8 GB of memory (up to 16 GB)
@@ -114,7 +114,7 @@ For associated best practices, see [Best practices for basic scheduler features 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
 > [!NOTE]
-> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
+> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool.
 
 When you scale or upgrade an AKS cluster, the action is performed against the default node pool. You can also choose to scale or upgrade a specific node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
@@ -122,7 +122,7 @@ For more information about how to use multiple node pools in AKS, see [Create an
 
 ### Node selectors
 
-In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes. Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
 
 The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
 
@@ -200,11 +200,7 @@ For more information, see [Kubernetes deployments][kubernetes-deployments].
 
 A common approach to managing applications in Kubernetes is with [Helm][helm]. You can build and use existing public Helm *charts* that contain a packaged version of application code and Kubernetes YAML manifests to deploy resources. These Helm charts can be stored locally, or often in a remote repository, such as an [Azure Container Registry Helm chart repo][acr-helm].
 
-To use Helm, a server component called *Tiller* is installed in your Kubernetes cluster. The Tiller manages the installation of charts within the cluster. The Helm client itself is installed locally on your computer, or can be used within the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster.
-
-![Helm includes a client component and a server-side Tiller component that creates resources inside the Kubernetes cluster](media/concepts-clusters-workloads/use-helm.png)
-
-For more information, see [Install applications with Helm in Azure Kubernetes Service (AKS)][aks-helm].
+To use Helm, install the Helm client on your computer, or use the Helm client in the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster. For more information, see [Install existing applications with Helm in AKS][aks-helm].
 
 ## StatefulSets and DaemonSets
 

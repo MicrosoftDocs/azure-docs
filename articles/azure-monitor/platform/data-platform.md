@@ -4,7 +4,7 @@ description: Monitoring data collected by Azure Monitor is separated into metric
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
+
 
 ms.topic: conceptual
 ms.tgt_pltfrm: na

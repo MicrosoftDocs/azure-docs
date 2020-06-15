@@ -2,13 +2,13 @@
 title: "Quickstart: Recognize speech stored in blob storage - Speech service"
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/13/2020
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 You'll need to replace the following values:

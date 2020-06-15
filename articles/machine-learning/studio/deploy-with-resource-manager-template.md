@@ -5,7 +5,7 @@ description: How to deploy a workspace for Azure Machine Learning Studio (classi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -79,10 +79,10 @@ Save this template as mlworkspace.json file under c:\temp\.
 * Install modules for Azure Resource Manager and Azure Service Management
 
 ```powershell
-# Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
+# Install the Azure Resource Manager modules from the PowerShell Gallery (press "A")
 Install-Module Az -Scope CurrentUser
 
-# Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
+# Install the Azure Service Management modules from the PowerShell Gallery (press "A")
 Install-Module Azure -Scope CurrentUser
 ```
 
@@ -107,7 +107,7 @@ $rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central
 $rg
 ```
 
-Verify that the resource group is correctly provisioned. **ProvisioningState** should be “Succeeded.”
+Verify that the resource group is correctly provisioned. **ProvisioningState** should be "Succeeded."
 The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
 ![Resource Group](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)

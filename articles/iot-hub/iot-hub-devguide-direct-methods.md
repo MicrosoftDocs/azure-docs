@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
+ms.custom: [amqp, mqtt]
 ---
 
 # Understand and invoke direct methods from IoT Hub
@@ -45,7 +46,7 @@ Now, invoke a direct method from a back-end app.
 
 Direct method invocations on a device are HTTPS calls that are made up of the following items:
 
-* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/invokedevicemethod):
+* The *request URI* specific to the device along with the [API version](/rest/api/iothub/service/devicemethod/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -75,11 +76,19 @@ The value provided as `connectTimeoutInSeconds` in the request is the amount of 
 
 #### Example
 
-See below for a barebone example using `curl`. 
+This example will allow you to securely initiate a request to invoke a Direct Method on an IoT device registered to an Azure IoT Hub.
+
+To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature. 
+
+```bash
+az iot hub generate-sas-token -n <iothubName> -du <duration>
+```
+
+Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.  
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -92,6 +101,14 @@ curl -X POST \
 }'
 ```
 
+Execute the modified command to invoke the specified Direct Method. Successful requests will return an HTTP 200 status code.
+
+> [!NOTE]
+> The above example demonstrates invoking a Direct Method on a device.  If you wish to invoke a Direct Method in an IoT Edge Module, you would need to modify the url request as shown below:
+
+```bash
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+```
 ### Response
 
 The back-end app receives a response that is made up of the following items:
@@ -173,9 +190,9 @@ The AMQP message arrives on the receive link that represents the method request.
 
 The device creates a sending link to return the method response on address `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-The method’s response is returned on the sending link and is structured as follows:
+The method's response is returned on the sending link and is structured as follows:
 
-* The correlation ID property, which contains the request ID passed in the method’s request message.
+* The correlation ID property, which contains the request ID passed in the method's request message.
 
 * An application property named `IoThub-status`, which contains the user supplied method status.
 

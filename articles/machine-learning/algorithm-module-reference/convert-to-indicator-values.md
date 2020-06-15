@@ -36,7 +36,7 @@ This module also outputs a definition of the transformation used to convert to i
     >  If you choose the option to overwrite, the source column is not actually deleted or modified. Instead, the new columns are generated and presented in the output dataset, and the source column remains available in the workspace. 
     > If you need to see the original data, you can use the [Add Columns](add-columns.md) module at any time to add the source column back in.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Results
 
@@ -85,7 +85,7 @@ If you need to repeat indicator values operations often, you can save your data 
 
    When you apply a saved transformation, you cannot select which columns to transform. This is because the transformation has been defined and applies automatically to the data types specified in the original operation.
 
-1. Run the pipeline.
+1. Submit the pipeline.
  
 ## Technical notes  
 

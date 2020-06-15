@@ -2,7 +2,7 @@
 title: New Azure portal app registration training guide
 description: Introduces the new Azure portal App registration experience
 services: active-directory
-author: archieag
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.author: aragra
+ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ---

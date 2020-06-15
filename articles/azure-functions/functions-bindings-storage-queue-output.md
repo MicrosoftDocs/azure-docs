@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47
+ms.custom: cc996988-fb4f-47, tracking-python
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -119,7 +119,7 @@ Here's the *function.json* file:
     {
       "type": "queue",
       "direction": "out",
-      "name": "$return",
+      "name": "myQueueItem",
       "queueName": "outqueue",
       "connection": "MyStorageConnectionAppSetting"
     }
@@ -133,7 +133,8 @@ Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
-    context.done(null, input.body);
+    context.bindings.myQueueItem = input.body;
+    context.done();
 };
 ```
 
