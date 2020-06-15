@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Routes in Azure Static Web Apps Preview
 
-Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs. The rules are defined as an array of rules in the _routes.json_ file.
+Routing in Azure Static Web Apps defines back-end routing rules and authorization behavior for both static content and APIs<sup>1</sup>. The rules are defined as an array of rules in the _routes.json_ file.
 
 - The _routes.json_ file must exist at the root of app's build artifact folder.
 - Rules are executed in the order as they appear in the `routes` array.
@@ -224,9 +224,9 @@ The following examples describe what happens when a request matches a rule.
 |Requests to...  | Result in... |
 |---------|---------|---------|
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
-| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>1</sup>. Unauthenticated users redirected to _/login_. |
+| _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>2</sup>. Unauthenticated users redirected to _/login_. |
 | _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
-| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>1</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
+| _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>2</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
 | _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
 | _/.auth/login/twitter_     | Authorization with Twitter is disabled. The server responds with a 404 error. |
 | _/logout_     | Users are logged out of any authentication provider. |
@@ -234,7 +234,9 @@ The following examples describe what happens when a request matches a rule.
 | _/specials_ | The browser is redirected to _/deals_. |
 | _/unknown-folder_     | The _/custom-404.html_ file is served. |
 
-<sup>1</sup> You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array.
+<sup>1</sup> Route rules for API functions only support [redirects](#redirects) and [securing routes with roles](#securing-routes-with-roles).
+
+<sup>2</sup> You can provide a custom error page by defining a `Unauthorized_MissingRoles` rule in the `platformErrorOverrides` array.
 
 ## Restrictions
 
