@@ -36,8 +36,12 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: IPsec policies
-    href: virtual-wan-ipsec.md
+  - name: Site-to-site
+    items:
+    - name: About IPsec policies
+      href: virtual-wan-ipsec.md
+    - name: Multiple ISP links - Azure path selection
+      href: path-selection-multiple-links.md
 - name: How-to guides
   items:
   - name: Connect virtual network gateway to Virtual WAN
@@ -58,8 +62,6 @@
     items:
     - name: Create a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
-    - name: Multiple ISP links - Azure path selection
-      href: path-selection-multiple-links.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection

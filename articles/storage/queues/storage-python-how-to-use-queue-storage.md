@@ -18,6 +18,9 @@ ms.custom: seo-javascript-october2019, tracking-python
 
 This article demonstrates common scenarios using the Azure Queue storage service. The scenarios covered include inserting, peeking, getting, and deleting queue messages, and creating and deleting queues.
 
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for Python. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for Python](storage-quickstart-queues-python.md)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview

@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 05/12/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -90,6 +90,12 @@ Refer to the following list to configure managed identity for Azure Container Re
 
 - [Azure CLI](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
+### Azure Data Explorer
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | Not available | Not available | Not available | Not available |
 
 ### Azure Data Factory V2
 
@@ -104,6 +110,22 @@ Refer to the following list to configure managed identity for Azure Data Factory
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+
+
+### Azure Event Grid 
+
+Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Not available | Not available | Not available |
+| User assigned | Not available | Not available  | Not available  | Not available |
+
+
+
+
+
+
+
 
 
 ### Azure Functions
@@ -236,7 +258,14 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [REST](qs-configure-rest-vm.md)
 
 
+### Azure VM Image Builder
 
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Not Available | Not Available | Not Available | Not Available | 
+| User assigned | [Available in supported regions](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#regions) | Not Available | Not Available | Not Available |
+
+To learn how to configure managed identity for Azure VM Image Builder (in regions where available), see the [Image Builder overview](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#permissions).
 
 ## Azure services that support Azure AD authentication
 

@@ -2,8 +2,8 @@
 title: Verify port security in the built-in firewall 
 description: Learn how to verify built-in firewall protection in Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
