@@ -5,13 +5,13 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2019
+ ms.date: 06/15/2020
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
 
-If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the `--debug` switch with CLI and the `-Debug` switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
 ## Unable to create a shared image gallery
