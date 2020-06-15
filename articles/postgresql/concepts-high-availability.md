@@ -16,8 +16,8 @@ Azure Database for PostgreSQL is suitable for running mission critical databases
 
 | **Component** | **Description**|
 | ------------ | ----------- |
-| <b>PostgreSQL Database Server | Azure Database for PostgreSQL provides security, isolation, resource safeguards, and fast restart capability for database servers. This facilitates operations such as scaling and database server recovery operation after an outage to happen in seconds. <br/> Data modifications in the database server typically occur in the context of a database transaction. All database changes are recorded synchronously in the form of write ahead logs (WAL) on Azure Storage – which is attached to the database server. During the database [checkpoint](https://www.postgresql.org/docs/11/sql-checkpoint.html) process, data pages from the database server memory are also flushed to the storage. |
-| <b>Remote Storage | All PostgreSQL physical data files and WAL files are stored on Azure Storage, which is architected to store three copies of data within a region to ensure redundancy, high availability, and reliability. The storage layer is also independent of the database server. It can be detached from a failed database server and reattached to a new database server within few seconds which helps with fast recovery. Also, Azure Storage continuously monitors for any storage faults, and if any block corruption is detected, it is automatically fixed by instantiating a new storage copy. |
+| <b>PostgreSQL Database Server | Azure Database for PostgreSQL provides security, isolation, resource safeguards, and fast restart capability for database servers. These capabilities facilitate operations such as scaling and database server recovery operation after an outage to happen in seconds. <br/> Data modifications in the database server typically occur in the context of a database transaction. All database changes are recorded synchronously in the form of write ahead logs (WAL) on Azure Storage – which is attached to the database server. During the database [checkpoint](https://www.postgresql.org/docs/11/sql-checkpoint.html) process, data pages from the database server memory are also flushed to the storage. |
+| <b>Remote Storage | All PostgreSQL physical data files and WAL files are stored on Azure Storage, which is architected to store three copies of data within a region to ensure redundancy, high availability, and reliability. The storage layer is also independent of the database server. It can be detached from a failed database server and reattached to a new database server within few seconds. Also, Azure Storage continuously monitors for any storage faults. If a block corruption is detected, it is automatically fixed by instantiating a new storage copy. |
 | <b>Gateway | The Gateway acts as a database proxy, routes all client connections to the database server. |
 
 ## Planned Downtime Mitigation
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL is architected to provide high availability during
 
 ![view of Elastic Scaling in Azure PostgreSQL](./media/concepts-high-availability/elastic-scaling.png)
 
-Here are are planned maintenance scenarios:
+Here are some planned maintenance scenarios:
 
 | **Scenario** | **Description**|
 | ------------ | ----------- |
