@@ -731,7 +731,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No | No |
 
 > [!NOTE]
-> You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with Set-AzVm -Generalized or z vm generalize.
+> You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
 
 ## Microsoft.Consumption
 
