@@ -58,7 +58,7 @@ If you want to access blob containers or queues, you can attach to those resourc
 1. Open the Connect dialog.
 2. Select "Add a resource via Azure Active Directory (Azure AD). Click Next.
 3. Select the user account and tenant associated with the resource you're attaching to. Click Next.
-4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connect. Click Next. Click Connect.
+4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Click Next. Click Connect.
 
 For other resource types, we don't currently have an RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
