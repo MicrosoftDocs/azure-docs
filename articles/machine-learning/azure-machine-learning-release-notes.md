@@ -55,7 +55,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Support user selected datastore to store profiling data
     + Added expand and page_count property for model list API
     + Fixed bug where removing the overwrite property will cause the submitted run to fail with deserialization error.
-    + Fixed inconsistent folder structure when downloading or mounting a FileDataset referencing a single file.
+    + Fixed inconsistent folder structure when downloading or mounting a FileDataset referencing to a single file.
     + Loading a dataset of parquet files to_spark_dataframe is now faster and supports all parquet and Spark SQL datatypes.
     + Support getting logs of init container.
     + AutoML runs are now marked as child run of Parallel Run Step.
