@@ -84,7 +84,7 @@ Set of conditions which must be met for a rule to execute. Rules condition can b
 1. Updated parameters: one or more parameter values were updated as a result of processing the current input (utterance/activity).
 1. Confirmation was successful: input utterance/activity was a successful confirmation (yes).
 1. Confirmation was denied: input utterance/activity was a successful confirmation (no).
-1. Previous command needs to be updated : ???????
+1. Previous command needs to be updated : this condition is used in instances when you want to catch a negated confirmation along with an update. Behind the scenes, this is configured for when the dialog engine detects a negative confirmation where the intent is the same as the previous turn, and the user has responded with an update.
 
 ### Actions
 1. Send speech response: send a speech response back to the client.
