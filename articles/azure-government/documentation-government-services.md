@@ -4,17 +4,13 @@ description: This article provides an overview of the available services in Azur
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/06/2019
-ms.author: gsacavdm
 
 ---
 # Available services in Azure Government

@@ -2,14 +2,14 @@
 title: Linked sign-on for Azure AD apps - Microsoft identity platform
 description: Configure linked single sign-on (SSO) to your Azure AD enterprise applications in Microsoft identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---

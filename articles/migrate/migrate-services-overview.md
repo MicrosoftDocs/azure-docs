@@ -10,12 +10,10 @@ ms.custom: mvc
 
 This article provides a quick overview of the Azure Migrate service.
 
-Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data.
-
-Azure Migrate provides the following features:
+Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. It provides the following:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
-- **Range of tools**: A range of tools for assessment and migration. Tools include Azure Migrate: Server Assessment and Azure Migrate: Server Migration. Azure Migrate integrates with other Azure services and with other tools and independent software vendor (ISV) offerings.
+- **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Server Assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
 - **Assessment and migration**: In the Azure Migrate hub, you can assess and migrate:
     - **Servers**: Assess on-premises servers and migrate them to Azure virtual machines.
     - **Databases**: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
@@ -77,15 +75,12 @@ Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance
 
 The Azure Migrate: Server Migration tool helps you migrate to Azure:
 
-- On-premises VMware VMs
-- Hyper-V VMs
-- Physical servers
-- Other virtualized machines
-- Public cloud VMs
+**Migrate** | **Details**
+--- | ---
+On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, Server Migration uses an Azure Migrate appliance that you deploy on-premises. It's the same type of appliance you use for Server Assessment.<br/><br/> For agent-based migration, Server Assessment uses a replication appliance.
+On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> Server Assessment uses provider agents installed on Hyper-V host for the migration.
+On-premises physical servers | You can migrate physical machines to Azure. You can also migrate other virtualized machines, and VMs from other public clouds, by treating them as virtual machines for the purpose of migration. | Server Assessment uses a replication appliance for the migration.
 
-You can migrate machines after assessing them or migrate them without an assessment.
-
-For agentless migration of VMware VMs and migration of Hyper-V VMs, Server Migration uses an Azure Migrate appliance that you deploy on-premises. The appliance is also used if you set up server assessment. It's described in the previous section.
 
 ## Selecting assessment and migration tools
 
