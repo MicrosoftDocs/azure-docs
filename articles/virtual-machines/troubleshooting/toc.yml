@@ -100,6 +100,8 @@
       href: unresponsive-vm-apply-windows-update.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
+    - name: VM is unresponsive when applying security policy
+      href: unresponsive-vm-apply-security-policy.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
