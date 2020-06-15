@@ -2,7 +2,7 @@
 title: Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring of a Kubernetes cluster with Azure Monitor hosted on Azure Red Hat OpenShift version 4 and higher.
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/15/2020
 ---
 
 # Configure Azure Red Hat OpenShift v4.x with Azure Monitor for containers
