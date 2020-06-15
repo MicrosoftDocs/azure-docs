@@ -203,7 +203,8 @@
         "articles/service-fabric-mesh/*.md": "athinanthny",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/**/*.md": "Juliako",
-        "articles/media-services/**/**/*.md": "Juliako"        
+        "articles/media-services/**/**/*.md": "Juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -502,7 +503,8 @@
         "articles/service-health/*.md": "stbaron",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/*.md": "juliako",
-        "articles/media-services/**/*.md": "juliako"	      
+        "articles/media-services/**/*.md": "juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
         "articles/batch/**/*.md": "batch",
@@ -546,7 +548,8 @@
         "articles/aks/**/*.md": "container-service",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/media-services/*.md": "media-services",
-        "articles/media-services/**/*.md": "media-services"
+        "articles/media-services/**/*.md": "media-services",
+        "articles/azure-government/**/*.md": "azure-government"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -717,7 +720,8 @@
         "articles/media-services/latest/*.md": "Azure Media Services v3",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/media-services/azure-media-player/*.md": "Azure Media Player",
-        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge"
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
+        "articles/azure-government/**/*.md": "Azure Government"
       },
       "featureFlags": {
         "articles/**/*.md": [

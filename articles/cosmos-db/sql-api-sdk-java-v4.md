@@ -43,7 +43,7 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 | |  |
 |---|---|
 | **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**API documentation** | [Java API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1-beta.3/index.html) |
+|**API documentation** | [Java API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html) |
 |**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
 |**Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) · [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Basic code samples** | [Azure Cosmos DB: Java examples for the SQL API](sql-api-java-sdk-samples.md) · [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
@@ -57,8 +57,11 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 
 ## Release history
 
-### 4.0.1-beta.4 (unreleased)
-#### New features
+### 4.0.1 (2020-06-10)
+#### New Features
+* Renamed `QueryRequestOptions` to `CosmosQueryRequestOptions`.
+* Updated `ChangeFeedProcessorBuilder` to builder pattern.
+* Updated `CosmosPermissionProperties` with new container name and child resources APIs.
 * Added more samples & enriched docs to `CosmosClientBuilder`. 
 * Updated `CosmosDatabase` & `CosmosContainer` APIs with throughputProperties for autoscale/autopilot support. 
 * Renamed `CosmosClientException` to `CosmosException`. 
@@ -75,9 +78,8 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Added `getETag()` & `getTimestamp()` APIs to `Cosmos*Properties` types. 
 * Added `userAgent` information in `CosmosException` & `CosmosDiagnostics`. 
 * Updated new line character in `Diagnostics` to System new line character. 
-
-### 4.0.1-beta.3 (2020-05-15)
-#### New features
+* Removed `readAll*` APIs, use query select all APIs instead.
+* Added `ChangeFeedProcessor` estimate lag API.   
 * Added autoscale/autopilot throughput provisioning support to SDK.  
 * Replaced `ConnectionPolicy` with new connection configs. Exposed `DirectConnectionConfig` & `GatewayConnectionConfig` APIs through `CosmosClientBuilder` for Direct & Gateway mode connection configurations.
 * Moved `JsonSerializable` & `Resource` to implementation package. 
@@ -87,12 +89,6 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Renamed `preferredLocations` & `multipleWriteLocations` API to `preferredRegions` & `multipleWriteRegions`. 
 * Updated `reactor-core` to 3.3.5.RELEASE, `reactor-netty` to 0.9.7.RELEASE & `netty` to 4.1.49.Final versions. 
 * Added support for `analyticalStoreTimeToLive` in SDK.     
-#### Key bug fixes
-* Fixed socket leak issues with Direct TCP client.
-* Fixed `orderByQuery` with continuation token bug.
-
-### 4.0.1-beta.2 (2020-04-21)
-#### New features
 * `CosmosClientException` extends `AzureException`. 
 * Removed `maxItemCount` & `requestContinuationToken` APIs from `FeedOptions` instead using `byPage()` APIs from `CosmosPagedFlux` & `CosmosPagedIterable`.
 * Introduced `CosmosPermissionProperties` on public surface for `Permission` APIs.
@@ -102,13 +98,8 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Removed external dependencies on `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text`.  
 * Moved `CosmosPagedFlux` & `CosmosPagedIterable` to `utils` package. 
 * Updated netty to 4.1.45.Final & project reactor to 3.3.3 version.
-* Updated public rest contracts to `Final` classes. 
-#### Key bug fixes
-* `ChangeFeedProcessor` bug fix for handling partition splits & when partition not found.
-* `ChangeFeedProcessor` bug fix when synchronizing lease updates across different threads.
-
-### 4.0.1-beta.1 (2020-03-10)
-#### New features 
+* Updated public rest contracts to `Final` classes.
+* Added support for advanced Diagnostics for point operations.
 * Updated package to `com.azure.cosmos`
 * Added `models` package for model / rest contracts
 * Added `utils` package for `CosmosPagedFlux` & `CosmosPagedIterable` types. 
@@ -117,7 +108,16 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * `RetryOptions` renamed to `ThrottlingRetryOptions`.
 * Added `CosmosPagedFlux` & `CosmosPagedIterable` pagination types for query APIs. 
 * Added support for sharing TransportClient across multiple instances of CosmosClients using a new API in the `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
-#### Key bug fixes
+* Query Optimizations by removing double serialization / deserialization. 
+* Response Headers optimizations by removing unnecessary copying back and forth. 
+* Optimized `ByteBuffer` serialization / deserialization by removing intermediate String instantiations.
+#### Key Bug Fixes
+* Fixed ConnectionPolicy `toString()` Null Pointer Exception.
+* Fixed issue with parsing of query results in case of Value order by queries. 
+* Fixed socket leak issues with Direct TCP client.
+* Fixed `orderByQuery` with continuation token bug.
+* `ChangeFeedProcessor` bug fix for handling partition splits & when partition not found.
+* `ChangeFeedProcessor` bug fix when synchronizing lease updates across different threads.
 * Fixed race condition causing `ArrayIndexOutOfBound` exception in StoreReader
 
 ## FAQ

@@ -2,7 +2,7 @@
 title: Migrate from SQL Server to Azure SQL Managed Instance
 description: Learn how to migrate a database from SQL Server to Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
