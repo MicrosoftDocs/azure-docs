@@ -35,7 +35,7 @@ If there are any associated changes with the event, you'll see a list of changes
 You can also access Activity log events using PowerShell, CLI, and REST API.
 
 - Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
-- Use [az monitor activity-log](https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
+- Use [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
 
 
@@ -49,7 +49,7 @@ You can also access Activity log events using PowerShell, CLI, and REST API.
 - Store Activity log entries for longer than 90 days.
 - No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
 
-[Create a diagnostic setting](diagnostic-setting.md) to collect the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
+[Create a diagnostic setting](diagnostic-settings.md) to collect the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
 
 ### Retreiving data
 Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
