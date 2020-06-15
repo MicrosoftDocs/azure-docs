@@ -6,7 +6,7 @@
     href: overview.md
   - name: Supported editions and features
     href: features.md
-  - name: Relesae Notes
+  - name: Release Notes
     href: release-notes.md
 - name: Quickstarts
   expanded: true
@@ -71,7 +71,7 @@
         href: sys-external-streaming-jobs.md
       - name: sys.external_streams (Transact-SQL)
         href: sys-external-streams.md
-  - name: Processing timeseries data
+  - name: Processing time series data
     items:
     - name: Date_Bucket (Transact-SQL)
       href: date-bucket-tsql.md
