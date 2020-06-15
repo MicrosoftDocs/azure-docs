@@ -62,7 +62,6 @@ When viewing a private cloud in the portal, select **Connectivity > ExpressRoute
  
 Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see [Create your support request](#create-your-support-request) below).
  
-## Collect error or failure messages
  
 > [!NOTE]
 > On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the [Collect a summary of errors](#collect-a-summary-of-errors) 
