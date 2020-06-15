@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/18/2020
+ms.date: 06/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -121,7 +121,7 @@ Follow these steps to download role assignments at a scope.
 
 1. Click **Access control (IAM)**.
 
-1. Click **Download role assignments** to open the Download role assignments pane.
+1. Click **Download role assignments (preview)** to open the Download role assignments pane.
 
     ![Access control - Download role assignments](./media/role-assignments-list-portal/download-role-assignments.png)
 
@@ -142,8 +142,6 @@ Follow these steps to download role assignments at a scope.
     ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
     ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
-
-
 
 ## List role assignments for a system-assigned managed identity
 
