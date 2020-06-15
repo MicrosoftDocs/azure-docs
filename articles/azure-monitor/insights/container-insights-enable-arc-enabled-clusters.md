@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/15/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -170,7 +170,7 @@ Perform the following steps to enable monitoring using the provided bash script.
 
     ```bash
     export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
-    ``` 
+    ```
 
 5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server.
 
@@ -210,24 +210,20 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 ## Configure proxy endpoint
 
-With the containerized agent for Azure Monitor for containers, you can configure a proxy endpoint to allow it to communicate through the proxy. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
+With the containerized agent for Azure Monitor for containers, you can configure a proxy endpoint to allow it to communicate through your proxy server. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
 
-The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]`
+The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]` The *protocol* property accepts `http` or `https`, and the *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
 
-|Property |Description |
-|---------|------------|
-|protocol |HTTP or HTTPS |
-|user |Username for proxy authentication |
-|password |Password for proxy authentication |
-|proxyhost | Address or FQDN of the proxy server |
-|port |Port number for the proxy server |
+For example: `https://proxy01.contoso.com:30443`
+
+If authentication is required in either case, you need to specify the username and password.
 
 For example: `http://user01:password@proxy01.contoso.com:8080`
 
 > [!NOTE]
 >If your proxy server does not require authentication, you still need to specify a psuedo user/password. This can be any username or password.
 
-If you specify the protocol as **HTTP**, HTTP requests are created using SSL/TLS secure connection. The proxy server must support SSL/TLS.
+If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/15/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -13,7 +13,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 The following is officially supported with Azure Monitor for containers.
 
-- Environments: 
+- Environments:
 
     - Kubernetes on-premises
     

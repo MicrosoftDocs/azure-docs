@@ -2,7 +2,7 @@
 title: How to stop monitoring your hybrid Kubernetes cluster | Microsoft Docs
 description: This article describes how you can stop monitoring of your hybrid Kubernetes cluster with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 06/15/2020
 
 ---
 
