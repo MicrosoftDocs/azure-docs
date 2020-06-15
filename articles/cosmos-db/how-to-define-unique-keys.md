@@ -6,6 +6,8 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
+ms.custom: tracking-python
+
 ---
 
 # Define unique keys for an Azure Cosmos container

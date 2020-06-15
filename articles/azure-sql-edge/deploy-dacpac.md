@@ -2,8 +2,8 @@
 title: Using SQL Database DAC packages - Azure SQL Edge (Preview)
 description: Learn about using dacpacs in Azure SQL Edge (Preview)
 keywords: SQL Edge, sqlpackage
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha

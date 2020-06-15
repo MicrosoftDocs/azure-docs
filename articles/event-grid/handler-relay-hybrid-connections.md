@@ -22,5 +22,24 @@ See the following tutorial for an example of using an Azure Relay hybrid connect
 |---------|---------|
 | [Tutorial: send events to hybrid connection](custom-event-to-hybrid-connection.md) | Sends a custom event to an existing hybrid connection for processing by a listener application. |
 
+## REST example (for PUT)
+
+```json
+{
+	"properties": 
+	{
+		"destination": 
+		{
+			"endpointType": "HybridConnection",
+			"properties": 
+			{
+				"resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Relay/namespaces/<RELAY NAMESPACE NAME>/hybridconnections/<HYBRID CONNECTION NAME>"
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
+
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

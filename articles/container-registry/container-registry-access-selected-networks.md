@@ -1,8 +1,8 @@
 ---
-title: Configure service firewall rules
+title: Configure public registry access
 description: Configure IP rules to enable access to an Azure container registry from selected public IP addresses or address ranges.
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 05/19/2020
 ---
 
 # Configure public IP network rules
@@ -54,24 +54,46 @@ az acr network-rule add \
 
 ## Disable public network access
 
-To limit traffic to virtual networks using [Private Link](container-registry-private-link.md), disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations.
+Optionally, disable the public endpoint on the registry. Disabling the public endpoint overrides all firewall configurations. For example, you might want to disable public access to a registry secured in a virtual network using [Private Link](container-registry-private-link.md).
 
-### Disable public access - Portal
+### Disable public access - CLI
+
+To disable public access using the Azure CLI, run [az acr update][az-acr-update] and set `--public-network-enabled` to `false`. 
+
+> [!NOTE]
+> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled false
+```
+
+### Disable public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. On the **Public access** tab, in **Allow public access**, select **Disabled**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **Disabled**. Then select **Save**.
 
 ![Disable public access][acr-access-disabled]
 
-## Restore default registry access
 
-To restore the registry to allow access by default, update the default action. 
+## Restore public network access
 
-### Restore default registry access - portal
+To re-enable the public endpoint, update the networking settings to allow public access. Enabling the public endpoint overrides all firewall configurations. 
+
+### Restore public access - CLI
+
+Run [az acr update][az-acr-update] and set `--public-network-enabled` to `true`. 
+
+> [!NOTE]
+> The `public-network-enabled` argument requires Azure CLI 2.6.0 or later. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled true
+```
+
+### Restore public access - portal
 
 1. In the portal, navigate to your container registry and select **Settings > Networking**.
-1. Under **Firewall**, select each address range, and then select the Delete icon.
-1. On the **Public access** tab, in **Allow public access**, select **All networks**. Then select **Save**.
+1. On the **Public access** tab, in **Allow public network access**, select **All networks**. Then select **Save**.
 
 ![Public access from all networks][acr-access-all-networks]
 

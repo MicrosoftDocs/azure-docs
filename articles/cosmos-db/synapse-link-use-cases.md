@@ -59,7 +59,7 @@ The following is some guidance for data integration for batch & streaming data i
 
   * Write code-free ETL pipelines to Azure Cosmos DB including [relational-to-hierarchical and hierarchical-to-hierarchical mappings with mapping data flows](../data-factory/how-to-sqldb-to-cosmosdb.md).
 
-* **Streaming data integration & processing:** With the growth of Industrial IoT (sensors tracking assets from ‘floor-to-store’, connected logistics fleets, etc.), there is an explosion of real-time data being generated in a streaming fashion that needs to be integrated with traditional slow moving data for generating insights. Azure Stream Analytics is a recommended service for streaming ETL and processing on Azure with a [wide range of scenarios](../stream-analytics/streaming-technologies.md). Azure Stream Analytics supports [Azure Cosmos DB as a native data sink](../stream-analytics/stream-analytics-documentdb-output.md).
+* **Streaming data integration & processing:** With the growth of Industrial IoT (sensors tracking assets from 'floor-to-store', connected logistics fleets, etc.), there is an explosion of real-time data being generated in a streaming fashion that needs to be integrated with traditional slow moving data for generating insights. Azure Stream Analytics is a recommended service for streaming ETL and processing on Azure with a [wide range of scenarios](../stream-analytics/streaming-technologies.md). Azure Stream Analytics supports [Azure Cosmos DB as a native data sink](../stream-analytics/stream-analytics-documentdb-output.md).
 
 ## Real-time personalization
 
@@ -102,13 +102,13 @@ Azure Synapse Link enables Azure Cosmos DB to not just power transactional workl
 The following image shows workload patterns using Azure Cosmos DB:
 ![Azure Synapse Link for Azure Cosmos DB workload patterns](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-Let us take the example of an e-commerce company CompanyXYZ with global operations across 20 countries to illustrate the benefits of choosing Azure Cosmos DB as the single real-time database powering both transactional and analytical requirements of an inventory management platform.
+Let us take the example of an e-commerce company CompanyXYZ with global operations across 20 countries/regions to illustrate the benefits of choosing Azure Cosmos DB as the single real-time database powering both transactional and analytical requirements of an inventory management platform.
 
-* CompanyXYZ’s core business depends on the inventory management system – hence availability & reliability are core pillar requirements. Benefits of using Azure Cosmos DB:
+* CompanyXYZ's core business depends on the inventory management system – hence availability & reliability are core pillar requirements. Benefits of using Azure Cosmos DB:
 
   * By virtue of deep integration with Azure infrastructure and transparent multi-master global replication, Azure Cosmos DB provides industry-leading [99.999% high availability](high-availability.md) against regional outages.
 
-* CompanyXYZ’s supply chain partners may be in separate geographic locations but they may have to see a single view of the product inventory across the globe to support their local operations. This includes the need to be able to read updates made by other supply chain partners in real time. As well as being able to make updates without worrying about conflicts with other partners at high throughput. Benefits of using Azure Cosmos DB:
+* CompanyXYZ's supply chain partners may be in separate geographic locations but they may have to see a single view of the product inventory across the globe to support their local operations. This includes the need to be able to read updates made by other supply chain partners in real time. As well as being able to make updates without worrying about conflicts with other partners at high throughput. Benefits of using Azure Cosmos DB:
 
   * With its unique multi-master replication protocol and latch-free, write-optimized transactional store, Azure Cosmos DB guarantees less than 10-ms latencies for both indexed reads and writes at the 99th percentile globally.
 
@@ -116,9 +116,9 @@ Let us take the example of an e-commerce company CompanyXYZ with global operatio
 
   * Azure Cosmos DB transactional store provides three more options than the two extremes of strong and eventual consistency levels to achieve the [availability vs performance tradeoffs](consistency-levels-tradeoffs.md) closest to the business need.
 
-* CompanyXYZ’s supply chain partners have highly fluctuating traffic patterns ranging from hundreds to millions of requests/s and thus the inventory management platform needs to deal with unexpected burstiness in traffic.  Benefits of using Azure Cosmos DB:
+* CompanyXYZ's supply chain partners have highly fluctuating traffic patterns ranging from hundreds to millions of requests/s and thus the inventory management platform needs to deal with unexpected burstiness in traffic.  Benefits of using Azure Cosmos DB:
 
-  * Azure Cosmos DB’s transactional store supports elastic scalability of storage and throughput using horizontal partitioning. Containers and databases configured in Autopilot mode can automatically and instantly scale the provisioned throughput based on the application needs without impacting the availability, latency, throughput, or performance of the workload globally.
+  * Azure Cosmos DB's transactional store supports elastic scalability of storage and throughput using horizontal partitioning. Containers and databases configured in Autopilot mode can automatically and instantly scale the provisioned throughput based on the application needs without impacting the availability, latency, throughput, or performance of the workload globally.
 
 * CompanyXYZ needs to establish a secure analytics platform to house system-wide historical inventory data to enable analytics and insights across supply chain partner, business units and functions. The analytics platform needs to enable collaboration across the system, traditional BI/reporting use cases, advanced analytics use cases and predictive intelligent solutions over the operational inventory data. Benefits of using Synapse Link for Azure Cosmos DB:
 

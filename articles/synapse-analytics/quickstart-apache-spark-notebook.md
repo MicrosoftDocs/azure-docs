@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Synapse Analytics workspace](quickstart-create-workspace.md)
-- [Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
 
 ## Sign in to the Azure portal
 
@@ -128,7 +128,9 @@ Structured Query Language (SQL) is the most common and widely used language for 
 
 ## Clean up resources
 
-Azure Synapse saves your data in Azure Data Lake Storage. You can safely allow a Spark instance to shut down when it's not in use. You are charged for an Azure Synapse Apache Spark pool as long as it's running, even when it's not in use. The charges for the pool are many times more than the charges for storage. As such, it makes economic sense to let Spark instances shut down when they are not in use.
+Azure Synapse saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for an Azure Synapse Apache Spark pool as long as it is running, even when it is not in use. 
+
+Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.
 
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **end session** from the status bar at the bottom of the notebook.
 

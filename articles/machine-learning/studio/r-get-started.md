@@ -4,7 +4,7 @@ description: Use this R programming tutorial to get started with Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -12,8 +12,6 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ---
 # Get started with Azure Machine Learning Studio (classic) in R
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
 In this tutorial, you learn how to use ML Studio (classic) to create, test and execute R code. In the end, you will have a complete forecasting solution.  

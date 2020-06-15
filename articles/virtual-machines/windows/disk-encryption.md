@@ -88,9 +88,6 @@ For now, customer-managed keys have the following restrictions:
 1. Create an instance of Azure Key Vault and encryption key.
 
     When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
-
-    > [!IMPORTANT]
-    > Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
     
     ```powershell
     $ResourceGroupName="yourResourceGroupName"
@@ -118,12 +115,8 @@ For now, customer-managed keys have the following restrictions:
         > [!NOTE]
         > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
         
-        ```powershell
-        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-         
+        ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-         
-        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
         ```
 
 #### Create a VM using a Marketplace image, encrypting the OS and data disks with customer-managed keys

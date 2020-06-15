@@ -2,14 +2,14 @@
 title: Skip deletion of out of scope users
 description: Learn how to override the default behavior of de-provisioning out of scope users.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2019
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
 ---
 # Skip deletion of user accounts that go out of scope

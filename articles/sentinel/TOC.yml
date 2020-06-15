@@ -27,6 +27,8 @@
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -34,7 +36,7 @@
     items:
     - name: Connect service-to-service
       items:
-      - name: AWS
+      - name: AWS CloudTrail
         href: connect-aws.md
       - name: Azure AD
         href: connect-azure-active-directory.md
@@ -66,7 +68,7 @@
         href: connect-windows-security-events.md  
     - name: Connect external solutions
       items:
-      - name: Barracuda
+      - name: Barracuda WAF
         href: connect-barracuda.md 
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
@@ -98,9 +100,9 @@
             href: connect-cisco.md
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
-          - name: F5 ASM 
+          - name: F5 ASM
             href: connect-f5.md  
-          - name: Forcepoint products
+          - name: Forcepoint CASB, NGFW
             href: connect-forcepoint-casb-ngfw.md
           - name: Fortinet
             href: connect-fortinet.md

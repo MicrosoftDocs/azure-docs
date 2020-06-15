@@ -78,15 +78,6 @@ landingContent:
           - text: Autoscale a scale set with Azure PowerShell
             url: tutorial-autoscale-powershell.md
  
- # Card
-  - title: Samples
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Example deployment for virtual machine scale sets with the Azure CLI
-            url: cli-samples.md
-          - text: Example deployment for virtual machine scale sets with Azure PowerShell
-            url: powershell-samples.md
   
 # Card
   - title: Self-paced training

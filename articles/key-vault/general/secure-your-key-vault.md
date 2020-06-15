@@ -230,4 +230,4 @@ For more information about usage logging for Key Vault, see [Azure Key Vault log
 
 For more information about using keys and secrets with Azure Key Vault, see [About keys and secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-If you have questions about Key Vault, visit the [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

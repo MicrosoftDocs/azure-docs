@@ -46,6 +46,8 @@ When working with virtual machine scale sets and load balancer, the following sh
   * Each virtual machine scale set must have an inbound NAT rule.
   * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
   * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
+* **Inbound NAT pool**:
+  * Inbound NAT pool is a collection of inbound NAT rules. 1 inbound NAT pool cannot support multiple VM Scale Sets.
 * **Load balancing rules**:
   * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
 * **Outbound rules**:

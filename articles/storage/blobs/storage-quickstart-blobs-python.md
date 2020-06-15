@@ -8,6 +8,7 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: tracking-python
 ---
 
 # Quickstart: Manage blobs with Python v12 SDK

@@ -42,7 +42,7 @@ The preceding screenshot includes five highlighted areas. These are features of 
   * [Usage overview](usage-overview.md)
   * [Users, Sessions, and Events](usage-segmentation.md)
   * [Retention](usage-retention.md)
-  * [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+  * [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
   * [Add user context](usage-send-user-context.md)
   * [Export to Power BI](../../azure-monitor/app/export-power-bi.md )
 

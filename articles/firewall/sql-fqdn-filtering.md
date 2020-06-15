@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/18/2020
 ms.author: victorh
 ---
 
@@ -21,8 +21,6 @@ With SQL FQDNs, you can filter traffic:
 
 SQL FQDN filtering is supported in [proxy-mode](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](overview.md#network-traffic-filtering-rules).
 If you use non-default ports for SQL IaaS traffic, you can configure those ports in the firewall application rules.
-
-Application rules with SQL FQDNs is currently available in all regions via the Azure portal, Azure CLI, REST, and templates.
 
 ## Configure using Azure CLI
 
@@ -60,4 +58,4 @@ Application rules with SQL FQDNs is currently available in all regions via the A
 
 ## Next steps
 
-To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../sql-database/sql-database-connectivity-architecture.md).
+To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../azure-sql/database/connectivity-architecture.md).

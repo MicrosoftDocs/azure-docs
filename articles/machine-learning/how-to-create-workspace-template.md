@@ -5,10 +5,10 @@ description: Learn how to use an Azure Resource Manager template to create a new
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
@@ -88,7 +88,6 @@ For more information, see [Encryption at rest](concept-enterprise-security.md#en
 > * You must have an existing Azure Key Vault that contains an encryption key.
 > * You must have an access policy in the Azure Key Vault that grants __get__, __wrap__, and __unwrap__ access to the __Azure Cosmos DB__ application.
 > * The Azure Key Vault must be in the same region where you plan to create the Azure Machine Learning workspace.
-> * Your subscription must support __customer-managed keys__ for Azure Cosmos DB.
 
 __To add the Azure Machine Learning app as a contributor__, use the following commands:
 
@@ -131,8 +130,6 @@ __To add an access policy to the key vault, use the following commands__:
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
-
-__To enable customer-managed keys for Azure Cosmos DB__, send mail to azurecosmosdbcmk@service.microsoft.com with your Azure subscription ID. For more information, see [Configure customer-managed keys for your Azure Cosmos account](..//cosmos-db/how-to-setup-cmk.md).
 
 __To get the values__ for the `cmk_keyvault` (ID of the Key Vault) and the `resource_cmk_uri` (key URI) parameters needed by this template, use the following steps:
 

@@ -49,7 +49,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries in Asia.
+The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries/regions in Asia.
 
 ### [In US or Canada](#tab/in-us-or-canada)
 
@@ -142,10 +142,10 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     To: kadcustcare@singpost.com
     Subject: Microsoft Azure Pick-up - XZ00001234567 
     Body: 
-     a.	Requestor name
-     b.	Requestor contact number
-     c.	Requestor collection address
-     d.	Preferred collection date
+     a.    Requestor name
+     b.    Requestor contact number
+     c.    Requestor collection address
+     d.    Preferred collection date
     ```
 
    > [!NOTE]
@@ -167,7 +167,7 @@ If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and h
 
     ```
     To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body: 
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.

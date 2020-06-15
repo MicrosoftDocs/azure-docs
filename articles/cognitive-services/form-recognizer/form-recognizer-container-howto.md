@@ -62,7 +62,7 @@ This key is used to start the container, and is available on the Azure portal's 
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
+Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

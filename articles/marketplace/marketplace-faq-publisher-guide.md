@@ -1,7 +1,7 @@
 ---
 
 title: Microsoft commercial marketplace publisher FAQ 
-description: Get answers to commonly asked questions about Azure Marketplace and Microsoft AppSource.
+description: Get answers to common questions about Azure Marketplace and Microsoft AppSource.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,9 +10,9 @@ ms.date: 05/08/2020
 ms.author: dsindona
 ---
 
-# Common questions about the Microsoft commercial marketplace
+# Common questions about Microsoft commercial marketplace
 
-This article answers commonly asked questions about the Microsoft commercial marketplace.
+This article answers commonly asked questions about the commercial marketplace.
 
 ## General
 
@@ -22,27 +22,27 @@ The commercial marketplace connects business and government agencies with soluti
 
 To learn more, go to the [Microsoft commercial marketplace hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/).
 
-### What’s the difference between Microsoft AppSource and Azure Marketplace?
+### What's the difference between Microsoft AppSource and Azure Marketplace?
 
 AppSource includes business and industry solutions, such as apps that integrate into Microsoft 365, Dynamics 365, and Power Platform services.
 
 Azure Marketplace includes IT and developer solutions that are built on Azure or used within Azure subscriptions themselves.
 
-To learn more, go to the [buyer’s guide](https://aka.ms/MarketplaceBuyerGuide).
+To learn more, go to the [buyer's guide](https://aka.ms/MarketplaceBuyerGuide).
 
 ### Why should I make my software or services available in the Microsoft commercial marketplace?
 
-The commercial marketplace is a starting point for go-to-market collaboration and enablement with sales channels and Marketplace Rewards. The websites and in-product experiences give your products visibility to millions of customers who are seeking solutions like yours. You don’t even need to build or buy the commerce capabilities. 
+The commercial marketplace is a starting point for go-to-market collaboration and enablement with sales channels and Marketplace Rewards. The websites and in-product experiences give your products visibility to millions of customers who are seeking solutions like yours. You don't even need to build or buy the commerce capabilities. 
 
 The commercial marketplace is available in 141 regions, on a per-plan basis. 
 
-We manage tax payment in many countries, and we provide access to our global channel network of resellers. You can use a customer’s Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.
+We manage tax payment in many countries/regions, and we provide access to our global channel network of resellers. You can use a customer's Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.
 
 To learn more, view the video at [Why sell through marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
-No, there’s no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations.
+No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations.
 
 ### How do I sign up to be a publisher in the Microsoft commercial marketplace?
 
@@ -54,20 +54,20 @@ To sign up to be a commercial marketplace publisher, go to [Partner Center](http
 
 The ways that customers can use your commercial marketplace offer depend on how you create the offers.
 
-- For solutions that you provide automatically, whether they’re paid, bring-your-own-license (BYOL), or free, customers are urged to *Get It Now*.
+- For solutions that you provide automatically, whether they're paid, bring-your-own-license (BYOL), or free, customers are urged to *Get It Now*.
 - Offers that support a test drive (demo) request the customer to *Test Drive*. 
 - Software as a service (SaaS) offers that provide a trial outside our commercial marketplace say *Free Trial*.
 - Simple listings allow the customer to request *Contact Me*.
 
 ### How do I create offers for the commercial marketplace?
 
-After you sign up and accept the Publisher Agreement, you’ll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
+After you sign up and accept the Publisher Agreement, you'll have access to the commercial marketplace page in Partner Center. This is where you create and manage offers and where you view analytics reports. For Microsoft 365 apps, you must also activate the Office Store program within Partner Center.
 
 For more information, see [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/) and [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### How do I get support assistance for the commercial marketplace?
 
-To contact our marketplace publisher support team, you can [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1) from within Partner Center. 
+To contact our marketplace publisher support team, you can [submit a support ticket](https://aka.ms/marketplacepublishersupport) from within Partner Center. 
 
 You can also [join our active community forum](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) to learn about best practices and share information.
 
@@ -75,9 +75,9 @@ You can also [join our active community forum](https://www.microsoftpartnercommu
 
 We provide reporting on your offers within our commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics).
 
-### What is Microsoft’s relationship with my customers?
+### What is Microsoft's relationship with my customers?
 
-The commercial marketplace works using an agency model. The customer signs a purchase agreement with us, through their Microsoft Cloud Agreement or Enterprise Agreement (EA). We’re responsible for billing, collections, tax payment in applicable regions, and publisher payout. As the publisher, you set the price, set the terms of use, and provide technical support.
+The commercial marketplace works using an agency model. The customer signs a purchase agreement with us, through their Microsoft Cloud Agreement or Enterprise Agreement (EA). We're responsible for billing, collections, tax payment in applicable regions, and publisher payout. As the publisher, you set the price, set the terms of use, and provide technical support.
 
 ### What terms of use options are available with the commercial marketplace?
 
@@ -89,7 +89,7 @@ To learn more, see [Standard Contract for the Microsoft commercial marketplace](
 
 ### Is Azure Marketplace available in Azure Government?
 
-Yes, the Azure Government Marketplace is available within Azure Government regions and supports Azure virtual machine and Azure application offers. There’s a check box option to make the offers available in the Azure Government Marketplace during the standard publishing process.
+Yes, the Azure Government Marketplace is available within Azure Government regions and supports Azure virtual machine and Azure application offers. There's a check box option to make the offers available in the Azure Government Marketplace during the standard publishing process.
 
 ### What permissions do I need in Partner Center to manage my offers?
 
@@ -100,21 +100,21 @@ There are four relevant roles that govern Partner Center access.
 - *Financial Contributor*: Provides permissions to view payout reporting.
 - *Owner*: Can set up the payout account and tax profile. The user who accepted the Publisher Agreement becomes the Owner by default.
 
-Azure Active Directory (Azure AD) *Global Admin* permissions are necessary to create new user accounts or invite guest accounts in the underlying directory. Partner Center applies Azure AD to the identity model, and an organization’s Azure AD instance is often managed and controlled by its IT or security teams.
+Azure Active Directory (Azure AD) *Global Admin* permissions are necessary to create new user accounts or invite guest accounts in the underlying directory. Partner Center applies Azure AD to the identity model, and an organization's Azure AD instance is often managed and controlled by its IT or security teams.
 
 To learn more, see [Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
 
 ### Do customers need a subscription for Microsoft Azure Cloud Services?
 
-Depending on your product’s delivery model, a subscription to Azure Cloud Services may be needed. Solutions that are used directly in an Azure subscription, Microsoft 365 applications, or Dynamics 365 applications will require customers to have an existing subscription. Offers that are purchased in Azure Marketplace require an Azure subscription, because the subscription is used as the billing mechanism.
+Depending on your product's delivery model, a subscription to Azure Cloud Services may be needed. Solutions that are used directly in an Azure subscription, Microsoft 365 applications, or Dynamics 365 applications will require customers to have an existing subscription. Offers that are purchased in Azure Marketplace require an Azure subscription, because the subscription is used as the billing mechanism.
 
-### Who’s responsible for supporting customers?
+### Who's responsible for supporting customers?
 
 Commercial marketplace publishers are responsible for supporting their software, and Microsoft is responsible for supporting the purchase, billing, payments, and subscription management experiences.
 
-### What’s the process of validating the end-to-end purchase and setup flow?
+### What's the process of validating the end-to-end purchase and setup flow?
 
-During the publishing process, you’re given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can’t be viewed by anyone else. You can purchase a preview and test the process, but you’ll be charged the full amount according to your offer's setup.
+During the publishing process, you're given access to a preview of your offer. Access is restricted to users that you specify in the **Preview** tab, and the offer can't be viewed by anyone else. You can purchase a preview and test the process, but you'll be charged the full amount according to your offer's setup.
 
 To complete a purchase at a very low price, we suggest publishing a private plan that's viewable by you alone and at a price you can accept as the cost of testing. A price of $0.00 is supported but won't reflect the full experience, as a paid subscription would, so we recommend setting the price at $1.00.
 
@@ -126,13 +126,13 @@ For more information, see [Customer leads from your marketplace offer](https://d
 
 ### Why aren't my changes reflected in the offer on Microsoft AppSource or Azure Marketplace?
 
-Changes made within Partner Center are updated in the system and commercial marketplaces only after you’ve republished the offer. Make sure that you’ve submitted the offer for publication after any changes.
+Changes made within Partner Center are updated in the system and commercial marketplaces only after you've republished the offer. Make sure that you've submitted the offer for publication after any changes.
 
 ## Channels
 
 ### Where can customers find my commercial marketplace offers?
 
-Offers are presented to customers through in-product experiences, websites, resellers, and Microsoft sales teams based on how you’ve configured them and the context of the customers’ actions. If your software is used directly with Azure, Microsoft 365, Dynamics 365, or the Power Platform service, customers can find it within the product. Microsoft AppSource and Azure Marketplace are split by offer types and audiences, and resellers can access your offer only if you’ve opted in to the Cloud Solution Provider (CSP) program.
+Offers are presented to customers through in-product experiences, websites, resellers, and Microsoft sales teams based on how you've configured them and the context of the customers' actions. If your software is used directly with Azure, Microsoft 365, Dynamics 365, or the Power Platform service, customers can find it within the product. Microsoft AppSource and Azure Marketplace are split by offer types and audiences, and resellers can access your offer only if you've opted in to the Cloud Solution Provider (CSP) program.
 
 ### Can my offer appear in both Microsoft AppSource and Azure Marketplace?
 
@@ -156,15 +156,15 @@ For more information, see [Cloud Solution Providers](https://docs.microsoft.com/
 
 ### How can I pay margin to resellers?
 
-The commercial marketplace doesn’t have the ability to specify margin for resellers or pay it to them directly and automatically. However, you can create agreements, sales contests, or margins outside the commercial marketplace systems.
+The commercial marketplace doesn't have the ability to specify margin for resellers or pay it to them directly and automatically. However, you can create agreements, sales contests, or margins outside the commercial marketplace systems.
 
 ### How does geographic availability work with resellers?
 
-The availability of your offers and plans is defined by customers' billing locations. Resellers first select the customers they’re selling to and then select your offer. If a customer is in an unsupported location, your offer won’t be available to them.
+The availability of your offers and plans is defined by customers' billing locations. Resellers first select the customers they're selling to and then select your offer. If a customer is in an unsupported location, your offer won't be available to them.
 
 ## Billing capabilities
 
-### What’s the difference between transaction and monetization?
+### What's the difference between transaction and monetization?
 
 - Transaction is the exchange of money for goods. An offer is considered transactable in the commercial marketplace if it has a price and is paid for by the customer through our billing and collections. 
 - Monetization is the ability to charge money for your intellectual property, which can happen within or outside our commerce platform. For example, your bring-your-own-license (BYOL) Teams app can be monetized with a transactable SaaS licensing service.
@@ -195,19 +195,19 @@ Yes, and there are multiple ways to offer free trials:
 
 ### Who pays for the underlying Azure consumption?
 
-If the solution is used directly in a customer’s Azure subscription, the customer is responsible for paying the Azure costs. If the solution is used in your Azure subscription, such as in the case of SaaS applications, you’re responsible for the Azure costs. You should account for that in the cost of the customer’s SaaS subscription.
+If the solution is used directly in a customer's Azure subscription, the customer is responsible for paying the Azure costs. If the solution is used in your Azure subscription, such as in the case of SaaS applications, you're responsible for the Azure costs. You should account for that in the cost of the customer's SaaS subscription.
 
 ### Can I sell professional services through the commercial marketplace?
 
-Software that’s built on or built for our cloud services can be transacted through the commercial marketplace. Professional services are not yet transactable.
+Software that's built on or built for our cloud services can be transacted through the commercial marketplace. Professional services are not yet transactable.
 
 ## Purchasing
 
-### What’s required to purchase solutions from Microsoft AppSource or Azure Marketplace?
+### What's required to purchase solutions from Microsoft AppSource or Azure Marketplace?
 
 Azure Marketplace requires customers to have an Azure Active Directory ID and an active Azure subscription. If neither or only one requirement is in place, the customer is asked to create them in the purchase flow.
 
-Microsoft AppSource requires customers to have an Azure Active Directory ID. If the ID doesn’t exist, the customer is asked to create it in the purchase flow.
+Microsoft AppSource requires customers to have an Azure Active Directory ID. If the ID doesn't exist, the customer is asked to create it in the purchase flow.
 
 ### What payment methods are supported with the commercial marketplace?
 
@@ -215,13 +215,13 @@ Microsoft AppSource supports credit card payments. Azure Marketplace supports cr
 
 ### Can customers apply Azure credits or sponsorship toward purchases?
 
-No, prepaid or sponsored Azure spend can’t be used to buy partner solutions from Azure Marketplace.
+No, prepaid or sponsored Azure spend can't be used to buy partner solutions from Azure Marketplace.
 
 ### What Azure subscription permissions are required to complete a purchase?
 
 The user account must have *Owner* or *Contributor* permissions on the Azure subscription.
 
-### In what countries can customers purchase from Microsoft AppSource and Azure Marketplace?
+### In what countries/regions can customers purchase from Microsoft AppSource and Azure Marketplace?
 
 Customers can get solutions from the commercial marketplace in 141 locations around the world.
 
@@ -252,27 +252,30 @@ To review the list of currencies, go to [Geographic availability and currency su
 
 ### Can customers change subscriptions or license volumes mid-term?
 
-Customers can increase or decrease user counts for per-user SaaS subscriptions at any time. The license subscription terms will remain the same regardless of any volume or plan upgrades. Plan changes are also supported for existing subscriptions via the application programming interfaces (APIs). Publishers can use API calls to change the customer’s subscription plan. We encourage independent software vendors (ISVs) to consider a customer’s user experience within the SaaS solution for upgrade and downgrade situations.
+Customers can increase or decrease user counts for per-user SaaS subscriptions at any time. The license subscription terms will remain the same regardless of any volume or plan upgrades. Plan changes are also supported for existing subscriptions via the application programming interfaces (APIs). Publishers can use API calls to change the customer's subscription plan. We encourage independent software vendors (ISVs) to consider a customer's user experience within the SaaS solution for upgrade and downgrade situations.
 
 If the plan is changed for an existing subscription, the term remains unchanged, and the cost is prorated according to the duration of the remaining term.
 
 ### What could block a customer from completing a purchase?
 
-For Microsoft AppSource, the customer must have a credit card with a billing address in the same country as their Azure AD instance, and the customer’s Azure AD admin must ensure that the system doesn’t prevent authentication to Microsoft AppSource.
+For Microsoft AppSource, the customer must have a credit card with a billing address in the same country/region as their Azure AD instance, and the customer's Azure AD admin must ensure that the system doesn't prevent authentication to Microsoft AppSource.
 
-For Azure Marketplace, the customer must have an active Azure subscription and a user account with *Owner* or *Contributor* permissions on that subscription. The customer’s Azure administrator must ensure that the Azure Policy doesn’t conflict with the offer being used, and that cost management can’t be set up to disable Azure Marketplace.
+For Azure Marketplace, the customer must have an active Azure subscription and a user account with *Owner* or *Contributor* permissions on that subscription. The customer's Azure administrator must ensure that the Azure Policy doesn't conflict with the offer being used, and that cost management can't be set up to disable Azure Marketplace.
 
 ## Collection and payouts
 
 ### When are customers billed for their purchases in the commercial marketplace?
 
-Customers are usually billed monthly for any purchases in the previous billing cycle. Consumption-based offers with metered billing plans, such as VM images, SaaS applications, and managed applications, are charged after they’ve been used. Subscription-based plans are charged at the beginning of the term.
+Customers are usually billed monthly for any purchases in the previous billing cycle. Consumption-based offers with metered billing plans, such as VM images, SaaS applications, and managed applications, are charged after they've been used. Subscription-based plans are charged at the beginning of the term.
 
 ### How often will I receive payouts for sales through the commercial marketplace?
 
-Payouts happen monthly. Collections processed in the previous month are paid out at once, and the sales must have a minimum combined value of $50.00.
+Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout Policy Details](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
 
-Credit card subscriptions and purchases are billed monthly, and invoices against a Microsoft Customer Agreement or Enterprise Agreement might be less frequent. From the time that customers are billed, we give them 30 days to pay. After we receive their payment, credit card transactions go into a 30-day escrow period.
+- For transactions where the customer used an Enterprise Agreement, payouts are issued in the next payout cycle 30-days post customer invoice. 
+- For transactions where the customer used a credit card, there is an additional 30-day escrow period after we receive payment to ensure funds clear and there are no chargebacks or suspected fraud.
+
+Payouts are issued only when sales have reached a minimum combined value of $50.00.
 
 For more information, see [Payment thresholds, methods, and time frames](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
 
@@ -304,7 +307,7 @@ To receive refunds, customers can cancel subscriptions within a specified time f
 
 Here are some resources to get you started:
 
-- [Introduction to the Microsoft commercial marketplace](https://docs.microsoft.com/learn/commercial-marketplace/intro-commercial-marketplace/intro-commercial-marketplace/)
+- [Introduction to the Microsoft commercial marketplace](/azure/marketplace/marketplace-publishers-guide)
 - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Welcome to the commercial marketplace](https://docs.microsoft.com/azure/marketplace/)
 

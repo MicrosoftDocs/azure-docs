@@ -91,7 +91,7 @@ The customer's information is sent via multiple fields. The following example sh
 
 ### Where can I get help in setting up my lead destination?
 
-Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+Follow the steps in the section [Connect to your CRM system](#connect-to-your-crm-system), or submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
 ### Am I required to configure a lead destination in order to publish an offer in the commercial marketplace?
 
@@ -128,7 +128,7 @@ Azure Blob storage is no longer supported as a lead destination, so you're missi
 
 ### I received an email from the commercial marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://partner.microsoft.com/support/v2/?stage=1).
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport).
 
 ### I configured an Azure table as my lead destination. How can I view the leads?
 

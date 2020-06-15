@@ -165,6 +165,4 @@ When you click the Palo Alto Networks - GlobalProtect tile in the Access Panel, 
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Try Palo Alto Networks - GlobalProtect with Azure AD](https://aad.portal.azure.com/)

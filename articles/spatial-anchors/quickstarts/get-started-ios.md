@@ -97,6 +97,8 @@ Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate `startSession()` and add the following line, substituting in your account domain from earlier: `cloudSession!.configuration.accountDomain = "MyAccountDomain";`.
+
 # [Objective-C](#tab/openproject-objc)
 
 Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
@@ -104,6 +106,8 @@ Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Locate `startSession()` and add the following line, substituting in your account domain from earlier: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
 
 ---
 

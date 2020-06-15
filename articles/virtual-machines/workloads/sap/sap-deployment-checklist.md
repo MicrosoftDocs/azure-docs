@@ -84,7 +84,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.	Define a regular design and deployment review cadence between you as the customer, the system integrator, Microsoft, and other involved parties.
 
- 
+
 ## Pilot phase (strongly recommended)
  
 You can run a pilot before or during project planning and preparation. You can also use the pilot phase to test approaches and designs made during the planning and preparation phase. And you can expand the pilot phase to make it a real proof of concept.
@@ -211,7 +211,7 @@ During this phase, you usually deploy development systems, unit testing systems,
 14.	Optimize and hone your team's Azure role-based access, permissions, and processes to make sure you have separation of duties. At the same time, make sure all teams can perform their tasks in the Azure infrastructure.
 15.	Exercise, test, and document high-availability and disaster recovery procedures to enable your staff to execute these tasks. Identify shortcomings and adapt new Azure functionality that you're integrating into your deployments.
 
- 
+
 ## Production preparation phase 
 In this phase, collect what you experienced and learned during your non-production deployments and apply it to future production deployments. You also need to prepare the work of the data transfer between your current hosting location and Azure.
 

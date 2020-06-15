@@ -62,13 +62,15 @@ landingContent:
             url: quickstarts/convert-model.md
 
   # Card
-  - title: Learn how to build your own app in Unity
+  - title: Learn how to build your own app
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Setting up a Unity project from scratch
+          - text: "Unity: Setting up a project from scratch"
             url: tutorials/unity/project-setup.md
-          - text: Working with remote entities in Unity
+          - text: "Unity: Working with remote entities"
             url: tutorials/unity/working-with-remote-entities.md
-          - text: Changing environment and materials
+          - text: "Unity: Changing environment and materials"
             url: tutorials/unity/changing-environment-and-materials.md
+          - text: "Native C++: Integrate Remote Rendering into a HoloLens Holographic App"
+            url: tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md
