@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 04/10/2020
+ms.date: 06/15/2020
 ---
 # Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -55,7 +55,7 @@ You don't need to decrypt databases for operations within Azure. The TDE setting
 - Restore of backup file to Azure SQL Managed Instance
 
 > [!IMPORTANT]
-> Taking manual COPY-ONLY backup of a database encrypted by service-managed TDE is unsupported in Azure SQL Managed Instance, since the certificate used for encryption is not accessible. Use point-in-time-restore feature to move this type of database to another SQL Managed Instance.
+> Taking manual COPY-ONLY backup of a database encrypted by service-managed TDE is not supported in Azure SQL Managed Instance, since the certificate used for encryption is not accessible. Use point-in-time-restore feature to move this type of database to another SQL Managed Instance, or switch to customer-managed key.
 
 When you export a TDE-protected database, the exported content of the database isn't encrypted. This exported content is stored in unencrypted BACPAC files. Be sure to protect the BACPAC files appropriately and enable TDE after import of the new database is finished.
 
