@@ -26,7 +26,7 @@ Here is an example of the output from a failed private cloud deployment, with th
 
 :::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Failed private cloud deployment with correlation ID.":::
 
-Copy and save this correlation ID to include in the service request. For details, see the section, "Creating your support request" at the end of this article.
+Copy and save this correlation ID to include in the service request. For details, see the [Create your support request](#create-your-support-request) section at the end of this article.
 
 ## Collect a summary of errors
 
