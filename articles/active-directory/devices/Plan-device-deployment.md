@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 06/15/2020 
 
 ms.author: baselden
 author: MicrosoftGuyJFlo

@@ -35,8 +35,8 @@
 - name: How-to guides
   expanded: false
   items:
-  - name: Plan your Azure AD device deployment 
-    href: plan-device-deployment.md 
+  - Name: Plan your Azure AD device deployment
+    href: plan-device-deployment.md
   - name: Plan your Azure AD join implementation
     href: azureadjoin-plan.md
   - name: Assign local admins to Azure AD joined devices
