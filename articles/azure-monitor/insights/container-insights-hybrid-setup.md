@@ -263,7 +263,7 @@ To enable the HELM chart, do the following:
     --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
     ```
 
-    If the Log Analytics workspace is in Azure China, run the following command:
+    If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
     ```
     $ helm install --name myrelease-1 \

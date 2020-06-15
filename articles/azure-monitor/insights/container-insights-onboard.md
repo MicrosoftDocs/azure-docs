@@ -61,27 +61,27 @@ The information in the following table lists the proxy and firewall configuratio
 
 |Agent Resource|Ports |
 |--------------|------|
-| *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 |
-| dc.services.visualstudio.com | 443 |
-| *.monitoring.azure.com | 443 |
-| login.microsoftonline.com | 443 |
+| `*.ods.opinsights.azure.com` | 443 |  
+| `*.oms.opinsights.azure.com` | 443 |
+| `dc.services.visualstudio.com` | 443 |
+| `*.monitoring.azure.com` | 443 |
+| `login.microsoftonline.com` | 443 |
 
-The information in the following table lists the proxy and firewall configuration information for Azure China.
+The information in the following table lists the proxy and firewall configuration information for Azure China 21Vianet.
 
 |Agent Resource|Ports |Description | 
 |--------------|------|-------------|
-| *.ods.opinsights.azure.cn | 443 | Data ingestion |
-| *.oms.opinsights.azure.cn | 443 | OMS onboarding |
-| dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
+| `*.ods.opinsights.azure.cn` | 443 | Data ingestion |
+| `*.oms.opinsights.azure.cn` | 443 | OMS onboarding |
+| `dc.services.visualstudio.com` | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
 
 |Agent Resource|Ports |Description | 
 |--------------|------|-------------|
-| *.ods.opinsights.azure.us | 443 | Data ingestion |
-| *.oms.opinsights.azure.us | 443 | OMS onboarding |
-| dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
+| `*.ods.opinsights.azure.us` | 443 | Data ingestion |
+| `*.oms.opinsights.azure.us` | 443 | OMS onboarding |
+| `dc.services.visualstudio.com` | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components
 
