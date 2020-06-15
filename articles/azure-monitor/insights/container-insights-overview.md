@@ -2,7 +2,7 @@
 title: Overview of Azure Monitor for containers | Microsoft Docs
 description: This article describes Azure Monitor for containers that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 05/21/2020
 
 ---
 
@@ -15,6 +15,7 @@ Azure Monitor for containers is a feature designed to monitor the performance of
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview) 
 
 Azure Monitor for containers supports clusters running the Linux and Windows Server 2019 operating system. 
 
@@ -42,9 +43,11 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
     >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
+* Monitor container workloads [deployed to Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
+
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
 
-- Windows doesn't have a Memory RSS metric and therefore isn't available for Windows node and containers. Working Set is available. Learn more about [memory management in windows](https://docs.microsoft.com/windows/win32/memory/working-set).
+- Windows doesn't have a Memory RSS metric, and as a result it isn't available for Windows node and containers. The [Working Set](https://docs.microsoft.com/windows/win32/memory/working-set) metric is available.
 - Disk storage capacity information isn't available for Windows nodes.
 - Container logs aren't available for containers running in Windows nodes.
 - Live Data (preview) feature support is available with the exception of Windows container logs.

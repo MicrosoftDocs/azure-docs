@@ -5,7 +5,7 @@ services: expressroute
 author: fabferri
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18

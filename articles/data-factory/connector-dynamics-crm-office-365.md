@@ -12,7 +12,7 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
+ms.date: 06/10/2020
 ---
 
 # Copy data from and to Dynamics 365 (Common Data Service) or Dynamics CRM by using Azure Data Factory
@@ -81,7 +81,7 @@ The following properties are supported for the Dynamics linked service.
 | authenticationType | The authentication type to connect to a Dynamics server. Allowed values are: **AADServicePrincipal** or **"Office365"**. | Yes |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes when using `AADServicePrincipal` authentication |
 | servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are: **ServicePrincipalKey** or **ServicePrincipalCert**. | Yes when using `AADServicePrincipal` authentication |
-| servicePrincipalCredential | Specify the service principal credential. <br>When using `ServicePrincipalKey` as credential type, `servicePrincipalCredential` can be a string (ADF will encrypt it upon linked service deployment) or a reference to a secret in AKV. <br>When using `ServicePrincipalCert` as credential, `servicePrincipalCredential` should be a reference to a certificate in AKV. | Yes when using `AADServicePrincipal` authentication | 
+| servicePrincipalCredential | Specify the service principal credential. <br>When using `ServicePrincipalKey` as credential type, `servicePrincipalCredential` can be a string (ADF will encrypt it upon linked service deployment) or a reference to a secret in AKV. <br>When using `ServicePrincipalCert` as credential, `servicePrincipalCredential` should be a reference to a certificate in AKV. | Yes when using `AADServicePrincipal` authentication |
 | username | Specify the user name to connect to Dynamics. | Yes when using `Office365` authentication |
 | password | Specify the password for the user account you specified for username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when using `Office365` authentication |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink if the source linked service doesn't have an integration runtime |
@@ -375,25 +375,53 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | |
+| AttributeType.Customer | GUID | ✓ | ✓ (see [guidance](#writing-data-to-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (with single target associated) |
+| AttributeType.Lookup | GUID | ✓ | ✓ (see [guidance](#writing-data-to-lookup-field)) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
-| AttributeType.Owner | Guid | ✓ | |
+| AttributeType.Owner | GUID | ✓ | ✓ (see [guidance](#writing-data-to-lookup-field)) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
 | AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
 > The Dynamics data types AttributeType.CalendarRules, AttributeType.MultiSelectPicklist and AttributeType.PartyList aren't supported.
+
+## Writing data to lookup field
+
+To write data into lookup field with multiple targets, e.g. *Customer* and *Owner*, follow this guidance and example:
+
+1. Make your source containing both the field value and the corresponding target entity name.
+   - If all the records map to the same target entity, make sure either your source data has a column which stores the target entity name, or to add an additional column in copy activity source to define the target entity.
+   - If different records map to different target entity, make sure your source data has a column which stores the corresponding target entity name.
+
+2. Map both the value and entity reference columns from source to sink. The entity reference column need to be mapped to a virtual column with a special naming pattern`{lookup_field_name}@EntityReference`. It does not actually exist in Dynamics, but it's used to indicate this is the metadata column of the given multi-target lookup field.
+
+ For example, the source has two columns:
+
+- `CustomerField` column of type *GUID*, which is the primary key value of the target entity in Dynamics.
+- `Target` column of type *String*, which is the logical name of the target entity. 
+
+And you want to copy such data to sink Dynamics entity field `CustomerField` of type *Customer*. 
+
+In copy activity column mapping, map the two columns as follows:
+
+- `CustomerField` -> `CustomerField`: this is the normal field mapping.
+- `Target` -> `CustomerField@EntityReference`: the sink column is a virtual column representing the entity reference. Input such field name in mapping, as it won't show up by importing schemas.
+
+![Dynamics lookup field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+
+If all of your source records map to the same target entity and your source data doesn't contains the target entity name, here is a shortcut: in copy activity source, add an additional column as follows. You can name it following the pattern `{lookup_field_name}@EntityReference` and value as the target entity name, then proceed with column mapping as normal. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
+
+![Dynamics lookup field add entity reference](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
 
 ## Lookup activity properties
 
