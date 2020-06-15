@@ -2,7 +2,7 @@
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 05/12/2020
 
 ---
 
@@ -89,14 +89,6 @@ Perform the following steps to upgrade the agent on a Kubernetes cluster running
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
-```
-
-### Upgrade agent on Azure Arc enabled Kubernetes
-
-Perform the following steps to upgrade the agent on an Azure Arc enabled Kubernetes cluster. 
-
-```
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## How to disable environment variable collection on a container
