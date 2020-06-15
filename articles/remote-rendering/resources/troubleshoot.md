@@ -141,6 +141,12 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## Checkerboard pattern is rendered after model loading
+
+If the rendered image looks like this:
+![Checkerboard](../reference/media/checkerboard.png)
+then the renderer hits the [polygon limitation for the standard VM size](../reference/vm-sizes.md). To mitigate, either switch to **premium VM** size or reduce the number of visible polygons.
+
 ## Unity code using the Remote Rendering API doesn't compile
 
 ### Use Debug when compiling for Unity Editor
