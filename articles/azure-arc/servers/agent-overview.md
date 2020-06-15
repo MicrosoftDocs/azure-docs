@@ -56,7 +56,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Contains the acquired tokens.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Contains the agent configuration file `agentconfig.json` recording its registration information with the service.|
     |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Installation path containing the Guest Configuration agent files. |
-    |%ProgramData%\GuestConfig |Contains the (applied) Azure policies related files.|
+    |%ProgramData%\GuestConfig |Contains the (applied) policies from Azure.|
     |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Extensions are downloaded from Azure and copied here.|
 
 * The following Windows services are created on the target machine during installation of the agent.
@@ -82,7 +82,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the HIMS service and Azure Policy.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
     |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Records details about the Extension agent component.|
-    |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Records details from the installed extension.| 
+    |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Records details from the installed extension.|
 
 * The local security group **Hybrid agent extension applications** is created.
 
@@ -107,7 +107,7 @@ After installing the Connected Machine agent for Linux, the following additional
     |/opt/GC_Ext | Installation path containing the Guest Configuration agent files.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |Contains the acquired tokens.|
-    |/var/lib/GuestConfig |Contains the (applied) Azure policies related files.|
+    |/var/lib/GuestConfig |Contains the (applied) policies from Azure.|
     |/opt/GC_Ext/downloads|Extensions are downloaded from Azure and copied here.|
 
 * The following daemons are created on the target machine during installation of the agent.
