@@ -22,7 +22,7 @@ This article provides an overview of the issues you may encounter when setting u
 
 ## Report issues during public preview
 
-To report issues or suggest features during public preview for Windows Virtual Desktop with Azure Resource Manager integration, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features. When you report an issue related to the public preview release, make sure to label the problem type as **Spring 2020 Update (Preview)**.
+To report issues or suggest features during public preview for Windows Virtual Desktop with Azure Resource Manager integration, visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). You can use the Tech Community to discuss best practices or suggest and vote for new features.
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 
