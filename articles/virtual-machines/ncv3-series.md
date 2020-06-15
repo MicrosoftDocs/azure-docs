@@ -2,7 +2,7 @@
 title: NCv3-series - Azure Virtual Machines
 description: Specifications for the NCv3-series VMs.
 ms.subservice: sizes
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020

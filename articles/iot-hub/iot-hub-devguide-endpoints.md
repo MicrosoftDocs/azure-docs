@@ -78,14 +78,9 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 
 For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
-You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub metrics](iot-hub-metrics.md) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy, as we expect latency to be higher when the endpoint is in one of those states.
+## Endpoint Health
 
-|Health Status|Description|
-|---|---|
-|healthy|The endpoint is accepting messages as expected.|
-|unhealthy|The endpoint is not accepting messages as expected and IoT Hub is retrying to send data to this endpoint. The status of an unhealthy endpoint will be updated to healthy when IoT Hub has established an eventually consistent state of health.|
-|unknown|IoT Hub has not established a connection with the endpoint. No messages have been delivered to or rejected from this endpoint.|
-|dead|The endpoint is not accepting messages, after IoT Hub retried sending messages for the retrial period.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## Field gateways
 
