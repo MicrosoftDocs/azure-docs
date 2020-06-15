@@ -47,9 +47,9 @@ Before you start, make sure that you have the following:
 
     |Agent Resource|Ports |
     |------|---------|
-    |*.ods.opinsights.azure.com |Port 443 |
-    |*.oms.opinsights.azure.com |Port 443 |
-    |*.dc.services.visualstudio.com |Port 443 |
+    |`*.ods.opinsights.azure.com` |Port 443 |
+    |`*.oms.opinsights.azure.com` |Port 443 |
+    |`*.dc.services.visualstudio.com` |Port 443 |
 
 - The containerized agent requires Kubelet's `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend you configure `secure port: 10250` on the Kubelet's cAdvisor if it's not configured already.
 
