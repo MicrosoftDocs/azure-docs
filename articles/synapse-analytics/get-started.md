@@ -45,8 +45,8 @@ In the following step, you'll configure your Azure Synapse workspace to use this
 
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
-    |Basics|**Workspace name**|You can call it anything.| In this document, we'll use **myworkspace**|
-    |Basics|**Region**|Match the region of the storage account|
+    |Basics|**Workspace name**|You can call it anything.| In this document, we'll use **myworkspace**.|
+    |Basics|**Region**|Match the region of the storage account.|
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
