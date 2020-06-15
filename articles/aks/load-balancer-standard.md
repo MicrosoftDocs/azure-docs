@@ -22,7 +22,7 @@ A **public** Load Balancer when integrated with AKS serves two purposes:
 
 An **internal (or private)** load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario. 
 
-This document will cover the integration with Public Load balancer. For internal Load Balancer integration, see the [AKS Internal Load balancer documentation](internal-lb.md).
+This document covers the integration with Public Load balancer. For internal Load Balancer integration, see the [AKS Internal Load balancer documentation](internal-lb.md).
 
 ## Before you begin
 
@@ -30,11 +30,11 @@ Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By defaul
 
 For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
-This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer and will walk through how to use and configure some of the capabilities and features of the load balancer. 
+This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer and walks through how to use and configure some of the capabilities and features of the load balancer. 
 If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have you own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md).
+> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The Outbound type defines the egress method for a cluster and it defaults to type: load balancer.
 
 ## Use the public Azure Standard load balancer
 
@@ -170,7 +170,7 @@ az aks create \
 
 ### Configure the allocated outbound ports
 > [!IMPORTANT]
-> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, eg. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (run out of ports to connect from). For these scenarios it's very recommended you define an adequately higher value for Allocated Outbound Ports and enough additional Outbound Frontend IPs on the Load Balancer, according to the the below formula (1 IP == 64k ports you can distribute across all the cluster nodes)
+> If you have applications on your cluster which are expected to establish a large number of connection to small set of destinations, eg. many frontend instances connecting to an SQL DB, you have a scenario very susceptible to encounter SNAT Port exhaustion (run out of ports to connect from). For these scenarios it's highly recommended to increase the allocated outbound ports and outbound frontend IPs on the load balancer. The increase should consider that one (1) additional IP address adds 64k additional ports to distribute across all cluster nodes.
 
 
 Unless otherwise specified, AKS will use the default value of Allocated Outbound Ports that Standard Load Balancer defines when configuring it. This value is **null** on the AKS API or **0** on the SLB API as shown by the below command:
@@ -202,7 +202,9 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 8 IPs you could safely scale to  100 nodes, for example, and also have any upgrade operations. To safely go above 100 nodes, you'd have to add more IPs.
+This example would give you 4000 Allocated Outbound Ports for each node in my cluster, and with 7 IPs you would have *4000 ports per node * 100 nodes = 400k total ports <  = 448k total ports = 7 IPs * 64k ports per IP*. This would allow you to safely scale to 100 nodes and have a default upgrade operation. It is critical to allocate sufficient ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade, in this example this requires 4000 free ports at any given point in time. If using [maxSurge values](upgrade-cluster.md#customize-node-surge-upgrade-preview), multiply the outbound ports per node by your maxSurge value.
+
+To safely go above 100 nodes, you'd have to add more IPs.
 
 
 > [!IMPORTANT]
@@ -232,7 +234,7 @@ az aks update \
     --load-balancer-idle-timeout 4
 ```
 
-If you expect to have numerous short lived connections, and no connections that are long lived and might have long times of idle, like leveraging `kubectl proxy` or `kubectl port-forward` consider using a low timeout value such as 4 minutes. Also, when using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow and it's not necessary for both sides to start  TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
+If you expect to have numerous short lived connections, and no connections that are long lived and might have long times of idle, like leveraging `kubectl proxy` or `kubectl port-forward` consider using a low timeout value such as 4 minutes. Also, when using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow and it's not necessary for both sides to start TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
 
 > [!IMPORTANT]
 > AKS enables TCP Reset on idle by default and recommends you keep this configuration on and leverage it for more predictable application behavior on your scenarios.
