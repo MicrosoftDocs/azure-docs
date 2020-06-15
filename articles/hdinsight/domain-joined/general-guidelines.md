@@ -144,6 +144,10 @@ Each cluster is associated with a single OU. An internal user is provisioned in 
 
 For steps on how to install the Active Directory administrative tools on a Windows Server VM, see [Install management tools](../../active-directory-domain-services/tutorial-create-management-vm.md).
 
+## LDAP properties in Ambari configuration
+
+For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [3. Optional: Set Up LDAP Authentication](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
+
 ## Troubleshooting
 
 ### Cluster creation fails repeatedly
