@@ -3,8 +3,8 @@ title: Sync network configuration for Azure App Service
 titleSuffix: Azure SQL Managed Instance 
 description: This article discusses how to sync your network configuration for Azure App Service hosting plan with your Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
@@ -24,19 +24,19 @@ To do that, follow these steps:
 
 1. Go to your web apps App Service plan.
 
-   ![app service plan](./media/azure-app-sync-network-configuration/app-service-plan.png)
+   ![Screenshot of App Service plan](./media/azure-app-sync-network-configuration/app-service-plan.png)
 
 2. Select **Networking** and then select **Click here to Manage**.
 
-   ![manage service plan](./media/azure-app-sync-network-configuration/manage-plan.png)
+   ![Screenshot of manage service plan](./media/azure-app-sync-network-configuration/manage-plan.png)
 
 3. Select your **VNet** and click **Sync Network**.
 
-   ![sync network](./media/azure-app-sync-network-configuration/sync.png)
+   ![Screenshot of sync network](./media/azure-app-sync-network-configuration/sync.png)
 
 4. Wait until the sync is done.
   
-   ![sync done](./media/azure-app-sync-network-configuration/sync-done.png)
+   ![Screenshot of sync done](./media/azure-app-sync-network-configuration/sync-done.png)
 
 You are now ready to try to re-establish your connection to your SQL Managed Instance.
 

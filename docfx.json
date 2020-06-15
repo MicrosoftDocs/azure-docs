@@ -203,7 +203,8 @@
         "articles/service-fabric-mesh/*.md": "athinanthny",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/**/*.md": "Juliako",
-        "articles/media-services/**/**/*.md": "Juliako"        
+        "articles/media-services/**/**/*.md": "Juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -391,7 +392,9 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-sql/**/*.md": "jroth",
+        "articles/synapse-analytics/**/*.md": "jroth",
+        "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
@@ -405,8 +408,8 @@
         "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
-		"articles/remote-rendering/**/*.md": "jlyons"
-   },
+		  "articles/remote-rendering/**/*.md": "jlyons"
+      },
       "ms.collection": {
         "articles/application-gateway/*.md": "networking",
         "articles/cdn/*.md": "networking",
@@ -500,7 +503,8 @@
         "articles/service-health/*.md": "stbaron",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/*.md": "juliako",
-        "articles/media-services/**/*.md": "juliako"	      
+        "articles/media-services/**/*.md": "juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
         "articles/batch/**/*.md": "batch",
@@ -544,7 +548,8 @@
         "articles/aks/**/*.md": "container-service",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/media-services/*.md": "media-services",
-        "articles/media-services/**/*.md": "media-services"
+        "articles/media-services/**/*.md": "media-services",
+        "articles/azure-government/**/*.md": "azure-government"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -579,7 +584,12 @@
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
         "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
-        "articles/cognitive-services/Translator/**/*.md": "translator-text"
+        "articles/cognitive-services/Translator/**/*.md": "translator-text",
+        "articles/media-services/latest/*.md": "rest-v3",
+        "articles/media-services/previous/*.md": "rest-v2",
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/media-services/azure-media-player/*.md": "media-player",
+        "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
@@ -710,7 +720,8 @@
         "articles/media-services/latest/*.md": "Azure Media Services v3",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/media-services/azure-media-player/*.md": "Azure Media Player",
-        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge"
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
+        "articles/azure-government/**/*.md": "Azure Government"
       },
       "featureFlags": {
         "articles/**/*.md": [

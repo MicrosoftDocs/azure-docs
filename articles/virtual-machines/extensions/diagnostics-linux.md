@@ -446,7 +446,7 @@ Controls the capture of log files. LAD captures new text lines as they are writt
 
 Element | Value
 ------- | -----
-file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards.
+file | The full pathname of the log file to be watched and captured. The pathname must name a single file; it cannot name a directory or contain wildcards. The 'omsagent' user account must have read access to the file path.
 table | (optional) The Azure storage table, in the designated storage account (as specified in the protected configuration), into which new lines from the "tail" of the file are written.
 sinks | (optional) A comma-separated list of names of additional sinks to which log lines sent.
 
