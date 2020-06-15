@@ -24,6 +24,9 @@ API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**.
 
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for JavaScript. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for JavaScript](storage-quickstart-queues-nodejs.md)
+
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]

@@ -2,7 +2,7 @@
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
 ms.date: 02/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Monitor delegated resources at scale

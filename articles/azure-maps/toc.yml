@@ -59,6 +59,8 @@
       href: drawing-conversion-error-codes.md  
   - name: Coverage
     items:
+    - name: Coverage
+      href: geographic-coverage.md
     - name: Geocoding coverage
       href: geocoding-coverage.md
     - name: Traffic coverage
@@ -325,10 +327,6 @@
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-maps.html
   - name: Azure Maps videos
     href: https://aka.ms/AzureMapsVideos
   - name: Open source projects

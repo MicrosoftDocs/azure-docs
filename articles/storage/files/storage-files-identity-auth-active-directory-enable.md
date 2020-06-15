@@ -52,7 +52,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 ## Regional availability
 
-Azure Files authentication with AD DS is available in [all Public, Azure Gov, and China regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview
 

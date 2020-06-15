@@ -5,7 +5,7 @@ services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
 ms.date: 03/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ---
