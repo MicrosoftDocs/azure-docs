@@ -681,27 +681,45 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
-## Scale controller logs
+## Scale controller logs (preview)
 
-The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors the function host instances that run your app and makes decisions about when to add or remove function host instances. If you need to understand the decisions the scale controller is making in your application, you can configure it to emit logs to Application Insights or to Blob Storage.
+The [Azure Functions scale controller](./functions-scale.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs to make decisions about when to add or remove instances. You can have the scale controller emit logs to either Application Insights or to Blob storage to better understand the decisions the scale controller is making for your function app.
 
 > [!WARNING]
-> This feature is in preview. We do not recommend you leave this feature enabled indefinitely, and you should instead enable it when you need the information it collects and then disable it.
+> This feature is in preview. Don't leave logging enabled. Enable logging until you have collected enough data to understand how the scale controller is behaving, and then disable it.
 
-To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `{Destination}:{Verbosity}`, where:
-* `{Destination}` specifies the destination for the logs to be sent to, and must be either `AppInsights` or `Blob`.
-* `{Verbosity}` specifies the level of logging you want, and must be one of `None`, `Warning`, or `Verbose`.
+To enable this feature, add a new application setting named `SCALE_CONTROLLER_LOGGING_ENABLED`. The value of this setting must be of the format `<DESTINATION>:<VERBOSITY>`, based on the following:
 
-For example, to log verbose information from the scale controller to Application Insights, use the value `AppInsights:Verbose`.
+| | |
+|--|--|
+|**`<DESTINATION>`**| The destination to which logs are sent. Valid values are `AppInsights` and `Blob`.<br/>When you use `AppInsights`, make sure [Application Insights is enabled your function app](#enable-application-insights-integration).<br/>When you set the destination to `Blob`, logs are created in a blob container named `azure-functions-scale-controller` in the default storage account set in the `AzureWebJobsStorage` application setting. |
+|**`<VERBOSITY>`** | Specifies the level of logging. Supported values are `None`, `Warning`, and `Verbose`.<br/>When set to `Verbose`, the scale controller logs a reason for every change in the worker count, as well as information about the triggers that factor into those decisions. Verbose logs include trigger warnings and the hashes used by the triggers before and after the scale controller runs. |
 
-> [!NOTE]
-> If you enable the `AppInsights` destination type, you must ensure you configure [Application Insights for your function app](#enable-application-insights-integration).
+For example, the following Azure CLI command turns on verbose logging from the scale controller to Application Insights:
 
-If you set the destination to `Blob`, the logs will be created in a blob container named `azure-functions-scale-controller` within the storage account set in the `AzureWebJobsStorage` application setting.
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:Verbose
+```
 
-If you set the verbosity to `Verbose`, the scale controller will log a reason for every change in the worker count, as well as information about the triggers that participate in the scale controller's decisions. For example, the logs will include trigger warnings, and the hashes used by the triggers before and after the scale controller runs.
+In this example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME>` with the name of your function app and the resource group name, respectively. 
 
-To disable scale controller logging, set the value of the `{Verbosity}` to `None` or remove the `SCALE_CONTROLLER_LOGGING_ENABLED` application setting.
+The following Azure CLI command disables logging by setting the verbosity to `None`:
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--settings SCALE_CONTROLLER_LOGGING_ENABLED=AppInsights:None
+```
+
+You can also disable logging by removing the `SCALE_CONTROLLER_LOGGING_ENABLED` setting by using the following Azure CLI command:
+
+```azurecli-interactive
+az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
+--setting-names SCALE_CONTROLLER_LOGGING_ENABLED
+```
 
 ## Disable built-in logging
 
