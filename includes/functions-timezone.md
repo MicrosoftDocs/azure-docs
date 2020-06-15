@@ -1,11 +1,11 @@
 The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. 
 
-The value of this setting depends on the operating system on which your function app runs.
+The value of this setting depends on the operating system and plan on which your function app runs.
 
-| | |
-| - | -|
-| **Windows** | Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10). |
-| **Linux (Dedicated/Premium)** | Set the value to the name of the desired time zone as shown in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
+|Operating system |Plan |Value |
+|-|-|-|
+| **Windows** |All | Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10). |
+| **Linux** |Premium<br/>Dedicated |Set the value to the name of the desired time zone as shown in the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
 
 
 > [!NOTE]
