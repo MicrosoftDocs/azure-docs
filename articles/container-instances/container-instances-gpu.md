@@ -235,4 +235,4 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [az-container-show]: /cli/azure/container#az-container-show
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
-[az-deployment-group-create]: /cli/azure/group/deployment#az-deployment-group-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
