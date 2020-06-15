@@ -47,17 +47,15 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 
 ## Prerequisites
-Any destinations for the diagnostic setting must be created with the required permissions. See the sections below for details for each destination.
+Any destinations for the diagnostic setting must be created with the required permissions. See the sections below for prerequisite requirements for each destination.
 
 ### Log Analytics workspace
 [Create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Event hub
-[Create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you already have a diagnostic setting using this Event Hubs namespace, then that event hub will be reused.
+[Create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
-The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies in the Azure portal under the Configure tab for your Event Hubs namespace.
-
-To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
+The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies in the Azure portal under the Configure tab for your Event Hubs namespace. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. 
 
 
 ### Azure storage
@@ -72,7 +70,7 @@ To send the data to immutable storage, set the immutable policy for the storage 
 
 
 
-## Create diagnostic settings in Azure portal
+## Create in Azure portal
 
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
@@ -139,7 +137,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](data-ingestion-time.md).
 
-## Create diagnostic settings using PowerShell
+## Create using PowerShell
 
 Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
@@ -152,7 +150,7 @@ Following is an example PowerShell cmdlet to create a diagnostic setting using a
 Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## Create diagnostic settings using Azure CLI
+## Create using Azure CLI
 
 Use the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). See the documentation for this command for descriptions of its parameters.
 
@@ -172,15 +170,13 @@ az monitor diagnostic-settings create  \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## Create diagnostic settings using REST API
+## Create using Resource Manager template
+See [Resource Manager template samples for diagnostic settings in Azure Monitor](resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
 
+## Create using REST API
 See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
-## Create diagnostic settings using Resource Manager template
-
-See [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
-
-## Create diagnostic settings using Azure Policy
+## Create using Azure Policy
 Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. See [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details.
 
 

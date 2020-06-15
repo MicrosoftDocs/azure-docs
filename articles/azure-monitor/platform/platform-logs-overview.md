@@ -17,9 +17,9 @@ The following table lists the specific platform logs that are available at diffe
 
 | Log | Layer | Description |
 |:---|:---|:---|
-| Resource logs | Azure Resources | Provide insight into operations that were performed within an Azure resource (the *data plane*), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
-| Activity log | Azure Subscription | Provides insight into the operations on each Azure resource in the subscription from the outside (*the management plane*) in addition to updates on Service Health events. Use the Activity Log, to determine the _what_, _who_, and _when_ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. You can also understand the status of the operation and other relevant properties.  There is a single Activity log for each Azure subscription. |
-| Azure Active Directory logs | Azure Tenant |  Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant. See [What are Azure Active Directory reports?](../../active-directory/reports-monitoring/overview-reports.md) for a complete description of Azure Active Directory Logs.   |
+| [Resource logs](resource-logs.md) | Azure Resources | Provide insight into operations that were performed within an Azure resource (the *data plane*), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type.<br><br>*Resource logs were previously referred to as diagnostic logs.*  |
+| [Activity log](activity-log.md) | Azure Subscription | Provides insight into the operations on each Azure resource in the subscription from the outside (*the management plane*) in addition to updates on Service Health events. Use the Activity Log, to determine the _what_, _who_, and _when_ for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There is a single Activity log for each Azure subscription. |
+| [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md) | Azure Tenant |  Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant.   |
 
 > [!NOTE]
 > The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
@@ -55,6 +55,6 @@ You can send platform logs to one or more of the destinations in the following t
 
 ## Next steps
 
-* [View the Activity log schema for different categories](activity-log-schema.md)
-* [View the resource log schema for different Azure services](diagnostic-logs-schema.md)
+* [Read more details about the Activity log](activity-log.md)
+* [Read more details about resource logs](resource-logs.md)
 
