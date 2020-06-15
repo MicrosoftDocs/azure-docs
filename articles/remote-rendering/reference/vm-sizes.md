@@ -19,7 +19,7 @@ When the renderer on a standard VM hits this limitation, it switches rendering t
 
 ![Checkerboard](media/checkerboard.png)
 
-## Allocating the VM
+## Allocate the VM
 
 The desired type of VM has to be specified at rendering session initialization time. It cannot be changed within a running session. The following code examples show the place where the VM size must be specified:
 
@@ -46,7 +46,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-For the [example powershell scripts](../samples/powershell-example-scripts.md), the VM size has to be specified inside the `arrconfig.json` file:
+For the [example PowerShell scripts](../samples/powershell-example-scripts.md), the VM size has to be specified inside the `arrconfig.json` file:
 
 ```json
 {
@@ -65,13 +65,13 @@ The number of polygons that are considered for the limitation test are the numbe
 * Loaded model instances that are fully outside the view frustum.
 * Models or model parts that are switched to invisible, using the [hierarchical state override component](../overview/features/override-hierarchical-state.md).
 
-Accordingly, it is possible to write an application for the standard size that loads multiple models that have polygon counts close to the limit but which only shows a single model at a time.
+Accordingly, it is possible to write an application that targets the `standard` size that loads multiple models with a polygon count close to the limit for every single model. When the application only shows a single model at a time, the checkerboard is not triggered.
 
 ### How to determine the number of polygons
 
-There are two ways to determine the number of polygons of a model or scene that contribute to the budget limit of the standard size VM:
+There are two ways to determine the number of polygons of a model or scene that contribute to the budget limit of the `standard` size VM:
 * On the model conversion side, retrieve the [conversion output json file](../how-tos/conversion/get-information.md), and check the `numFaces` entry in the [*inputStatistics* section](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* If your application is dealing with dynamic content, the number of rendered polygons can be queried dynamically during runtime. For that, use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the `polygonsRendered` member in the `FrameStatistics` struct. The checkerboard background is faded in with a bit of latency to ensure user action can be taken after this asynchronous query. User action can for instance be hiding or deleting model instances.
+* If your application is dealing with dynamic content, the number of rendered polygons can be queried dynamically during runtime. Use a [performance assessment query](../overview/features/performance-queries.md#performance-assessment-queries) and check for the `polygonsRendered` member in the `FrameStatistics` struct. The checkerboard background is faded in with a bit of latency to ensure user action can be taken after this asynchronous query. User action can for instance be hiding or deleting model instances.
 
 ## Pricing
 
