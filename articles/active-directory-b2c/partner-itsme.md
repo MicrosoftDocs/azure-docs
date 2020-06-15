@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C
 
-The itsme digital ID app allows you to log in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client secret user flow policy.
+The itsme digital ID app allows you to sign in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client secret user flow policy.
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |------------ |------- |
    | Name | itsme |
    | Metadata URL | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>where `<environment>` is either `e2e` (test environment) or `prd` (production)  |
-   | ClientID     | Your **Client Id**, also known as **Partner code**  |
+   | ClientID     | Your **Client ID**, also known as **Partner code**  |
    | Client Secret | Your **client_secret** |
    | Scope  | openid service:YOURSERVICECODE profile email [phone] [address]  |
    |Response Type | code |

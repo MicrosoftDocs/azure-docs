@@ -28,7 +28,7 @@ To get started, you'll need:
 
 ## Scenario description
 
-In this scenario, Trusona acts as an identity provider for Azure AD B2C to enable passwordless authentication The following components make up the solution:
+In this scenario, Trusona acts as an identity provider for Azure AD B2C to enable passwordless authentication. The following components make up the solution:
 
 * An Azure AD B2C combined sign-in and sign-up policy
 * Trusona added to Azure AD B2C as an identity provider
@@ -94,7 +94,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 1. Select **Identity provider type** > **OpenID Connect (Preview)**.
 
-2. Fill-out the form to set up the identity provider:  
+2. Fill out the form to set up the identity provider:  
 
    | Property | Value  |
    | :--- | :--- |
@@ -108,7 +108,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 4. Select **Map this identity provider’s claims**.  
 
-5. Fill-out the form to map the identity provider:
+5. Fill out the form to map the identity provider:
 
    | Property | Value  |
    | :--- | :--- |

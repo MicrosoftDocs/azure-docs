@@ -29,7 +29,7 @@ To get started, you'll need:
 
 The IDology integration includes the following components:
 
-- Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It is also known as the identity provider.
+- Azure AD B2C – The authorization server responsible for verifying the user’s credentials. It's also known as the identity provider.
 - IDology – The IDology service takes input provided by the user and verifies the user’s identity.
 - Custom Rest API – This API implements the integration between Azure AD and the IDology service.
 
@@ -48,7 +48,7 @@ The following architecture diagram shows the implementation.
 |7     | Azure AD B2C receives information back from middle layer API. If it shows a **Failure** response, an error message is displayed to user. If it shows a **Success** response, the user is authenticated and written into the directory. |
 |      |      |
 
-[!NOTE] Azure AD B2C can also ask the customer to perform step-up authentication, but this is out of scope of this tutorial.
+[!NOTE] Azure AD B2C can also ask the customer to perform step-up authentication, but this scenario is out of scope of this tutorial.
 
 ## Onboard with IDology
 
@@ -68,7 +68,7 @@ You'll need the URL of the deployed service to configure Azure AD with the requi
 
 ### Part 2 - Configure the API 
 
-Application settings can be [configured in the App service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). This allows for settings to be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
+Application settings can be [configured in App Service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). With this method, settings can be securely configured without checking them into a repository. You'll need to provide the following settings to the Rest API:
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|

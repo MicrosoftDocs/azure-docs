@@ -45,7 +45,7 @@ The following components make up the Twilio solution:
 | 3     | The application records the transaction value and payee, $50.00 and John Doe, and generates a signed token. This token is called an `id_token_hint` and contains the claim `amount:$500, payee:john doe`. The `id_token_hint` is sent along with the request to the Azure AD B2C custom policy, which is integrated with Twilio.     |
 | 4     | Azure AD B2C verifies the signature of the id_token_hint by checking the applications `/.well-known` OpenId Connect endpoint. After verifying, it extracts the claims from this token, notably the `amount` and `payee`. The user will see a page to verify their mobile phone number via SMS message.     |
 | 5     | The user requests to verify their phone number via SMS message, and Azure AD B2C makes a REST API request to Twilio's Verify API endpoint. It also sends the transaction `amount` and `payee` as part of the PSD2 process to generate the One-Time-Passcode (OTP). Twilio sends an SMS message to the user's registered phone number.     |
-| 6     |  The user enters the OTP received in their SMS message, and submits this to Azure AD B2C. Azure AD B2C makes an API request with this OTP to Twilio's verify API to verify that the OTP is correct. Finally a token is issued to the application, with a new PolicyId signifying the user has stepped-up their authentication.    |
+| 6     |  The user enters the OTP received in their SMS message and submits it to Azure AD B2C. Azure AD B2C makes an API request with this OTP to Twilio's verify API to verify that the OTP is correct. Finally a token is issued to the application, with a new PolicyId signifying the user has stepped-up their authentication.    |
 |      |      |
 
 ## Onboard with Twilio
@@ -90,7 +90,7 @@ The following components make up the Twilio solution:
 
 ## Integrate Twilio with Azure AD B2C
 
-Add the policy files to Azure AD B2C by doing the following:
+Add the policy files to Azure AD B2C:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
@@ -106,7 +106,7 @@ Add the policy files to Azure AD B2C by doing the following:
 
 7. Upload all the policy files to your tenant.
 
-8. Customize the string in the GenerateOTPMessageEnrol claims transform for your sign up SMS text.
+8. Customize the string in the GenerateOTPMessageEnrol claims transform for your sign-up SMS text.
 
 ## Test the solution
 

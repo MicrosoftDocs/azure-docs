@@ -35,7 +35,7 @@ The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 |---|---|
 |1     | A user signs in with a previously created account. When the user selects submit, an Arkose Labs Enforcement challenge appears. After the user completes the challenge, the status is sent to Arkose Labs to generate a token.        |
 |2     |  Arkose Labs sends the token back to Azure AD B2C.       |
-|3     |  Before the login form is submitted, the token is sent to Arkose Labs for verification.       |
+|3     |  Before the sign-in form is submitted, the token is sent to Arkose Labs for verification.       |
 |4     |  Arkose sends back a success or failure result from the challenge.       |
 |5     |  If the challenge is successfully completed, a sign-in form is submitted to Azure AD B2C, and Azure AD B2C completes the authentication.       |
 |   |   |
@@ -46,13 +46,13 @@ The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 
 2. Once your account is created, navigate to https://dashboard.arkoselabs.com/login.
 
-3. Within the dashboard, navigate to site settings to find your public key and private key. This will be needed later to configure Azure AD B2C.
+3. Within the dashboard, navigate to site settings to find your public key and private key. This information will be needed later to configure Azure AD B2C.
 
 ## Integrate Arkose Labs with Azure AD B2C
 
 ### Part 1 – Create blob storage to store the custom HTML
 
-To create a storage, follow these steps:  
+To create a storage account, follow these steps:  
 
 1. Sign in to the Azure portal.
 
@@ -84,7 +84,7 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 1. In the menu, select  **CORS**.
 
-2. For  **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+2. For  **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. Use all lowercase letters when entering your tenant name.
 
 3. For **Allowed Methods**, select **GET**, **PUT**, and **OPTIONS**.
 
@@ -108,7 +108,7 @@ Download Git Bash and follow the steps below:
 
 3. Open the newly renamed file verify-token.php file and:
 
-   a. Replace the content with the content from the verify-token.php file found in [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
+   a. Replace the content with the content from the verify-token.php file found in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
    b. Replace <private_key> on line 3 with your private key obtained from the Arkose Labs dashboard.
 
@@ -122,9 +122,9 @@ Download Git Bash and follow the steps below:
 
 #### Store the custom HTML
 
-1. Open the index.html file stored in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
+1. Open the index.html file stored in the [GitHub repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
-2. Replace all instances of `<tenantname>` with your b2C tenant name (in other words, `<tenantname>.b2clogin.com`). There should be 4 instances.
+2. Replace all instances of `<tenantname>` with your b2C tenant name (in other words, `<tenantname>.b2clogin.com`). There should be four instances.
 
 3. Replace the `<appname>` with the app name that you created in Part 2, step 1.
 
@@ -143,7 +143,7 @@ Download Git Bash and follow the steps below:
 
 1. Create a user flow based on the information [here](tutorial-create-user-flows.md). Stop when you reach the section **Test the user flow**.
 
-2. Enable Javascript in your [user flow](user-flow-javascript-overview.md).
+2. Enable JavaScript in your [user flow](user-flow-javascript-overview.md).
 
 3. In the same user flow page, enable custom page URL: Go to
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
