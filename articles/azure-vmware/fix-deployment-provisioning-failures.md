@@ -60,7 +60,7 @@ When viewing a private cloud in the portal, select **Connectivity > ExpressRoute
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Collect an ExpressRoute ID."::: 
  
-Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see "Create your support request" below).
+Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see [Create your support request](#create-your-support-request) below).
  
 ## Collect error or failure messages
  
