@@ -47,20 +47,28 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
-### Users are getting invalid username/Password error 
+### Users get invalid username/password error 
 
-This can happen when user’s on-prem UPN (User Principal Names) is different than cloud UPN.
-To confirm that this is the issue, first you would want to test that the PTA agent is working correctly. To do, that follow the steps below:
-  1. Create a test account.  
-  2. Import the PS module on agent machine:
-  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
-  3. Run the Invoke PowerShell command: 
-   ``` powershell
-  Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+This can happen when a user’s on-premises User Principal Name (UPN) is different than the user's cloud UPN.
+
+To confirm that this is the issue, first test that the PTA agent is working correctly. To do that, complete these steps:
+  
+1. Create a test account.  
+2. Import the PowerShell module on the agent machine:
+   
+   ```powershell
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+   ```
+
+3. Run the Invoke PowerShell command: 
+
+   ```powershell
+   Invoke-PassthroughAuthOnPremLogonTroubleshooter 
    ``` 
-  4. Above command will prompt to enter the credential. Enter a username and password, the same username used to login into (https://login.microsoftonline.com) 
 
-If you get the same username/password error, this means the PTA agent is working correctly and the issue may be that the on-prem UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)
+4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
+
+If you get the same username/password error, this means that the PTA agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)
 
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
