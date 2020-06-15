@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/19/2019
+ms.date: 06/15/2019
 ms.author: danis
 
 ---
@@ -51,11 +51,11 @@ There are two stages to making cloud-init available to the endorsed Linux distro
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes | yes - support from package version: *18.2-1.el7_6.2*|
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | yes (note this is a preview image, and once all RHEL 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | no - image updates in flight, to complete end of May | yes - support from package version: *18.5-6.el7*|
-|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | no - image updates in flight, to complete end of May  | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7.7 | 7.7.2020051912 | yes | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | yes | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1)|RHEL |7-LVM | 7.7.2020051921 | yes | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen2)|RHEL | 7lvm-gen2 | 7.7.2020051922  | yes | yes - support from package version: *18.5-6.el7*|
+|RedHat 7.7 (Gen1) |rhel-byos | rhel-lvm77 | 7.7.20200416 | yes  | yes - support from package version: *18.5-6.el7*|
 |RedHat 8.1 (Gen1) |RHEL |8.1-ci |8.1.2020042511 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020|
 |RedHat 8.1 (Gen2) |RHEL |81-ci-gen2 |8.1.2020042524 | yes (note this is a preview image, and once all RHEL 8.1 images support cloud-init, this will be removed 1st August 2020) | No, ETA for full support June 2020 |
 
@@ -85,10 +85,15 @@ RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 
 
 ### Debian
-We are currently working to preview support, expect updates in June 2020.
+| Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (preview only) | No, in preview. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (preview only) | No, in preview. |
+
+
+
 
 Currently Azure Stack will support the provisioning of cloud-init enabled images.
-
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
 WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
