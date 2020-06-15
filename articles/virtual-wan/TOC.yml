@@ -42,6 +42,12 @@
       href: about-virtual-hub-routing.md
     - name: About virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: Scenarios
+      items:
+      - name: Isolate VNets
+        href: scenario-isolate-vnets.md
+      - name: Route through NVA
+        href: scenario-route-through-nva.md
   - name: Site-to-site
     items:
     - name: About IPsec policies
