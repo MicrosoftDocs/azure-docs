@@ -32,7 +32,7 @@ Create an ASP.NET web app by following these steps:
 
 1. In **Create a new project**, find and choose **ASP.NET Web Application (.NET Framework)** for C#, then select **Next**.
 
-1. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
+1. In **Configure your new project**, name the application _myfirstazurewebapp_, and then select **Create**.
 
    ![Configure your web app project](./media/app-service-web-get-started-windows-container/configure-web-app-project-container.png)
 
@@ -56,7 +56,7 @@ Create an ASP.NET web app by following these steps:
 
 ## Publish to Docker Hub
 
-1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
+1. In **Solution Explorer**, right-click the **myfirstazurewebapp** project and select **Publish**.
 
 1. Choose **App Service** and then select **Publish**.
 
@@ -144,7 +144,7 @@ The streamed logs looks like this:
    </div>
    ```
 
-1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and choose **Publish**.
+1. To redeploy to Azure, right-click the **myfirstazurewebapp** project in **Solution Explorer** and choose **Publish**.
 
 1. On the publish page, select **Publish** and wait for publishing to complete.
 

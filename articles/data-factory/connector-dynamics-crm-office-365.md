@@ -419,7 +419,7 @@ In copy activity column mapping, map the two columns as follows:
 
 ![Dynamics lookup field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 
-If all your source records map to the same target entity and your source data doesn't contains the target entity name, here is a shortcut: in copy activity source, add an additional column. You can specify the name following the pattern `{lookup_field_name}@EntityReference` and value as the target entity name, in which case explicit column mapping becomes optional because copy activity by default maps columns by name.
+If all of your source records map to the same target entity and your source data doesn't contains the target entity name, here is a shortcut: in copy activity source, add an additional column as follows. You can name it following the pattern `{lookup_field_name}@EntityReference` and value as the target entity name, then proceed with column mapping as normal. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
 ![Dynamics lookup field add entity reference](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
 

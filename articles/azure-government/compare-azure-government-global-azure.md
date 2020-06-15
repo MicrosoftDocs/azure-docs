@@ -4,8 +4,6 @@ description: Microsoft Azure Government uses same underlying technologies as glo
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: dumartinmsft
-manager: femila
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/19/2019
-ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
