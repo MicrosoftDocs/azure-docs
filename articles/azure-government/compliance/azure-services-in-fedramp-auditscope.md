@@ -196,7 +196,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) |  |  |  | :heavy_check_mark: |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) |  |  |  |  | :heavy_check_mark: |
 | [Azure DB for MySQL](https://azure.microsoft.com/services/mysql/)| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure DB for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure DB for MariaDB](https://azure.microsoft.com/services/mariadb/)  | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | 
