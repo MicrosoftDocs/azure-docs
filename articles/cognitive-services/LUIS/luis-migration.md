@@ -45,7 +45,7 @@ Migration is the process of changing authoring authentication from an email acco
 
 * You need to be associated with a valid Azure Subscription. Ask your tenant admin to add you on the subscription or you can sign up for a free one [here](https://azure.microsoft.com/free/).
 * You need to create a LUIS Azure Authoring resource from the LUIS portal or from the Azure portal. Creating an authoring resource from the LUIS portal is part of the migration flow that is discussed in the next section.  
-* If you are a **collaborator on applications**, the applications will not automatically migrate. It is **recommended to backup these applications** by [exporting them]() or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you are the owner.
+* If you are a **collaborator on applications**, the applications will not automatically migrate. It is **recommended to backup these applications** by exporting them or use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you are the owner.
 * If you are the **owner of the application**, you will not need to export your apps as they will migrate automatically. It is **recommended to save each app's collaborator's list.** An email template that has this list is provided optionally as part of the migration process.
 
 
@@ -85,8 +85,11 @@ For each collaborator and app, the default email application opens with a lightl
 > [!Note]
 > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
+4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option so that you can have backup of these applications. You can then import it back after you migrate as they will not be automatically migrated with you.This is an optional step.
 
-4. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
+![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+
+5. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
 
 > [!div class="mx-imgBorder"]
 > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
@@ -203,7 +206,7 @@ If your application is in production using your prediction/runtime resource and 
 > You can import back your applications after you migrate, but they will have different app IDs and will be different than the ones being hit in production.
 
 If your application is not still not in production using your prediction/runtime resource, it is recommended to:
-* Export applications as backup
+* Export applications as backup. This is provided as an optional step in the migration process.
 * Un-assign the prediction resources from **Manage -> Azure resources** page.
 * Undergo the migration process.
 * Import back applications after migration.
