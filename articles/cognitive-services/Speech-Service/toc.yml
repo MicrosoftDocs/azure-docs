@@ -429,15 +429,15 @@
                 - name: Continuous Deployment with Azure DevOps
                   href: how-to-custom-commands-deploy-CICD.md
             - name: Test
-                items:
-                  - name: Test your Custom Commands app
-                    href: how-to-custom-commands-developerflow-test.md
+              items:
+              - name: Test your Custom Commands app
+                href: how-to-custom-commands-developerflow-test.md
             - name: Debug
               items:
-                - name: Debug errors when authoring the app
-                  href: how-to-custom-commands-debug-buildtime.md
-                - name: Debug errors when running the app
-                  href: how-to-custom-commands-debug-runtime.md
+              - name: Debug errors when authoring the app
+                href: how-to-custom-commands-debug-buildtime.md
+              - name: Debug errors when running the app
+                href: how-to-custom-commands-debug-runtime.md
             - name: References
                 items: 
                   - name: Custom Commands concepts
