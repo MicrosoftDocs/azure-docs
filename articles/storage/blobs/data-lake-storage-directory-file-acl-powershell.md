@@ -78,13 +78,13 @@ $ctx = $storageAccount.Context
 
 ## Create a file system
 
-A file system acts as a container for your files. You can create one by using the `New-AzDatalakeGen2FileSystem` cmdlet. 
+A file system acts as a container for your files. You can create one by using the `New-AzStorageContainer` cmdlet. 
 
 This example creates a file system named `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## Create a directory
