@@ -146,10 +146,10 @@ Create a resource group with the [az group create][az-group-create] command.
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the template with the [az group deployment create][az-group-deployment-create] command.
+Deploy the template with the [az deployment group create][az-deployment-group-create] command.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file azuredeploy.json
+az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
 Within a few seconds, you should receive an initial response from Azure.
@@ -234,5 +234,5 @@ You can also specify a multi-container group using a [YAML file](container-insta
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
 [template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups
