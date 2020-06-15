@@ -5,7 +5,7 @@ description: Get support and training and provide feedback for Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 author: peterclu
 ms.author: peterlu

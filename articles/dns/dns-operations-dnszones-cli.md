@@ -4,12 +4,9 @@ description: You can manage DNS zones using Azure CLI. This article shows how to
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-
-ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017

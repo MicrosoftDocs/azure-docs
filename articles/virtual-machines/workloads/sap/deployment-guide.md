@@ -1029,6 +1029,7 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
 
 The process will be automated in the next version of Azure PowerShell (> 4.2.0). We will update this article once the new version is available. Until then, please follow these steps to install the extension manually.
 
+1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Follow the steps in the [Configure managed identities for Azure resources on an Azure VM using PowerShell][qs-configure-powershell-windows-vm] article to enable a System-Assigned Managed Identity to the VM. User-Assigned Managed Identities are not supported by the VM extension for SAP. However, you can enable both, a system-assigned and a user-assigned identity.
     
@@ -1067,6 +1068,7 @@ The process will be automated in the next version of Azure PowerShell (> 4.2.0).
 
 The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using Azure CLI, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
 
+1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
 
 1. Sign in with your Azure account:

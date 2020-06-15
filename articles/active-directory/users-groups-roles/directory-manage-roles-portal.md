@@ -7,8 +7,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: how-to
+ms.date: 06/15/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -33,13 +33,13 @@ It's easy to view your own permissions as well. Select **Your Role** on the **Ro
 
 ## View assignments for a role
 
-Click a role to view the users assigned to the role. You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
+Select a role to view the users assigned to the role. You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
 ![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to see their active assigned roles.
 
-If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, you will see role assignments and permissions managed in PIM and not in Azure AD.
+If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, your experience is that all role assignments and permissions are managed in PIM and not in Azure AD.
 
 ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 

@@ -15,11 +15,12 @@ In this tutorial, you'll access and retrieve secrets from Azure Key Vault using 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a service principal
-> * Deploy an Azure Kubernetes Service cluster
+> * Create a service principal or use managed identities
+> * Deploy an Azure Kubernetes Service cluster using Azure CLI
 > * Install Helm and Secrets Store CSI Driver
 > * Create an Azure Key Vault and set secrets
 > * Create your own SecretProviderClass Object
+> * Assign your service principal or use managed identities
 > * Deploy your pod with mounted secrets from Key Vault
 
 ## Prerequisites
@@ -73,8 +74,8 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
 
     This is the output with both parameters highlighted.
     
-    ![Image](../media/kubernetes-key-vault-5.png)
-    ![Image](../media/kubernetes-key-vault-6.png)
+    ![Image](../media/kubernetes-key-vault-2.png)
+    ![Image](../media/kubernetes-key-vault-3.png)
     
 ## Install Helm and Secrets Store CSI Driver
 
@@ -153,7 +154,7 @@ spec:
 ```
 Below is the console output for "az keyvault show --name contosoKeyVault5" with the relevant highlighted metadata:
 
-![Image](../media/kubernetes-key-vault-2.png)
+![Image](../media/kubernetes-key-vault-4.png)
 
 ## Assign your service principal or use managed identities
 
@@ -168,7 +169,7 @@ If using a service principal. You'll need to give permission to your service pri
 
     Below is the output of the command: 
 
-    ![Image](../media/kubernetes-key-vault-3.png)
+    ![Image](../media/kubernetes-key-vault-5.png)
 
 1. Give service principal permission to get secrets:
     ```azurecli
@@ -202,19 +203,19 @@ If using managed identities, assign specific roles to the AKS cluster you've cre
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
-1. Install the Azure Active Directory (Azure AD) Identity into AKS.
+1. Install the Azure Active Directory (AAD) Identity into AKS.
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Create an Azure AD identity. Copy down the **clientId** and **principalId**.
+1. Create an AAD identity. Copy down the **clientId** and **principalId**.
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Assign the reader role to the Azure AD Identity you've just created for your Key Vault. Then give the Identity permission to get secrets from your Key Vault. You're going to use the **clientId** and **principalId** from the Azure Identity you just created.
+1. Assign the reader role to the AAD Identity you've just created for your Key Vault. Then give the Identity permission to get secrets from your Key Vault. You're going to use the **clientId** and **principalId** from the Azure Identity you just created.
     ```azurecli
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
@@ -305,7 +306,7 @@ To check the status of your pod, use the following command:
 kubectl describe pod/nginx-secrets-store-inline
 ```
 
-![Image](../media/kubernetes-key-vault-4.png)
+![Image](../media/kubernetes-key-vault-6.png)
 
 The deployed pod should be in the “Running” state. In the “Events” section at the bottom, all the types of events to the left are classified as “Normal.”
 Once you've verified the pod is running, you can verify your pod has the secrets from your Key Vault.

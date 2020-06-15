@@ -25,10 +25,12 @@ For more information about the available roles, see [Assigning administrator rol
 ## Assign roles
 A common way to assign Azure AD roles to a user is on the **Directory role** page for a user.
 
-You can also assign roles using Privileged Identity Management (PIM). For more detailed information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+You can also assign roles using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management). If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed [in the Privileged Identity Management experience](../users-groups-roles/directory-manages-roles-portal.md).
+
+![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
 ### To assign a role to a user
-1. Go to the [Azure portal](https://portal.azure.com/) and log in using a Global administrator account for the directory. 
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in using a Global administrator account for the directory. 
 
 2. Search for and select **Azure Active Directory**.
 
@@ -45,7 +47,7 @@ You can also assign roles using Privileged Identity Management (PIM). For more d
 
     The **Alain Charon - Directory role** page appears.
 
-6. Select **Add assignment**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
+6. Select **Add assignments**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
 
     ![Assigned roles page - showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
