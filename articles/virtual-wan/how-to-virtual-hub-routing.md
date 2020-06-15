@@ -32,7 +32,7 @@ For more information, see [About virtual hub routing](about-virtual-hub-routing.
    * **Routes**
    * **Route name**
    * **Destination type**
-   * **Destination prefix**: You can aggregate prefixes. For example: VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16. Branch** routes apply to all connected VPN sites, ExpressRoute circuits, and User VPN connections.
+   * **Destination prefix**: You can aggregate prefixes. For example: VNet 1: 10.1.0.0/24 and VNet 2: 10.1.1.0/24 can be aggregated as 10.1.0.0/16. **Branch** routes apply to all connected VPN sites, ExpressRoute circuits, and User VPN connections.
    * **Next hop**: A list of virtual network connections, or Azure Firewall.
 
      If you select a virtual network connection, you will see **Configure static routes**. This is an optional configuration setting. For more information, see [Configuring static routes](about-virtual-hub-routing.md#static).
@@ -44,7 +44,7 @@ For more information, see [About virtual hub routing](about-virtual-hub-routing.
     :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configure label names":::
 
 6. Select the **Associations** tab to associate connections to the route table.
-You will see **Branches**, **Virtual Networks**, and the **Current settings** of the virtual network connections.
+You will see **Branches**, **Virtual Networks**, and the **Current settings** of the connections.
 
     :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Association connections to the route table":::
 
@@ -81,5 +81,5 @@ In the Azure portal, locate the route table of your virtual hub. Click **"…"**
 
 ## Next steps
 
-For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md)
+For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
