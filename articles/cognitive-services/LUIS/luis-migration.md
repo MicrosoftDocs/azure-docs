@@ -82,8 +82,8 @@ For each collaborator and app, the default email application opens with a lightl
 
         Thank you
         ```
-        > [!Note]
-        > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
+> [!Note]
+> Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
 
 4. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
@@ -187,9 +187,20 @@ It is recommended to:
 * Collaborators are to migrate and re-assign the prediction resources back to the applications.
 Note this will have cause a break in the application temporarily until the prediction resources are re-assigned.
 
-### Recommended steps to do if you are a collaborator on an app
-If you are collaborating on applications and have assigned prediction/runtime key to these application, an error will be shown that lists the application IDs and key paths that are blocking the migration.
+Another solution here is, before owner migration, collaborators may add app owners as contributors to on their Azure subscriptions <URL to have this>. This will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
 
+
+### Recommended steps to do if you are a collaborator on an app
+If you are collaborating on applications and have assigned prediction/runtime key to these application, an error is shown when you migrate that lists the application IDs and key paths that are blocking the migration.
+
+If your application is in production using your prediction/runtime resource and you do not want to break it, it is recommended to:
+* Export applications as backup
+* Add app owners as contributors on the Azure subscriptions <URL to have this>.
+* Undergo migration process which should succeed.
+* You wont be able to author these applications unless app owner migrates and adds you as a contributor to the authoring resource.
+
+> [!Note]
+> You can import back your applications after you migrate, but they will have different app IDs and will be different than the ones being hit in production.
 
 If your application is not still not in production using your prediction/runtime resource, it is recommended to:
 * Export applications as backup
@@ -198,9 +209,6 @@ If your application is not still not in production using your prediction/runtime
 * Import back applications after migration.
 * Re-assign prediction keys to your applications **Manage -> Azure resources** page.
 
-
-> [!Note]
-> When you import back your applications after you migrate, they will have different app IDs and will be different than the ones being hit in production. You will need to change the endpoint URL and the owner will not have access to hit the endpoint unless shared with him.
 
 ## Troubleshooting the migration process for LUIS authoring
 
