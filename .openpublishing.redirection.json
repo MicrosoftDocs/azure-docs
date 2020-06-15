@@ -30472,6 +30472,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-secure-score.md",
+      "redirect_url": "/azure/security-center/secure-score-security-controls",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-investigation.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#security-alerts-investigation",
       "redirect_document_id": false
