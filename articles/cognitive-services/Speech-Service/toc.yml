@@ -12,6 +12,8 @@
     href: language-support.md
   - name: Region support
     href: regions.md
+  - name: What's new in docs? 
+    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -24,7 +26,7 @@
           href: batch-transcription.md
         - name: Speech recognition basics
           href: speech-to-text-basics.md
-    - name: Quickstart
+    - name: Quickstarts
       items:
         - name: Recognize speech with microphone input
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +34,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Recognize speech stored in blob storage
           href: quickstarts/from-blob.md
+        - name: Test a model using audio files in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: How-to guides
       items:
         - name: Choose speech recognition mode
@@ -390,7 +394,7 @@
           href: voice-assistants.md
     - name: Custom Commands (Preview)
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
@@ -454,6 +458,20 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Custom keyword recognition
           href: speech-devices-sdk-create-kws.md
+- name: Speaker Recognition
+  items:
+    - name: Overview
+      items:
+        - name: What is Speaker Recognition?
+          href: speaker-recognition-overview.md
+        - name: Speaker Recognition basics
+          href: speaker-recognition-basics.md 
+    - name: Reference
+      items:
+        - name: REST APIs
+          items:
+            - name: Speaker Recognition REST API
+              href: https://docs.microsoft.com/rest/api/speakerrecognition/
 - name: Hosting
   items:
     - name: Hosting documentation

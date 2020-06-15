@@ -128,6 +128,8 @@
     href: how-to-migrate.md
   - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
     href: how-to-migrate-vmware-vms-with-cmk-disks.md
+  - name: Prepare Windows 2003 servers for migration
+    href: prepare-windows-server-2003-migration.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project

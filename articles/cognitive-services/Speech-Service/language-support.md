@@ -23,8 +23,6 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
 To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](how-to-custom-speech.md).
 
-For more information about how you can improve pronunciation, see [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
-
 <!--
 To get the AM and ML bits:
 https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
@@ -39,7 +37,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | Arabic (Bahrain), modern standard | Yes       | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Yes       | Language model                                    |
 | `ar-IL` | Arabic (Israel)                   | Yes       | No                                                |
+| `ar-JO` | Arabic (Jordan)                   | Yes       | No                                                |
 | `ar-KW` | Arabic (Kuwait)                   | Yes       | No                                                |
+| `ar-LB` | Arabic (Lebanon)                  | Yes       | No                                                |
 | `ar-PS` | Arabic (Palestine)                | Yes       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Yes       | No                                                |
 | `ar-SA` | Arabic (Saudi Arabia)             | Yes       | No                                                |
@@ -72,7 +72,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | Russian (Russia)                  | Yes       | Acoustic model<br>Language model                  |
 | `sv-SE` | Swedish (Sweden)                  | Yes       | Language model                                    |
 | `ta-IN` | Tamil (India)                     | Yes       | Language model                                    |
-| `te-IN` | Telugu (India)                    | Yes       | No                                                |
+| `te-IN` | Telugu (India)                    | Yes       | Language model                                    |
 | `th-TH` | Thai (Thailand)                   | Yes       | No                                                |
 | `tr-TR` | Turkish (Turkey)                  | Yes       | Language model                                    |
 | `zh-CN` | Chinese (Mandarin, simplified)    | Yes       | Acoustic model<br>Language model                  |

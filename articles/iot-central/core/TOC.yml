@@ -10,6 +10,10 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: May 2020 updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-updates/
+    - name: May 2020 dashboard updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
     - name: April 2020 new features
       href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
     - name: April 2020 updates
@@ -57,6 +61,8 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
+    - name: What are device templates?
+      href: concepts-device-templates.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
@@ -87,8 +93,6 @@
           href: howto-manage-devices.md
         - name: Configure rules
           href: howto-configure-rules.md
-        - name: Use workflows to integrate with other services
-          href: howto-configure-rules-advanced.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard
@@ -103,12 +107,16 @@
           href: howto-export-data.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Connect Azure Monitor action groups on rules
           href: howto-use-action-groups.md
         - name: Create custom rules
           href: howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: howto-create-custom-analytics.md
+        - name: Visualize your data in Power BI
+          href: howto-connect-powerbi.md
     - name: Administration
       items:
         - name: Manage your application
@@ -123,6 +131,8 @@
               href: howto-customize-ui.md
             - name: Export your application
               href: howto-use-app-templates.md
+            - name: Monitor application health
+              href: howto-monitor-application-health.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal

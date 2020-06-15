@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 05/15/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
 ---
 

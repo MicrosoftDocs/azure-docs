@@ -1,11 +1,11 @@
 ---
-title: Create multiple model endpoints
+title: Create multiple model and endpoints
 titleSuffix: ML Studio (classic) - Azure
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -45,7 +45,7 @@ Note that a **Web Service Output** module has been added to the **Train Model** 
 When this experiment is deployed as a web service, the endpoint associated with that output returns the trained model in the format of an .ilearner file.
 
 Also note that you set up a web service parameter that defines the URL that the **Import Data** module uses. This allows you to use the parameter to specify individual training datasets to train the model for each location.
-There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a SQL Azure database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
+There are other ways you could have done this. You can use a SQL query with a web service parameter to get data from a database in Azure SQL Database. Or you can use a  **Web Service Input** module to pass in a dataset to the web service.
 
 ![A Trained Model module outputs to a Web service output module](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

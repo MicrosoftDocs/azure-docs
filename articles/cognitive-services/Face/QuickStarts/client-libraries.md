@@ -12,6 +12,7 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/24/2020
 ms.author: pafarley
+ms.custom: tracking-python
 ---
 # Quickstart: Use the Face client library
 

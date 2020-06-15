@@ -104,9 +104,9 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 2. Select **Containers** from the list.
 
-3. On the **Monitor - containers** page, select **Non-monitored clusters**.
+3. On the **Monitor - containers** page, select **Unmonitored clusters**.
 
-4. From the list of non-monitored clusters, find the container in the list and click **Enable**.   
+4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
 
 5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
