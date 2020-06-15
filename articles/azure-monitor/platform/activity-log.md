@@ -71,7 +71,7 @@ AzureActivity
 
 
 ## Collect to Azure Event Hubs
-Send the Activity Log to an Azure Event Hubs to send them outside of Azure, for example to a third-party SIEM or other log analytics solutions. Activity log  from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the category and is described in [Schema from storage account and event hubs](activity-log-schema.md).
+Send the Activity Log to Azure Event Hubs to send entries outside of Azure, for example to a third-party SIEM or other log analytics solutions. Activity log  from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the category and is described in [Schema from storage account and event hubs](activity-log-schema.md).
 
 Following is sample output data from Event Hubs for an Activity log:
 
