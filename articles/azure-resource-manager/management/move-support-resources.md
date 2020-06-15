@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/15/2020
 ---
 
 # Move operation support for resources
@@ -31,7 +31,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
@@ -49,12 +48,10 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
-> - [Microsoft.Cognition](#microsoftcognition)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Consumption](#microsoftconsumption)
-> - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
@@ -122,7 +119,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
 > - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
 > - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
@@ -147,12 +143,10 @@ Jump to a resource provider namespace:
 > - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.PowerPlatform](#microsoftpowerplatform)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -176,7 +170,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
@@ -188,7 +181,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
@@ -200,6 +192,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## Microsoft.AAD
@@ -461,21 +454,6 @@ Jump to a resource provider namespace:
 > | locations / checknameavailability | No | No |
 > | locations / quotas | No | No |
 > | operations | No | No |
-
-## Microsoft.BatchAI
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | clusters | No | No |
-> | fileservers | No | No |
-> | jobs | No | No |
-> | operations | No | No |
-> | workspaces | No | No |
-> | workspaces / clusters | No | No |
-> | workspaces / experiments | No | No |
-> | workspaces / experiments / jobs | No | No |
-> | workspaces / fileservers | No | No |
 
 ## Microsoft.Billing
 
@@ -835,13 +813,6 @@ Jump to a resource provider namespace:
 > [!IMPORTANT]
 > See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
-## Microsoft.Cognition
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | syntheticsaccounts | No | No |
-
 ## Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
@@ -943,13 +914,6 @@ Jump to a resource provider namespace:
 > | tenants | No | No |
 > | terms | No | No |
 > | usagedetails | No | No |
-
-## Microsoft.Container
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | containergroups | No | No |
 
 ## Microsoft.ContainerInstance
 
@@ -1529,7 +1493,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | Yes | Yes |
-> | eventSubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | domains / topics | No | No |
 > | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | extensiontopics | No | No |
@@ -1942,13 +1905,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | No | No |
-
-## Microsoft.MachineLearningOperationalization
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | hostingaccounts | No | No |
 
 ## Microsoft.MachineLearningServices
 
@@ -2384,13 +2340,6 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | usersettings | No | No |
 
-## Microsoft.PortalSdk
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | rootresources | No | No |
-
 ## Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
@@ -2427,13 +2376,6 @@ Jump to a resource provider namespace:
 > | accounts | No | No |
 > | checknameavailability | No | No |
 > | operations | No | No |
-
-## Microsoft.ProjectOxford
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | accounts | No | No |
 
 ## Microsoft.ProviderHub
 
@@ -2805,7 +2747,6 @@ Jump to a resource provider namespace:
 > | checknameavailability | No | No |
 > | instancepools | No | No |
 > | locations | Yes | Yes |
-> | locations | No | No |
 > | locations / administratorazureasyncoperation | No | No |
 > | locations / administratoroperationresults | No | No |
 > | locations / auditingsettingsazureasyncoperation | No | No |
@@ -2992,13 +2933,6 @@ Jump to a resource provider namespace:
 > | sqlvirtualmachinegroups / availabilitygrouplisteners | No | No |
 > | sqlvirtualmachines | Yes | Yes |
 
-## Microsoft.SqlVM
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dwvm | No | No |
-
 ## Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
@@ -3134,14 +3068,6 @@ Jump to a resource provider namespace:
 > | workspaces / operationresults | No | No |
 > | workspaces / operationstatuses | No | No |
 > | workspaces / sqlpools | Yes | Yes |
-
-## Microsoft.TerraformOSS
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | providerregistrations | No | No |
-> | resources | No | No |
 
 ## Microsoft.TimeSeriesInsights
 
@@ -3320,6 +3246,16 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | deviceservices | No | No |
 > | operations | No | No |
+
+## Microsoft.WorkloadBuilder
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | locations | No | No |
+> | locations / operationstatuses | No | No |
+> | operations | No | No |
+> | workloads | No | No |
 
 ## Microsoft.WorkloadMonitor
 
