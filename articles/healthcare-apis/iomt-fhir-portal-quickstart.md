@@ -138,7 +138,7 @@ Azure offers an extensive suite of IoT products to connect and manage your IoT d
 Deploy the [Continuous patient monitoring application template](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). This template includes a set of sample dashboards, device templates, and simulated devices producing real-time data to help you get started. For the intents of this tutorial, we'll leverage the two out of the box simulated devices that the continuous patient monitoring template IoT Central includes: **Smart Vitals Patch** and **Smart Knee Brace**.
 
 > [!NOTE]
-> Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-set-up-template) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
+> Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
 
 ## Connect your IoT data with the IoMT connector (preview)
 Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. We'll want to ingest that telemetry into FHIR via the IoMT connector. To export your IoT data to the IoMT connector we'll want to [set up a continuous data export within IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). On the continuous data export page:
