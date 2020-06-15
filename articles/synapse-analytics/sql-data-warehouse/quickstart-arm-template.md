@@ -14,8 +14,6 @@ ms.date: 06/09/2020
 
 Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
-Synapse SQL pool stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days.
-
 
 <!-- The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
 
@@ -67,7 +65,9 @@ Notice the resourceType and sort elements in the URL.
 
 ### Deploy the template
 
-<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-data-warehouse-transparent-encryption-create" target="_blank">
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create)
+
+<a href="https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create" target="_blank">
 <img src="../../media/template-deployments/deploy-to-azure.svg"/>
 </a>
 
