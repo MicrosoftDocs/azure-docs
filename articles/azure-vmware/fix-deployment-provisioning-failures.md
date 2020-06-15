@@ -64,7 +64,8 @@ Paste the ExpressRoute ID into the appropriate field in the new support request 
  
 ## Collect error or failure messages
  
-On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the earlier section in this article, "Collect a summary of errors." 
+> [!NOTE]
+> On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the [Collect a summary of errors](#collect-a-summary-of-errors) 
 
 ## Create your support request
 
