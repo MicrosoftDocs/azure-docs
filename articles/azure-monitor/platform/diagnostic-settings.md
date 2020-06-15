@@ -1,5 +1,5 @@
 ---
-title: Use diagnostic settings to collect platform metrics and logs and in Azure
+title: Create diagnostic settings to collect platform metrics and logs and in Azure
 description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
 author: bwren
 ms.author: bwren
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create  \
 ```
 
 ## Create using Resource Manager template
-See [Resource Manager template samples for diagnostic settings in Azure Monitor](resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
+See [Resource Manager template samples for diagnostic settings in Azure Monitor](../samples/resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
 
 ## Create using REST API
 See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
