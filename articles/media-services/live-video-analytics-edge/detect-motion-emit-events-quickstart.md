@@ -54,7 +54,7 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
      * ***~/clouddrive/lva-sample/edge-deployment/.env*** - This file contains properties that Visual Studio Code uses to deploy modules to an edge device.
      * ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code uses this file to run the sample code.
      
-You'll need these files to update the files in Visual Studio Code later in the quickstart. You might want to copy them into a local file for now.
+You'll need these files when you set up your development environment in Visual Studio Code in the next section. You might want to copy them into a local file for now.
 
  ![App settings](./media/quickstarts/clouddrive.png)
 
@@ -96,7 +96,7 @@ You'll need these files to update the files in Visual Studio Code later in the q
 
 1. In Visual Studio Code, go to *src/edge*. You'll see the *.env* file and a few deployment template files.
 
-    The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
+    The deployment template refers to the deployment manifest for the edge device, where variables are used for some properties. The *.env* file contains the values for those variables.
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see the *appsettings.json* file and a few other files:
 
     * ***c2d-console-app.csproj*** - The project file for Visual Studio Code.

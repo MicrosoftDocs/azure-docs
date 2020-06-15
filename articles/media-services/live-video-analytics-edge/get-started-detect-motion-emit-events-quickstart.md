@@ -676,5 +676,5 @@ If you're not going to continue to use this application, delete the resources yo
 
 ## Next steps
 
-* Learn how to record video by using Live Video Analytics on IoT Edge.
-* Learn more about diagnostic messages.
+* Learn how to [record video by using Live Video Analytics on IoT Edge](continuous-video-recording-tutorial.md).
+* Learn more about [diagnostic messages](monitoring-logging.md).

@@ -54,7 +54,7 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 
 1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
 
-    The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The *.env* file includes the values for those variables.
+    The deployment template refers to the deployment manifest for the edge device, where variables are used for some properties. The *.env* file includes the values for those variables.
 1. Go to the *src/cloud-to-device-console-app* folder. Here you see the *appsettings.json* file and a few other files:
     * ***c2d-console-app.csproj*** - The project file for Visual Studio Code.
     * ***operations.json*** - The list of operations that you want the program to run.
