@@ -25,8 +25,6 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 4. Select **Save**.
 5. The firewall now directs DNS traffic to the specified DNS server(s) for name resolution.
 
-   ![DNS servers](media/dns-settings/dns-servers.png)
-
 ## DNS proxy (preview)
 
 You can configure Azure Firewall to act as a DNS proxy. A DNS proxy acts as an intermediary for DNS requests from client virtual machines to a DNS server. If you configure a custom DNS server, you should enable DNS proxy to avoid DNS resolution mismatch, use the Threat Intelligence feature in DNS resolution, and enable FQDN filtering in network rules.
