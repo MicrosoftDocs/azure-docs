@@ -43,11 +43,11 @@ Follow our quickstart to have your first Custom Commands app running code in les
 
 Once you are done with the quickstart, explore our how-tos guides.
 
-* [Add simple commands to your Custom Commands app](how-to-custom-commands-add-simple-commands)
-* [Add parameters to your commands](how-to-custom-commands-add-parameters-to-commands)
-* [Add validations to parameters and prompts for correction](how-to-custom-commands-add-validations)
-* [Integrate using the Speech SDK](how-to-custom-commands-setup-speech-sdk)
-* [Setup Continuous Deployment for your Custom Commands app using Azure DevOps](how-to-custom-commands-deploy-cicd)
+* [Add simple commands to your Custom Commands app](how-to-custom-commands-add-simple-commands.md)
+* [Add parameters to your commands](how-to-custom-commands-add-parameters-to-commands.md)
+* [Add validations to parameters and prompts for correction](how-to-custom-commands-add-validations.md)
+* [Integrate using the Speech SDK](how-to-custom-commands-setup-speech-sdk.md)
+* [Setup Continuous Deployment for your Custom Commands app using Azure DevOps](how-to-custom-commands-deploy-cicd.md)
 
 ## Building Voice Assistants with Custom Commands
 > [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
