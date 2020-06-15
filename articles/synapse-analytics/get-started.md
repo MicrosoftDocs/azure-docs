@@ -7,13 +7,13 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/19/2020 
 ---
 
 # Get Started with Azure Synapse Analytics
 
-This document guides you through the basic steps to set up and use Azure Synapse Analytics.
+This tutorial guides you through the basic steps to set up and use Azure Synapse Analytics.
 
 ## Prepare a storage account
 
