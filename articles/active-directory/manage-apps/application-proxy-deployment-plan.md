@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.custom: has-adal-ref
 ---
 
 # Plan an Azure AD Application Proxy deployment
