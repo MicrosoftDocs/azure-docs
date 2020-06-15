@@ -128,6 +128,10 @@ This article answers common questions about Azure Files features and functionali
 * <a id="afs-effective-vfs"></a>
   **How is *volume free space* interpreted when I have multiple server endpoints on a volume?**  
   See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  
+* <a id="afs-tiered-files-tiering-disabled"></a>
+  **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
+  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-tiering-disabled).
 
 * <a id="afs-files-excluded"></a>
   **Which files or folders are automatically excluded by Azure File Sync?**  

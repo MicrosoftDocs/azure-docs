@@ -194,6 +194,9 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
  Metrics are periodically pulled from the JMX endpoints. You can visualize the metrics by using the Azure portal.
 
+ > [!WARNING]
+ > Please specify `spring.jmx.enabled=true` in your configuration property. Otherwise, metrics can't be visualized in Azure portal.
+
 ### Distributed Tracing
 
 Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies in the dependencies section of your pom.xml file:
