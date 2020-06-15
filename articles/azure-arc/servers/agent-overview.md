@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 The Azure Arc for servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
-## Agent overview
+## Agent component details
 
 The Azure Connected Machine agent package contains several logical components which are bundled together.
 
