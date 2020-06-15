@@ -55,15 +55,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Support user selected datastore to store profiling data
     + Added expand and page_count property for model list API
     + Fixed bug where removing the overwrite property will cause the submitted run to fail with deserialization error.
-    + Fixed incorrect folder structure when downloading or mounting a FileDataset if the FileDataset was created pointing to a single file and the path starts with a /.
-    + Loading a Dataset that is a set of parquet files in PySpark using to_spark_dataframe, it is now faster and more often loads all of the datatypes provided in parquet, including structs.
+    + Fixed inconsistent folder structure when downloading or mounting a FileDataset referencing a single file.
+    + Loading a dataset of parquet files to_spark_dataframe is now faster and supports all parquet and Spark SQL datatypes.
     + Support getting logs of init container.
     + AutoML runs are now marked as child run of Parallel Run Step.
   + **azureml-datadrift**
     + Doc improvements to azureml-contrib-notebook package.
   + **azureml-dataprep**
-    + Loading a Dataset that is a set of parquet files in PySpark using to_spark_dataframe, it is now faster and more often loads all of the datatypes provided in parquet, including structs.
-    + Better memory handling in case of OutOfMemory issue for to_pandas_dataframe
+    + Loading a dataset of parquet files to_spark_dataframe is now faster and supports all parquet and Spark SQL datatypes.
+    + Better memory handling in case of OutOfMemory issue for to_pandas_dataframe.
   + **azureml-interpret**
     + Upgraded azureml-interpret to use interpret-community version 0.12.*
   + **azureml-mlflow**
