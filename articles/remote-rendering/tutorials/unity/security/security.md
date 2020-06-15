@@ -3,7 +3,7 @@ title: Securing Azure Remote Rendering and model storage
 description: Hardening a Remote Rendering application for securing content
 author: michael-house
 ms.author: v-mihous
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
 ---
 

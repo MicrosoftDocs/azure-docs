@@ -3,7 +3,7 @@ title: Authentication
 description: Explains how authentication works
 author: florianborn71
 ms.author: flborn
-ms.date: 02/12/2019
+ms.date: 06/15/2020
 ms.topic: how-to
 ---
 
@@ -41,7 +41,7 @@ Azure Remote Rendering uses the same authentication mechanism as [Azure Spatial 
 
  Azure AD authentication is described in the [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) section of the [Azure Spatial Anchors (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) service.
 
- For additional details, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory (Azure AD) authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
+ For additional details, see the [Tutorial: Securing Azure Remote Rendering and model storage - Azure Active Directory authentication](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
 ## Role-based access control
 

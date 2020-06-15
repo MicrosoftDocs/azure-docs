@@ -108,8 +108,8 @@ To make it easier to call the asset conversion service, we provide a utility scr
 In particular, this script
 
 1. uploads all files in a given directory from local disk to the input storage container
-1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion id
-1. poll the conversion status API with the retrieved conversion id until the conversion process terminates with success or failure
+1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion ID
+1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure
 1. retrieves a link to the converted asset in the output storage
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.

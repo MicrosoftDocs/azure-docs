@@ -3,7 +3,7 @@ title: Debug Rendering
 description: Overview of server-side debugging rendering effects
 author: jumeder
 ms.author: jumeder
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: article
 ---
 
