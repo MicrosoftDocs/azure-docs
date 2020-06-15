@@ -35,7 +35,7 @@ The IDology integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-![IDology architecture diagram](media/partner-idology/idology-architechture-diagram.png)
+![IDology architecture diagram](media/partner-idology/idology-architecture-diagram.png)
 
 |      |      |
 |------|------|
@@ -58,7 +58,7 @@ The following architecture diagram shows the implementation.
 
 3. Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
 
-## Integrate IDology with Azure AD B2C
+## Integrate with Azure AD B2C
 
 ### Part 1 - Deploy the API
 
@@ -109,8 +109,8 @@ The sample policy uses these key names:
 
 4. Replace the SignInorSignUp.xml and TrustFrameworkExtensions.xml previously uploaded to Azure AD B2C in step 1 with the two updated sample policies.
 
-[!Note]
-As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be sent to third-party services for Identity Verification.
+> [!NOTE]
+> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be sent to third-party services for Identity Verification.
 
 ## Test the user flow
 

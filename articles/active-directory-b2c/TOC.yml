@@ -359,7 +359,7 @@
     - name: Azure AD B2C partner gallery
       href: partner-gallery.md
     - name: Arkose Labs
-      href: partner-arkoselabs.md
+      href: partner-arkose-labs.md
     - name: IDology
       href: partner-idology.md
     - name: Itsme

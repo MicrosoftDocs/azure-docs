@@ -61,7 +61,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
 
-## Integrate itsme OIDC with Azure AD B2C
+## Integrate with Azure AD B2C
 
 ### Set up a new Identity Provider in Azure AD B2C
 

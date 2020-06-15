@@ -71,7 +71,7 @@ In this scenario, Trusona acts as an identity provider for Azure AD B2C to enabl
 
 9. Follow the instructions in the [Trusona integration guide](https://docs.trusona.com/integrations/aad-b2c-integration/). When prompted, use the initial domain name (for example, Contoso) referred in the previous step.  
 
-## Integrate Trusona with Azure AD B2C
+## Integrate with Azure AD B2C
 
 ### Add a new identity provider
 

@@ -29,7 +29,7 @@ To get started, you'll need:
 
 The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 
-![Arkose Labs architecture diagram](media/partner-arkoselabs/arkose-architecture-diagram.png)
+![Arkose Labs architecture diagram](media/partner-arkose-labs/arkose-architecture-diagram.png)
 
 |   |   |
 |---|---|
@@ -48,7 +48,7 @@ The following diagram describes how Arkose Labs integrates with Azure AD B2C.
 
 3. Within the dashboard, navigate to site settings to find your public key and private key. This information will be needed later to configure Azure AD B2C.
 
-## Integrate Arkose Labs with Azure AD B2C
+## Integrate with Azure AD B2C
 
 ### Part 1 – Create blob storage to store the custom HTML
 
@@ -94,7 +94,7 @@ Azure AD B2C code in a browser uses a modern and standard approach to load custo
 
 6. For **Max age**, enter 200.
 
-   ![Arkose Labs sign-up and sign-in](media/partner-arkoselabs/signup-signin-arkose.png)
+   ![Arkose Labs sign-up and sign-in](media/partner-arkose-labs/signup-signin-arkose.png)
 
 7. Select **Save**.
 
@@ -108,7 +108,7 @@ Download Git Bash and follow the steps below:
 
 3. Open the newly renamed file verify-token.php file and:
 
-   a. Replace the content with the content from the verify-token.php file found in the [Github repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
+   a. Replace the content with the content from the verify-token.php file found in the [GitHub repository](https://github.com/ArkoseLabs/Azure-AD-B2C).
 
    b. Replace <private_key> on line 3 with your private key obtained from the Arkose Labs dashboard.
 
@@ -128,7 +128,7 @@ Download Git Bash and follow the steps below:
 
 3. Replace the `<appname>` with the app name that you created in Part 2, step 1.
 
-   ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkoselabs/arkose-azure-cli.png)
+   ![Screenshot showing Arkose Labs Azure CLI](media/partner-arkose-labs/arkose-azure-cli.png)
 
 4. Replace the `<public_key>` on line 64 with the public key you obtained from the Arkose Labs dashboard.
 
@@ -149,7 +149,7 @@ Download Git Bash and follow the steps below:
 **User flow** > **page layout** > **use custom page content** = **yes** > **insert custom page URL**.
 This custom page URL is obtained from the location of the index.html file inside the blob storage  
 
-   ![Screenshot showing Arkose Labs storage url](media/partner-arkoselabs/arkose-storage-url.png)
+   ![Screenshot showing Arkose Labs storage url](media/partner-arkose-labs/arkose-storage-url.png)
 
 ## Test the user flow
 

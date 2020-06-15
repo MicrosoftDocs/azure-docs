@@ -30,10 +30,10 @@ To get started, you'll need:
 
 The following components make up the Twilio solution:
 
-- .Net PSD2 demo web app, which provides the ability to sign in or sign up, and perform a dummy high risk transaction.
+- .NET PSD2 demo web app, which provides the ability to sign in or sign up, and perform a dummy high risk transaction.
 - Azure AD B2C combined sign-in and sign-up policy.
 - Azure AD B2C policy integrated with Twilio Verify API using `id_token_hint`.
-- .Net Web App, which hosts a `.well-known` OpenIdConnect endpoint to allow validation of an `id_token_hint`.
+- .NET Web App, which hosts a `.well-known` OpenIdConnect endpoint to allow validation of an `id_token_hint`.
 
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
@@ -56,7 +56,7 @@ The following components make up the Twilio solution:
 
 3. Navigate to [Verify API](https://www.twilio.com/console/verify/services) at the Twilio console and follow [instructions](https://www.twilio.com/docs/verify/verifying-transactions-psd2) to create a service and enable the PSD2 option.  
 
-## Configure the PSD2 Demo App with Azure AD B2C
+## Configure the PSD2 Demo App
 
 1. Open the B2C-WebAPI-DotNet solution and replace the following values with your own tenant-specific values in the web.config:
 
@@ -88,7 +88,7 @@ The following components make up the Twilio solution:
 
 7. Find the Twilio REST API technical profiles, **TwilioRestAPI-Verify-Step1** and **TwilioRestAPI-Verify-Step2**, and update the `ServiceURL` with your Twilio AccountSID.
 
-## Integrate Twilio with Azure AD B2C
+## Integrate with Azure AD B2C
 
 Add the policy files to Azure AD B2C:
 
