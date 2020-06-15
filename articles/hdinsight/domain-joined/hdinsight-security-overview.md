@@ -49,7 +49,7 @@ Auditing cluster resource access is necessary to track unauthorized or unintenti
 
 The admin can view and report all access to the HDInsight cluster resources and data. The admin can view and report changes to the access control policies.
 
-To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing). And view the tables that provide auditing records.
+To access Apache Ranger and Ambari audit logs, and ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) and view the tables that provide auditing records.
 
 ### Encryption
 
