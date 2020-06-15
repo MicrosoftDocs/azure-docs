@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/15/2020
 ms.author: victorh
 ---
 
@@ -72,7 +72,7 @@ Remember that a VPN gateway must be deployed to convert an existing hub to secur
 
 To set up tunnels to your virtual hub’s VPN Gateway, third-party providers need access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to the third-party using their portal.
 
-### Create and authorize a service principle
+### Create and authorize a service principal
 
 1. Create Azure Active Directory (AD) service principal: You can skip the redirect URL. 
 
