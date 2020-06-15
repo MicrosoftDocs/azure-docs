@@ -12,41 +12,38 @@ ms.date: 06/09/2020
 ms.author: kaprochi
 ---
 
-# Continuous integration and continuous deployment with Custom Speech
+# Continuous integration and deployment with Custom Speech
 
-Follow best practices around automated training, testing, and release management to steadily improve Custom Speech models as you update the training and testing data. Not only will *master* always be shippable, but the latest commit in *master* will always represent the best-performing Custom Speech model at the time.
+Follow best practices for automated training, testing, and release management to steadily improve Custom Speech models as you update the training and testing data. Using these best practices, it will always be possible to access and use the best performing endpoint
+ the best-performing Custom Speech model.
 
-[Continuous integration](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing updates in a shared repository, and automatically training new models for each of those updates. Paired with an automated testing approach, CI allows us also to test the new model and, not only can we verify that the model still trains correctly from its data source, but we can also ensure that each Custom Speech models is better than the last.
+[Continuous integration](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing updates in a shared repository, and automatically training new models for each of those updates. Paired with automated testing, CI workflows test the new model, verify the model trains as expected from its data sources, ensures each model performs better than the previous model, and creates a Custom Speech endpoint for each improved model.
 
-[Continuous delivery](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-continuous-delivery) (CD) takes models created in the CI process and creates an endpoint for each improved Custom Speech model. CD makes endpoints easily available to be manually put into production.
+[Continuous delivery](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) takes models from the CI process and creates an endpoint for each improved Custom Speech model. CD makes endpoints easily available to be manually integrated into solutions.
 
-Infinite CI/CD solutions are possible, but for a robust, pre-built solution, use the [Speech DevOps template repository](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), which executes CI/CD workflows using GitHub Actions.
+Custom CI/CD solutions are possible, but for a robust, pre-built solution, use the [Speech DevOps template repository](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), which executes CI/CD workflows using GitHub Actions.
 
 ## CI/CD workflow for Custom Speech
 
-The purpose of this workflow is to ensure that each Custom Speech model has better recognition accuracy than all the previous models. If the updates to the testing and/or training data meet the quality bar, this workflow creates a new Custom Speech endpoint.
+The purpose of this workflow is to ensure that each Custom Speech model has better recognition accuracy than the accuracy benchmark. If the updates to the testing and/or training data improve the accuracy, these workflows create a new Custom Speech endpoint.
 
-Certain Git servers such as GitHub and Azure DevOps can run automated and customized workflows any time certain Git events happen, such as merges or pull requests. Using a Git server that supports it, configure a CI/CD workflow to trigger when updates to your Custom Speech model's testing and training data are pushed to the *master* branch.
+Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI/CD workflow can be triggered when updates to testing and training data are pushed to the master branch. Different Git Servers will have different tooling, but will allow scripting command-line interface (CLI) commands so that they can execute on a build server.
 
-Different automation technologies will have different tooling, but all of them require that you can script steps using a command-line interface (CLI) so that they can execute on a build server.
+### Tools for Custom Speech automation
 
-### Tools for Speech automation
+Use the following tools for CI/CD automation workflows for Custom Speech:
 
-Use the following tools for CI/CD automation workflows for Speech:
-
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
-- [Azure Speech CLI](https://github.com/msimecek/Azure-Speech-CLI) to interact with the Speech Service from the command line.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
+- [Azure Speech CLI](https://github.com/msimecek/Azure-Speech-CLI) to interact with the Speech Service from the command line or an automated workflow.
 
 ### CI workflow for testing data updates
 
-The workflow for updates to test data retests the benchmark model to calculate the new benchmark Word Error Rate (WER) based on the updated test data. This ensures that when the WER of any new models is compared with the WER of the benchmark, both models have been tested against the same test data.
+The workflow for updates to test data should retest the benchmark model to calculate the new benchmark [Word Error Rate](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-evaluate-data) (WER) based on the updated test data. This ensures that when the WER of a new model is compared to the WER of the benchmark, both models have been tested against the same test data.
 
 Using the tools above, this workflow should trigger on updates to testing data and:
 
 - Test the benchmark model against the updated testing data.
-- Store the JSON test output.
-    - This output contains `resultsUrl`, whose value is a valid URL for 72 hours after it is last accessed. The text file at this URL contains valuable information about individual transcriptions and should also be stored.
-- The output also contains `wordErrorRate`, which is an industry-standard metric to measure recognition accuracy.
+- Store the test output, which contains the WER which is an industry-standard metric to measure recognition accuracy.
 - Regardless of the WER, the WER from these tests will become the benchmark WER that future models must beat.
 - The CD workflow does not execute for updates to testing data.
 
@@ -54,15 +51,13 @@ Along the way, the workflow should name and store test output such that you can 
 
 ### CI workflow for training data updates
 
-Updates to training data signify updates to the custom model and should .
+Updates to training data signify updates to the custom model.
 
 Using the tools above, this workflow should trigger on updates to training data and:
 
 - Train a new model with the updated training data.
-- Test the new model against the updated testing data.
-- Store the JSON test output.
-    - This output contains `resultsUrl`. The text file at this URL should also be stored.
-- The output also contains `wordErrorRate`.
+- Test the new model against the testing data.
+- Store the test output, which contains the WER.
 - Compare the WER from the new model to the WER from the benchmark model.
 - If the WER does not improve, stop the workflow.
 - If the WER improves, execute the CD workflow to create a Custom Speech endpoint.
@@ -71,7 +66,7 @@ This workflow should name and store test output and models with traceability in 
 
 ### CD workflow
 
-After an update to the training data improves a model's recognition, the CD workflow should automatically execute to create a new endpoint from the benchmark model trained in the CI workflow, and make this endpoint available such that it can manually be used in a client application at any given point.
+After an update to the training data improves a model's recognition, the CD workflow should automatically execute to create a new endpoint for that model, and make that endpoint available such that it can be used in a solution.
 
 #### Release management
 
