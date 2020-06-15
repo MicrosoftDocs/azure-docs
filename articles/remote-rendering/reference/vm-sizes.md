@@ -13,7 +13,30 @@ The rendering service can operate on two different types of machines in Azure, c
 
 ## Allocating the VM
 
-The desired type of VM has to be specified at initialization time. It cannot be changed within a running session.
+The desired type of VM has to be specified at rendering session initialization time. It cannot be changed within a running session. This is the place where the VM size must be specified:
+
+```cs
+async void CreateRenderingSession(AzureFrontend frontend)
+{
+    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
+    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+
+    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+}
+```
+
+```cpp
+void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+{
+    RenderingSessionCreationParams sessionCreationParams;
+    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+
+    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
+    {
+        // ...
+    }
+}
+```
 
 
 ## Supported VM sizes
@@ -21,3 +44,6 @@ The desired type of VM has to be specified at initialization time. It cannot be 
 
 ## Polygon limits
 
+## Pricing
+
+[Remote Rendering pricing](https://azure.microsoft.com/pricing/details/remote-rendering)
