@@ -41,7 +41,7 @@ The interpretability classes are made available through multiple SDK packages: (
 
 * `azureml.train.automl.automlexplainer` package for interpreting automated machine learning models.
 
-Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-interpret-contrib` for AutoML use to get the interpretability packages.
+Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-contrib-interpret` for AutoML use to get the interpretability packages.
 
 
 > [!IMPORTANT]
