@@ -33,7 +33,7 @@ By using the concepts and guidance that are described in this document, you can 
 - **Code Reviews**
   - The changes in the PR are presented as human readable source code that can be reviewed before accepting the PR.
 
-## Source Control
+## Source control
 
 To maintain the [App schema definition](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to make and review changes in PRs.
 
@@ -104,8 +104,10 @@ Developers can work on updates on a LUIS app independently from other branches b
 1. Creating a feature branch from the main branch (depending on your branch strategy, usually master or develop).
 
 1. [Create a new LUIS app in the LUIS portal](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-start-new-app) (the "*dev branch app*") solely to support the work in the feature branch.
-  * If the `.lu` source for your solution already exists in your branch, because it was saved after work done in another branch earlier in the project, create your dev branch LUIS app by importing the `.lu` file.
-  * If you are starting work on a new project, you will not yet have the `.lu` source for your master LUIS app in the repo. You will create the `.lu` file by exporting your dev branch app from the portal when you have completed your feature branch work, and submit it as a part of your PR.
+
+   * If the `.lu` source for your solution already exists in your branch, because it was saved after work done in another branch earlier in the project, create your dev branch LUIS app by importing the `.lu` file.
+
+   * If you are starting work on a new project, you will not yet have the `.lu` source for your master LUIS app in the repo. You will create the `.lu` file by exporting your dev branch app from the portal when you have completed your feature branch work, and submit it as a part of your PR.
 
 1. Work on the active version of your dev branch app to implement the required changes. We recommend that you work only in a single version of your dev branch app for all the feature branch work. If you create more than one version in your dev branch app, be careful to track which version contains the changes you want to check in when you raise your PR.
 

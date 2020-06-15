@@ -27,7 +27,7 @@ You can employ unit testing from the beginning of your project. Batch testing is
 
 For both unit tests and batch tests, make sure that your test utterances are kept separate from your training utterances. If you test on the same data you train on, you'll get the false impression your app is performing well when it's just overfitting to the testing data. Tests must be unseen by the model to test how well it is generalizing.
 
-### Writing Tests
+### Writing tests
 
 When you write a set of tests, for each test you need to define:
 
@@ -61,7 +61,7 @@ Use the LUIS [batch file syntax](https://docs.microsoft.com/azure/cognitive-serv
 
 Some test tools, such as [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) also support LUDown-formatted test files.
 
-#### Designing Unit Tests
+#### Designing unit tests
 
 Unit tests should be designed to test the core functionality of your LUIS app. In each iteration, or sprint, of your app development, you should write a sufficient number of tests to verify that the key functionality you are implementing in that iteration is working correctly.
 

@@ -17,6 +17,8 @@ ms.author: anwigley
 
 Go to the [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template) for a complete solution that implements DevOps and software engineering best practices for LUIS. You can use this template repo to create your own repository with built-in support for CI/CD workflows and practices that enable [source control](luis-concept-devops-sourcecontrol.md), [automated builds](luis-concept-devops-automation.md), [testing](luis-concept-devops-testing.md), and [release management](luis-concept-devops-automation.md#release-management) with LUIS for your own project.
 
+## The LUIS DevOps template repo
+
 The [LUIS DevOps template repo](https://github.com/Azure-Samples/LUIS-DevOps-Template) walks through how to:
 
 * **Clone the template repo** - Copy the template to your own GitHub repository.

@@ -61,7 +61,9 @@ This workflow should:
 * Build a new version in your primary LUIS app (the app you maintain for the master branch) using the updated source code.
 
 * Train and publish the LUIS app version.
-  > **Note:** As explained in [Running tests in an automated build workflow](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) you must publish the LUIS app version under test so that tools such as NLU.DevOps can access it. LUIS only supports two named publication slots, *staging* and *production* for a LUIS app, but you can also [publish a version directly](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) and [query by version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Use direct version publishing in your automation workflows to avoid being limited to using the named publishing slots.
+
+  > [!NOTE]
+  > As explained in [Running tests in an automated build workflow](luis-concept-devops-testing.md#running-tests-in-an-automated-build-workflow) you must publish the LUIS app version under test so that tools such as NLU.DevOps can access it. LUIS only supports two named publication slots, *staging* and *production* for a LUIS app, but you can also [publish a version directly](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) and [query by version](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-api-v3#changes-by-slot-name-and-version-name). Use direct version publishing in your automation workflows to avoid being limited to using the named publishing slots.
 
 * Run all the [unit tests](luis-concept-devops-testing.md).
 
@@ -83,7 +85,7 @@ Other options for deploying an app version include:
 * Maintain different LUIS apps for each production environments and write automation steps to import the `.lu` into a new version in the LUIS app for the target production environment, to train, and publish it.
 * Export the tested LUIS app version into a [LUIS docker container](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto?tabs=v3) and deploy the LUIS container to Azure [Container instances](https://docs.microsoft.com/azure/container-instances/).
 
-## Release Management
+## Release management
 
 Generally we recommend that you do continuous delivery only to your non-production environments, such as to development and staging. Most teams require a manual review and approval process for deployment to a production environment. For a production deployment, you might want to make sure it happens when key people on the development team are available for support, or during low-traffic periods.
 
