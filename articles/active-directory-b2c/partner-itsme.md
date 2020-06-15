@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C
 
-The itsme digital ID app allows you to log in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client_secret user flow policy.
+The itsme digital ID app allows you to log in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client secret user flow policy.
 
 ## Prerequisites
 
@@ -24,8 +24,8 @@ To get started, you'll need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-* Your ClientID aka PartnerCode provided by itsme.
-* Your ServiceCode provided by itsme.
+* Your Client ID, also known as Partner code, provided by itsme.
+* Your Service code provided by itsme.
 * Your client secret for your itsme account.
 
 ## Scenario description
@@ -38,7 +38,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 |   |   |
 |------|------|
-|1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C Custom Policy - User Journeys. The interaction flow starts when the user clicks on this button.  |
+|1     | On your website or application, include the **Log in with itsme** button by adapting the Azure AD B2C user flow. The interaction flow starts when the user clicks on this button.  |
 |2     | Azure AD B2C starts the OpenID connect flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
 |3     | The itsme environment redirects the user to the itsme identify yourself page, allowing the user to fill in their phone number.  |
 |4     | The itsme environment receives the phone number from the user and validates the correctness.  |
@@ -57,7 +57,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
 
-3. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client_secret**.
+3. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
 
 4. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
 
@@ -80,11 +80,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |------------ |------- |
    | Name | itsme |
    | Metadata URL | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>where `<environment>` is either `e2e` (test environment) or `prd` (production)  |
-   | ClientID     | *Your ClientId aka PartnerCode*  |
-   | Client Secret | *Your Client Secret* |
+   | ClientID     | Your **Client Id**, also known as **Partner code**  |
+   | Client Secret | Your **client_secret** |
    | Scope  | openid service:YOURSERVICECODE profile email [phone] [address]  |
    |Response Type | code |
-   |Response MOde | query |
+   |Response Mode | query |
    |Domain Hint | *You can leave this empty* |
    |UserID | sub |
    |Display Name | name |

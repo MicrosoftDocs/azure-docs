@@ -69,18 +69,16 @@ The following components make up the Twilio solution:
    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
    ```
 
-2. The Web app also hosts the ID token hint generator and metadata endpoint
-<!--in the first bullet point, is "here" supposed to be a link? -->
-   * Create your signing certificate as shown here.
-   * Update the following lines based on  your certificate in the web.config:
+2. The web app also hosts the ID token hint generator and metadata endpoint.
+   - Create your signing certificate as described in this [sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
+   - Update the following lines based on your certificate in the web.config:
    
    ```xml
    <add key="ida:SigningCertThumbprint" value="4F39D6014818082CBB763E5BA5F230E545212E89" />
    <add key="ida:SigningCertAlgorithm" value="RS256" />
    ```
 
-<!--is there supposed to be link in the following step?-->
-3. Upload the demo application to your hosting provider of choice. Guidance for Azure App services is here to also upload your certificate.
+3. Upload the demo application to your hosting provider of choice. Guidance for Azure App Service is provided in [this sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), including instructions for uploading your certificate.
 
 4. Update your Azure AD B2C application registration by adding a Reply URL equivalent to the URL at which the application is hosted.
 
@@ -112,7 +110,7 @@ Add the policy files to Azure AD B2C by doing the following:
 
 ## Test the solution
 
-1. Browse to your application and test the sign-in, sign-up, and Send Money actions.
+* Browse to your application and test the sign-in, sign-up, and Send Money actions.
 
 ## Next steps
 
