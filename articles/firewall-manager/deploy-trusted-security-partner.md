@@ -17,7 +17,7 @@ ms.author: victorh
 
 To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
 
-The supported security partners are **ZScaler**, **CheckPoint**, and **iboss** for this preview. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+The supported security partners are **ZScaler**, **Check Point**, and **iboss** for this preview. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
 ## Prerequisites
 

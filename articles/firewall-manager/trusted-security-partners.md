@@ -20,7 +20,7 @@ With a quick configuration, you can secure a hub with a supported security partn
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-For this preview, the supported security partners are **ZScaler**, **CheckPoint**, and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+For this preview, the supported security partners are **ZScaler**, **Check Point**, and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
