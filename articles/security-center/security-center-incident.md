@@ -12,17 +12,19 @@ ms.author: memildin
 ---
 # Manage security incidents in Azure Security Center
 
-Triaging and investigating security alerts can be time consuming for even the most skilled security analysts, and for many it is hard to even know where to begin. By using [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md), Security Center can provide you with a single view of an attack campaign and all of the related alerts – you can quickly understand what actions the attacker took and what resources were impacted.
+Triaging and investigating security alerts can be time consuming for even the most skilled security analysts. For many, it's hard to know where to begin. 
 
-This topic explains about incidents in Security Center, and how to use remediate their alerts.
+Security Center uses [analytics](security-center-detection-capabilities.md) to connect the information between distinct [security alerts](security-center-managing-and-responding-alerts.md). Using these connections, Security Center can provide a single view of an attack campaign and its related alerts to help you understand the attacker's actions and the affected resources.
+
+This page provides an overview of incidents in Security Center.
 
 ## What is a security incident?
 
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#intentions) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](alerts-reference.md#intentions) patterns. Incidents appear in the [Security alerts](security-center-managing-and-responding-alerts.md) page. Select an incident to view the related alerts and get more information.
 
 ## Managing security incidents
 
-1. On the Security Center overview page, select the **Security alerts** tile. The incidents and alerts are listed. Notice that the security incident description has a different icon compared to other alerts.
+1. On the Security Center overview page, select the **Security alerts** tile. The incidents and alerts are listed. Notice that security incidents have a different icon to security alerts.
 
     ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
@@ -31,7 +33,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
     ![Respond to security incidents in Azure Security Center](./media/security-center-incident/incident-details.png)
 
 
-    The left pane of the security incident page shows high-level information regarding the security incident: title, severity, status, activity time, description, and the affected resource. Alongside the affected resource are the Azure tags relevant to the resource. Use these to infer the organizational context of the resource when investigating the alert.
+    The left pane of the security incident page shows high-level information about the security incident: title, severity, status, activity time, description, and the affected resource. Next to the affected resource you can see the relevant Azure tags. Use these tags to infer the organizational context of the resource when investigating the alert.
 
     The right pane includes the **Alerts** tab with the security alerts that were correlated as part of this incident. 
 
@@ -40,9 +42,9 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
     ![Incident's take action tab](./media/security-center-incident/incident-take-action-tab.png)
 
-    To switch to the **Take action** tab, select the tab or the button on the bottom of the right pane. Use this tab to take further actions regarding the incident. Actions such as:
+    To switch to the **Take action** tab, select the tab or the button on the bottom of the right pane. Use this tab to take further actions such as:
     - *Mitigate the threat* - provides manual remediation steps for this security incident
-    - *Prevent future attacks* - provides security recommendations to help reduce the attack surface, increase security posture, and thus prevent future attacks
+    - *Prevent future attacks* - provides security recommendations to help reduce the attack surface, increase security posture, and prevent future attacks
     - *Trigger automated response* - provides the option to trigger a Logic App as a response to this security alert
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization 
 
@@ -52,8 +54,9 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 1. Follow the remediation steps given for each alert.
 
 
-## See also
-In this document, you learned how to use the security incident capability in Security Center. For related information, see the following:
+## Next steps
+
+This page explained the security incident capabilities of Security Center. For related information, see the following pages:
 
 * [Threat protection in Security Center](threat-protection.md)
 * [Security alerts in Security Center](security-center-alerts-overview.md)
