@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
 ---
@@ -97,7 +97,7 @@ The following table describes the data guardrails currently supported, and the a
 Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 ---|---|---
 **Missing feature values imputation** |*Passed* <br><br><br> *Done*| No missing feature values were detected in your training data. Learn more about [missing value imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Missing feature values were detected in your training data and imputed.
-**High cardinality feature handling** |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high cardinality feature detection.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> High cardinality features were detected in your inputs and were handled.
+**High cardinality feature handling** |*Passed* <br><br><br> *Done*| Your inputs were analyzed, and no high cardinality features were detected. Learn more about [high cardinality feature detection.](#automatic-featurization) <br><br> High cardinality features were detected in your inputs and were handled.
 **Validation split handling** |*Done*| The validation configuration was set to 'auto' and the training data contained **less than 20,000 rows**. <br> Each iteration of the trained model was validated through cross-validation. Learn more about [validation data.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> The validation configuration was set to 'auto' and the training data contained **more than 20,000 rows**. <br> The input data has been split into a training dataset and a validation dataset for validation of the model.
 **Class balancing detection** |*Passed* <br><br><br><br><br> *Alerted* | Your inputs were analyzed, and all classes are balanced in your training data. A dataset is considered balanced if each class has good representation in the dataset, as measured by number and ratio of samples. <br><br><br> Imbalanced classes were detected in your inputs. To fix model bias, fix the balancing problem. Learn more about [imbalanced data.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
 **Memory issues detection** |*Passed* <br><br><br><br> *Done* |<br> The selected {horizon, lag, rolling window} value(s) were analyzed, and no potential out-of-memory issues were detected. Learn more about time-series [forecasting configurations.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>The selected {horizon, lag, rolling window} values were analyzed and will potentially cause your experiment to run out of memory. The lag or rolling window configurations have been turned off.

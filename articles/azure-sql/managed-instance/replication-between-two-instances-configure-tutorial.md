@@ -1,9 +1,9 @@
 ---
-title: Configure replication between two Azure SQL Managed Instances
+title: Configure replication between managed instances
 titleSuffix: Azure SQL Managed Instance
 description: This tutorial teaches you to configure transactional replication between an Azure SQL Managed Instance publisher/distributor and a SQL Managed Instance subscriber. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -13,47 +13,48 @@ ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ---
-# Tutorial: Configure replication between two Azure SQL Managed Instances
+# Tutorial: Configure replication between two managed instances
+
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Transactional replication allows you to replicate data from one database to another hosted on either SQL Server, or an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (public preview). A SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](replication-transactional-overview.md#common-configurations) for available configurations.
+Transactional replication allows you to replicate data from one database to another hosted on either SQL Server or [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (public preview). SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](replication-transactional-overview.md#common-configurations) for available configurations.
 
 > [!NOTE]
 > This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances.
 
-This tutorial teaches you to configure one SQL Managed Instance as the publisher and distributor, and then a second SQL Managed Instance as the subscriber.  
+This tutorial teaches you to configure one managed instance as the publisher and distributor, and then a second managed instance as the subscriber.  
 
 ![Replicate between two managed instances](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
   > [!NOTE]
-  > - This article is intended to guide an advanced user in configuring replication with a a SQL Managed Instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
-  > - This article configures your publisher and distributor on the same managed instance. To place the distributor on a separate manged instance, see the tutorial [Configure replication between an MI publisher and an MI distributor](replication-two-instances-and-sql-server-configure-tutorial.md). 
+  > - This article is intended to guide an advanced user in configuring replication with SQL Managed Instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
+  > - This article configures your publisher and distributor on the same managed instance. To place the distributor on a separate managed instance, see the tutorial [Configure transactional replication between Azure SQL Managed Instance and SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
 
 ## Requirements
 
-Configuring a SQL Managed Instance to function as a publisher and/or a distributor requires:
+Configuring SQL Managed Instance to function as a publisher and/or a distributor requires:
 
-- That the publisher SQL Managed Instance is on the same virtual network as the distributor and the subscriber, or [vNet peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been configured between the virtual networks of all three entities. 
+- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been configured between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
-- An Azure Storage Account share for the replication working directory.
-- Port 445 (TCP outbound) is open in the security rules of NSG for the SQL Managed Instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage \<storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
+- An Azure storage account share for the replication working directory.
+- Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage \<storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.
 
 ## 1 - Create a resource group
 
 Use the [Azure portal](https://portal.azure.com) to create a resource group with the name `SQLMI-Repl`.  
 
-## 2 - Create SQL Managed Instances
+## 2 - Create managed instances
 
-Use the [Azure portal](https://portal.azure.com) to create two [SQL Managed Instances](instance-create-quickstart.md) on the same virtual network and subnet. For example, name the two SQL Managed Instances:
+Use the [Azure portal](https://portal.azure.com) to create two [SQL Managed Instances](instance-create-quickstart.md) on the same virtual network and subnet. For example, name the two managed instances:
 
 - `sql-mi-pub` (along with some characters for randomization)
 - `sql-mi-sub` (along with some characters for randomization)
 
-You will also need to [Configure an Azure VM to connect](connect-vm-instance-configure.md) to your SQL Managed Instances. 
+You will also need to [configure an Azure VM to connect](connect-vm-instance-configure.md) to your managed instances. 
 
-## 3 - Create Azure Storage Account
+## 3 - Create an Azure storage account
 
-[Create an Azure Storage Account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
+[Create an Azure storage account](/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
@@ -70,7 +71,7 @@ For more information, see [Manage storage account access keys](../../storage/com
 
 ## 4 - Create a publisher database
 
-Connect to your `sql-mi-pub` SQL Managed Instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your publisher database:
+Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following Transact-SQL (T-SQL) code to create your publisher database:
 
 ```sql
 USE [master]
@@ -104,7 +105,7 @@ GO
 
 ## 5 - Create a subscriber database
 
-Connect to your `sql-mi-sub` SQL Managed Instance using SQL Server Management Studio and run the following T-SQL code to create your empty subscriber database:
+Connect to your `sql-mi-sub` managed instance using SQL Server Management Studio and run the following T-SQL code to create your empty subscriber database:
 
 ```sql
 USE [master]
@@ -125,7 +126,7 @@ GO
 
 ## 6 - Configure distribution
 
-Connect to your `sql-mi-pub` SQL Managed Instance using SQL Server Management Studio and run the following T-SQL code to configure your distribution database.
+Connect to your `sql-mi-pub` managed instance using SQL Server Management Studio and run the following T-SQL code to configure your distribution database.
 
 ```sql
 USE [master]
@@ -162,7 +163,7 @@ EXEC sp_adddistpublisher
    > [!NOTE]
    > Be sure to use only backslashes (`\`) for the file_storage parameter. Using a forward slash (`/`) can cause an error when connecting to the file share.
 
-This script configures a local publisher on the SQL Managed Instance, adds a linked server, and creates a set of jobs for the SQL Server Agent.
+This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server agent.
 
 ## 8 - Create publication and subscriber
 
@@ -245,7 +246,7 @@ EXEC sp_startpublication_snapshot
 
 ## 9 - Modify agent parameters
 
-Azure SQL Managed Instance is currently experiencing some backend issues with connectivity with the replication agents. While this issue is being addressed, the workaround is to increase the login time out value for the replication agents.
+Azure SQL Managed Instance is currently experiencing some backend issues with connectivity with the replication agents. While this issue is being addressed, the workaround is to increase the login timeout value for the replication agents.
 
 Run the following T-SQL command on the publisher to increase the login timeout:
 
@@ -315,4 +316,4 @@ You can clean up your Azure resources by [deleting the SQL Managed Instance reso
 ## Next steps
 
 You can also learn more information about [transactional replication with Azure SQL Managed Instance](replication-transactional-overview.md) or learn to 
-configure replication between a [SQL Managed Instance Publisher/Distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 
+configure replication between a [SQL Managed Instance publisher/distributor and a SQL on Azure VM subscriber](replication-two-instances-and-sql-server-configure-tutorial.md). 

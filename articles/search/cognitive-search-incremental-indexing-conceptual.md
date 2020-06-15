@@ -1,5 +1,5 @@
 ---
-title: Incremental enrichment (preview)
+title: Incremental enrichment concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ---
 
-# Introduction to incremental enrichment and caching in Azure Cognitive Search
+# Incremental enrichment and caching in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 

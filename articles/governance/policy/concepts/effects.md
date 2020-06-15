@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -92,8 +92,8 @@ event occurs from the conflict.
 
 Example 2: Single **field/value** pair using an **\[\*\]** [alias](definition-structure.md#aliases)
 with an array **value** to set IP rules on a storage account. By using the **\[\*\]** alias, the
-effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet, it
-is created.
+effect appends the **value** to a potentially pre-existing array. If the array doesn't exist yet,
+it's created.
 
 ```json
 "then": {
@@ -107,9 +107,6 @@ is created.
     }]
 }
 ```
-
-
-
 
 ## Audit
 
@@ -140,8 +137,8 @@ Example: Using the audit effect.
 
 ## AuditIfNotExists
 
-AuditIfNotExists enables auditing on resources that match the **if** condition, but doesn't have
-the components specified in the **details** of the **then** condition.
+AuditIfNotExists enables auditing of resources _related_ to the resource that matches the **if**
+condition, but don't have the properties specified in the **details** of the **then** condition.
 
 ### AuditIfNotExists evaluation
 
@@ -157,7 +154,7 @@ is marked as non-compliant.
 The **details** property of the AuditIfNotExists effects has all the subproperties that define the
 related resources to match.
 
-- **Type** [required]
+- **Type** (required)
   - Specifies the type of the related resource to match.
   - If **details.type** is a resource type underneath the **if** condition resource, the policy
     queries for resources of this **type** within the scope of the evaluated resource. Otherwise,
@@ -251,7 +248,6 @@ Example: Using the deny effect.
 }
 ```
 
-
 ## DeployIfNotExists
 
 Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a template deployment
@@ -277,7 +273,7 @@ resources can be remediated with a [remediation task](../how-to/remediate-resour
 The **details** property of the DeployIfNotExists effect has all the subproperties that define the
 related resources to match and the template deployment to execute.
 
-- **Type** [required]
+- **Type** (required)
   - Specifies the type of the related resource to match.
   - Starts by trying to fetch a resource underneath the **if** condition resource, then queries
     within the same resource group as the **if** condition resource.
@@ -309,7 +305,7 @@ related resources to match and the template deployment to execute.
   - Can use [field()] to check equivalence with values in the **if** condition.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in
     the same resource location as the matching related resource.
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
@@ -321,7 +317,7 @@ related resources to match and the template deployment to execute.
   - A _location_ property must be specified in the _Deployment_ when using subscription level
     deployments.
   - Default is _ResourceGroup_.
-- **Deployment** [required]
+- **Deployment** (required)
   - This property should include the full template deployment as it would be passed to the
     `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 
@@ -391,11 +387,10 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode, which is set on the policy assignment.
+An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
 When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
-
 
 ## EnforceOPAConstraint
 
@@ -418,15 +413,15 @@ Every 15 minutes, a full scan of the cluster is completed and the results report
 The **details** property of the EnforceOPAConstraint effect has the subproperties that describe the
 Gatekeeper v3 admission control rule.
 
-- **constraintTemplate** [required]
+- **constraintTemplate** (required)
   - The Constraint template CustomResourceDefinition (CRD) that defines new Constraints. The
     template defines the Rego logic, the Constraint schema, and the Constraint parameters that are
     passed via **values** from Azure Policy.
-- **constraint** [required]
+- **constraint** (required)
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
     `{{ .Values.<valuename> }}`. In the example below, these values are `{{ .Values.cpuLimit }}` and
     `{{ .Values.memoryLimit }}`.
-- **values** [optional]
+- **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
 
@@ -489,11 +484,11 @@ Every 15 minutes, a full scan of the cluster is completed and the results report
 The **details** property of the EnforceRegoPolicy effect has the subproperties that describe the
 Gatekeeper v2 admission control rule.
 
-- **policyId** [required]
+- **policyId** (required)
   - A unique name passed as a parameter to the Rego admission control rule.
-- **policy** [required]
+- **policy** (required)
   - Specifies the URI of the Rego admission control rule.
-- **policyParameters** [optional]
+- **policyParameters** (optional)
   - Defines any parameters and values to pass to the rego policy.
 
 ### EnforceRegoPolicy example
@@ -554,19 +549,31 @@ condition as non-compliant.
 The **details** property of the Modify effect has all the subproperties that define the permissions
 needed for remediation and the **operations** used to add, update, or remove tag values.
 
-- **roleDefinitionIds** [required]
+- **roleDefinitionIds** (required)
   - This property must include an array of strings that match role-based access control role ID
     accessible by the subscription. For more information, see
     [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
   - The role defined must include all operations granted to the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor)
     role.
-- **operations** [required]
+- **conflictEffect** (optional)
+  - Determines which policy definition "wins" in the event that more than one policy definition
+    modifies the same property.
+    - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
+      definitions with _audit_ skip all **operations**. If more than one policy definition has
+      _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
+      of the **operations** of the conflicting policy definitions are processed.
+    - For existing resources, if more than one policy definition has _deny_, the compliance status
+      is _Conflict_. If one or fewer policy definitions have _deny_, each assignment returns a
+      compliance status of _Non-compliant_.
+  - Available values: _audit_, _deny_, _disabled_.
+  - Default value is _deny_.
+- **operations** (required)
   - An array of all tag operations to be completed on matching resources.
   - Properties:
-    - **operation** [required]
+    - **operation** (required)
       - Defines what action to take on a matching resource. Options are: _addOrReplace_, _Add_,
         _Remove_. _Add_ behaves similar to the [Append](#append) effect.
-    - **field** [required]
+    - **field** (required)
       - The tag to add, replace, or remove. Tag names must adhere to the same naming convention for
         other [fields](./definition-structure.md#fields).
     - **value** (optional)
@@ -647,6 +654,7 @@ with a parameterized value:
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -661,8 +669,6 @@ with a parameterized value:
     }
 }
 ```
-
-
 
 ## Layering policy definitions
 

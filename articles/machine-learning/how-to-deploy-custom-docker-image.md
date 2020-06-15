@@ -5,11 +5,12 @@ description: 'Learn how to use a custom Docker base image when deploying your Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/16/2020
+ms.custom: tracking-python
 ---
 
 # Deploy a model using a custom Docker base image

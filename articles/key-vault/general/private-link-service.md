@@ -102,7 +102,7 @@ az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZU
 ```
 ### Turn on Key Vault Firewall
 ```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
 ```
 ### Create a Virtual Network
 ```console
@@ -223,13 +223,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## Limitations and Design Considerations
 
+> [!NOTE]
+> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Limitations**:  Private Endpoint for Azure Key Vault is only available in Azure public regions.
 
 **Maximum Number of Private Endpoints per Key Vault**: 64.
 
-**Maximum Number of Key Vaults with Private Endpoints per Subscription**: 64.
+**Default Number of Key Vaults with Private Endpoints per Subscription**: 400.
 
 For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
 

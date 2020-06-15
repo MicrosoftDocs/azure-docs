@@ -113,6 +113,9 @@ You can access Log Analytics workspaces on the Azure portal or Azure Monitor.
 
 5. You are ready to query diagnostics. All diagnostics tables have a "WVD" prefix.
 
+>[!NOTE]
+>For more detailed information about the tables stored in Azure Monitor Logs, see the [Azure Monitor data refence](https://docs.microsoft.com/azure/azure-monitor/reference/). All tables related to Windows Virtual Desktop are labeled "WVD."
+
 ## Cadence for sending diagnostic events
 
 Diagnostic events are sent to Log Analytics when completed.
@@ -234,10 +237,22 @@ WVDErrors
 | render barchart 
 ```
 
+To query apps users have opened, run this query:
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
->The most important table for troubleshooting is WVDErrors. Use this query to understand which issues occur for user activities like connections or feeds when a user subscribes to the list of apps or desktops. The table will show you management errors as well as host registration issues.
->
->During public preview, if you need help with resolving an issue, make sure you give the CorrelationID for the error in your help request. Also, make sure your Service Error value always says ServiceError = “false”. A "false" value means the issue can be resolved by an admin task on your end. If ServiceError = “true”, you'll need to escalate the issue to Microsoft.
+>- When a user opens Full Desktop, their app usage in the session isn't tracked as checkpoints in the WVDCheckpoints table.
+>- The ResourcesAlias column in the WVDConnections table shows whether a user has connected to a full desktop or a published app. The column only shows the first app they open during the connection. Any published apps the user opens are tracked in WVDCheckpoints.
+>- The WVDErrors table shows you management errors, host registration issues, and other issues that happen while the user subscribes to a list of apps or desktops.
+>- WVDErrors helps you to identify issues that can be resolved by admin tasks. The value on ServiceError always says “false” for those types of issues. If ServiceError = “true”, you'll need to escalate the issue to Microsoft. Ensure you provide the CorrelationID for the errors you escalate.
 
 ## Next steps 
 

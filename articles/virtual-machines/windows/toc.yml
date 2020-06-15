@@ -13,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
@@ -189,6 +192,10 @@
         href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Dav4 and Dasv4-series
         href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ddv4 and Ddsv4-series
+        href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dv4 and Dsv4-series
+        href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Compute optimized
       items:
       - name: Overview
@@ -206,6 +213,10 @@
         href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Eav4 and Easv4-series
         href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Edv4 and Edsv4-series
+        href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ev4 and Esv4-series
+        href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: M-series
         href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Mv2-series
@@ -449,6 +460,8 @@
             href: ../image-version-another-gallery-cli.md   
         - name: Create a VM
           items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md          
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
         - name: Update image resources
@@ -664,7 +677,7 @@
             items:   
             - name: Virtual Machine 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json 
-            - name: VM scale set 
+            - name: Scale set 
               href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
           - name: Send to Event Hubs
             href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -854,8 +867,10 @@
           href: disks-enable-ultra-ssd.md
         - name: Benchmark a disk
           href: disks-benchmarks.md
-    - name: Find unattached disks
+    - name: Find unattached disks - PowerShell
       href: find-unattached-disks.md
+    - name: Find unattached disks - Portal
+      href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking

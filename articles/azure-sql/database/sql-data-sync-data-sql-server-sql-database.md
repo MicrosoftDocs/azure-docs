@@ -4,7 +4,7 @@ description: This overview introduces SQL Data Sync for Azure, which allows you 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
@@ -13,7 +13,6 @@ ms.reviewer: carlrab
 ms.date: 08/20/2019
 ---
 # What is SQL Data Sync for Azure?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud. 
 
@@ -23,12 +22,12 @@ SQL Data Sync is a service built on Azure SQL Database that lets you synchronize
 
 ## Overview 
 
-Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
+Data Sync is based around the concept of a sync group. A sync group is a group of databases that you want to synchronize.
 
-Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases. Sync occurs only between the Hub and individual members.
+Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the hub database. The rest of the databases are member databases. Sync occurs only between the hub and individual members.
 
 - The **Hub Database** must be an Azure SQL Database.
-- The **member databases** can be either Azure SQL Database, on-premises SQL Server databases, or SQL Server instances on Azure virtual machines.
+- The **member databases** can be either databases in Azure SQL Database or in instances of SQL Server.
 - The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
@@ -36,7 +35,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 ![Sync data between databases](./media/sql-data-sync-data-sql-server-sql-database/sync-data-overview.png)
 
-A Sync Group has the following properties:
+A sync group has the following properties:
 
 - The **Sync Schema** describes which data is being synchronized.
 - The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member*, or *Member to Hub*, or both.
@@ -58,7 +57,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
 | Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migration from SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
@@ -66,7 +65,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 ## How it works
 
 - **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
-- **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
+- **Synchronizing data:** Data Sync is designed in a hub and spoke model. The hub syncs with each member individually. Changes from the hub are downloaded to the member and then changes from the member are uploaded to the hub.
 - **Resolving conflicts:** Data Sync provides two options for conflict resolution, *Hub wins* or *Member wins*.
   - If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
   - If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
@@ -131,8 +130,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication isn't supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
-- Columns with User Defined Data Types aren't supported
-- Moving servers between different subscriptions is not supported. 
+- Columns with User-Defined Data Types aren't supported
+- Moving servers between different subscriptions isn't supported. 
 
 #### Unsupported data types
 
@@ -164,6 +163,18 @@ Data Sync can't sync read-only or system-generated columns. For example:
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
+### Network requirements
+
+When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL server must have the following configuration in its `Firewalls and virtual networks` settings:
+
+ * *Deny public network access* must be set to *Off*.
+ * *Allow Azure services and resources to access this server* must be set to *Yes*, or you must create IP rules for the [IP addresses used by Data Sync service](network-access-controls-overview.md#data-sync).
+
+Once the sync group is created and provisioned, you can then disable these settings. The sync agent will connect directly to the hub database, and you can use the server's [firewall IP rules](firewall-configure.md) or [private endpoints](private-endpoint-overview.md) to allow the agent to access the hub server.
+
+> [!NOTE]
+> If you change the sync group's schema settings, you will need to allow the Data Sync service to access the server again so that the hub database can be re-provisioned.
+
 ## FAQ about SQL Data Sync
 
 ### How much does the SQL Data Sync service cost
@@ -176,22 +187,22 @@ SQL Data Sync is available in all regions.
 
 ### Is a SQL Database account required
 
-Yes. You must have a SQL Database account to host the Hub Database.
+Yes. You must have a SQL Database account to host the hub database.
 
-### Can I use Data Sync to sync between SQL Server on-premises databases only
+### Can I use Data Sync to sync between SQL Server databases only
 
-Not directly. You can sync between SQL Server on-premises databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
+Not directly. You can sync between SQL Server databases indirectly, however, by creating a Hub database in Azure, and then adding the on-premises databases to the sync group.
 
-### Can I use Data Sync to sync between SQL Databases that belong to different subscriptions
+### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
 
-Yes. You can sync between SQL Databases that belong to resource groups owned by different subscriptions.
+Yes. You can sync between databases that belong to resource groups owned by different subscriptions.
 
 - If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 - Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
 
-### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
-Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
+Yes. You can sync between databases that belong to different clouds. You have to use PowerShell to add the sync members that belong to the different subscriptions.
 
 ### Can I use Data Sync to seed data from my production database to an empty database, and then sync them
 
@@ -199,7 +210,7 @@ Yes. Create the schema manually in the new database by scripting it from the ori
 
 ### Should I use SQL Data Sync to back up and restore my databases
 
-It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
+It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations aren't versioned. Furthermore, SQL Data Sync doesn't back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
 
 For one recommended backup technique, see [Copy an Azure SQL database](database-copy.md).
 
@@ -241,3 +252,4 @@ For more info about Azure SQL Database, see the following articles:
 
 - [SQL Database Overview](sql-database-paas-overview.md)
 - [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

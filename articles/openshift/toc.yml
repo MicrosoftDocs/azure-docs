@@ -76,7 +76,7 @@
 
 - name: Resources
   items:
-    - name: Common questions
+    - name: Frequently asked questions
       href: openshift-faq.md
     - name: Troubleshooting
       href: troubleshoot.md

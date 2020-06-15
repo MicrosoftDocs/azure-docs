@@ -44,7 +44,7 @@ Service principal appID and password or certificate can be used in connection st
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="azmodule" />Using Az.AnalysisServices module
+#### <a name="azmodule"></a>Using Az.AnalysisServices module
 
 When using a service principal for resource management operations with the [Az.AnalysisServices](/powershell/module/az.analysisservices)  module, use `Connect-AzAccount` cmdlet. 
 

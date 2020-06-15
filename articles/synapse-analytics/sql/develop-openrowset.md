@@ -44,7 +44,7 @@ This is a quick and easy way to read the content of the files without pre-config
     This option enables you to configure location of the storage account in the data source and specify the authentication method that should be used to access storage. 
     
     > [!IMPORTANT]
-    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principal can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) and cannot access publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
+    > `OPENROWSET` without `DATA_SOURCE` provides quick and easy way to access the storage files but offers limited authentication options. As an example, Azure AD principals can access files only using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or publicly available files. If you need more powerful authentication options, use `DATA_SOURCE` option and define credential that you want to use to access storage.
 
 
 ## Security
@@ -55,7 +55,8 @@ The storage administrator must also enable a user to access the files by providi
 
 `OPENROWSET` use the following rules to determine how to authenticate to storage:
 - In `OPENROWSET` without `DATA_SOURCE` authentication mechanism depends on caller type.
-  - Azure AD logins can access files only using their own [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has Storage Reader permission on storage) and if you [enable Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) on Synapse SQL service.
+  - Amy user can user `OPENROWSET` without `DATA_SOURCE` to read publicly available files on Azure storage.
+  - Azure AD logins can access protected files using their own [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) if Azure storage allows the Azure AD user to access underlying files (for example, if the caller has `Storage Reader` permission on Azure storage).
   - SQL logins can also use `OPENROWSET` without `DATA_SOURCE` to access publicly available files, files protected using SAS token, or Managed Identity of Synapse workspace. You would need to [create server-scoped credential](develop-storage-files-storage-access-control.md#examples) to allow access to storage files. 
 - In `OPENROWSET` with `DATA_SOURCE` authentication mechanism is defined in database scoped credential assigned to the referenced data source. This option enables you to access publicly available storage, or access storage using SAS token, Managed Identity of workspace, or [Azure AD identity of caller](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (if caller is Azure AD principal). If `DATA_SOURCE` references Azure storage that isn't public, you would need to [create database-scoped credential](develop-storage-files-storage-access-control.md#examples) and reference it in `DATA SOURCE` to allow access to storage files.
 
@@ -125,7 +126,7 @@ Below is an example that reads all *csv* files starting with *population* from a
 If you specify the unstructured_data_path to be a folder, a SQL on-demand query will retrieve files from that folder. 
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PloyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
 
 In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
 
@@ -233,10 +234,6 @@ FROM
     ) AS [r]
 ```
 
-If you're getting an error saying that the files cannot be listed, you need to enable access to public storage in Synapse SQL on-demand:
-- If you're using a SQL login, you need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples).
-- If you're using an Azure AD principal to access public storage, you would need to [create server-scoped credential that allows access to public storage](develop-storage-files-storage-access-control.md#examples) and disable [Azure AD passthrough authentication](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

@@ -2,14 +2,14 @@
 title: SAML single sign-on - non-gallery applications - Microsoft identity platform | Microsoft Docs
 description: Configure single sign-on (SSO) to non-gallery applications in Microsoft identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---

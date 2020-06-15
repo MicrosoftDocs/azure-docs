@@ -123,6 +123,8 @@
         href: backup-azure-linux-app-consistent.md
     - name: Restore
       items:
+      - name: About Azure VM restore
+        href: about-azure-vm-restore.md
       - name: Restore Azure VMs in the portal
         href: backup-azure-arm-restore-vms.md
       - name: Recover files from Azure VM backups
@@ -217,8 +219,12 @@
       href: sap-hana-db-manage.md
   - name: Azure Backup Server (MABS)
     items:
-    - name: Azure Backup Server protection matrix
-      href: backup-mabs-protection-matrix.md
+    - name: Protection matrices
+      items:
+      - name: MABS V3 UR1 protection matrix
+        href: backup-mabs-protection-matrix.md
+      - name: MABS V3 RTM protection matrix
+        href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
       items:
       - name: Install Azure Backup Server
@@ -227,7 +233,7 @@
         href: backup-mabs-add-storage.md
       - name: What's New in MABS
         href: backup-mabs-whats-new-mabs.md
-      - name: Release notes MABS V3
+      - name: Release notes MABS 
         href: backup-mabs-release-notes-v3.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
@@ -282,7 +288,9 @@
     - name: Offline Backup with Import/Export (MARS)
       href: backup-azure-backup-import-export.md
     - name: Offline Backup with Import/Export (DPM/MABS)
-      href: backup-azure-backup-server-import-export-.md
+      href: backup-azure-backup-server-import-export.md
+    - name: Offline Backup for DPM and MABS (previous versions)
+      href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
     - name: Using Backup Explorer

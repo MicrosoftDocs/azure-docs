@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
 ---
 
@@ -206,3 +206,7 @@ A TCP ping isn't actually connecting  to the target FQDN. This happens because A
 ## Are there limits for the number of IP addresses supported by IP Groups?
 
 Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## Can I move an IP Group to another resource group?
+
+No, moving an IP Group to another resource group is not currently supported.

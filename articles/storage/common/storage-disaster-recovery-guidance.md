@@ -98,6 +98,8 @@ The **Last Sync Time** property indicates the most recent time that data from th
 
 As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes have not been synced to the secondary.
 
+For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+
 ### Use caution when failing back to the original primary
 
 After you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can then configure the account for geo-redundancy again. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the primary is fully copied to the new secondary.
@@ -169,4 +171,5 @@ In extreme circumstances where a region is lost due to a significant disaster, M
 
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Initiate an account failover](storage-initiate-account-failover.md)
+- [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
 - [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md)

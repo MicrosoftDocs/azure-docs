@@ -131,7 +131,7 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 ## Error: Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
-**Cause:** Registration token has expired or has been generated with expiration value of 999999.
+**Cause:** Registration token has expired.
 
 **Fix:** Follow these instructions to fix the agent registry error.
 

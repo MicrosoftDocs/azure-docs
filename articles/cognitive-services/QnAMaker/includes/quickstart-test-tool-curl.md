@@ -75,6 +75,8 @@ Use the knowledge base from the previous quick to query for an answer based on m
     If there is a question and answer pair that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
 
 ## Use debug query property
+> [!NOTE]
+>We don't recommend to use Debug property for any dependency. This property has been added to help the product team in troubleshooting.
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 

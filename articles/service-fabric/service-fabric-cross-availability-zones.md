@@ -136,6 +136,10 @@ Standard Load Balancer and Standard Public IP introduce new abilities and differ
 >[!NOTE]
 > The standard template references an NSG which allows all outbound traffic by default. Inbound traffic is limited to the ports that are required for Service Fabric management operations. The NSG rules can be modified to meet your requirements.
 
+>[!NOTE]
+> Any Service Fabric cluster making use of a Standard SKU SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail.
+
+
 ### Enabling zones on a virtual machine scale set
 To enable a zone, on a virtual machine scale set you must include the following three values in the virtual machine scale set resource.
 

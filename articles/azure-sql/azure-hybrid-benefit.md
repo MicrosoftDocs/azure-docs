@@ -15,7 +15,7 @@ ms.date: 11/13/2019
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your on-premises SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  Note that the Azure Hybrid Benefit does not apply to Azure SQL Database serverless.
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on Azure SQL Database and Azure SQL Managed Instance by using [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent or even higher on SQL Database & SQL Managed Instance by using your SQL Server licenses with Software Assurance. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) page has a calculator to help determine savings.  Note that the Azure Hybrid Benefit does not apply to Azure SQL Database serverless.
 
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
@@ -24,9 +24,13 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 
 ## Choose a license model
 
-With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
+With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
-You can choose or change your licensing model by using the Azure portal or by using one of the following APIs:
+You can choose or change your licensing model in the Azure portal: 
+- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to save money.
+- For existing databases, select **Configure** in the **Settings** menu and select the option to save money.
+
+You can also configure a new or existing database by using one of the following APIs:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -71,7 +75,7 @@ We offer license mobility benefits to SQL Server customers with Software Assuran
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL Server Enterprise Edition customers can get four cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility doesn't allow any special cost benefits for moving virtualized workloads to the cloud.
-- It provides for a PaaS destination on Azure (SQL Database managed instance) that's highly compatible with SQL Server on-premises.
+- It provides for a PaaS destination on Azure (SQL Managed Instance) that's highly compatible with SQL Server.
 
 #### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 

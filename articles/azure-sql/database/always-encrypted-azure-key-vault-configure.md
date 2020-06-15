@@ -1,6 +1,6 @@
 ---
-title: "Configure Always Encrypted using Azure Key Vault"
-description: This tutorial shows you how to secure sensitive data in a Azure SQL Database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
+title: "Configure Always Encrypted by using Azure Key Vault"
+description: This tutorial shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the Always Encrypted wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,11 @@ ms.author: vanto
 ms.reviewer:
 ms.date: 04/23/2020
 ---
-# Configure Always Encrypted using Azure Key Vault 
+# Configure Always Encrypted by using Azure Key Vault 
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-This article shows you how to secure sensitive data for your database in Azure SQL Database or Azure SQL Managed Instance with data encryption using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
+This article shows you how to secure sensitive data in a database in Azure SQL Database with data encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). It also includes instructions that will show you how to store each encryption key in Azure Key Vault.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use. Always Encrypted ensures that sensitive data never appears as plaintext inside the database system. After you configure data encryption, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -42,7 +43,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 
 ## Enable client application access
 
-You must enable your client application to access SQL Database or SQL Managed Instance by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
+You must enable your client application to access your database in SQL Database by setting up an Azure Active Directory (Azure AD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
 To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -82,7 +83,7 @@ Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceG
 $subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
 $applicationId = '<applicationId from AAD application>'
-$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your SQL Database below
+$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your database in Azure SQL Database below
 $location = '<datacenterLocation>'
 $vaultName = '<vaultName>'
 
@@ -97,12 +98,9 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
-* * *
-
-
 ## Connect with SSMS
 
-Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
 

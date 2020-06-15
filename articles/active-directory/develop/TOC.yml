@@ -30,7 +30,7 @@
       href: quickstart-v2-angular.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
-    - name: JavaScript - Implicit flow 
+    - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
@@ -76,7 +76,7 @@
     - name: Angular
       href: tutorial-v2-angular.md
     - name: JavaScript - Auth code flow
-      href: tutorial-v2-javascript-auth-code.md  
+      href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
@@ -410,6 +410,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: UserInfo endpoint
+        href: userinfo.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
     - name: SAML 2.0 protocol
@@ -485,7 +487,7 @@
       href: active-directory-configurable-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
-    - name: Handle ITP in Safari 
+    - name: Handle ITP in Safari
       href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
@@ -546,6 +548,9 @@
             href: msal-js-pass-custom-state-authentication-request.md
           - name: Prompt behavior
             href: msal-js-prompt-behavior.md
+          - name: Migrate SPA from implicit to auth code flow
+            href: migrate-spa-implicit-to-auth-code.md
+            displayName: authorization, single-page app, 2.0
       - name: MSAL for iOS and macOS
         items:
           - name: MSAL for iOS and macOS differences

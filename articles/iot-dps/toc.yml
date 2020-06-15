@@ -9,7 +9,7 @@
   items:
   - name: Set up a DPS
     items:
-    - name: Azure Portal
+    - name: Azure portal
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
@@ -95,6 +95,8 @@
     href: concepts-device.md
   - name: Security
     href: concepts-security.md
+  - name: TLS support
+    href: tls-support.md
   - name: Service
     href: concepts-service.md
   - name: Understanding DPS IP addresses
@@ -225,16 +227,12 @@
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-iot-hub.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-hub/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

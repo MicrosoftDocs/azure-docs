@@ -3,6 +3,7 @@ title: Tutorial - create and run a Jupyter notebook - Azure Notebooks Preview
 description: Learn how to create and run a Jupyter notebook in Azure Notebooks Preview that demonstrates the process of linear regression in data science.
 ms.topic: tutorial
 ms.date: 01/11/2019
+ms.custom: tracking-python
 ---
 
 # Tutorial: create and run a Jupyter notebook with Python

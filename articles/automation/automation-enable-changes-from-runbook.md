@@ -98,7 +98,4 @@ You must have enabled Change Tracking and Inventory for an Azure VM to start thi
 
 * To schedule a runbook, see [Manage schedules in Azure Automation](shared-resources/schedules.md).
 * For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To learn how to use the feature to identify software installed in your environment, see [Discover what software is installed on your VMs](automation-tutorial-installed-software.md).
-* If you don't want to integrate your Automation account with a Log Analytics workspace when enabling the feature, see [Unlink workspace from Automation account](automation-unlink-workspace-change-tracking.md).
-* When finished deploying changes to VMs, you can remove them as described in [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

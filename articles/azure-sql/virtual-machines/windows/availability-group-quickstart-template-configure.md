@@ -4,7 +4,6 @@ description: "Use Azure quickstart templates to create the Windows Failover Clus
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -18,10 +17,10 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Use Azure quickstart templates to configure an availability group for SQL Server on an Azure VM
+# Use Azure quickstart templates to configure an availability group for SQL Server on Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines in Azure. Two Azure quickstart templates are used in this process: 
+This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines (VMs) in Azure. Two Azure quickstart templates are used in this process: 
 
    | Template | Description |
    | --- | --- |
@@ -43,11 +42,11 @@ To automate the setup of an Always On availability group by using quickstart tem
 The following permissions are necessary to configure the Always On availability group by using Azure quickstart templates: 
 
 - An existing domain user account that has **Create Computer Object** permission in the domain.  For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
-- The domain user account that controls the SQL Server service. 
+- The domain user account that controls SQL Server. 
 
 
 ## Step 1: Create the failover cluster and join SQL Server VMs to the cluster by using a quickstart template 
-After your SQL Server VMs have been registered with the SQL VM resource provider, you can join your SQL Server VMs to *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows failover cluster. Metadata includes the version, edition, fully qualified domain name, Active Directory accounts to manage both the cluster and the SQL Server service, and the storage account as the cloud witness. 
+After your SQL Server VMs have been registered with the SQL VM resource provider, you can join your SQL Server VMs to *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows failover cluster. Metadata includes the version, edition, fully qualified domain name, Active Directory accounts to manage both the cluster and SQL Server, and the storage account as the cloud witness. 
 
 Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps the Windows Failover Cluster Service to create the cluster and then joins those SQL Server VMs to that cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template. You can implement it by using the following steps:
 
@@ -67,10 +66,10 @@ Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps
    | **Existing Domain Account** | An existing domain user account that has **Create Computer Object** permission in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). *This account should also be part of the local administrator group on each VM to create the cluster.*| 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
    | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (for example: account@domain.com). |
-   | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
+   | **Sql Service Password** | The password used by the domain user account that controls SQL Server. |
    | **Cloud Witness Name** | A new Azure storage account that will be created and used for the cloud witness. You can modify this name. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
-   | **\_artifacts Location Sas Token** | This field is intentionally left blank. |
+   | **\_artifacts Location SaS Token** | This field is intentionally left blank. |
    | &nbsp; | &nbsp; |
 
 1. If you agree to the terms and conditions, select the **I Agree to the terms and conditions stated above** check box. Then select **Purchase** to finish deployment of the quickstart template. 
@@ -184,7 +183,7 @@ To resolve this behavior, remove the listener by using [PowerShell](#remove-the-
 This error might occur when you're deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider. The listener must be deleted from the resource provider through [PowerShell](#remove-the-availability-group-listener). 
 
 ### Domain account does not exist
-This error can have two causes. Either the specified domain account doesn't exist, or it's missing the [User Principal Name (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (that is, *user@domain.com*), but some domain accounts might be missing it. This typically happens when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
+This error can have two causes. Either the specified domain account doesn't exist, or it's missing the [User Principal Name (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (that is, user@domain.com), but some domain accounts might be missing it. This typically happens when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
 
 Verify that the account exists. If it does, you might be running into the second situation. To resolve it, do the following:
 
