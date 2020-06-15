@@ -1,5 +1,5 @@
 ---
-title: Configure minimum Transport Layer Security (TLS) version
+title: Configure Transport Layer Security (TLS)
 titleSuffix: Azure Storage
 description: 
 services: storage
@@ -13,7 +13,7 @@ ms.reviewer: fryu
 ms.subservice: common
 ---
 
-# Configure the minimum Transport Layer Security (TLS) version for a storage account
+# Configure Transport Layer Security (TLS) for a storage account
 
 
 
