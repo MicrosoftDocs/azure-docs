@@ -171,11 +171,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **Admin** -> **Users** and select **Add New User Icon** to add the **User**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creatinguser.PNG)
+    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Fill the necessary fields as per your organization requirements and click **Save**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creatinguser1.PNG)
+    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## Test SSO 
 
