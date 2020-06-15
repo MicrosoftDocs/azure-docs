@@ -37,7 +37,7 @@ WAF with Front Door provides detailed reporting on each threat it detects. Loggi
 | Details|Additional details on the matched request |
 || matchVariableName:   http parameter name of the request matched, for example, header names|
 || matchVariableValue:  values that triggered the match|
-| Hostname | Hostname of the request matched |
+| Host | Hostname of the request matched |
 | Policy | The name of the WAF policy that the request matched. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are "Prevention" and "Detection" |
 | RequestUri | URI of the received request. |
