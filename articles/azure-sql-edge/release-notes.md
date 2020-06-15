@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure SQL Edge 
-description: Release notes detailing what is new or what has changed in teh Azure SQL Edge images 
+description: Release notes detailing what is new or what has changed in the Azure SQL Edge images 
 keywords: release notes SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -47,7 +47,7 @@ This article describes what is new and what has changed with every new build of 
 ## CTP 1.5
 ### SQL Engine build number - 15.0.2000.1331
 ### What's new?
-1. Date_bucket funtion
+1. Date_bucket function
     
     i. Support for DateTimeOffset type
 2. PREDICT with ONNX models
