@@ -202,9 +202,6 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
-        - name: Enable the AGIC add-on for a new AKS cluster
-          href: ../application-gateway/tutorial-ingress-controller-add-on-new.md
-          maintainContext: true
         - name: Enable the AGIC add-on for an existing AKS cluster
           href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
           maintainContext: true
