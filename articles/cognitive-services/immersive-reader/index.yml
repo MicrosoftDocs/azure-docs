@@ -37,10 +37,16 @@ landingContent:
           url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Node.js
           url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+        - text: Use Kotlin (Android)
+          url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
         - text: Use Swift (iOS)
           url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
       - linkListType: tutorial
         links:
+          - text: Android
+            url: tutorial-android.md
+          - text: iOS
+            url: tutorial-ios.md
           - text: Python
             url: tutorial-python.md
           - text: Use multiple Immersive Reader resources

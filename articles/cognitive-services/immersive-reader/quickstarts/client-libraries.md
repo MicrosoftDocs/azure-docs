@@ -28,6 +28,12 @@ ms.author: pasta
 
 ::: zone-end
 
+::: zone pivot="programming-language-kotlin"
+
+[!INCLUDE [Kotlin quickstart](../includes/quickstarts/immersive-reader-client-library-kotlin.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-swift"
 
 [!INCLUDE [Swift quickstart](../includes/quickstarts/immersive-reader-client-library-swift.md)]
