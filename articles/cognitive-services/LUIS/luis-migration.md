@@ -85,7 +85,8 @@ For each collaborator and app, the default email application opens with a lightl
 > [!Note]
 > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
-4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option so that you can have backup of these applications. You can then import it back after you migrate as they will not be automatically migrated with you.This is an optional step.
+
+4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option during the migration flow. Once you select the option, you will find the page below where you click on the download button on the left to export the apps you want. You may import these apps back after you migrate as they will not be automatically migrated with you. This is an optional step.
 
 ![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
 
@@ -217,7 +218,7 @@ If your application is not still not in production using your prediction/runtime
 
 When you try to migrate but can not find your Azure subscription in the dropdown list:
 * Ensure you have a valid azure subscription that is authorized to create Cognitive Services resources. Go to [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you do not have one, [create a free trial](https://azure.microsoft.com/free/).
-* Ensure that you are in the proper tenant associated with your valid subscription. You can switch tenant from the avatar below:
+* Ensure that you are in the proper tenant associated with your valid subscription. You can switch tenants from the further left avatar in the toolbar below:
 ![Switch tenants.](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
  If you already have an existing authoring resource but can not find it when selecting the "Use Existing Authoring Resource" option:
