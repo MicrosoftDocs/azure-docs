@@ -39,7 +39,7 @@ Allowed characters for image definition are uppercase or lowercase letters, digi
 
 The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 
-Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source managed image that you are using to create the image version. 
+Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source that you are using to create the image version. 
 
 
 ## Unable to create an image version 
@@ -80,7 +80,7 @@ Verify that the region you are trying to create a VM or virtual machine scale in
 
 *The VM or virtual machine scale set creation takes a long time.*
 
-Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source managed image that you used to create the image version. 
+Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
 ## Unable to share resources
 
