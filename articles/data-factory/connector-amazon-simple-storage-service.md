@@ -67,7 +67,7 @@ The following properties are supported for an Amazon S3 linked service:
 | serviceUrl | Specify the custom S3 endpoint if you're copying data from an S3-compatible storage provider other than the official Amazon S3 service. For example, to copy data from Google Cloud Storage, specify `https://storage.googleapis.com`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
-This connector requires access keys for an AWS Identity and Access Management (IAM) account to copy data from Amazon S3. [Temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is also supported.
+This connector requires access keys for an AWS Identity and Access Management (IAM) account to copy data from Amazon S3. [Temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported now.
 
 >[!TIP]
 >Specify the custom S3 service URL if you're copying data from an S3-compatible storage other than the official Amazon S3 service.
