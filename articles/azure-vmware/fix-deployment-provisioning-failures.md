@@ -7,7 +7,7 @@ ms.date: 06/09/2020
 
 # Get help with Azure VMware Solution deployment or provisioning failures
 
-You can get help with Azure VMware Solution deployment or provisioning failures on your private cloud by opening a service request (SR) in the Azure portal. First, though, you will need to collect some key information in the Azure portal. In most cases, you will need:
+In this article, you learn how to get help with Azure VMware Solution (AVS) deployment or provisioning failures on your private cloud by opening a service request (SR) in the Azure portal. First, though, you need to collect some key information in the Azure portal. In most cases, you need the:
 
 - The correlation ID (of the failed deployment)
 - The ExpressRoute circuit ID (when trying to scale or peer an existing private cloud with the private cloud ExpressRoute circuit, and it fails)
