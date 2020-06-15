@@ -277,13 +277,11 @@ You can also use Azure CLI to deploy resources with Resource Manager templates. 
 
 Consider these limitations when using Resource Manager templates in DevTest Labs:
 
-- Resource Manager templates can't refer to most existing resources. They can only create new resources. If you have Resource Manager templates you use outside of DevTest Labs that refer to existing resources, you can't use them in DevTest Labs. The only exception is that you can reference an existing virtual network.
-
 - You can't create formulas or custom images from lab VMs that were created from a Resource Manager template.
 
 - Most policies aren't evaluated when you deploy Resource Manager templates.
 
-  For example, you might have a lab policy that a user can create only five VMs. However, a user can deploy a Resource Manager template that creates dozens of VMs. Policies that aren't evaluated include:
+For example, you might have a lab policy that a user can create only five VMs. However, a user can deploy a Resource Manager template that creates dozens of VMs. Policies that aren't evaluated include:
 
   - Number of VMs per user
 
