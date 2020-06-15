@@ -95,7 +95,7 @@ This section records information about the source file format.
 This section provides information about the source scene. There will often be discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of _triangles_ in the whole model. Note that the mesh is triangulated during conversion.
+* `numFaces`: The total number of _triangles_ in the whole model. Note that the mesh is triangulated during conversion. This number contributes to the polygon limit in the [standard rendering VM size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: The total number of vertices in the whole model.
 * `numMaterial`: The total number of materials in the whole model.
 * `numFacesSmallestMesh`: The number of triangles in the smallest mesh of the model.
