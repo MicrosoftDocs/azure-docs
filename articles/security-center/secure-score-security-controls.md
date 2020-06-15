@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/15/2020
 ms.author: memildin
 
 ---
 
-# Enhanced secure score (preview) in Azure Security Center
+# Enhanced secure score in Azure Security Center
 
 ## Introduction to secure score
 
@@ -40,7 +40,7 @@ The secure score page of Security Center includes:
 >[!TIP]
 > Earlier versions of Security Center awarded points at the recommendation level: when you remediated a recommendation for a single resource, your secure score improved. 
 > Today, your score only improves if you remediate *all* of the recommendations for a single resource within a control. So your score only improves when you've improved the security of a resource.
-> While this enhanced version is still in preview, the earlier secure score experience is available as an option from the Azure Portal. 
+> The earlier secure score experience is still available as an option from the Azure Portal.
 
 
 ## Accessing your secure score
@@ -192,7 +192,7 @@ The table below lists the security controls in Azure Security Center. For each c
 ## Secure score FAQ
 
 ### Why has my secure score gone down?
-Security Center has switched to an enhanced secure score (currently in preview status) which includes changes in the way the score is calculated. Now, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
+Security Center has switched to an enhanced secure score which includes changes in the way the score is calculated. Now, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
