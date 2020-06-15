@@ -39,7 +39,7 @@ Select a role to view the users assigned to the role. You can select **Manage in
 
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to see their active assigned roles.
 
-If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, your experience is that all role assignments and permissions are managed in PIM and not in Azure AD.
+If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, all role management tasks are performed in Privilege Identity Management and not in Azure AD.
 
 ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
