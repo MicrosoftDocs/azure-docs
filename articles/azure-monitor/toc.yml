@@ -952,8 +952,6 @@
         href: insights/container-insights-azure-redhat-setup.md
       - name: Enable for Azure Red Hat OpenShift v4
         href: insights/container-insights-azure-redhat4-setup.md
-      - name: Enable for Arc enabled cluster
-        href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Region mappings
         href: insights/container-insights-region-mapping.md
     - name: Monitor performance
