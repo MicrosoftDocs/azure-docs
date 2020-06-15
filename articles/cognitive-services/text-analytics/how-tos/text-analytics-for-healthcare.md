@@ -31,32 +31,7 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 
 ![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
 
-Named entity categories supported by Text Analytics for Health include:
-
-
-|Category  |Description   |Notes  |
-|---------|---------|---------|---------|
-| `AGE` | `tbd` |  | 
-| `BODY_STRUCTURE` | `tbd` | |
-| `CONDITION_QUALIFIER` | `tbd` | |
-| `DIAGNOSIS` | `tbd` | |
-| `DIRECTION` | `tbd` | |
-| `DOSAGE` | `tbd` | |
-| `EXAMINATION_NAME` | `tbd` | |
-| `EXAMINATION_RELATION` | `tbd` | |
-| `EXAMINATION_UNIT` | `tbd` | |
-| `EXAMINATION_VALUE` | `tbd` | |
-| `FAMILY_RELATION` | `tbd` | |
-| `FREQUENCY` | `tbd` | |
-| `GENDER` | `tbd` | |
-| `GENE` | `tbd` | |
-| `MEDICATION_CLASS` | `tbd` | |
-| `MEDICATION_NAME`  | `tbd` | |
-| `ROUTE_OR_MODE`  | `tbd` | |
-| `SYMPTOM_OR_SIGN`  | `tbd` | |
-| `TIME`  | `tbd` | |
-| `TREATMENT_NAME`  | `tbd` | |
-| `VARIANT`  | `tbd` | |
+See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
 
 
 #### [relation extraction](#tab/relation-extraction)
@@ -65,27 +40,8 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 ![Health RE](../media/ta-for-health/health-relation-extraction.png)
 
-Supported relation types include:
+See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
 
-|Category  |Description |Starting model version  |Notes  |
-|---------|---------|---------|---------|
-|  `DIRECTION_OF_BODY_STRUCTURE` | | | |
-|  `TIME_OF_CONDITION` | | | |
-|  `QUALIFIER_OF_CONDITION` | | | |
-|  `DOSAGE_OF_MEDICATION` | | | |
-|  `FORM_OF_MEDICATION` | | | |
-|  `ROUTE_OR_MODE_OF_MEDICATION` | | | |
-|  `STRENGTH_OF_MEDICATION` | | | |
-|  `ADMINISTRATION_RATE_OF_MEDICATION` | | | |
-|  `FREQUENCY_OF_MEDICATION` | | | |
-|  `TIME_OF_MEDICATION` | | | |
-|  `TIME_OF_TREATMENT` | | | |
-|  `FREQUENCY_OF_TREATMENT` | | | |
-|  `VALUE_OF_EXAMINATION` | | | |
-|  `UNIT_OF_EXAMINATION` | | | |
-|  `RELATION_OF_EXAMINATION` | | | |
-|  `TIME_OF_EXAMINATION` | | | |
-|  `ABBREVIATION` | | | |
 
 #### [Entity Linking](#tab/entity-linking)
 
@@ -95,14 +51,8 @@ Entity Linking disambiguates distinct entities by associating named entities men
 
 Text Analytics for Health supports linking to the health and biomedical vocabularies represented in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source, including:
 
-|Category  |Description |Starting model version  |Notes  |
-|---------|---------|---------|---------|
-|  `CPT` | | | |
-|  `ICD-10-CM` | | | |
-|  `ICPC2` | | | |
-|  `MeSH` | | | |
-|  `RxNorm` | | | |
-|  `SNOMEDCT_US` | | | |
+See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
+
 
 #### [Negation Detection](#tab/negation-detection) 
 
@@ -152,7 +102,7 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 ## Install the container
 
-See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers?tabs=healthcare) to get your container running. You can also use [Azure web app for containers](https://docs.microsoft.com/azure/app-service/containers/) and [Azure container instances](text-analytics-how-to-use-container-instances.md) to make installation easier. Use the below PowerShell scripts  to automate the resource provisioning and installation process. 
+See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers.md?tabs=healthcare) to get your container running. You can also use [Azure web app for containers](https://docs.microsoft.com/azure/app-service/containers/) and [Azure container instances](text-analytics-how-to-use-container-instances.md) to make installation easier. Use the below PowerShell scripts  to automate the resource provisioning and installation process. 
 
 ### Using Azure Web App for Containers
 
