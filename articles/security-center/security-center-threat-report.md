@@ -16,12 +16,15 @@ ms.author: memildin
 
 ---
 # Azure Security Center Threat Intelligence Report
-This document explains how Azure Security Center Threat Intelligent Reports can help you learn more about a threat that generated a security alert.
+
+This page explains how Azure Security Center Threat Intelligent Reports can help you learn more about a threat that generated a security alert.
+
 
 ## What is a threat intelligence report?
+
 Security Center threat protection works by monitoring security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. For more information, see [How Azure Security Center detects and responds to threats](security-center-alerts-overview.md#detect-threats).
 
-When Security Center identifies a threat, it will trigger a [security alert](security-center-managing-and-responding-alerts.md), which contains detailed information regarding a particular event, including suggestions for remediation. To assist incident response teams, investigate and remediate threats, Security Center includes a threat intelligence report that contains information about the threat that was detected, including information such as the:
+When Security Center identifies a threat, it triggers a [security alert](security-center-managing-and-responding-alerts.md), which contains detailed information regarding the event, including suggestions for remediation. To help incident response teams investigate and remediate threats, Security Center includes a threat intelligence report that contains information about the threat that was detected, including information such as the:
 
 * Attacker’s identity or associations (if this information is available)
 * Attackers’ objectives
@@ -33,8 +36,6 @@ When Security Center identifies a threat, it will trigger a [security alert](sec
 
 > [!NOTE]
 > The amount of information in any particular report will vary; the level of detail is based on the malware’s activity and prevalence.
->
->
 
 Security Center has three types of threat reports, which can vary according to the attack. The reports available are:
 
@@ -44,11 +45,13 @@ Security Center has three types of threat reports, which can vary according to t
 
 This type of information is useful during the incident response process, where there is an ongoing investigation to understand the source of the attack, the attacker’s motivations, and what to do to mitigate this issue moving forward.
 
-## How to access the threat intelligence report?
-You can review your current alerts by looking at the **Security alerts** tile. Open the Azure portal and follow the steps below to see more details about each alert:
 
-1. On the Security Center dashboard, you will see the **Security alerts** tile.
-2. Click the tile to open the **Security alerts** blade that contains more details about the alerts and click in the security alert that you want to obtain more information about.
+
+## How to access the threat intelligence report?
+
+1. From Security Center's sidebar, open the **Security alerts** page.
+1. 
+1.  that contains more details about the alerts and click in the security alert that you want to obtain more information about.
 
     ![Security alerts](./media/security-center-threat-report/security-center-threat-report-fig1.png)
 3. In this case, the **Suspicious process executed** blade shows the details about the alert as shown in the figure below:

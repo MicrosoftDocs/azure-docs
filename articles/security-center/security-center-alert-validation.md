@@ -54,10 +54,6 @@ After Security Center agent is installed on your computer, follow these steps fr
 
 1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
-### Alert example <a name="alert-validate"></a>
-
-![Alert validation example](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
-
 
 ## Validate alerts on Kubernetes <a name="validate-kubernetes"></a>
 

@@ -44,13 +44,13 @@ In Security Center, a security incident is an aggregation of all alerts for a re
     To switch to the **Take action** tab, select the tab or the button on the bottom of the right pane. Use this tab to take further actions such as:
     - *Mitigate the threat* - provides manual remediation steps for this security incident
     - *Prevent future attacks* - provides security recommendations to help reduce the attack surface, increase security posture, and prevent future attacks
-    - *Trigger automated response* - provides the option to trigger a Logic App as a response to this security alert
+    - *Trigger automated response* - provides the option to trigger a Logic App as a response to this security incident
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization 
 
    > [!NOTE]
    > The same alert can exist as part of an incident, as well as to be visible as a standalone alert.
 
-1. Follow the remediation steps given for each alert.
+1. To remediate the threats in the incident, follow the remediation steps provided with each alert.
 
 
 ## Next steps
