@@ -191,7 +191,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 
 * Learn about [Azure AD Role-Based Access Control][azure-ad-rbac].
 * Use [kubelogin](https://github.com/Azure/kubelogin) to access features for Azure authentication that are not available in kubectl.
-* Learn more about how to use [Azure Resource Manager (ARM)][aks-arm-template] to create AKS-managed Azure AD enabled clusters.
+* Use [Azure Resource Manager (ARM) templates ][aks-arm-template] to create AKS-managed Azure AD enabled clusters.
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
