@@ -838,6 +838,50 @@ HTTP Status Code | Reason
    * Currently tags for Scale Sets only show to the VM on a reboot, reimage, or disk change to the instance.
 1. I get request timed out for my call to the service?
    * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally in the case you have changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
+   * <details>
+        <summary>Verifying your routing table</summary>
+
+        1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
+            ```console
+            ~$ netstat -r
+            Kernel IP routing table
+            Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+            default         _gateway        0.0.0.0         UG        0 0          0 eth0
+            168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+            169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+            172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+            ```
+        1. Verify that a route exists for `169.254.169.254`, and note the corresponding network interface (e.g. `eth0`).
+        1. Dump the interface configuration for the corresponding interface in the routing table (note the exact name of the configuration file may vary)
+            ```console
+            ~$ cat /etc/netplan/50-cloud-init.yaml
+            network:
+            ethernets:
+                eth0:
+                    dhcp4: true
+                    dhcp4-overrides:
+                        route-metric: 100
+                    dhcp6: false
+                    match:
+                        macaddress: 00:0d:3a:e4:c7:2e
+                    set-name: eth0
+            version: 2
+            ```
+        1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
+            ```powershell
+            $ResourceGroup = '<Resource_Group>'
+            $VmName = '<VM_Name>'
+            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+            foreach($NicName in $NicNames)
+            {
+            	$Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            	Write-Host $NicName, $Nic.primary, $Nic.macAddress
+            }
+            # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+            ```
+        1. If they do not match, update the routing table such that the primary NIC/IP are targeted.
+    </details>
 
 ## Support and Feedback
 
