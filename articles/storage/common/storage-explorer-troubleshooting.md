@@ -319,7 +319,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 # [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu/20-04/runtime-current):
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      dpkg -i packages-microsoft-prod.deb; \
@@ -332,7 +332,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 # [Ubuntu 18.04](#tab/1804)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current):
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 # [Ubuntu 16.04](#tab/1604)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current):
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      dpkg -i packages-microsoft-prod.deb; \
