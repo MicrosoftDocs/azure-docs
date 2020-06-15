@@ -174,7 +174,7 @@ Azure Monitor provides extensive support for querying application logs by using 
 
 ### How to convert multi-line Java stack traces into a single line?
 
-There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as below:
+There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as follows:
 
 ```xml
 <configuration>
@@ -191,6 +191,34 @@ There is a workaround to convert your multi-line stack traces into a single line
 </configuration>
 ```
 And then you can replace the token with newline characters again in Log Analytics as below:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+You may be able to use the same strategy for other Java log libraries.
+
+## Frequently asked questions (FAQ)
+
+### How to convert multi-line Java stack traces into a single line?
+
+There is a workaround to convert your multi-line stack traces into a single line. You can modify the Java log output to reformat stack trace messages, replacing newline characters with a token. If you use Java Logback library, you can reformat stack trace messages by adding `%replace(%ex){'[\r\n]+', '\\n'}%nopex` as follows:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+And then you can replace the token with newline characters again in Log Analytics as follows:
 
 ```sql
 AppPlatformLogsforSpring
