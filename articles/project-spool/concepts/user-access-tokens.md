@@ -109,6 +109,8 @@ Azure Communication Services supports the following scopes for user access token
 
 User access tokens are short-lived credentials that need to be reissued in order to prevent your users from experiencing service disruptions. The client SDKs provide an proactive-refresh callback to let you update the user access token before it is about to expire. You should provide a refresh callback and use it to fetch a new user access token from your trusted service.
 
+#### [Javascript](#tab/javascript-user-token-refresh)
+
 ```javascript
 import { CommunicationUserCredential } from '@azure/communicationservices-common';
 import { ChatClient } from '@azure/communicationservices-chat';
@@ -124,10 +126,45 @@ const userCredential = new CommunicationUserCredential(async () => fetchNewToken
 const client = new ChatClient(endpoint, userCredential);
 ```
 
+#### [Android (Java)](#tab/java-user-token-refresh)
 
+```java
+```
 
-User access tokens are valid for 24 hours by default. If your application isn't running long-running sessions, you can decide to not use the built-in refresh callback and just pass the token string to the client that you want to instantiate. You won't get notified before the token expires.
+#### [iOS (Swift)](#tab/swift-user-token-refresh)
 
+```swift
+import AzureCommunicationServicesChat
+import AzureCommunicationServicesCommon
+
+// Your unique Azure Communication service endpoint
+let endpoint = URL(string: "https://<RESOURCE_NAME>.communcationservices.azure.com")!
+
+// User access token fetched from your trusted service
+let accessToken = 'SECRET';
+
+// create a user credential and provide a delegate to manage the token lifecycle
+let userCredential = new CommunicationUserCredential(accessToken: accessToken, delegate: self);
+
+// Initialize the chat client
+let client = CommunicationChatClient(endpoint: endpointUrl, credential: userCredential)
+
+...
+
+extension MyViewController: CommunicationUserCredentialDelegate {
+    // implement the credentialWillExpire method in your delegate to manage the 
+    // user access token lifecycle
+    public func credentialWillExpire(_ credential: CommunicationUserCredential) {
+        // fetch a new token from your trusted service
+        credential.updateToken(string: token);
+    }
+}
+```
+--- 
+
+User access tokens are valid for 24 hours by default. If your application does not require long-running sessions, you can decide to not use the built-in refresh callback and just pass the token string to the client that you want to instantiate. You won't get notified before the token expires.
+
+#### [Javascript](#tab/javascript-user-token-refresh)
 
 ```javascript
 import { ChatClient } from '@azure/communicationservices-chat';
@@ -142,9 +179,30 @@ const userAccessToken = 'SECRET';
 const client = new ChatClient(endpoint, userAccessToken);
 ```
 
+#### [Android (Java)](#tab/java-user-token-refresh)
 
+```java
+```
+
+#### [iOS (Swift)](#tab/swift-user-token-refresh)
+
+```swift
+import AzureCommunicationServicesChat
+
+// Your unique Azure Communication service endpoint
+let endpoint = URL(string: "https://<RESOURCE_NAME>.communcationservices.azure.com")!
+
+// User access token fetched from your trusted service
+let accessToken = 'SECRET';
+
+// Initialize the chat client
+let client = CommunicationChatClient(endpoint: endpointUrl, token: accessToken)
+```
+--- 
 
 If your client application is using several of the Azure Communication Services client SDKs, you should instantiate each SDK with a shared instance of the `CommunicationUserCredential` class and use that instance to manage the user access token reissuing process.
+
+#### [Javascript](#tab/javascript-shared-credentail)
 
 ```javascript
 import { CommunicationUserCredential } from '@azure/communicationservices-common';
@@ -154,12 +212,41 @@ import { fetchNewToken } from 'myTokenHelper';
 
 const userCredential = new CommunicationUserCredential(async() => fetchNewToken(userName));
 
-// initialize the chat SDK with the token provider
+// Initialize the chat SDK with the token provider
 const chatClient = new ChatClient(resourceUrl, userCredential);
 
-// initialize the calling SDK with the token provider
+// Initialize the calling SDK with the token provider
 const callingClient = await CallingFactory.create(userCredential);
 ```
+
+#### [Android (Java)](#tab/java-user-token-refresh)
+
+```java
+```
+
+#### [iOS (Swift)](#tab/swift-shared-credentail)
+
+```swift
+import AzureCommunicationServicesCalling
+import AzureCommunicationServicesChat
+import AzureCommunicationServicesCommon
+
+// Your unique Azure Communication service endpoint
+let endpoint = URL(string: "https://<RESOURCE_NAME>.communcationservices.azure.com")!
+
+// User access token fetched from your trusted service
+let accessToken = 'SECRET';
+
+// Create a user credential
+let userCredential = new CommunicationUserCredential(accessToken: accessToken, delegate: self);
+
+// Initialize the chat SDK with the token credential
+let client = CommunicationChatClient(endpoint: endpointUrl, credential: userCredential)
+
+// Initialize the calling client with the token credential
+let client = CommunicationCallingClient(endpoint: endpointUrl, credential: userCredential)
+```
+---
 
 ## Caching user access tokens
 
