@@ -319,4 +319,4 @@ You can use an existing action group, or create a new one to define the action t
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) to set up a dataset monitor.
 * See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
 * Set up dataset drift monitors with [event grid](how-to-use-event-grid.md). 
-* See these common [troubleshooting tips](resources-known-issues.md#data-drift) if you're having problems.
+* See these common [troubleshooting tips](resource-known-issues.md#data-drift) if you're having problems.
