@@ -3,13 +3,13 @@ title: Continuous integration and continuous deployment with Custom Speech - Spe
 titleSuffix: Azure Cognitive Services
 description: Apply DevOps with Speech and CI/CD workflows running on GitHub Actions.
 services: cognitive-services
-author: kaprochi
-manager: cmayo
+author: KatieProchilo
+manager: cmayomsft
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.author: kaprochi
+ms.author: KatieProchilo
 ---
 
 # Continuous integration and deployment with Custom Speech
