@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Secure your virtual hub using Azure Firewall Manager'
-description: In this tutorial, you learn how to secure your virtual hub with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your virtual hub using multiple security providers'
+description: In this tutorial, you learn how to secure your virtual hub with multiple security providers using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your virtual hub using Azure Firewall Manager
+# Tutorial: Secure your virtual hub using multiple security providers
 
-Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager and a third party security partner, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -71,11 +71,15 @@ Create your secured virtual hub using Firewall Manager.
 1. For the **Secured virtual hub name**, type **Hub-01**.
 2. For **Hub address space**, type **10.1.0.0/16**.
 3. For the new vWAN name, type **Vwan-01**.
-4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
-5. Select **Next:Azure Firewall**.
-6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
-7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-8. Select **Create**. It will take about 30 minutes to deploy.
+4. Select the **Include VPN gateway to enable security partner providers** check box.
+5. For **Gateway scale units**, select **1 scale unit - 500 Mbps**.
+6. Select **Next:Azure Firewall**.
+7. Accept the default **Azure Firewall** **Enabled** setting.
+8. For **Specify the number of Public IP addresses**, use the slider to select **2**.
+9. Select **Next: security partner provider**.
+10. For **Security Partner Provider**, select **Enabled** and then select a provider.
+11. Select **Next: Review + create**.
+12. Select **Create**. It will take about 30 minutes to deploy.
 
 ### Connect the hub and spoke VNets
 
@@ -214,4 +218,4 @@ So now you've verified that the firewall rules are working:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about trusted security partners](trusted-security-partners.md)
+> [Learn about security partner providers](trusted-security-partners.md)
