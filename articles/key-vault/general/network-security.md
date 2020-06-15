@@ -116,7 +116,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
    ```
 
 ## References
-
+* ARM Template Reference: [Azure Key Vault ARM Template Reference](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
 * Azure CLI commands: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Azure PowerShell cmdlets: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
