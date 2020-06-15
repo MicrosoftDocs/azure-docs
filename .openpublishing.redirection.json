@@ -50613,7 +50613,7 @@
     {
       "source_path": "articles/billing/billing-use-existing-azure-account-for-office-365-subscription.md",
       "redirect_url": "/azure/cost-management-billing/manage/azure-account-for-office-365-subscription",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/billing/billing-use-existing-office-365-account-azure-subscription.md",
@@ -50628,7 +50628,7 @@
     {
       "source_path": "articles/cost-management-billling/manage/azure-account-for-office-365-subscription.md",
       "redirect_url": "/azure/cost-management-billing/manage/azure-account-for-microsoft-365-subscription",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/billing/billing-view-all-accounts.md",
