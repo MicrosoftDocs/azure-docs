@@ -36,6 +36,12 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+  - name: Routing
+    items:
+    - name: About virtual hub routing
+      href: about-virtual-hub-routing.md
+    - name: About virtual hub effective routes
+      href: effective-routes-virtual-hub.md
   - name: Site-to-site
     items:
     - name: About IPsec policies
@@ -90,14 +96,14 @@
       href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
+    - name: How to configure virtual hub routing
+      href: how-to-virtual-hub-routing.md
     - name: Route traffic from a virtual hub to an NVA
       items:
         - name: Azure portal
           href: virtual-wan-route-table-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table.md
-    - name: View virtual hub effective routes
-      href: effective-routes-virtual-hub.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub

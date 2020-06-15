@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/15/2020
 ms.author: cherylmc
 
 ---
@@ -81,4 +81,5 @@ In the Azure portal, locate the route table of your virtual hub. Click **"…"**
 
 ## Next steps
 
+For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md)
 For more information about Virtual WAN, see the [FAQ](virtual-wan-faq.md).
