@@ -34,7 +34,7 @@ If you already have a logic app with the connection that you want to block, foll
    
    `"https://docs.microsoft.com/connectors/instagram/"`
 
-1. From the page's URL, copy the connector ID at the end without the forward slash (`/`), for example, `instagram`.
+1. From the page's URL, copy and save the connector reference ID at the end without the forward slash (`/`), for example, `instagram`.
 
    Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
 
@@ -68,7 +68,7 @@ If you already have a logic app with the connection that you want to block, foll
    }
    ```
 
-   For example, the `instagram` section identifies an Instagram connection:
+   For example, for the Instagram connector, find the `instagram` object, which identifies an Instagram connection:
 
    ```json
    {
@@ -86,13 +86,19 @@ If you already have a logic app with the connection that you want to block, foll
    }
    ```
 
-1. For the connection that you want to block, find the `id` property, which follows this format: 
+1. For the connection that you want to block, find the `id` property and value, which follows this format: 
 
    `"id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{connection-name}"`
 
-   For example, here is the `id` property for an Instagram connection:
+   For example, here is the `id` property and value for an Instagram connection:
 
    `"id": "/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Web/locations/westus/managedApis/instagram"`
+
+1. From the `id` property value, copy and save the connector reference ID at the end, for example, `instagram`.
+
+   Later, when you create your policy definition, you use this ID in the definition's condition statement, for example:
+
+   `"like": "*managedApis/instagram"`
 
 <a name="create-policy-connections"></a>
 
@@ -121,7 +127,7 @@ To block creating a connection altogether in a logic app, follow these steps:
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
    ||||
 
-1. Under **POLICY RULE**, the JSON edit box is already pre-populated with a sample definition template. Replace this sample with your [policy definition](../governance/policy/concepts/definition-structure.md) by following this syntax and based on the properties described in the table below:
+1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
    ```json
    {
@@ -146,10 +152,10 @@ To block creating a connection altogether in a logic app, follow these steps:
    | `field` | `Microsoft.Web/connections/api.id` | The `field` value to compare against the condition <p><p>In this scenario, the `field` uses the [*alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id`, to access the value in the connector property, `api.id`. |
    | `like` | `*managedApis/{connector-name}` | The logical operator and value to use for comparing the `field` value <p><p>In this scenario, the `like` operator and the wildcard (*) character both make sure that the rule works regardless of region, and the string, `*managedApis/{connector-name}`, is the value to match where `{connector-name}` is the ID for the connector that you want to block. <p><p>For example, suppose that you want to block creating connections to social media platforms or databases: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server or Azure SQL: `sql` <p><p>To find these connector IDs, see [Find connector reference ID](#connector-reference-ID) earlier in this topic. |
    | `then` | `{effect-to-apply}` | The effect to apply when the `if` condition is met <p><p>In this scenario, the `{effect-to-apply}` is to block and fail a request or operation that doesn't comply with the policy. <p><p>For more information, see [Policy definition structure - Policy rule](../governance/policy/concepts/definition-structure.md#policy-rule). |
-   | `effect` | `deny` | The `effect` is to `deny` or block the request to create the specified connection <p><p>For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
+   | `effect` | `deny` | The `effect` is to block the request, which is to create the specified connection <p><p>For more information, see [Understand Azure Policy effects - Deny](../governance/policy/concepts/effects.md#deny). |
    ||||
 
-   For example, suppose that you want to block creating connections by using the Instagram connector. Here is the policy definition that you can use:
+   For example, suppose that you want to block creating connections with the Instagram connector. Here is the policy definition that you can use:
 
    ```json
    {
@@ -164,8 +170,10 @@ To block creating a connection altogether in a logic app, follow these steps:
          }
       },
       "parameters": {}
-    }
-    ```
+   }
+   ```
+
+   Here is the way that the **POLICY RULE** box appears:
 
    ![Rule for policy definition](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
@@ -205,6 +213,8 @@ To block creating a connection altogether in a logic app, follow these steps:
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
 
+1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
+
 For more information about Azure policy definitions, see these topics:
 
 * [Policy structure definition](../governance/policy/concepts/definition-structure.md)
@@ -238,7 +248,7 @@ When you create a connection inside a logic app, that connection exists as separ
    | **Policy enforcement** | Yes | **Enabled** | This setting specifies whether to enable or disable the policy definition when you save your work. |
    ||||
 
-1. Under **POLICY RULE**, the JSON edit box is already pre-populated with a sample definition template. Replace this sample with your [policy definition](../governance/policy/concepts/definition-structure.md) by following this syntax and based on the properties described in the table below:
+1. Under **POLICY RULE**, the JSON edit box is pre-populated with a policy definition template. Replace this template with your [policy definition](../governance/policy/concepts/definition-structure.md) based on the properties described in the table below and by following this syntax:
 
    ```json
    {
@@ -284,9 +294,13 @@ When you create a connection inside a logic app, that connection exists as separ
     }
     ```
 
+   Here is the way that the **POLICY RULE** box appears:
+
    ![Rule for policy definition](./media/block-connections-connectors/policy-definition-using-connections-2.png)
 
 1. When you're done, select **Save**. After you save the policy definition, Azure Policy generates and adds more property values to the policy definition.
+
+1. Next, to assign the policy definition where you want enforce the policy, [create a policy assignment](#create-policy-assignment).
 
 For more information about Azure policy definitions, see these topics:
 
@@ -298,7 +312,7 @@ For more information about Azure policy definitions, see these topics:
 
 ## Create policy assignment
 
-Next, you need to assign the policy definition where you want the policy to apply, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
+Next, you need to assign the policy definition where you want to enforce the policy, for example, to a single resource group, multiple resource groups, Azure Active Directory (Azure AD) tenant, or Azure subscription. For this task, follow these steps to create a policy assignment:
 
 1. If you signed out, sign back in to the [Azure portal](https://portal.azure.com). In the portal search box, enter `policy`, and select **Policy**.
 
@@ -312,23 +326,23 @@ Next, you need to assign the policy definition where you want the policy to appl
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Scope** | Yes | The Azure subscription and optional resource group where you want to apply and enforce the policy. <p><p>1. Next to the **Scope** box, select the ellipses (**...**) button. <br>2. From the **Subscription** list, select the Azure subscription. <br>3. Optionally, from the **Resource Group** list, select the resource group. <br>4. When you're done, select **Select**. |
+   | **Scope** | Yes | The resources where you want to enforce the policy assignment. <p><p>1. Next to the **Scope** box, select the ellipses (**...**) button. <br>2. From the **Subscription** list, select the Azure subscription. <br>3. Optionally, from the **Resource Group** list, select the resource group. <br>4. When you're done, select **Select**. |
    | **Exclusions** | No | Any Azure resources to exclude from the policy assignment. <p><p>1. Next to the **Exclusions** box, select the ellipses (**...**) button. <br>2. From the **Resource** list, select the resource > **Add to Selected Scope**. <br>3. When you're done, select **Save**. |
-   | **Policy definition** | Yes | The name for the policy definition that you want to apply and enforce. This example continues with the Instagram policy, "Block Instagram connections". <p><p>1. Next to the **Policy definition** box, select the ellipses (**...**) button. <br>2. Find and select the policy definition by using the **Type** filter or **Search** box. <br>3. When you're done, select **Select**. |
-   | **Assignment name** | Yes | The name to use for the policy assignment |
+   | **Policy definition** | Yes | The name for the policy definition that you want to assign and enforce. This example continues with the example Instagram policy, "Block Instagram connections". <p><p>1. Next to the **Policy definition** box, select the ellipses (**...**) button. <br>2. Find and select the policy definition by using the **Type** filter or **Search** box. <br>3. When you're done, select **Select**. |
+   | **Assignment name** | Yes | The name to use for the policy assignment, if different from the policy definition |
    | **Assignment ID** | Yes | The automatically generated ID for the policy assignment |
    | **Description** | No | A description for the policy assignment |
    | **Policy enforcement** | Yes | The setting that enables or disables the policy assignment |
    | **Assigned by** | No | The name for the person who created and applied the policy assignment |
    ||||
 
-   For example, to assign the policy to an Azure resource group by continuing with the Instagram example:
+   For example, to assign the policy to an Azure resource group by using the Instagram example:
 
    ![Policy assignment properties](./media/block-connections-connectors/policy-assignment-basics.png)
 
 1. When you're done, select **Review + create**.
 
-   After you create a new policy, you might have to wait up to 15 minutes before the policy takes effect. Changes might also experience similar delays.
+   After you create a policy, you might have to wait up to 15 minutes before the policy takes effect. Changes might also have similar delayed effects.
 
 1. After the policy takes effect, you can [test your policy](#test-policy).
 
@@ -338,7 +352,7 @@ For more information, see [Quickstart: Create a policy assignment to identify no
 
 ## Test the policy
 
-To test your policy, try to create a connection by using the restricted connector in the Logic App Designer. Continuing with the Instagram example, when you sign in to Instagram, you get this error that your logic app failed to create the connection:
+To try your policy, start creating a connection by using the now restricted connector in the Logic App Designer. Continuing with the Instagram example, when you sign in to Instagram, you get this error that your logic app failed to create the connection:
 
 ![Connection failure due to applied policy](./media/block-connections-connectors/connection-failure-message.png)
 
