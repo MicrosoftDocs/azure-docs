@@ -212,13 +212,7 @@ You're now ready to start looking at what's in the logs. But before we move on t
 
 ## <a id="interpret"></a>Interpret your Key Vault logs
 
-Individual blobs are stored as text, formatted as a JSON blob. Let's look at an example log entry. Run this command:
-
-```powershell
-Get-AzKeyVault -VaultName 'contosokeyvault'`
-```
-
-It returns a log entry similar to this one:
+Individual blobs are stored as text, formatted as a JSON blob. Let's look at an example log entry. 
 
 ```json
     {
