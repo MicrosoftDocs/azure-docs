@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 06/15/2020
 ms.author: aahi
 ---
 
@@ -18,7 +18,7 @@ ms.author: aahi
 > [!IMPORTANT] 
 > Text Analytics for Health is not a substitute for professional medical advice, diagnosis, or treatment. Azure Text Analytics for Health should only be used in patient care scenarios after review for accuracy and sound medical judgment by trained medical professionals.
 
-Azure Text Analytics for Health is a new feature that extracts relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. The Text Analytics for Health container currently performs named entity recognition (NER), relation extraction (RE), and entity linking (EL) for English-language text in your own environment that meets your specific security and data governance requirements.
+Azure Text Analytics for Health is a containerized service that extracts relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. The Text Analytics for Health container currently performs named entity recognition (NER), relation extraction, and entity linking for English-language text in your own environment that meets your specific security and data governance requirements.
 
 Text Analytics for Health uses natural language processing techniques to find and label valuable information in unstructured clinical documents such as doctor's notes, electronic health records, patient intake forms and discharge summaries.
 
@@ -31,30 +31,33 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 
 ![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
 
-Named entity types supported by Text Analytics for Health include:
+Named entity categories supported by Text Analytics for Health include:
 
-- `AGE`
-- `BODY_STRUCTURE`
-- `CONDITION_QUALIFIER`
-- `DIAGNOSIS`
-- `DIRECTION`
-- `DOSAGE`
-- `EXAMINATION_NAME`
-- `EXAMINATION_RELATION`
-- `EXAMINATION_UNIT`
-- `EXAMINATION_VALUE`
-- `FAMILY_RELATION`
-- `FREQUENCY`
-- `GENDER`
-- `GENE`
-- `MEDICATION_CLASS`
-- `MEDICATION_NAME`
-- `ROUTE_OR_MODE`
-- `SYMPTOM_OR_SIGN`
-- `TIME`
-- `TREATMENT_NAME`
-- `VARIANT`
-- 
+
+|Category  |Description   |Notes  |
+|---------|---------|---------|---------|
+| `AGE` | `tbd` |  | 
+| `BODY_STRUCTURE` | `tbd` | |
+| `CONDITION_QUALIFIER` | `tbd` | |
+| `DIAGNOSIS` | `tbd` | |
+| `DIRECTION` | `tbd` | |
+| `DOSAGE` | `tbd` | |
+| `EXAMINATION_NAME` | `tbd` | |
+| `EXAMINATION_RELATION` | `tbd` | |
+| `EXAMINATION_UNIT` | `tbd` | |
+| `EXAMINATION_VALUE` | `tbd` | |
+| `FAMILY_RELATION` | `tbd` | |
+| `FREQUENCY` | `tbd` | |
+| `GENDER` | `tbd` | |
+| `GENE` | `tbd` | |
+| `MEDICATION_CLASS` | `tbd` | |
+| `MEDICATION_NAME`  | `tbd` | |
+| `ROUTE_OR_MODE`  | `tbd` | |
+| `SYMPTOM_OR_SIGN`  | `tbd` | |
+| `TIME`  | `tbd` | |
+| `TREATMENT_NAME`  | `tbd` | |
+| `VARIANT`  | `tbd` | |
+
 
 #### [relation extraction](#tab/relation-extraction)
 
@@ -64,23 +67,25 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 Supported relation types include:
 
-- `DIRECTION_OF_BODY_STRUCTURE`
-- `TIME_OF_CONDITION`
-- `QUALIFIER_OF_CONDITION`
-- `DOSAGE_OF_MEDICATION`
-- `FORM_OF_MEDICATION`
-- `ROUTE_OR_MODE_OF_MEDICATION`
-- `STRENGTH_OF_MEDICATION`
-- `ADMINISTRATION_RATE_OF_MEDICATION`
-- `FREQUENCY_OF_MEDICATION`
-- `TIME_OF_MEDICATION`
-- `TIME_OF_TREATMENT`
-- `FREQUENCY_OF_TREATMENT`
-- `VALUE_OF_EXAMINATION`
-- `UNIT_OF_EXAMINATION`
-- `RELATION_OF_EXAMINATION`
-- `TIME_OF_EXAMINATION`
-- `ABBREVIATION`
+|Category  |Description |Starting model version  |Notes  |
+|---------|---------|---------|---------|
+|  `DIRECTION_OF_BODY_STRUCTURE` | | | |
+|  `TIME_OF_CONDITION` | | | |
+|  `QUALIFIER_OF_CONDITION` | | | |
+|  `DOSAGE_OF_MEDICATION` | | | |
+|  `FORM_OF_MEDICATION` | | | |
+|  `ROUTE_OR_MODE_OF_MEDICATION` | | | |
+|  `STRENGTH_OF_MEDICATION` | | | |
+|  `ADMINISTRATION_RATE_OF_MEDICATION` | | | |
+|  `FREQUENCY_OF_MEDICATION` | | | |
+|  `TIME_OF_MEDICATION` | | | |
+|  `TIME_OF_TREATMENT` | | | |
+|  `FREQUENCY_OF_TREATMENT` | | | |
+|  `VALUE_OF_EXAMINATION` | | | |
+|  `UNIT_OF_EXAMINATION` | | | |
+|  `RELATION_OF_EXAMINATION` | | | |
+|  `TIME_OF_EXAMINATION` | | | |
+|  `ABBREVIATION` | | | |
 
 #### [Entity Linking](#tab/entity-linking)
 
@@ -90,12 +95,14 @@ Entity Linking disambiguates distinct entities by associating named entities men
 
 Text Analytics for Health supports linking to the health and biomedical vocabularies represented in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source, including:
 
-- `CPT`
-- `ICD-10-CM`
-- `ICPC2`
-- `MeSH`
-- `RxNorm`
-- `SNOMEDCT_US`
+|Category  |Description |Starting model version  |Notes  |
+|---------|---------|---------|---------|
+|  `CPT` | | | |
+|  `ICD-10-CM` | | | |
+|  `ICPC2` | | | |
+|  `MeSH` | | | |
+|  `RxNorm` | | | |
+|  `SNOMEDCT_US` | | | |
 
 #### [Negation Detection](#tab/negation-detection) 
 
@@ -134,6 +141,16 @@ Text Analytics for Health only supports English language documents.
 ## HIPAA compliance
 
 This is a HIPAA and HiTRUST eligible service. For more information on Azure Text Analytics' certifications, please see sections 49, 50 and Appendix A of the [Microsoft Azure Compliance Offering](https://aka.ms/azurecompliance) document.  For an Azure Blueprint sample of using Azure Policy to assist towards HIPAA HITRUST attestation, please see the [Azure HIPAA Blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust/) page.
+
+## Request access to the container registry
+
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
+
+[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+
+[!INCLUDE [Authenticate to the container registry](../../../../includes/cognitive-services-containers-access-registry.md)]
+
+## Install the container
 
 
 ## Installing on Azure Web App for Containers
