@@ -62,6 +62,10 @@ Notice the resourceType and sort elements in the URL.
 
 ### Deploy the template
 
+<a href="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json" target="_blank">
+<img src="../../media/template-deployments/deploy-to-azure.svg"/>
+</a>
+
 <!--
  One of the following options must be included:
 
