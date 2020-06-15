@@ -1,13 +1,13 @@
 ---
-title: Back up Azure VMware Solution (AVS) VMs with Microsoft Azure Backup Server
-description: Configure your Azure VMware Solution (AVS) environment to back up virtual machines by using Microsoft Azure Backup Server.
+title: Back up Azure VMware Solution VMs with Azure Backup Server
+description: Configure your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
 ---
 
-# Back up AVS VMs with Microsoft Azure Backup Server
+# Back up Azure VMware Solution VMs with Azure Backup Server
 
-In this article, we go through the procedures to back up VMware virtual machines (VMs) running on Azure VMware Solution (AVS) by using Azure Backup Server. Before you begin, make sure you thoroughly go through [Set up Microsoft Azure Backup Server for AVS](set-up-mabs-for-avs.md).
+In this article, we go through the procedures to back up VMware virtual machines (VMs) running on Azure VMware Solution by using Azure Backup Server. Before you begin, make sure you thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-mabs-for-avs.md).
 
 Then, we walk through all of the necessary procedures to:
 
@@ -100,9 +100,9 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Right-click the TLS.REG file, and select **Merge** or **Open** to add the settings to the registry.
 
-## Add the provisioning IP address for AVS ESXi hosts on Azure Backup Server
+## Add the provisioning IP address for Azure VMware Solution ESXi hosts on Azure Backup Server
 
-During the preview, AVS doesn't resolve the ESX host from the virtual machine deployed in the virtual network. You'll need to perform additional steps to add the host file entry on the Azure Backup Server virtual machine.
+During the preview, Azure VMware Solution doesn't resolve the ESX host from the virtual machine deployed in the virtual network. You'll need to perform additional steps to add the host file entry on the Azure Backup Server virtual machine.
 
 ### Identify the IP address for ESXi hosts
 
@@ -274,7 +274,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 ## Monitor with the Azure Backup Server console
 
-After you configure the protection group to back up AVS VMs, you can monitor the status of the backup job and alert by using the Azure Backup Server console. Here's what you can monitor.
+After you configure the protection group to back up Azure VMware Solution VMs, you can monitor the status of the backup job and alert by using the Azure Backup Server console. Here's what you can monitor.
 
 - On the **Alerts** tab in the **Monitoring** pane, you can monitor errors, warnings, and general information for a protection group, for a specific protected computer, or by message severity. You can view active and inactive alerts and set up email notifications.
 - On the **Jobs** tab in the **Monitoring** pane, you can view jobs initiated by Azure Backup Server for a specific protected data source or protection group. You can follow job progress or check resources consumed by jobs.

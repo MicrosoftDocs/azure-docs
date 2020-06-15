@@ -1,13 +1,13 @@
 ---
-title: Set up Microsoft Azure Backup Server for Azure VMware Solution (AVS)
-description: Set up your Azure VMware Solution (AVS) environment to back up virtual machines by using Microsoft Azure Backup Server.
+title: Set up Azure Backup Server for Azure VMware Solution
+description: Set up your Azure VMware Solution environment to back up virtual machines by using Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
 ---
 
-# Set up Microsoft Azure Backup Server for AVS
+# Set up Azure Backup Server for Azure VMware Solution
 
-Microsoft Azure Backup Server is a robust enterprise backup and recovery system that contributes to your business continuity and disaster recovery (BCDR) strategy. During the Azure VMware Solution (AVS) preview, you can configure only virtual machine (VM)-level backup by using Azure Backup Server. 
+Azure Backup Server is a robust enterprise backup and recovery system that contributes to your business continuity and disaster recovery (BCDR) strategy. During the Azure VMware Solution preview, you can configure only virtual machine (VM)-level backup by using Azure Backup Server. 
 
 Azure Backup Server can store backup data to:
 
@@ -16,7 +16,7 @@ Azure Backup Server can store backup data to:
 
 When outages occur and source data is unavailable, you can use Azure Backup Server to restore data to the source or an alternate location easily. That way, if the original data is unavailable because of planned or unexpected issues, you can easily restore data to an alternate location.
 
-In this article, we help you prepare your AVS environment to back up VMs by using Azure Backup Server. We walk you through steps to: 
+In this article, we help you prepare your Azure VMware Solution environment to back up VMs by using Azure Backup Server. We walk you through steps to: 
 
 > [!div class="checklist"]
 > * Determine the recommended VM disk type and size to use.
@@ -40,7 +40,7 @@ In this article, we help you prepare your AVS environment to back up VMs by usin
 - Azure Backup Server can't protect VMware VMs with pass-through disks and physical raw device mappings (pRDMs).
 - Azure Backup Server can't detect or protect VMware vApps.
 
-To set up Azure Backup Server for AVS, you must finish the following steps:
+To set up Azure Backup Server for Azure VMware Solution, you must finish the following steps:
 
 - Set up the prerequisites and environment.
 - Create a Recovery Services vault.
@@ -49,7 +49,7 @@ To set up Azure Backup Server for AVS, you must finish the following steps:
 
 ### Deployment architecture
 
-Microsoft Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect AVS VMs.
+Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs.
 
 :::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="AVS Deployment Architecture" border="false":::
 
@@ -125,7 +125,7 @@ The VM must have .NET Framework 3.5 SP1 or higher installed.
 
 The Azure Backup Server VM must be joined to a domain, and a domain user with administrator privileges on the VM must install Azure Backup Server.
 
-Though not supported at the time of preview, Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in AVS. The workloads should be in the same domain to enable the backup operation.
+Though not supported at the time of preview, Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in Azure VMware Solution. The workloads should be in the same domain to enable the backup operation.
 
 ## Create a Recovery Services vault
 
@@ -156,7 +156,7 @@ A Recovery Services vault is a storage entity that stores the recovery points cr
    - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least two but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
    - **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription.
    - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list. To create a new resource group, select **Create new** and enter the name.
-   - **Location**: Select the geographic region for the vault. To create a vault to protect AVS virtual machines, the vault *must* be in the same region as the AVS private cloud.
+   - **Location**: Select the geographic region for the vault. To create a vault to protect Azure VMware Solution virtual machines, the vault *must* be in the same region as the Azure VMware Solution private cloud.
 
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
@@ -325,7 +325,7 @@ If you downloaded the software package to a different server, copy the files to 
 1. Select whether you want to use Microsoft Update to check for updates, and select **Next**.
 
    > [!NOTE]
-   > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Microsoft Azure Backup Server.
+   > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Azure Backup Server.
 
    ![Microsoft Azure Backup Setup Microsoft Update Opt-In](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
@@ -343,7 +343,7 @@ If you downloaded the software package to a different server, copy the files to 
 1. Enter the location to save the pass phrase, and then select **Next** to register the server.
 
    > [!IMPORTANT]
-   > Save the pass phrase to a safe location other than the local server. Microsoft strongly suggests using Azure Key Vault to store the pass phrase.
+   > Save the pass phrase to a safe location other than the local server. We strongly recommend using Azure Key Vault to store the pass phrase.
 
    After the Microsoft Azure Recovery Services Agent setup finishes, the installation step moves on to the installation and configuration of SQL Server and the Azure Backup Server components.
 
@@ -353,7 +353,7 @@ If you downloaded the software package to a different server, copy the files to 
 
 ### Install Update Rollup 1
 
-Installation of Update Rollup 1 for Microsoft Azure Backup Server v3 is mandatory before you can protect the workloads. To view the list of bug fixes and the installation instructions for Microsoft Azure Backup Server v3 Update Rollup 1, see the Knowledge Base article [4534062](https://support.microsoft.com/en-us/help/4534062/).
+Installation of Update Rollup 1 for Azure Backup Server v3 is mandatory before you can protect the workloads. To view the list of bug fixes and the installation instructions for Azure Backup Server v3 Update Rollup 1, see the Knowledge Base article [4534062](https://support.microsoft.com/en-us/help/4534062/).
 
 ## Add storage to Azure Backup Server
 
@@ -387,5 +387,5 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 Continue to the next tutorial to learn how to configure backup of VMware VMs running on Azure VMware Solution by using Azure Backup Server.
 
 > [!div class="nextstepaction"]
-> [Configure backup of AVS VMs](backup-avs-vms-with-mabs.md)
+> [Configure backup of Azure VMware Solution VMs](backup-avs-vms-with-mabs.md)
 
