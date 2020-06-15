@@ -9,7 +9,7 @@ manager: mtillman
 ms.assetid: 
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/22/2020
