@@ -858,7 +858,7 @@ HTTP Status Code | Reason
    * <details>
         <summary>Verifying your routing table</summary>
 
-        1. Dump your local routing table with a command such as `netstat -r` and look for the IMDS entry (e.g.):
+        1. Dump your local routing table and look for the IMDS entry (e.g.):
             ```console
             > route print
             IPv4 Route Table
