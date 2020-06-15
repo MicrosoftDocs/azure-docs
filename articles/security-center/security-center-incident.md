@@ -30,8 +30,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 1. To view details, select an incident. The **Security incident** page shows more details. 
 
-    ![Respond to security incidents in Azure Security Center](./media/security-center-incident/incident-details.png)
-
+    [![Respond to security incidents in Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
     The left pane of the security incident page shows high-level information about the security incident: title, severity, status, activity time, description, and the affected resource. Next to the affected resource you can see the relevant Azure tags. Use these tags to infer the organizational context of the resource when investigating the alert.
 
@@ -40,7 +39,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
     >[!TIP]
     > For more information about a specific alert, select it. 
 
-    ![Incident's take action tab](./media/security-center-incident/incident-take-action-tab.png)
+    [![Incident's take action tab](media/security-center-incident/incident-take-action-tab.png)](media/security-center-incident/incident-take-action-tab.png#lightbox)
 
     To switch to the **Take action** tab, select the tab or the button on the bottom of the right pane. Use this tab to take further actions such as:
     - *Mitigate the threat* - provides manual remediation steps for this security incident
