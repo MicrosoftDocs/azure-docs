@@ -8,7 +8,7 @@ author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 06/15/2020
 ---
 
 # Skillset concepts in Azure Cognitive Search
@@ -17,17 +17,17 @@ This article is for developers who need a deeper understanding of skillset conce
 
 ## Introducing skillsets
 
-A skillset is a reusable resource in Azure Cognitive Search that is attached to an indexer, and specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Skills have inputs and outputs, and often the output of one skill becomes the input of another.
-
-Skills are backed by Cognitive Services APIs that perform text and image analysis. For example, an indexer that pulls in a JPEG file for Optical Character Recognition (OCR) is actually using the Computer Vision technology on the backend. The purpose of this additional processing is to create new information and structures used in a full text search index or in knowledge mining.
+A skillset is a reusable resource in Azure Cognitive Search that is attached to an indexer, and it specifies a collection of skills used for analyzing, transforming, and enriching text or image content during indexing. Skills have inputs and outputs, and often the output of one skill becomes the input of another in a chain or sequence of processes.
 
 A skillset has three main properties:
 
 + `skills`, an unordered collection of skills for which the platform determines the sequence of execution based on the inputs required for each skill.
-+ `cognitiveServices`, a Cognitive Services resource that performs image and text processing.
++ `cognitiveServices`, the key of a Cognitive Services resource that performs image and text processing for skillsets that include built-in skills.
 + `knowledgeStore`, (optional) an Azure Storage account where your enriched documents will be projected. Enriched documents are also consumed by search indexes.
 
-Skillsets are authored in JSON. The following example is an abbreviated version of an [example hotels reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json) used to illustrate concepts in this article. The first two skills are shown below: 
+Skillsets are authored in JSON. The following example is a slightly simplified version of this [hotel-reviews skillset](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotelreviews/HotelReviews_skillset.json), used to illustrate concepts in this article. 
+
+The first two skills are shown below:
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" field as input, and splits that content into "pages" of 5000 characters as output.
 + Skill #2 is a [Sentiment Detection skill](cognitive-search-skill-sentiment.md) accepts "pages" as input, and produces a new field called "Sentiment" as output that contains the results of sentiment analysis.
@@ -85,13 +85,11 @@ Skillsets are authored in JSON. The following example is an abbreviated version 
 
 ### Enrichment tree
 
-To envision how a skillset progressively enriches your document, let's start with unenriched source data. The source data is raw content in Azure Blob storage or another [supported Azure data source](search-indexer-overview.md#supported-data-sources) that an indexer can process.
+In the progression of [steps in an enrichment pipeline](cognitive-search-concept-intro.md#enrichment-steps), content processing follows the *document cracking* phase where text and images are extracted from the source. Image content can then be routed to skills that specify image processing, while text content is queued for text processing. For source documents that contain large quantities of text, you can set a *parsing mode* on the indexer to segment text into smaller chunks for more optimal processing. 
 
-After the indexer connects to the source, the first step in the pipeline is *document cracking*, or opening a document to extract content. The output of document cracking depends on the content. For example, if a document contains images and text, document cracking extracts text for text analysis and images for image analysis. Furthermore, for text content, the parsing mode you specify on an indexer can affect output, such as segmenting large bodies of text into smaller chunks for more optimal processing. Another action that occurs at this stage is [field mappings](search-indexer-field-mappings.md). If the indexer definition maps source fields to destination fields in an index or knowledge store, those mappings are read from the indexer definition at this stage.
+![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Knowledge store in pipeline diagram")
 
-![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
-
-Once a document is in the enrichment pipeline, it is represented as a tree of content and associated enrichments. This tree is instantiated as the output of document cracking. The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types, it is not a valid JSON object but can be projected into a valid JSON format. The following table shows the state of a document entering into the enrichment pipeline:
+Once a document is in the enrichment pipeline, it is represented as a tree of content and associated enrichments. This tree is instantiated as the output of document cracking.  The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types, it is not a valid JSON object but can be projected into a valid JSON format. The following table shows the state of a document entering into the enrichment pipeline:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
@@ -117,18 +115,6 @@ Each skill requires a context. A context determines:
 |-------|-----|--------------|----------------|
 |`/document/countries/*` |`/document/countries/*/states/*/zipcodes/*` |A list of all ZIP codes in the country/region |Once per country/region |
 |`/document/countries/*/states/*` |`/document/countries/*/states/*/zipcodes/*`` |A list of ZIP codes in the state | Once per combination of country/region and state|
-
-<!-- ### SourceContext
-
-The `sourceContext` is only used in skill inputs and [projections](knowledge-store-projection-overview.md) that define the physical expression of your data in a knowledge store. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well-formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. Using `sourceContext` is shown in the next section. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type. -->
-
-<!-- ### Projections
-
-Projection is the process of selecting the nodes from the enrichment tree to be saved in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
-
-![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
-
-The diagram above describes the selector you work with based on where you are in the enrichment pipeline. -->
 
 ## Generate enriched data 
 
@@ -203,19 +189,37 @@ In Azure Cognitive Search, an indexer saves the output it creates. One of the ou
 
 Optionally, an indexer can also send the output to a [knowledge store](knowledge-store-concept-intro.md) for consumption in other tools or processes. A knowledge store is defined as part of the skillset. It's definition determines whether your enriched documents are projected as tables or objects (files or blobs). Tabular projections are well-suited for interactive analysis in tools like Power BI, whereas files and blobs are typically used in data science or similar processes. In this section, you'll learn how skillset composition can shape the tables or objects you want to project.
 
+### Projections
+
+For content that targets a knowledge store, you will want to consider how the content is structured. *Projection* is the process of selecting the nodes from the enrichment tree and creating a physical expression of them in the knowledge store. Projections are custom shapes of the document (content and enrichments) that can be output as either table or object projections. To learn more about working with projections, see [working with projections](knowledge-store-projection-overview.md).
+
+![Field mapping options](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Field mapping options for enrichment pipeline")
+
+### SourceContext
+
+The `sourceContext` element is only used in skill inputs and projections. It is used to construct multi-level, nested objects. You may need to create a new object to either pass it as an input to a skill or project into the knowledge store. As enrichment nodes may not be a valid JSON object in the enrichment tree and referencing a node in the tree only returns that state of the node when it was created, using the enrichments as skill inputs or projections requires you to create a well formed JSON object. The `sourceContext` enables you to construct a hierarchical, anonymous type object, which would require multiple skills if you were only using the context. 
+
+Using `sourceContext` is shown in the following examples. Look at the skill output that generated an enrichment to determine if it is a valid JSON object and not a primitive type.
+
 ### Slicing projections
 
 When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. If you add a table with a source path that is a child of an existing table projection, the resulting child node will not be a child of the existing table projection, but instead will be projected into the new, related, table. This slicing technique allows you to define a single node in a shaper skill that can be the source for all your table projections. 
 
 ### Shaping projections
 
-There are two ways to define a projection. You could use a shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the shaper skill. You could also inline shape a projection within the projection definition itself.
+There are two ways to define a projection:
 
-The shaper approach is more verbose than inline shaping but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. Inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined. The approaches can be used together or separately. The skillset created for you in the portal workflow contains both. It uses a shaper skill for the table projections, but also uses inline shaping to project the key phrases table.
++ Use the Text Shaper skill to create a new node that is the root node for all the enrichments you are projecting. Then, in your projections, you would only reference the output of the shaper skill.
+
++ Use an inline shape a projection within the projection definition itself.
+
+The shaper approach is more verbose than inline shaping but ensures that all the mutations of the enrichment tree are contained within the skills and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined. The approaches can be used together or separately. The skillset created for you in the portal workflow contains both. It uses a shaper skill for the table projections, but also uses inline shaping to project the key phrases table.
 
 To extend the example, you could choose to remove the inline shaping and use a shaper skill to create a new node for the key phrases. To create a shape projected into three tables, namely, `hotelReviewsDocument`, `hotelReviewsPages`, and `hotelReviewsKeyPhrases`, the two options are described in the following sections.
 
-#### Shaper skill and projection 
+#### Shaper skill and projection
+
+This 
 
 > [!Note]
 > Some of the columns from the document table have been removed from this example for brevity.
