@@ -277,15 +277,15 @@ spec:
 Below is a list of annotations supported for Kubernetes services with type `LoadBalancer`, these only apply to **INBOUND** flows:
 
 | Annotation | Value | Description
-| ----------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ 
-| `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`            | Specify whether the load balancer should be internal. It’s defaulting to public if not set.
-| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet           | Specify which subnet the internal load balancer should be bound to. It’s defaulting to the subnet configured in cloud config file if not set.
-| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label        | Specify the DNS label name for the service. If it is set to empty string, DNS in PIP would be deleted.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`            | Specify that the service should be exposed using an Azure security rule that may be shared with another service, trading specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/security-overview.md#augmented-security-rules) feature of Network Security groups. 
-| `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group   | Specify the resource group of load balancer objects that aren't in the same resource group as the cluster infrastructure (node resource group).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags | Specify a list of allowed [service tags](../virtual-network/security-overview.md#service-tags) separated by comma.
-| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes | Specify the time, in minutes, for TCP connection idle timeouts to occur on the load balancer. Default and minimum value is 4. Maximum value is 30. Must be an integer.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                       | Disable `enableTcpReset` for SLB
+| ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
+| `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. It’s defaulting to public if not set.
+| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. It’s defaulting to the subnet configured in cloud config file if not set.
+| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it is set to empty string, the DNS entry in the Public IP will not be used.
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service, trading specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/security-overview.md#augmented-security-rules) feature of Network Security groups. 
+| `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | SSpecify the resource group of load balancer public IP that aren't in the same resource group as the cluster infrastructure (node resource group).
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags](../virtual-network/security-overview.md#service-tags) separated by comma.
+| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time, in minutes, for TCP connection idle timeouts to occur on the load balancer. Default and minimum value is 4. Maximum value is 30. Must be an integer.
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disable `enableTcpReset` for SLB
 
 
 ## Troubleshooting SNAT
