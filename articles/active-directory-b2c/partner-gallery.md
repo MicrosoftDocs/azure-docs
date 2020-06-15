@@ -27,7 +27,7 @@ Our partner network extends our solution capabilities to help you build seamless
 | :--- | :--- |
 | ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
 | ![logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an Identity verification and proofing provider with ID verification solutions, Fraud prevention solutions, Compliance solutions, and others.|
-| ![logo](./media/partner-gallery/itsme-logo.png) | [Itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
+| ![logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 | ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning.|
 | ![logo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) provides multiple solutions to enable multi-factor authentication (MFA) through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for Payment Services Directive 2 (PSD2).|
 
