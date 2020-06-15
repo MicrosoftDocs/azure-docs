@@ -152,16 +152,16 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 ## Install the container
 
+See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers?tabs=healthcare) to get your container running. You can also use [Azure web app for containers](https://docs.microsoft.com/azure/app-service/containers/) and [Azure container instances](text-analytics-how-to-use-container-instances.md) to make installation easier. Use the below PowerShell scripts  to automate the resource provisioning and installation process. 
 
-## Installing on Azure Web App for Containers
+### Using Azure Web App for Containers
 
-Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is azure resource dedicated for running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support of docker containers and docker compose, HTTPS support and much more.
+Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) is an Azure resource dedicated to running containers in the cloud. It brings out-of-the-box capabilities such as autoscaling, support of docker containers and docker compose, HTTPS support and much more.
 
+> [!NOTE]
 > Using Azure Web App you will automatically get a domain in the form of `<appservice_name>.azurewebsites.net`
 
-### How to install the container on Web App for Container using Azure CLI
-
-Here is a powershell script using [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) that will create a Web App for Containers on your subscription using the Text Analytics for Healthcare image over HTTPS.  Please allow 20-25 minutes for the operations contained within this script to complete before submitting the first request.
+Run this PowerShell script using the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create a Web App for Containers, using your subscription and the container image over HTTPS. Wait for the script to complete (approximately 20 minutes) before submitting the first request.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -187,15 +187,44 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 # Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
 ```
 
-## Installing on Azure Container Instance
+### Using Azure Container Instance
 
-Consider using [Azure Container Instance](https://azure.microsoft.com/services/container-instances/) (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. ACI is a solution for any scenario that can operate in isolated containers, without orchestration.
+You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
+
+See [How to use Azure Container Instances](text-analytics-how-to-use-container-instances.md) article for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 20 minutes) before submitting the first request.
+
+> [!NOTE] 
+> Azure Container Instances don't include HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX below.
+
+```bash
+$subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
+$resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
+                                           #    and AppService to be attached to.
+$resources_location = ""                   # This is the location you wish the web app to be deployed to.
+                                           #    You can use the "az account list-locations -o table" command to
+                                           #    get the list of available locations and location code names.
+$azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
+$TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
+$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
+$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
+$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
+$DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
+$DOCKER_REGISTRY_LOGIN_SERVER = "containerpreview.azurecr.io"
+$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
+
+az login
+az account set -s $subscription_name
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 8 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+
+# Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
+```
 
 ### Secure ACI connectivity
 
-By default there is **no security** on the Cognitive Services container API. The reason for this is that most often the container will run as part of a pod which is protected from the outside by a network bridge. However, consumers of Cognitive Services containers could augment a container with a front-facing component, keeping the container endpoint private. Here we describe one such front-facing component, <a href="https://www.nginx.com" target="_blank">NGINX</a>, that can be used as an ingress gateway to support HTTPS/SSL and client-certificate authentication.
+By default there is no security provided when using ACI with container API. This is because typically containers will run as part of a pod which is protected from the outside by a network bridge. You can however modify a container with a front-facing component, keeping the container endpoint private. Here we describe how to accomplish this using [NGINX](https://www.nginx.com), which can be used as an ingress gateway to support HTTPS/SSL and client-certificate authentication.
 
-> NGINX is an open-source, high-performance HTTP server and proxy. An NGINX container can be used as a sidecar to terminate a TLS connection for a single container. A more complex NGINX ingress-based TLS termination solution can also be constructed.
+> [!NOTE]
+> NGINX is an open-source, high-performance HTTP server and proxy. An NGINX container can be used to terminate a TLS connection for a single container. A more complex NGINX ingress-based TLS termination solution can also be constructed.
 
 #### Set up NGINX as an ingress gateway
 
@@ -203,9 +232,8 @@ NGINX uses [configuration files](https://docs.nginx.com/nginx/admin-guide/basic-
 
 If you don't have a SSL certificate for your domain, here is a good resource on [how to create and acquire a SSL certificate](https://letsencrypt.org/getting-started/).
 
-> **Note:** The `ssl_certificate` expects a path to be specified within the NGINX container's local filesystem. The address specified for `proxy_pass` must be available from within the NGINX container's network.
-
-#### Sample _nginx.conf_
+> [!NOTE]
+> The `ssl_certificate` expects a path to be specified within the NGINX container's local filesystem. The address specified for `proxy_pass` must be available from within the NGINX container's network.
 
 The NGINX container will load all of the files in the _.conf_ that are mounted under `/etc/nginx/conf.d/` into the HTTP configuration path.
 
@@ -228,9 +256,9 @@ server {
 }
 ```
 
-### Sample docker-compose.yml
+#### Example Docker compose file
 
-Here is a sample [docker compose](https://docs.docker.com/compose/reference/overview) file, that deploys the NGINX and Text Analytics for Health containers:
+The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the NGINX and Text Analytics for Health containers:
 
 ```yaml
 version: "3.7"
