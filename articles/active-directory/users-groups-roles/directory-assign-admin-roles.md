@@ -38,6 +38,11 @@ It's possible that a role or roles were added to Azure AD that provide more gran
 
 To learn how to assign administrative roles to a user in Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](directory-manage-roles-portal.md).
 
+> [!Note]
+> If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, all role management tasks are performed in Privilege Identity Management and not in Azure AD.
+>
+> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
+
 ## Available roles
 
 The following administrator roles are available:
