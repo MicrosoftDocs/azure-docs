@@ -233,6 +233,19 @@ Here is an example proxies.json in a function app at the URL myfunction.com
 |true|myfunction.com/test%2fapi|example.com/test/api
 |false|myfunction.com/test%2fapi|example.com/test%2fapi|
 
+## SCALE_CONTROLLER_LOGGING_ENABLE
+
+This setting is currently in preview.  
+
+This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs-preview).
+
+|Key|Sample value|
+|-|-|
+|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+
+The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
 ## Next steps
 
