@@ -54918,6 +54918,21 @@
       "source_path": "articles/aks/azure-ad-integration.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models/manipulate-models",
+      "redirect_document_id": false
     }
   ]
 }

@@ -69,9 +69,9 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 There can't be more than one instance of `ARRServiceUnity` at a time. It's meant for getting you started quicker by implementing some common functionality. For a larger application it may be preferable to do those things yourself, though.
 
-For an example how to set up and use `ARRServiceUnity` see [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md).
+For an example how to set up and use `ARRServiceUnity` see [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md).
 
 ## Next steps
 
 * [Install the Remote Rendering package for Unity](install-remote-rendering-unity-package.md)
-* [Tutorial: Setting up a Unity project from scratch](../../tutorials/unity/project-setup.md)
+* [Tutorial: Viewing remotely rendered models](../../tutorials/unity/view-remote-models/view-remote-models.md)

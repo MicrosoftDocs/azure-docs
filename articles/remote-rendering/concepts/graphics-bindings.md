@@ -21,7 +21,7 @@ Once set up, the graphics binding gives access to various functions that affect 
 In Unity, the entire binding is handled by the `RemoteUnityClientInit` struct passed into `RemoteManagerUnity.InitializeManager`. To set the graphics mode, the `GraphicsApiType` field has to be set to the chosen binding. The field will be automatically populated depending on whether an XRDevice is present. The behavior can be manually overridden with the following behaviors:
 
 * **HoloLens 2**: the [Windows Mixed Reality](#windows-mixed-reality) graphics binding is always used.
-* **Flat UWP desktop app**: [Simulation](#simulation) is always used. To use this mode, make sure to follow the steps in [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md).
+* **Flat UWP desktop app**: [Simulation](#simulation) is always used.
 * **Unity editor**: [Simulation](#simulation) is always used unless a WMR VR headset is connected in which case ARR will be disabled to allow to debug the non-ARR related parts of the application. See also [holographic remoting](../how-tos/unity/holographic-remoting.md).
 
 The only other relevant part for Unity is accessing the [basic binding](#access), all the other sections below can be skipped.
@@ -228,4 +228,4 @@ else
 
 ## Next steps
 
-* [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md)
+* [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)
