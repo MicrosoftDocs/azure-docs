@@ -137,7 +137,7 @@ To delete a device, you have two options:
 
 **Remarks:**
 
-- You need to be a global administrator or an Intune administrator in Azure AD to delete a device.
+- You need to be a global administrator, cloud device administrator or an Intune administrator in Azure AD to delete a device.
 - Deleting a device:
    - Prevents a device from accessing your Azure AD resources.
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
