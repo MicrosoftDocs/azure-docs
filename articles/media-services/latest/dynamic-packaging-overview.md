@@ -125,7 +125,7 @@ Dynamic packaging supports MP4 files which contain video that's encoded with [H.
 > [!NOTE]
 > Resolutions of up to 4K and frame rates of up to 60 frames/second have been tested with *dynamic packaging*. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265 via the legacy v2 APIs.
 
-## <a id="audio-codecs"/>Audio codecs supported by dynamic packaging
+## Audio codecs supported by dynamic packaging
 
 Dynamic packaging supports audio that's encoded with the following protocols:
 

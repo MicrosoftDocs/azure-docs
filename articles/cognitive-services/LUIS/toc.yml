@@ -126,6 +126,14 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
+  - name: Applying DevOps practices with LUIS
+    items:
+    - name: Source control and branch strategies for LUIS
+      href: luis-concept-devops-sourcecontrol.md
+    - name: Testing for DevOps
+      href: luis-concept-devops-testing.md
+    - name: CI/CD workflows
+      href: luis-concept-devops-automation.md
 - name: How-to guides
   items:
   - name: Start a new app
@@ -239,6 +247,8 @@
     - name: Container limitations
       href: luis-container-limitations.md
       displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
+  - name: Use DevOps
+    href: luis-how-to-devops-with-github.md
   - name: Related services
     items:
     - name: Azure Bot Service

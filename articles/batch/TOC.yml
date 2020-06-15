@@ -95,6 +95,10 @@
       href: batch-management-dotnet.md
     - name: Cost analysis and budgets
       href: budget.md
+    - name: Use private endpoints with Batch accounts
+      href: private-connectivity.md
+    - name: Configure customer-managed keys
+      href: batch-customer-managed-key.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
