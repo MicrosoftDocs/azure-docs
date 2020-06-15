@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.author: KatieProchilo
+ms.author: kaprochi
 ---
 
 # Apply DevOps to Custom Speech model development using GitHub Actions
@@ -20,7 +20,7 @@ The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Servic
 
 - Copy the template repository to your GitHub account.
 - Create Azure resources that will be used by the GitHub Actions workflows.
-- Create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and get the token that is used by the continuous integration (CI) and continuous delivery (CD) workflows to sign into Azure.
+- Create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and get the token that is used by the continuous integration (CI) and continuous delivery (CD) workflows to sign into Azure.
 - Configure [parameters for the CI/CD workflows](how-to-custom-speech-continuous-integration-continuous-deployment.md) and store them in [GitHub Secrets](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 - Walks through the ["dev inner loop."](https://mitchdenny.com/the-inner-loop/) The developer makes updates to a Custom Speech model while working in a feature branch, tests the changes in a temporary development model, and then raises a pull request to propose changes and to seek review approval.
 - Execute CI/CD workflows on GitHub Actions to train and test a Speech model as those updates are made.

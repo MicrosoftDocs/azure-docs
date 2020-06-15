@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.author: KatieProchilo
+ms.author: kaprochi
 ---
 
 # Continuous integration and deployment with Custom Speech
@@ -74,4 +74,4 @@ Most teams require a manual review and approval process for deployment to a prod
 
 ## Next steps
 
-- Learn how to implement [DevOps for Custom Speech with GitHub Actions](how-to-devops-with-github.md)
+- Learn how to implement [DevOps for Custom Speech with GitHub Actions](how-to-custom-speech-devops-with-github.md)
