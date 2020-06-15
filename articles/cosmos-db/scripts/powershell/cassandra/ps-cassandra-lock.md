@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 06/12/2020
 ---
 
-# Create a resource lock for Azure Cosmos Cassandra API keyspace and table using Azure Powershell
+# Create a resource lock for Azure Cosmos Cassandra API keyspace and table using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
