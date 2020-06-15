@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 06/15/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/authenticator.PNG)
 
-1. On the following page, perform the following steps:
+1. Perform the following steps:
 
     ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/urls.PNG)
 
