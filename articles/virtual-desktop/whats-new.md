@@ -73,3 +73,7 @@ Check out these articles to learn about updates for our clients for Windows Virt
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## Windows Virtual Desktop Microsoft 365 Roadmap
+
+Get the latest updates on our Windows Virtual Desktop Microsoft 365 Roadmap [here](https://www.microsoft.com/en-us/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop)
