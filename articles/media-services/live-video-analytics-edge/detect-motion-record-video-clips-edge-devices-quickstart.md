@@ -262,5 +262,5 @@ If you intend to try the other quickstarts, then keep the resources you created.
 * Follow the [Run Live Video Analytics with your own model](use-your-model-quickstart.md) quickstart to apply AI to live video feeds.
 * Review additional challenges for advanced users:
 
-    * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://en.wikipedia.org/wiki/IP_camera) Wikipedia page. Look for devices that conform with profiles G, S, or T.
+    * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
     * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) to register the device with Azure IoT Hub.
