@@ -39,6 +39,8 @@
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-reference-cli.md
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
 
 - name: Concepts
   items:
