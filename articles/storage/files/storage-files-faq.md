@@ -164,6 +164,11 @@ This article answers common questions about Azure Files features and functionali
     If you have enabled Azure Backup on your file sync managed file shares, file ACLs can continue to be restored as part of the backup restore workflow. This works either for the entire share or individual files/directories.
 
     If you are using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24th, 2020. If this occurs, consider contacting Azure Support.
+
+* <a id="afs-file-change-time"></a>
+**If a file is changed on your server and in another location at about the same time, what happens?**
+
+If this happens and a conflict occurs, then both files are kept. The most recently modified file will keep its original name while the older file (determined by LastWriteTime) will have its machine name appended to the filename, like so: `<fileNameWithoutExtension>-<machineName>[-#].extension`. If the second location is the Azure portal, and the file in the portal is the older file, then **-Cloud** will be used for the `<machineName>`.
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
