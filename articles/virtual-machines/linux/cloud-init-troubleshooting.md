@@ -23,7 +23,7 @@ Some examples, of issues with provisioning:
 - Networking is not set up correctly
 - Swap file or partition failures
 
-This article steps you through how to troubleshoot cloud-init. For a more in-depth details, see [How cloud-init works](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
+This article steps you through how to troubleshoot cloud-init. For more in-depth details, see [How cloud-init works](https://msazure.visualstudio.com/AzureWiki/_wiki/wikis/AzureWiki.wiki/53162/cloud-init-deep-dive).
 
 ## Step 1: Test the deployment without customData
 
@@ -47,7 +47,7 @@ For the [supported Azure cloud-init images](https://docs.microsoft.com/azure/vir
 
 ## Step 3: Collect & review VM logs
 
-When the VM fails to provision, Azure will show 'creating' status, for 20mins, and then reboot the VM, and wait another 20mins before finally marking the VM deployment as failed, before finally marking it with an OSProvisioningTimedOut error.
+When the VM fails to provision, Azure will show 'creating' status, for 20 minutes, and then reboot the VM, and wait another 20 minutes before finally marking the VM deployment as failed, before finally marking it with an `OSProvisioningTimedOut` error.
 
 While the VM is running, you will need the logs from the VM to understand why provisioning failed.  To understand why VM provisioning failed, do not stop the VM. Keep the VM running. You will need to keep the failed VM in a running state in order to collect logs. To collect the logs, use one of the following methods:
 
@@ -103,7 +103,7 @@ Stderr: mount: unknown filesystem type 'udf'
 ```
 
 
-Once you have found an error or warning, read backwards in the cloud-init log to understand what cloud-init was attempting before it hit the error or warning. In many cases cloud-init will have executed OS commands or performed provisioning operations prior to the error, which will provide insights as to why errors appeared in the logs. The following example shows that cloud-init attempted to mount a device right before it hit an error.
+Once you have found an error or warning, read backwards in the cloud-init log to understand what cloud-init was attempting before it hit the error or warning. In many cases cloud-init will have run OS commands or performed provisioning operations prior to the error, which can provide insights as to why errors appeared in the logs. The following example shows that cloud-init attempted to mount a device right before it hit an error.
 
 ```output
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
@@ -119,7 +119,7 @@ You can get information from the `stdout` and `stderr` during the [stages of clo
 
 ### Serial/boot logs 
 
-Cloud-init has multiple dependencies, these are documented in required prerequisites for images on Azure, such as networking, storage, ability to mount an ISO, mount and format the ephemeral/temporary disk etc. Any of these may throw errors and cause cloud-init to fail. For example, if the VM cannot get a DHCP lease, cloud-init will fail.
+Cloud-init has multiple dependencies, these are documented in required prerequisites for images on Azure, such as networking, storage, ability to mount an ISO, and mount and format the temporary disk. Any of these may throw errors and cause cloud-init to fail. For example, if the VM cannot get a DHCP lease, cloud-init will fail.
 
 If you still cannot isolate why cloud-init failed to provision then you need to understand what cloud-init stages, and when modules run. See [Diving deeper into cloud-init](cloud-init-deep-dive.md) for more details.
 

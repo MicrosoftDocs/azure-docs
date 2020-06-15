@@ -35,7 +35,7 @@ Azure images can be made up of multiple OS disks and data disks. When you use a 
 
 Azure offers two main image types, generalized and specialized. The terms generalized and specialized are originally Windows terms, which migrated in to Azure. These types define how the platform will handle the VM when it turns it on. Both types have advantages and disadvantages, and prerequisites. Before you get started, you need to know what image type you will need. Below summarizes the scenarios and type you would need to choose:
 
-| Scenario      | Image Type  | Storage Options |
+| Scenario      | Image type  | Storage options |
 | ------------- |:-------------:| :-------------:| 
 | Create an image that can be configured for use by multiple VMs, and I can set the hostname, add an admin user and perform other tasks during first boot. | Generalized | Shared Image Gallery or stand-alone managed images |
 | Create an image from a VM snapshot, or a backup | Specialized |Shared Image Gallery or a managed disk |
@@ -46,8 +46,8 @@ Azure offers two main image types, generalized and specialized. The terms genera
 A generalized images is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called **provisioning**. 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
-- [Azure Linux Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-linux)
-- [cloud-init](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init)
+- [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
+- [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
 
 These are [prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) for creating an image.
 
@@ -67,7 +67,7 @@ When bringing your Linux image you have two options:
 
 ### Managed Images
 
-Managed images can be used to create multiple VMs, but they have a lot of limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across susbscriptions and tenants.
+Managed images can be used to create multiple VMs, but they have a lot of limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across subscriptions and tenants.
 
 Managed images can be used for development and test environments, where you need a couple of simple generalized images to use within single region and subscription. 
 
@@ -89,9 +89,9 @@ At a high level, you create a SIG, and it is made up of:
 
 
 
-## HyperV Generation
+## Hyper-V Generation
 
-Azure supports HyperV Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Create Gen2 images if you require the additional functionality.
+Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Create Gen2 images if you require the additional functionality.
 
 If you still need to create your own image, ensure it meets the [image prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic), and upload to Azure. Distribution specific requirements:
 

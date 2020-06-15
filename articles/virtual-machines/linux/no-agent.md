@@ -14,15 +14,14 @@ ms.reviewer: cynthn
 
 # Create generalized images without a provisioning agent
 
-You should not be considering this for the majority of VM deployments in Azure, as we have Provisioning Agents, such as cloud-init that are maintained, tested, and updated to support the VM provisioning with Azure.
+Most deployments in Azure do not need to use this process. There are provisioning agents, like cloud-init, that are maintained, tested, and updated to support the VM provisioning with Azure.
 
 You should only consider this if:
 1. You Linux OS will not meet the cloud-init prerequisites.
-2. You require some of properties to be set, like hostname, userName, CustomData to be set during VM deployment.
->> ANH - Are these properties reasonable?
-    * If you do not require any VM Create properties to be set, then you should create a [specialized VM Linux Image](../vm-specialized-image-version-cli.md).
+2. You require some of properties to be set, like hostname, username, CustomData, to be set during VM deployment.
 
-Irrespective of which properties you set, you need to configure instance networking, and the Azure Platform expects a 'VM Ready' signal (self-report a successful provisioning event) to be sent from the VM to the Azure platform, to indicate the VM configuration has applied and is ready for use. Failure to 
+
+No matter which properties you set, you need to configure networking, and the Azure platform expects a 'VM Ready' signal (self-report a successful provisioning event) to be sent from the VM to the Azure platform, to indicate the VM configuration has applied and is ready for use. Failure to 
 
 >> ANH - Is it possible to show how to create a systemD unit that sets hostName, and then sends the prov signal.
 
