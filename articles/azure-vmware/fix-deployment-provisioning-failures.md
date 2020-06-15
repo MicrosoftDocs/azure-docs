@@ -28,7 +28,7 @@ Here is an example of the output from a failed private cloud deployment, with th
 
 Copy and save this correlation ID to include in the service request. For details, see the [Create your support request](#create-your-support-request) section at the end of this article.
 
-## Collect a summary of errors
+### Collect a summary of errors
 
 From the same screen, you can open a summary of errors. Select **Click here for details** (highlighted in the screenshot above) and a summary of errors opens as shown below.
  
