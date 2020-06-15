@@ -43,15 +43,15 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Add simple commands to your Custom Commands app
-          url: how-to-custom-commands-add-simple-commands
+          url: how-to-custom-commands-add-simple-commands.md
         - text: Add parameters to your commands
-          url: how-to-custom-commands-add-parameters-to-commands
+          url: how-to-custom-commands-add-parameters-to-commands.md
         - text: Add validations to parameters and prompts for correction
-          url: how-to-custom-commands-add-validations
+          url: how-to-custom-commands-add-validations.md
         - text: Integrate using the Speech SDK
-          url: how-to-custom-commands-setup-speech-sdk
+          url: how-to-custom-commands-setup-speech-sdk.md
         - text: Setup Continuous Deployment for your Custom Commands app using Azure DevOps
-          url: how-to-custom-commands-deploy-cicd
+          url: how-to-custom-commands-deploy-cicd.md
 - title: Develop with Direct Line Speech
   linkLists:
     - linkListType: quickstart
