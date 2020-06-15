@@ -433,17 +433,17 @@
                   - name: Test your Custom Commands app
                     href: how-to-custom-commands-developerflow-test.md
             - name: Debug
-              items:
-                - name: Debug errors when authoring the app
-                  href: how-to-custom-commands-debug-buildtime.md
-                - name: Debug errors when running the app
-                  href: how-to-custom-commands-debug-runtime.md
+                items:
+                  - name: Debug errors when authoring the app
+                    href: how-to-custom-commands-debug-buildtime.md
+                  - name: Debug errors when running the app
+                    href: how-to-custom-commands-debug-runtime.md
             - name: References
-              items: 
-                - name: Custom Commands concepts
-                  href: custom-commands-references.md
-                - name: Custom Commands Samples (GitHub)
-                  href: http://aka.ms/speech/cc-samples
+                items: 
+                  - name: Custom Commands concepts
+                    href: custom-commands-references.md
+                  - name: Custom Commands Samples (GitHub)
+                    href: http://aka.ms/speech/cc-samples
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?
