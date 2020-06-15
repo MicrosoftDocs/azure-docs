@@ -166,6 +166,34 @@ The **CryptographicKeys** element contains the following attributes:
 | SamlAssertionDecryption |Yes | The X509 certificate (RSA key set) to use to decrypt SAML messages. This certificate should be provided by the identity provider. Azure AD B2C uses this certificate to decrypt the data sent by the identity provider. |
 | MetadataSigning |No | The X509 certificate (RSA key set) to use to sign SAML metadata. Azure AD B2C uses this key to sign the metadata.  |
 
+## SAML entityID customization  
+If you have multiple SAML applications that depends on different entityID values, you could achieve this by overriding the 'issueruri' value in your relying party file.  To do this, copy the Technical Profile with ID "Saml2AssertionIssuer" from base file and override the "IssuerUri" value.
+***Note:*** For this to work the <ClaimsProviders> section should be copied from the base and the <DisplayName>Token Issuer</DisplayName> for the claims provider and "<TechnicalProfile Id="Saml2AssertionIssuer">, <DisplayName>Token Issuer</DisplayName> elements should be preserved.
+ 
+EX:
+```xml
+   <ClaimsProviders>   
+    <ClaimsProvider>
+      <DisplayName>Token Issuer</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Saml2AssertionIssuer">
+          <DisplayName>Token Issuer</DisplayName>
+          <Metadata>
+            <Item Key="IssuerUri">customURI</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpInSAML" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="SAML2" />
+      <Metadata>
+     …
+```
+
 ## Next steps
 
 See the following articles for examples of working with SAML identity providers in Azure AD B2C:
