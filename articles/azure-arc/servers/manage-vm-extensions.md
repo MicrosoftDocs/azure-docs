@@ -19,13 +19,13 @@ Azure Arc for servers (preview) enables you to deploy Azure VM extensions to non
 
 Azure Arc for servers (preview) VM extension support provides the following key benefits:
 
-* Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid machines enabled through the DCS VM extension.
+* Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
 * Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for performing complex analysis across data from a variety of sources.
 
 * With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 
-* Download and execute scripts on hybrid machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
+* Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
 ## Availability
 
@@ -58,13 +58,9 @@ In this preview, we are supporting the following VM extensions on Windows and Li
 
 VM extensions can be run with Azure Resource Manager templates, from the Azure portal, or Azure PowerShell on hybrid servers managed by Arc for servers (preview).
 
-Installed alongside the Connected Machine agent is the Guest Config agent, which is very similar to the [Azure Virtual Machine agent for Windows](../../virtual-machines/extensions/features-windows.md) and [Azure Virtual Machine agent for Linux](../../virtual-machines/extensions/features-linux.md). The Guest agent is installed in `%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC` for Windows, and for Linux it's `/opt/GC_Ext`.
+To learn about the Azure Connected Machine agent package and details about the Extension agent component, see [Agent overview](agent-overview.md#agent-details).
 
-Extensions are downloaded from the service and copied to the `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to the `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
-
-While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
-
-## Prerequisite
+## Prerequisites
 
 This feature depends on the following Azure resource providers in your subscription:
 
@@ -108,9 +104,15 @@ VM extensions can be applied your Arc for server (preview) managed machine throu
 
 4. After confirming the required information provided, select **Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
+>[!NOTE]
+>While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
+
 ## Azure Resource Manager templates
 
 VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc for servers (preview), you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample includes a template file and a parameters file with sample values to provide to the template.
+
+>[!NOTE]
+>While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
 
 ### Deploy the Log Analytics VM extension
 
