@@ -123,4 +123,4 @@ To learn more about Advisor, see:
 - [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md)
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
-- [Advisor Cost recommendations](advisor-performance-recommendations.md)
+- [Advisor Cost recommendations](advisor-cost-recommendations.md)

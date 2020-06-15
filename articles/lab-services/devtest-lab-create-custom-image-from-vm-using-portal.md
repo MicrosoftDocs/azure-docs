@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 06/12/2020
 ms.author: spelluru
 
 ---
@@ -36,24 +36,18 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
  
 1. On the **My virtual machines** pane, select the VM from which you want to create the custom image.
 
-1. On the VM's management pane, select **Create custom image (VHD)**.
+1. On the VM's management pane, select **Create custom image** under **OPERATIONS**.
 
-	![Create custom image menu item](./media/devtest-lab-create-template/create-custom-image.png)
-
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image.png" alt-text="Create custom image menu item":::
 1. On the **Custom image** pane, enter a name and description for your custom image. This information is displayed in the list of bases when you create a VM. The custom image will include the OS disk and all the data disks attached to the virtual machine.
 
-	![Create custom image pane](./media/devtest-lab-create-template/create-custom-image-blade.png)
-
+    :::image type="content" source="./media/devtest-lab-create-template/create-custom-image-blade.png" alt-text="Create custom image page":::
 1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether you want sysprep to be run on the VM when the custom image is created.
-
 1. Select **OK** when finished to create the custom image.
 
-After a few minutes, the custom image is created and is stored inside the lab’s storage account. When a lab user wants to create a new VM, the image is available in the list of base images.
+    After a few minutes, the custom image is created and is stored inside the lab’s storage account. When a lab user wants to create a new VM, the image is available in the list of base images.
 
-![Custom image available in list of base images](./media/devtest-lab-create-template/custom-image-available-as-base.png)
-
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+    :::image type="content" source="./media/devtest-lab-create-template/custom-image-available-as-base.png" alt-text="custom image available in list of base images":::
 
 ## Related blog posts
 

@@ -4,12 +4,13 @@ description: Learn about Azure Private Link
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
 ---
 
-# Create a private endpoint - Resource Manager template
+# Quickstart: Create a private endpoint - Resource Manager template
 
 In this quickstart, you use a Resource Manager template to create an private endpoint.
 
@@ -27,22 +28,22 @@ this template creates a private endpoint for an Azure SQL server.
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-private-endpoint-sql/azuredeploy.json)
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
 Multiple Azure resources are defined in the template:
 
+- [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers) : Azure Sql server with the sample database
+- [**Microsoft.Sql/servers/databases**](/azure/templates/microsoft.sql/servers/databases) : Sample database
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network where the Private Endpoint is deployed
 - [**Microsoft.Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints) : private endpoint to access privately the Azure Sql server
 - [**Microsoft.Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones) : used to resolve the private endpoint IP address
 - [**Microsoft.Network/privateDnsZones/virtualNetworkLinks**](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks)
 - [**Microsoft.Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups) : To associate private endpoint with a Private Dns zone
-- [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers) : Azure Sql server with the sample database
-- [**Microsoft.Sql/servers/databases**](/azure/templates/microsoft.sql/servers/databases) : Sample database
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network where the Private Endpoint is deployed
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses) : Public IP address to access the virtual machine
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : Virtual machine to test the private connection with Private Endpoint to the Azure Sql server
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : Network Interface for the virtual machine
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : Virtual machine to test the private connection with Private Endpoint to the Azure Sql server
 
 ### Deploy the template
 

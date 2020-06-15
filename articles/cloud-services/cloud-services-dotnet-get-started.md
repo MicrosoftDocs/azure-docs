@@ -526,7 +526,7 @@ The *Views\Home\Index.cshtml* file displays category links on the home page. The
 ### ContosoAdsWeb - AdController.cs
 In the *AdController.cs* file, the constructor calls the `InitializeStorage` method to create Azure Storage Client Library objects that provide an API for working with blobs and queues.
 
-Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits three seconds after each try for up to three tries.
+Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could cause the web app to stop responding for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits three seconds after each try for up to three tries.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -772,6 +772,3 @@ For more information, see the following resources:
 * [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

@@ -10,7 +10,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 
 ---

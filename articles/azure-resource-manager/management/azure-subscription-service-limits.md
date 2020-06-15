@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
+ms.date: 06/04/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints

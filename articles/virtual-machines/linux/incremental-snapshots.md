@@ -5,7 +5,7 @@ author: roygara
 ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/15/2018
 ms.author: rogarana
 

@@ -13,11 +13,19 @@ ms.author: victorh
 
 *Security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
+# What are security partner providers (preview)?
+
+> [!IMPORTANT]
+> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
+*Security partners providers (preview)* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
+
 With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. This is done using automated route management, without setting up and managing User Defined Routes (UDRs).
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-The supported security partners are **ZScaler** and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+The supported security partners are **ZScaler**, **Check Point**, and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+
 
 ![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
