@@ -65,7 +65,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
     - *Trigger automated response* - provides the option to trigger a logic app as a response to this security alert
     - *Suppress similar alerts* - provides the option to suppress future alerts with similar characteristics if the alert isn’t relevant for your organization
 
-    ![Take action tab](./media/security-center-managing-and-responding-alerts/alert-details.png)
+    ![Take action tab](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
 
 
