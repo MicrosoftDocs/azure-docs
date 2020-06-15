@@ -38,7 +38,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 |   |   |
 |------|------|
-|1     | On your website or application, include the **Log in with itsme** button by adapting the Azure AD B2C user flow. The interaction flow starts when the user clicks on this button.  |
+|1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C user flow. The interaction flow starts when the user clicks on this button.  |
 |2     | Azure AD B2C starts the OpenID connect flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
 |3     | The itsme environment redirects the user to the itsme identify yourself page, allowing the user to fill in their phone number.  |
 |4     | The itsme environment receives the phone number from the user and validates the correctness.  |
