@@ -26,9 +26,9 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 > 'Applying security policy to the system'.
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Screenshot of Windows Server 2012 R2 startup screen is stuck on "Applying security policy to the system.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Screenshot of Windows Server 2012 R2 startup screen is stuck.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy2.png" alt-text="Screenshot of OS startup screen is stuck on "Applying security policy to the system.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy2.png" alt-text="Screenshot of OS startup screen is stuck.":::
 
 ## Cause
 
