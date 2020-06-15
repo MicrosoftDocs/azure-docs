@@ -18,7 +18,7 @@ By default, the Azure AD provisioning engine soft deletes or disables users that
 
 This guide describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
 * If ***SkipOutOfScopeDeletions*** is set to 0 (false), then accounts that go out of scope will get disabled in the target
-* If ***SkipOutOfScopeDeletions*** is set to 1 (true), then accounts that go out of scope will get not be disabled in the target
+* If ***SkipOutOfScopeDeletions*** is set to 1 (true), then accounts that go out of scope will not be disabled in the target
 This flag is set at the *Provisioning App* level and can be configured using the Graph API. 
 
 As this configuration is widely used with the *Workday to Active Directory user provisioning* app, the steps below include screenshots of the Workday application. However this can also be used with **all other apps** such (ServiceNow, Salesforce, Dropbox, etc.).
