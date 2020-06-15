@@ -1,13 +1,13 @@
 ### YamlMime:Landing
 
-title: Azure CycleCloud documentation
+title: Azure CycleCloud Documentation
 summary: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
 
 metadata:
-  title: Azure CycleCloud documentation
+  title: Azure CycleCloud Documentation
   description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters. 
   ms.topic: landing-page # Required
-  author: KimliW
+  author: adriankjohnson
   ms.author: adjohnso
   ms.date: 06/11/2020 
 
@@ -17,65 +17,68 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: An overview of Azure CycleCloud
+  - title: Overview of Azure CycleCloud
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure CycleCloud?
-            url: overview
+            url: overview.md
       - linkListType: quickstart
         links:
-          - text: Quickstarts
-            url: qs-install-marketplace
-      - linkListType: get-started
+          - text: Install with Marketplace
+            url: qs-install-marketplace.md
+      - linkListType: tutorial
+        links:
+          - text: Create a Cluster
+            url: tutorials/create-cluster.md
+      - linkListType: download
         links:
           - text: Get Azure CycleCloud
             url: https://azure.microsoft.com/features/azure-cyclecloud/
 
+    # Card
+  - title: CycleCloud News
+    linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8 release notes
-            url: release-notes-preview
+          - text: CycleCloud 7.9.6 is now available
+            url: release-notes.md
+          - text: CycleCloud 8 is now available for public preview
+            url: release-notes-preview.md
+          - text: Cloud-init is now supported
+            url: how-to/cloud-init.md
+
+  # Card
+  - title: CycleCloud Concepts
+    linkLists:            
+      - linkListType: concept
+        links:
+          - text: Core Concepts
+            url: concepts/core.md
+          - text: Clusters & Node Concepts
+            url: concepts/clusters.md
+          - text: Scheduling
+            url: concepts/scheduling.md
 
   # Card
   - title: Clusters
-    linkLists:            
-      - linkListType: reference
-        links:
-          - text: Clusters & Node Concepts
-            url: concepts/clusters
-          - text: Cluster Templates
-            url: how-to/cluster-templates
-          - text: CycleCloud Projects
-            url: how-to/projects
-          - text: Custom Images
-            url: how-to/create-custom-image
-
-  # Card
-  - title: Storage
     linkLists:
-      - linkListType: reference
+      - linkListType: how-to-guide
         links:
+          - text: Use Cluster Templates
+            url: how-to/cluster-templates.md
           - text: Add Disks
-            url: how-to/add-disk
-          - text: Mount Disks
-            url: how-to/mount-disk
-          - text: Configure NFS Mounts
-            url: how-to/create-fileserver
-          - text: Blobs and Lockers
-            url: how-to/storage-blobs
-
-  # Card
-  - title: Networking
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Network Security
-            url: how-to/network-security
-          - text: Configure Proxy
-            url: how-to/running-behind-proxy
-          - text: Locked Down Network
-            url: how-to/running-in-locked-down-network
+            url: how-to/add-disk.md
+          - text: Create Fileserver
+            url: how-to/create-fileserver.md
+          - text: Use CycleCloud Projects
+            url: how-to/projects.md
+          - text: Create Custom Images
+            url: how-to/create-custom-image.md
+          - text: Configure Network Security
+            url: how-to/network-security.md
+          - text: Run in Locked Down Network
+            url: how-to/running-in-locked-down-network.md
 
   # Card
   - title: Tools
@@ -83,13 +86,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: CycleCloud CLI
-            url: how-to/install-cyclecloud-cli
+            url: how-to/install-cyclecloud-cli.md
           - text: Jetpack
-            url: jetpack
+            url: jetpack.md
           - text: REST API
-            url: how-to/use-rest-api
+            url: how-to/use-rest-api.md
           - text: Python API
-            url: python-api
+            url: python-api.md
 
   # Card
   - title: Get Help
@@ -97,11 +100,11 @@ landingContent:
       - linkListType: reference
         links:
           - text: Chef Cookbooks
-            url: cookbook-reference
+            url: cookbook-reference.md
           - text: Cluster Template Reference
-            url: cluster-references/cluster-template-reference
+            url: cluster-references/cluster-template-reference.md
           - text: CycleCloud Cluster Templates
-            url: download-cluster-templates
+            url: download-cluster-templates.md
           - text: CycleCloud Community GitHub
             url: https://github.com/CycleCloudCommunity
           - text: Azure Forums
