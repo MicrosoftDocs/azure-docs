@@ -49,6 +49,8 @@ You can optionally use the below powershell script using [Azure CLI](https://doc
 > [!NOTE] 
 > In ACI you are not getting any HTTPS support at all for the builtin domain, and in any case you need it, you will have to manually configure it yourself including creating a certificate and registering a domain. Below you can find instructions of how to achieve that with NGINX.
 
+> Azure Container Instances don't offer HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX in the [Text Analytics for Health](text-analytics-for-healthcare.md) article.
+
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan

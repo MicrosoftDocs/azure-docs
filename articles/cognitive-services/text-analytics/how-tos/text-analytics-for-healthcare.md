@@ -29,7 +29,7 @@ Text Analytics for Health uses natural language processing techniques to find an
 
 Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
 
-![Health NER](media/health-named-entity-recognition.png)
+![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
 
 Named entity types supported by Text Analytics for Health include:
 
@@ -60,7 +60,7 @@ Named entity types supported by Text Analytics for Health include:
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a time of medication relation is found between a medication name ("Altace") and the time ("8 years") corresponding to how long the patient had been taking the medication.
 
-![Health RE](media/health-relation-extraction.png)
+![Health RE](../media/ta-for-health/health-relation-extraction.png)
 
 Supported relation types include:
 
