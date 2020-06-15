@@ -27,7 +27,7 @@ Remark about the units used throughout this article. The public cloud vendors mo
 
 ## Microsoft Azure Storage resiliency
 
-Microsoft Azure Storage stores the base VHD (with OS) and attached disks or VHDs on in three copies on three storage different nodes. Failing over to another replica and seeding of a new replica in case of a storage node failure is transparent. As a result of this redundancy, it is **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for all types of storage in Azure. 
+Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, and Ultra disk stores the base VHD (with OS) and attached disks or VHDs in three copies on three storage different nodes. Failing over to another replica and seeding of a new replica in case of a storage node failure is transparent. As a result of this redundancy, it is **NOT** required to use any kind of storage redundancy layer across multiple Azure disks. This fact is called Local Redundant Storage (LRS). LRS is default for these types of storage in Azure. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) provides sufficient redundancy to achieve the same SLAs as other native Azure storage.
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
 
@@ -294,7 +294,9 @@ Some rules need to be followed on striping:
 - No redundancy should be used since Azure storage keeps the data redundant already
 - The disks the stripe set is applied to, need to be of the same size
 
-Striping across multiple smaller disks is the best way to achieve an extreme good price/performance ratio using Azure premium storage. It is understood that striping has some additional deployment and management overhead
+Striping across multiple smaller disks is the best way to achieve an extreme good price/performance ratio using Azure premium storage. It is understood that striping has some additional deployment and management overhead.
+
+For specific stripe size recommendations, read the documentation for the different DBMS, like [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 ## Summary and recommendations
 Summarizing all the recommendations above in a table, it looks like:
@@ -304,14 +306,16 @@ Summarizing all the recommendations above in a table, it looks like:
 | OS disk | not suitable |  restricted suitable (non-prod) | recommended | not possible | not possible |
 | Global transport Directory | not supported | not supported | recommended | recommended | recommended |
 | /sapmnt | not suitable | restricted suitable (non-prod) | recommended | recommended | recommended |
-| DBMS Data volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended | recommended | recommended |
-| DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended | 
-| DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended | 
+| DBMS Data volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
+| DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
+| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
+| DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
 | DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | not supported |
 | DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
-<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families
+<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families for log/redo log volumes
+<sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
 Characteristics you can expect from the different storage types list like:
 
