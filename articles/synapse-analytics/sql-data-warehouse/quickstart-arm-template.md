@@ -10,7 +10,12 @@ ms.author: jrasnick
 ms.date: 06/09/2020
 ---
 
-# Create a SQL pool by using Azure Resource Manager template
+# Create an Azure Synapse Analytics SQL pool by using Azure Resource Manager template
+
+Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
+
+Synapse SQL pool stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days.
+
 
 <!-- The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
 
@@ -33,7 +38,7 @@ None.
 
 <!-- The first sentence must be the following sentence. Use a link to the quickstart gallery that begins with https://azure.microsoft.com/resources/templates/.  -->
 
-The template used in this quickstart is from [Azure Quickstart Templates]().
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates).
 
 <!-- After the first sentence, add a JSON code fence that links to the quickstart template. Customers have provided feedback that they prefer to see the whole template. We recommend you include the entire template in your article. If your template is too long to show in the quickstart (more than 250 lines), you can instead add a sentence that says - `The template for this article is too long to show here. To view the template, see [azuredeploy.json](link to template's raw output)`.
 
@@ -62,7 +67,7 @@ Notice the resourceType and sort elements in the URL.
 
 ### Deploy the template
 
-<a href="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json" target="_blank">
+<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-data-warehouse-transparent-encryption-create" target="_blank">
 <img src="../../media/template-deployments/deploy-to-azure.svg"/>
 </a>
 
