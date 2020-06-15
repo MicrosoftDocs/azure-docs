@@ -65,7 +65,18 @@ Notice the resourceType and sort elements in the URL.
 
 ### Deploy the template
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create)
+1. Select the following image to sign in to Azure and open the template. The template creates an Synapse SQL pool.
+1. Update the values as necessary:
+
+    * **Subscription**: Select an Azure subscription.
+    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**.
+    * **Location**: Select a location.  For example, **Central US**.
+    * **SQL Server name**: Accept the default name or enter a SQL Server name.
+    * **SQL Administrator login**: 
+    * **SQL Administrator password**:
+    * **REview and Create**: Select.
+ 
+ [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 <!--
 <a href="https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create" target="_blank">
@@ -121,11 +132,47 @@ Notice the resourceType and sort elements in the URL.
 
 You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter your Azure Cosmos account name:" &&
+read cosmosAccountName &&
+echo "Enter the resource group where the Azure Cosmos account exists:" &&
+read resourcegroupName &&
+az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
+(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name
+ Write-Host "Press [ENTER] to continue..."
+```
+
 ## Clean up resources
 
 <!-- Include a paragraph that explains how to delete unneeded resources. Add a portal screenshot or use interactive Azure CLI and Azure PowerShell commands to clean up the resources. -->
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
+
+When no longer needed, delete the resource group, which deletes the Synapse SQL pool account and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
 
 <!--
 
