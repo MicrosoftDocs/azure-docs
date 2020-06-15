@@ -15,16 +15,16 @@ ms.date: 06/16/2020
 
 # Configure data splits and cross-validation in automated machine learning
 
-In this article, you learn how to configure training and validation data splits and cross-validation for your automated machine learning, AutoML, experiments.
-
-This article assumes you have an understanding of cross-validation and train/validation data splits as ML concepts. For a high-level explanation, take a look at these articles, 
-
- * [About Train, Validation and Test Sets in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
- * [Understanding Cross Validation](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+In this article, you learn the different options for configuring training and validation data splits and cross-validation for your automated machine learning, AutoML, experiments.
 
 In Azure Machine Learning, when you use AutoML to build multiple ML models, each child run needs to validate the related model by calculating the quality metrics for that model, such as accuracy  or AUC weighted. These metrics are calculated by comparing the predictions made with each model with real labels from past observations in the validation data. 
 
-Automated machine learning experiments perform model validation automatically. However, the following sections describe how you can further customize these validation settings for your AutoML experiments. 
+Automated machine learning experiments perform model validation automatically. However, the following sections describe how you can further customize these validation settings for your AutoML experiments with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+
+For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
+
+> [!NOTE]
+> The studio only provides cross-validation options and does not support configurations for training and validation data splits at this time.  
 
 ## Prerequisites
 
@@ -32,16 +32,19 @@ For this article you need,
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* A basic familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK.
-    * For a code-first experience, follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
+* A basic familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the basic automated machine learning experiment design patterns.
 
-    * For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
+* An understanding of cross-validation and train/validation data splits as ML concepts. For a high-level explanation,
+
+    * [About Train, Validation and Test Sets in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+
+    * [Understanding Cross Validation](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
 
 
     
 ## Default cross-validation and data splits
 
-For automated machine learning experiments, you use an [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object to define your experiment and training settings. In the following code snippet notice that only the basic parameters are defined, that is no parameters for `n_cross_validation` or `validation_ data` are included.
+For automated machine learning experiments, you use an [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object to define your experiment and training settings. In the following code snippet, notice that only the basic parameters are defined, that is no parameters for `n_cross_validation` or `validation_ data` are included.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -66,7 +69,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 ## Provide validation data
 
-In this case, in addition to the training data, you explicitly provide a validation dataset using the `validation_data` parameter.
+In this case, you explicitly provide a validation data set using the `validation_data` parameter, separate from the training data.
 
 With validation data provided in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe, `training_data` defines what data to use for training purposes, and `validation_data` specifies what data to use for model validation and metrics calculation. 
 
@@ -90,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Provide validation set size
 
-In addition to assigning a single dataset with the `training_data` parameter, you can provide the `validation_size` parameter, which is the fraction of the data to hold out for validation when the `validation_data` parameter is **not** specified. That is,  the validation set will be split by AutoML from the initial `training_data` provided. This value should be between 0.0 and 1.0 non-inclusive (that is, 0.2 means 20% of the data hold out for validation data).
+In this case, only a single dataset is provided for the experiment. That is, the `validation_data` parameter is **not** specified and the provided dataset is assigned to the  `training_data` parameter .  In your `AutoMLConfig` object, you can set the `validation_size` parameter to hold out a portion of the training data for validation. That is,  the validation set will be split by AutoML from the initial `training_data` provided. This value should be between 0.0 and 1.0 non-inclusive (that is, 0.2 means 20% of the data hold out for validation data).
 
 See the following code example
 
@@ -155,5 +158,5 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Next steps
 
-* Prevent class imbalance and overfitting.
+* [Prevent imbalanced data and overfitting](concept-manage-ml-pitfalls.md).
 * [Tutorial: Use automated machine learning to predict taxi fares - Split data section](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).
