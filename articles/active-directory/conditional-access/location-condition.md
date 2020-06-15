@@ -142,7 +142,7 @@ With this option, you can select one or more named locations. For a policy with 
 
 ## IPv6 traffic
 
-By default, Conditional Access policies will apply to all IPv6 traffic. With the [named location private preview](#preview-features), you can exclude specific IPv6 address ranges from a Conditional Access policy. This option is useful in cases where you don’t want policy to be enforced for specific IPv6 ranges. For example, if you want to not enforce a policy for uses on your corporate network, and your corporate network is hosted on public IPv6 ranges.  
+By default, Conditional Access policies will apply to all IPv6 traffic. With the [named location preview](#preview-features), you can exclude specific IPv6 address ranges from a Conditional Access policy. This option is useful in cases where you don’t want policy to be enforced for specific IPv6 ranges. For example, if you want to not enforce a policy for uses on your corporate network, and your corporate network is hosted on public IPv6 ranges.  
 
 ### When will my tenant have IPv6 traffic?
 
