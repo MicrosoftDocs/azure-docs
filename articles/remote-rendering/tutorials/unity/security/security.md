@@ -14,7 +14,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Secure Azure Blob Storage containing Azure Remote Rendering models
-> * Authenticate with AAD to access your Azure Remote Rendering instance
+> * Authenticate with Azure AD to access your Azure Remote Rendering instance
 > * Use Azure credentials for Azure Remote Rendering authentication
 
 ## Prerequisites

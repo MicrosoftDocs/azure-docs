@@ -20,7 +20,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-* This tutorial builds on [Tutorial: Refining materials, lighting, and effects](..\materials-lighting-effects\materials-lighting-effects.md).
+* This tutorial builds on [Tutorial: Securing Azure Remote Rendering and model storage](../security/security.md).
 
 ## Introduction to Commercial Readiness
 
