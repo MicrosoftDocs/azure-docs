@@ -56,7 +56,9 @@ We've added new AzWvd cmdlets to the Azure PowerShell Az Module with the Spring 
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+
+For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 
 ### Microsoft Teams on Windows Virtual Desktop
 
