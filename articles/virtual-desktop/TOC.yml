@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Fall 2019 Release documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
@@ -50,8 +52,8 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
-  - name: Create profile container file shares
-    href: create-file-share.md
+      - name: Use Azure Files and AD DS
+        href: create-file-share.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -82,6 +84,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts
@@ -110,7 +114,7 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 06/11/2020
 ms.author: spelluru
 
 ---
@@ -45,9 +45,10 @@ The following steps guide you through the process of creating a formula from a c
 5. On the **Formulas** page, select **+ Add**.
    
     ![Add a formula](./media/devtest-lab-create-formulas/add-formula.png)
+6. On the **Choose a base** page, select the base (custom image, Marketplace image, or a Shared Image Gallery image) from which you want to create the formula.
 
-6. On the **Choose a base** page, select the base (custom image or Marketplace image) from which you want to create the formula.
-7. On the **Basic Settings** tab of the **Create formula** page, specify the following values:
+    :::image type="content" source="./media/devtest-lab-create-formulas/select-base.png" alt-text="Select the base image":::
+1. On the **Basic Settings** tab of the **Create formula** page, specify the following values:
    
 	* **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
     - Enter an optional **description** for the formula. 
@@ -67,7 +68,10 @@ The following steps guide you through the process of creating a formula from a c
     - **Expiration date and time** - You can't edit this field. 
     - **Make this machine claimable** - Making a machine "claimable" means that it will not be assigned ownership at the time of creation. Instead lab users will be able to take ownership ("claim") the machine in the lab's page.  
 
-        ![Basic settings page](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Advanced settings page](./media/devtest-lab-create-formulas/advanced-settings.png)
+    - If you selected a Shared Image Gallery image as the base, you also see the **image version** field that allows you to select the version of the image from the gallery that you want to use as the base. 
+
+        ![Advanced settings page](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
 8. Select **Submit** to create the formula.
 
 9. When the formula has been created, it displays in the list on the **Formulas** page.

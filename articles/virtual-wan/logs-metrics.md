@@ -1,13 +1,13 @@
 ---
-title: 'Azure path selection across multiple ISP links'
+title: 'Logs and metrics'
 titleSuffix: Azure Virtual WAN
-description: Learn about Azure path selection and Virtual WAN
+description: Learn about Azure Virtual WAN logs and metrics
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: cherylmc
 
 ---

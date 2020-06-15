@@ -34,6 +34,8 @@ Solutions that must be removed before you can unlink your automation account:
 - Start/Stop VMs during off-hours
 - Azure Security Center
 
+>[!IMPORTANT]
+> - Once enabled on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. If you need to move the workspace, contact [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
 
 ### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:

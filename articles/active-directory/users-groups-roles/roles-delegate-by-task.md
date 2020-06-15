@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
@@ -73,6 +73,14 @@ Configure company properties | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
+Passthrough authentication | Global Administrator  | 
+Read all configuration | Global reader | Global Administrator  |
+Seamless single sign-on | Global Administrator  | 
+
+## Cloud Provisioning
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
 Passthrough authentication | Hybrid Identity Administrator  | 
 Read all configuration | Global reader | Hybrid Identity Administrator  |
 Seamless single sign-on | Hybrid Identity Administrator  | 
@@ -106,7 +114,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices

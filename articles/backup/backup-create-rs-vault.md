@@ -87,6 +87,7 @@ For this process, there are pricing implications as it is at the storage level.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time. 
 
 ### Configure Cross Region Restore
 

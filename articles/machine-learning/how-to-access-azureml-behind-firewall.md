@@ -5,11 +5,12 @@ description: 'Control access to Azure Machine Learning workspaces with Azure Fir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
+ms.custom: tracking-python
 ---
 
 # Use workspace behind Azure Firewall for Azure Machine Learning
@@ -43,8 +44,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.instances.azureml.net** | Azure Machine Learning compute instances |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ## Python hosts
 
