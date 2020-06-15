@@ -29,7 +29,7 @@ You must have completed the steps in the following articles:
 
 ## Language generation templates overview
 
-Custom Commands templates are based on the BotFramework's [LG templates](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
+Custom Commands templates are based on the BotFramework's [LG templates](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates).
 
 Since Custom Commands creates a new LG template when required (i.e. for speech responses in parameters or actions) you do not have to specify the name of the LG template. So, instead of defining your template as:
 
@@ -49,7 +49,7 @@ This change introduces variation to the speech responses being sent to the clien
 
 Taking advantage of LG templates we can also define complex speech responses for our commands using adaptive expressions.
 
-You can refer to the [LG templates format](https://docs.microsoft.com/en-us/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
+You can refer to the [LG templates format](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lg-file-format?view=azure-bot-service-4.0#templates) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
 
 1. In the LG templates entities are represented as ${entityName}. In Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
 1. Template composition and expansion is not supported in Custom Commands. This is because you never edit the .lg file directly, but only the responses of automatically created templates. 
