@@ -22,11 +22,11 @@ A **public** Load Balancer when integrated with AKS serves two purposes:
 
 An **internal (or private)** load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario. 
 
-This document will cover the integration with Public Load balancer. For internal Load Balancer integration, see the [AKS Internal Load balancer documentation](internal-lb).
+This document will cover the integration with Public Load balancer. For internal Load Balancer integration, see the [AKS Internal Load balancer documentation](internal-lb.md).
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools), and [**Availability Zones**](availability-zones). It's the recommended Load Balancer SKU for AKS.
+Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools.md), and [**Availability Zones**](availability-zones.md). It's the recommended Load Balancer SKU for AKS.
 
 For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
@@ -34,7 +34,7 @@ This article assumes you have an AKS cluster with the *Standard* SKU Azure Load 
 If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have you own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [Outbound type as UserDefinedRouting (UDR)](egress-outboundtype).
+> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have you own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md).
 
 ## Use the public Azure Standard load balancer
 
@@ -105,7 +105,7 @@ You can also use the **`load-balancer-managed-ip-count`** parameter to set the i
 
 When you use a *Standard* SKU load balancer, by default the AKS cluster automatically creates a public IP in the AKS-managed infrastructure resource group and assigns it to the load balancer outbound pool. Alternatively, you can assign your own public IP or public IP prefix at cluster creation time or you can update an existing cluster's load balancer properties.
 
-Before you do this operation, make sure you meet the pre-requisites and constraints necessary to configure Outbound IPs or Outbound IP prefixes. https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-address-prefix#constraints
+Before you do this operation, make sure you meet the [pre-requisites and constraints](../virtual-network/public-ip-address-prefix.md#constraints) necessary to configure Outbound IPs or Outbound IP prefixes.
 
 #### Update the cluster with your own Outbound public IP
 
@@ -250,7 +250,7 @@ For example, if you have 3 *nodeVMs*, and 50,000 *desiredAllocatedOutboundPorts*
 - When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
-> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and should not be done lightly, without understanding the tradeoffs and your application's connection patterns, check the [SNAT Troubleshooting section below](troubleshoot-snat) and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
+> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and should not be done lightly, without understanding the tradeoffs and your application's connection patterns, check the [SNAT Troubleshooting section below][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
 
 
 ## Restrict Inbound traffic to specific IP ranges
@@ -297,7 +297,7 @@ Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound
 ### Steps
 1. Check if your connections remain idle for a long time and rely on the default idle timeout for releasing that port. If so the default timeout of 30 min might need to be reduced for your scenario.
 2. Investigate how your application is creating outbound connectivity (for example, code review or packet capture).
-3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
+3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
 4. Evaluate if appropriate [patterns](#design-patterns) are followed.
 5. Evaluate if SNAT port exhaustion should be mitigated with [additional Outbound IP addresses + additional Allocated Outbound Ports](#configure-the-allocated-outbound-ports) .
 
