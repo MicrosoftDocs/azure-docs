@@ -27,8 +27,8 @@
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
-  - name: Use Azure Sentinel across workspaces and tenants
-    href: using-sentinel-across-workspaces-tenants.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
 - name: How-to guides
   items:
   - name: Connect data sources

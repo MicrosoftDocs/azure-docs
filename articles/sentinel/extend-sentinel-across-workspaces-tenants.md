@@ -1,5 +1,5 @@
 ---
-title: Using Azure Sentinel across workspaces and tenants | Microsoft Docs
+title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
 description:  How to work with multiple tenants to Azure Sentinel for MSSP service providers.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 06/11/2020
 ms.author: yelevin
 
 ---
-# Using Azure Sentinel across workspaces and tenants
+# Extend Azure Sentinel across workspaces and tenants
 
 ## The need to use multiple Azure Sentinel workspaces
 
@@ -51,7 +51,7 @@ As implied by the requirements above, there are cases where multiple Azure Senti
 
 To address this requirement, Azure Sentinel offers multiple-workspace capabilities that enable central monitoring, configuration, and management, providing a single pane of glass across everything covered by the SOC, as presented in the diagram below.
 
-:::image type="content" source="media/using-sentinel-across-workspaces-tenants/cross-ws-architecture.png" alt-text="Cross Workspace Architecture":::
+:::image type="content" source="media/extend-sentinel-across-workspaces-tenants/cross-workspace-architecture.png" alt-text="Cross Workspace Architecture":::
 
 This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace:
 
