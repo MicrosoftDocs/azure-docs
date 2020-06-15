@@ -12,3 +12,5 @@
   href: https://docs.microsoft.com/rest/api/mixedreality/
 - name: C# API documentation
   href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering
+- name: C++ API documentation
+  href: https://docs.microsoft.com/cpp/api/remote-rendering
