@@ -17,6 +17,81 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-06-15
+
+### Azure Machine Learning SDK for Python v1.8.0
+
++ **New features**
+  + [Insert new features below. Reference articles and/or doc pages]
+  
+  + **Preview features**
+    + [Contrib features below] 
+
++ **Breaking changes**
+  + [Reference upcoming breaking changes and old API support drop date]
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Support getting logs of init container.
+    + Added `az ml run submit-notebook` command for running Jupyter notebooks as experiment runs.
+  + **azureml-automl-core**
+    + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
+    + Added a new type of user exception `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException` which is raised if the cache store contents have been tampered with
+  + **azureml-automl-runtime**
+    + We recently had a customer report that they were seeing the Class Balancing Sweeping message in their runs even when they chose NOT to use featurization. This exposed the fact that we were enabling the Class Balancing logic even when featurization was turned off. Fixing this problem here.
+  + **azureml-contrib-itp**
+    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
+  + **azureml-contrib-notebook**
+    + Doc improvements to azureml-contrib-notebook package.
+  + **azureml-contrib-pipeline-steps**
+    + Doc improvements to azureml-contrib--pipeline-steps package.
+  + **azureml-core**
+    + Add set_connection, get_connection, list_connections, delete_connection functions for customer to operate on workspace connection resource
+    + Documentation updates to azureml-coore/azureml.exceptions package.
+    + Documentation updates to azureml-core package.
+    + Doc updates to ComputeInstance class.
+    + Doc improvements to azureml-core/azureml.core.compute package.
+    + Doc improvements for webservice-related classes in azureml-core.
+    + Support user selected datastore to store profiling data
+    + Added expand and page_count property for model list API
+    + Fixed bug where removing the overwrite property will cause the submitted run to fail with deserialization error.
+    + Fixed incorrect folder structure when downloading or mounting a FileDataset if the FileDataset was created pointing to a single file and the path starts with a /.
+    + Loading a Dataset that is a set of parquet files in PySpark using to_spark_dataframe, it is now faster and more often loads all of the datatypes provided in parquet, including structs.
+    + Support getting logs of init container.
+    + AutoML runs are now marked as child run of Parallel Run Step.
+  + **azureml-datadrift**
+    + Doc improvements to azureml-contrib-notebook package.
+  + **azureml-dataprep**
+    + Loading a Dataset that is a set of parquet files in PySpark using to_spark_dataframe, it is now faster and more often loads all of the datatypes provided in parquet, including structs.
+    + Better memory handling in case of OutOfMemory issue for to_pandas_dataframe
+  + **azureml-interpret**
+    + Upgraded azureml-interpret to use interpret-community version 0.12.*
+  + **azureml-mlflow**
+    + Doc improvements to azureml-mlflow.
+    + Adds support for AML model registry with MLFlow.
+  + **azureml-opendatasets**
+    + As pr, related versions were be modifed
+  + **azureml-pipeline-core**
+    + Updated `PipelineDataset`'s documentation to make it clear it is an internal class.
+    + Accept multiple values for one argument, for example: "--group_column_names", "Col1", "Col2", "Col3"
+    + Removed the passthru_automl_config requirement for intermediate data usage with AutoMLStep in Pipelines.
+  + **azureml-pipeline-steps**
+    + Doc improvements to azureml-pipeline-steps package.
+    + Removed the passthru_automl_config requirement for intermediate data usage with AutoMLStep in Pipelines.
+  + **azureml-telemetry**
+    + Doc improvements to azureml-telemetry.
+  + **azureml-train-automl-client**
+    + Fixed a bug where `experiment.submit()` called twice on an `AutoMLConfig` object resulted in different behavior.
+    + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
+    + Changed AutoML run behavior to raise UserErrorException if service throws user error
+    + Fixes a bug that caused azureml_automl.log to not get generated or be missing logs when performing an AutoML experiment on a remote compute target.
+    + For Classification data sets with imbalanced classes, we will apply weight balancing, if the feature sweeper find it to be better than the baseline
+    + AutoML runs are now marked as child run of Parallel Run Step.
+  + **azureml-train-automl-runtime**
+    + Changed AutoML run behavior to raise UserErrorException if service throws user error
+    + AutoML runs are now marked as child run of Parallel Run Step.
+
+  
 ## 2020-06-08
 
 ### Azure Machine Learning SDK for Python v1.7.0
