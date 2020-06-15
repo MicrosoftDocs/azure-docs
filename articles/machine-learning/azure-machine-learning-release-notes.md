@@ -73,7 +73,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + As pr, related versions were be modifed
   + **azureml-pipeline-core**
     + Updated `PipelineDataset`'s documentation to make it clear it is an internal class.
-    + Accept multiple values for one argument, for example: "--group_column_names", "Col1", "Col2", "Col3"
+    + ParallelRunStep updates to accept multiple values for one argument, for example: "--group_column_names", "Col1", "Col2", "Col3"
     + Removed the passthru_automl_config requirement for intermediate data usage with AutoMLStep in Pipelines.
   + **azureml-pipeline-steps**
     + Doc improvements to azureml-pipeline-steps package.
