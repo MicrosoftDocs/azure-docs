@@ -50621,6 +50621,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cost-management-billling/manage/office-365-account-for-azure-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/microsoft-365-account-for-azure-subscription",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cost-management-billling/manage/azure-account-for-office-365-subscription.md",
+      "redirect_url": "/azure/cost-management-billing/manage/azure-account-for-microsoft-365-subscription",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/billing/billing-view-all-accounts.md",
       "redirect_url": "/azure/cost-management-billing/manage/view-all-accounts",
       "redirect_document_id": true
