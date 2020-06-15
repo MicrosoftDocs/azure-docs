@@ -32,7 +32,7 @@ One common reason for deploying a domain name server is to increase the security
 
 ## Subdomain takeover or "dangling DNS"
 
-A subdomain takeover can occur when you have a stale DNS record in your organization’s DNS zone pointing to a deprovisioned Azure resource. For example, DNS records that haven't been updated to reflect changes to IP addresses. The issue occurs especially with A/AAAA or CNAME record types. 
+A subdomain takeover can occur when you have a stale DNS record in your organization’s DNS zone pointing to a deprovisioned Azure resource. For example, DNS records that haven't been updated to reflect changes to the resource name or its underlying IP addresses. The issue occurs especially with A/AAAA or CNAME record types. 
 
 ### The risks of dangling DNS records
 
