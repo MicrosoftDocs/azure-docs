@@ -10,6 +10,7 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
+ms.custom: tracking-python
 ---
 
 # Deploy a deep learning model for inference with GPU

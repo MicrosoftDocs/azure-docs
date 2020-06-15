@@ -86,7 +86,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mound-VHD command to stage and and Dismount-VHD to destage. 
+After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mount-VHD command to stage and and Dismount-VHD to destage. 
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All

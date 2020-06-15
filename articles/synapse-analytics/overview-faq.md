@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure Synapse Analytics
-description: FAQ for Azure Synapse Analytics
+title: FAQ - Azure Synapse Analytics (workspaces preview)
+description: FAQ for Azure Synapse Analytics  (workspaces preview)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (workspace preview) frequently asked questions
+# Azure Synapse Analytics (workspaces preview) frequently asked questions
 
 In this guide, you'll find the most frequently asked questions for Synapse Analytics.
 

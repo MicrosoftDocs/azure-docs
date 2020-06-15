@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ---
 
 # Tutorial: Create a Python runbook

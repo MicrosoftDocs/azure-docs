@@ -9,6 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
+ms.custom: tracking-python
 ---
 
 # Create, run, and delete Azure ML resources using REST

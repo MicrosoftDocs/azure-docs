@@ -4,7 +4,6 @@ description: Learn about the new features and improvements for SQL Server on Azu
 services: virtual-machines-windows
 author: MashaMSFT
 ms.author: mathoma
-manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql

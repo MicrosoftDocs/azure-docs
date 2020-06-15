@@ -1,5 +1,5 @@
 ---
-title: Incrementally copy data using Change Tracking
+title: Incrementally copy data using Change Tracking using Azure portal
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to an Azure SQL database.
 services: data-factory
 ms.author: yexu
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ---
 
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
