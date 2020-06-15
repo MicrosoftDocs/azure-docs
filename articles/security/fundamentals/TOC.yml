@@ -65,7 +65,7 @@
     href: network-best-practices.md
   - name: DDoS Protection
     href: ddos-best-practices.md
-  - name: DNS Protection
+  - name: Subdomain takeover or dangling DNS
     href: dns-protection.md
   - name: Secure hybrid network architecture
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json

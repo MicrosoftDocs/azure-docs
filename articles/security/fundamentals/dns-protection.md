@@ -17,20 +17,12 @@ ms.date: 06/15/2020
 ms.author: memildin
 
 ---
-# Azure DNS - Protect against these threats to your DNS security
+# Azure DNS and subdomain takeover ("dangling DNS")
 
-This article provides an introduction to common DNS threats, and advice for ensuring the security and stability of your Azure DNS infrastructure.
-
-## What are the common DNS threats?
-
-One common reason for deploying a domain name server is to increase the security for your users and customers. However, the DNS itself also needs to be defended to prevent attackers taking advantage of some well-known vulnerabilities. Below are some of the most common DNS threats:
-
-- Subdomain takeover (also known as "dangling DNS")
-- Distributed denial of service attacks (DDoS)
+This article describes the common security threat of subdomain takeover, as well as things you can do to mitigate against it.
 
 
-
-## Subdomain takeover or "dangling DNS"
+## What is subdomain takeover?
 
 A subdomain takeover can occur when you have a stale DNS record in your organization’s DNS zone pointing to a deprovisioned Azure resource. For example, DNS records that haven't been updated to reflect changes to the resource name or its underlying IP addresses. The issue occurs especially with A/AAAA or CNAME record types. 
 
@@ -61,30 +53,6 @@ It's often up to developers and operations teams to perform cleanup processes to
     - Delete the DNS record if it is no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
 
-
-## Distributed denial of service attacks (DDoS)
-
-DDoS attacks aren't specific to DNS. However, domain name servers are vulnerable to such attacks and are often overlooked when considering this threat. Even if you've established good defenses for your websites and web applications, they're still vulnerable if the DNS infrastructure can't handle the number of incoming requests it receives. 
-
-### The risks of DDoS attacks on a DNS
-
-Distributed denial of service (DDoS) attacks are known to be easy to execute. They've become a great security concern, particularly if you're moving your applications to the cloud. 
-
-A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can target any endpoint that can be reached through the internet, including the DNS. A successful DDoS attack against a DNS server causes it to crash. When it crashes, users are unable to access the pages and applications listed on that DNS (apart from any that have been cached locally).
-
-
-### Defending your DNS from DDoS attacks
-
-To defend against DDoS attacks, use [Azure DDoS Protection standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview) to defend your organization from the three main types of DDoS attacks:
-
-- **Volumetric attacks** flood the network with legitimate traffic. DDoS Protection Standard mitigates these attacks by absorbing or scrubbing them automatically.
-- **Protocol attacks** render a target inaccessible, by exploiting weaknesses in the layer 3 and layer 4 protocol stack. DDoS Protection Standard mitigates these attacks by blocking malicious traffic.
-- **Resource (application) layer attacks** target web application packets. Defend against this type with a web application firewall and DDoS Protection Standard.
-
-For a list of the security alerts Azure DDoS Protection produces, see the [Azure Security Center table of DDoS alerts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azureddos).
-
->[!TIP]
-> If you're using a content delivery network (CDN), it includes DDoS protection by design. [Azure CDN from Microsoft](https://docs.microsoft.com/azure/cdn/cdn-ddos) is protected by Azure Basic DDoS by default, and at no extra cost. 
 
 
 
