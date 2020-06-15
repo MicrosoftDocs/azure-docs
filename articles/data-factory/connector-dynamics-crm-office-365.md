@@ -75,16 +75,16 @@ The following properties are supported for the Dynamics linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| **type** | The **type** property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
-| **deploymentType** | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
-| **serviceUri** | The service URL of your Dynamics instance. An example is https://adfdynamics.crm.dynamics.com. | Yes |
-| **authenticationType** | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal" and "Office365". | Yes |
-| **servicePrincipalId** | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
-| **servicePrincipalCredentialType** | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
-| **servicePrincipalCredential** | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, **servicePrincipalCredential** can be a string that Azure Data Factory encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, **servicePrincipalCredential** must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
-| **username** | The user name to connect to Dynamics. | Yes when authentication is "Office365" |
-| **password** | The password for the user account you specified for **username**. Mark this field with "SecureString" to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
-| **connectVia** | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source, and yes for sink if the source linked service doesn't have an integration runtime |
+| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
+| deploymentType | The deployment type of the Dynamics instance. The value must be "Online" for Dynamics online. | Yes |
+| serviceUri | The service URL of your Dynamics instance. An example is https://adfdynamics.crm.dynamics.com. | Yes |
+| authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal" and "Office365". | Yes |
+| servicePrincipalId | The client ID of the Azure AD application. | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that Azure Data Factory encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault. | Yes when authentication is "AADServicePrincipal" |
+| username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
+| password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source, and yes for sink if the source linked service doesn't have an integration runtime |
 
 >[!NOTE]
 >The Dynamics connector formerly used the optional **organizationName** property to identify your Dynamics CRM or Dynamics 365 online instance. While that property still works, we suggest you specify the new **serviceUri** property instead to gain better performance for instance discovery.
@@ -172,15 +172,15 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| **type** | The **type** property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes. |
-| **deploymentType** | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes. |
-| **hostName** | The host name of the on-premises Dynamics server. | Yes. |
-| **port** | The port of the on-premises Dynamics server. | No. The default value is 443. |
-| **organizationName** | The organization name of the Dynamics instance. | Yes. |
-| **authenticationType** | The authentication type to connect to the Dynamics server. Specify "Ifd" for Dynamics on-premises with IFD. | Yes. |
-| **username** | The user name to connect to Dynamics. | Yes. |
-| **password** | The password for the user account you specified for **username**. You can mark this field with "SecureString" to store it securely in Data Factory. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
-| **connectVia** | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source and yes for sink. |
+| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes. |
+| deploymentType | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes. |
+| hostName | The host name of the on-premises Dynamics server. | Yes. |
+| port | The port of the on-premises Dynamics server. | No. The default value is 443. |
+| organizationName | The organization name of the Dynamics instance. | Yes. |
+| authenticationType | The authentication type to connect to the Dynamics server. Specify "Ifd" for Dynamics on-premises with IFD. | Yes. |
+| username | The username to connect to Dynamics. | Yes. |
+| password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely in Data Factory. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No for source and yes for sink. |
 
 #### Example: Dynamics on-premises with IFD using IFD authentication
 
@@ -218,8 +218,8 @@ To copy data from and to Dynamics, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| **type** | The **type** property of the dataset must be set to "DynamicsEntity", "DynamicsCrmEntity", or "CommonDataServiceForAppsEntity". |Yes |
-| **entityName** | The logical name of the entity to retrieve. | No for source if the activity source is specified as "query" and yes for sink |
+| type | The type property of the dataset must be set to "DynamicsEntity", "DynamicsCrmEntity", or "CommonDataServiceForAppsEntity". |Yes |
+| entityName | The logical name of the entity to retrieve. | No for source if the activity source is specified as "query" and yes for sink |
 
 ### Example
 
@@ -250,8 +250,8 @@ To copy data from Dynamics, the copy activity **source** section supports the fo
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| **type** | The **type** property of the copy activity source must be set to "DynamicsSource", "DynamicsCrmSource", or "CommonDataServiceForAppsSource". | Yes |
-| **query** | FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No if **entityName** in the dataset is specified |
+| type | The type property of the copy activity source must be set to "DynamicsSource", "DynamicsCrmSource", or "CommonDataServiceForAppsSource". | Yes |
+| query | FetchXML is a proprietary query language that is used in Dynamics online and on-premises. See the following example. To learn more, see [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No if `entityName` in the dataset is specified |
 
 >[!NOTE]
 >The PK column will always be copied out even if the column projection you configure in the FetchXML query doesn't contain it.
@@ -318,11 +318,11 @@ To copy data to Dynamics, the copy activity **sink** section supports the follow
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| **type** | The **type** property of the copy activity sink must be set to "DynamicsSink", "DynamicsCrmSink", or "CommonDataServiceForAppsSink". | Yes. |
-| **writeBehavior** | The write behavior of the operation. The value must be "Upsert". | Yes |
-| **alternateKeyName** | The alternate key name defined on your entity to do an upsert. | No. |
-| **writeBatchSize** | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
-| **ignoreNullValues** | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
+| type | The type property of the copy activity sink must be set to "DynamicsSink", "DynamicsCrmSink", or "CommonDataServiceForAppsSink". | Yes. |
+| writeBehavior | The write behavior of the operation. The value must be "Upsert". | Yes |
+| alternateKeyName | The alternate key name defined on your entity to do an upsert. | No. |
+| writeBatchSize | The row count of data written to Dynamics in each batch. | No. The default value is 10. |
+| ignoreNullValues | Whether to ignore null values from input data other than key fields during a write operation.<br/><br/>Valid values are **TRUE** and **FALSE**:<ul><li>**TRUE**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.</li><li>**FALSE**: Update the data in the destination object to a null value when you do an upsert or update operation. Insert a null value when you do an insert operation.</li></ul> | No. The default value is **FALSE**. |
 
 >[!NOTE]
 >The default value for both the sink **writeBatchSize** and the copy activity **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** for the Dynamics sink is 10. Therefore, 100 records are concurrently submitted by default to Dynamics.
@@ -373,24 +373,24 @@ Configure the corresponding Data Factory data type in a dataset structure that i
 
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
-| **AttributeTypeCode.BigInt** | **Long** | ✓ | ✓ |
-| **AttributeTypeCode.Boolean** | **Boolean** | ✓ | ✓ |
-| **AttributeType.Customer** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
-| **AttributeType.DateTime** | **Datetime** | ✓ | ✓ |
-| **AttributeType.Decimal** | **Decimal** | ✓ | ✓ |
-| **AttributeType.Double** | **Double** | ✓ | ✓ |
-| **AttributeType.EntityName** | **String** | ✓ | ✓ |
-| **AttributeType.Integer** | **Int32** | ✓ | ✓ |
-| **AttributeType.Lookup** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
-| **AttributeType.ManagedProperty** | **Boolean** | ✓ | |
-| **AttributeType.Memo** | **String** | ✓ | ✓ |
-| **AttributeType.Money** | **Decimal** | ✓ | ✓ |
-| **AttributeType.Owner** | **GUID** | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
-| **AttributeType.Picklist** | **Int32** | ✓ | ✓ |
-| **AttributeType.Uniqueidentifier** | **GUID** | ✓ | ✓ |
-| **AttributeType.String** | **String** | ✓ | ✓ |
-| **AttributeType.State** | **Int32** | ✓ | ✓ |
-| **AttributeType.Status** | **Int32** | ✓ | ✓ |
+| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | GUID | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
+| AttributeType.Owner | GUID | ✓ | ✓ (See [guidance](#writing-data-to-a-lookup-field)) |
+| AttributeType.Picklist | Int32 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
 > The Dynamics data types **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist**, and **AttributeType.PartyList** aren't supported.
@@ -399,7 +399,7 @@ Configure the corresponding Data Factory data type in a dataset structure that i
 
 To write data into a lookup field with multiple targets like Customer and Owner, follow this guidance and example:
 
-1. Make your source containins both the field value and the corresponding target entity name.
+1. Make your source contains both the field value and the corresponding target entity name.
    - If all records map to the same target entity, ensure one of the following conditions:
       - Your source data has a column that stores the target entity name.
       - You've added an additional column in the copy activity source to define the target entity.
@@ -421,7 +421,7 @@ In copy-activity column mapping, map the two columns as follows:
 
 ![Dynamics lookup-field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 
-If all your source records map to the same target entity, and your source data doesn't contain the target entity name, just add an additional column in the copy activity source. You can specify the name by using the pattern `{lookup_field_name}@EntityReference` and specify the value as the target entity name. In that case, explicit column mapping becomes optional because copy activity by default maps columns by name.
+If all of your source records map to the same target entity and your source data doesn't contain the target entity name, here is a shortcut: in the copy activity source, add an additional column. Name the new column by using the pattern `{lookup_field_name}@EntityReference`, set the value to the target entity name, then proceed with column mapping as usual. If your source and sink column names are identical, you can also skip explicit column mapping because copy activity by default maps columns by name.
 
 ![Dynamics lookup-field adding an entity-reference column](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
 
