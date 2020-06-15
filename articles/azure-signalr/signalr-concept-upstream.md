@@ -1,6 +1,6 @@
 ---
-title: Upstream settings in Azure SignalR Service
-description: An introduction of upstream settings and protocol of upstream messages
+title: Upstream Settings in Azure SignalR Service
+description: An introduction of Upstream Settings and protocol of upstream messages
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
@@ -13,11 +13,11 @@ ms.author: chenyl
 Upstream is a feature that allows SignalR Service to send messages and connection events to a set of endpoints in serverless mode. Upstream can be used to invoke hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
 
 > [!NOTE]
-> Classic mode doesn't support upstream settings
+> Only serverless mode can configure Upstream Settings.
 
 ## Upstream Settings details
 
-Upstream settings consist of a list of order sensitive items. Each item consists of an `URL Template`, which specifies where messages send to, a set of `Rules` and `Auth` configurations. When the specified event happens, item's `Rules` will be checked one by one in order and messages will be sent to the first matching item's Upstream URL.
+Upstream Settings consist of a list of order sensitive items. Each item consists of an `URL Template`, which specifies where messages send to, a set of `Rules` and `Authentication` configurations. When the specified event happens, item's `Rules` will be checked one by one in order and messages will be sent to the first matching item's Upstream URL.
 
 ### URL Template Settings
 
@@ -29,7 +29,7 @@ The URL can be parameterized to support various patterns. There are three predef
 |{category}| Category can be one of the following values: <ul><li>**connections**: Connection lifetime events. Fired when a client connection is connected or disconnected. Including *connected* and *disconnected* events</li><li>**messages**: Fired when clients invoke hub method. Including all other events except those in *connections* category</li></ul>|
 |{event}| For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used.|
 
-These predefined parameters can be used in the `URL Pattern` and parameters will be replaced with a specified value when evaluating the Upstream URl. E.g. 
+These predefined parameters can be used in the `URL Pattern` and parameters will be replaced with a specified value when evaluating the Upstream URL. E.g. 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
@@ -45,23 +45,23 @@ http://host.com/chat/api/messages/broadcast
 ### Rules Settings
 
 You can set rules for *Hub Rules*, *Category Rules* and *Event Rules* separately. The matching rule supports three formats. Take the *Event Rules* as an example:
-1. Use asteroid(*) to match any events.
+1. Use asterisk(*) to match any events.
 2. User comma(,) to join multiple events. For example, `connected, disconnected` matches events *connected* and *disconnected*.
 3. Use the full event name to match the event. For example, `connected` matches *connected* event.
 
-### Auth Settings
+### Authentication Settings
 
-You can configure *Auth* for each upstream settings item separately. When configured *Auth*, a token will be set in the *Authentication* header of the upstream message. Current, SignalR Service support the following Auth type
+You can configure *Authentication* for each Upstream Settings item separately. When configured *Authentication*, a token will be set in the *Authentication* header of the upstream message. Current, SignalR Service support the following Authentication type
 - None
 - ManagedIdentity
 
 When select *ManagedIdentity*, you must enable Managed Identity in SignalR Service in advance and optionally specify a *Resource*. See [How to use managed identities for Azure SignalR Service](signalr-howto-use-managed-identity.md) for details.
 
-## Create upstream settings
+## Create Upstream Settings
 
-### Create upstream settings via ARM Template
+### Create Upstream Settings via ARM Template
 
-To create upstream settings using a [Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), set `upstream` property in the `properties` property. The following snippets show how to set the `upstream` property for creating and updating upstream settings.
+To create Upstream Settings using a [Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), set `upstream` property in the `properties` property. The following snippets show how to set the `upstream` property for creating and updating Upstream Settings.
 
 ```JSON
 {
