@@ -264,6 +264,20 @@ See how to convert to ONNX format [in this Jupyter notebook example](https://git
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [inferencing ONNX models with the ONNX runtime C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
+## Content options
+
+There are multiple resources to get you up and running with AutoML. 
+
+To get started with AutoML, see the following 
+
+For a code first experience, 
++ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md) 
+
++ Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+
+Forecasting
++ Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
+
 ## Next steps
 
 See examples and learn how to build models using automated machine learning:
@@ -272,13 +286,8 @@ See examples and learn how to build models using automated machine learning:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
-+ Learn how to use a [remote compute target](how-to-auto-train-remote.md)
++ Learn how to use a [remote compute target](how-to-auto-train-remote.md) with AutoML
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md) 
-
-+ Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
-
-+ Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 * Automated ML is also available in other Microsoft solutions such as, 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
 [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
