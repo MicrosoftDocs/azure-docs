@@ -102,7 +102,7 @@ POST
 |X-ASRS-Hub |The hub that the client connection belongs to|
 |X-ASRS-Category |The category that the message belongs to|
 |X-ASRS-Event |The event that the message belongs to|
-|X-ASRS-Signature |An HMAC that used for validation. See [Signature](#Signature) for details.|
+|X-ASRS-Signature |An HMAC that used for validation. See [Signature](#signature) for details.|
 |X-ASRS-User-Claims |A group of claims of the client connection|
 |X-ASRS-User-Id |The user identity of the client which sends the message|
 |X-ASRS-Client-Query |The query of the request when clients connect to the service|
