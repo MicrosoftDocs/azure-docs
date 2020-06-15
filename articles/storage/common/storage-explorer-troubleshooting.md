@@ -319,7 +319,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
 # [Ubuntu 20.04](#tab/2004)
 
 1. Download the Storage Explorer .tar.gz file.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current):
+2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu/20-04/runtime-current):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      dpkg -i packages-microsoft-prod.deb; \
