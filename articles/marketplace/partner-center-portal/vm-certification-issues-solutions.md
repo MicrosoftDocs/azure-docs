@@ -36,11 +36,11 @@ To check whether your image supports VM Extension or not, follow these steps:
 Enable VM Extensions:
 
 1. Select the Linux VM.
-2. Go to the **Diagnostics** setting.
+2. Go to **Diagnostics settings**.
 3. Enable Base matrices by updating the **Storage account**.
 4. Select **Save**.
 
-   (IMAGE)
+   ![Enable guest-level monitoring](./media/vm-certification-issues-solutions-1.png)
 
    Check whether VM Extensions are properly activated:
 
@@ -48,7 +48,7 @@ Enable VM Extensions:
 6. If the Status is **Provisioning Succeeded** then the Extensions test case has passed.
 7. If the Status is **Provisioning Failed** then the Extensions test case has failed and you need to set the Hardened flag.
 
-   (IMAGE)
+   ![Provisioning succeeded](./media/vm-certification-issues-solutions-2.png)
 
    If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
 
