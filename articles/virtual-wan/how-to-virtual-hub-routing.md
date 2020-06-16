@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # How to configure virtual hub routing
 
-A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, ExpressRoute gateway, Point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing between the gateways using Border Gateway Protocol (BGP). This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to Standard Virtual WAN customers.
+A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, ExpressRoute gateway, Point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to Standard Virtual WAN customers.
 
 For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
