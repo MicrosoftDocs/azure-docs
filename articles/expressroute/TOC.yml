@@ -131,6 +131,8 @@
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
     items:
+    - name: Azure portal
+      href: how-to-expressroute-direct-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-erdirect.md
     - name: Azure CLI
