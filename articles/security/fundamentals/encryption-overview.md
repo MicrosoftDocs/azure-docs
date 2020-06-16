@@ -140,7 +140,7 @@ By default, after SMB encryption is turned on for a share or server, only SMB 3.
 
 ## In-transit encryption in VMs
 
-Data in transit to, from, and between VMs that are running Windows is encrypted in a number of ways, depending on the nature of the connection.
+Data in transit to, from, and between VMs that are running Windows can be encrypted in a number of ways, depending on the nature of the connection.
 
 ### RDP sessions
 
