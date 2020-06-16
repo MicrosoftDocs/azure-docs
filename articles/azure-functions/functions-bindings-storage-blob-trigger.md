@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Blob storage trigger for Azure Functions

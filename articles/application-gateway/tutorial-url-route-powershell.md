@@ -4,7 +4,7 @@ description: Learn how to route web traffic based on the URL to specific scalabl
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc

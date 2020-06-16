@@ -25,7 +25,7 @@ Within a Conditional Access policy, an administrator can make use of access cont
 
 Block takes into account any assignments and prevents access based on the Conditional Access policy configuration.
 
-Block is a powerful control that should be wielded with appropriate knowledge. It is something administrators should use [Report-only mode](concept-conditional-access-report-only.md) to test before enabling.
+Block is a powerful control that should be wielded with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before enabling at scale. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
 ## Grant access
 

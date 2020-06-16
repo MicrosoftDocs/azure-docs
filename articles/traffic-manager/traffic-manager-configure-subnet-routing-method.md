@@ -4,10 +4,10 @@ description: This article explains how to configure Traffic Manager to route tra
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
+
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018

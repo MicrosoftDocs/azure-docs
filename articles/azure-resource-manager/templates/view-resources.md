@@ -1,11 +1,11 @@
 ---
-title: View resource properties
+title: Discover resource properties
 description: Describes how to search for resource properties.
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/10/2020
 ---
 
-# View resource properties
+# Discover resource properties
 
 Before creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. This article shows some ways you can find the properties to include in your template.
 

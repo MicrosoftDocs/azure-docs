@@ -68,6 +68,8 @@
       href: ./samples/cis-azure-1-1-0.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      href: ./samples/nist-sp-800-171-r2.md
 - name: Concepts
   items:
   - name: Definition structure
@@ -138,6 +140,9 @@
       href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
+    - name: Deploy Azure Monitor at scale
+      displayName: monitor, diagnostic settings, dependency agent
+      href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json

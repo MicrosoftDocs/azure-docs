@@ -9,6 +9,7 @@ ms.subservice:
 ms.date: 05/01/2020
 ms.author: ruxu 
 ms.reviewer: 
+ms.custom: tracking-python
 ---
 
 # Create, develop, and maintain Azure Synapse Studio (preview) notebooks
