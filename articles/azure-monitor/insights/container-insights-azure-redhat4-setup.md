@@ -102,11 +102,11 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 The following step enables monitoring of your Azure Red Hat OpenShift v4.x cluster using the bash script you downloaded. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the cluster subscription if one does not already exist in the region. The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.  
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
+`bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
 
-    For example:
+For example:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
+`bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
