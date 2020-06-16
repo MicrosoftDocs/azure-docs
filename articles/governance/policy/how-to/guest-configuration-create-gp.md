@@ -19,7 +19,7 @@ When auditing Windows, Guest Configuration uses a [Desired State Configuration](
 
 The DSC community has published the [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the BaselineManagement module creates Azure Policy Guest Configuration package for Windows from Group Policy content. For details about using the BaselineManagement module, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
 
-In this guide, we walk through the process to create an Azure Guest Configuration Policy package from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server 2019 Security Baseline, the same process can be applied to other GPOs.  
+In this guide, we walk through the process to create an Azure Policy Guest Configuration package from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server 2019 Security Baseline, the same process can be applied to other GPOs.  
 
 ## Download Windows Server 2019 Security Baseline and install related PowerShell modules
 
