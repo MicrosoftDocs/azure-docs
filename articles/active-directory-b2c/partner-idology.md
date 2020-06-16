@@ -95,18 +95,18 @@ The sample policy uses these key names:
 
 3. Update the two sample policies:
 
-   a. Open both policies:
+   1. Open both policies:
 
-      i. In the section `Idology-ExpectId-API`, update the `ServiceUrl` metadata item with the location of the API deployed above.
+      1. In the section `Idology-ExpectId-API`, update the `ServiceUrl` metadata item with the location of the API deployed above.
 
-      ii. Replace `yourtenant` with the name of your Azure AD B2C tenant.
+      1. Replace `yourtenant` with the name of your Azure AD B2C tenant.
       For example, if the name of your Azure AD B2C tenant is `contosotenant`, replace all instances of `yourtenant.onmicrosoft.com` with `contosotenant.onmicrosoft.com`.
 
-   b. Open the file TrustFrameworkExtensions.xml:
+   1. Open the file TrustFrameworkExtensions.xml:
 
-     i. Find the element `<TechnicalProfile Id="login-NonInteractive">`. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the IdentityExperienceFramework application that you created earlier.
+      1. Find the element `<TechnicalProfile Id="login-NonInteractive">`. Replace both instances of `IdentityExperienceFrameworkAppId` with the application ID of the IdentityExperienceFramework application that you created earlier.
 
-     ii. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
+      1. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
 
 4. Replace the SignInorSignUp.xml and TrustFrameworkExtensions.xml previously uploaded to Azure AD B2C in step 1 with the two updated sample policies.
 
@@ -121,11 +121,11 @@ The sample policy uses these key names:
 
 3. Select **Run user flow** and select the settings:
 
-   a. **Application** - select the registered app (sample is JWT).
+   1. **Application** - select the registered app (sample is JWT).
 
-   b. **Reply URL** - select the **Redirect URL**.
+   1. **Reply URL** - select the **Redirect URL**.
 
-   c. Select **Run user flow**.
+   1. Select **Run user flow**.
 
 4. Go through the sign-up flow and create an account.
 
