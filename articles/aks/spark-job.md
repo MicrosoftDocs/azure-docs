@@ -20,6 +20,7 @@ In order to complete the steps within this article, you need the following.
 * [Docker Hub][docker-hub] account, or an [Azure Container Registry][acr-create].
 * Azure CLI [installed][azure-cli] on your development system.
 * [JDK 8][java-install] installed on your system.
+* [Apache Maven][maven-install] installed on your system.
 * SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
 
@@ -335,6 +336,7 @@ Check out Spark documentation for more details.
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
