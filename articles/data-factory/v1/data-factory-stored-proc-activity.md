@@ -6,12 +6,12 @@ documentationcenter: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
 robots: noindex
 ---
 # SQL Server Stored Procedure Activity
@@ -109,7 +109,7 @@ After creating the data factory, you create an Azure SQL linked service that lin
    ![New data store](media/data-factory-stored-proc-activity/new-data-store.png)
 3. In the JSON script, make the following changes:
 
-   1. Replace `<servername>` with the name of your Azure SQL Database server.
+   1. Replace `<servername>` with the name of your server.
    2. Replace `<databasename>` with the database in which you created the table and the stored procedure.
    3. Replace `<username@servername>` with the user account that has access to the database.
    4. Replace `<password>` with the password for the user account.

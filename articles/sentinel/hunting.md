@@ -1,9 +1,9 @@
 ---
-title: Hunting capabilities in Azure Sentinel Preview| Microsoft Docs
+title: Hunting capabilities in Azure Sentinel| Microsoft Docs
 description: This article describes how to use the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -15,18 +15,13 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
-ms.author: rkarlin
+ms.date: 09/10/2019
+ms.author: yelevin
 ---
 
-# Hunt for threats with in Azure Sentinel Preview
+# Hunt for threats with Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-If you're an investigator who wants to be proactive about looking for security threats, Azure Sentinel powerful hunting search and query tools to hunt for security threats across your organization’s data sources. But your systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. To help security analysts look proactively for new anomalies that weren't detected by your security apps, Azure Sentinel' built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
+If you're an investigator who wants to be proactive about looking for security threats, Azure Sentinel powerful hunting search and query tools to hunt for security threats across your organization's data sources. But your systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. To help security analysts look proactively for new anomalies that weren't detected by your security apps, Azure Sentinel' built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 
 For example, one built-in query provides data about the most uncommon processes running on your infrastructure - you wouldn't want an alert about each time they are run, they could be entirely innocent, but you might want to take a look at the query on occasion to see if there's anything unusual. 
 
@@ -38,8 +33,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 - Powerful query language with IntelliSense: Built on top of a query language that gives you the flexibility you need to take hunting to the next level.
 
-- Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create a case for investigation. For more information about bookmarks, see Use [bookmarks in hunting].
-
+- Create your own bookmarks: During the hunting process, you may come across matches or findings, dashboards, or activities that look unusual or suspicious. In order to mark those items so you can come back to them in the future, use the bookmark functionality. Bookmarks let you save items for later, to be used to create an incident for investigation. For more information about bookmarks, see [Use bookmarks in hunting](hunting.md).
 - Use notebooks to automate investigation: Notebooks are like step-by-step playbooks that you can build to walk through the steps of an investigation and hunt.  Notebooks encapsulate all the hunting steps in a reusable playbook that can be shared with others in your organization. 
 - Query the stored data: The data is accessible in tables for you to query. For example, you can query process creation, DNS events, and many other event types.
 
@@ -56,7 +50,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 3. Perform a quick review of the underlying query in the query details pane or click **View query result** to open the query in Log Analytics. At the bottom, review the matches for the query.
 
-4.	Click on the row and select **Add bookmark** to add the rows to be investigated - you can do this for anything that looks suspicious. 
+4.    Click on the row and select **Add bookmark** to add the rows to be investigated - you can do this for anything that looks suspicious. 
 
 5. Then, go back to the main **Hunting** page and click the **Bookmarks** tab to see all the suspicious activities. 
 
@@ -68,7 +62,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 ## Query language 
 
-Hunting in Azure Sentinel is based on Azure Log Analytics query language. For more information on the query language and supported operators, see [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference/).
+Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](/azure/azure-monitor/log-query/get-started-queries).
 
 ## Public hunting query GitHub repository
 

@@ -26,7 +26,7 @@ The following is some brief information about this scenario.  In this scenario, 
 Use the following steps to move the Azure AD Connect database to a remote SQL Server.
 
 1. On the Azure AD Connect server, go to **Services** and stop the **Microsoft Azure AD Sync** service.
-2. Locate the **%Program Files%\Microsoft Azure AD Sync/Data/** folder and copy the **ADSync.mdf** and **ADSync_log.ldf** files to the remote SQL Server.
+2. Locate the **%ProgramFiles%\Microsoft Azure AD Sync\Data** folder and copy the **ADSync.mdf** and **ADSync_log.ldf** files to the remote SQL Server.
 3. Restart the **Microsoft Azure AD Sync** service on the Azure AD Connect server.
 4. Un-install Azure AD Connect by going to Control Panel - - Programs - Programs and Features.  Select Microsoft Azure AD Connect and click uninstall at the top.
 5. On the remote SQL server, open SQL Server Management Studio.
@@ -50,19 +50,19 @@ Use the following steps to move the Azure AD Connect database to a remote SQL Se
 14.	On the **Connect your directories** screen, the existing AD forest configured for directory synchronization is listed with a red cross icon beside it. To synchronize changes from an on-premises AD forest, an AD DS account is required. The Azure AD Connect wizard is unable to retrieve the credentials of the AD DS account stored in the ADSync database because the credentials are encrypted and can only be decrypted by the previous Azure AD Connect server. Click **Change Credentials** to specify the AD DS account for the AD forest.
     ![Directories](./media/how-to-connect-install-move-db/db6.png)
  
- 
+
 15.	In the pop-up dialog, you can either (i) provide an Enterprise Admin credential and let Azure AD Connect create the AD DS account for you, or (ii) create the AD DS account yourself and provide its credential to Azure AD Connect. Once you have selected an option and provide the necessary credentials, click **OK** to close the pop-up dialog.
     ![Welcome](./media/how-to-connect-install-move-db/db7.png)
  
- 
+
 16.	Once the credentials are provided, the red cross icon is replaced with a green tick icon. Click **Next**.
     ![Welcome](./media/how-to-connect-install-move-db/db8.png)
  
- 
+
 17.	On the **Ready to configure** screen, click **Install**.
     ![Welcome](./media/how-to-connect-install-move-db/db9.png)
  
- 
+
 18.	Once installation completes, the Azure AD Connect server is automatically enabled for Staging Mode. It is recommended that you review the server configuration and pending exports for unexpected changes before disabling Staging Mode. 
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Implement Azure Databricks with a Cosmos DB endpoint
+title: Tutorial - Implement Azure Databricks with a Cosmos DB endpoint
 description: This tutorial describes how to implement Azure Databricks in a virtual network with a Service Endpoint enabled for Cosmos DB. 
 author: mamccrea
 ms.author: mamccrea
@@ -103,8 +103,6 @@ Before you start, do the following:
 ## Create a cluster and add library
 
 1. Navigate to your Azure Databricks service in the [Azure portal](https://portal.azure.com) and select **Launch Workspace**.
-
-   ![Launch Databricks workspace](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Create a new cluster. Choose a Cluster Name and accept the remaining default settings.
 

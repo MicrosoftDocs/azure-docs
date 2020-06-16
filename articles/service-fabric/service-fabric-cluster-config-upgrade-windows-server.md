@@ -1,21 +1,11 @@
 ---
-title: Upgrade the configuration of a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Upgrade the configuration of a standalone cluster 
 description: Learn how to upgrade the configuration that runs a standalone Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-
 ---
 # Upgrade the configuration of a standalone cluster 
 
@@ -80,7 +70,7 @@ Four options are supported:
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 * Learn about [application upgrades](service-fabric-application-upgrade.md).
 
 <!--Image references-->

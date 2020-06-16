@@ -1,17 +1,9 @@
 ---
-title: Smart Detection - Degradation in trace severity ratio, in Azure Application Insights | Microsoft Docs
-description: Monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Degradation in trace severity ratio - Azure Application Insights
+description: Monitor application traces with Azure Application Insights for unusual patterns in trace telemetry with Smart Detection .
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: mbullwin
+
 ---
 
 # Degradation in trace severity ratio (preview)

@@ -3,8 +3,8 @@ title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 06/14/2019
+ms.topic: conceptual
+ms.date: 09/01/2019
 ms.author: thweiss
 ---
 # Find the request unit charge in Azure Cosmos DB
@@ -34,7 +34,8 @@ Currently, you can find the request charge in the Azure portal only for a SQL qu
 ![Screenshot of a SQL query request charge in the Azure portal](./media/find-request-unit-charge/portal-sql-query.png)
 
 ### Use the .NET SDK
-### .Net V2 SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 Objects that are returned from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expose a `RequestCharge` property:
 
@@ -69,13 +70,15 @@ while (query.HasMoreResults)
 }
 ```
 
-### .Net V3 SDK
+# [.NET SDK V3](#tab/dotnetv3)
 
 Objects that are returned from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expose a `RequestCharge` property:
 
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 For more information, see [Quickstart: Build a .NET web app by using a SQL API account in Azure Cosmos DB](create-sql-api-dotnet.md).
+
+---
 
 ### Use the Java SDK
 
@@ -170,7 +173,7 @@ Currently, you can find the request charge in the Azure portal only for a query.
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
-1. Go to the **Data Explorer** pane, and then select the collection you want to work on.
+1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
 1. Select **New Query**.
 

@@ -4,7 +4,7 @@ description: How to troubleshoot problems when deleting storage resources contai
 keywords: 
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines

@@ -4,21 +4,17 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: brendalee
-manager: zakramer
 
-ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/14/2016
-ms.author: brendal
 
 ---
 # Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../azure-resource-manager/resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../azure-resource-manager/management/resource-providers-and-types.md). The following tables list which services are supported through Resource Manager in Azure Government.
 
 ## Compute
 | Service | Resource Manager Enabled |

@@ -1,10 +1,7 @@
 ---
 title: Frequently asked questions about networking in Azure Functions
 description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
@@ -43,15 +40,14 @@ You can access resources in a virtual network from a running function by using v
 
 ## How do I access resources protected by service endpoints?
 
-By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
+By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
 
 ## How can I trigger a function from a resource in a virtual network?
 
 You are able to allow HTTP triggers to be called from a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). 
 
-You can also trigger a function from a resource in a virtual network by deploying your function app to an App Service Environment. For details on using an App Service Environment, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-The Premium and App Service plan support HTTP triggers from a virtual network, but only an App Service environment support all other function trigger types through a virtual network.
+You can also trigger a function from all other resources in a virtual network by deploying your function app to a Premium plan, App Service plan, or App Service Environment. See [non-HTTP virtual network triggers](./functions-networking-options.md#virtual-network-triggers-non-http)
+for more information
 
 ## How can I deploy my function app in a virtual network?
 

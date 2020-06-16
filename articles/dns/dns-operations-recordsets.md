@@ -3,18 +3,15 @@ title: Manage DNS records in Azure DNS using Azure PowerShell | Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: timlt
-
-ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
+author: rohinkoul
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Manage DNS records and recordsets in Azure DNS using Azure PowerShell

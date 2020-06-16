@@ -1,13 +1,10 @@
 ---
-title: Connect to Azure Event Hubs - Azure Logic Apps
-description: Manage and monitor events with Azure Event Hubs and Azure Logic Apps 
+title: Connect to Azure Event Hubs
+description: Create automated tasks and workflows that monitor and manage events by using Azure Event Hubs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: article
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ---
@@ -40,7 +37,7 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 
 ## Check permissions and get connection string
 
-For your logic app to access your Event Hub, 
+To make sure that your logic app can access your Event Hub, 
 check your permissions and get the connection 
 string for your Event Hubs namespace.
 
@@ -134,7 +131,7 @@ for the tasks you want to perform with the trigger results.
 
    For example, to filter events based on a specific value, 
    such as a category, you can add a condition so that the 
-   **Send event - Event Hubs** action sends only events that 
+   **Send event** action sends only the events that 
    meet your condition. 
 
 > [!NOTE]
@@ -215,7 +212,7 @@ provide these details:
    ![Create Event Hub connection](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 
    To manually enter the connection string, 
-   choose **Manually enter connection information**. 
+   select **Manually enter connection information**. 
    Learn [how to find your connection string](#permissions-connection-string).
 
 2. Select the Event Hubs policy to use, 
@@ -229,10 +226,12 @@ or [Add Event Hubs action](#add-action).
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
-see the [connector's reference page](/connectors/eventhubs/).
+For technical details, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/eventhubs/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
-Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

@@ -1,24 +1,23 @@
 ---
 title: Action rules for Azure Monitor alerts
 description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
-author: anantr
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: anantr
 ms.subservice: alerts
+
 ---
 
 # Action rules (preview)
 
 Action rules help you define or suppress actions at any Azure Resource Manager scope (Azure subscription, resource group, or target resource). They have various filters that help you narrow down the specific subset of alert instances that you want to act on.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
+
 ## Why and when should you use action rules?
 
 ### Suppression of alerts
 
-There are many scenarios where it's useful to suppress the notifications that alerts generate. These scenarios range from suppression during a planned maintenance window to suppression during nonbusiness hours. For example, the team responsible for  **ContosoVM** wants to suppress alert notifications for the upcoming weekend, because **ContosoVM** is undergoing planned maintenance. 
+There are many scenarios where it's useful to suppress the notifications that alerts generate. These scenarios range from suppression during a planned maintenance window to suppression during non-business hours. For example, the team responsible for  **ContosoVM** wants to suppress alert notifications for the upcoming weekend, because **ContosoVM** is undergoing planned maintenance. 
 
 Although the team can disable each alert rule that's configured on **ContosoVM** manually (and enable it again after maintenance), it's not a simple process. Action rules help you define alert suppression at scale with the ability to flexibly configure the period of suppression. In the previous example, the team can define one action rule on **ContosoVM** that suppresses all alert notifications for the weekend.
 
@@ -193,22 +192,22 @@ Suppression always takes precedence on the same scope.
 
 ### What happens if I have a resource that's monitored in two separate action rules? Do I get one or two notifications? For example, **VM2** in the following scenario:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1"
+      action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1
 
 For every alert on VM1 and VM3, action group AG1 would be triggered once. For every alert on **VM2**, action group AG1 would be triggered twice, because action rules don't deduplicate actions. 
 
 ### What happens if I have a resource monitored in two separate action rules and one calls for action while another for suppression? For example, **VM2** in the following scenario:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression"
+      action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression
 
 For every alert on VM1, action group AG1 would be triggered once. Actions and notifications for every alert on VM2 and VM3 will be suppressed. 
 
 ### What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, **VM1** in the following scenario:
 
-      "alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1" 
+      alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1 
  
 For every alert on VM1, action group AG1 would be triggered once. Whenever alert rule "rule1" is triggered, it will also trigger AG2 additionally. Action groups defined within action rules and alert rules operate independently, with no deduplication. 
 

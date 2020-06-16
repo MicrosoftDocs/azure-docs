@@ -1,20 +1,16 @@
 ---
 title: Azure Government available services | Microsoft Docs
-description: Provides an overview of the available services in Azure Government
+description: This article provides an overview of the available services in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: a453a23c-bc0f-4203-9075-0f579dea7e23
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/06/2019
-ms.author: gsacavdm
 
 ---
 # Available services in Azure Government
@@ -106,7 +102,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Enterprise Integration
 | Generally Available | Preview |
 | --- | --- |
-| [Logic Apps](documentation-government-services-integration.md#logic-apps)| |
+| [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)| |
 | [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
 | [StorSimple](documentation-government-services-storage.md) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |

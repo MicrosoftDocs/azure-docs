@@ -1,26 +1,32 @@
 ---
-title: Copy data from SAP ECC by using Azure Data Factory | Microsoft Docs
+title: Copy data from SAP ECC
 description: Learn how to copy data from SAP ECC to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 06/12/2020
 ---
+
 # Copy data from SAP ECC by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from SAP Enterprise Central Component (ECC). For more information, see [Copy activity overview](copy-activity-overview.md).
 
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
+
 ## Supported capabilities
+
+This SAP ECC connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SAP ECC to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -47,6 +53,10 @@ Generally, SAP ECC exposes entities via OData services through SAP Gateway. To u
 
 - **Activate and configure the SAP OData service**. You can activate the OData service through TCODE SICF in seconds. You can also configure which objects need to be exposed. For more information, see the [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
+## Prerequisites
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -63,7 +73,7 @@ The following properties are supported for the SAP ECC linked service:
 | `url` | The URL of the SAP ECC OData service. | Yes |
 | `username` | The username used to connect to SAP ECC. | No |
 | `password` | The plaintext password used to connect to SAP ECC. | No |
-| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use a self-hosted integration runtime or the Azure integration runtime (if your data store is publicly accessible). If you don't specify a runtime, `connectVia` uses the default Azure integration runtime. | No |
+| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If you don't specify a runtime, the default Azure integration runtime is used. | No |
 
 ### Example
 
@@ -133,6 +143,7 @@ The following properties are supported in the copy activity's `source` section:
 |:--- |:--- |:--- |
 | `type` | The `type` property of the copy activity's `source` section must be set to `SapEccSource`. | Yes |
 | `query` | The OData query options to filter the data. For example:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>The SAP ECC connector copies data from the combined URL:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| `httpRequestTimeout` | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:05:00** (5 minutes). | No |
 
 ### Example
 
@@ -190,6 +201,10 @@ When you're copying data from SAP ECC, the following mappings are used from ODat
 
 > [!NOTE]
 > Complex data types aren't currently supported.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 

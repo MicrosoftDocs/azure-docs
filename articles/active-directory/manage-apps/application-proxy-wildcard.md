@@ -1,22 +1,20 @@
 ---
-title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
+title: Wildcard applications in the Azure AD Application Proxy
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -46,8 +44,6 @@ For example: `http(s)://*.adventure-works.com`.
 
 While the internal and external URLs can use different domains, as a best practice, they should be same. When publishing the application, you see an error if one of the URLs doesn't have a wildcard.
 
-If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. Applications without a wildcard do always take precedence over wildcard applications. From the configuration perspective, these are "just" regular applications.
-
 Creating a wildcard application is based on the same [application publishing flow](application-proxy-add-on-premises-application.md) that is available for all other applications. The only difference is that you include a wildcard in the URLs and potentially the SSO configuration.
 
 ## Prerequisites
@@ -59,7 +55,7 @@ To get started, make sure you've met these requirements.
 While [custom domains](application-proxy-configure-custom-domain.md) are optional for all other applications, they are a prerequisite for wildcard applications. Creating custom domains requires you to:
 
 1. Create a verified domain within Azure.
-1. Upload an SSL certificate in the PFX format to your application proxy.
+1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
 
 You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
 
@@ -113,7 +109,7 @@ The wildcard application is represented with just one tile in the [MyApps panel]
 
 ### Kerberos constrained delegation
 
-For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+For applications using [kerberos constrained delegation (KCD) as the SSO method](application-proxy-configure-single-sign-on-with-kcd.md), the SPN listed for the SSO method may also need a wildcard. For example, the SPN could be: `HTTP/*.adventure-works.com`. You still need to have the individual SPNs configured on your backend servers (for example, `HTTP/expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 ## Scenario 1: General wildcard application
 

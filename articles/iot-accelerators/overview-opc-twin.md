@@ -1,6 +1,6 @@
 ---
 title: What is OPC Twin - Azure | Microsoft Docs
-description: Overview of OPC Twin
+description: This article provides an overview of OPC Twin. OPC Twin provides discovery, registration, and remote control of industrial devices through REST APIs.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -37,4 +37,4 @@ OPC Twin can be used with applications written in any programming language throu
 Now that you have learned about OPC Twin and its uses, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [What is OPC Vault](overview-opc-twin-architecture.md)
+> [What is OPC Vault](overview-opc-vault.md)

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 12/17/2019
 ms.author: aahi
 ---
 # Quickstart: Using Go to call the Text Analytics Cognitive Service 
@@ -17,13 +17,14 @@ ms.author: aahi
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Go.
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 
 <a name="Detect"></a>
 
@@ -33,8 +34,7 @@ The Language Detection API detects the language of a text document, using the [D
 
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Copy your Text Analytics API key and endpoint into the code.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed from your root folder.
 1. Build the file, for example: `go build detect.go`.
@@ -47,29 +47,20 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
+    
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
     const uriPath = "/text/analytics/v2.1/languages"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "text": "This is a document written in English."},
@@ -176,8 +167,7 @@ The Sentiment Analysis API detects the sentiment of a set of text records, using
 
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Copy your Text Analytics key and endpoint into the code.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed from your root folder.
 1. Build the file, for example: `go build sentiment.go`.
@@ -190,29 +180,20 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
 
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
     const uriPath = "/text/analytics/v2.1/sentiment"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -294,8 +275,7 @@ The Key Phrase Extraction API extracts key-phrases from a text document, using t
 
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Copy your Text Analytics key and endpoint into the code.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
 1. Build the file, for example: `go build key-phrases.go`.
@@ -308,29 +288,20 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
+    
     const uriPath = "/text/analytics/v2.1/keyPhrases"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -432,8 +403,6 @@ The Entities API identifies well-known entities in a text document, using the [E
 
 1. Create a new Go project in your favorite code editor.
 1. Add the code provided below.
-1. Replace the `subscriptionKey` value with an access key valid for your subscription.
-1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
 1. Save the file with a '.go' extension.
 1. Open a command prompt on a computer with Go installed.
 1. Build the file, for example: `go build entities.go`.
@@ -446,32 +415,24 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
 
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westus" in the URI below with "westcentralus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westus.api.cognitive.microsoft.com"
+    var subscriptionKey string = "<paste-your-text-analytics-key-here>"
+    var endpoint string = "<paste-your-text-analytics-endpoint-here>"
+    
     const uriPath = "/text/analytics/v2.1/entities"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
-        {"id": "1", "language": "en", "text": "Microsoft is an It company."}
+        {"id": "1", "language": "en", "text": "Microsoft is an It company."},
     }
 
     documents, err := json.Marshal(&data)

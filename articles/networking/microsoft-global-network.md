@@ -17,7 +17,7 @@ ms.reviewer: ypitsch
 
 # Microsoft global network
 
-Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 100,000 miles, connects our datacenters and customers. 
+Microsoft owns and operates one of the largest backbone networks in the world. This global and sophisticated architecture, spanning more than 160,000 miles, connects our datacenters and customers. 
  
 Every day, customers around the world connect and pass trillions of requests to Microsoft Azure, Bing, Dynamics 365, Office 365, XBox, and many others. Regardless of type, customers expect instant reliability and responsiveness from our services. 
  
@@ -27,7 +27,7 @@ The [Microsoft global network](https://azure.microsoft.com/global-infrastructure
  
 ## Get the premium cloud network
  
-Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers) through thousands of connections in more than 145 locations, provide the foundation of our interconnection strategy. 
+Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers) through thousands of connections in more than 165 locations, provide the foundation of our interconnection strategy. 
  
 Whether connecting from London to Tokyo, or from Washington DC to Los Angeles, network performance is quantified and impacted by things such as latency, jitter, packet loss, and throughput.  At Microsoft, we prefer and use direct interconnects as opposed to transit-links, this keeps response traffic symmetric and helps keep hops, peering parties and paths as short and simple as possible. 
 
@@ -51,7 +51,7 @@ Microsoft Azure offers the richest portfolio of services and capabilities, allow
 
 ## Well managed using software-defined innovation
 
-Running one of the leading clouds in the world, Microsoft has gained a lot of insight and experience in [building and managing](https://myignite.techcommunity.microsoft.com/sessions/66668) high-performance global infrastructure.  
+Running one of the leading clouds in the world, Microsoft has gained a lot of insight and experience in building and managing high-performance global infrastructure.  
  
 We adhere to a robust set of operational principles: 
  

@@ -23,6 +23,9 @@ The What If tool is located in the **Azure portal** > **Azure Active Directory**
 
 ![Conditional Access What If tool at default state](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
+> [!NOTE]
+> The What If tool currently does not evaluate policies in report-only mode.
+
 ## Gathering information
 
 The What If tool requires only a **User** to get started. 
@@ -31,7 +34,7 @@ The following additional information is optional but will help to narrow the sco
 
 * Cloud apps or actions
 * IP address 
-* Country
+* Country/Region
 * Device platform
 * Client apps (preview)
 * Device state (preview) 

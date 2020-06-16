@@ -1,6 +1,6 @@
 ---
 title: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub  | Microsoft Docs
-description: How to use Azure IoT Hub Device Provisioning Service auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
+description: How to use Azure IoT Hub Device Provisioning Service (DPS) auto-provisioning to register the MXChip IoT DevKit with IoT Hub.
 author: liydu
 ms.author: liydu
 ms.date: 06/25/2019
@@ -74,7 +74,7 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 1. In the Azure portal, select the **Overview** pane of your Device Provisioning service and note down the **Global device endpoint** and **ID Scope** values.
   ![Device Provisioning Service Global Endpoint and ID Scope](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Open **DeKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
+1. Open **DevKitDPS.ino**. Find and replace `[Global Device Endpoint]` and `[ID Scope]` with the values you just noted down.
   ![Device Provisioning Service Endpoint](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Fill the `registrationId` variable in the code. Only alphanumeric, lowercase, and hyphen combination with a maximum of 128 characters is allowed. Also noted down the value.
@@ -86,9 +86,6 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 ## Generate X.509 certificate
 
 The [attestation mechanism](/azure/iot-dps/concepts-device#attestation-mechanism) used by this sample is X.509 certificate. You need to use a utility to generate it.
-
-> [!NOTE]
-> The X.509 certificate generator only supports Windows now.
 
 1. In VS Code, click `F1`, type and select **Open New Terminal** to open terminal window.
 

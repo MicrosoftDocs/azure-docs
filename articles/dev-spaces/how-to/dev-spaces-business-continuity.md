@@ -1,13 +1,11 @@
 ---
-title: "Business continuity and disaster recovery in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
+title: "Business continuity and disaster recovery"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 author: "lisaguthrie"
 ms.author: "lcozzens"
 ms.date: "01/28/2019"
 ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "Learn to use Azure Dev Spaces and Azure Kubernetes Services to provide business continuity and prepare for disaster recovery"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 manager: gwallace
 ---
@@ -23,21 +21,11 @@ Enabling Dev Spaces on AKS clusters in different regions allows you to resume us
 
 For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
-### Enable Dev Spaces via the Azure portal
-
-Click the **Dev Spaces** navigation item under the properties of each cluster in the Azure portal. Then choose the option to enable Dev Spaces.
-
-![Enabling Dev Spaces via Azure portal](../media/common/enable-dev-spaces.jpg)
-
-Repeat this process for each cluster.
-
 ### Enable Dev Spaces via the Azure CLI
 
 You can also enable Dev Spaces at the command line:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -49,11 +37,11 @@ You should deploy the most recent versions of your baseline set of services to c
 
 ## Select the correct AKS cluster to use for Dev Spaces
 
-Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in Dev Spaces.
+Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in child dev spaces.
 
 Select a different cluster with the following CLI command:
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

@@ -1,17 +1,8 @@
 ---
-title: Tutorial-Create, debug, deploy, and monitor a multi-service application to Service Fabric Mesh | Microsoft Docs
+title: Create, deploy a multi-service app to Service Fabric Mesh 
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
@@ -358,7 +349,8 @@ Navigate in **Solution Explorer** to the **ToDoService** project and open **Serv
 
 ![Figure 1 - The ToDoService service.yaml file](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* The service name, `ToDoService`, is found under `services:` See (1) in the figure above.
+ The service name, `ToDoService`, is found under `services:` See (1) in the figure above.
+
 * The port, `80`, is found under `endpoints:` See (2) in the figure above. Your project's port number will probably be different.
 
 Next, we need to define environment variables representing the service name and port number in the WebFrontEnd project so it can call the back-end service.

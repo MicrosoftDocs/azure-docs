@@ -1,19 +1,14 @@
 ---
-title: Troubleshoot Azure point-to-site connection problems| Microsoft Docs
+title: 'Troubleshoot Azure point-to-site connection problems'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: cshepard
-editor: ''
-tags: ''
+
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 03/26/2020
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -43,8 +38,7 @@ To resolve this problem, follow these steps:
     | Certificate | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
 3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
@@ -80,7 +74,7 @@ To prepare Windows 10 or Server 2016 for IKEv2:
    | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
+2. Set the registry key value. Create or set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD key in the registry to 1.
 
 ## VPN client error: The message received was unexpected or badly formatted
 
@@ -247,32 +241,6 @@ To resolve this problem, re-download and redeploy the Point to Site package on a
 
 The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
-## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
-
-### Symptom
-
-When you dial the VPN connection on the point-to-site client, the VPN client should add a route toward the Azure virtual network. The IP helper service should add a route for the subnet of the VPN clients. 
-
-The VPN client range belongs to a smaller subnet of 10.0.0.0/8, such as 10.0.12.0/24. Instead of a route for 10.0.12.0/24, a route for 10.0.0.0/8 is added that has higher priority. 
-
-This incorrect route breaks connectivity with other on-premises networks that might belong to another subnet within the 10.0.0.0/8 range, such as 10.50.0.0/24, that don't have a specific route defined. 
-
-### Cause
-
-This behavior is by design for Windows clients. When the client uses the PPP IPCP protocol, it obtains the IP address for the tunnel interface from the server (the VPN gateway in this case). However, because of a limitation in the protocol, the client does not have the subnet mask. Because there is no other way to get it, the client tries to guess the subnet mask based on the class of the tunnel interface IP address. 
-
-Therefore, a route is added based on the following static mapping: 
-
-If address belongs to class A --> apply /8
-
-If address belongs to class B --> apply /16
-
-If address belongs to class C --> apply /24
-
-### Solution
-
-Have routes for other networks be injected in the routing table with longest prefix match or lower metric (hence higher priority) than the Point to Site. 
-
 ## VPN client cannot access network file shares
 
 ### Symptom
@@ -310,7 +278,7 @@ When the client connects to Azure by using point-to-site VPN connection, it cann
 
 ### Cause
 
-Point-to-site VPN client uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client, so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
+Point-to-site VPN client normally uses Azure DNS servers that are configured in the Azure virtual network. The Azure DNS servers take precedence over the local DNS servers that are configured in the client (unless the metric of the Ethernet interface is lower), so all DNS queries are sent to the Azure DNS servers. If the Azure DNS servers do not have the records for the local resources, the query fails.
 
 ### Solution
 
@@ -367,6 +335,19 @@ Update the NIC driver:
 4. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 5. Restart the computer and try the connection again.
 
+## VPN Client Error: Dialing VPN connection <VPN Connection Name>, Status = VPN Platform did not trigger connection
+
+You may also see the following error in Event Viewer from RasClient: "The user <User> dialed a connection named <VPN Connection Name> which has failed. The error code returned on failure is 1460."
+
+### Cause
+
+The Azure VPN Client does not have the "Background apps" App Permission enabled in App Settings for Windows.
+
+### Solution
+
+1. In Windows, go to Settings -> Privacy -> Background apps
+2. Toggle the "Let apps run in the background" to On
+
 ## Error: 'File download error Target URI is not specified'
 
 ### Cause
@@ -377,7 +358,7 @@ This is caused by an incorrect gateway type is configured.
 
 The Azure VPN gateway type must be VPN and the VPN type must be **RouteBased**.
 
-## VPN package installer doesn’t complete
+## VPN package installer doesn't complete
 
 ### Cause
 

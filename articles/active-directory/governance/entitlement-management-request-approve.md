@@ -1,6 +1,6 @@
 ---
-title: Approve or deny access requests in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management (Preview).
+title: Approve or deny access requests - Azure AD entitlement management
+description: Learn how to use the My Access portal to approve or deny requests to an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a approver, I want steps for how to approve requests for access packages so that I can unlock requestors who need to use the resoruces.
 
 ---
-# Approve or deny access requests in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Approve or deny access requests in Azure AD entitlement management
 
 With Azure AD entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
 
@@ -38,7 +33,7 @@ The first step to approve or deny access requests is to find and open the access
 
 1. Look for an email from Microsoft Azure that asks you to approve or deny a request. Here is an example email:
 
-    ![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
+    ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
 1. Click the **Approve or deny request** link to open the access request.
 
@@ -46,7 +41,7 @@ The first step to approve or deny access requests is to find and open the access
 
 If you don't have the email, you can find the access requests pending your approval by following these steps.
 
-1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
+1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (For US Government, the domain in the My Access portal link will be `myaccess.microsoft.us`.)
 
 1. In the left menu, click **Approvals** to see a list of access requests pending approval.
 
@@ -68,7 +63,7 @@ After you open an access request pending approval, you can see details that will
 
 1. If necessary, enter a reason.
 
-    ![My Access portal - Access request](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![My Access portal - Access request](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Click **Submit** to submit your decision.
 

@@ -1,18 +1,10 @@
 ---
-title: Use SSH keys with Windows for Linux VMs | Microsoft Docs
+title: Use SSH keys with Windows for Linux VMs 
 description: Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
@@ -44,7 +36,7 @@ You can also use the SSH utilities available in Bash in the [Azure Cloud Shell](
 * Access Cloud Shell as a terminal from within Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## Create an SSH key pair
-The following sections describe two options to create an SSH key pair on Windows. You can use a shell command (`ssh-keygen`) or a GUI tool (PuTTYgen).
+The following sections describe two options to create an SSH key pair on Windows. You can use a shell command (`ssh-keygen`) or a GUI tool (PuTTYgen). Also note, when using Powershell to create a key, upload the public key as ssh.com(SECSH) format. When using CLI, convert the key into OpenSSH format prior to uploading. 
 
 ### Create SSH keys with ssh-keygen
 

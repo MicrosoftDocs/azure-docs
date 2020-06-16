@@ -1,5 +1,5 @@
 ---
-title: Copy data between Azure Data Lake Storage Gen1 and Azure SQL database using Sqoop | Microsoft Docs
+title: Copy data between Data Lake Storage Gen1 and Azure SQL - Sqoop | Microsoft Docs
 description: Use Sqoop to copy data between Azure SQL Database and Azure Data Lake Storage Gen1
 services: data-lake-store
 author: twooley
@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
 ## Create sample tables in the Azure SQL database
 
-1. To start, create two sample tables in the Azure SQL database. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
+1. To start, create two sample tables in the Azure SQL database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
 
     **Create Table1**
 
@@ -113,7 +113,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
+1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
        SELECT * FROM TABLE2
 

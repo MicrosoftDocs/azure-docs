@@ -53,9 +53,9 @@ All editions of Azure AD provide you with users flagged for risk and risky sign-
 
 - In the **Azure Active Directory Free and Basic editions**, you get a list of users flagged for risk and risky sign-ins. 
 
-- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
+- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk detections that have been detected for each report. 
 
-- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about the underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
+- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about the underlying risk detections and it also enables you to configure security policies that automatically respond to configured risk levels.
 
 
 ## Activity reports

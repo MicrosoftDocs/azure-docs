@@ -4,16 +4,17 @@ description: This article provides a set of best practices for data security and
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
 
 ---
@@ -92,7 +93,7 @@ Organizations that don’t enforce data encryption are more exposed to data-conf
 
 Protecting data in transit should be an essential part of your data protection strategy. Because data is moving back and forth from many locations, we generally recommend that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you might want to isolate the entire communication channel between your on-premises and cloud infrastructures by using a VPN.
 
-For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/).
+For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](../../vpn-gateway/index.yml).
 
 Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
 
@@ -103,7 +104,7 @@ Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and H
 **Detail**: Use [point-to-site VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 **Best practice**: Move larger data sets over a dedicated high-speed WAN link.   
-**Detail**: Use [ExpressRoute](/azure/expressroute/expressroute-introduction). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
+**Detail**: Use [ExpressRoute](/azure/expressroute/expressroute-introduction). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for added protection.
 
 **Best practice**: Interact with Azure Storage through the Azure portal.   
 **Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/).

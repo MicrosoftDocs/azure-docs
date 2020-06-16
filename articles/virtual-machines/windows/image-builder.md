@@ -4,9 +4,9 @@ description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 07/31/2019
-ms.topic: article
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
+ms.subservice: imaging
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
@@ -159,7 +159,7 @@ az resource delete \
 ```
 
 ## Start the image build
-Start the image building process using [az resource invoke-action](/cli/azure/resourceaz-resource-invoke-action).
+Start the image building process using [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action).
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -205,6 +205,7 @@ You should see these two directories created during image customization:
 When you are done, delete the resources.
 
 ### Delete the image builder template
+
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -213,6 +214,7 @@ az resource delete \
 ```
 
 ### Delete the image resource group
+
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```

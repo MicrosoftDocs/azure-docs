@@ -1,19 +1,12 @@
 ---
-title: 'Connect virtual network to another VNet using a VNet-to-VNet connection: Azure CLI | Microsoft Docs'
+title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 

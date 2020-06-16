@@ -1,13 +1,8 @@
 ---
-title: Sample - UK OFFICIAL and UK NHS blueprints - Control mapping
-description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 06/26/2019
-ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
+title: UK OFFICIAL & UK NHS blueprint sample controls
+description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
+ms.date: 05/08/2020
+ms.topic: sample
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
@@ -21,6 +16,18 @@ open **Policy** in the Azure portal and select the **Definitions** page. Then, f
 Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit
 requirements** built-in policy initiative.
 
+> [!IMPORTANT]
+> Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
+> definitions. These policies may help you [assess compliance](../../../policy/how-to/get-compliance-data.md)
+> with the control; however, there often is not a 1:1 or complete match between a control and one or
+> more policies. As such, **Compliant** in Azure Policy refers only to the policies themselves; this
+> doesn't ensure you're fully compliant with all requirements of a control. In addition, the
+> compliance standard includes controls that aren't addressed by any Azure Policy definitions at
+> this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
+> status. The associations between controls and Azure Policy definitions for this compliance
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
+
 ## 1 Data in transit protection
 
 The blueprint helps you ensure information transfer with Azure services is secure by assigning [Azure Policy](../../../policy/overview.md)
@@ -28,6 +35,8 @@ definitions that audit insecure connections to storage accounts and Redis Cache.
 
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
+- Show audit results from Windows web servers that are not using secure communication protocols
+- Deploy prerequisites to audit Windows web servers that are not using secure communication protocols
 
 ## 2.3 Data at rest protection
 
@@ -41,10 +50,8 @@ encryption on storage accounts, SQL databases, virtual machine disks, and automa
 variables; audit insecure connections to storage accounts and Redis Cache; audit weak virtual
 machine password encryption; and audit unencrypted Service Fabric communication.
 
-- Monitor unencrypted SQL databases in Azure Security Center
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
-- Secure transfer to storage accounts should be enabled
 - Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
 - Transparent Data Encryption on SQL databases should be enabled
 - Deploy SQL DB transparent data encryption
@@ -62,25 +69,49 @@ prioritize remediation actions.
 
 - Monitor missing Endpoint Protection in Azure Security Center
 - System updates should be installed on your machines
+- System updates on virtual machine scale sets should be installed
 - Vulnerabilities in security configuration on your machines should be remediated
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
+- Vulnerability assessment should be enabled on your SQL servers
+- Vulnerability assessment should be enabled on your SQL managed instances
+- Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
+- Advanced data security should be enabled on your SQL managed instances
+- Advanced data security should be enabled on your SQL servers
 
 ## 5.3 Protective Monitoring
 
 This blueprint helps you protect information system assets by assigning [Azure Policy](../../../policy/overview.md)
-definitions that provide protective monitoring on unrestricted access, whitelist activity, and threats.
+definitions that provide protective monitoring on unrestricted access, allow list activity, and threats.
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
+- Audit virtual machines without disaster recovery configured
+- DDoS Protection Standard should be enabled
+- Advanced Threat Protection types should be set to 'All' in SQL managed instance Advanced Data Security settings
+- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings
 - Deploy Threat Detection on SQL servers
-- Deploy default Microsoft IaaS Anti-malware extension for Windows Server
+- Deploy default Microsoft IaaSAntimalware extension for Windows Server
 
-## 9 Secure User Management / 10 Identity and Authentication
+## 9 Secure User Management 
 
 Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
 permissions. This blueprint helps you restrict and control access rights by assigning
+[Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
+and/or read/write permissions and accounts with owner, read and/or write permissions that do not have
+multi-factor authentication enabled.
+
+- MFA should be enabled on accounts with owner permissions on your subscription
+- MFA should be enabled accounts with write permissions on your subscription
+- MFA should be enabled on accounts with read permissions on your subscription
+- External accounts with owner permissions should be removed from your subscription
+- External accounts with write permissions should be removed from your subscription
+- External accounts with read permissions should be removed from your subscription
+
+## 10 Identity and Authentication
+
+This blueprint helps you restrict and control access rights by assigning
 [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
 and/or read/write permissions and accounts with owner, read and/or write permissions that do not have
 multi-factor authentication enabled.
@@ -113,23 +144,23 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that
 audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of
 VMs in violation of the password strength policy helps you take corrective actions to ensure
 passwords for all VM user accounts are compliant with policy.
 
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
+- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
 
 This blueprint also helps you control access to Azure resources by assigning Azure Policy
 definitions. These policies audit use of resource types and configurations that may allow more
@@ -138,8 +169,8 @@ help you take corrective actions to ensure access Azure resources is restricted 
 
 - \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
 - \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- \[Preview\]: Audit Linux VMs that have accounts without passwords
-- \[Preview\]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that have accounts without passwords
+- \[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
 - Virtual machines should be migrated to new Azure Resource Manager resources
 - Audit VMs that do not use managed disks
@@ -154,6 +185,16 @@ also assigns a policy that enables adaptive application controls on virtual mach
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
+- Access through Internet facing endpoint should be restricted
+- Adaptive Network Hardening recommendations should be applied on internet facing virtual machines
+- Endpoint protection solution should be installed on virtual machine scale sets
+- Just-In-Time network access control should be applied on virtual machines
+- Remote debugging should be turned off for Function App
+- Remote debugging should be turned off for Web Application
+- Remote debugging should be turned off for API App
+- Web Application should only be accessible over HTTPS
+- Function App should only be accessible over HTTPS
+- API App should only be accessible over HTTPS
 
 ## 12 Secure Service Administration
 
@@ -166,7 +207,7 @@ multi-factor authentication enabled.
 
 Systems used for administration of a cloud service will have highly privileged access to that
 service. Their compromise would have significant impact, including the means to bypass security
-controls and steal or manipulate large volumes of data. The methods used by the service provider’s
+controls and steal or manipulate large volumes of data. The methods used by the service provider's
 administrators to manage the operational service should be designed to mitigate any risk of
 exploitation that could undermine the security of the service. If this principle isn't implemented,
 an attacker may have the means to bypass security controls and steal or manipulate large volumes of
@@ -200,7 +241,7 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- \[Preview\]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 ## 13 Audit Information for Users
 
@@ -208,9 +249,8 @@ This blueprint helps you ensure system events are logged by assigning [Azure Pol
 definitions that audit log settings on Azure resources. An assigned policy also audits if virtual
 machines aren't sending logs to a specified log analytics workspace.
 
-- Monitor unaudited SQL servers in Azure Security Center
+- Advanced data security should be enabled on your SQL servers
 - Audit diagnostic setting
-- Audit SQL server level Auditing settings
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Deploy network watcher when virtual networks are created
@@ -224,9 +264,9 @@ following articles to learn about the overview and how to deploy this sample:
 > [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
 > [UK OFFICIAL and UK NHS blueprints - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

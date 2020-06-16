@@ -1,14 +1,13 @@
 ---
 title: Azure Event Grid subscription schema
-description: Describes the properties for subscribing to an event with Azure Event Grid.
+description: This article describes the properties for subscribing to an event with Azure Event Grid. Event Grid subscription schema. 
 services: event-grid
-author: banisadr
-manager: timlt
+author: femila
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/02/2019
-ms.author: babanisa
+ms.date: 01/23/2020
+ms.author: femila
 ---
 
 # Event Grid subscription schema
@@ -64,7 +63,7 @@ The Event Subscription name must be 3-64 characters in length and can only conta
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

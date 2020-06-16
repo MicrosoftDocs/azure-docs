@@ -1,17 +1,16 @@
 ---
-title: Hide an application from user's experience in Azure Active Directory | Microsoft Docs
+title: Hide an application from user's experience in Azure AD
 description: How to hide an application from user's experience in Azure Active Directory access panels or Office 365 launchers.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.author: mimart
+ms.topic: how-to
+ms.date: 03/25/2020
+ms.author: kenwith
 ms.reviewer: kasimpso
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,6 +37,19 @@ Use the following steps to hide an application from MyApps panel and Office 365 
 7.	For the **Visible to users?** question, click **No**.
 8.	Click **Save**.
 
+## Use Azure AD PowerShell to hide an application
+
+To hide an application from the MyApps panel, you can manually add the HideApp tag to the service principal for the application. Run the following [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) commands to set the application's **Visible to Users?** property to **No**. 
+
+```PowerShell
+Connect-AzureAD
+
+$objectId = "<objectId>"
+$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
+$tags = $servicePrincipal.tags
+$tags += "HideApp"
+Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
+```
 
 ## Hide Office 365 applications from the MyApps panel
 
@@ -49,7 +61,6 @@ Use the following steps to hide all Office 365 applications from the MyApps pane
 4.	Under **Enterprise applications**, click **Manage how end users launch and view their applications.**
 5.	For **Users can only see Office 365 apps in the Office 365 portal**, click **Yes**.
 6.	Click **Save**.
-
 
 ## Next steps
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)

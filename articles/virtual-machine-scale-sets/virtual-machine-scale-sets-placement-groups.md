@@ -1,21 +1,14 @@
 ---
-title: Working with large Azure Virtual Machine Scale Sets | Microsoft Docs
-description: What you need to know to use large Azure virtual machine scale sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: rajsqr
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Working with large Azure Virtual Machine Scale Sets
+description: What you need to know about large Azure virtual machine scale sets in order to use them in your application.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 11/9/2017
-ms.author: jeconnoc
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Working with large virtual machine scale sets
@@ -48,16 +41,19 @@ When you create a scale set in the Azure portal, just specify the *Instance coun
 
 You can create a large virtual machine scale set using the [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ command. This command sets intelligent defaults such as subnet size based on the _instance-count_ argument:
 
-```bash
+```azurecli
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
+
 The _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override, try:
-```bash
+
+```azurecli
 az vmss create --help
 ```
 
 If you are creating a large scale set by composing an Azure Resource Manager template, make sure the template creates a scale set based on Azure Managed Disks. You can set the _singlePlacementGroup_ property to _false_ in the _properties_ section of the _Microsoft.Compute/virtualMachineScaleSets_ resource. The following JSON fragment shows the beginning of a scale set template, including the 1,000 VM capacity and the _"singlePlacementGroup" : false_ setting:
+
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -74,6 +70,7 @@ If you are creating a large scale set by composing an Azure Resource Manager tem
       "mode": "Automatic"
     }
 ```
+
 For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## Converting an existing scale set to span multiple placement groups

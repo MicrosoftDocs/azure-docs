@@ -1,18 +1,12 @@
 ---
 title: Container Monitoring solution in Azure Monitor | Microsoft Docs
 description: The Container Monitoring solution in Azure Monitor helps you view and manage your Docker and Windows container hosts in a single location.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/22/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 07/22/2019
+
 ---
 
 # Container Monitoring solution in Azure Monitor
@@ -197,11 +191,11 @@ In this section we cover the steps required to install the Log Analytics agent a
 2. Run the following commands to create a project for Azure Monitor and set the user account.
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. To deploy the daemon-set, run the following:
@@ -236,11 +230,11 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID `<WSID>` and Primary Key `<KEY>` and upon completion, it creates the ocp-secret.yaml file.  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
 3. Deploy the secret file by running the following:
@@ -251,7 +245,32 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 
     `oc describe secret omsagent-secret`  
 
-    and the  output should resemble:  
+    and the output should resemble:  
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
+    ```
+
+5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+
+6. Verify deployment by running the following:
+
+    `oc describe ds oms`
+
+    and the output should resemble:
 
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
@@ -267,31 +286,6 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     Number of Nodes Misscheduled: 0  
     Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
     No events.  
-    ```
-
-5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
-
-    `oc create -f ocp-ds-omsagent.yaml`  
-
-6. Verify deployment by running the following:
-
-    `oc describe ds oms`
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-     Data  
-     ====  
-     KEY:    89 bytes  
-     WSID:   37 bytes  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes

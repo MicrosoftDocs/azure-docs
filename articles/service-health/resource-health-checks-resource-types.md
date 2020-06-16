@@ -1,11 +1,7 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
-ms.topic: conceptual 
 ms.date: 01/29/2019
 ---
 
@@ -22,7 +18,12 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the Api Management service up and running?</li></ul>|
 
-## Microsoft.CacheRedis/Redis
+## Microsoft.Batch/batchAccounts
+|Executed Checks|
+|---|
+|<ul><li>Is the Batch account up and running?</li><li>Has the pool quota been exceeded for this batch account?</li></ul>|
+
+## Microsoft.Cache/Redis
 |Executed Checks|
 |---|
 |<ul><li>Are all the Cache nodes up and running?</li><li>Can the Cache be reached from within the datacenter?</li><li>Has the Cache reached the maximum number of connections?</li><li> Has the cache exhausted its available memory? </li><li>Is the Cache experiencing a high number of page faults?</li><li>Is the Cache under heavy load?</li></ul>|
@@ -35,17 +36,22 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
 |<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
+## Microsoft.compute/hostgroups/hosts
+|Executed Checks|
+|---|
+|<ul><li>Is the host up and  running</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
+
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
 ## Microsoft.datafactory/factories
 |Executed Checks|
@@ -67,6 +73,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Has the database migration service failed to provision?</li><li>Has the database migration service stopped due to inactivity or user request?</li></ul>|
+
+## Microsoft.DataShare/accounts
+|Executed Checks|
+|---|
+|<ul><li>Is the Data Share account up and running?</li><li>Is the cluster hosting the Data Share available?</li></ul>|
 
 ## Microsoft.DBforMariaDB/servers
 |Executed Checks|
@@ -108,6 +119,16 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
 
+## Microsoft.MachineLearning/webServices
+|Executed Checks|
+|---|
+|<ul><li>Is the web service up and running?</li></ul>|
+
+## Microsoft.Media/mediaservices
+|Executed Checks|
+|---|
+|<ul><li>Is the media service up and running?</li></ul>|
+
 ## Microsoft.network/applicationgateways
 |Executed Checks|
 |---|
@@ -118,7 +139,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
 
-## Microsoft.network/expressreoutecircuits
+## Microsoft.network/expressroutecircuits
 |Executed Checks|
 |---|
 |<ul><li>Is the ExpressRoute circuit healthy?</li></ul>|
@@ -127,6 +148,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are Front Door backends responding with errors to health probes?</li><li>Are configuration changes delayed?</li></ul>|
+
+## Microsoft.network/LoadBalancers
+|Executed Checks|
+|---|
+|<ul><li>Are the load balancing endpoints available?</li></ul>|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
@@ -163,10 +189,20 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
 
-## Microsoft.SQL/Server/database
+## Microsoft.ServiceFabric/clusters
 |Executed Checks|
 |---|
-|<ul><li> Have there been logins to the database?</li></ul>|
+|<ul><li>Is the Service Fabric cluster up and running?</li><li>Can the Service Fabric cluster be managed through Azure Resource Manager?</li></ul>|
+
+## Microsoft.SQL/managedInstances/databases
+|Executed Checks|
+|---|
+|<ul><li>Is the database up and running?</li></ul>|
+
+## Microsoft.SQL/servers/databases
+|Executed Checks|
+|---|
+|<ul><li>Have there been logins to the database?</li></ul>|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|
@@ -188,7 +224,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
-# Next Steps
+## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

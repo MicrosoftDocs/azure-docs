@@ -1,14 +1,8 @@
 ---
-title: Tutorial - Deploy a multi-container group in Azure Container Instances - template 
+title: Tutorial - Deploy multi-container group - template 
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -112,11 +106,11 @@ This Resource Manager template defines a container group with two containers, a 
           "ports": [
             {
               "protocol": "tcp",
-              "port": "80"
+              "port": 80
             },
             {
                 "protocol": "tcp",
-                "port": "8080"
+                "port": 8080
             }
           ]
         }

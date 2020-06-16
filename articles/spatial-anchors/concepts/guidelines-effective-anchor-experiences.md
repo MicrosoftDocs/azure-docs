@@ -1,5 +1,5 @@
 ---
-title: Guidelines for effective anchor experiences that use Azure Spatial Anchors | Microsoft Docs
+title: Guidelines for effective anchor experiences
 description: Guidelines and considerations to create and locate anchors effectively by using Azure Spatial Anchors.
 author: mattwojo
 manager: jken
@@ -13,11 +13,15 @@ ms.service: azure-spatial-anchors
 
 # Create an effective anchor experience by using Azure Spatial Anchors
 
-This article provides guidelines and considerations to help you effectively create and locate anchors by using Spatial Anchors.
+This article provides guidelines and considerations to help you effectively create and locate anchors by using Azure Spatial Anchors.
+
+## Anchor improvement over time
+
+With Azure Spatial Anchors, each time you locate anchors, we attempt to improve the quality of future locate operations. We do this by using the environment data collected to augment the visual information on the anchors we are looking for. This process runs under the hood and is an offline optimization run by the Azure Spatial Anchors service to optimize for your environment. The additional data gathered during each operation builds a stronger understanding of the environment. This improves quality and allows you to better locate anchors through environment change, time passing, and for users looking at anchors from different angles and perspectives.
 
 ## Good anchors
 
-Spatial Anchors helps you create good anchors. It's important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
+While Azure Spatial Anchors does attempt to improve the quality of anchors over time, it is also important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
 
 - Across different devices.
 - At various times.
@@ -36,7 +40,7 @@ For dynamic locations, you should think about how you teach or guide users in yo
 
 ## Stable visual features
 
-Visual tracking systems used on mixed-reality and augmented-reality devices rely on visual features of the environment. To get the most reliable experience:  
+Visual tracking systems used on mixed-reality and augmented-reality devices rely on visual features of the environment. To get the most reliable experience:
 
 - *Do* create anchors in locations that have stable visual features (that is, features that don't change often).
 
@@ -58,9 +62,9 @@ In general, when creating an anchor, scan it from the perspectives of the people
 
 ## Multiple anchors
 
-Lighting can make a difference in the visual features that an app detects. Anchors created in strong natural light might be hard to locate in artificial light, and vice versa.  
+Lighting can make a difference in the visual features that an app detects. Anchors created in strong natural light might be hard to locate in artificial light, and vice versa.
 
-If you have this issue, it can help to create two anchors. At the same spot, create one anchor in the daylight and another in artificial light. Your app can then query for both anchors. When either anchor is located, the app will have a pose for the anchor. 
+If you have this issue, it can help to create two anchors. At the same spot, create one anchor in the daylight and another in artificial light. Your app can then query for both anchors. When either anchor is located, the app will have a pose for the anchor.
 
 Similarly, in environments where the visual features change because most objects move, multiple anchors can help. When an anchor becomes too difficult to find because of significant changes in the environment, you can replace the anchor with a new one. You might do this, for example, in a retail store where the layout is refreshed every few months.
 
@@ -70,7 +74,7 @@ In many cases, an anchor is an entry point to your app's experience. You'll want
 
 ### Targets
 
-In the target scenario, the location of an anchor is well known. For example, in a fictional mixed-reality painting app, one user places a virtual canvas on the wall. She instructs the other users in the room to point their devices at the same place on the wall to locate the anchor and begin the experience.  
+In the target scenario, the location of an anchor is well known. For example, in a fictional mixed-reality painting app, one user places a virtual canvas on the wall. She instructs the other users in the room to point their devices at the same place on the wall to locate the anchor and begin the experience.
 
 Another example of a target scenario might be a sign in a coffee shop that reads, “Scan for deals.” The coffee shop has placed an anchor here. As users scan the sign, they locate the anchor and enter the augmented-reality experience to find deals on coffee.
 
@@ -96,11 +100,11 @@ Visual tracking systems rely on the visual features in an environment. The more 
 
 Follow the general guidelines in this section to build a UX that encourages a useful scan of the environment.
 
-First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better.
+First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better, as it will increase the likelihood that an anchor is located, and it will also collect more environment data that will be used to improve the quality of the anchor.
 
 For target scenarios, ask the user to move around the target to view it from different perspectives. In other words, ask the user to capture the target from new perspectives until the anchor is located.
 
-For room scenarios, ask the user to slowly scan the room. For example, ask the user to turn to capture 180 degrees or even 360 degrees of the room. Or ask the user to view the room from a new perspective. 
+For room scenarios, ask the user to slowly scan the room. For example, ask the user to turn to capture 180 degrees or even 360 degrees of the room. Or ask the user to view the room from a new perspective.
 
 The most meaningful method is to scan across the room. A scan across the room captures more visual features of the environment than a scan of a nearby wall, for example. A scan of a nearby wall won't capture as many useful visual features of the environment.
 

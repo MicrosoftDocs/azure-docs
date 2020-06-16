@@ -1,59 +1,55 @@
 ---
-title: Troubleshoot errors onboarding Update Management, Change Tracking, and Inventory
-description: Learn how to troubleshoot onboarding errors with the Update Management, Change Tracking, and Inventory solutions
+title: Troubleshoot Azure Automation feature deployment issues
+description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
-# Troubleshoot errors when onboarding solutions
+# Troubleshoot feature deployment issues
 
-You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
+You might receive error messages when you deploy the Azure Automation Update Management feature or the Change Tracking and Inventory feature on your VMs. This article describes the errors that might occur and how to resolve them.
 
 ## Known issues
 
-### <a name="node-rename"></a>Scenario: Renaming a registered node requires unregister / register again
+### <a name="node-rename"></a>Scenario: Renaming a registered node requires unregister or register again
 
 #### Issue
 
-A node is registered to Azure Automation and then the operating system computername is changed.  Reports from the node
-continue to appear with the original name.
+A node is registered to Azure Automation, and then the operating system computer name is changed. Reports from the node continue to appear with the original name.
 
 #### Cause
 
-Renaming registered nodes does not update the node name in Azure Automation.
+Renaming registered nodes doesn't update the node name in Azure Automation.
 
 #### Resolution
 
-Unregister the node from Azure Automation State Configuration and then register it again.  Reports published to the 
-service before that time will no longer be available.
+Unregister the node from Azure Automation State Configuration, and then register it again. Reports published to the service before that time will no longer be available.
 
-
-### <a name="resigning-cert"></a>Scenario: Re-signing certificates via https proxy is not supported
+### <a name="resigning-cert"></a>Scenario: Re-signing certificates via HTTPS proxy isn't supported
 
 #### Issue
 
-Customers have reported that when connecting through a proxy solution that terminates https traffic and then
-re-encrypts traffic using a new certificate, the service does not allow the connection.
+When you connect through a proxy that terminates HTTPS traffic and then re-encrypts the traffic using a new certificate, the service doesn't allow the connection.
 
 #### Cause
 
-Azure Automation does not support re-signing certificates used to encrypt traffic.
+Azure Automation doesn't support re-signing certificates used to encrypt traffic.
 
 #### Resolution
 
-There is no workaround for this issue.
+There's currently no workaround for this issue.
 
 ## General errors
 
-### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
+### <a name="missing-write-permissions"></a>Scenario: Feature deployment fails with the message "The solution cannot be enabled"
 
 #### Issue
 
-You receive one of the following messages when you attempt to onboard a virtual machine to a solution:
+You receive one of the following messages when you attempt to enable a feature on a VM:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -65,17 +61,17 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 #### Cause
 
-This error is caused by incorrect or missing permissions on the virtual machine, the workspace, or for the user.
+This error is caused by incorrect or missing permissions on the VM or workspace, or for the user.
 
 #### Resolution
 
-Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again. If you receive the error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is onboarded to a workspace.
+Ensure that you have correct [feature deployment permissions](../automation-role-based-access-control.md#feature-setup-permissions), and then try to deploy the feature again. If you receive the error message `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure that you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is enabled for a workspace.
 
-### <a name="diagnostic-logging"></a>Scenario: Onboarding fails with the message - Failed to configure Automation Account for diagnostic logging
+### <a name="diagnostic-logging"></a>Scenario: Feature deployment fails with the message "Failed to configure automation account for diagnostic logging"
 
 #### Issue
 
-You receive the following message when you attempt to onboard a virtual machine to a solution:
+You receive the following message when you attempt to enable a feature on a VM:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -87,49 +83,48 @@ This error can be caused if the pricing tier doesn't match the subscription's bi
 
 #### Resolution
 
-Create your Log Analytics workspace manually and repeat the onboarding process to select the workspace created.
+Create your Log Analytics workspace manually, and repeat the feature deployment process to select the workspace created.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
-This error code means that the saved search computer group query used to target the solution was not formatted correctly. 
+This error code means that the saved search computer group query used to target the feature isn't formatted correctly. 
 
 #### Cause
 
-You may have altered the query, or it may have been altered by the system.
+You might have altered the query, or the system might have altered it.
 
 #### Resolution
 
-You can delete the query for this solution, and reonboard the solution, which recreates the query. The query can be found within your workspace, under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the solution associated with this query. If multiple solutions are enabled, the **MicrosoftDefaultComputerGroup** shows multiple times under **Saved Searches**.
+You can delete the query for the feature and then enable the feature again, which re-creates the query. The query can be found in your workspace under **Saved searches**. The name of the query is **MicrosoftDefaultComputerGroup**, and the category of the query is the name of the associated feature. If multiple features are enabled, the **MicrosoftDefaultComputerGroup** query shows multiple times under **Saved searches**.
 
 ### <a name="policy-violation"></a>Scenario: PolicyViolation
 
 #### Issue
 
-This error code means that the deployment failed due to violation of one or more policies.
+This error code indicates that the deployment failed due to violation of one or more policies.
 
 #### Cause 
 
-A policy is in place that is blocking the operation from completing.
+A policy is blocking the operation from completing.
 
 #### Resolution
 
-In order to successfully deploy the solution, you need to consider altering the indicated policy. As there are many different types of policies that can be defined, the specific changes required depend on the policy that is violated. For example, if a policy was defined on a resource group that denied permission to change the contents of certain types of resources within that resource group, you could, for example, do any of the following:
+To successfully deploy the feature, you must consider altering the indicated policy. Because there are many different types of policies that can be defined, the changes required depend on the policy that's violated. For example, if a policy is defined on a resource group that denies permission to change the contents of some contained resources, you might choose one of these fixes:
 
 * Remove the policy altogether.
-* Try to onboard to a different resource group.
-* Revise the policy, by, for example:
-  * Re-targeting the policy to a specific resource (such as to a specific Automation account).
-  * Revising the set of resources that policy was configured to deny.
+* Try to enable the feature for a different resource group.
+* Retarget the policy to a specific resource, for example, an Automation account.
+* Revise the set of resources that the policy is configured to deny.
 
-Check the notifications in the top-right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Check the notifications in the upper-right corner of the Azure portal, or go to the resource group that contains your Automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy, see [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ### <a name="unlink"></a>Scenario: Errors trying to unlink a workspace
 
 #### Issue
 
-You receive the following error when trying to unlink a workspace:
+You receive the following error message when you try to unlink a workspace:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -137,37 +132,33 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### Cause
 
-This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analtyics workspace being linked.
+This error occurs when you still have features active in your Log Analytics workspace that depend on your Automation account and Log Analytics workspace being linked.
 
 ### Resolution
 
-To resolve this you'll need to remove the following solutions from your Workspace if you are using them:
+Remove the resources for the following features from your workspace if you're using them:
 
 * Update Management
-* Change Tracking
+* Change Tracking and Inventory
 * Start/Stop VMs during off-hours
 
-Once you remove the solutions you can unlink your workspace. It is important to clean up any existing artifacts from those solutions from your workspace and Automation Account as well.  
+After you remove the feature resources, you can unlink your workspace. It's important to clean up any existing artifacts from these  features from your workspace and your Automation account:
 
-* Update Management
-  * Remove Update Deployments (Schedules) from your Automation Account
-* Start/Stop VMs during off-hours
-  * Remove any locks on solution components in your Automation Account under **Settings** > **Locks**.
-  * For additional steps to remove the Start/Stop VMs during off-hours solution see, [Remove the Start/Stop VM during off-hours solution](../automation-solution-vm-management.md##remove-the-solution).
+* For Update Management, remove **Update Deployments (Schedules)** from your Automation account.
+* For Start/Stop VMs during off-hours, remove any locks on feature components in your Automation account under **Settings** > **Locks**. For more information, see [Remove the feature](../automation-solution-vm-management.md#remove-the-feature).
 
-## <a name="mma-extension-failures"></a>MMA Extension failures
+## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-When deploying a solution, a variety of related resources are deployed. One of those resources is the Microsoft Monitoring Agent Extension or Log Analytics agent for Linux. These are Virtual Machine Extensions installed by the virtual machine’s Guest Agent that is responsible for communicating with the configured Log Analytics workspace, for the purpose of later coordination of the downloading of binaries and other files that the solution you're onboarding depend on once it begins execution.
-You typically first become aware of MMA or Log Analytics agent for Linux installation failures from a notification appearing in the Notifications Hub. Clicking on that notification gives further information about the specific failure. Navigation to the Resource Groups resource, and then to the Deployments element within it also provides details on the deployment failures that occurred.
-Installation of the MMA or Log Analytics agent for Linux can fail for a variety of reasons, and the steps to take to address these failures vary, depending on the issue. Specific troubleshooting steps follow.
+An installation of the Log Analytics agent for Windows extension can fail for a variety of reasons. The following section describes feature deployment issues that can cause failures during deployment of the Log Analytics agent for Windows extension.
 
-The following section describes various issues that you can come across when onboarding that cause a failure in the deployment of the MMA extension.
+>[!NOTE]
+>Log Analytics agent for Windows is the name used currently in Azure Automation for the Microsoft Monitoring Agent (MMA).
 
 ### <a name="webclient-exception"></a>Scenario: An exception occurred during a WebClient request
 
-The MMA extension on the virtual machine is unable to communicate with external resources and deployment fails.
+The Log Analytics for Windows extension on the VM is unable to communicate with external resources and the deployment fails.
 
 #### Issue
 
@@ -183,23 +174,22 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### Cause
 
-Some potential causes to this error are:
+Some potential causes of this error are:
 
-* There's a proxy configured in the VM, that only allows specific ports.
-
+* A proxy configured in the VM only allows specific ports.
 * A firewall setting has blocked access to the required ports and addresses.
 
 #### Resolution
 
-Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [planning your network](../automation-hybrid-runbook-worker.md#network-planning).
+Ensure that you have the proper ports and addresses open for communication. For a list of ports and addresses, see [Planning your network](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="transient-environment-issue"></a>Scenario: Install failed because of a transient environment issues
+### <a name="transient-environment-issue"></a>Scenario: Install failed because of transient environment issues
 
-The installation of the Microsoft Monitoring Agent extension failed during deployment because of another installation or action blocking the installation
+The installation of the Log Analytics for Windows extension failed during deployment because of another installation or action blocking the installation.
 
 #### Issue
 
-The following are examples of error messages may be returned:
+The following are examples of error messages that might be returned:
 
 ```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -215,22 +205,22 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### Cause
 
-Some potential causes to this error are:
+Some potential causes of this error are:
 
-* Another installation is in progress
-* The system is triggered to reboot during template deployment
+* Another installation is in progress.
+* The system is triggered to reboot during template deployment.
 
 #### Resolution
 
-This error is a transient error in nature. Retry the deployment to install the extension.
+This error is transient in nature. Retry the deployment to install the extension.
 
 ### <a name="installation-timeout"></a>Scenario: Installation timeout
 
-The installation of the MMA extension didn't complete because of a timeout.
+The installation of the Log Analytics for Windows extension didn't complete because of a timeout.
 
 #### Issue
 
-The following example is of an error message that may be returned:
+The following is an example of an error message that might be returned:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -238,16 +228,16 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### Cause
 
-This error occurs because the virtual machine being under a heavy load during installation.
+This type of error occurs because the VM is under a heavy load during installation.
 
 ### Resolution
 
-Attempt to install the MMA extension when the VM is under a lower load.
+Try to install the Log Analytics agent for Windows extension when the VM is under a lower load.
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
-* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-* If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

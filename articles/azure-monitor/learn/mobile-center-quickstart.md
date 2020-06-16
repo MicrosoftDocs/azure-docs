@@ -1,16 +1,14 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly set up a mobile app for monitoring with Application Insights and App Center
-services: application-insights
-keywords:
+title: Monitor mobile apps with Azure Monitor Application Insights
+description: Provides instructions to quickly set up a mobile app for monitoring with Azure Monitor Application Insights and App Center
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
+
 ms.reviewer: daviste
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start analyzing your mobile app with App Center and Application Insights
@@ -26,9 +24,12 @@ To complete this quickstart, you need:
  
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+## Sign up with App Center
+To begin, create an account and [sign up with App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
+
 ## Onboard to App Center
 
-Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received.
+Before you can use Application Insights with your mobile app, you need to onboard your app to [App Center](https://docs.microsoft.com/mobile-center/). Application Insights does not receive telemetry from your mobile app directly. Instead, your app sends custom event telemetry to App Center. Then, App Center continuously exports copies of these custom events into Application Insights as the events are received. (This does not apply to the [Application Insights JS SDK](https://github.com/Microsoft/ApplicationInsights-JS) or the [React Native plugin](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) where telemetry is sent directly to Application Insights.)
 
 To onboard your app, follow the App Center quickstart for each platform your app supports. Create separate App Center instances for each platform:
 

@@ -7,10 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
-ms.date: 06/04/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
+ms.localizationpriority: high
+
+# Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
+
+::: zone target = "docs"
 
 # Quickstart: Deploy Azure Data Box Heavy using the Azure portal
 
@@ -33,11 +37,7 @@ Before you begin, make sure that:
 
 ### For service
 
-Before you begin, make sure that:
-
-- You have your Microsoft Azure storage account with access credentials.
-- The subscription you use for Data Box service is [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- You have owner or contributor access to the subscription to create a Data Box Heavy order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
@@ -66,6 +66,16 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+## Cable and connect to your device
+
+After you have reviewed the prerequisites, you'll cable and connect to your device.
+
+::: zone-end
 
 ## Cable for power
 
@@ -102,6 +112,9 @@ This step takes about 5-7 minutes to complete.
 This step takes about 15-20 minutes to complete.
 
 Follow the steps used for the first node to cable and configure the second node on the device.  
+
+
+::: zone target = "docs"
 
 ## Copy data
 
@@ -154,3 +167,5 @@ In this quickstart, you’ve deployed a Data Box Heavy to help import your data 
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Heavy](data-box-portal-admin.md)
+
+::: zone-end

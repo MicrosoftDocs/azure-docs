@@ -15,10 +15,11 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
 - name: Tutorials
   items:
-  - name: Enable web application firewall
-    href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
     href: create-ssl-portal.md
   - name: Host multiple sites
@@ -29,22 +30,34 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
+  - name: Ingres Controller Add-on for AKS (Greenfield)
+    href: tutorial-ingress-controller-add-on-new.md
+  - name: Ingress Controller Add-on for AKS (Brownfield)
+    href: tutorial-ingress-controller-add-on-existing.md
 - name: Samples
   items:
   - name: Azure PowerShell
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: Basics
     items:
+    - name: Application Gateway features
+      href: features.md
     - name: How Application Gateway works
       href: how-application-gateway-works.md
     - name: Application Gateway components
       href: application-gateway-components.md
     - name: Configuration overview
       href: configuration-overview.md
+  - name: High traffic support
+    href: high-traffic-support.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing
@@ -67,20 +80,16 @@
       href: application-gateway-ssl-policy-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: WAF
-    items:
-    - name: Web application firewall
-      href: waf-overview.md
-    - name: WAF configuration
-      href: application-gateway-waf-configuration.md
-    - name: Custom rules
-      href: custom-waf-rules-overview.md
+  - name: Ingress for AKS
+    href: ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostics
+    - name: Diagnostic logs and backend health
       href: application-gateway-diagnostics.md
+    - name: Metrics
+      href: application-gateway-metrics.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
@@ -95,9 +104,6 @@
       href: tutorial-manage-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-manage-web-traffic-cli.md
-    - name: Template
-      displayName: ARM, Resource Manager, template
-      href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
     - name: Azure portal
@@ -132,26 +138,32 @@
       items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
-  - name: Configure Web Application Firewall
+  - name: Ingress for AKS 
     items:
-    - name: Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure CLI
-      href: tutorial-restrict-web-traffic-cli.md
-  - name: Configure WAF rule sets
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
-  - name:   WAF custom rules
-    items:
-    - name: Custom rule examples
-      href: create-custom-waf-rules.md
-    - name: Configure WAF with custom rules
-      href: configure-waf-custom-rules.md
+    - name: Ingress for AKS via Helm (Brownfield)
+      href: ingress-controller-install-existing.md
+    - name: Ingress for AKS via Helm (Greenfield)
+      href: ingress-controller-install-new.md
+    - name: Disable and re-enable AKS Ingress Controller add-on
+      href: ingress-controller-disable-addon.md
+    - name: Enable cookie affinity 
+      href: ingress-controller-cookie-affinity.md
+    - name: Enable multiple namespace support 
+      href: ingress-controller-multiple-namespace-support.md
+    - name: Use private IP for internal routing
+      href: ingress-controller-private-ip.md
+    - name: Add health probes to AKS pods
+      href: ingress-controller-add-health-probes.md
+    - name: Use Application Gateway to expose AKS service over HTTP/HTTPS 
+      href: ingress-controller-expose-service-over-http-https.md
+    - name: Upgrade ingress controller using Helm 
+      href: ingress-controller-update-ingress-controller.md
+    - name: Use LetsEncrypt.org with Application Gateway
+      href: ingress-controller-letsencrypt-certificate-application-gateway.md
+    - name: Expose WebSocket to Application Gateway 
+      href: ingress-controller-expose-websocket-server.md
+    - name: Autoscale AKS pods with Application Gateway metrics
+      href: ingress-controller-autoscale-pods.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -220,18 +232,20 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
-      - name: Web Application Firewall (WAF)
-        href: web-application-firewall-troubleshoot.md
+      - name: Ingress for AKS 
+        href: ingress-controller-troubleshoot.md
       - name: Resource Health
         href: resource-health-overview.md
       - name: Use Log Analytics
         href: log-analytics.md
+      - name: Backend health issues
+        href: application-gateway-backend-health-troubleshooting.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: application-gateway-crs-rulegroups-rules.md
+  - name: Ingress for AKS annotations
+    href: ingress-controller-annotations.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell
@@ -248,7 +262,7 @@
     href: /rest/api/applicationgateway
   - name: Azure Resource Manager
     displayName: ARM
-    href: ../azure-resource-manager/resource-group-overview.md
+    href: ../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
     href: https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways
@@ -256,14 +270,14 @@
   items:
   - name: Author templates
     displayName: ARM
-    href: ../azure-resource-manager/resource-group-authoring-templates.md
+    href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates
     displayName: ARM
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow

@@ -98,7 +98,7 @@ The BitAnd function sets specified bits on a value.
 **Remarks:**  
 This function converts both parameters to the binary representation and sets a bit to:
 
-* 0 - if one or both of the corresponding bits in *mask* and *flag* are 0
+* 0 - if one or both of the corresponding bits in *value1* and *value2* are 0
 * 1 - if both of the corresponding bits are 1.
 
 In other words, it returns 0 in all cases except when the corresponding bits of both parameters are 1.
@@ -129,7 +129,7 @@ The CBool function returns a Boolean based on the evaluated expression
 `bool CBool(exp Expression)`
 
 **Remarks:**  
-If the expression evaluates to a nonzero value, then CBool returns True, else it returns False.
+If the expression evaluates to a non-zero value, then CBool returns True, else it returns False.
 
 **Example:**  
 `CBool([attrib1] = [attrib2])`  

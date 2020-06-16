@@ -1,11 +1,10 @@
 ---
 title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
-description: Azure Analysis Services management with PowerShell.
+description: Describes Azure Analysis Services PowerShell cmdlets for common administrative tasks such as creating servers, suspending operations, or changing service level.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
-ms.topic: reference
-ms.date: 07/01/2019
+ms.topic: conceptual
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -60,4 +59,4 @@ Documentation - [SqlServer reference](/powershell/module/sqlserver)
 * [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SqlServer module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabular Model Programming for Compatibility Level 1200 and higher](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)
+* [Tabular Model Programming for Compatibility Level 1200 and higher](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

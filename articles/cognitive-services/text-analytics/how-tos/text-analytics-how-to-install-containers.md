@@ -3,21 +3,28 @@ title: Install and run containers - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/30/2019
-ms.author: dapine
+ms.date: 05/08/2020
+ms.author: aahi
 ---
 
 # Install and run Text Analytics containers
 
-Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
+> [!NOTE]
+> * The container for Sentiment Analysis v3 is now Generally Available. The key phrase extraction and language detection containers are available as an ungated public preview.
+> * Entity linking and NER are not currently available as a container.
+
+Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+> [!IMPORTANT]
+> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers <span class="docon docon-navigate-external x-hidden-focus"></span></a> are valid for containers. For more information on transaction request rates, see [Data Limits](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
 ## Prerequisites
 
@@ -35,231 +42,85 @@ You must meet the following prerequisites before using Text Analytics containers
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
-### The host computer
+## The host computer
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
+The following table describes the minimum and recommended specifications for the Text Analytics containers. At least 2 gigabytes (GB) of memory are required, and each CPU core must be at least 2.6 gigahertz (GHz) or faster. The allowable Transactions Per Section (TPS) are also listed.
 
-| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Key Phrase Extraction | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Language Detection | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis 2.x | 1 core, 2-GB memory | 1 core, 4-GB memory |15, 30|
-|Sentiment Analysis 3.x | 1 core, 2-GB memory | 4 core, 4-GB memory |15, 30|
+|  | Minimum host specs | Recommended host specs | Minimum TPS | Maximum TPS|
+|---|---------|-------------|--|--|
+| **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
+| **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
 
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
-
-Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
-Container images for Text Analytics are available from Microsoft Container Registry.
-
-| Container | Repository |
-|-----------|------------|
-|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis 2.x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
-|Sentiment Analysis 3.x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
-
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
-
-For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
-
-* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
-
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
-### Docker pull for the Key phrase extraction container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### Docker pull for the language detection container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### Docker pull for the sentiment 2.x container
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
-
-### Docker pull for the sentiment 3.x container
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
-```
-
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
+Container images for Text Analytics are available on the Microsoft Container Registry.
+
+# [Sentiment Analysis v3](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+# [Key Phrase Extraction (preview)](#tab/keyphrase)
+
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
+
+# [Language Detection (preview)](#tab/language)
+
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
+
+***
 
 ## How to use the container
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
-1. Query the container's prediction endpoint for [v2](#query-the-containers-v2-prediction-endpoint) or [v3](#query-the-containers-v3-prediction-endpoint).
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
 
-[Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+Replace the placeholders below with your own values:
 
-### Run v2 container example of docker run command
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs a key phrase container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-### Run v3 container example of docker run command
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0 \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
-
-This command:
-
-* Runs a key phrase container from the container image
-* Allocates 4 CPU cores and 4 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer.
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
+> * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> * The sentiment analysis v3 container is now generally available, which returns [sentiment labels](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) in the response. The key phrase extraction and language detection containers use v2 of the API, and are in preview.
+
+# [Sentiment Analysis v3](#tab/sentiment)
+
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+# [Key Phrase Extraction (preview)](#tab/keyphrase)
+
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
+
+# [Language Detection (preview)](#tab/language)
+
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+***
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## Query the container's v2 prediction endpoint
+## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs.
 
-Use the host, `https://localhost:5000`, for container APIs.
-
-## Query the container's v3 prediction endpoint
-
-The container provides REST-based query prediction endpoint APIs.
-
-Use the host, `https://localhost:5000`, for container APIs.
-
-### V3 API request POST body
-
-The following JSON is an example of a V3 API request's POST body:
-
-```json
-{
-  "documents": [
-    {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
-    }
-  ]
-}
-```
-
-### V3 API response body
-
-The following JSON is an example of a V3 API request's POST body:
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
-```
+Use the host, `http://localhost:5000`, for container APIs.
 
 <!--  ## Validate container is running -->
 
@@ -272,6 +133,8 @@ The following JSON is an example of a V3 API request's POST body:
 ## Troubleshooting
 
 If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 
@@ -289,14 +152,18 @@ For more information about these options, see [Configure containers](../text-ana
 
 In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
 
-* Text Analytics provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
+* Text Analytics provides three Linux containers for Docker, encapsulating various capabilities:
+   * *Sentiment Analysis*
+   * *Key Phrase Extraction (preview)* 
+   * *Language Detection (preview)*
+   
 * Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g. text that is being analyzed) to Microsoft.
 
 ## Next steps
 

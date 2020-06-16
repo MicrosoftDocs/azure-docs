@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors | Microsoft Docs
+title: 'Tutorial: Create a new HoloLens Unity app'
 description: In this tutorial, you learn how to create a new HoloLens Unity app using Azure Spatial Anchors.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
@@ -36,9 +36,9 @@ We'll first set up our project and Unity scene:
 
 **Set up the project settings**
 
-We'll now set some Unity project settings that help us target the Windows Holographic SDK for development. 
+We'll now set some Unity project settings that help us target the Windows Holographic SDK for development.
 
-First, lets set quality settings for our application. 
+First, lets set quality settings for our application.
 1. Select **Edit** > **Project Settings** > **Quality**
 2. In the column under the **Windows Store** logo, click on the arrow at the **Default** row and select **Very Low**. You'll know the setting is applied correctly when the box in the **Windows Store** column and **Very Low** row is green.
 
@@ -49,7 +49,7 @@ We need to let Unity know that the app we are trying to export should create an 
 3. Expand the **XR Settings** group.
 4. In the **Rendering** section, check the **Virtual Reality Supported** checkbox to add a new **Virtual Reality SDK's** list.
 5. Verify that **Windows Mixed Reality** appears in the list. If not, select the **+** button at the bottom of the list and choose **Windows Mixed Reality**.
- 
+
 > [!NOTE]
 > If you do not see the Windows Store icon, double check to make sure you selected the Windows Store .NET Scripting Backend prior to installation. If not, you may need to reinstall Unity with the correct Windows installation.
 
@@ -72,9 +72,9 @@ We need to let Unity know that the app we are trying to export should create an 
 6. Select **Add Component** and search for and add the **Spatial Mapping Collider**.
 
 **Create our script**
-1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder. 
-2. Right click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**. 
-3. Go to **GameObject** -> **Create Empty**. 
+1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder.
+2. Right click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**.
+3. Go to **GameObject** -> **Create Empty**.
 4. Select it, and in the **Inspector** rename it from **GameObject** to **MixedRealityCloud**. Select **Add Component** and search for and add the **AzureSpatialAnchorsScript**.
 
 **Create the sphere prefab**
@@ -89,13 +89,13 @@ You should now have a sphere prefab in your **Project** pane.
 To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
 
 ## Place an object in the real world
-Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out). 
+Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out).
 
 First, add the following imports into your `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
 
-Then, add the following members variables into your `AzureSpatialAnchorsScript` class: 
+Then, add the following members variables into your `AzureSpatialAnchorsScript` class:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
 
@@ -103,13 +103,13 @@ Before we continue, we need to set the sphere prefab we created on our spherePre
 1. In **Unity**, select the **MixedRealityCloud** object in the **Hierarchy** pane.
 2. Click on the **Sphere** prefab that you saved in the **Project** pane. Drag the **Sphere** you clicked on into the **Sphere Prefab** area under **Azure Spatial Anchors Script (Script)** in the **Inspector** pane.
 
-You should now have the **Sphere** set as the prefab on your script. Build from **Unity** and then open the resulting **Visual Studio** solution again, like you just did in [Trying it out](#trying-it-out). 
+You should now have the **Sphere** set as the prefab on your script. Build from **Unity** and then open the resulting **Visual Studio** solution again, like you just did in [Trying it out](#trying-it-out).
 
 In **Visual Studio**, open up `AzureSpatialAnchorsScript.cs` again. Add the following code into your `Start()` method. This code will hook up `GestureRecognizer`, which will detect when there is an air tap and call `HandleTap`.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
 
-We now have to add the following `HandleTap()` method below `Update()`. It will do a ray cast and get a hit point at which to place a sphere. 
+We now have to add the following `HandleTap()` method below `Update()`. It will do a ray cast and get a hit point at which to place a sphere.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
@@ -121,9 +121,9 @@ Run your app from **Visual Studio** to validate it once more. This time, tap the
 
 ## Set up the dispatcher pattern
 
-When working with Unity, all Unity APIs, for example APIs you use to do UI updates, need to happen on the main thread. In the code we'll write however, we get callbacks on other threads. We want to update UI in these callbacks, so we need a way to go from a side thread onto the main thread. To execute code on the main thread from a side thread, we'll use the dispatcher pattern. 
+When working with Unity, all Unity APIs, for example APIs you use to do UI updates, need to happen on the main thread. In the code we'll write however, we get callbacks on other threads. We want to update UI in these callbacks, so we need a way to go from a side thread onto the main thread. To execute code on the main thread from a side thread, we'll use the dispatcher pattern.
 
-Let's add a member variable, dispatchQueue, which is a Queue of Actions. We will push Actions onto the queue, and then dequeue and run the Actions on the main thread. 
+Let's add a member variable, dispatchQueue, which is a Queue of Actions. We will push Actions onto the queue, and then dequeue and run the Actions on the main thread.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
 
@@ -137,17 +137,27 @@ Let's now use the Update() loop to check if there is an Action queued. If so, we
 
 ## Get the Azure Spatial Anchors SDK
 
-We'll now download the Azure Spatial Anchors SDK. Go to [Azure Spatial Anchors GitHub releases page](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under Assets, download the **AzureSpatialAnchors.unitypackage** file. 
+## [Via Unity Package](#tab/UnityPackage)
 
-In Unity, go to **Assets**, click **Import Package** > **Custom Package...**. Navigate to the package and select **Open**.
+We'll now download the Azure Spatial Anchors SDK. Go to the [Azure Spatial Anchors GitHub releases page](https://github.com/Azure/azure-spatial-anchors-samples/releases). Under Assets, download the **AzureSpatialAnchors.unitypackage**. In Unity, go to **Assets**, click **Import Package** > **Custom Package...**. Navigate to the package and select **Open**.
 
-In the new **Import Unity Package** window that pops up, select **None** at the bottom left. Then under **AzureSpatialAnchorsPlugin** > **Plugins**, select **Common**, **Editor**, and **HoloLens**. Click **Import** in the bottom-right corner.
+In the new **Import Unity Package** window that pops up, unselect **Plugins** and then click **Import** in the bottom-right corner.
 
-We now need to restore Nuget packages in order to get Azure Spatial Anchors SDK. Build from **Unity** and then open and build the resulting **Visual Studio** solution again, as detailed in [Trying it out](#trying-it-out). 
+We now need to restore Nuget packages in order to get Azure Spatial Anchors SDK. Build from **Unity** and then open and build the resulting **Visual Studio** solution again, as detailed in [Trying it out](#trying-it-out).
+
+## [Via NuGetForUnity](#tab/NuGetForUnity)
+
+First we need to install NuGetForUnity. Go to the [NuGetForUnity GitHub releases page](https://github.com/GlitchEnzo/NuGetForUnity/releases). Under Assets, download the lastest **NuGetForUnity.unitypackage**. In Unity, go to **Assets**, click **Import Package** > **Custom Package...**. Navigate to the package and select **Open**. Unity will now install NugetForUnity. If you don't see a new **NuGet** dropdown in Unity, you may need to right click under **Projects** > **Assets**. Then select **Reimport All**.
+
+Once you have NuGetForUnity installed, select **NuGet** > **Manage NuGet Packages**. Then search for Microsoft.Azure.SpatialAnchors.Unity and select **Install**.
+
+We now need to build to get the actual Azure Spatial Anchors SDK, as the NuGet package we just downloaded just contains helper scripts. Build from **Unity** and then open and build the resulting **Visual Studio** solution again, as detailed in [Trying it out](#trying-it-out).
+
+---
 
 In your **Visual Studio** solution, add the following import into your `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs`:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=23-26&highlight=1)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
 Then, add the following member variables into your `AzureSpatialAnchorsScript` class:
 
@@ -206,7 +216,7 @@ We now need to hook up the code that will be invoked when the anchor we're query
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
 
- 
+
 Now lets add code that will create & place a green sphere once the CloudSpatialAnchor is located. It will also enable screen tapping again, so you can repeat the whole scenario once more: create another local anchor, upload it, and locate it again.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]

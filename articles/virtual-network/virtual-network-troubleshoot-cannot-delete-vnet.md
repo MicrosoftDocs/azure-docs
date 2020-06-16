@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue in which you cannot delete a vi
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -20,7 +20,7 @@ ms.author: genli
 
 # Troubleshooting: Failed to delete a virtual network in Azure
 
-You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem. 
+You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

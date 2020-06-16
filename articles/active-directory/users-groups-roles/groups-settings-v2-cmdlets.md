@@ -1,28 +1,25 @@
 ---
-title: PowerShell examples for managing groups and preview group writeback to on-premises - Azure Active Directory  | Microsoft Docs
+title: PowerShell V2 examples for managing groups - Azure AD  | Microsoft Docs
 description: This page provides PowerShell examples to help you manage your groups in Azure Active Directory
 keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 06/14/2019
+ms.topic: how-to
+ms.date: 11/08/2019
 ms.author: curtand
-
 ms.reviewer: krbain
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory version 2 cmdlets for group management
 
 > [!div class="op_single_selector"]
-> * [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -49,6 +46,10 @@ To verify that the module is ready to use, use the following command:
 
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
+> [!NOTE]
+> The Azure AD PowerShell cmdlets does not work with the new Powershell 7 as it is based on .net Core. We are aware and this is in the process of getting updated. As of now we suggest to use the Windows Powershell 5.x Module to be used for Azure AD powershell operations. 
+
+
 ## Connect to the directory
 
 Before you can start managing groups using Azure AD PowerShell cmdlets, you must connect your PowerShell session to the directory you want to manage. Use the following command:
@@ -60,8 +61,8 @@ Before you can start managing groups using Azure AD PowerShell cmdlets, you must
 The cmdlet prompts you for the credentials you want to use to access your directory. In this example, we are using karen@drumkit.onmicrosoft.com to access the demonstration directory. The cmdlet returns a confirmation to show the session was connected successfully to your directory:
 
 ```powershell
-    Account                       Environment Tenant
-    -------                       ----------- ------
+    Account                       Environment Tenant ID
+    -------                       ----------- ---------
     Karen@drumkit.onmicrosoft.com AzureCloud  85b5ff1e-0402-400c-9e3c-0f…
 ```
 
@@ -321,7 +322,7 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 
 ## Group writeback to on-premises (preview)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premise, Office 365 groups writeback feature for Azure AD is now available for preview.
+Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Office 365 groups writeback feature for Azure AD is now available for preview.
 
 Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
 

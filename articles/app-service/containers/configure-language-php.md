@@ -1,19 +1,10 @@
 ---
-title: Configure PHP apps - Azure App Service | Microsoft Docs 
-description: Learn how to configure PHP apps to work in Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Configure PHP apps
+description: Learn how to configure a pre-built PHP container for your app. This article shows the most common configuration tasks. 
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
 
 ---
 
@@ -45,56 +36,30 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## Run Composer
+## Customize build automation
 
-By default, Kudu doesn't run [Composer](https://getcomposer.org/). To enable Composer automation during Kudu deployment, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
 
-From a local terminal window, change directory to your repository root. Follow the [command-line installation steps](https://getcomposer.org/download/) to download *composer.phar*.
+1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `php composer.phar install`.
+1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
 
-Run the following commands:
+`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+The following example specifies the two variables to a series of commands, separated by commas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-Your repository root now has two new files in addition to *composer.phar*: *.deployment* and *deploy.sh*. These files work both for Windows and Linux flavors of App Service.
+For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
 
-Open *deploy.sh* and find the `Deployment` section. Replace the whole section with the following code:
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-Commit all your changes and deploy your code again. Composer should now be running as part of deployment automation.
+For more information on how App Service runs and builds PHP apps in Linux, see [Oryx documentation: How PHP apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
 
 ## Customize start-up
 
-By default, the built-in PHP container run the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
+By default, the built-in PHP container runs the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -117,8 +82,8 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
-    RewriteRule ^.*$ /public/$1 [NC,L,QSA]
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
 
@@ -141,7 +106,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 If you need to make changes to your PHP installation, you can change any of the [php.ini directives](https://www.php.net/manual/ini.list.php) by following these steps.
 
 > [!NOTE]
-> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
+> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://www.php.net/manual/function.phpinfo.php) in your app.
 >
 
 ### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives
@@ -176,7 +141,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 `/usr/local/etc/php/conf.d` is the default directory where *php.ini* exists. `/home/site/ini` is the custom directory in which you'll add a custom *.ini* file. You separate the values with a `:`.
 
-Navigate to the web SSH session with your Linux container (`https://cephalin-container.scm.azurewebsites.net/webssh/host`).
+Navigate to the web SSH session with your Linux container (`https://<app-name>.scm.azurewebsites.net/webssh/host`).
 
 Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file. 
 
@@ -236,15 +201,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
-### robots933456
-
-You may see the following message in the container logs:
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-You can safely ignore this message. `/robots933456.txt` is a dummy URL path that App Service uses to check if the container is capable of serving requests. A 404 response simply indicates that the path doesn't exist, but it lets App Service know that the container is healthy and ready to respond to requests.
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

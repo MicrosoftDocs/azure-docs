@@ -1,18 +1,12 @@
 ---
-title: Troubleshoot your Azure Application Insights availability tests | Microsoft Docs
+title: Troubleshoot your Azure Application Insights availability tests
 description: Troubleshoot web tests in Azure Application Insights. Get alerts if a website becomes unavailable or responds slowly.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.reviewer: sdash
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 04/28/2020
+
+ms.reviewer: sdash
 ---
 
 # Troubleshooting
@@ -39,12 +33,11 @@ This article will help you to troubleshoot common issues that may occur when usi
 |    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
 |    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## Intermittent test failure with a protocol violation error
+## Test failure with a protocol violation error
 
-|Symptom/error message| Possible causes|
-|----|---------|
-protocol violation CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate end of line, which violates the HTTP specification and therefore will fail validation at the .NET WebRequest level.
- || This can also be caused by load balancers or CDNs.
+|Symptom/error message| Possible causes| Possible Resolutions |
+|----|---------|-----|
+|The server committed a protocol violation. Section=ResponseHeader Detail=CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate the end of line, which violates the HTTP specification. Application Insights enforces this HTTP specification and fails responses with malformed headers.| a. Contact web site host provider / CDN provider to fix the faulty servers. <br> b. In case the failed requests are resources (e.g. style files, images, scripts), you may consider disabling the parsing of dependent requests. Keep in mind, if you do this you will lose the ability to monitor the availability of those files).
 
 > [!NOTE]
 > The URL may not fail on browsers that have a relaxed validation of HTTP headers. See this blog post for a detailed explanation of this issue: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
@@ -70,6 +63,10 @@ Check the classic alerts configuration to confirm your email is directly listed,
 ### I did not receive the webhook notification?
 
 Check to ensure the application receiving the webhook notification is available, and successfully processes the webhook requests. See [this](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) for more information.
+
+### I am getting  403 Forbidden errors, what does this mean?
+
+This error indicates that you need to add firewall exceptions to allow the availability agents to test your target url. For a full list of agent IP addresses to allow, consult the [IP exception article](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 ### Intermittent test failure with a protocol violation error?
 
@@ -97,7 +94,7 @@ The two terms may be referenced interchangeably. Availability tests is a more ge
 
    * Configure your firewall to permit incoming requests from the [IP addresses
     of our web test agents](../../azure-monitor/app/ip-addresses.md).
-   * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will not appear in the availability web tests blades, but appears as availability results in Analytics, Search, and Metric Explorer.
+   * Write your own code to periodically test your internal server. Run the code as a background process on a test server behind your firewall. Your test process can send its results to Application Insights by using [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API in the core SDK package. This requires your test server to have outgoing access to the Application Insights ingestion endpoint, but that is a much smaller security risk than the alternative of permitting incoming requests. The results will appear in the availability web tests blades though the experience will be slightly simplified from what is available for tests created via the portal. Custom availability tests will also appear as availability results in Analytics, Search, and Metrics.
 
 ### Uploading a multi-step web test fails
 

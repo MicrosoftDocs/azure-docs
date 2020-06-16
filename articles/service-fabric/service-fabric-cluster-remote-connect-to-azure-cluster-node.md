@@ -1,21 +1,9 @@
 ---
-title: Remote connect to an Azure Service Fabric cluster node | Microsoft Docs
+title: Remote connect to an Azure Service Fabric cluster node 
 description: Learn how to remotely connect to a scale set instance (a Service Fabric cluster node).
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/23/2018
-ms.author: atsenthi
-
 ---
 # Remote connect to a virtual machine scale set instance or a cluster node
 In a Service Fabric cluster running in Azure, each cluster node type that you define [sets up a virtual machine separate scale](service-fabric-cluster-nodetypes.md).  You can remote connect to specific scale set instances (cluster nodes).  Unlike single-instance VMs, scale set instances don't have their own virtual IP addresses. This can be challenging when you are looking for an IP address and port that you can use to remotely connect to a specific instance.

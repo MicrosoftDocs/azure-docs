@@ -1,5 +1,5 @@
 ---
-title: Communicate to a device app in C# via Azure IoT Hub device streams  (preview) | Microsoft Docs
+title: Communicate to device app in C# with Azure IoT Hub device streams
 description: In this quickstart, you run two sample C# applications that communicate via a device stream established through IoT Hub.
 author: robinsh
 ms.service: iot-hub
@@ -28,8 +28,10 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
   * Central US
   * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
-* The two sample applications that you run in this quickstart are written by using C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
+* The two sample applications that you run in this quickstart are written in C#. You need the .NET Core SDK 2.1.0 or later on your development machine.
   * Download the [.NET Core SDK for multiple platforms from .NET](https://www.microsoft.com/net/download/all).
   * Verify the current version of C# on your development machine by using the following command:
 
@@ -40,14 +42,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Add the Azure IoT Extension for Azure CLI to your Cloud Shell instance by running the following command. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
 
-* [Download the sample C# project](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive. You need it on both the device side and the service side.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
+* [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive. You need it on both the device side and the service side.
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
@@ -56,36 +60,36 @@ A device must be registered with your IoT hub before it can connect. In this sec
 1. To create the device identity, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > * Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
-   > * Use *MyDevice*, as shown. It's the name given for the registered device. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
+   > * Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
+   > * For the name of the device you're registering, it's recommended to use *MyDevice* as shown. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. To get the *device connection string* for the device that you just registered, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
+   > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Note the device connection string for later use in this quickstart. It looks like the following example:
+    Note the returned device connection string for later use in this quickstart. It looks like the following example:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
 3. You also need the *service connection string* from your IoT hub to enable the service-side application to connect to your IoT hub and establish a device stream. The following command retrieves this value for your IoT hub:
 
    > [!NOTE]
-   > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
+   > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Note the returned value for later use in this quickstart. It looks like the following example:
+    Note the returned service connection string for later use in this quickstart. It looks like the following example:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -95,14 +99,14 @@ In this section, you run both the device-side application and the service-side a
 
 ### Run the service-side application
 
-Go to the *iot-hub/Quickstarts/device-streams-echo/service* directory in your unzipped project folder. Keep the following information handy:
+In a local terminal window, navigate to the `iot-hub/Quickstarts/device-streams-echo/service` directory in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `ServiceConnectionString` | Provide the service connection string of your IoT hub. |
-| `DeviceId` | Provide the ID of the device you created earlier (for example, *MyDevice*). |
+| `ServiceConnectionString` | The service connection string of your IoT hub. |
+| `MyDevice` | The identifier of the device you created earlier. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/service/
@@ -112,24 +116,25 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<ServiceConnectionString>" "<MyDevice>"
+dotnet run "{ServiceConnectionString}" "MyDevice"
 
 # In Windows
-dotnet run <ServiceConnectionString> <MyDevice>
+dotnet run {ServiceConnectionString} MyDevice
 ```
+The application will wait for the device application to become available.
 
 > [!NOTE]
 > A timeout occurs if the device-side application doesn't respond in time.
 
 ### Run the device-side application
 
-Go to the *iot-hub/Quickstarts/device-streams-echo/device* directory in your unzipped project folder. Keep the following information handy:
+In another local terminal window, navigate to the `iot-hub/Quickstarts/device-streams-echo/device` directory in your unzipped project folder. Keep the following information handy:
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `DeviceConnectionString` | Provide the device connection string of your IoT Hub. |
+| `DeviceConnectionString` | The device connection string of your IoT Hub. |
 
-Compile and run the code as follows:
+Compile and run the code with the following commands:
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-echo/device/
@@ -139,10 +144,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run "<DeviceConnectionString>"
+dotnet run "{DeviceConnectionString}"
 
 # In Windows
-dotnet run <DeviceConnectionString>
+dotnet run {DeviceConnectionString}
 ```
 
 At the end of the last step, the service-side application initiates a stream to your device. After the stream is established, the application sends a string buffer to the service over the stream. In this sample, the service-side application simply echoes back the same data to the device, which demonstrates a successful bidirectional communication between the two applications.
@@ -163,7 +168,7 @@ The traffic being sent over the stream is tunneled through the IoT hub rather th
 
 ## Next steps
 
-In this quickstart, you've set up an IoT hub, registered a device, established a device stream between C# applications on the device and service sides, and used the stream to send data back and forth between the applications.
+In this quickstart, you set up an IoT hub, registered a device, established a device stream between C# applications on the device and service sides, and used the stream to send data back and forth between the applications.
 
 To learn more about device streams, see:
 

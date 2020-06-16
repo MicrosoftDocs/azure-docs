@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -30,9 +30,9 @@ The user risk for B2B collaboration users is evaluated at their home directory. 
 
 There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
 
-- If a guest user triggers the Identity Protection user risk policy to force password reset, they will be blocked. This block is due to the inability to reset passwords in the resource directory.
-- Guest users do not appear in the risky users report. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
-- Administrators cannot dismiss or remediate a risky B2B collaboration user in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
+- If a guest user triggers the Identity Protection user risk policy to force password reset, **they will be blocked**. This block is due to the inability to reset passwords in the resource directory.
+- **Guest users do not appear in the risky users report**. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
+- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
 
 ### Why can't I remediate risky B2B collaboration users in my directory?
 
@@ -51,4 +51,3 @@ Excluding B2B users from your organization's risk-based Conditional Access polic
 See the following articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md)
-- [What is Conditional Access?](../conditional-access/overview.md)

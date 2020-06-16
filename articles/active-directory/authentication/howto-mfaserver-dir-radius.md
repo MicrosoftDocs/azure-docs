@@ -1,15 +1,15 @@
 ---
-title: RADIUS Authentication and Azure MFA Server - Azure Active Directory
+title: RADIUS and Azure MFA Server - Azure Active Directory
 description: Deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 01/31/2018
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 RADIUS is a standard protocol to accept authentication requests and to process those requests. The Azure Multi-Factor Authentication Server can act as a RADIUS server. Insert it between your RADIUS client (VPN appliance) and your authentication target to add two-step verification. Your authentication target could be Active Directory, an LDAP directory, or another RADIUS server. For Azure Multi-Factor Authentication (MFA) to function, you must configure the Azure MFA Server so that it can communicate with both the client servers and the authentication target. The Azure MFA Server accepts requests from a RADIUS client, validates credentials against the authentication target, adds Azure Multi-Factor Authentication, and sends a response back to the RADIUS client. The authentication request only succeeds if both the primary authentication and the Azure Multi-Factor Authentication succeed.
 
 > [!IMPORTANT]
+> This article is only for users of Azure MFA Server. If you use cloud-based Azure MFA, instead see how to [integrate with RADIUS authentication for Azure MFA](howto-mfa-nps-extension.md).
+>
 > As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 > [!NOTE]
@@ -71,9 +73,9 @@ You've successfully configured the Azure Multi-Factor Authentication Server. The
 
 To configure the RADIUS client, use the guidelines:
 
-* Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server’s IP address, which acts as the RADIUS server.
+* Configure your appliance/server to authenticate via RADIUS to the Azure Multi-Factor Authentication Server's IP address, which acts as the RADIUS server.
 * Use the same shared secret that was configured earlier.
-* Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user’s credentials, perform two-step verification, receive their response, and then respond to the RADIUS access request.
+* Configure the RADIUS timeout to 30-60 seconds so that there is time to validate the user's credentials, perform two-step verification, receive their response, and then respond to the RADIUS access request.
 
 ## Next steps
 

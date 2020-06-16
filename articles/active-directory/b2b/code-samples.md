@@ -1,5 +1,5 @@
 ---
-title: B2B collaboration code and PowerShell samples - Azure Active Directory | Microsoft Docs
+title: B2B collaboration code and PowerShell samples - Azure AD
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory
@@ -12,7 +12,7 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ---
 
@@ -23,7 +23,7 @@ You can bulk-invite external users to an organization from email addresses that 
 
 1. Prepare the .CSV file
    Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
-  
+
    Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
    Gmail B2B Invitee     | b2binvitee@gmail.com
@@ -55,7 +55,7 @@ This cmdlet sends an invitation to the email addresses in invitations.csv. Addit
 - Sending messages to CCs or suppressing email messages altogether
 
 ## Code sample
-Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through Graph API.
+Here we illustrate how to call the invitation API, in "app-only" mode, to get the redemption URL for the resource to which you are inviting the B2B user. The goal is to send a custom invitation email. The email can be composed with an HTTP client, so you can customize how it looks and send it through the Microsoft Graph API.
 
 ```csharp
 namespace SampleInviteApp
@@ -69,47 +69,47 @@ namespace SampleInviteApp
     class Program
     {
         /// <summary>
-        /// Microsoft graph resource.
+        /// Microsoft Graph resource.
         /// </summary>
         static readonly string GraphResource = "https://graph.microsoft.com";
- 
+
         /// <summary>
-        /// Microsoft graph invite endpoint.
+        /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
- 
+
         /// <summary>
         ///  Authentication endpoint to get token.
         /// </summary>
         static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
- 
+
         /// <summary>
         /// This is the tenantid of the tenant you want to invite users to.
         /// </summary>
         private static readonly string TenantID = "";
- 
+
         /// <summary>
         /// This is the application id of the application that is registered in the above tenant.
         /// The required scopes are available in the below link.
         /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
         /// </summary>
         private static readonly string TestAppClientId = "";
- 
+
         /// <summary>
         /// Client secret of the application.
         /// </summary>
         private static readonly string TestAppClientSecret = @"";
- 
+
         /// <summary>
         /// This is the email address of the user you want to invite.
         /// </summary>
         private static readonly string InvitedUserEmailAddress = @"";
- 
+
         /// <summary>
         /// This is the display name of the user you want to invite.
         /// </summary>
         private static readonly string InvitedUserDisplayName = @"";
- 
+
         /// <summary>
         /// Main method.
         /// </summary>
@@ -119,7 +119,7 @@ namespace SampleInviteApp
             Invitation invitation = CreateInvitation();
             SendInvitation(invitation);
         }
- 
+
         /// <summary>
         /// Create the invitation object.
         /// </summary>
@@ -134,7 +134,7 @@ namespace SampleInviteApp
             invitation.SendInvitationMessage = true;
             return invitation;
         }
- 
+
         /// <summary>
         /// Send the guest user invite request.
         /// </summary>
@@ -142,17 +142,17 @@ namespace SampleInviteApp
         private static void SendInvitation(Invitation invitation)
         {
             string accessToken = GetAccessToken();
- 
+
             HttpClient httpClient = GetHttpClient(accessToken);
- 
-            // Make the invite call. 
+
+            // Make the invite call.
             HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
             content.Headers.Add("ContentType", "application/json");
             var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
             string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
             Console.WriteLine(serverResponse);
         }
- 
+
         /// <summary>
         /// Get the HTTP client.
         /// </summary>
@@ -170,16 +170,16 @@ namespace SampleInviteApp
                 httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
             return httpClient;
         }
- 
+
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
- 
-            // Get the access token for our application to talk to microsoft graph.
+
+            // Get the access token for our application to talk to Microsoft Graph.
             try
             {
                 AuthenticationContext testAuthContext =
@@ -194,10 +194,10 @@ namespace SampleInviteApp
                 Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
                 throw;
             }
- 
+
             return accessToken;
         }
- 
+
         /// <summary>
         /// Invitation class.
         /// </summary>
@@ -207,17 +207,17 @@ namespace SampleInviteApp
             /// Gets or sets display name.
             /// </summary>
             public string InvitedUserDisplayName { get; set; }
- 
+
             /// <summary>
             /// Gets or sets display name.
             /// </summary>
             public string InvitedUserEmailAddress { get; set; }
- 
+
             /// <summary>
             /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
             /// </summary>
             public bool SendInvitationMessage { get; set; }
- 
+
             /// <summary>
             /// Gets or sets invitation redirect URL
             /// </summary>
@@ -231,4 +231,3 @@ namespace SampleInviteApp
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
-

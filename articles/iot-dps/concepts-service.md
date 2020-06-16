@@ -1,9 +1,9 @@
 ---
 title: Service concepts in Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Describes service provisioning concepts specific to devices with the Device Provisioning Service and IoT Hub
+description: Describes service provisioning concepts specific to devices with the Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -52,7 +52,7 @@ There are two types of enrollments supported by Device Provisioning Service:
 
 ### Enrollment group
 
-An enrollment group is a group of devices that share a specific attestation mechanism. All devices in the enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). Enrollment groups can only use the X.509 attestation mechanism. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
+An enrollment group is a group of devices that share a specific attestation mechanism. Enrollment groups support both X.509 as well as symmetric. All devices in the X.509 enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). Each device in the symmetric key enrollment group present SAS tokens derived from the group symmetric key. The enrollment group name and certificate name must be alphanumeric, lowercase, and may contain hyphens.
 
 > [!TIP]
 > We recommend using an enrollment group for a large number of devices that share a desired initial configuration, or for devices all going to the same tenant.

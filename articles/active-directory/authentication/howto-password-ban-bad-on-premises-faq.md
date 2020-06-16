@@ -1,21 +1,21 @@
 ---
-title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
-description: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ
+description: Review frequently asked questions for Azure AD Password Protection in an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
-ms.date: 02/01/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
-
-# Azure AD Password Protection on-premises - Frequently asked questions
+# Azure AD Password Protection on-premises frequently asked questions
 
 This section provides answers to many commonly asked questions about Azure AD Password Protection.
 
@@ -31,25 +31,27 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
 
+The Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in non-public clouds; such changes will be persisted but otherwise will never take effect. Registration of on-premises proxy agents or forests is unsupported when non-public cloud credentials are used, and any such registration attempts will always fail.
+
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
 Not supported. Once deployed and enabled, Azure AD Password Protection doesn't discriminate - all users receive equal security benefits.
 
 **Q: What is the difference between a password change and a password set (or reset)?**
 
-A password change is when a user chooses a new password after proving they have knowledge of the old password. For example, this is what happens when a user logs into Windows and is then prompted to choose a new password.
+A password change is when a user chooses a new password after proving they have knowledge of the old password. For example, a password change is what happens when a user logs into Windows and is then prompted to choose a new password.
 
-A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often do this, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
+A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often perform password sets, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
 
 The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **Q: Why are duplicated password rejection events logged when attempting to set a weak password using the Active Directory Users and Computers management snap-in?**
 
-The Active Directory Users and Computers management snap-in will first try to set the new password using the Kerberos protocol. Upon failure the snap-in will make a second attempt to set the password using a legacy (SAM RPC) protocol (the specific protocols used are not important). If the new password is considered weak by Azure AD Password Protection, this will result in two sets of password reset rejection events being logged.
+The Active Directory Users and Computers management snap-in will first try to set the new password using the Kerberos protocol. Upon failure, the snap-in will make a second attempt to set the password using a legacy (SAM RPC) protocol (the specific protocols used are not important). If the new password is considered weak by Azure AD Password Protection, this snap-in behavior will result in two sets of password reset rejection events being logged.
 
 **Q: Why are Azure AD Password Protection password validation events being logged with an empty user name?**
 
-Active Directory supports the ability to test a password to see if it passes the domain's current password complexity requirements, for example using the [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. When a password is validated in this way, the testing also includes validation by password-filter-dll based products such as Azure AD Password Protection - but the user names passed to a given password filter dll will be empty. In this scenario Azure AD Password Protection will still validate the password using the currently in-effect password policy and will issue an event log message to capture the outcome, however the event log message will have empty user name fields.
+Active Directory supports the ability to test a password to see if it passes the domain's current password complexity requirements, for example using the [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. When a password is validated in this way, the testing also includes validation by password-filter-dll based products such as Azure AD Password Protection - but the user names passed to a given password filter dll will be empty. In this scenario, Azure AD Password Protection will still validate the password using the currently in-effect password policy and will issue an event log message to capture the outcome, however the event log message will have empty user name fields.
 
 **Q: Is it supported to install Azure AD Password Protection side by side with other password-filter-based products?**
 
@@ -61,7 +63,7 @@ Not supported. Azure AD Password Protection is an Azure feature that supports be
 
 **Q: How can I modify the contents of the policy at the Active Directory level?**
 
-Not supported. The policy can only be administered using the Azure AD management portal. Also see previous question.
+Not supported. The policy can only be administered using the Azure AD portal. Also see previous question.
 
 **Q: Why is DFSR required for sysvol replication?**
 
@@ -72,6 +74,13 @@ For more information, please see the following articles:
 [The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+
+If your domain is not already using DFSR, you MUST migrate it to use DFSR before installing Azure AD Password Protection. For more information, see the following link:
+
+[SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+> [!WARNING]
+> The Azure AD Password Protection DC Agent software will currently install on domain controllers in domains that are still using FRS for sysvol replication, but the software will NOT work properly in this environment. Additional negative side-effects include individual files failing to replicate, and sysvol restore procedures appearing to succeed but silently failing to replicate all files. You should migrate your domain to use DFSR as soon as possible, both for DFSR's inherent benefits and also to unblock the deployment of Azure AD Password Protection. Future versions of the software will be automatically disabled when running in a domain that is still using FRS.
 
 **Q: How much disk space does the feature require on the domain sysvol share?**
 
@@ -88,6 +97,8 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 **Q: Is it okay to deploy the Azure AD Password Protection Proxy service side by side with other services such as Azure AD Connect?**
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
+
+Unfortunately, an incompatibility has been found between the version of the Microsoft Azure AD Connect Agent Updater service that is installed by the Azure AD Password Protection Proxy software and the version of the service that is installed by the [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) software. This incompatibility may result in the Agent Updater service being unable to contact Azure for software updates. It is not recommended to install Azure AD Password Protection Proxy and Azure Active Directory Application Proxy on the same machine.
 
 **Q: In what order should the DC agents and proxies be installed and registered?**
 
@@ -113,13 +124,21 @@ No. When a user's password is changed on a given non-PDC domain controller, the 
 
 In summary, deployment of the Azure AD Password Protection DC Agent service on the PDC is required to reach 100% security coverage of the feature across the domain. Deploying the feature on the PDC only does not provide Azure AD Password Protection security benefits for any other DCs in the domain.
 
+**Q: Why is custom smart lockout not working even after the agents are installed in my on-premises Active Directory environment?**
+
+Custom smart lockout is only supported in Azure AD. Changes to the custom smart lockout settings in the Azure AD portal have no effect on the on-premises Active Directory environment, even with the agents installed.
+
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
 
-**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+**Q: Why is Azure AD still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
 
-Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
+Audit mode is only supported in the on-premises Active Directory environment. Azure AD is implicitly always in "enforce" mode when it evaluates passwords.
+
+**Q: My users see the traditional Windows error message when a password is rejected by Azure AD Password Protection. Is it possible to customize this error message so that users know what really happened?**
+
+No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
 ## Additional content
 

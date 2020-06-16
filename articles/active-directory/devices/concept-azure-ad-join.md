@@ -34,17 +34,17 @@ Azure AD join is intended for organizations that want to be cloud-first or cloud
 |   | Windows Hello for Business |
 |   | FIDO2.0 security keys (preview) |
 | **Device management** | Mobile Device Management (example: Microsoft Intune) |
-|   | Co-management with Microsoft Intune and System Center Configuration Manager |
+|   | Co-management with Microsoft Intune and Microsoft Endpoint Configuration Manager |
 | **Key capabilities** | SSO to both cloud and on-premises resources |
 |   | Conditional Access through MDM enrollment and MDM compliance evaluation |
 |   | Self-service Password Reset and Windows Hello PIN reset on lock screen |
 |   | Enterprise State Roaming across devices |
 
-Azure AD joined devices are signed in to using an organizational Azure AD account. Access to resources in the organization can be further limited based on that Azure AD account and [Conditional Access policies](../conditional-access/overview.md) applied to the device identity.
+Azure AD joined devices are signed in to using an organizational Azure AD account. Access to resources in the organization can be further limited based on that Azure AD account and [Conditional Access policies](../conditional-access/howto-conditional-access-policy-compliant-device.md) applied to the device identity.
 
-Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using System Center Configuration Manager. These tools provide a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, software installations, and software updates. Administrators can make organization applications available to Azure AD joined devices using [System Center Configuration Manager and the Microsoft Store for Business](https://docs.microsoft.com/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Administrators can secure and further control Azure AD joined devices using Mobile Device Management (MDM) tools like Microsoft Intune or in co-management scenarios using Microsoft Endpoint Configuration Manager. These tools provide a means to enforce organization-required configurations like requiring storage to be encrypted, password complexity, software installations, and software updates. Administrators can make organization applications available to Azure AD joined devices using Configuration Manager to [Manage apps from the Microsoft Store for Business and Education](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-Azure AD join can be accomplished using self-service options like the Out of Box Experience (OOBE), bulk enrollment, or [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+Azure AD join can be accomplished using self-service options like the Out of Box Experience (OOBE), bulk enrollment, or [Windows Autopilot](/intune/enrollment-autopilot).
 
 Azure AD joined devices can still maintain single sign-on access to on-premises resources when they are on the organization's network. Devices that are Azure AD joined can still authenticate to on-premises servers like file, print, and other applications.
 
@@ -71,8 +71,8 @@ The goal of Azure AD joined devices is to simplify:
 
 Azure AD Join can be deployed by using any of the following methods:
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Bulk deployment](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Bulk deployment](/intune/windows-bulk-enroll)
 - [Self-service experience](azuread-joined-devices-frx.md)
 
 ## Next steps

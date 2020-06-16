@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 02/25/2020
 ms.author: juliako
 ---
 
@@ -18,13 +18,13 @@ ms.author: juliako
 
 This article provides the schemas and properties for Media Services events.
 
-For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-sources.md#azure-subscriptions).
+For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-schema-subscriptions.md).
 
 ## Job related event types
 
 Media Services emits the **Job** related event types described below. There are two categories for the **Job** related events: "Monitoring Job State Changes" and "Monitoring Job Output State Changes". 
 
-You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled). 
+You can register for all of the events by subscribing to the JobStateChange event. Or, you can subscribe for specific events only (for example, final states like JobErrored, JobFinished, and JobCanceled).   
 
 ### Monitoring Job state changes
 
@@ -40,7 +40,13 @@ You can register for all of the events by subscribing to the JobStateChange even
 
 See [Schema examples](#event-schema-examples) that follow.
 
-### Monitoring Job output state changes
+### Monitoring job output state changes
+
+A job may contain multiple job outputs (if you configured the transform to have multiple job outputs.) If you want to track the details of the individual job output, listen for a job output change event.
+
+Each **Job** is going to be at a higher level than **JobOutput**, thus job output events get fired inside of a corresponding job. 
+
+The error messages in `JobFinished`, `JobCanceled`, `JobError` output the aggregated results for each job output – when all of them are finished. Whereas, the job output events fire as each task finishes. For example, if you have an encoding output, followed by a Video Analytics output, you would get two events firing as job output events before the final JobFinished event fires with the aggregated data.
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -54,7 +60,7 @@ See [Schema examples](#event-schema-examples) that follow.
 
 See [Schema examples](#event-schema-examples) that follow.
 
-### Monitoring Job output progress
+### Monitoring job output progress
 
 | Event type | Description |
 | ---------- | ----------- |
@@ -318,18 +324,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-The result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in IP allow list configured |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Encoder didn't send metadata about the stream. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Codec specified isn't supported. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Received a fragment before receiving and header for that stream. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Number of qualities specified exceeds allowed max limit. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -399,14 +394,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-The error result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
-| MPE_CAPACITY_LIMIT_REACHED | Encoder sending data too fast. |
-| Unknown Error Codes | These error codes can range from memory error to duplicate entries in hash map. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
@@ -682,3 +670,4 @@ An event has the following top-level data:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Live Event error codes](live-event-error-codes.md)

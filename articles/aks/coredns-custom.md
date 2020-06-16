@@ -3,8 +3,6 @@ title: Customize CoreDNS for Azure Kubernetes Service (AKS)
 description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
 services: container-service
 author: jnoller
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
@@ -16,9 +14,9 @@ ms.author: jenoller
 
 Azure Kubernetes Service (AKS) uses the [CoreDNS][coredns] project for cluster DNS management and resolution with all *1.12.x* and higher clusters. Previously, the kube-dns project was used. This kube-dns project is now deprecated. For more information about CoreDNS customization and Kubernetes, see the [official upstream documentation][corednsk8s].
 
-As AKS is a managed service, you cannot modify the main configuration for CoreDNS (a *CoreFile*). Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default AKS CoreDNS ConfigMaps, use the `kubectl get configmaps coredns -o yaml` command.
+As AKS is a managed service, you cannot modify the main configuration for CoreDNS (a *CoreFile*). Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default AKS CoreDNS ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
-This article shows you how to use ConfigMaps for basic customization options of CoreDNS in AKS.
+This article shows you how to use ConfigMaps for basic customization options of CoreDNS in AKS. This approach differs from configuring CoreDNS in other contexts such as using the CoreFile. Verify the version of CoreDNS you are running as the configuration values may change between versions.
 
 > [!NOTE]
 > `kube-dns` offered different [customization options][kubednsblog] via a Kubernetes config map. CoreDNS is **not** backwards compatible with kube-dns. Any customizations you previously used must be updated for use with CoreDNS.
@@ -29,7 +27,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ## What is supported/unsupported
 
-All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported. 
+All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported.
 
 ## Rewrite DNS
 
@@ -47,7 +45,7 @@ data:
         errors
         cache 30
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        proxy .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
+        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
     }
 ```
 
@@ -72,9 +70,9 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 > [!Note]
 > The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** name.
 
-## Custom proxy server
+## Custom forward server
 
-If you need to specify a proxy server for your network traffic, you can create a ConfigMap to customize DNS. In the following example, update the `proxy` name and address with the values for your own environment. Create a file named `corednsms.yaml` and paste the following example configuration:
+If you need to specify a forward server for your network traffic, you can create a ConfigMap to customize DNS. In the following example, update the `forward` name and address with the values for your own environment. Create a file named `corednsms.yaml` and paste the following example configuration:
 
 ```yaml
 apiVersion: v1
@@ -85,7 +83,7 @@ metadata:
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
-        proxy foo.com 1.1.1.1
+        forward foo.com 1.1.1.1
     }
 ```
 
@@ -93,7 +91,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## Use custom domains
@@ -113,7 +111,7 @@ data:
     puglife.local:53 {
         errors
         cache 30
-        proxy . 192.11.0.1  # this is my test/dev DNS server
+        forward . 192.11.0.1  # this is my test/dev DNS server
     }
 ```
 
@@ -121,7 +119,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## Stub domains
@@ -139,12 +137,12 @@ data:
     abc.com:53 {
         errors
         cache 30
-        proxy . 1.2.3.4
+        forward . 1.2.3.4
     }
     my.cluster.local:53 {
         errors
         cache 30
-        proxy . 2.3.4.5
+        forward . 2.3.4.5
     }
 
 ```
@@ -153,7 +151,7 @@ As in the previous examples, create the ConfigMap using the [kubectl apply confi
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## Hosts plugin
@@ -172,6 +170,21 @@ data:
               10.0.0.1 example.org
               fallthrough
           }
+```
+
+## Enable logging for DNS query debugging 
+
+To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  log.override: |
+        log
 ```
 
 ## Next steps

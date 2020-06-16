@@ -1,8 +1,8 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 03/16/2020
 ms.author: larryfr
 ---
 
@@ -19,7 +19,8 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
 | `dataCollection` | NA | Contains configuration elements for data collection. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether to enable model data collection for the web service. Default, `False`. |
-| `authEnabled` | `auth_enabled` | Whether to enable authentication for the web service. Default, `True`. |
+| `authEnabled` | `auth_enabled` | Whether or not to enable key authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Whether or not to enable token authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `False`. |
 | `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
@@ -31,7 +32,7 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | `keys` | NA | Contains configuration elements for keys. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | A primary auth key to use for this Webservice |
 | &emsp;&emsp;`secondaryKey` | `secondary_key` | A secondary auth key to use for this Webservice |
-| `gpuCores` | `gpu_cores` | The number of GPU cores to allocate for this Webservice. Default is 1. Only supports whole number values. |
+| `gpuCores` | `gpu_cores` | The number of GPU cores (per-container replica) to allocate for this Webservice. Default is 1. Only supports whole number values. |
 | `livenessProbeRequirements` | NA | Contains configuration elements for liveness probe requirements. |
 | &emsp;&emsp;`periodSeconds` | `period_seconds` | How often (in seconds) to perform the liveness probe. Default to 10 seconds. Minimum value is 1. |
 | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Number of seconds after the container has started before liveness probes are initiated. Defaults to 310 |

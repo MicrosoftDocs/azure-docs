@@ -1,18 +1,10 @@
 ---
-title: Turn your StorSimple 8000 series device on or off | Microsoft Docs
+title: Turn your StorSimple 8000 series device on or off
 description: Explains how to turn on a new StorSimple device, turn on a device that was shut down or lost power, and turn off a running device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
@@ -89,12 +81,12 @@ A power outage or interruption can shut down a StorSimple device. The power outa
 * [Device with primary enclosure only](#8100)
 * [Device with EBOD enclosure](#8600)
 
-### Device with primary enclosure only <a name="8100">
+### Device with primary enclosure only <a name="8100"></a>
 The system can continue its normal operation if there is power loss to one of its power supplies. However, to ensure high availability of the device, restore power to the power supply as soon as possible.
 
 If there is a power outage or power interruption on both power supplies, the system will shut down in an orderly and controlled manner. When the power is restored, the system will automatically turn on.
 
-### Device with EBOD enclosure <a name="8600">
+### Device with EBOD enclosure <a name="8600"></a>
 #### Power loss on one power supply
 The system can continue its normal operation if there is power loss to one of its power supplies on the primary enclosure or the EBOD enclosure. However, to ensure high availability of the device, please restore power to the power supply as soon as possible.
 
@@ -143,7 +135,7 @@ A running StorSimple device may need to be shut down if it is being moved, taken
 * [Device with primary enclosure](#8100a)
 * [Device with EBOD enclosure](#8600a)
 
-### Device with primary enclosure <a name="8100a">
+### Device with primary enclosure <a name="8100a"></a>
 To shut down the device in an orderly and controlled manner, you can do it through the Azure portal or via the Windows PowerShell for StorSimple. 
 
 > [!IMPORTANT]
@@ -155,7 +147,7 @@ To shut down the device in an orderly and controlled manner, you can do it throu
 
 After you access the Windows PowerShell for StorSimple or the Azure portal, follow the steps in [shut down a StorSimple device](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### Device with EBOD enclosure <a name="8600a">
+### Device with EBOD enclosure <a name="8600a"></a>
 > [!IMPORTANT]
 > Before shutting down the primary enclosure and the EBOD enclosure, ensure that all the device components are healthy. In the Azure portal, navigate to **Devices** > **Monitor** > **Hardware health**, and verify that all the components are healthy.
 

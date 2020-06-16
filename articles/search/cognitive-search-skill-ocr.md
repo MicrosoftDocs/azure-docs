@@ -1,24 +1,21 @@
 ---
-title: OCR cognitive search skill - Azure Search
-description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
-services: search
-manager: pablocas
+title: OCR cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+
+manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 # OCR cognitive skill
 
-Optical character recognition (OCR) skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
+The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
-+ The ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used for languages other than English. 
-+ For English, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.
++ For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.
++ For all other languages, the ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
@@ -30,9 +27,9 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .TIFF
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## Skill parameters
@@ -42,8 +39,8 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
-|defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak). <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language will be set to English. If the language is explicitly set to "unk", the language will be auto-detected. </p> |
-|lineEnding | The value to use between each detected line. Possible values: 'Space','CarriageReturn','LineFeed'.  The default is 'Space' |
+|defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak) <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language will be set to English. If the language is explicitly set to "unk", the language will be auto-detected. </p> |
+|lineEnding | The value to use between each detected line. Possible values: "Space", "CarriageReturn", "LineFeed".  The default is "Space". |
 
 Previously, there was a parameter called "textExtractionAlgorithm" for specifying whether the skill should extract "printed" or "handwritten" text.  This parameter is deprecated and no longer necessary as the latest Read API algorithm is capable of extracting both types of text at once.  If your skill definition already includes this parameter, you do not need to remove it, but it will no longer be used and both types of text will be extracted going forward regardless of what it is set to.
 
@@ -203,7 +200,7 @@ The above skillset example assumes that a normalized-images field exists. To gen
 ```
 
 ## See also
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [TextMerger skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

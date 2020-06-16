@@ -1,21 +1,20 @@
 ---
-title: Add your non-Microsoft accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification.
+title: Add non-Microsoft accounts to the Microsoft Authenticator app - Azure AD
+description: Add non-Microsoft accounts, such as for Google or Facebook to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
 ---
 
-# Add your non-Microsoft accounts
+# Add non-Microsoft accounts to the Microsoft Authenticator app
 
 Add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
 
@@ -29,6 +28,9 @@ Generally, for all your personal accounts, you must:
 1. Sign in to your account, and then turn on two-factor verification using either your device or your computer.
 
 2. Add the account to the Microsoft Authenticator app. You might be asked to scan a QR code as part of this process.
+
+    >[!Note]
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
 We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Netflix, or Adobe.
 

@@ -1,9 +1,9 @@
 ---
-title: Reset access to an Azure Linux VM | Microsoft Docs
+title: Reset access to an Azure Linux VM 
 description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI

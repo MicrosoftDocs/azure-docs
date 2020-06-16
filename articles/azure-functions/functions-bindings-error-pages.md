@@ -1,42 +1,39 @@
 ---
-title: Azure Functions error handling guidance | Microsoft Docs
-description: Provides general guidance for handling errors that occur in when your functions execute, and links to binding-specific errors topics.
-services: functions
-cloud: 
-documentationcenter: 
+title: Azure Functions error handling guidance
+description: Learn to handle errors in Azure Functions with links to specific binding errors.
 author: craigshoemaker
-manager: gwallace
 
-ms.assetid:
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 09/11/2019
 ms.author: cshoe
 ---
 
 # Azure Functions error handling
 
-This topic provides general guidance for handling errors that occur when your functions execute. It also provides links to the topics that describe binding-specific errors that may occur. 
+Handling errors in Azure Functions is important to avoid lost data, missed events, and to monitor the health of your application.
 
-## Handling errors in functions
+This article describes general strategies for error handling along with links to binding-specific errors.
+
+## Handling errors
+
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
- 
 ## Binding error codes
 
-When integrating with Azure services, you may have errors raised that originate from the APIs of the underlying services. Links to the error code documentation for these services can be found in the **Exceptions and return codes** section of the following trigger and binding reference topics:
+When integrating with Azure services, errors may originate from the APIs of the underlying services. Information relating to binding-specific errors is available in the **Exceptions and return codes** section of the following articles:
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Blob storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
++ [Blob storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
-+ [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
++ [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
+
++ [IoT Hubs](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Queue storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
++ [Queue storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 
-+ [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
++ [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
 + [Table storage](functions-bindings-storage-table.md#exceptions-and-return-codes)

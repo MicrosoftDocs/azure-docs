@@ -50,7 +50,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Compatibility with Apache TinkerPop**
 
-  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](http://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's Gremlin API. 
+  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](https://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's Gremlin API. 
 
 * **Tunable consistency levels**
 

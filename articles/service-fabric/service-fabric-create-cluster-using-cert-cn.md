@@ -1,21 +1,9 @@
 ---
-title: Create an Azure Service Fabric cluster using certificate common name | Microsoft Docs
+title: Create a cluster using certificate common name 
 description: Learn how to create a Service Fabric cluster using certificate common name from a template.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 04/24/2018
-ms.author: atsenthi
-
+ms.date: 09/06/2019
 ---
 # Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  A cluster using certificate common names makes certificate management much simpler. This article describes how to deploy a Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
@@ -58,7 +46,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName  -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
 $CertificateURL = $KVSecret.SecretId

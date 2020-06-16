@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -37,7 +38,7 @@ Before you check in code, conduct [code reviews](https://docs.microsoft.com/azur
 
 ### Perform static code analysis
 
-[Static code analysis](https://www.owasp.org/index.php/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Static code analysis](https://owasp.org/www-community/controls/Static_Code_Analysis) (also known as *source code analysis*) is usually performed as part of a code review. Static code analysis commonly refers to running static code analysis tools to find potential vulnerabilities in non-running code by using techniques like [taint checking](https://en.wikipedia.org/wiki/Taint_checking) and [data flow analysis](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offers [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) that perform static code analysis and assist with code reviews.
 
@@ -48,10 +49,10 @@ common web application vulnerabilities. Untrusted data is a vehicle for
 injection attacks. Input for your application includes parameters in the
 URL, input from the user, data from the database or from an API, and
 anything that is passed in that a user could potentially manipulate. An
-application should [validate](https://www.owasp.org/index.php/OWASP_Proactive_Controls_2016#4:_Validate_All_Inputs) that data is syntactically and semantically valid before the application uses the data in any way (including displaying it back to the user).
+application should [validate](https://owasp.org/www-project-proactive-controls/v3/en/c5-validate-inputs) that data is syntactically and semantically valid before the application uses the data in any way (including displaying it back to the user).
 
 Validate input early in the data flow to ensure that only properly
-formed data enters the workflow. You don’t want malformed data
+formed data enters the workflow. You don't want malformed data
 persisting in your database or triggering a malfunction in a downstream
 component.
 
@@ -59,24 +60,24 @@ Blacklisting and whitelisting are two general approaches to performing
 input syntax validation:
 
   - Blacklisting attempts to check that a given user input doesn't
-    contain “known to be malicious” content.
+    contain "known to be malicious" content.
 
   - Whitelisting attempts to check that a given user input matches a set
-    of “known good” inputs. Character-based whitelisting is a form of
+    of "known good" inputs. Character-based whitelisting is a form of
     whitelisting where an application checks that user input contains
-    only “known good” characters or that input matches a known format.
+    only "known good" characters or that input matches a known format.
     For example, this might involve checking that a username contains
     only alphanumeric characters or that it contains exactly two
     numbers.
 
 Whitelisting is the preferred approach for building secure software.
-Blacklisting is prone to error because it’s impossible to think of a
+Blacklisting is prone to error because it's impossible to think of a
 complete list of potentially bad input.
 
 Do this work on the server, not on the client side (or on the server and
 on the client side).
 
-### Verify your application’s outputs
+### Verify your application's outputs
 
 Any output that you present either visually or within a document should
 always be encoded and escaped. [Escaping](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
@@ -113,7 +114,7 @@ See [removing standard server headers on Azure websites](https://azure.microsoft
 
 ### Segregate your production data
 
-Your production data, or “real” data, should not be used for
+Your production data, or "real" data, should not be used for
 development, testing, or any other purpose than what the business
 intended. A masked ([anonymized](https://en.wikipedia.org/wiki/Data_anonymization)) dataset should be used for all development and testing.
 
@@ -130,8 +131,8 @@ alphanumeric and special characters).
 
 You can use an identity framework to create and enforce password
 policies. Azure AD B2C helps you with password management by providing
-[built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow),
-[self-service password reset](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), and more.
+[built-in policies](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow),
+[self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md), and more.
 
 To defend against attacks on default accounts, verify that all keys and
 passwords are replaceable and that they're generated or replaced after
@@ -142,20 +143,20 @@ generated passwords are random and that they have high entropy.
 
 ### Validate file uploads
 
-If your application allows [file uploads](https://www.owasp.org/index.php/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
+If your application allows [file uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
 Antimalware protection helps identify and remove viruses, spyware, and
-other malicious software. You can install [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
-or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
-[Symantec](https://www.symantec.com/products),
+other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md)
+or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
+[Broadcom](https://www.broadcom.com/products),
 [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
-and [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+and [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+[Microsoft Antimalware](../fundamentals/antimalware.md)
 includes features like real-time protection, scheduled scanning, malware
 remediation, signature updates, engine updates, samples reporting, and
 exclusion event collection. You can integrate Microsoft Antimalware and
-partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration)
+partner solutions with [Azure Security Center](../../security-center/security-center-partner-integration.md)
 for ease of deployment and built-in detections (alerts and incidents).
 
 ### Don't cache sensitive content
@@ -166,7 +167,7 @@ like the Temporary Internet Files folder, in the case of Internet
 Explorer. When these pages are referred to again, the browser displays
 the pages from its cache. If sensitive information (address, credit card
 details, Social Security number, username) is displayed to the user, the
-information might be stored in the browser’s cache and be retrievable by
+information might be stored in the browser's cache and be retrievable by
 examining the browser's cache or by simply pressing the browser's
 **Back** button.
 
@@ -184,7 +185,7 @@ this scan include [OWASP Dependency Check](https://www.owasp.org/index.php/OWASP
 Vulnerability scanning powered by [Tinfoil Security](https://www.tinfoilsecurity.com/) is available for Azure App Service Web Apps. [Tinfoil Security scanning through App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) offers developers and administrators a fast, integrated, and economical means of discovering and addressing vulnerabilities before a malicious actor can take advantage of them.
 
 > [!NOTE]
-> You can also [integrate Tinfoil Security with Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Integrating Tinfoil Security with Azure AD provides you with the
+> You can also [integrate Tinfoil Security with Azure AD](../../active-directory/saas-apps/tinfoil-security-tutorial.md). Integrating Tinfoil Security with Azure AD provides you with the
 following benefits:
 >  - In Azure AD, you can control who has access to Tinfoil Security.
 >  - Your users can be automatically signed in to Tinfoil Security (single sign-on) by using their Azure AD accounts.
@@ -204,7 +205,7 @@ tools analyze source code or compiled versions of code when the code is
 not executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional
-(a [penetration tester](https://docs.microsoft.com/azure/security/azure-security-pen-testing) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don’t introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
+(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 
@@ -237,7 +238,7 @@ tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/develope
 
 Ensuring that your application is secure is as important as testing any
 other functionality. Make [penetration
-testing](https://docs.microsoft.com/azure/security/azure-security-pen-testing)
+testing](../fundamentals/pen-testing.md)
 a standard part of the build and deployment process. Schedule regular
 security tests and vulnerability scanning on deployed applications, and
 monitor for open ports, endpoints, and attacks.

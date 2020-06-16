@@ -1,19 +1,16 @@
 ---
-title: Text split cognitive search skill - Azure Search
-description: Break text into chunks or pages of text based on length in an Azure Search enrichment pipeline. 
-services: search
-manager: pablocas
-author: luiscabrer
+title: Text split cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure Cognitive Search. 
 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
+author: luiscabrer
 ms.author: luisca
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/04/2020
 ---
-#	Text split cognitive skill
+# Text split cognitive skill
 
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
@@ -30,8 +27,8 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | textSplitMode      | Either "pages" or "sentences" | 
-| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 100.  If the textSplitMode is set to "pages", the algorithm will try to split the text into chunks that are at most "maximumPageLength" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength". | 
-| defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). Few things to consider:<ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format is used.</li><li>If the language is not in the previous list, the split skill breaks the text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.</li></ul>  |
+| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 300.  If the textSplitMode is set to "pages", the algorithm will try to split the text into chunks that are at most "maximumPageLength" in size. In this case, the algorithm will do its best to break the sentence on a sentence boundary, so the size of the chunk may be slightly less than "maximumPageLength". | 
+| defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). Few things to consider:<ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format is used.</li><li>If the language is not in the previous list, the split skill breaks the text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-whitespace languages such as Chinese, Japanese, and Korean.</li><li>If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), the default of English (en) should be sufficient. </li></ul>  |
 
 
 ## Skill Inputs
@@ -39,7 +36,7 @@ Parameters are case-sensitive.
 | Parameter name	   | Description      |
 |----------------------|------------------|
 | text	| The text to split into substring. |
-| languageCode	| (Optional) Language code for the document.  |
+| languageCode	| (Optional) Language code for the document. If you do not know the language (i.e. you need to split the text for input into the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), it is safe to remove this input.  |
 
 ## Skill Outputs 
 
@@ -130,5 +127,5 @@ If a language is not supported, a warning is generated and the text is split at 
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

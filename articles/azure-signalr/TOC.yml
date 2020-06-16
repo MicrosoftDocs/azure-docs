@@ -19,6 +19,8 @@
     href: signalr-quickstart-azure-functions-csharp.md
   - name: Azure Functions - Java
     href: signalr-quickstart-azure-functions-java.md
+  - name: Azure Functions - Python
+    href: signalr-quickstart-azure-functions-python.md
   - name: REST API
     href: signalr-quickstart-rest-api.md
 
@@ -26,6 +28,10 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
+  - name: Monitor
+    items:
+    - name: Use diagnostic logs to monitor SignalR Service
+      href: signalr-tutorial-diagnostic-logs.md
 
 - name: Samples
   items:
@@ -33,6 +39,8 @@
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-reference-cli.md
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
 
 - name: Concepts
   items:
@@ -51,7 +59,7 @@
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
-      href: signalr-concept-disaster-recovery.md  
+      href: signalr-concept-disaster-recovery.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Performance considerations
@@ -64,12 +72,20 @@
   items:
   - name: Scale
     items:
+    - name: Single instance
+      href: signalr-howto-scale-signalr.md
     - name: Multiple instances
       href: signalr-howto-scale-multi-instances.md
   - name: Secure
     items:
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
+    - name: Use Azure Service Tags
+      href: howto-service-tags.md
+    - name: Use Azure Private Endpoints
+      href: howto-private-endpoints.md
+    - name: Manage network access control
+      href: howto-network-access-control.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
@@ -103,7 +119,7 @@
   - name: FAQs
     href: signalr-resource-faq.md
   - name: SignalR Service subscription level limits
-    href: https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits 
+    href: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos

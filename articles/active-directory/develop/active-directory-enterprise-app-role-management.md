@@ -1,23 +1,18 @@
 ---
-title: Configure the role claim issued in the SAML token for enterprise applications in Azure AD | Microsoft Docs
+title: Configure role claim for enterprise Azure AD apps | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to configure the role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: jeevansd
 manager: CelesteDG
-editor: ''
 
-ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure the role claim issued in the SAML token for enterprise applications
@@ -55,7 +50,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
+6. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
 
     a. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
 
@@ -182,7 +177,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 To update an existing role, perform the following steps:
 
-1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
 
@@ -220,7 +215,7 @@ To update an existing role, perform the following steps:
 
 To delete an  existing role, perform the following steps:
 
-1. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
+1. Open [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window.
 
 2. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
 

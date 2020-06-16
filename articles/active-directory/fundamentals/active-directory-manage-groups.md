@@ -1,5 +1,5 @@
 ---
-title: Manage app and resource access using groups - Azure Active Directory | Microsoft Docs
+title: Manage app & resource access using groups - Azure AD
 description: Learn about how to manage access to your organization's cloud-based apps, on-premises apps, and resources using Azure Active Directory groups.
 services: active-directory
 author: msaburnley
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 01/08/2020
 ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: "it-pro, seodec18"
@@ -17,17 +17,22 @@ ms.collection: M365-identity-device-management
 ---
 
 # Manage app and resource access using Azure Active Directory groups
-Azure Active Directory (Azure AD) helps you to manage your cloud-based apps, on-premises apps, and your resources using your organization's groups. Your resources can be part of the directory, such as permissions to manage objects through roles in the directory, or external to the directory, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
+Azure Active Directory (Azure AD) lets you use groups to manage access to your cloud-based apps, on-premises apps, and your resources. Your resources can be part of the Azure AD organization, such as permissions to manage objects through roles in Azure AD, or external to the organization, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
 
 >[!NOTE]
->To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
+> In the Azure portal, you can see some groups whose membership and group details you can't manage in the portal:
+>
+> - Groups synced from on-premises Active Directory can be managed only in on-premises Active Directory.
+> - Other group types such as distribution lists and mail-enabled security groups are managed only in Exchange admin center or Microsoft 365 admin center. You must sign in to Exchange admin center or Microsoft 365 admin center to manage these groups.
 
-## How does access management in Azure AD work?
+## How access management in Azure AD works
+
 Azure AD helps you give access to your organization's resources by providing access rights to a single user or to an entire Azure AD group. Using groups lets the resource owner (or Azure AD directory owner), assign a set of access permissions to all the members of the group, instead of having to provide the rights one-by-one. The resource or directory owner can also give management rights for the member list to someone else, such as a department manager or a Helpdesk administrator, letting that person add and remove members, as needed. For more information about how to manage group owners, see [Manage group owners](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Azure Active Directory access management diagram](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## Ways to assign access rights
+
 There are four ways to assign resource access rights to your users:
 
 - **Direct assignment.** The resource owner directly assigns the user to the resource.

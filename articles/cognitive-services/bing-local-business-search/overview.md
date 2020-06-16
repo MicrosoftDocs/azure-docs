@@ -6,9 +6,10 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh
+ms.subservice: bing-local-business
+ms.topic: overview
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
 # What is Bing Local Business Search?
@@ -30,9 +31,9 @@ Call the Bing Local Business Search API from any programming language that can m
 4. Parse the JSON response 
 
 > [!NOTE]
-> Currently, Local Business Search supports only the `en-US` market. 
-> [!NOTE]
-> Currently, Local Business Search does not support Autosuggest. 
+> Currently, Local Business Search: 
+> * Only supports only the `en-US` market. 
+> * Does not support Bing Autosuggest. 
 
 ## Next steps
 - [Query and response](local-search-query-response.md)

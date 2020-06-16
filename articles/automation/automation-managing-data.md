@@ -1,75 +1,101 @@
 ---
-title: Managing Azure Automation data
-description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
+title: Azure Automation data security
+description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
-ms.date: 03/16/2018
+ms.date: 06/03/2020
 ms.topic: conceptual
-manager: carmonm
 ---
-# Managing Azure Automation data
-This article contains multiple topics for managing an Azure Automation environment.
+# Management of Azure Automation data
+
+This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
+
+## TLS 1.2 enforcement for Azure Automation
+
+To insure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
+
+* Webhook calls
+
+* Hybrid Runbook Workers, which includes machines managed by Update Management and Change Tracking and Inventory.
+
+* DSC nodes
+
+Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. Starting in September 2020, we begin enforcing TLS 1.2 and later versions of the encryption protocol.
+
+We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
+
+For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+
+### Platform-specific guidance
+
+|Platform/Language | Support | More Information |
+| --- | --- | --- |
+|Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 
 ## Data retention
-When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.  You can’t see or use the resource during this time.  This policy also applies to resources that belong to an automation account that is deleted.
 
-Azure Automation automatically deletes and permanently removes jobs older than 90 days.
+When you delete a resource in Azure Automation, it's retained for a number of days for auditing purposes before permanent removal. You can't see or use the resource during this time. This policy also applies to resources that belong to a deleted Automation account.
 
 The following table summarizes the retention policy for different resources.
 
 | Data | Policy |
 |:--- |:--- |
-| Accounts |Permanently removed 90 days after the account is deleted by a user. |
-| Assets |Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user. |
-| Modules |Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user. |
-| Runbooks |Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user. |
-| Jobs |Deleted and permanently removed 90 days after last being modified. This could be after the job completes, is stopped, or is suspended. |
-| Node Configurations/MOF Files |Old node configuration is permanently removed 90 days after a new node configuration is generated. |
-| DSC Nodes |Permanently removed 90 days after the node is unregistered from Automation Account using Azure portal or the [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) cmdlet in Windows PowerShell. Nodes are also permanently removed 90 days after the account that holds the node is deleted by a user. |
-| Node Reports |Permanently removed 90 days after a new report is generated for that node |
+| Accounts |An account is permanently removed 30 days after a user deletes it. |
+| Assets |An asset is permanently removed 30 days after a user deletes it, or 30 days after a user deletes an account that holds the asset. |
+| DSC Nodes |A DSC node is permanently removed 30 days after being unregistered from an Automation account using Azure portal or the [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) cmdlet in Windows PowerShell. A node is also permanently removed 30 days after a user deletes the account that holds the node. |
+| Jobs |A job is deleted and permanently removed 30 days after modification, for example, after the job completes, is stopped, or is suspended. |
+| Modules |A module is permanently removed 30 days after a user deletes it, or 30 days after a user deletes the account that holds the module. |
+| Node Configurations/MOF Files |An old node configuration is permanently removed 30 days after a new node configuration is generated. |
+| Node Reports |A node report is permanently removed 90 days after a new report is generated for that node. |
+| Runbooks |A runbook is permanently removed 30 days after a user deletes the resource, or 30 days after a user deletes the account that holds the resource. |
 
-The retention policy applies to all users and currently cannot be customized.
+The retention policy applies to all users and currently can't be customized. However, if you need to keep data for a longer period, you can [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
-However, if you need to retain data for a longer period of time, you can forward runbook job logs to Azure Monitor logs.  For further information, review [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).   
+## Data backup
 
-## Backing up Azure Automation
-When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
+When you delete an Automation account in Azure, all objects in the account are deleted. The objects include runbooks, modules, configurations, settings, jobs, and assets. They can't be recovered after the account is deleted. You can use the following information to back up the contents of your Automation account before deleting it.
 
 ### Runbooks
-You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](/previous-versions/azure/dn643637(v=azure.100)).
+
+You can export your runbooks to script files using either the Azure portal or the [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) cmdlet in Windows PowerShell. You can import these script files into another Automation account, as discussed in [Manage runbooks in Azure Automation](manage-runbooks.md).
 
 ### Integration modules
-You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
+
+You can't export integration modules from Azure Automation. You must make them available outside the Automation account.
 
 ### Assets
-You cannot export [assets](/previous-versions/azure/dn939988(v=azure.100)) from Azure Automation.  Using the Azure portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
-You can use [Azure cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
+You can't export Azure Automation assets: certificates, connections, credentials, schedules, and variables. Instead, you can use the Azure portal and Azure cmdlets to note the details of these assets. Then use these details to create any assets that are used by runbooks that you import into another Automation account.
 
-You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) and [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) activities.
-
-You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
+You can't retrieve the values for encrypted variables or the password fields of credentials using cmdlets. If you don't know these values, you can retrieve them in a runbook. For retrieving variable values, see [Variable assets in Azure Automation](shared-resources/variables.md). To find out more about retrieving credential values, see [Credential assets in Azure Automation](shared-resources/credentials.md).
 
 ### DSC configurations
-You can export your configurations to script files using either the Azure portal or the 
-[Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) cmdlet in Windows PowerShell. These configurations can be imported and used in another automation account.
+
+You can export your DSC configurations to script files using either the Azure portal or the 
+[Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
+) cmdlet in Windows PowerShell. You can import and use these configurations in another Automation account.
 
 ## Geo-replication in Azure Automation
-Geo-replication, standard in Azure Automation accounts, backs up account data to a different geographical region for redundancy. You can choose a primary region when setting up your account, and then a secondary region is assigned to it automatically. The secondary data, copied from the primary region, is continuously updated in case of data loss.  
 
-The following table shows the available primary and secondary region pairings.
+Geo-replication is standard in Azure Automation accounts. You choose a primary region when setting up your account. The internal Automation geo-replication service assigns a secondary region to the account automatically. The service then continuously backs up account data from the primary region to the secondary region. The full list of primary and secondary regions can be found at [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
-| Primary | Secondary |
-| --- | --- |
-| South Central US |North Central US |
-| US East 2 |Central US |
-| West Europe |North Europe |
-| South East Asia |East Asia |
-| Japan East |Japan West |
+The backup created by the Automation geo-replication service is a complete copy of Automation assets, configurations, and the like. This backup can be used if the primary region goes down and loses data. In the unlikely event that data for a primary region is lost, Microsoft attempts to recover it. If the company can't recover the primary data, it uses automatic failover and informs you of the situation through your Azure subscription.
 
-In the unlikely event that a primary region data is lost, Microsoft attempts to recover it. If the primary data cannot be recovered, then geo-failover is performed and the affected customers will be notified about this through their subscription.
+The Automation geo-replication service isn't accessible directly to external customers if there is a regional failure. If you want to maintain Automation configuration and runbooks during regional failures:
 
+1. Select a secondary region to pair with the geographical region of your primary Automation account.
 
+2. Create an Automation account in the secondary region.
+
+3. In the primary account, export your runbooks as script files.
+
+4. Import the runbooks to your Automation account in the secondary region.
+
+## Next steps
+
+* To learn more about secure assets in Azure Automation, see [Encryption of secure assets in Azure Automation](automation-secure-asset-encryption.md).
+
+* To find out more about geo-replication, see [Creating and using active geo-replication](../sql-database/sql-database-active-geo-replication.md).

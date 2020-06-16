@@ -1,8 +1,8 @@
 ---
-title: Create an access review of groups or applications - Azure Active Directory | Microsoft Docs
+title: Create an access review of groups & applications - Azure AD
 description: Learn how to create an access review of group members or application access in Azure Active Directory access reviews. 
 services: active-directory
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
-ms.author: ajburnle
+ms.date: 04/08/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Create an access review of groups or applications in Azure AD access reviews
+# Create an access review of groups and applications in Azure AD access reviews
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
@@ -28,7 +28,7 @@ This article describes how to create one or more access reviews for group member
 - Azure AD Premium P2
 - Global administrator or User administrator
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create one or more access reviews
 
@@ -48,7 +48,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
     ![Create an access review - Start and end dates](./media/create-access-review/start-end-dates.png)
 
-1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly** or **Annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
+1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly**, **Semi-annually**, or **Annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
@@ -88,7 +88,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
     ![Create an access review - Upon completion settings](./media/create-access-review/upon-completion-settings.png)
 
-1. If you want to automatically remove access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
+1. If you want to automatically remove,  access for users that were denied, set **Auto apply results to resource** to **Enable**. If you want to manually apply the results when the review completes, set the switch to **Disable**.
 
 1. Use the **Should reviewer not respond** list to specify what happens for users that are not reviewed by the reviewer within the review period. This setting does not impact users who have been reviewed by the reviewers manually. If the final reviewer's decision is Deny, then the user's access will be removed.
 
@@ -122,6 +122,20 @@ Once you have specified the settings for an access review, click **Start**. The 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
 If you have assigned guests as reviewers and they have not accepted the invite, they will not receive an email from access reviews because they must first accept the invite prior to reviewing.
+
+## Access review status table
+
+| Status | Definition |
+|--------|------------|
+|NotStarted | Review was created, user discovery is waiting to start. |
+|Initializing   | User discovery is in progress to identify all users that are part of the review. |
+|Starting | Review is starting. If email notifications are enabled, emails are being sent to reviewers. |
+|InProgress | Review has started. If email notifications are enabled emails have been sent to reviewers. Reviewers can submit decisions until the due date. |
+|Completing | Review is being completed and emails are being sent to the review owner. |
+|AutoReviewing | Review is in a system reviewing stage. The system is recording decisions for users who were not reviewed based on recommendations or pre-configured decisions. |
+|AutoReviewed | Decisions have been recorded by the system for all users who were not reviewed. Review is ready to proceed to **Applying** if Auto-Apply is enabled. |
+|Applying | There will be no change in access for users who were approved. |
+|Applied | Denied users, if any, have been removed from the resource or directory. |
 
 ## Create reviews via APIs
 

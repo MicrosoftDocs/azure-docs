@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Connect an app to a SQL database | Microsoft Docs
-description: Azure CLI Script Sample - Connect an app to a SQL database
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Connect an app to a SQL database'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to a SQL database.
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 7c2efdd0-f553-4038-a77a-e953021b3f77
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Connect an App Service app to a SQL database using CLI
@@ -45,8 +37,8 @@ This script uses the following commands to create a resource group, App Service 
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
-| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Creates a SQL Database Server.  |
-| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Creates a new database with the SQL Database Server. |
+| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Creates a server.  |
+| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Creates a new database. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | Generates a connection string to a database. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Creates or updates an app setting for an App Service app. App settings are exposed as environment variables for your app. |
 

@@ -12,7 +12,7 @@
 
 You can now use the Data Explorer tool in the Azure portal to create a graph database. 
 
-1. Click **Data Explorer** > **New Graph**.
+1. Select **Data Explorer** > **New Graph**.
 
     The **Add Graph** area is displayed on the far right, you may need to scroll right to see it.
 
@@ -27,4 +27,4 @@ You can now use the Data Explorer tool in the Azure portal to create a graph dat
     Graph ID|sample-graph|Enter *sample-graph* as the name for your new collection. Graph names have the same character requirements as database IDs.
     Partition Key| /pk |All Cosmos DB accounts need a partition key to horizontally scale. Learn how to select an appropriate partition key in the [Graph Data Partitioning article](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-3. Once the form is filled out, click **OK**.
+3. Once the form is filled out, select **OK**.

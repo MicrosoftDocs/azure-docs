@@ -3,11 +3,11 @@ title: How to create and deploy a cloud service | Microsoft Docs
 description: Learn how to create and deploy a cloud service using the Azure portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
+ms.author: tagore
 
 ---
 # How to create and deploy a cloud service
@@ -37,7 +37,7 @@ Before you can deploy a cloud service, you must create the cloud service package
 
 Three cloud service features require special configurations before you export a service package:
 
-* If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for SSL.
+* If you want to deploy a cloud service that uses Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), for data encryption, [configure your application](cloud-services-configure-ssl-certificate-portal.md#modify) for TLS.
 * If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop-new-portal.md) for Remote Desktop.
 * If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). *Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
@@ -65,7 +65,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
 ## Upload a certificate
 If your deployment package was [configured to use certificates](cloud-services-configure-ssl-certificate-portal.md#modify), you can upload the certificate now.
 
-1. Select **Certificates**, and on the **Add certificates** pane, select the SSL certificate .pfx file, and then provide the **Password** for the certificate,
+1. Select **Certificates**, and on the **Add certificates** pane, select the TLS/SSL certificate .pfx file, and then provide the **Password** for the certificate,
 2. Click **Attach certificate**, and then click **OK** on the **Add certificates** pane.
 3. Click **Create** on the **Cloud Service** pane. When the deployment has reached the **Ready** status, you can proceed to the next steps.
 
@@ -85,4 +85,7 @@ If your deployment package was [configured to use certificates](cloud-services-c
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
+
+
+

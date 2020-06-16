@@ -1,8 +1,8 @@
 ---
-title: How to create and locate anchors using Azure Spatial Anchors in Unity | Microsoft Docs
+title: Create & locate anchors in Unity
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -136,7 +136,7 @@ Learn more about the [ProcessFrame](https://docs.microsoft.com/dotnet/api/micros
     if (aRCameraManager.subsystem.TryGetLatestFrame(cameraParams, out xRCameraFrame))
     {
         long latestFrameTimeStamp = xRCameraFrame.timestampNs;
-        
+
         bool newFrameToProcess = latestFrameTimeStamp > lastFrameProcessedTimeStamp;
 
         if (newFrameToProcess)
@@ -170,8 +170,9 @@ Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
     Vector3 hitPosition = new Vector3();
 #if UNITY_ANDROID || UNITY_IOS
+    Vector2 screenCenter = new Vector2(0.5f, 0.5f);
     List<ARRaycastHit> aRRaycastHits = new List<ARRaycastHit>();
-    if(arRaycastManager.Raycast(touch.position, aRRaycastHits) && aRRaycastHits.Count > 0)
+    if(arRaycastManager.Raycast(screenCenter, aRRaycastHits) && aRRaycastHits.Count > 0)
     {
         ARRaycastHit hit = aRRaycastHits[0];
         hitPosition = hit.pose.position;
@@ -186,7 +187,7 @@ Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/
 
     Quaternion rotation = Quaternion.AngleAxis(0, Vector3.up);
     this.localAnchor = GameObject.Instantiate(/* some prefab */, hitPosition, rotation);
-    this.localAnchor.AddARAnchor();
+    this.localAnchor.CreateNativeAnchor();
 
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Azure Database for PostgreSQL - Single Server using the Azure portal
+title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL - Single Server by using the Azure portal user interface.
 author: rachel-msft
 ms.author: raagyema
@@ -20,10 +20,10 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ## Create an Azure Database for PostgreSQL server
 
-An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 To create an Azure Database for PostgreSQL server, take the following steps:
-1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
+1. Select **Create a resource** (+) in the upper-left corner of the portal.
 
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
@@ -67,7 +67,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
 
 Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. 
 
-1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, **mydemoserver**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Enter your server name, such as the example, **mydemoserver**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
  
     ![Server name search](./media/quickstart-create-database-portal/4-locate.png)
 
@@ -173,19 +173,19 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
     Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
-    SSL mode | *Require* | You can set the SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [SSL Enforcing](./concepts-ssl-connection-security.md).
+    SSL mode | *Require* | You can set the TLS/SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with TLS enforcing turned on. To turn off TLS enforcing, see [Configure Enforcement of TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Select **Save**.
 
-6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **mydemoserver**. Click to connect to it.
+6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **mydemoserver**, to connect to it.
 
 7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any other databases you've created. You can create multiple databases per server with Azure Database for PostgreSQL.
 
-8. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
+8. Right-click **Databases**, select the **Create** menu, and then select **Database**.
 
-9. Type a database name of your choice in the **Database** field, such as **mypgsqldb2**.
+9. Enter a database name of your choice in the **Database** field, such as **mypgsqldb2**.
 
-10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
+10. Select the **Owner** for the database from the list box. Select your server admin login name, such as the example, **my admin**.
 
     ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
@@ -195,7 +195,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the server resource.
+You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/management/overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the server resource.
 
 > [!TIP]
 > Other Quickstarts in this collection build on this Quickstart. If you plan to continue working with Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, follow these steps to delete the resources that were created by this Quickstart in the portal.
@@ -203,7 +203,7 @@ You can clean up the resources that you created in the Quickstart in one of two 
 To delete the entire resource group, including the newly created server:
 1. Locate your resource group in the portal. On the menu on the left, select **Resource groups**. Then select the name of your resource group, such as the example, **myresourcegroup**.
 
-2. On your resource group page, select **Delete**. Type the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select **Delete**.
+2. On your resource group page, select **Delete**. Enter the name of your resource group, such as the example, **myresourcegroup**, in the text box to confirm deletion. Select **Delete**.
 
 To delete only the newly created server:
 1. Locate your server in the portal, if you don't have it open. On the menu on the left, select **All resources**. Then search for the server you created.
@@ -212,7 +212,7 @@ To delete only the newly created server:
 
     ![The "Delete" button](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirm the name of the server you want to delete, and view the databases under it that are affected. Type your server name in the text box, such as the example, **mydemoserver**. Select **Delete**.
+3. Confirm the name of the server you want to delete, and view the databases under it that are affected. Enter your server name in the text box, such as the example, **mydemoserver**. Select **Delete**.
 
 ## Next steps
 > [!div class="nextstepaction"]

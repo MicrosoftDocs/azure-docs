@@ -1,7 +1,7 @@
 ---
-title: Subscription keys - LUIS
+title: How to use authoring and runtime keys with LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS uses two keys, the free authoring key to create your model and the metered endpoint key for querying the prediction endpoint with user utterances.
+description: LUIS uses two keys, the authoring key to create your model and the runtime key for querying the prediction endpoint with user utterances.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,76 +9,158 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
-# Authoring and query prediction endpoint keys in LUIS
-LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key). The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to [create the endpoint key](luis-how-to-azure-subscription.md), [assign it](luis-how-to-azure-subscription.md) to your LUIS app, and [use it with the endpoint query](#use-endpoint-key-in-query). 
+# Authoring and runtime keys
 
-|Key|Purpose|
-|--|--|
-|[Authoring key](#programmatic-key)|Authoring, publishing, managing collaborators, versioning|
-|[Endpoint key](#endpoint-key)| Querying|
+Language Understanding (LUIS) has two services and API sets:
 
-It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
+* Authoring (previously known as _programmatic_)
+* Prediction runtime
+
+There are several key types, depending on what service you want to work with and how you want to work with it.
+
+## Non-Azure resources for LUIS
+
+### Starter key
+
+When you first start using LUIS, a **starter key** is created for you. This resource provides:
+
+* free authoring service requests through the LUIS portal or APIs (including SDKs)
+* free 1,000 prediction endpoint requests per month through a browser, API, or SDKs
+
+## Azure resources for LUIS
 
 <a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
 
-## Authoring key
+LUIS allows three types of Azure resources:
 
-An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. 
+|Key|Purpose|Cognitive service `kind`|Cognitive service `type`|
+|--|--|--|--|
+|[Authoring key](#programmatic-key)|Access and manage data of application with authoring, training, publishing, and testing. Create a LUIS authoring key if you intend to programmatically author LUIS apps.<br><br>The purpose of the `LUIS.Authoring` key is to allow you to:<br>* programmatically manage Language Understanding apps and models, including training, and publishing<br> * control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|[Prediction key](#prediction-endpoint-runtime-key)| Query prediction endpoint requests. Create a LUIS prediction key before your client app requests predictions beyond the 1,000 requests provided by the starter resource. |`LUIS`|`Cognitive Services`|
+|[Cognitive Service multi-service resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
 
-To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
+When the resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app in the LUIS portal.
 
-![authoring Key](./media/luis-concept-keys/programatic-key.png)
-
-When you want to make **production endpoint queries**, create the Azure [LUIS subscription](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
 > [!CAUTION]
-> For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
+> For convenience, many of the samples use the [Starter key](#starter-key) because it provides a few free prediction endpoint calls in its [quota](luis-limits.md#key-limits).
 
-## Endpoint key
-When you need **production endpoint queries**, create an Azure Resource then assign it to the LUIS app. 
 
-[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
+### Query prediction resources
 
-When the Azure resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app. 
+* The runtime key can be used for all your LUIS apps or for specific LUIS apps.
+* Do not use the runtime key for authoring LUIS apps.
 
-* The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+The LUIS runtime endpoint accepts two styles of query, both use the prediction endpoint runtime key, but in different places.
 
-* The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
+The endpoint used to access the runtime uses a subdomain that is unique to your resource's region, denoted with `{region}` in the following table.
 
-* Do not use the endpoint key for authoring LUIS apps. 
+## Assignment of the key
 
-## Use endpoint key in query
-The LUIS endpoint accepts two styles of query, both use the endpoint key, but in different places:
-
-|Verb|Example url and key location|
-|--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>query string value for `subscription-key`<br><br>Change your endpoint query value for the `subscription-key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `subscription-key`, you are not using your endpoint key quota.|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> header value for `Ocp-Apim-Subscription-Key`<br><br>Change your endpoint query value for the `Ocp-Apim-Subscription-Key` from the authoring (starter) key, to the new endpoint key in order to use the LUIS endpoint key quota rate. If you create the key, and assign the key but do not change the endpoint query value for `Ocp-Apim-Subscription-Key`, you are not using your endpoint key quota.|
-
-The app ID used in the previous URLs, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, is the public IoT app used for the [interactive demonstration](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
-
-## API usage of Ocp-Apim-Subscription-Key
-The LUIS APIs use the header, `Ocp-Apim-Subscription-Key`. The header name does not change based on which key and set of APIs you are using. Set the header to the authoring key for authoring APIs. If you are using the endpoint, set the header to the endpoint key. 
-
-You can't pass the endpoint key for authoring APIs. If you do, you get a 401 error - access denied due to invalid endpoint key. 
+You can [assign](luis-how-to-azure-subscription.md) the runtime key in the [LUIS portal](https://www.luis.ai) or via the corresponding APIs.
 
 ## Key limits
-See [Key Limits](luis-boundaries.md#key-limits) and [Azure Regions](luis-reference-regions.md). The authoring key is free and used for authoring. The LUIS endpoint key has a free tier but must be created by you and associated with your LUIS app on the **Publish** page. It can't be used for authoring, but only endpoint queries.
 
-Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want.
+You can create up to 10 authoring keys per region per subscription.
+
+See [Key Limits](luis-limits.md#key-limits) and [Azure regions](luis-reference-regions.md).
+
+Publishing regions are different from authoring regions. Make sure you create an app in the authoring region corresponding to the publishing region you want your client application to be located.
 
 ## Key limit errors
-If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](luis-how-to-azure-subscription.md) the key to the app on the **Publish** page of the [LUIS](luis-reference-regions.md#luis-website) website.
+If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 error. If you exceed your transaction-per-month (TPS) quota, you receive an HTTP 403 error.
 
-## Assignment of the endpoint key
+## Contributions from other authors
 
-You can [assign](luis-how-to-azure-subscription.md) the endpoint key in the [LUIS portal](https://www.luis.ai) or via the corresponding APIs. 
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md), using the collaborator's email address and the _contributor_ role.
 
+**For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from the **Manage -> Collaborators** page.
+
+## Move, transfer, or change ownership
+
+An app is defined by its Azure resources, which is determined by the owner's subscription.
+
+You can move your LUIS app. Use the following documentation resources in the Azure portal or Azure CLI:
+
+* [Move app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [Move resource to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Move resource within same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+To transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription:
+
+**For users who have migrated - [authoring resource migrated](luis-migration-authoring.md) apps**: As the owner of the resource, you can add a `contributor`.
+
+**For users who have not migrated yet**: Export your app as a JSON file. Another LUIS user can import the app, thereby becoming the app owner. The new app will have a different app ID.
+
+## Access for private and public apps
+
+For a **private** app, runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) runtime resource, and has the public app's ID.
+
+Currently, there isn't a catalog of public apps.
+
+### Authoring access
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the Azure authoring resource.
+
+The owner and all contributors have access to author the app.
+
+|Authoring access includes|Notes|
+|--|--|
+|Add or remove endpoint keys||
+|Exporting version||
+|Export endpoint logs||
+|Importing version||
+|Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
+|Modify model|
+|Publish|
+|Review endpoint utterances for [active learning](luis-how-to-review-endpoint-utterances.md)|
+|Train|
+
+<a name="prediction-endpoint-runtime-key"></a>
+
+### Prediction endpoint runtime access
+
+Access to query the prediction endpoint is controlled by a setting on the **Application Information** page in the **Manage** section.
+
+|[Private endpoint](#runtime-security-for-private-apps)|[Public endpoint](#runtime-security-for-public-apps)|
+|:--|:--|
+|Available to owner and contributors|Available to owner, contributors, and anyone else that knows app ID|
+
+You can control who sees your LUIS runtime key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authenticated and authorization is verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your key and endpoint URL from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+
+#### Runtime security for private apps
+
+A private app's runtime is only available to the following:
+
+|Key and user|Explanation|
+|--|--|
+|Owner's authoring key| Up to 1000 endpoint hits|
+|Collaborator/contributor authoring keys| Up to 1000 endpoint hits|
+|Any key assigned to LUIS by an author or collaborator/contributor|Based on key usage tier|
+
+#### Runtime security for public apps
+
+Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+
+A user who is not an owner or contributor, can only access a public app's runtime if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.
+
+A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with the resource key.
+
+## Transfer of ownership
+
+LUIS doesn't have the concept of transferring ownership of a resource.
+
+## Securing the endpoint
+
+You can control who can see your LUIS prediction runtime endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 ## Next steps
 
-* Learn [concepts](luis-how-to-azure-subscription.md) about authoring and endpoint keys.
+* Understand [versioning](luis-concept-version.md) concepts.
+* Learn [how to create keys](luis-how-to-azure-subscription.md).

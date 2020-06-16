@@ -1,12 +1,12 @@
 ---
 title: Logic App Test Drive | Azure Marketplace
 description: Explains how to build their Test Drive that connects with a Dynamics AX/CRM instance or any other resource beyond just Azure.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Logic App Test Drive

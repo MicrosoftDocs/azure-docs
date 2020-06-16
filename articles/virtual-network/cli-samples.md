@@ -1,10 +1,10 @@
 ---
-title: Azure CLI samples for virtual network | Microsoft Docs
+title: Azure CLI samples for virtual network
 description: Azure CLI samples for virtual network.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags:
 ms.assetid:
@@ -29,3 +29,4 @@ The following table includes links to bash scripts with Azure CLI commands:
 | [Filter inbound and outbound VM network traffic](./scripts/virtual-network-cli-sample-filter-network-traffic.md) | Creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS, and SSH. Outbound traffic to the internet from the back-end subnet is not permitted. |
 |[Configure IPv4 + IPv6 dual stack virtual network with Basic Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack.md)|Deploys dual-stack (IPv4+IPv6) virtual network with two VMs and an Azure Basic Load Balancer with IPv4 and IPv6 public IP addresses. |
 |[Configure IPv4 + IPv6 dual stack virtual network with Standard Load Balancer](./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md)|Deploys dual-stack (IPv4+IPv6) virtual network with two VMs and an Azure Standard Load Balancer with IPv4 and IPv6 public IP addresses. |
+|[Tutorial: Create and test a NAT gateway - Azure CLI](../virtual-network/tutorial-create-validate-nat-gateway-cli.md)|Create and validate a NAT gateway using a source and destination virtual machine. |

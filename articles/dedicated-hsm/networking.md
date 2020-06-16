@@ -2,8 +2,8 @@
 title: Networking considerations - Azure Dedicated HSM | Microsoft Docs
 description: Overview of networking considerations applicable to Azure Dedicated HSM deployments
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 
@@ -76,7 +76,7 @@ The HSM devices have the ability, via software libraries, to redirect traffic to
 
 ### Cross region HA using VPN gateway
 
-For globally distributed applications or for high availability regional failover scenarios, it is required to connect virtual networks across regions. With Azure Dedicated HSM, high-availability can be achieved by using a VPN Gateway that provides a secure tunnel between the two virtual networks. For more information on Vnet-to-Vnet connections using VPN Gateway, see the article titled [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
+For globally distributed applications or for high availability regional failover scenarios, it is required to connect virtual networks across regions. With Azure Dedicated HSM, high-availability can be achieved by using a VPN Gateway that provides a secure tunnel between the two virtual networks. For more information on Vnet-to-Vnet connections using VPN Gateway, see the article titled [What is VPN Gateway?](../vpn-gateway/design.md#V2V)
 
 > [!NOTE]
 > Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 

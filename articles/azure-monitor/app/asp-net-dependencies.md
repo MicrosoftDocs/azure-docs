@@ -1,23 +1,14 @@
 ---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Microsoft Azure web application with Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2019
-ms.author: mbullwin
+ms.date: 03/26/2020
 
 ---
+
 # Dependency Tracking in Azure Application Insights 
 
-A *dependency* is an external component that is called by your app. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
+A *dependency* is an external component that is called by your application. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
 
 ## Automatically tracked dependencies
 
@@ -35,15 +26,18 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
+If you're missing a dependency, or using a different SDK make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If the dependency isn't auto-collected, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## Setup automatic dependency tracking in Console Apps
 
-To automatically track dependencies from .NET/.NET Core console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
+To automatically track dependencies from .NET console apps, install the Nuget package `Microsoft.ApplicationInsights.DependencyCollector`, and initialize `DependencyTrackingTelemetryModule` as follows:
 
 ```csharp
     DependencyTrackingTelemetryModule depModule = new DependencyTrackingTelemetryModule();
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
+
+For .NET Core console apps TelemetryConfiguration.Active is obsolete. Refer to the guidance in the [worker service documentation](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) and the [ASP.NET Core monitoring documentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
 
 ### How automatic dependency monitoring works?
 
@@ -86,22 +80,25 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 ## Tracking AJAX calls from Web Pages
 
-For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies as described [here](javascript.md#ajax-performance). This document focuses on dependencies from server components.
+For web pages, Application Insights JavaScript SDK automatically collects AJAX calls as dependencies.
 
 ## Advanced SQL tracking to get full SQL Query
 
 For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There's an additional field called 'data', which can contain the full SQL query text.
 
-For ASP.NET Core applications, there's no additional step required to get the full SQL Query.
+For ASP.NET Core applications, It is now required to opt-in to SQL Text collection by using
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
-For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which requires instrumentation engine. Additional platform-specific steps, as described below, are required.
+For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which requires instrumentation engine or by using the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package instead of the System.Data.SqlClient library. Additional platform-specific steps, as described below, are required.
 
 | Platform | Step(s) Needed to get full SQL Query |
 | --- | --- |
 | Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
-| IIS Server (Azure VM, on-prem, and so on.) | Use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) and restart IIS. |
+| IIS Server (Azure VM, on-prem, and so on.) | Either use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package or use the Status Monitor PowerShell Module to [install the Instrumentation Engine](../../azure-monitor/app/status-monitor-v2-api-reference.md) and restart IIS. |
 | Azure Cloud Service | Add [startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Your app should be onboarded to ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) or [ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Not supported
+| IIS Express | Use the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package
 
 In the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query won't be captured.
 
@@ -109,7 +106,7 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
-* [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
+* [Browsers tab](javascript.md) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#logs-analytics) can be used to query dependency data.
 

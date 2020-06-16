@@ -1,5 +1,5 @@
 ---
-title: Create Service Bus Messaging namespace using Azure Resource Manager template | Microsoft Docs
+title: Create an Azure Service Bus namespace using template
 description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
 services: service-bus-messaging
 documentationcenter: .net
@@ -78,9 +78,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [By using the Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [By using REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 ## Clean up resources
 

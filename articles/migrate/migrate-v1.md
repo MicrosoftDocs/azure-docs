@@ -1,10 +1,10 @@
 ---
-title: Work with the previous version of Azure Migrate | Microsoft Docs
-description: Provides a summary for working with the old version of Azure Migrate
+title: Work with the previous version of Azure Migrate 
+description: Describes how to work with the previous version of Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 07/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -74,7 +74,7 @@ The Azure readiness view in the assessment shows the readiness status of each VM
 
 **Readiness** | **State** | **Details**
 --- | --- | ---
-Ready for Azure | No compatibility issues. The machine can be migrated as-is to Azure, and it will boot in Azure will full Azure support. | For VMs that are ready, Azure Migrate recommends a VM size in Azure.
+Ready for Azure | No compatibility issues. The machine can be migrated as-is to Azure, and it will boot in Azure with full Azure support. | For VMs that are ready, Azure Migrate recommends a VM size in Azure.
 Conditionally ready for Azure | The machine might boot in Azure, but might not have full Azure support. For example, a machine with an older version of Windows Server that isn't supported in Azure. | Azure Migrate explains the readiness issues, and provides remediation steps.
 Not ready for Azure |  The VM won't boot in Azure. For example, if a VM has a disk that's more than 4 TB, it can't be hosted on Azure. | Azure Migrate explains the readiness issues, and provides remediation steps.
 Readiness unknown | Azure Migrate can't identify Azure readiness, usually because data isn't available.
@@ -87,7 +87,7 @@ Readiness takes into account a number of VM properties, to identify whether  the
 **Property** | **Details** | **Readiness**
 --- | --- | ---
 **Boot type** | BIOS supported. UEFI not supported. | Conditionally ready if boot type is UEFI.
-**Cores** | Machines core <= the maximum number of cores (128) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores.<br/>If a <br/>comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor. | Ready if less than or equal to limits.
+**Cores** | Machines core <= the maximum number of cores (128) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores.<br/>If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor. | Ready if less than or equal to limits.
 **Memory** | The machine memory size <= the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) for an Azure VM. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory.<br/><br/>If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated  memory is used, without applying the comfort factor.<br/><br/> | Ready if within limits.
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. | Ready if within limits.
 **Networking** | A machine must have 32 or less NICs attached to it. | Ready if within limits.
@@ -138,7 +138,7 @@ Cost estimates show the total compute and storage cost of running the VMs in Azu
 
 Each performance-based assessment is associated with a confidence rating.
 
-- A confidence rating ranges from one-star to five-star (one-start being the lowest and five-start the highest).
+- A confidence rating ranges from one-star to five-star (one-star being the lowest and five-star the highest).
 - The confidence rating is assigned to an assessment, based on the availability of data points needed to compute the assessment.
 - The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
 - Confidence rating isn't available for "as-is" on-premises assessments.
@@ -197,7 +197,7 @@ To use dependency visualization, you associate a Log Analytics workspace with a 
 1. To attach a Log Analytics workspace to a project, in **Overview**, > **Essentials**, click **Requires configuration**.
 2. You can create a new workspace, or attach an existing one:
   - To create a new workspace, specify a name. The workspace is created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You can't change the workspace associated with a migration project.
@@ -212,7 +212,7 @@ After you configure a workspace, you download and install agents on each on-prem
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 > [!NOTE]
-> To automate the installation of agents you can use a deployment tool such as System Center Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that orovides an agent deployment solution for Azure Migrate.
+> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
 
 
 #### Install the MMA agent on a Windows machine
@@ -225,7 +225,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as System Center Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as Configuration Manager. [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) about using these methods to install the MMA agent.
 
 #### Install the MMA agent on a Linux machine
 
@@ -242,7 +242,6 @@ To install the agent on a Linux machine:
 
 For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). The Dependency agent does need to be installed.
 
-
 ### Install the Dependency agent
 
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
@@ -250,9 +249,11 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- Learn more about the Dependency agent support for the [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operating systems.
-- [Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- Learn more about the [Dependency agent support](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
 
+>[!NOTE]
+> The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.
 
 ### Create a group with dependency mapping
 

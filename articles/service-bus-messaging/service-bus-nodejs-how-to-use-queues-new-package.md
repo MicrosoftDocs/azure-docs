@@ -1,10 +1,9 @@
 ---
-title: How to use Azure Service Bus queues in Node.js - azure/service-bus | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure from a Node.js app.
+title: How to use azure/service-bus queues in Node.js
+description: Learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new @azure/service-bus package.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
@@ -12,16 +11,12 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 01/27/2020
 ms.author: aschhab
 
 ---
-# How to use Service Bus queues with Node.js and the azure/service-bus package
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
+# Quickstart: How to use Service Bus queues with Node.js and the azure/service-bus package
 In this tutorial, you learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 
 ## Prerequisites
@@ -105,7 +100,7 @@ Interacting with a Service Bus queue starts with instantiating the [ServiceBusCl
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
       try {
         const messages = await receiver.receiveMessages(10)
         console.log("Received messages:");

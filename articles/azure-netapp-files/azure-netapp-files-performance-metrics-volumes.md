@@ -1,28 +1,21 @@
 ---
-title: Benchmark testing for volume performance and metrics using Azure NetApp Files | Microsoft Docs
-description: Provides benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Recommended performance benchmark tests - Azure NetApp Files
+description: Learn about benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: b-juche
+ms.date: 08/07/2019
+
 ---
-# Benchmark testing for volume performance and metrics using Azure NetApp Files
+# Performance benchmark test recommendations for Azure NetApp Files
 
 This article provides benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
 
 ## Overview
 
-To understand the performance characteristics of an Azure NetApp Files volume, you can use the open source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
 
 ### VM instance sizing
 
@@ -126,4 +119,4 @@ The following example shows a GET URL for viewing logical volume size:
 ## Next steps
 
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Performance benchmarks for Linux](performance-benchmarks-linux.md)

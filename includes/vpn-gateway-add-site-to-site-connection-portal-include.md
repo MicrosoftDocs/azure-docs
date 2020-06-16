@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 08/02/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. Navigate to and open the page for your virtual network gateway. There are multiple ways to navigate. You can navigate to the gateway 'VNet1GW' by going to **TestVNet1 -> Overview -> Connected devices -> VNet1GW**.
-2. On the page for VNet1GW, click **Connections**. At the top of the Connections page, click **+Add** to open the **Add connection** page.
+1. Open the page for your virtual network gateway. There are multiple ways to navigate. You can navigate to the gateway by going to **Name of your VNet -> Overview -> Connected devices -> Name of your gateway**.
+2. On the page for the gateway, click **Connections**. At the top of the Connections page, click **+Add** to open the **Add connection** page.
 
    ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-portal-include/configure-site-to-site-connection.png)
 3. On the **Add connection** page, configure the values for your connection.

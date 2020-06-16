@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Media Services v3 API - .NET
-description: Learn how to connect to Media Services v3 API with .NET.  
+description: This article demonstrates how to connect to Media Services v3 API with .NET.  
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,9 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.author: juliako
-
+ms.custom: has-adal-ref
 ---
 # Connect to Media Services v3 API - .NET
 
@@ -24,6 +24,9 @@ This article shows you how to connect to the Azure Media Services v3 .NET SDK us
 
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name
 - Install a tool that you would like to use for .NET development. The steps in this article show how to use [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). You can use Visual Studio Code, see [Working with C#](https://code.visualstudio.com/docs/languages/csharp). Or, you can use a different code editor.
+
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
 
 ## Create a console application
 
@@ -235,4 +238,5 @@ namespace ConsoleApp1
 
 ## See also
 
-[.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* [.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+* For more code examples, see the [.NET SDK samples](https://github.com/Azure-Samples/media-services-v3-dotnet) repo.

@@ -9,31 +9,37 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/15/2019
-ms.author: maheshb
+ms.date: 05/08/2020
+ms.author: aahi
 ---
 
 # Quickstart: Call your Bing Custom Search endpoint using C# 
 
-Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in C#, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
+Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in C#, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
 ## Prerequisites
 
-- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/)
-- If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
-- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) NuGet package. 
-    - From **Solution Explorer** in Visual Studio, right-click your project and select **Manage NuGet Packages** from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
-        - Microsoft.Rest.ClientRuntime
-        - Microsoft.Rest.ClientRuntime.Azure
-        - Newtonsoft.Json
+- A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
+- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- Any edition of [Visual Studio 2019 or later](https://www.visualstudio.com/downloads/).
+- If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+- The [Bing Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0) NuGet package. 
+
+   To install this package in Visual Studio: 
+     1. Right-click your project in **Solution Explorer**, and then select **Manage NuGet Packages**. 
+     2. Search for and select *Microsoft.Azure.CognitiveServices.Search.CustomSearch*, and then install the package.
+
+   When you install the Bing Custom Search NuGet package, Visual Studio also installs the following packages:
+     - **Microsoft.Rest.ClientRuntime**
+     - **Microsoft.Rest.ClientRuntime.Azure**
+     - **Newtonsoft.Json**
+
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create and initialize the application
 
-1. Create a new C# console application in Visual Studio. Then add the following packages to your project.
+1. Create a new C# console application in Visual Studio. Then, add the following packages to your project:
 
     ```csharp
     using System;
@@ -42,7 +48,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     using Newtonsoft.Json;
     ```
 
-2. Create the following classes to store the search results returned by the Bing Custom Search API.
+2. Create the following classes to store the search results returned by the Bing Custom Search API:
 
     ```csharp
     public class BingCustomSearchResponse {        
@@ -66,7 +72,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     }
     ```
 
-3. In the main method of your project, create variables for your Bing Custom Search API subscription key, your search instance's Custom Configuration ID, and a search term.
+3. In the main method of your project, create the following variables for your Bing Custom Search API subscription key, search instance's custom configuration ID, and search term:
 
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
@@ -74,7 +80,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). For the `url` variable value, you can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
@@ -98,9 +104,9 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-   ## Process and view the results
+## Process and view the results
 
-3. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
+- Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

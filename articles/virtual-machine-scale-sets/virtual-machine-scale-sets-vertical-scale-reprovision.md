@@ -1,26 +1,19 @@
 ---
-title: Vertically scale Azure virtual machine scale sets | Microsoft Docs
+title: Vertically scale Azure virtual machine scale sets
 description: How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
-ms.devlang: na
-ms.topic: article
+ms.subservice: autoscale
 ms.date: 04/18/2019
-ms.author: manayar
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Vertical autoscale with virtual machine scale sets
 
-This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. For vertical scaling of VMs that are not in scale sets, refer to [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+This article describes how to vertically scale Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) with or without reprovisioning. 
 
 Vertical scaling, also known as *scale up* and *scale down*, means increasing or decreasing virtual machine (VM) sizes in response to a workload. Compare this behavior with [horizontal scaling](virtual-machine-scale-sets-autoscale-overview.md), also referred to as *scale out* and *scale in*, where the number of VMs is altered depending on the workload.
 
@@ -85,7 +78,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
 ## Create an Azure Automation Account with run-as capability
@@ -156,8 +149,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell quickstart samples](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor Cross-platform CLI quickstart samples](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
 
 ## Summary
 

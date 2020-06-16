@@ -2,13 +2,9 @@
 title: Deployment Center for Azure Kubernetes
 description: Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
 ms.author: puagarw
-ms.manager: douge
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-monikerRange: 'vsts'
 ---
 
 # Deployment Center for Azure Kubernetes
@@ -37,7 +33,7 @@ In this tutorial, you will:
 
 1. To create the AKS cluster, run the following commands:
 
-    ```cmd
+    ```azurecli
     # Create a resource group in the South India location:
 
     az group create --name azooaks --location southindia

@@ -1,18 +1,14 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
+title: "Create a Kubernetes dev space: Visual Studio & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get started on Azure Dev Spaces with .NET Core and Visual Studio
+# Create a Kubernetes dev space: Visual Studio and .NET Core with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -24,31 +20,62 @@ In this guide, you will learn how to:
 > [!Note]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
+## Install the Azure CLI
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+### Sign in to Azure CLI
+Sign in to Azure. Type the following command in a terminal window:
+
+```azurecli
+az login
+```
+
+> [!Note]
+> If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+
+#### If you have multiple Azure subscriptions...
+You can view your subscriptions by running: 
+
+```azurecli
+az account list --output table
+```
+
+Locate the subscription which has *True* for *IsDefault*.
+If this isn't the subscription you want to use, you can change the default subscription:
+
+```azurecli
+az account set --subscription <subscription ID>
+```
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1. Sign in to the Azure portal at https://portal.azure.com.
-1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
-   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces][supported-regions].
+```azurecli
+az group create --name MyResourceGroup --location <region>
+```
 
-   - **PROJECT DETAILS**: select an Azure subscription and a new or existing Azure resource group.
-   - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
-   - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
+Create a Kubernetes cluster with the following command:
 
-   ![Kubernetes configuration settings](media/common/Kubernetes-Create-Cluster-2.PNG)
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+```
 
+It takes a few minutes to create the cluster.
 
-   Select **Next: Authentication** when complete.
+### Configure your AKS cluster to use Azure Dev Spaces
 
-1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
-    ![RBAC setting](media/common/k8s-RBAC.PNG)
-
-1. Select **Review + create** and then **Create** when complete.
+   ```azurecli
+   az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+   ```
+   
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
 ## Get the Visual Studio tools
-Install the latest version of [Visual Studio](https://www.visualstudio.com/vs/). For Visual Studio 2019 on Windows you need to install the Azure Development workload. For Visual Studio 2017 on Windows you need to install the ASP.NET and web development workload as well as [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
+Install the latest version of [Visual Studio 2019](https://www.visualstudio.com/vs/) on Windows with the Azure Development workload.
 
 ## Create a web app running in a container
 
@@ -150,4 +177,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 > [Learn about multi-service development](multi-service-netcore-visualstudio.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

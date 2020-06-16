@@ -1,13 +1,14 @@
 ---
-title: "Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs"
-ms.custom: ""
-ms.date: "04/14/2015"
+title: Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs
+description: A service definition (.csdef) file defines a service model for an application, containing available roles, endpoints, and configuration values for the service.
+ms.custom: 
+ms.date: 04/14/2015
 services: cloud-services
-ms.service: "cloud-services"
-ms.topic: "reference"
+ms.service: cloud-services
+ms.topic: reference
 caps.latest.revision: 42
-author: "georgewallace"
-ms.author: "gwallace"
+author: tgore03
+ms.author: tagore
 ---
 # Azure Cloud Services Definition Schema (.csdef File)
 The service definition file defines the service model for an application. The file contains the definitions for the roles that are available to a cloud service, specifies the service endpoints, and establishes configuration settings for the service. Configuration setting values are set in the service configuration file, as described by the [Cloud Service (classic) Configuration Schema](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -61,4 +62,4 @@ The following table describes the attributes of the `ServiceDefinition` element.
 | name                    |Required. The name of the service. The name must be unique within the service account.|
 | topologyChangeDiscovery | Optional. Specifies the type of topology change notification. Possible values are:<br /><br /> -   `Blast` - Sends the update as soon as possible to all role instances. If you choose option, the role should be able to handle the topology update without being restarted.<br />-   `UpgradeDomainWalk` – Sends the update to each role instance in a sequential manner after the previous instance has successfully accepted the update.|
 | schemaVersion           | Optional. Specifies the version of the service definition schema. The schema version allows Visual Studio to select the correct SDK tools to use for schema validation if more than one version of the SDK is installed side-by-side.|
-| upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Manage the availabilty of virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) and [What is a Cloud Service Model](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|
+| upgradeDomainCount      | Optional. Specifies the number of upgrade domains across which roles in this service are allocated. Role instances are allocated to an upgrade domain when the service is deployed. For more information, see [Update a cloud service role or deployment](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) and [What is a Cloud Service Model](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> You can specify up to 20 upgrade domains. If not specified, the default number of upgrade domains is 5.|

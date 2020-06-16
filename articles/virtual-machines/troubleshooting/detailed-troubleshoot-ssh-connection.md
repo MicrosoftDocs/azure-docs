@@ -5,7 +5,7 @@ keywords: ssh connection refused,ssh error,azure ssh,SSH connection failed
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
@@ -88,6 +88,9 @@ If you can create an SSH connection with a computer that's directly connected to
 Work with your network administrator to correct the settings of your organization edge devices to allow SSH traffic with the Internet.
 
 ## Source 3: Cloud service endpoint and ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 > [!NOTE]
 > This source applies only to VMs that were created by using the classic deployment model. For VMs that were created by using Resource Manager, skip to [source 4: Network security groups](#nsg).
 

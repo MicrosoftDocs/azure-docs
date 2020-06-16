@@ -1,20 +1,19 @@
 ---
 title: Azure Storage metrics migration | Microsoft Docs
 description: Learn how to migrate old metrics to new metrics that are managed by Azure Monitor.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 
 # Azure Storage metrics migration
 
-Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage integrates metrics to the Azure Monitor platform. In the future, the service of the old metrics will end with an early notification based on Azure policy. If you rely on old storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
+Aligned with the strategy of unifying the monitor experience in Azure, Azure Storage integrates metrics to the Azure Monitor platform. In the future, the service of the old metrics will end with an early notification based on Azure Policy. If you rely on old storage metrics, you need to migrate prior to the service end date in order to maintain your metric information.
 
 This article shows you how to migrate from the old metrics to the new metrics.
 

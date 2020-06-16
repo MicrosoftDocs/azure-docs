@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot failback to on-premises during VMware VM disaster recovery to Azure with Azure Site Recovery | Microsoft Docs
+title: Troubleshoot failback in VMware VM disaster recovery with Azure Site Recovery 
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
@@ -15,6 +15,23 @@ ms.author: rajanaki
 This article describes how to troubleshoot issues you might encounter when you fail back Azure VMs to your on-premises VMware infrastructure, after failover to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
 Failback essentially involves two main steps. For the first step, after failover, you need to reprotect Azure VMs to on-premises so that they start replicating. The second step is to run a failover from Azure to fail back to your on-premises site.
+
+## Common issues
+
+- If you perform a read-only user vCenter discovery and protect virtual machines, protection succeeds, and failover works. During reprotection, failover fails because the datastores can't be discovered. A symptom is that the datastores aren't listed during reprotection. To resolve this problem, you can update the vCenter credentials with an appropriate account that has permissions and then retry the job.
+- When you fail back a Linux virtual machine and run it on-premises, you can see that the Network Manager package has been uninstalled from the machine. This uninstallation occurs because the Network Manager package is removed when the virtual machine is recovered in Azure.
+- When a Linux virtual machine is configured with a static IP address and is failed over to Azure, the IP address is acquired from DHCP. When you fail over to on-premises, the virtual machine continues to use DHCP to acquire the IP address. Manually sign in to the machine, and then set the IP address back to a static address if necessary. A Windows virtual machine can acquire its static IP address again.
+- If you use either the ESXi 5.5 free edition or the vSphere 6 Hypervisor free edition, failover succeeds, but failback doesn't succeed. To enable failback, upgrade to either program's evaluation license.
+- If you can't reach the configuration server from the process server, use Telnet to check connectivity to the configuration server on port 443. You can also try to ping the configuration server from the process server. A process server should also have a heartbeat when it's connected to the configuration server.
+- A Windows Server 2008 R2 SP1 server that is protected as a physical on-premises server can't be failed back from Azure to an on-premises site.
+- You can't fail back in the following circumstances:
+    - You migrated machines to Azure. [Learn more](migrate-overview.md#what-do-we-mean-by-migration).
+    - You moved a VM to another resource group.
+    - You deleted the Azure VM.
+    - You disabled protection of the VM.
+    - You created the VM manually in Azure. The machine should have been initially protected on-premises and failed over to Azure before reprotection.
+    - You can fail only to an ESXi host. You can't failback VMware VMs or physical servers to Hyper-V hosts, physical machines, or VMware workstations.
+
 
 ## Troubleshoot reprotection errors
 
@@ -48,7 +65,7 @@ To resolve this issue:
 
 ### Error code 78093
 
-**The VM is not running, in a hung state, or not accessible.**
+**The VM is not running, not responding, or not accessible.**
 
 To resolve this issue:
 
@@ -61,7 +78,7 @@ To reprotect a failed-over VM, the Azure VM must be running so that Mobility Ser
 
 **The datastore is not accessible from ESXi host.**
 
-Check the [master target prerequisites and supported data stores](vmware-azure-reprotect.md#deploy-a-separate-master-target-server) for failback.
+Check the [master target prerequisites and supported data stores](vmware-azure-prepare-failback.md#deploy-a-separate-master-target-server) for failback.
 
 
 ## Troubleshoot failback errors

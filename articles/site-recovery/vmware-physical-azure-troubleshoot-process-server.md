@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: raynew
 
 ---
@@ -165,7 +165,7 @@ Check whether the process server is actively pushing data to Azure.
 
   1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
   2. Select the **Performance** tab > **Open Resource Monitor**.
-  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large vNotolume of data.
+  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
        ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -243,7 +243,7 @@ Increase the bandwidth between the process server and Azure, and then check whet
 
 ## Next steps
 
-If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

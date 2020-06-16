@@ -1,12 +1,12 @@
 ---
-title: 'Create and install VPN client configuration files for P2S RADIUS connections: PowerShell: Azure | Microsoft Docs'
+title: 'Azure VPN Gateway: Create & install VPN client config files - P2S RADIUS connections'
 description: Create Windows, Mac OS X, and Linux VPN client configuration files for connections that use RADIUS authentication.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
 
 ---
@@ -34,7 +34,6 @@ The configuration workflow for P2S RADIUS authentication is as follows:
 
 To use the sections in this article, first decide which type of authentication you want to use: username/password, certificate, or other types of authentication. Each section has steps for Windows, Mac OS X, and Linux (limited steps available at this time).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="adeap"></a>Username/password authentication
 
@@ -111,7 +110,7 @@ Use the following steps to configure the native Windows VPN client for certifica
       <key>ServerAddresses</key>
         <array>
             <string>10.0.0.132</string>
-        <array>
+        </array>
       <key>SupplementalMatchDomains</key>
         <array>
             <string>TestDomain.com</string>

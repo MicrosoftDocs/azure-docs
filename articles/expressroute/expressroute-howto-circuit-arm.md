@@ -1,15 +1,13 @@
 ---
-title: 'Create and modify an ExpressRoute circuit - PowerShell: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
-ms.date: 02/20/2019
+ms.topic: how-to
+ms.date: 01/08/2020
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
 
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
@@ -30,7 +28,7 @@ Before you begin, review the [prerequisites](expressroute-prerequisites.md) and 
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -71,8 +69,8 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify *Standard* to get the standard SKU or *Premium* for the premium add-on.
-* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is always *Unlimiteddata*.
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
@@ -280,7 +278,7 @@ The response looks similar to the following example:
 You can get detailed descriptions of all the parameters by running the following command:
 
 ```azurepowershell-interactive
-get-help get-azurededicatedcircuit -detailed
+get-help Get-AzExpressRouteCircuit -detailed
 ```
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit

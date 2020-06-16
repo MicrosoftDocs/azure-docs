@@ -1,18 +1,9 @@
 ---
-title: Monitor a Service Fabric cluster in Azure | Microsoft Docs
+title: Monitor a Service Fabric cluster in Azure 
 description: In this tutorial, you learn how to monitor a cluster by viewing Service Fabric events, querying the EventStore APIs, monitoring perf counters, and viewing health reports.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
@@ -128,7 +119,7 @@ ServiceFabricOperationalEvent
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
+
 Returns Health Reports with HealthState == 3 (Error) and extract additional properties from the EventMessage field:
 
 ```kusto

@@ -1,20 +1,18 @@
 ---
-title: Manage Network Security Group Flow logs with Azure Network Watcher - Azure CLI | Microsoft Docs
+title: Manage NSG Flow logs - Azure CLI
+titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor:
+author: damendo
 
-ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 
 ---
 
@@ -71,7 +69,6 @@ If a storage account is specified, flow log files are saved to a storage account
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-For information about the structure of the log visit [Network Security Group Flow log Overview](network-watcher-nsg-flow-logging-overview.md)
 
 ## Next Steps
 

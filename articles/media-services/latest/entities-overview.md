@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Filtering, ordering, paging of Media Services entities - Azure | Microsoft Docs
-description: This article discusses filtering, ordering, paging of Azure Media Services entities. 
+title: Filtering, ordering, and paging of Media Services entities
+titleSuffix: Azure Media Services
+description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,236 +12,116 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
-# Filtering, ordering, paging of Media Services entities
+# Filtering, ordering, and paging of Media Services entities
 
-Media Services supports the following OData query options for Media Services v3 entities: 
+This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
 
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
+## Considerations
 
-Operator description:
+* Properties of entities that are of the `Datetime` type are always in UTC format.
+* White space in the query string should be URL-encoded before you send a request.
 
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
+## Comparison operators
 
-Properties of entities that are of the Datetime type are always in UTC format.
+You can use the following operators to compare a field to a constant value:
 
-## Page results
+Equality operators:
 
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. The page size varies by the type of entity, please read the individual sections that follow for details.
+- `eq`: Test whether a field is *equal to* a constant value.
+- `ne`: Test whether a field is *not equal to* a constant value.
 
-If entities are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
+Range operators:
 
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
+- `gt`: Test whether a field is *greater than* a constant value.
+- `lt`: Test whether a field is *less than* a constant value.
+- `ge`: Test whether a field is *greater than or equal to* a constant value.
+- `le`: Test whether a field is *less than or equal to* a constant value.
 
-## Assets
+## Filter
 
-### Filtering/ordering
+Use `$filter` to supply an OData filter parameter to find only the objects you're interested in.
 
-The following table shows how the filtering and ordering options may be applied to the [Asset](https://docs.microsoft.com/rest/api/media/assets) properties: 
+The following REST example filters on the `alternateId` value of an asset:
 
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|eq, gt, lt| ascending and descending|
-|properties.alternateId |eq||
-|properties.assetId |eq||
-|properties.container |||
-|properties.created| eq, gt, lt| ascending and descending|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|type|||
+```
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
+```
 
-The following C# example filters on the created date:
+The following C# example filters on the asset's created date:
 
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
 ```
 
-### Pagination 
+## Order by
 
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 1000.
-
-#### C# example
-
-The following C# example shows how to enumerate through all the assets in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### REST example
-
-Consider the following example of where $skiptoken is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
-
-If you request a list of Assets like this:
+Use `$orderby` to sort the returned objects by the specified parameter. For example:  
 
 ```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
+```
+
+To sort the results in ascending or descending order, append either `asc` or `desc` to the field name, separated by a space. For example: `$orderby properties/created desc`.
+
+## Skip token
+
+If a query response contains many items, the service returns a `$skiptoken` (`@odata.nextLink`) value that you use to get the next page of results. Use it to page through the entire result set.
+
+In Media Services v3, you can't configure the page size. The page size varies by the type of entity. Read the individual sections that follow for details.
+
+If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
+
+> [!TIP]
+> Always use `nextLink` to enumerate the collection and don't depend on a particular page size.
+>
+> The `nextLink` value will be present only if there's more than one page of entities.
+
+Consider the following example of where `$skiptoken` is used. Make sure you replace *amstestaccount* with your account name and set the *api-version* value to the latest version.
+
+If you request a list of assets like this:
+
+```
+GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
 x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-You would get back a response similar to this:
+You'll get back a response similar to this one:
 
 ```
 HTTP/1.1 200 OK
- 
+
 {
 "value":[
 {
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+"name":"Asset 0","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-00000000-0000-0000-0000-0000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
 }
 },
 // lots more assets
 {
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+"name":"Asset 517","id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-0000-0000-0000-000000000000","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-00000000-0000-0000-0000-000000000000","storageAccountName":"amsacctname","storageEncryptionFormat":"None"
 }
 }
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
 }
 ```
 
 You would then request the next page by sending a get request for:
 
 ```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
 ```
 
-For more REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
-
-## Content Key Policies
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the [Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies) properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|eq, ne, ge, le, gt, lt|ascending and descending|
-|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
-|properties.description	|eq, ne, ge, le, gt, lt||
-|properties.lastModified|eq, ne, ge, le, gt, lt|ascending and descending|
-|properties.options	|||
-|properties.policyId|eq, ne||
-|type|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-The following C# example shows how to enumerate through all **Content Key Policies** in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-
-## Jobs
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the [Jobs](https://docs.microsoft.com/rest/api/media/jobs) properties: 
-
-| Name    | Filter                        | Order |
-|---------|-------------------------------|-------|
-| name                    | eq            | ascending and descending|
-| properties.state        | eq, ne        |                         |
-| properties.created      | gt, ge, lt, le| ascending and descending|
-| properties.lastModified | gt, ge, lt, le | ascending and descending| 
-
-### Pagination
-
-Jobs pagination is supported in Media Services v3.
-
-The following C# example shows how to enumerate through the jobs in the account.
-
-```csharp            
-List<string> jobsToDelete = new List<string>();
-var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
-
-bool exit;
-do
-{
-    foreach (Job j in pageOfJobs)
-    {
-        jobsToDelete.Add(j.Name);
-    }
-
-    if (pageOfJobs.NextPageLink != null)
-    {
-        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
-        exit = false;
-    }
-    else
-    {
-        exit = true;
-    }
-}
-while (!exit);
-
-```
-
-For REST examples, see [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list)
-
-## Streaming Locators
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingLocator properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id	|||
-|name|eq, ne, ge, le, gt, lt|ascending and descending|
-|properties.alternativeMediaId	|||
-|properties.assetName	|||
-|properties.contentKeys	|||
-|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.endTime	|eq, ne, ge, le, gt, lt|ascending and descending|
-|properties.startTime	|||
-|properties.streamingLocatorId	|||
-|properties.streamingPolicyName	|||
-|type	|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-The following C# example shows how to enumerate through all StreamingLocators in the account.
+The following C# example shows how to enumerate through all streaming locators in the account.
 
 ```csharp
 var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
@@ -252,56 +133,57 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+## Using logical operators to combine query options
 
-## Streaming Policies
+Media Services v3 supports **OR** and **AND** logical operators. 
 
-### Filtering/ordering
+The following REST example checks the job's state:
 
-The following table shows how these options may be applied to the StreamingPolicy properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|eq, ne, ge, le, gt, lt|ascending and descending|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|type|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-The following C# example shows how to enumerate through all StreamingPolicies in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
+```
+https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/qbtest/providers/Microsoft.Media/mediaServices/qbtest/transforms/VideoAnalyzerTransform/jobs?$filter=properties/state%20eq%20Microsoft.Media.JobState'Scheduled'%20or%20properties/state%20eq%20Microsoft.Media.JobState'Processing'&api-version=2018-07-01
 ```
 
-For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+You construct the same query in C# like this: 
 
-## Transform
+```csharp
+var odataQuery = new ODataQuery<Job>("properties/state eq Microsoft.Media.JobState'Scheduled' or properties/state eq Microsoft.Media.JobState'Processing'");
+client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransformName, odataQuery);
+```
 
-### Filtering/ordering
+## Filtering and ordering options of entities
 
-The following table shows how these options may be applied to the [Transforms](https://docs.microsoft.com/rest/api/media/transforms) properties: 
+The following table shows how you can apply the filtering and ordering options to different entities:
 
-| Name    | Filter                        | Order |
-|---------|-------------------------------|-------|
-| name                    | eq            | ascending and descending|
-| properties.created      | gt, ge, lt, le| ascending and descending|
-| properties.lastModified | gt, ge, lt, le | ascending and descending|
+|Entity name|Property name|Filter|Order|
+|---|---|---|---|
+|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
+||properties.alternateId |`eq`||
+||properties.assetId |`eq`||
+||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
+|[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.policyId|`eq`, `ne`||
+|[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
+||properties.state        | `eq`, `ne`        |                         |
+||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
+|[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
+|| properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
+|| properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [List Assets](https://docs.microsoft.com/rest/api/media/assets/list)
+* [List Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
+* [List Jobs](https://docs.microsoft.com/rest/api/media/jobs/list)
+* [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+* [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Quotas and limits](limits-quotas-constraints.md)

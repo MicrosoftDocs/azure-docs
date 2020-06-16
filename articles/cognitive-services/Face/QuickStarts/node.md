@@ -9,20 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the Face REST API and Node.js
 
-In this quickstart, you will use the Azure Face REST API with Node.js to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Node.js to detect human faces in an image.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Set up the Node environment
@@ -35,7 +35,9 @@ npm install request --save
 
 ## Write the Node.js script
 
-Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). You may wish to change the `imageUrl` field to point to your own input image.
+Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. You may wish to change the `imageUrl` field to point to your own input image.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```javascript
 'use strict';
@@ -48,7 +50,7 @@ const subscriptionKey = '<Subscription Key>';
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
 // westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
@@ -278,7 +280,7 @@ You should see the face information displayed as JSON data in the console window
 
 ## Next steps
 
-In this quickstart, you wrote a Node.js script that calls the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
+In this quickstart, you wrote a Node.js script that calls the Azure Face service to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

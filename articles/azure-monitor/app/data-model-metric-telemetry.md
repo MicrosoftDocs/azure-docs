@@ -1,18 +1,12 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Metric Telemetry | Microsoft Docs
+title: Data model for metric telemetry - Azure Application Insights
 description: Application Insights data model for metric telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/25/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Metric telemetry: Application Insights data model
 
 There are two types of metric telemetry supported by [Application Insights](../../azure-monitor/app/app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.

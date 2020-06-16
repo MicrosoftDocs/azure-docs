@@ -3,21 +3,16 @@ title: Azure Data Factory - Samples
 description: Provides details about samples that ship with the Azure Data Factory service.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - Samples
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [PowerShell samples in Data Factory](../samples-powershell.md) and [code samples in the Azure Code Samples gallery](https://azure.microsoft.com/resources/samples/?service=data-factory).
@@ -62,7 +57,7 @@ You can use the **Sample pipelines** tile on the home page of your data factory 
 3. In the **Sample pipelines** blade, click the **sample** that you want to deploy.
 
     ![Sample pipelines blade](./media/data-factory-samples/SampleTile.png)
-4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, Azure SQL server name, database, User ID, and password, etc.
+4. Specify configuration settings for the sample. For example, your Azure storage account name and account key, logical SQL server name, database, User ID, and password, etc.
 
     ![Sample blade](./media/data-factory-samples/SampleBlade.png)
 5. After you are done with specifying the configuration settings, click **Create** to create/deploy the sample pipelines and linked services/tables used by the pipelines.

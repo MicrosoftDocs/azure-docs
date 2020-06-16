@@ -1,15 +1,13 @@
 ---
-title: Quickstart with Azure Application Insights | Microsoft Docs
-description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Application Insights
-services: application-insights
-keywords:
+title: Quickstart ASP.NET Core - Azure Monitor Application Insights 
+description: Provides instructions to quickly set up an ASP.NET Core Web App for monitoring with Azure Monitor Application Insights
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
+
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Start Monitoring Your ASP.NET Core Web Application
@@ -22,10 +20,10 @@ This quickstart guides you through adding the Application Insights SDK to an exi
 
 To complete this quickstart:
 
-- [Install Visual Studio 2019](https://www.visualstudio.com/downloads/) with the following workloads:
+- [Install Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the following workloads:
   - ASP.NET and web development
   - Azure development
-- [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
+- [Install .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - You will need an Azure subscription and an existing .NET Core web application.
 
 If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)
@@ -50,10 +48,12 @@ Application Insights can gather telemetry data from any internet-connected appli
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
+   | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data. You can create a new resource group or use an existing one. |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
 2. Click **Create**.
+
+
 
 ## Configure App Insights SDK
 
@@ -65,7 +65,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Select your account and subscription > Select the **Existing resource** you created in the Azure portal > Click **Register**.
 
-4. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
+4. Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
+
+5. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
 
     ![Application Insights Overview Menu](./media/dotnetcore-quick-start/3debug.png)
 
@@ -94,13 +96,11 @@ Application Insights can gather telemetry data from any internet-connected appli
 
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
 
-## Video
-
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) from scratch.
-- External step-by-step video about [configuring Application Insights with .NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync) from scratch.
-
 ## Clean up resources
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
+
+> [!NOTE]
+> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.

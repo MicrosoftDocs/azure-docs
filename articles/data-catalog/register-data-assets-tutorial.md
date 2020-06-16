@@ -1,11 +1,11 @@
 ---
 title: Register data assets in Azure Data Catalog
-description: How to register data assets in your Azure Data Catalog
+description: This tutorial describes how to register data assets in your Azure Data Catalog. 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 08/01/2019
 # Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
 ---
 
@@ -35,7 +35,7 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ### Register a data source
 
-You register data assets (tables) from an [Azure SQL database sample](../sql-database/sql-database-single-database-get-started.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+You register data assets (tables) from an [Azure SQL database sample](../azure-sql/database/single-database-create-quickstart.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
 The Azure SQL database name we're using in this tutorial is *RLSTest*.
 

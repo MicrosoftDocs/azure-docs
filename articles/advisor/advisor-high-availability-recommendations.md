@@ -1,11 +1,6 @@
 ---
-title: Improve availability of your application with Azure Advisor | Microsoft Docs
+title: Improve availability of your application with Azure Advisor
 description: Use Azure Advisor to improve high availability of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-ms.author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 
@@ -29,6 +24,10 @@ To provide redundancy to your application, we recommend that you group two or mo
 ## Use Managed Disks to improve data reliability
 
 Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+
+## Known issue with Check Point Network Virtual Appliance image version
+
+Advisor can identify if your Virtual Machine might be running a version of Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. Advisor recommendation will help you upgrade to a newer version of the image that addresses this issue. This will ensure business continuity through better network connectivity.
 
 ## Ensure application gateway fault tolerance
 
@@ -85,11 +84,19 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
 
 Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the  Cosmos DB Spark connector and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
+
+## Upgrade recommendation for deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+
+Starting July 1, 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+
+## Upgrade recommendation for deprecation of Older Spark Versions in HDInsight Spark cluster
+
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6, and Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. ",
 
 ## Enable virtual machine replication
 Virtual machines that do not have replication enabled to another region are not resilient to regional outages. Replicating virtual machines reduces any adverse business impact during the time of an Azure region outage. Advisor will detect VMs that do not have replication enabled and recommend enabling replication so that in the event of an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
@@ -103,9 +110,9 @@ Virtual machines that do not have replication enabled to another region are not 
 ## Next steps
 
 For more information about Advisor recommendations, see:
-* [Introduction to Azure Advisor](advisor-overview.md)
+* [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

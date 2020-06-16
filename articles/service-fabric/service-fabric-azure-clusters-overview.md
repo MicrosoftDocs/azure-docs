@@ -1,21 +1,13 @@
 ---
-title: Create Azure Service Fabric clusters on Windows Server and Linux | Microsoft Docs
+title: Create clusters on Windows Server and Linux 
 description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-
 ---
 
 # Overview of Service Fabric clusters on Azure
@@ -52,9 +44,9 @@ You can use scale sets to deploy and manage a collection of virtual machines as 
 For more information, read [Service Fabric node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md).
 
 ### Azure Load Balancer
-VM instances are joined behind an [Azure load balancer](/azure/load-balancer/load-balancer-overview), which is associated with a [public IP address](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) and DNS label.  When you provision a cluster with *&lt;clustername&gt;*, the DNS name, *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* is the DNS label associated with the load balancer in front of the scale set.
+VM instances are joined behind an [Azure load balancer](/azure/load-balancer/load-balancer-overview), which is associated with a [public IP address](../virtual-network/public-ip-addresses.md) and DNS label.  When you provision a cluster with *&lt;clustername&gt;*, the DNS name, *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com* is the DNS label associated with the load balancer in front of the scale set.
 
-VMs in a cluster have only [private IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can setup a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
+VMs in a cluster have only [private IP addresses](../virtual-network/private-ip-addresses.md).  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set. Or, you can setup a single load balancer for multiple node types.  The primary node type has the DNS label *&lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com*, other node types have the DNS label *&lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com*.
 
 ### Storage accounts
 Each cluster node type is supported by an [Azure storage account](/azure/storage/common/storage-introduction) and managed disks.
@@ -100,12 +92,17 @@ For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.m
 ## Supported operating systems
 You are able to create clusters on virtual machines running these operating systems:
 
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4 (preview support)
+| Operating system | Earliest supported Service Fabric version |
+| --- | --- |
+| Windows Server 2012 R2 | All versions |
+| Windows Server 2016 | All versions |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+
+For additional information see [Supported Cluster Versions in Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
 > If you decide to deploy Service Fabric on Windows Server 1709, please note that (1) it is not a long term servicing branch, so you may have to move versions in the future, and (2) if you deploy containers, containers built on Windows Server 2016 do not work on Windows Server 1709, and vice versa (you will have to rebuild them to deploy them).

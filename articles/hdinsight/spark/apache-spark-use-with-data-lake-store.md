@@ -1,6 +1,6 @@
 ---
-title: Use Apache Spark to analyze data in Azure Data Lake Storage Gen1
-description: Run Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
+title: Analyze Azure Data Lake Storage Gen1 with HDInsight Apache Spark
+description: Run Apache Spark jobs to analyze data stored in Azure Data Lake Storage Gen1
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -20,13 +20,12 @@ In this article, you use [Jupyter Notebook](https://jupyter.org/) available with
 
 * Azure HDInsight Spark cluster with Data Lake Storage Gen1 as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-	
 ## Prepare the data
 
 > [!NOTE]  
 > You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section Use HDInsight Spark cluster with Data Lake Storage.
 
-If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://www.microsoft.com/download/details.aspx?id=50358) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 
@@ -52,7 +51,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 ## Use an HDInsight Spark cluster with Data Lake Storage Gen1
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Apache Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
+1. From the [Azure portal](https://portal.azure.com/), from the startboard, click the tile for your Apache Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -115,7 +114,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
      You can also see the results in other visualizations as well. For example, an area graph for the same output would look like the following.
 
-     ![Area graph of query result](./media/apache-spark-use-with-data-lake-store/jupyter-area-output.png "Area graph of query result")
+     ![Area graph of query result](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "Area graph of query result")
 
 8. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
 

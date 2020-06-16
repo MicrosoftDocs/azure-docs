@@ -1,11 +1,11 @@
 ---
-title: Push notifications to specific Windows phones using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to specific Windows phones using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific (not all) Windows Phone 8 or Windows Phone 8.1 devices registered with the application backend.
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
@@ -15,10 +15,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push notifications to specific Windows Phone devices by using Azure Notification Hubs
+# Tutorial: Send push notifications to specific Windows Phones using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 

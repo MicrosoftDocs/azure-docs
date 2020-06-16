@@ -1,20 +1,21 @@
 --- 
-title: Escalate private cloud privileges - Azure VMware Solution by CloudSimple
+title: Escalate private cloud privileges
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to escalate privileges on your private cloud for administrative functions in vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ---
 
-# Escalate Private Cloud vCenter privileges from the CloudSimple portal 
+# Escalate Private Cloud vCenter privileges from the CloudSimple portal
 
 For administrative access to your Private Cloud vCenter, you can temporarily escalate your CloudSimple privileges.  Using elevated privileges, you can install VMware solutions, add identity sources, and manage users.
 
-New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
 
 > [!CAUTION]
 > Don’t make any configuration changes for management components. Actions taken during the escalated privileged state can adversely impact your system or can cause your system to become unavailable.
@@ -33,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Change vSphere privilege](media/escalate-private-cloud-privilege.png)
 
-4. Select the vSphere user type.  Only **CloudOwner@cloudsimple.local** local user can be escalated.
+4. Select the vSphere user type.  Only `CloudOwner@cloudsimple.local` local user can be escalated.
 
 5. Select the escalate time interval from the drop-down. Choose the shortest period that will allow you to complete the task.
 
@@ -49,6 +50,9 @@ The privilege escalation begins and lasts until the end of the selected interval
 
 > [!IMPORTANT]
 > Only one user can have escalated privileges.  You must de-escalate the user's privileges before you can escalate another user's privileges.
+
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
 
 ## Extend privilege escalation
 
@@ -79,5 +83,5 @@ Once your administrative tasks are complete, you should de-escalate your privile
 
 ## Next steps
 
-* [Set up vCenter identity sources to use Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Install backup solution to [backup workload virtual machines](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)
+* [Set up vCenter identity sources to use Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* Install backup solution to [backup workload virtual machines](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)

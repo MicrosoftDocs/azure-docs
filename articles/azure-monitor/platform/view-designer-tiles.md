@@ -1,18 +1,12 @@
 ---
 title: A reference guide to the View Designer tiles in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2018
+author: bwren
 ms.author: bwren
+ms.date: 01/17/2018
+
 ---
 
 # Reference guide to View Designer tiles in Azure Monitor

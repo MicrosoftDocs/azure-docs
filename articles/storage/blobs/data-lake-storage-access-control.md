@@ -1,13 +1,11 @@
 ---
 title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand how access control works in Azure Data Lake Storage Gen2
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -16,7 +14,7 @@ ms.reviewer: jamesbak
 
 Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## Role-based access control
 
@@ -26,9 +24,12 @@ Typically, those Azure resources are constrained to top-level resources (For exa
 
 To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
+> [!NOTE]
+> A guest user can't create a role assignment.
+
 ### The impact of role assignments on file and directory level access control lists
 
-While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the file system level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a file system, that security principal has the authorization level associated with that role for ALL directories and files in that file system, regardless of ACL assignments.
+While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
 
 When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
@@ -39,7 +40,7 @@ When a security principal is granted RBAC data permissions through a [built-in r
 
 Azure Data Lake Storage Gen2 supports Shared Key and SAS methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
-In the case of Shared Key, the caller effectively gains ‘super-user’ access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
+In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources, including setting owner and changing ACLs.
 
 SAS tokens include allowed permissions as part of the token. The permissions included in the SAS token are effectively applied to all authorization decisions, but no additional ACL checks are performed.
 
@@ -47,18 +48,27 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 
 You can associate a security principal with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list.
 
+> [!NOTE]
+> ACLs apply only to security principals in the same tenant. 
+
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
 You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
+
 
 ### Set file and directory level permissions by using access control lists
 
 To set file and directory level permissions, see any of the following articles:
 
-|If you want to use this tool:    |See this article:    |
+|||
 |--------|-----------|
-|Azure Storage Explorer    |[Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|REST API    |[Path - Update](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Azure Storage Explorer |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Use Java to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[Use PowerShell to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure CLI|[Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|REST API |[Path - Update](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration.
@@ -78,7 +88,7 @@ Both access ACLs and default ACLs have the same structure.
 
 ### Levels of permission
 
-The permissions on a file system object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
+The permissions on a container object are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -87,7 +97,7 @@ The permissions on a file system object are **Read**, **Write**, and **Execute**
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no RBAC), then to grant a service principal read or write access to a file, you'll need to give the service principal **Execute** permissions to the file system, and to each folder in the hierarchy of folders that lead to the file.
+> If you are granting permissions by using only ACLs (no RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 
@@ -151,7 +161,7 @@ In the POSIX ACLs, every user is associated with a *primary group*. For example,
 
 ##### Assigning the owning group for a new file or directory
 
-* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the file system is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
+* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 container is created. In this case, the owning group is set to the user who created the container if it was done using OAuth. If the container is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
 ##### Changing the owning group
@@ -167,7 +177,7 @@ The owning group can be changed by:
 
 The following pseudocode represents the access check algorithm for storage accounts.
 
-```
+```console
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -213,13 +223,13 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 As illustrated in the Access Check Algorithm, the mask limits access for named users, the owning group, and named groups.  
 
 > [!NOTE]
-> For a new Data Lake Storage Gen2 file system, the mask for the access ACL of the root directory ("/") defaults to 750 for directories and 640 for files. Files do not receive the X bit as it is irrelevant to files in a store-only system.
+> For a new Data Lake Storage Gen2 container, the mask for the access ACL of the root directory ("/") defaults to 750 for directories and 640 for files. Files do not receive the X bit as it is irrelevant to files in a store-only system.
 >
 > The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
 
 #### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX file system. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
 
 The sticky bit isn't shown in the Azure portal.
 
@@ -227,7 +237,7 @@ The sticky bit isn't shown in the Azure portal.
 
 When a new file or directory is created under an existing directory, the default ACL on the parent directory determines:
 
-- A child directory’s default ACL and access ACL.
+- A child directory's default ACL and access ACL.
 - A child file's access ACL (files do not have a default ACL).
 
 #### umask
@@ -246,7 +256,7 @@ The umask value used by Azure Data Lake Storage Gen2 effectively means that the 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
-```
+```console
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
     for entry in parent.acls :
@@ -272,11 +282,11 @@ If HNS is turned OFF, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
-Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. ) Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
+Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
-- The caller has ‘super-user’ permissions,
+- The caller has 'super-user' permissions,
 
 Or
 
@@ -288,13 +298,13 @@ Or
 
 ### Who is the owner of a file or directory?
 
-The creator of a file or directory becomes the owner. In the case of the root directory, this is the identity of the user who created the file system.
+The creator of a file or directory becomes the owner. In the case of the root directory, this is the identity of the user who created the container.
 
 ### Which group is set as the owning group of a file or directory at creation?
 
 The owning group is copied from the owning group of the parent directory under which the new file or directory is created.
 
-### I am the owning user of a file but I don’t have the RWX permissions I need. What do I do?
+### I am the owning user of a file but I don't have the RWX permissions I need. What do I do?
 
 The owning user can change the permissions of the file to give themselves any RWX permissions they need.
 
@@ -308,16 +318,17 @@ When you define ACLs for service principals, it's important to use the Object ID
 
 To get the OID for the service principal that corresponds to an app registration, you can use the `az ad sp show` command. Specify the Application ID as the parameter. Here's an example on obtaining the OID for the service principal that corresponds to an app registration with App ID = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Run the following command in the Azure CLI:
 
+```azurecli
+az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 ```
-$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>
-```
+
+OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-Azure RBAC assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the file system resource.
+Azure RBAC assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
 
 ACLs do not inherit. However, default ACLs can be used to set ACLs for child subdirectories and files created under the parent directory. 
 

@@ -4,11 +4,10 @@ description: Use Visual Studio Code to develop, build, and debug a module for Az
 services: iot-edge
 keywords: 
 author: shizn
-manager: philmea
 
 ms.author: xshi
-ms.date: 07/23/2019
-ms.topic: article
+ms.date: 08/07/2019
+ms.topic: conceptual
 ms.service: iot-edge
 
 ---
@@ -17,7 +16,7 @@ ms.service: iot-edge
 
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code as the main tool to develop and debug modules.
 
-For modules written in C#, Node.js, or Java, there are two ways to debug your module in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. For modules written in Python or C, they can only be debugged by attaching to a process in Linux amd64 containers.
+There are two ways to debug modules written in C#, Node.js, or Java in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. To debug modules written in Python or C, you can only attach to a process in Linux amd64 containers.
 
 If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -28,19 +27,19 @@ This article provides instructions for developing and debugging modules in multi
 
 ## Prerequisites
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. An IoT Edge device can be another physical device.
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extension(s) specific to the language you're developing in:
-  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   - Python: [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-You'll also need to install some additional, language-specific tools in order to develop your module:
+You'll also need to install some additional, language-specific tools to develop your module:
 
 - C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
@@ -50,7 +49,7 @@ You'll also need to install some additional, language-specific tools in order to
 
 - Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 
-In order to build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
+To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 
@@ -59,12 +58,15 @@ In order to build and deploy your module image, you need Docker to build the mod
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
+> Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
+>
 > If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
 To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
@@ -87,7 +89,7 @@ The following steps show you how to create an IoT Edge module in your preferred 
 
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 
-1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like ***\<registry name\>*.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/*\<your module name\>***.
+1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
    ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
 
@@ -104,7 +106,9 @@ There are four items within the solution:
   > [!NOTE]
   > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
 
-- A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
+- A **deployment.template.json** file lists your new module along with a sample **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
+
+To see how the simulated temperature module works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ## Add additional modules
 
@@ -121,7 +125,7 @@ The default module code that comes with the solution is located at the following
 - Java: **modules > *&lt;your module name&gt;* > src > main > java > com > edgemodulemodules > App.java**
 - C: **modules > *&lt;your module name&gt;* > main.c**
 
-The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub.
+The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the SimulatedTemperatureSensor module that simulates data) and pipe it to IoT Hub.
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
@@ -224,7 +228,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   ![Watch Variables](media/how-to-develop-csharp-module/view-log.png)
+   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
@@ -267,22 +271,22 @@ When debugging modules using this method, your modules are running on top of the
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_callback` method, you would insert that line of code as shown below:
+     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. In the Visual Studio Code command palette:

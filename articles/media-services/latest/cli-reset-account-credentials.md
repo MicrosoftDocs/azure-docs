@@ -6,22 +6,21 @@ documentationcenter: ''
 author: Juliako
 manager: femila
 editor: 
-
 ms.assetid:
 ms.service: media-services
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2019
+ms.date: 08/20/2019
 ms.author: juliako
 ---
 
-# CLI example: Reset the account credentials
+# Azure CLI example: Reset the account credentials
 
 The Azure CLI script in this article shows how to reset your account credentials and get the app.config settings back.
 
-## Prerequisites 
+## Prerequisites
 
 [Create a Media Services account](create-account-cli-how-to.md).
 
@@ -29,8 +28,17 @@ The Azure CLI script in this article shows how to reset your account credentials
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/reset-account-credentials/Reset-Account-Credentials.sh "Reset credentials")]
+```azurecli-interactive
+# Update the following variables for your own settings:
+resourceGroup=amsResourceGroup
+amsAccountName=amsmediaaccountname
+
+az ams account sp reset-credentials \
+  --account-name $amsAccountName \
+  --resource-group $resourceGroup
+ ```
 
 ## Next steps
 
-[Media Services overview](media-services-overview.md)
+* [az ams](/cli/azure/ams)
+* [Reset credentials](/cli/azure/ams/account/sp#az-ams-account-sp-reset-credentials)

@@ -1,24 +1,20 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for JavaScript) | Azure
+title: Initialize MSAL.js client apps | Azure
+titleSuffix: Microsoft identity platform
 description: Learn about initializing client applications using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
-author: rwike77
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Initialize client applications using MSAL.js
@@ -36,13 +32,13 @@ Before initializing an application, you first need to [register it with the Azur
 
 You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize MSAL authentication context by instantiating `UserAgentApplication` with a configuration object. The minimum required config to initialize MSAL.js is the clientID of your application which you should get from the application registration portal.
 
-For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), you will need to explicitly register a callback for success or error through `handleRedirectCallback()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do.
+For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), in MSAL.js 1.2.x or earlier, you will need to explicitly register a callback for success or error through `handleRedirectCallback()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do. This became optional in MSAL.js version 1.3.0.
 
 ```javascript
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 
@@ -87,6 +83,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -115,12 +112,12 @@ Below is the total set of configurable options that are supported currently in t
         * `https://login.microsoftonline.com/common`- Used to sign in users with work and school accounts or a Microsoft personal account.
         * `https://login.microsoftonline.com/organizations/`- Used to sign in users with work and school accounts.
         * `https://login.microsoftonline.com/consumers/` - Used to sign in users with only personal Microsoft account (live).
-    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain, tenant is the name of the Azure AD B2C tenant, policyName is the name of the B2C policy to apply.
+    * In Azure AD B2C, it is of the form `https://<instance>/tfp/<tenant>/<policyName>/`, where instance is the Azure AD B2C domain i.e. {your-tenant-name}.b2clogin.com, tenant is the name of the Azure AD B2C tenant i.e. {your-tenant-name}.onmicrosoft.com, policyName is the name of the B2C policy to apply.
 
 
 - **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
 
-- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
+- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal. Defaults to `window.location.href`.
 
 - **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
 
@@ -135,6 +132,8 @@ Below is the total set of configurable options that are supported currently in t
 - **loadFrameTimeout**: Optional.  The number of milliseconds of inactivity before a token renewal response from Azure AD should be considered timed out. Default is 6 seconds.
 
 - **tokenRenewalOffsetSeconds**: Optional. The number of milliseconds which sets the window of offset needed to renew the token before expiry. Default is 300 milliseconds.
+
+- **navigateFrameWait**: Optional. The number of milliseconds which sets the wait time before hidden iframes navigate to their destination. Default is 500 milliseconds.
 
 These are only applicable to be passed down from the MSAL Angular wrapper library:
 - **unprotectedResources**: Optional.  Array of URIs that are unprotected resources. MSAL will not attach a token to outgoing requests that have these URI. Defaults to `null`.

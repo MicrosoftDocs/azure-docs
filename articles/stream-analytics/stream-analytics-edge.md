@@ -4,9 +4,9 @@ description: Create edge jobs in Azure Stream Analytics and deploy them to devic
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -144,13 +144,13 @@ The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query 
 However the following features are not yet supported for edge jobs:
 * User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * User-defined aggregates (UDA).
-* Azure ML functions
+* Azure ML functions.
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time, only CSV and JSON are supported.
 * The following  SQL operators:
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Late arrival policy
 
 ### Runtime and hardware requirements
 To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
@@ -203,19 +203,19 @@ There are two ways to update the reference data:
 
 This version information was last updated on 2019-06-27:
 
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
    - platform:
       - architecture: amd64
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
    - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
    - platform:
       - architecture: arm
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
    - platform:
       - architecture: amd64
@@ -223,7 +223,7 @@ This version information was last updated on 2019-06-27:
       
       
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 

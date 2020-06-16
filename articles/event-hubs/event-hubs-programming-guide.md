@@ -1,5 +1,5 @@
 ---
-title: Programming guide - Azure Event Hubs | Microsoft Docs
+title: .NET Programming guide - Azure Event Hubs (legacy) | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -8,12 +8,16 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/15/2020
 ms.author: shvija
 
 ---
-# Programming guide for Azure Event Hubs
+# .NET Programming guide for Azure Event Hubs (legacy Microsoft.Azure.EventHubs package)
 This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
+
+> [!WARNING]
+> This guide is for the old **Microsoft.Azure.EventHubs** package. We recommend that you [migrate](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) your code to use the latest [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md) package.  
+
 
 ## Event publishers
 
@@ -136,7 +140,10 @@ The [EventProcessorHost][] class also implements an Azure storage-based checkpoi
 
 ## Publisher revocation
 
-In addition to the advanced run-time features of [EventProcessorHost][], Event Hubs enables publisher revocation in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+In addition to the advanced run-time features of Event Processor Host, the Event Hubs service enables [publisher revocation](/rest/api/eventhub/revoke-publisher) in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+
+> [!NOTE]
+> Currently, only REST API supports this feature ([publisher revocation](/rest/api/eventhub/revoke-publisher)).
 
 For more information about publisher revocation and how to send to Event Hubs as a publisher, see the [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) sample.
 

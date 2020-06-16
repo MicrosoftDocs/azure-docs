@@ -1,13 +1,12 @@
 ---
-title: Use tools provided in the Azure IoT Hub Device Provisioning Service SDKs to simplify development
-description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service SDKs for development
-author: yzhong94
-ms.author: yizhon
+title: Use Azure IoT Hub Device Provisioning Service SDKs tools
+description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service (DPS) SDKs for development
+author: robinsh
+ms.author: robinsh
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ---
 
 # How to use tools provided in the SDKs to simplify development for provisioning

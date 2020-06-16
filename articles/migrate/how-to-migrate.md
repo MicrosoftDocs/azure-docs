@@ -1,12 +1,8 @@
 ---
 title: Add migration tools in Azure Migrate 
-description: Describes how to add migration tools in the Azure Migrate hub. 
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
+description: Learn how to add migration tools in Azure Migrate. 
 ms.topic: article
-ms.date: 07/09/2019
-ms.author: raynew
+ms.date: 04/26/2020
 ---
 
 
@@ -15,15 +11,8 @@ ms.author: raynew
 
 This article describes how to add migration tools in [Azure Migrate](migrate-overview.md).
 
-Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
-
-If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
-
-
-
-## Selecting an ISV tool
-
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for migration, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Deploy the tool, and follow the tool instructions and documentation to connect the tool workspace with Azure Migrate. 
+- If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
+- If you've added an ISV tool for migration, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
 
 ## Select a migration scenario
 
@@ -31,7 +20,7 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for mi
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.
-    - To migrate on-premises SQL machines, select **Assess and migrate databases**.
+    - To migrate on-premises SQL Server databases, select **Assess and migrate databases**.
     - To migrate on-premises web apps, select **Assess and migrate web apps**.
     - To migrate large amounts of on-premises data to Azure in offline mode, select **Order a Data Box**.
 

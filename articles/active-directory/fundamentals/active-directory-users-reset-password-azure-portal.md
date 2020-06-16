@@ -40,7 +40,8 @@ As an administrator, you can reset a user's password if the password is forgotte
 
 3. In the **Reset password** page, select **Reset password**.
 
-    A temporary password is auto-generated for the user.
+    > [!Note]
+    > When using Azure Active Directory, a temporary password is auto-generated for the user. When using Active Directory on-premises, you create the password for the user.
 
 4. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.
 

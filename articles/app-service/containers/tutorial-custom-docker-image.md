@@ -1,24 +1,16 @@
 ---
-title: Build a custom image and  for Web App for Containers - Azure App Service | Microsoft Docs
-description: How to use a custom Docker image for Web App for Containers.
+title: 'Tutorial: Build and run a custom image'
+description: Learn how to build a custom Linux image that can run on Azure App Service, deploy it to Azure Container Registries, and run it in App Service.
 keywords: azure app service, web app, linux, docker, container
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
+
 # Tutorial: Build a custom image and run in App Service from a private registry
 
 [App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.3 and Node.js 10.14. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
@@ -53,7 +45,7 @@ cd docker-django-webapp-linux
 
 ## Build the image from the Docker file
 
-In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
+In the Git repository, take a look at _Dockerfile_. This file describes the Python environment that is required to run your application. Additionally, the image sets up an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host. The last line in the _Dockerfile_, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
 
 ```Dockerfile
 FROM python:3.4
@@ -69,14 +61,16 @@ ENV SSH_PASSWD "root:Docker!"
 RUN apt-get update \
         && apt-get install -y --no-install-recommends dialog \
         && apt-get update \
-	&& apt-get install -y --no-install-recommends openssh-server \
-	&& echo "$SSH_PASSWD" | chpasswd 
+    && apt-get install -y --no-install-recommends openssh-server \
+    && echo "$SSH_PASSWD" | chpasswd 
 
 COPY sshd_config /etc/ssh/
 COPY init.sh /usr/local/bin/
-	
+    
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
+
+#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
@@ -125,8 +119,8 @@ az acr credential show --name <azure-container-registry-name>
 
 The output reveals two passwords along with the user name.
 
-```json
-<
+<pre>
+{
   "passwords": [
     {
       "name": "password",
@@ -137,9 +131,9 @@ The output reveals two passwords along with the user name.
       "value": "{password}"
     }
   ],
-  "username": "<registry-username>"
+  "username": "&lt;registry-username&gt;"
 }
-```
+</pre>
 
 From your local terminal window, sign in to the Azure Container Registry using the `docker login` command, as shown in the following example. Replace *\<azure-container-registry-name>* and *\<registry-username>* with values for your registry. When prompted, type in one of the passwords from the previous step.
 
@@ -170,11 +164,11 @@ az acr repository list -n <azure-container-registry-name>
 
 You should get the following output.
 
-```json
+<pre>
 [
   "mydockerimage"
 ]
-```
+</pre>
 
 ### Create App Service plan
 
@@ -190,7 +184,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
-```json
+<pre>
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -198,12 +192,12 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git",
   "enabled": true,
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
 }
-```
+</pre>
 
 ### Configure registry credentials in web app
 
@@ -238,19 +232,29 @@ Verify that the web app works by browsing to it (`http://<app-name>.azurewebsite
 
 ## Change web app and redeploy
 
-In your local Git repository, open app/templates/app/index.html. Locate the first HTML element and change it to.
+In your local Git repository, open *app/templates/app/index.html*. Change the first HTML element to match the following code.
 
-```python
+```html
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
-      </div>
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Azure App Service - Updated Here!</a>
     </div>
-  </nav>
+  </div>
+</nav>
 ```
 
-Once you've modified the Python file and saved it, you must rebuild and push the new Docker image. Then restart the web app for the changes to take effect. Use the same commands that you have previously used in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry). Test the web app by following the instructions in [Test the web app](#test-the-web-app).
+Once you've saved your changes, rebuild and push the new Docker image using the same commands that you used earlier in this tutorial. You can refer to [Build the image from the Docker file](#build-the-image-from-the-docker-file) and [Push image to Azure Container Registry](#push-image-to-azure-container-registry).
+
+After pushing the new image, restart the web app for the changes to take effect by using the following command:
+
+```azurecli-interactive
+az webapp restart --name <app_name> --resource-group myResourceGroup
+```
+
+Replace `<app_name>` with the specific name used earlier.
+
+Once the app has restarted, test it by following the instructions in [Test the web app](#test-the-web-app).
 
 ## Access diagnostic logs
 
@@ -288,9 +292,9 @@ SSH enables secure communication between a container and a client. To enable SSH
 
 * The [entry script](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) starts the SSH server.
 
-	  ```bash
-	  #!/bin/bash
-	  service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
 ### Open SSH connection to container

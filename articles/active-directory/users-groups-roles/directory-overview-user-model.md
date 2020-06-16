@@ -1,13 +1,12 @@
 ---
-title: Users, groups, licensing, and roles overview - Azure Active Directory | Microsoft Docs
+title: Users, groups, licensing, and roles overview - Azure AD | Microsoft Docs
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 01/28/2019
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -28,7 +27,7 @@ This article introduces the Azure AD administrator to the relationship between t
 
 ## Assign users to groups
 
-You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign administrator roles in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
+You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign all administrator roles except for Global Administrator in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
 
 For additional flexibility and to reduce the work of managing group membership, you can use [dynamic groups](groups-create-rule.md) in Azure AD to expand and contract group membership automatically. You'll need an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups.
 
@@ -57,7 +56,7 @@ New Azure AD administrator roles are being added. Check the Azure portal or the 
 
 ## Assign app access
 
-You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD tenant](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
+You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD organization](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
 
 Azure AD also gives you granular control of the data that flows between the app and the groups to whom you assign access. In [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), open an app and select **Provisioning** to:
 

@@ -5,13 +5,13 @@ author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/01/2020
 ms.author: menchi
 ---
 
 # Understand and use module twins in IoT Hub
 
-This article assumes you've read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. In IoT Hub, under each device identity, you can create up to 20 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
+This article assumes you've read [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) first. In IoT Hub, under each device identity, you can create up to 50 module identities. Each module identity implicitly generates a module twin. Similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
 
 On the device side, the IoT Hub device SDKs enable you to create modules where each one opens an independent connection to IoT Hub. This functionality enables you to use separate namespaces for different components on your device. For example, you have a vending machine that has three different sensors. Each sensor is controlled by different departments in your company. You can create a module for each sensor. This way, each department is only able to send jobs or direct methods to the sensor that they control, avoiding conflicts and user errors.
 
@@ -181,7 +181,7 @@ The solution back end operates on the module twin using the following atomic ope
     moduleId | ID of the module |
     hubName | Name of IoT Hub |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp of operation |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" or "updateTwin" |
 
     Message system properties are prefixed with the `$` symbol.
@@ -231,11 +231,15 @@ The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the pr
 
 Tags, desired properties, and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
+* **Keys**: All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, SP, and `$`.
 
-* All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed. The maximum value for integers is 4503599627370495 and the minimum value for integers is -4503599627370496.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
 
-* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+    * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
+
+    * String values are UTF-8 encoded and can have a maximum length of 512 bytes.
+
+* **Depth**: All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
 
     ```json
     {
@@ -257,13 +261,21 @@ Tags, desired properties, and reported properties are JSON objects with the foll
     }
     ```
 
-* All string values can be at most 512 bytes in length.
-
 ## Module twin size
 
-IoT Hub enforces an 8KB size limitation on each of the respective total values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
+IoT Hub enforces an 8 KB size limit on the value of `tags`, and a 32 KB size limit each on the value of `properties/desired` and `properties/reported`. These totals are exclusive of read-only elements like `$etag`, `$version`, and `$metadata/$lastUpdated`.
 
-The size is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1) and spaces that are outside of string constants.
+Twin size is computed as follows:
+
+* For each property in the JSON document, IoT Hub cumulatively computes and adds the length of the property's key and value.
+
+* Property keys are considered as UTF8-encoded strings.
+
+* Simple property values are considered as UTF8-encoded strings, numeric values (8 Bytes), or Boolean values (4 Bytes).
+
+* The size of UTF8-encoded strings is computed by counting all characters, excluding UNICODE control characters (segments C0 and C1).
+
+* Complex property values (nested objects) are computed based on the aggregate size of the property keys and property values that they contain.
 
 IoT Hub rejects with an error all operations that would increase the size of those documents above the limit.
 

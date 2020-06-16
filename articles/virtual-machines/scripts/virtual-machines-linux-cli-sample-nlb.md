@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Create a Linux VM with NLB | Microsoft Docs
+title: Azure CLI Script Sample - Create a Linux VM with NLB 
 description: Azure CLI Script Sample - Create a Linux VM with NLB
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -50,7 +50,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Creates a public IP address with a static IP address and an associated DNS name. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Creates an Azure Network Load Balancer (NLB). |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Creates an NLB probe. An NLB probe is used to monitor each VM in the NLB set. If any VM becomes inaccessible, traffic is not routed to the VM. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Creates an NLB rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the NLB, it is routed to port 80 one of the VMs in the NLB set. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Creates an NLB rule. In this sample, a rule is created for port 80. As HTTP traffic arrives at the NLB, it is routed to port 80 of one of the VMs in the NLB set. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Creates an NLB Network Address Translation (NAT) rule.  NAT rules map a port of the NLB to a port on a VM. In this sample, a NAT rule is created for SSH traffic to each VM in the NLB set.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Creates an NSG rule to allow inbound traffic. In this sample, port 22 is opened for SSH traffic. |

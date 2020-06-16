@@ -4,9 +4,9 @@ description: An overview of Azure Files, a service that enables you to create an
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 03/10/2018
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -14,15 +14,19 @@ ms.subservice: files
 Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows Servers with Azure File Sync for fast access near where the data is being used.
 
 ## Videos
-| Introducing Azure File Sync (2 m) | Azure Files with Sync (Ignite 2017) (85 m)  |
+| Introducing Azure File Sync | Azure Files with Sync (Ignite 2019)  |
 |-|-|
-| [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
+| [![Screencast of the Introducing Azure File Sync video - click to play!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast of the Azure Files with Sync presentation - click to play!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/embed/6E2p28XwovU) |
+
+Here are some videos on the common use cases of Azure Files:
+* [Replace your file server with a serverless Azure File Share](https://sec.ch9.ms/ch9/3358/0addac01-3606-4e30-ad7b-f195f3ab3358/ITOpsTalkAzureFiles_high.mp4)
+* [Getting started with FSLogix profile containers on Azure Files in Windows Virtual Desktop leveraging AD authentication](https://www.youtube.com/embed/9S5A1IJqfOQ)
 
 ## Why Azure Files is useful
 Azure file shares can be used to:
 
 * **Replace or supplement on-premises file servers**:  
-    Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.
+    Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used. With the recent release of [Azure Files AD Authentication](storage-files-active-directory-overview.md), Azure file shares can continue to work with AD hosted on-premises for access control. 
 
 * **"Lift and shift" applications**:  
     Azure Files makes it easy to "lift and shift" applications to the cloud that expect a file share to store file application or user data. Azure Files enables both the "classic" lift and shift scenario, where both the application and its data are moved to Azure, and the "hybrid" lift and shift scenario, where the application data is moved to Azure Files, and the application continues to run on-premises. 

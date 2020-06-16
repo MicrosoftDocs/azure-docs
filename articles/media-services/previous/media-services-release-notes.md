@@ -1,6 +1,6 @@
 ---
-title: Media Services release notes | Microsoft Docs
-description: Media Services release notes
+title: Azure Media Services release notes | Microsoft Docs
+description: This article talks about the Microsoft Azure Media Services v2 release notes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/01/2019
 ms.author: juliako
 
 ---
@@ -21,11 +21,11 @@ ms.author: juliako
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
-## <a id="issues"/>Currently known issues
+## <a id="issues"/>Known issues
 ### <a id="general_issues"/>Media Services general issues
 
 | Issue | Description |
@@ -37,9 +37,32 @@ We want to hear from our customers so that we can focus on fixing problems that 
 | When you query entities, a limit of 1,000 entities is returned at one time because the public REST version 2 limits query results to 1,000 results. |Use Skip and Take (.NET)/top (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this section](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK objects can't be serialized and as a result don't work with Azure Cache for Redis. |If you try to serialize the SDK AssetCollection object to add it to Azure Cache for Redis, an exception is thrown. |
+|The REST API responds with an error message saying “The filter cannot be accessed by this version of REST Api” when attempting to get an Asset or Account level filter.|The filter was created or modified with a newer API version than is being used to try to get the filter. This can happen if two API versions are being used by code or tools being used by the customer.  The best solution here is to upgrade the code or tools to use the newer or the two API versions.|
 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## February 2020
+
+Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
+
+## September 2019
+
+### Deprecation of media processors
+
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+
+For the retirement dates, see this [legacy components](legacy-components.md) topic.
+
+Also see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+
+## August 2019
+
+### Deprecation of media processors
+
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. For the retirement dates, see this [legacy components](legacy-components.md) topic.
+
+For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
 ## March 2019
 
@@ -205,7 +228,7 @@ Media Services is now live in the following data centers: Brazil South, India We
 
 ## <a id="september_changes_15"></a>September 2015 release
 Media Services now offers the ability to protect both video on demand and live streams with Widevine modular DRM technology. You can use the following delivery services partners to help you deliver Widevine licenses:
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -317,9 +340,9 @@ The [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.medias
 * Relative offsets for BeginDate and ExpirationDate in the PlayReady license template were added.
 
 ## <a id="november_changes_14"></a>November 2014 release
-* You now can use Media Services to ingest live Smooth Streaming (fMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, Media Services doesn't support SSL with custom domains. For more information about live streaming, see [Work with Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Currently, you can't ingest an RTMP live stream over an SSL connection.
-* You can stream over SSL only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support SSL. If your URL is in the old format and you want to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over SSL, use URLs based on the new streaming endpoint.
+* You now can use Media Services to ingest live Smooth Streaming (fMP4) content over a TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, Media Services doesn't support TLS with custom domains. For more information about live streaming, see [Work with Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Currently, you can't ingest an RTMP live stream over a TLS connection.
+* You can stream over TLS only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support TLS. If your URL is in the old format and you want to stream over TLS, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over TLS, use URLs based on the new streaming endpoint.
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 The Media Services SDK for .NET extensions is now version 2.0.0.3.
@@ -434,13 +457,13 @@ The following Media Services PowerShell cmdlets are now included in [Azure SDK t
     For example: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    For example: `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`
+    For example: `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    For example: `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`
+    For example: `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    For example: `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
+    For example: `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>June 2013 release
 ### <a name="june_13_general_changes"></a>Media Services changes
@@ -534,6 +557,10 @@ The following functionality was new in the November release of the SDK:
   
     * Asynchronous support was added to all methods.
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
@@ -542,7 +569,7 @@ The following functionality was new in the November release of the SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN Forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Azure Media Services REST API reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Input metadata]: https://msdn.microsoft.com/library/azure/dn783120.aspx

@@ -1,27 +1,39 @@
 ---
-title: Set up security info (preview) from your sign-in prompt - Azure Active Directory | Microsoft Docs
-description: How to set up security info for your work or school account, if you're prompted from your organization's sign-in page.
+title: Set up your Security info from a sign-in prompt - Azure AD
+description: How to set up your Security info for your work or school account, after you're prompted from your organization's sign-in page.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
-ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.topic: end-user-help
+ms.date: 04/07/2020
+ms.author: curtand
 ---
 
-# Set up your security info (preview) from the sign-in page prompt
+# Set up your Security info from a sign-in prompt
 
 You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
-You'll only see this prompt if you haven’t set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
+You'll only see this prompt if you haven't set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## Security verification versus password reset authentication
+
+Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
+
+| Method | Used for |
+| ------ | -------- |
+| Authenticator app | Two-factor verification and password reset authentication. |
+| Text messages | Two-factor verification and password reset authentication. |
+| Phone calls | Two-factor verification and password reset authentication. |
+| Security key | Two-factor verification and password reset authentication. |
+| Email account | Password reset authentication only. You'll need to choose another method for two-factor verification. |
+| Security questions | Password reset authentication only. You'll need to choose another method for two-factor verification. |
 
 ## Sign in to your work or school account
 
@@ -53,6 +65,9 @@ Follow these steps to set up your security info for your work or school account 
 
 4. Open the Microsoft Authenticator app, select to allow notifications (if prompted), select **Add account** from the **Customize and control** icon on the upper-right, and then select **Work or school account**.
 
+    >[!Note]
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
 5. Return to the **Set up your account** page on your computer, and then select **Next**.
 
     The **Scan the QR code** page appears.
@@ -61,7 +76,7 @@ Follow these steps to set up your security info for your work or school account 
 
 6. Scan the provided code with the Microsoft Authenticator app QR code reader, which appeared on your mobile device after you created your work or school account in Step 5.
 
-    The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+    The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR image** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
 7. Select **Next** on the **Scan the QR code** page on your computer.
 
@@ -71,7 +86,7 @@ Follow these steps to set up your security info for your work or school account 
 
 8. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
 
-    ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
@@ -95,6 +110,40 @@ Follow these steps to set up your security info for your work or school account 
 
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
 
+    >[!Note]
+    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called **App passwords**, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see the [Manage your app passwords](#manage-your-app-passwords) section of this article.
+
+### Manage your app passwords
+
+Certain apps, such as Outlook 2010, don't support two-step verification. This lack of support means that if you're using two-step verification in your organization, the app won't work. To get around this problem, you can create an autogenerated password to use with each non-browser app, separate from your normal password.
+
+>[!Note]
+>If you don't see this option in the wizard, it means that your administrator hasn't set it up. If this isn't set up, but you know you need to use app passwords, you can follow the steps in the [Set up app passwords from the Security info page](security-info-app-passwords.md).
+
+When using app passwords, it's important to remember:
+
+- App passwords are autogenerated and only entered once per app.
+
+- There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
+
+- Use one app password per device, not per app. For example, create a single password for all the apps on your laptop, and then another single password for all the apps on your desktop.
+
+#### To add app passwords in the sign-in wizard
+
+1. After finishing the previous sections of the wizard, select **Next** and complete the **App password** section.
+
+2. Type the name of the app that needs the password, for example `Outlook 2010`, and then select **Next**.
+
+    ![Add the app password name in the wizard](media/security-info/app-password-app-password.png)
+
+3. Copy the password code from the **App password** screen and paste it into the **Password** area of the app (in this example, Outlook 2010).
+
+    ![App password page, with password for copy](media/security-info/app-password-copy-password.png)
+
+4. After you copy the password and paste it in the app, return to this wizard to make sure all of your sign-in method information is accurate, and then select **Done**.
+
+    ![App password page, with completion notice](media/security-info/app-password-complete.png)
+
 ## Next steps
 
 - To change, delete, or update default security info methods, see:
@@ -111,6 +160,6 @@ Follow these steps to set up your security info for your work or school account 
 
 - For information about how to sign in using your specified method, see [How to sign in](user-help-sign-in.md).
 
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.

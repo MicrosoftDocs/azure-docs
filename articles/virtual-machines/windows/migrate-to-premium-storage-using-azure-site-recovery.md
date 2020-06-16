@@ -1,12 +1,9 @@
 ---
-title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery | Microsoft Docs
+title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery 
 description: Migrate your existing virtual machines to Azure Premium Storage by using Site Recovery. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-services: "virtual-machines-windows,storage"
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
@@ -73,7 +70,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 1. Open the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**.
    >[!NOTE]
-   >Backup and Site Recovery was formerly part of the ![OMS suite](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+   >Backup and Site Recovery was formerly part of the [OMS suite](/azure/azure-monitor/terminology#april-2018---retirement-of-operations-management-suite-brand).
 1. Specify a region that VMs will be replicated to. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. 
 
 ### Step 2: Choose your protection goals 
@@ -202,7 +199,7 @@ Site Recovery will create a VM instance whose type is the same as or similar to 
 ## Troubleshooting
 
 * [Monitor and troubleshoot protection for virtual machines and physical servers](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Microsoft Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [Microsoft Q&A question page for Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## Next steps
 

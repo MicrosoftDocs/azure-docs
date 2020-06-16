@@ -1,7 +1,7 @@
 ---
 title: Search a custom view - Bing Custom Search
 titleSuffix: Azure Cognitive Services
-description: Describes how to search a custom view of the web.
+description: After you've configured your custom search experience, you can test it from within the Bing Custom Search portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: maheshb
+ms.date: 02/03/2020
+ms.author: aahi
 ---
 
 # Call your Bing Custom Search instance from the Portal
@@ -38,7 +38,7 @@ Clicking **Additional Parameters** reveals the following parameters:
 
 |Parameter  |Description  |
 |---------|---------|
-|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints.        |
+|Safe Search     | A filter used to filter webpages for adult content. Only available for the Web, Image, Video, and Hosted UI endpoints. Note that Bing Custom Video Search only supports two values: `moderate` and `strict`.        |
 |User Interface Language    | The language used for user interface strings. For example, if you enable images and videos in Hosted UI, the **Image** and **Video** tabs use the specified language.        |
 |Count     | The number of search results to return in the response. Available only for Web, Image, and Video endpoints.         |
 |Offset    | The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.        |

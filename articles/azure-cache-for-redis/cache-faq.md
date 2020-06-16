@@ -1,21 +1,11 @@
 ---
-title: Azure Cache for Redis FAQ | Microsoft Docs
+title: Azure Cache for Redis FAQ
 description: Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
-ms.date: 04/29/2019
 ms.author: yegu
-
+ms.service: cache
+ms.topic: conceptual
+ms.date: 04/29/2019
 ---
 # Azure Cache for Redis FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -24,7 +14,7 @@ Learn the answers to common questions, patterns, and best practices for Azure Ca
 If your question isn't listed here, let us know and we'll help you find an answer.
 
 * You can post a question in the comments at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
-* To reach a wider audience, you can post a question on the [Azure Cache MSDN Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) and engage with the Azure Cache team and other members of the community.
+* To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
 * If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/forums/169382-cache).
 * You can also send an email to us at [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
 
@@ -58,7 +48,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [What are Redis databases?](#what-are-redis-databases)
 
 ## Security FAQs
-* [When should I enable the non-SSL port for connecting to Redis?](#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis)
+* [When should I enable the non-TLS/SSL port for connecting to Redis?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)
 
 ## Production FAQs
 * [What are some production best practices?](#what-are-some-production-best-practices)
@@ -69,7 +59,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
-The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and [How to troubleshoot Azure Cache for Redis](cache-how-to-troubleshoot.md).
+The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
@@ -100,12 +90,12 @@ Each Azure Cache for Redis offering provides different levels of **size**, **ban
 
 The following are considerations for choosing a Cache offering.
 
-* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB. For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
+* **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 1.2 TB (as a cluster) or 120 GB (non-clustered). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Network Performance**: If you have a workload that requires high throughput, the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier, larger size caches have more bandwidth because of the underlying VM that hosts the cache. For more information, see the [following table](#cache-performance).
 * **Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you may receive timeouts on the client side. For more information, see the following table.
 * **High Availability/SLA**: Azure Cache for Redis guarantees that a Standard/Premium cache is available at least 99.9% of the time. To learn more about our SLA, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
 * **Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache, all the data is stored only in memory. Underlying infrastructure issues might result in potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Cache for Redis offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
-* **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
+* **Redis Cluster**: To create caches larger than 120 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 * **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Cache for Redis, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Cache for Redis](cache-how-to-premium-vnet.md).
 * **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
 * **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
@@ -116,7 +106,7 @@ The following are considerations for choosing a Cache offering.
 <a name="cache-performance"></a>
 
 ### Azure Cache for Redis performance
-The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For SSL throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
+The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
 
 >[!NOTE] 
 >These values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
@@ -174,7 +164,7 @@ For more information on considerations when using Azure Cache for Redis with oth
 - [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
-For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -193,6 +183,7 @@ Usually the default values of the client are sufficient. You can fine-tune the o
   * For ConnectRetry and ConnectTimeout, the general guidance is to fail fast and retry again. This guidance is based on your workload and how much time on average it takes for your client to issue a Redis command and receive a response.
   * Let StackExchange.Redis automatically reconnect instead of checking connection status and reconnecting yourself. **Avoid using the ConnectionMultiplexer.IsConnected property**.
   * Snowballing - sometimes you may run into an issue where you are retrying and the retries snowball and never recovers. If snowballing occurs, you should consider using an exponential backoff retry algorithm as described in [Retry general guidance](../best-practices-retry-general.md) published by the Microsoft Patterns & Practices group.
+  
 * **Timeout values**
   * Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
   * Set `AbortOnConnectFail` to false and let StackExchange.Redis reconnect for you.
@@ -247,7 +238,7 @@ You can use any of the commands listed at [Redis commands](https://redis.io/comm
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [How to use the Redis command-line tool with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) article.
+> The Redis command-line tools do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [How to use the Redis command-line tool with Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) article.
 >
 >
 
@@ -274,7 +265,7 @@ For more information about using Azure Cache for Redis as a PHP session cache wi
 
 ### What are Redis databases?
 
-Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example, a C6 cache has 53 GB of memory. You can choose to put all 53 GB into one database or you can split it up between multiple databases. 
+Redis Databases are just a logical separation of data within the same Redis instance. The cache memory is shared between all the databases and actual memory consumption of a given database depends on the keys/values stored in that database. For example, a C6 cache has 53 GB of memory, and a P5 has 120 GB. You can choose to put all 53 GB / 120 GB into one database or you can split it up between multiple databases. 
 
 > [!NOTE]
 > When using a Premium Azure Cache for Redis with clustering enabled, only database 0 is available. This limitation is an intrinsic Redis limitation and is not specific to Azure Cache for Redis. For more information, see [Do I need to make any changes to my client application to use clustering?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
@@ -284,15 +275,15 @@ Redis Databases are just a logical separation of data within the same Redis inst
 
 <a name="cache-ssl"></a>
 
-### When should I enable the non-SSL port for connecting to Redis?
-Redis server does not natively support SSL, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports SSL, like StackExchange.Redis, then you should use SSL.
+### When should I enable the non-TLS/SSL port for connecting to Redis?
+Redis server does not natively support TLS, but Azure Cache for Redis does. If you are connecting to Azure Cache for Redis and your client supports TLS, like StackExchange.Redis, then you should use TLS.
 
 >[!NOTE]
->The non-SSL port is disabled by default for new Azure Cache for Redis instances. If your client does not support SSL, then you must enable the non-SSL port by following the directions in the [Access ports](cache-configure.md#access-ports) section of the [Configure a cache in Azure Cache for Redis](cache-configure.md) article.
+>The non-TLS port is disabled by default for new Azure Cache for Redis instances. If your client does not support TLS, then you must enable the non-TLS port by following the directions in the [Access ports](cache-configure.md#access-ports) section of the [Configure a cache in Azure Cache for Redis](cache-configure.md) article.
 >
 >
 
-Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+Redis tools such as `redis-cli` do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -315,7 +306,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * Develop your system such that it can handle connection blips [due to patching and failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### Performance testing
-* Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because `redis-benchmark` does not support SSL, you must [enable the Non-SSL port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* Start by using `redis-benchmark.exe` to get a feel for possible throughput before writing your own perf tests. Because `redis-benchmark` does not support TLS, you must [enable the Non-TLS port through the Azure portal](cache-configure.md#access-ports) before you run the test. For examples, see [How can I benchmark and test the performance of my cache?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * The client VM used for testing should be in the same region as your Azure Cache for Redis instance.
 * We recommend using Dv2 VM Series for your client as they have better hardware and should give the best results.
 * Make sure your client VM you choose has at least as much computing and bandwidth capability as the cache you are testing.
@@ -439,7 +430,7 @@ These tools enable you to monitor the health of your Azure Cache for Redis insta
 <a name="cache-timeouts"></a>
 
 ### Why am I seeing timeouts?
-Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [client-side troubleshooting](cache-troubleshoot-client.md) and [StackExchange.Redis timeout exceptions](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
@@ -466,7 +457,7 @@ The following are some common reason for a cache disconnect.
 >
 
 ### Azure Cache for Redis
-Azure Cache for Redis is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
+Azure Cache for Redis is Generally Available in sizes up to 120 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier-intro.md) offers sizes up to 1.2 TB and support for clustering, VNET, and persistence, with a 99.9% SLA.
 
 Azure Cache for Redis gives customers the ability to use a secure, dedicated Azure Cache for Redis, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
 
@@ -474,7 +465,7 @@ Unlike traditional caches that deal only with key-value pairs, Redis is popular 
 
 Another key aspect to Redis success is the healthy, vibrant open- source ecosystem built around it. This is reflected in the diverse set of Redis clients available across multiple languages. This ecosystem and wide range of clients allow Azure Cache for Redis to be used by nearly any workload you would build inside of Azure.
 
-For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.md).
+For more information about getting started with Azure Cache for Redis, see [How to Use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Cache for Redis documentation](index.yml).
 
 ### Managed Cache service
 [Managed Cache service was retired November 30, 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)

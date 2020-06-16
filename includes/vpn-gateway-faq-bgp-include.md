@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
-No, BGP is supported on Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** and **HighPerformance** VPN gateways. **Basic** SKU is NOT supported.
+BGP is supported on all Azure VPN Gateawy SKUs except Basic SKU.
 
 ### Can I use BGP with Azure Policy-Based VPN gateways?
 No, BGP is supported on Route-Based VPN gateways only.
@@ -18,8 +18,8 @@ No, BGP is supported on Route-Based VPN gateways only.
 ### Can I use private ASNs (Autonomous System Numbers)?
 Yes, you can use your own public ASNs or private ASNs for both your on-premises networks and Azure virtual networks.
 
-### Can I use 32-bit ASNs (Autonomous System Numbers)?
-No, the Azure VPN Gateways support 16-Bit ASNs today.
+### Can I use 32-bit (4-byte) ASNs (Autonomous System Numbers)?
+Yes, Azure VPN Gateways now support 32-bit (4-byte) ASNs. Please use PowerShell/CLI/SDK to configure using ASN in decimal format.
 
 ### Are there ASNs reserved by Azure?
 Yes, the following ASNs are reserved by Azure for both internal and external peerings:
@@ -33,6 +33,13 @@ You cannot specify these ASNs for your on premises VPN devices when connecting t
 Yes, the following ASNs are [reserved by IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) and can't be configured on your Azure VPN Gateway:
 
 23456, 64496-64511, 65535-65551 and 429496729
+
+### What Private ASNs can I use?
+The useable range of Private ASNs that can be used are:
+
+* 64512-65514, 65521-65534
+
+These ASNs are not reserved by IANA or Azure for use and therefore can be used to assign to your Azure VPN Gateway.
 
 ### Can I use the same ASN for both on-premises VPN networks and Azure VNets?
 No, you must assign different ASNs between your on-premises networks and your Azure VNets if you are connecting them together with BGP. Azure VPN Gateways have a default ASN of 65515 assigned, whether BGP is enabled or not for your cross-premises connectivity. You can override this default by assigning a different ASN when creating the VPN gateway, or change the ASN after the gateway is created. You will need to assign your on-premises ASNs to the corresponding Azure Local Network Gateways.

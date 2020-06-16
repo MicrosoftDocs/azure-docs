@@ -1,16 +1,9 @@
 ---
-title: Count states for tasks and nodes - Azure Batch | Microsoft Docs
+title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
-ms.topic: article
 ms.date: 09/07/2018
-ms.author: lahugh
+ms.topic: how-to
 ms.custom: seodec18
-
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 
@@ -113,12 +106,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 You can use a similar pattern for REST and other supported languages to get node counts for pools.
  
 ## Next steps
 
-* See the [Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features.
-
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * For information about applying filters to queries that list Batch resources, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 
