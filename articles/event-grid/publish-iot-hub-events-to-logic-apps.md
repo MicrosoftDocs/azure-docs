@@ -181,7 +181,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
    2. In the **TOPIC DETAILS** section, do the following tasks:
        1. Confirm that the **Topic type** is set to **IoT Hub**. 
        2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
-       3. Enter a name for the **system topic** that will be created for you. 
+       3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
    3. In the **EVENT TYPES** section, do the following tasks: 
         1. For **Filter to Event Types**, uncheck all of the choices except **Device Created**.
 

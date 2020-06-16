@@ -15,33 +15,31 @@ ms.date: 02/26/2019
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-## Overview
-
-[Resource Health](../../service-health/resource-health-overview.md#get-started) for Azure SQL Database and Azure SQL Managed Instance  helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
+[Resource Health](../../service-health/resource-health-overview.md#get-started) for Azure SQL Database and Azure SQL Managed Instance helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource Health provides technical support when you need help with Azure service issues.
 
 ![Overview](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
 
 ## Health checks
 
-Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL Database resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1-2 minutes.
+Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL Database resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1 to 2 minutes.
 
-## Health States
+## Health states
 
 ### Available
 
-A status of **Available** means that Resource Health has not detected logins failures due to system errors on your SQL resource.
+A status of **Available** means that Resource Health has not detected login failures due to system errors on your SQL resource.
 
 ![Available](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-available.jpg)
 
 ### Degraded
 
-A status of **Degraded** means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, please implement [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
+A status of **Degraded** means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, implement [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
 
 ![Degraded](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-degraded.jpg)
 
 ### Unavailable
 
-A status of **Unavailable** means that Resource Health has detected consistent login failures to your SQL resource. If your resource remains in this state for an extended period of time, please contact support.
+A status of **Unavailable** means that Resource Health has detected consistent login failures to your SQL resource. If your resource remains in this state for an extended period of time, contact support.
 
 ![Unavailable](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
@@ -53,7 +51,7 @@ The health status of **Unknown** indicates that Resource Health hasn't received 
 
 ## Historical information
 
-You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
+You can access up to 14 days of health history in the Health History section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your database resource at a two-minute granularity. The actual downtime is likely less than a minute. The average is 8 seconds.
 
 ### Downtime reasons
 
@@ -61,16 +59,16 @@ When your database experiences downtime, analysis is performed to determine a re
 
 #### Planned maintenance
 
-The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
+The Azure infrastructure periodically performs planned maintenance – the upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, Azure SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient, and [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, contact support.
 
 #### Reconfiguration
 
-Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
+Reconfigurations are considered transient conditions and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database should implement a robust connection [retry logic](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next steps
 
-- Learn more about [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Troubleshoot, diagnose, and prevent SQL connection errors](troubleshoot-common-connectivity-issues.md)
-- Learn more about [configuring Resource Health alerts](../../service-health/resource-health-alert-arm-template-guide.md)
-- Get an overview of [Resource Health](../../application-gateway/resource-health-overview.md)
-- [Resource Health FAQ](../../service-health/resource-health-faq.md)
+- Learn more about [retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- [Troubleshoot, diagnose, and prevent SQL connection errors](troubleshoot-common-connectivity-issues.md).
+- Learn more about [configuring Resource Health alerts](../../service-health/resource-health-alert-arm-template-guide.md).
+- Get an overview of [Resource Health](../../application-gateway/resource-health-overview.md).
+- Review [Resource Health FAQ](../../service-health/resource-health-faq.md).

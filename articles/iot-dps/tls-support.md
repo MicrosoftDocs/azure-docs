@@ -11,7 +11,10 @@
 
 # TLS support in Azure IoT Hub Device Provisioning Service (DPS)
 
-DPS uses Transport Layer Security (TLS) to secure connections from IoT devices. TLS protocol versions supported by DPS include TLS 1.2.
+DPS uses [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) to secure connections from IoT devices. 
+
+Current TLS protocol versions supported by DPS are: 
+* TLS 1.2
 
 TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
@@ -19,7 +22,7 @@ TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more 
 
 For added security, it is advised to configure your DPS instances to *only* allow device client connections that use TLS version 1.2 and to enforce the use of [recommended ciphers](#recommended-ciphers).
 
-To do this, provision a new DPS resource in any of the [supported regions](#supported-regions) and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's DPS resource specification. The following example template JSON specifies the `minTlsVersion` property for a new DPS instance.
+To do this, provision a new DPS resource setting the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's DPS resource specification. The following example template JSON specifies the `minTlsVersion` property for a new DPS instance.
 
 ```json
 {
@@ -30,7 +33,7 @@ To do this, provision a new DPS resource in any of the [supported regions](#supp
             "type": "Microsoft.Devices/ProvisioningServices",
             "apiVersion": "2020-01-01",
             "name": "<provide-a-valid-DPS-resource-name>",
-            "location": "<any-of-supported-regions-below>",
+            "location": "<any-region>",
             "properties": {
                 "minTlsVersion": "1.2"
             },
@@ -56,12 +59,6 @@ The DPS resource created using this configuration will refuse devices that attem
 > [!NOTE]
 > The `minTlsVersion` property is read-only and cannot be changed once your DPS resource is created. It is therefore essential that you properly test and validate that *all* your IoT devices are compatible with TLS 1.2 and the [recommended ciphers](#recommended-ciphers) in advance.
 
-## Supported regions
-
-IoT DPS instances that require the use of TLS 1.2 can be created in the following regions:
-
-* US Gov Arizona
-* US Gov Virginia
 
 > [!NOTE]
 > Upon failovers, the `minTlsVersion` property of your DPS will remain effective in the geo-paired region post-failover.

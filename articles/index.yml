@@ -249,6 +249,13 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
     # Card
+    - title: Project Bonsai (Preview)
+      summary: A machine teaching service for creating intelligent industrial control systems using simulations
+      imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+      azureCategories:
+        - ai-machine-learning
+      url: https://docs.microsoft.com/bonsai/
+    # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg

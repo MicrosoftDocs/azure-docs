@@ -162,6 +162,10 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -190,6 +194,30 @@
         href: wrangling-data-flow-overview.md
       - name: Supported functions
         href: wrangling-data-flow-functions.md
+  - name: Data migration for data lake & EDW
+    items:
+    - name: Why Azure Data Factory
+      href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-azure-storage.md
+    - name: Migrate data from on-premises Hadoop cluster to Azure
+      href: data-migration-guidance-hdfs-azure-storage.md
+    - name: Migrate data from on-premises Netezza server to Azure
+      href: data-migration-guidance-netezza-azure-sqldw.md
+  - name: Transformation using mapping data flow
+    items:
+    - name: Process fixed-width text files
+      href: how-to-fixed-width.md
+    - name: Error row handling
+      href: how-to-data-flow-error-rows.md
+    - name: Azure SQL DB to CosmosDB
+      href: how-to-sqldb-to-cosmosdb.md
+  - name: SSIS migration from on-premises
+    items:
+    - name: SSIS migration overview
+      href: scenario-ssis-migration-overview.md
+    - name: SSISDB migration to Azure SQL Managed Instance
+      href: scenario-ssis-migration-ssisdb-mi.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Naming rules
@@ -254,6 +282,8 @@
       href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
+    - name: Common Data Model format
+      href: format-common-data-model.md
     - name: Common Data Service for Apps
       href: connector-dynamics-crm-office-365.md
     - name: Concur
@@ -272,10 +302,14 @@
       href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
+    - name: Excel format
+      href: format-excel.md
     - name: File System
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
+    - name: GitHub
+      href: connector-github.md
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
@@ -689,32 +723,6 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
-- name: Scenarios
-  items:
-  - name: Data migration for data lake & EDW
-    items:
-    - name: Why Azure Data Factory
-      href: data-migration-guidance-overview.md
-    - name: Migrate data from AWS S3 to Azure
-      href: data-migration-guidance-s3-azure-storage.md
-    - name: Migrate data from on-premises Hadoop cluster to Azure
-      href: data-migration-guidance-hdfs-azure-storage.md
-    - name: Migrate data from on-premises Netezza server to Azure
-      href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using mapping data flow
-    items:
-    - name: Process fixed-width text files
-      href: how-to-fixed-width.md
-    - name: Error row handling
-      href: how-to-data-flow-error-rows.md
-    - name: Azure SQL DB to CosmosDB
-      href: how-to-sqldb-to-cosmosdb.md
-  - name: SSIS migration from on-premises
-    items:
-    - name: SSIS migration overview
-      href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Managed Instance
-      href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
   - name: Data flow script

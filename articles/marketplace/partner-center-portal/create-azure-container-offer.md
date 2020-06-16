@@ -327,7 +327,7 @@ If you want to hide your published offer so customers can't search, browse, or p
 
 This field is used when:
 
-- The offer is intended to be used indirectly when referenced though another application.
+- The offer is intended to be used indirectly when referenced through another application.
 - The offer should not be purchased individually.
 - The plan was used for initial testing and is no longer relevant.
 - The plan was used for temporary or seasonal offers and should no longer be offered.

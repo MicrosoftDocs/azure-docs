@@ -2,7 +2,7 @@
 title: Configure public endpoint - Azure SQL Managed Instance
 description: "Learn how to configure a public endpoint for Azure SQL Managed Instance"
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual

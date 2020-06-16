@@ -7,6 +7,7 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
+ms.custom: tracking-python
 ---
 
 # Create and manage Windows VMs in Azure using Python

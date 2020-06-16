@@ -5,7 +5,7 @@ services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
@@ -51,7 +51,7 @@ If you do not have an authoring resource:
 
 Your Pizza app is now ready to use.
 
-## Record the app ID, prediction key, and prediction endpoint of your Pizza app
+## Record the access values for your Pizza app
 
 To use your new Pizza app, you will need the app ID, authoring key, and authoring endpoint of your Pizza app.
 
