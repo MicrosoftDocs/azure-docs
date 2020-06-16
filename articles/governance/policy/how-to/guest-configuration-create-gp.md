@@ -17,7 +17,7 @@ When auditing Windows, Guest Configuration uses a [Desired State Configuration](
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 >   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-The DSC community has published the [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the BaselineManagement module creates Azure Policy Guest Configuration for Windows from Group Policy content. For details about using the BaselineManagement module, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+The DSC community has published the [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the BaselineManagement module creates Azure Policy Guest Configuration package for Windows from Group Policy content. For details about using the BaselineManagement module, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
 
 In this guide, we walk through the process to create an Azure Guest Configuration Policy package from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server 2019 Security Baseline, the same process can be applied to other GPOs.  
 
