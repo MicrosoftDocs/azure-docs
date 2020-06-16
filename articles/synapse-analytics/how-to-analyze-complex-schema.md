@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Analyze complex data types in Synapse
 
-This article is relevant for **Parquet**, **JSON** files, and containers in **Azure Synapse Link for Azure Cosmos DB**. It explains how users can use Spark or SQL to read or transform data with complex schema such as arrays or nested structures. The example below is done with a single document but can easily scale to billions documents with Spark or SQL. The code below uses PySpark (Python).
+This article is relevant for **Parquet** files and containers in **Azure Synapse Link for Azure Cosmos DB**. It explains how users can use Spark or SQL to read or transform data with complex schema such as arrays or nested structures. The example below is done with a single document but can easily scale to billions documents with Spark or SQL. The code below uses PySpark (Python).
 
 ## Use Case
 
@@ -172,7 +172,6 @@ First of all, depending how data has been stored, users should use the following
 | BULK              | FORMAT |
 | -------------------- | --- |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
-| 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.JSON' |'Json' (ADLSg2)|
 | N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account= ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY, SECRET='YOURSECRET' |'CosmosDB' (Synapse Link)|
 
 
@@ -228,5 +227,5 @@ SQL serverless will directly query in-place, flatten the object in 2 rows and, d
 
 ## Next steps
 
-* See how to [connect to Synapse Link for Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Learn how to query the analytical store with Spark](how-to-query-analytical-store-spark.md)
+* [Learn how to query Azure Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
+* [Query parquet nested types](./sql/query-parquet-nested-types.md) 
