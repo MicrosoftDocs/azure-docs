@@ -7,7 +7,7 @@ author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Custom Resource Providers
+# Azure Policy built-in definitions for Azure Custom Resource Providers
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
 definitions for Azure Custom Resource Providers. For additional Azure Policy built-ins for other
