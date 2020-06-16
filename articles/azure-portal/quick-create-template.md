@@ -6,7 +6,7 @@ ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 6/15/20
+ms.date: 06/15/2020
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using an Azure Resource Manager template
@@ -42,17 +42,17 @@ The dashboard you create in the next part of this quickstart requires an existin
         -Location "East US" 
     ```
 
-1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](..articles/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) and [password requirements](..articles/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../articles/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) and [password requirements](../articles/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
 
     The VM deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](media/quick-create-template/azuredeploy.json). The template for this article is too long to show here. To view the template, see [azuredeploy.json](media/quick-create-template/azuredeploy.json). One Azure resource is defined in the template, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Create a dashboard in the Azure portal.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/). The template for this article is too long to show here. To view the template, see [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-key-vault-create/azuredeploy.json). One Azure resource is defined in the template, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards) - Create a dashboard in the Azure portal.
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open a template. The template creates a dashboard that shows the performance of the VM you created, as well as some static information and links.
+1. Select the following image to sign in to Azure and open a template.
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
