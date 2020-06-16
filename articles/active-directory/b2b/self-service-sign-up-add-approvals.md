@@ -370,4 +370,4 @@ Content-type: application/json
 ## Next steps
 
 - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-system). 
+- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows). 
