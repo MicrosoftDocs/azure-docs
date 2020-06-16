@@ -71,7 +71,7 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
       - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in Viewing the Monthly Estimated Cost Trend chart.
    - If you choose to **Notify** when the threshold is met, you must specify a webhook URL. In the Cost integrations area, select **Click here to add an integration**. Enter a **Webhook URL** in the Configure notification pane and then select **OK**.
 
-       ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)
+       ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification-new.png)
 
      - If you specify **Notify**, you must define a webhook URL.
      - Likewise, if you define a webhook URL, you must set **Notification** to **On** in the Cost threshold pane.

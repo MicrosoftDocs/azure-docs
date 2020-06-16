@@ -32,7 +32,7 @@ After you have created an artifact, you can check to see whether it succeeded or
 2. Choose the Windows VM that includes the artifact that you want to investigate.
 3. In the left panel, under **GENERAL**, select **Artifacts**. A list of artifacts associated with that VM appears. The name of the artifact and the artifact status are indicated.
 
-   ![Artifact status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure.png)
+   ![Artifact status](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifacts-failure-new.png)
 
 4. Select an artifact that shows a **Failed** status. The artifact opens. An extension message that includes details about the failure of the artifact is displayed.
 
@@ -44,7 +44,7 @@ After you have created an artifact, you can check to see whether it succeeded or
 1. Sign in to the VM that contains the artifact you want to diagnose.
 2. Go to C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\\*1.9*\Status, where *1.9* is the Azure Custom Script Extension version number.
 
-   ![The Status file](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status.png)
+   ![The Status file](./media/devtest-lab-troubleshoot-artifact-failure/devtest-lab-artifact-error-vm-status-new.png)
 
 3. Open the **status** file.
 

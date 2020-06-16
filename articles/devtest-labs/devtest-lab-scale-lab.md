@@ -36,11 +36,11 @@ These steps show you how to view the current quotas in your subscription for spe
 1. In the Billing blade, select a subscription.
 4. Select **Usage + quotas**.
 
-   ![Usage and quotas button](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
+   ![Usage and quotas button](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas-new.png)
 
    The Usage + quotas blade appears, listing different resources available in that subscription and the percentage of the quota that is being used per resource.
 
-   ![Quotas and usage](./media/devtest-lab-scale-lab/devtestlab-view-quotas.png)
+   ![Quotas and usage](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## Requesting more resources in your subscription
 If you reach a quota cap, the default limit of a resource in a subscription can be increased up to a maximum limit, as described in [Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
@@ -50,11 +50,11 @@ These steps show you how to request a quota increase through the [Azure portal](
 1. Select **More Services**, select **Billing**, and then select **Usage + quotas**.
 1. In the Usage + quotas blade, select the **Request Increase** button.
 
-   ![Request increase button](./media/devtest-lab-scale-lab/devtestlab-request-increase.png)
+   ![Request increase button](./media/devtest-lab-scale-lab/devtestlab-request-increase-new.png)
 
 1. To complete and submit the request, fill out the required information on all three tabs of the **New support request** form.
 
-   ![Request increase form](./media/devtest-lab-scale-lab/devtestlab-support-form.png)
+   ![Request increase form](./media/devtest-lab-scale-lab/devtestlab-support-form-new.png)
 
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) provides more information about contacting Azure support to request a quota increase.
 
