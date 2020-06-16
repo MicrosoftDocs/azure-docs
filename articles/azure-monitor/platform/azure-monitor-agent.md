@@ -10,9 +10,12 @@ ms.date: 06/11/2020
 ---
 
 # Azure Monitor agent overview (preview)
-The Azure Monitor Agent (AMA) is installed on virtual machines in Azure, other clouds, or on-premises to collect data into Azure Monitor.
+The Azure Monitor Agent (AMA) is installed on virtual machines in Azure, other clouds, or on-premises to collect guest operating system and workload data into Azure Monitor. This articles describes the details of this agent including how to install it and how to create data collection rules to define data that should be collected.
 
-## Preview
+
+## Other agents
+The Azure Monitor Agent replaces the following agents that are currently 
+
 As part of an effort to consolidate and simplify the approach to data collection in Azure Monitor, we are introducing a new concept for data collection configuration and a new, unified agent for Azure Monitor. In this preview state there are limited types of data that can be collected and limited destinations where the data can be sent, but the capabilities improve on a few key areas of data collection from VMs in Azure Monitor:
 
 - Scoping – the new capabilities make it possible to collect different sets of data from different scopes of VMs and send all that data into one workspace.
