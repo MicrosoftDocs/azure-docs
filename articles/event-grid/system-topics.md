@@ -6,14 +6,32 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/15/2020
 ms.author: spelluru
 ---
 
 # System topics in Azure Event Grid
 Azure services like Azure Storage, Azure Media services, and Azure Event Hubs publish events to the Azure Event Grid service when activities are performed against those services. Those events are represented by **system topics** in Event Grid. For example, a system topic represents **all blob events** published for a **specific storage account**. You can create one or more subscriptions for a system topic to process those events.  
 
-Note that only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for custom topics or domains.
+> [!NOTE] Only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for custom topics or domains.
+
+## Azure services that support system topics
+Here is the list of Azure services that support creation of system topics on them.
+
+- [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure App Service](event-schema-app-service.md)
+- [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Container Registry](event-schema-container-registry.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure IoT Hub](event-schema-iot-hub.md)
+- [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Machine Learning](event-schema-machine-learning.md)
+- [Azure Maps](event-schema-azure-maps.md)
+- [Azure Media Services](event-schema-media-services.md)
+- [Azure resource groups](event-schema-resource-groups.md)
+- [Azure Service Bus](event-schema-service-bus.md)
+- [Azure SignalR](event-schema-azure-signalr.md)
+- [Azure subscriptions](event-schema-subscriptions.md)
 
 ## System topics as Azure resources
 Previously, the system topic resource was implicit and wasn't exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can:
