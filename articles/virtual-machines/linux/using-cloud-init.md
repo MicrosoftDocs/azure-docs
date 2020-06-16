@@ -57,7 +57,7 @@ RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: *18.5-3.el7.centos*|
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: `18.5-3.el7.centos`|
 
 * CentOS 7.7 images that will be cloud-init enabled be updated here in June 2020 
 * CentOS 7.8 images are provisioned using cloud-init.
@@ -69,11 +69,11 @@ RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
 
-### SuSE SLES
+### SUSE SLES
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|SUSE SLES 15 SP1 |suse |sles-15-sp1-basic |cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
-|SUSE SLES 15 SP1 |suse |sles-15-sp1-basic |gen2-cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
+|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
+|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |gen2-cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
 
 
 ### Debian
@@ -121,7 +121,7 @@ Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to 
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *centos74*:
+The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \
