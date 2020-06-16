@@ -96,24 +96,20 @@ The below table lists the properties supported by a CDM sink. You can edit these
 | Column delimiter | If writing to DelimitedText, how to delimit columns | yes, if writing to DelimitedText | String | columnDelimiter |
 | First row as header | If using DelimitedText, whether the column names are added as a header | no | `true` or `false` | columnNamesAsHeader |
 
-### CDM sink example
-
-The below image is an example of a CDM sink configuration in mapping data flows.
-
-![CDM source](media/format-common-data-model/data-flow-sink.png)
+### CDM sink data flow script example
 
 The associated data flow script is:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
 	validateSchema: false,
-	entity: 'ServingSize.cdm.json/ServingSize',
+	entity: 'Product.cdm.json/Product',
 	format: 'cdm',
-	entityPath: 'ServingSize',
-	manifestName: 'ServingSizeManifest',
-	corpusPath: 'ProductAhold_Updated',
+	entityPath: 'ProductSize',
+	manifestName: 'ProductSizeManifest',
+	corpusPath: 'Products',
 	partitionPath: 'adf',
-	folderPath: 'ServingSizeData',
+	folderPath: 'ProductSizeData',
 	fileSystem: 'cdm',
 	subformat: 'parquet',
 	corpusStore: 'adlsgen2',
