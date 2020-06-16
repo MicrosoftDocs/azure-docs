@@ -8,7 +8,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Spring Cloud
+# Azure Policy built-in definitions for Azure Spring Cloud
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Spring Cloud. For additional Azure Policy built-ins for other services, see
