@@ -20,6 +20,12 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 > [!NOTE]
 > The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
 
+## June 2020
+
+### New features
+* **CopyModel API added to client SDKs**
+* **SDK-specific changes** This includes both minor features and breaking changes. See the [Python SDK changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md) and the [Java SDK changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md) for more.
+
 ## April 2020
 
 ### New features
