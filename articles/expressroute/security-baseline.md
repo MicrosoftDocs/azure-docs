@@ -4,7 +4,7 @@ description: Azure security baseline for ExpressRoute
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -557,11 +557,15 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 **Guidance**: IPsec is an IETF standard. It encrypts data at the Internet Protocol (IP) level or Network Layer 3. You can use IPsec to encrypt an end-to-end connection between your on-premises network and your virtual network (VNET) on Azure. 
 
-Understand end-to-end encryption in Azure ExpressRoute: https://docs.microsoft.com/azure/expressroute/expressroute-about-encryption
+How to configure Site to Site IPSEC over ExpressRoute : https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+
+How to configure Site to Site IPSEC over ExpressRoute : https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+
+
 
 **Azure Security Center monitoring**: Currently not available
 
-**Responsibility**: Microsoft
+**Responsibility**: Shared
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -620,6 +624,10 @@ Azure customer data protection: https://docs.microsoft.com/azure/security/fundam
 Understand point-to-point encryption in Azure ExpressRoute: https://docs.microsoft.com/azure/expressroute/expressroute-about-encryption
 
 How to configure MACsec on ExpressRoute Direct ports: https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec
+
+Azure Security Baseline for Key Vault : https://docs.microsoft.com/azure/key-vault/general/security-baseline
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
