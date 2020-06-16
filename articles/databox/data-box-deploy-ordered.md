@@ -15,6 +15,8 @@ ms.author: alkohli
 
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 80 TB (usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
 
+# [Portal](#tab/portal)
+
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
 > [!div class="checklist"]
@@ -23,6 +25,19 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Order a Data Box
 > * Track the order
 > * Cancel the order
+
+# [Azure CLI](#tab/azure-cli)
+
+This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
+
+> [!div class="checklist"]
+>
+> * Prerequisites to deploy Data Box
+> * Order a Data Box
+> * Track the order
+> * List all orders
+> * Cancel the order
+> * Delete the order
 
 # [Portal](#tab/portal)
 
