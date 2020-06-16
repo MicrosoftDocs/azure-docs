@@ -220,10 +220,10 @@ To allow pacemaker to communicate with the Azure management API, perform the fol
 
 ## Other solutions
 
-If outbound traffic is routed via third party firewall and if:
+If outbound traffic is routed via third party firewall:
 
-- using Azure fence agent make sure the firewall configuration allows outbound connectivity to the Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`   
-- using SUSE's Azure public cloud update infrastructure for applying updates and patches, see [Azure Public Cloud Update Infrastructure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
+- if using Azure fence agent make sure the firewall configuration allows outbound connectivity to the Azure management API: `https://management.azure.com` and `https://login.microsoftonline.com`   
+- if using SUSE's Azure public cloud update infrastructure for applying updates and patches, see [Azure Public Cloud Update Infrastructure 101](https://suse.com/c/azure-public-cloud-update-infrastructure-101/)
 
 ## Next steps
 
