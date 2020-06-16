@@ -307,9 +307,6 @@
     - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: platform/diagnostic-settings.md
-    - name: Change to blob storage format
-      displayname: Diagnostic settings
-      href: platform/resource-logs-blob-format.md
   - name: Log Analytics
     items:
     - name: Log query overview
@@ -1166,10 +1163,10 @@
     items:
     - name: Activity log schema
       href: platform/activity-log-schema.md
-    - name: Supported resource log types and categories
-      href: platform/resource-logs-categories.md
     - name: Resource log schemas
       href: platform/resource-logs-schema.md
+    - name: Supported resource log categories
+      href: platform/resource-logs-categories.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
@@ -1256,6 +1253,9 @@
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation
       href: platform/portal-disk-metrics-deprecation.md
+    - name: Change to blob storage format
+      displayname: Diagnostic settings
+      href: platform/resource-logs-blob-format.md
 - name: Resources
   items:
   - name: Azure Roadmap

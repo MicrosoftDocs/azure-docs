@@ -43338,17 +43338,32 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-stream-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-event-hubs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-storage",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-workspace.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-log-analytics-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-collect.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-view.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log#view-the-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-export.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log#legacy-collection-methods",
       "redirect_document_id": false
     },
     {

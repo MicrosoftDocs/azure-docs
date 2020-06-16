@@ -36,7 +36,7 @@ If there are any associated changes with the event, you'll see a list of changes
 ### Other methods to retrieve Activity log events
 You can also access Activity log events using the following methods.
 
-- Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor CLI samples](../samples/powershell-samples.md#retrieve-activity-log).
+- Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor PowerShell samples](../samples/powershell-samples.md#retrieve-activity-log).
 - Use [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
 - Use the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
 
