@@ -3,7 +3,7 @@ title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 06/16/2020
 
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -95,7 +95,7 @@ If you use Azure Container Registry (ACR) as your container image store, you nee
 
 ### Networking
 
-You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign one of the following set of role permissions:
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. The role permissions must be assigned to both the Kubernetes service resource group and the node resource group. Assign one of the following set of role permissions:
 
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
