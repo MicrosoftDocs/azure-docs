@@ -8,7 +8,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Database for PostgreSQL
+# Azure Policy built-in definitions for Azure Database for PostgreSQL
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Database for PostgreSQL. For additional Azure Policy built-ins for other
