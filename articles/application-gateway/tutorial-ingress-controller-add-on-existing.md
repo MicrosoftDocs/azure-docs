@@ -4,7 +4,7 @@ description: Use this tutorial to enable the Ingress Controller Add-On for your 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
 ---
