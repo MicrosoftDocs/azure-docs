@@ -8,7 +8,7 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Key Vault
+# Azure Policy built-in definitions for Key Vault
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Key Vault. For additional Azure Policy built-ins for other services, see
