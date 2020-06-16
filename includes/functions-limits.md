@@ -13,7 +13,7 @@ ms.author: glenga
 | Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Depends on cluster |
 | Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Depends on cluster |
 | Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Depends on cluster |
-|[ACU](../articles/virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 |Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
+|[ACU](../articles/virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS pricing](https://azure.microsoft.com/pricing/details/container-service/) |
 | Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | Any node is supported |
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
@@ -27,4 +27,5 @@ ms.author: glenga
 <sup>4</sup> The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
 <sup>5</sup> The storage limit is the total content size in temporary storage across all apps in the same App Service plan. Consumption plan uses Azure Files for temporary storage.  
 <sup>6</sup> When your function app is hosted in a [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) or an [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record.  
-<sup>7</sup> Guaranteed for up to 60 minutes.
+<sup>7</sup> Guaranteed for up to 60 minutes.  
+<sup>8</sup> Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.
