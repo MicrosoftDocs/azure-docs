@@ -45,7 +45,7 @@ public async Task<string> IssueAccessToken(string userId)
     return tokenResult.token;
 }
 ```
-It is also to treat users as ephemeral entities that are created for a single call or chat conversation.
+It is also possible to treat users as ephemeral entities that are created for a single call or chat conversation.
 
 ## Connecting Users
 
@@ -53,16 +53,25 @@ The User IDs in Azure Communication Services are analagous to phone numbers. Any
 
 ### Chat
 
-```C#
-var chatClient = new ChatClient(endpoint, user1Token);
-await chatClient.SendMessage(user2Id, "Hello 👋🏻");
+Azure Communication Services users chat with one another by participating in threads. When a message is sent to a thread, it is delivered to all the members of that thread.
+
+```javascript
+var chatClient = new ChatClient(url, userAccessToken);
+var thread = await chatClient.createThread([user1, user2]);
+await chatClient.postMessage({
+  content: "Hello 👋🏻"
+});
 ```
+
+It it possible to enumerate the full list of a thread's participants using the `members` API. The `userId` field corresponds to the unique ID of the Azure Communication Services user.
 
 ### Calling
 
-```C#
-var callingClient = async CallingClient.CreateAsync(user1Token);
-await callingClient.Call(user2Id);
+Azure Communication Services users can call one another by passing the ID of the user they wish to call to the client calling SDK.
+
+```javascript
+const callClient = await CallClientFactory.create(userToken);
+const call = await callClient.call([userId]);
 ```
 
 ## ACS Identity to real identity resolution
@@ -72,3 +81,9 @@ ACS will not provide a way for customers to provide customer specific identities
 You as a customer have to maintain map of ACS identities to entities in your system, in a way that is suitable to satisfy requirements of the system you're building, for example by storing this mapping in a (non)persistent database.
 
 ## Deleting Users
+
+It is possible to delete users via the configuration SDK. When you delete a user, all of the customer content associated with that user, including chat messages and call history, is deleted.
+
+```charpt
+await configurationClient.users().delete(userId);
+```
