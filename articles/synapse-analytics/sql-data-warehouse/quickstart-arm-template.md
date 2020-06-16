@@ -66,18 +66,18 @@ Notice the resourceType and sort elements in the URL.
 ### Deploy the template
 
 1. Select the following image to sign in to Azure and open the template. The template creates an Synapse SQL pool.
+ 
+ [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+
 1. Update the values as necessary:
 
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**.
     * **Location**: Select a location.  For example, **Central US**.
     * **SQL Server name**: Accept the default name or enter a SQL Server name.
-    * **SQL Administrator login**: 
-    * **SQL Administrator password**:
-    * **REview and Create**: Select.
- 
- [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
-
+    * **SQL Administrator login**: Enter the administrator username of the SQL Server.
+    * **SQL Administrator password**: Enter the administraor password of the SQL Server.
+    * **Review and Create**: Select.
 <!--
 <a href="https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create" target="_blank">
 <img src="../../media/template-deployments/deploy-to-azure.svg"/>
@@ -135,18 +135,18 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter your Synapse SQL pool name:" &&
-read cosmosAccountName &&
-echo "Enter the resource group where the Synapse SQL pool exists:" &&
+echo "Enter the resource group where your Synapse SQL pool exists:" &&
 read resourcegroupName &&
-az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
+echo "Enter the server name for your Synapse SQL pool:" &&
+read serverName &&
+az sql dw list --resource-group $resourcegroupName --server $serverName 
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
-(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name
+(Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
  Write-Host "Press [ENTER] to continue..."
 ```
 
