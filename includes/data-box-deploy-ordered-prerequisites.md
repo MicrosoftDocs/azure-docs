@@ -12,7 +12,7 @@ ms.author: v-grpr
 ---
 ### For service
 
-[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
+[!INCLUDE [Data Box service prerequisites](data-box-supported-subscriptions.md)]
 
 ### For device
 

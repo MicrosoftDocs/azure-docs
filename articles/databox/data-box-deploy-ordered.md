@@ -197,7 +197,25 @@ Before you begin, you must have:
 
    For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
 
-<!--## Use Azure CLI to manage orders-->
+## Change the output format type
+
+For all Azure CLI commands discussed in this tutorial, output format is set to .json by default. You can change the output format by using the global parameter `--output <output-type>`. For example:
+
+```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+
+```
+Azure Data Box CLI supports the following output formats:
+
+* json (default setting)
+* jsonc
+* table
+* tsv
+* yaml
+* yamlc
+* none
+
+You can use this parameter with all Azure Data Box job CLI commands.
 
 ## Create an order
 
