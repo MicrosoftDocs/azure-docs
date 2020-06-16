@@ -51,7 +51,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 
 ## Order Data Box
 
-Perform the following steps in the Azure portal to order a device.
+Do the following steps in the Azure portal to order a device.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
@@ -139,7 +139,7 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 
 ## Next steps
 
-In this tutorial, you learned about Azure Data Box topics such as:
+In this tutorial, you learned about Azure Data Box articles such as:
 
 > [!div class="checklist"]
 >
@@ -150,7 +150,7 @@ In this tutorial, you learned about Azure Data Box topics such as:
 
 # [Azure CLI](#tab/azure-cli)
 
-## Prequisites
+## Prerequisites
 
 Before you begin, you must have:
 
@@ -186,14 +186,14 @@ To run the code in this article in Azure Cloud Shell:
 
 1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. If you are not authenticated, follow the steps displayed in Azure CLI  to complete the authentication process.
 
-   Here is an example that shows how to sign in to Azure:
+   This example shows how to sign in to Azure:
 
     ```azurecli
 
     PS C:\Windows> az login
     ```
 
-    If you log in successfully, you will see the following output:
+    If sign-in is successful, you will see the following output:
 
     ```azurecli
 
@@ -291,7 +291,7 @@ Perform the following steps to create a device order:
    |postal-code| The zip code or postal code associated with the shipping address.| "98052"|
    |company-name| The name of your company you work for.| "Contoso, LTD" |
    |storage account| The Azure Storage account from where you want to import data.| "mystorageaccount"|
-   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |debug| Include debugging information to verbose logging  | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
@@ -363,7 +363,7 @@ You can get tracking information about an existing Azure Data Box order using [a
    |---|---|---|
    |resource-group [Required]| The name of the resource group associated with the order. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be displayed. | "mydataboxorder"|
-   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
@@ -563,7 +563,7 @@ You can get tracking information about an existing Azure Data Box order using [a
 
 ## List all orders
 
-If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
+If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
 
    ```azurecli
@@ -575,7 +575,7 @@ The following table shows the parameter information for `az databox job list`:
    | Parameter | Description |  Sample value |
    |---|---|---|
    |resource-group [Required]| The name of the resource group that contains the orders. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
-   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
@@ -722,9 +722,9 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
    |---|---|---|
    |resource-group [Required]| The name of the resource group associated with the order to be deleted. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
-   |reason [Required]| The reason for cancelling the order. | "I entered erroneous information and needed to cancel the order." |
+   |reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
    |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
-   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
@@ -742,7 +742,7 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
 
 ## Delete an order
 
-If you have cancelled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
+If you have canceled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -756,7 +756,7 @@ If you have cancelled an Azure Data Box order, you may delete the order using [a
    |name [Required]| The name of the order to be deleted. | "mydataboxorder"|
    |subscription| The name or ID (GUID) of your Azure subscription. | "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" |
    |yes| Do not prompt for confirmation. | --yes (-y)| --yes -y |
-   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |debug| Include debugging information to verbose logging | --debug |
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
@@ -774,7 +774,7 @@ Here's an example of the command with output:
 
 ## Next steps
 
-In this tutorial, you learned about Azure Data Box topics such as:
+In this tutorial, you learned about Azure Data Box articles such as:
 
 > [!div class="checklist"]
 >
