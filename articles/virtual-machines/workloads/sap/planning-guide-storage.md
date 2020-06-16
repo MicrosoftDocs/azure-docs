@@ -335,7 +335,7 @@ Some rules need to be followed on striping:
 
 Striping across multiple smaller disks is the best way to achieve a good price/performance ratio using Azure premium storage. It is understood that striping has some additional deployment and management overhead.
 
-For specific stripe size recommendations, read the documentation for the different DBMS, like [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+For specific stripe size recommendations, read the documentation for the different DBMS, like [SAP HANA Azure virtual machine storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 
 
