@@ -74,6 +74,14 @@ const callClient = await CallClientFactory.create(userToken);
 const call = await callClient.call([userId]);
 ```
 
+The `Call` interface exposes a `remoteParticipants` property that enables you to enumerate all participants in a call. The `identity` of each `RemoteParticipant` is a combination of unique identifier and type.
+
+| Identity Type | ID Description |
+|---|---|
+|`user`| Unique Azure Communication Services User ID |
+|`pstn`| The phone number of the call participant |
+|`bot`| Unique Azure Communication Services User ID |
+
 ## ACS Identity to real identity resolution
 
 ACS will not provide a way for customers to provide customer specific identities and will not store any type of data that would map an ACS Identity to a customer specific identity. Therefore, ACS will have no knowledge of how customer has assigned the ACS Identity.
