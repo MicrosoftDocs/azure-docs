@@ -24,7 +24,7 @@ Automated machine learning experiments perform model validation automatically. H
 For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> The studio only provides cross-validation options and does not support configurations for training and validation data splits at this time.  
+> The studio currently supports training and validation data splits and cross-validation options, but it does not support specifying individual data files for your validation set. 
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 In this case, you can either start with a single data file and split it into training and validation sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
-The following code example explicitly defines which portion of the provided data in `dataset`to use for training and validation.
+The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
