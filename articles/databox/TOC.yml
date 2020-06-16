@@ -43,9 +43,9 @@
         - name: 3 - Connect & copy
           items:
           - name: Via SMB
-            href: data-box-deploy-copy-data.md 
+            href: data-box-deploy-export-copy-data.md 
           - name: Via NFS
-            href: data-box-deploy-copy-data-via-nfs.md
+            href: data-box-deploy-export-copy-data-via-nfs.md
         - name: 4 - Return
           href: data-box-deploy-export-picked-up.md   
     - name: Concepts

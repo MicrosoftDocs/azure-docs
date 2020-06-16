@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/09/2020
 ms.author: alkohli
 ---
 
@@ -17,10 +17,14 @@ This article applies to both Azure Data Box and Azure Data Box Heavy. This artic
 
 This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box device, and track the status of the order as it proceeds to completion.
 
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
+
 
 ## Cancel an order
 
-You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the order is processed. Once the order is processed and Data Box device is prepared, it is not possible to cancel the order.
+You may need to cancel an order for various reasons after you have placed the order. 
+
+For both import and export orders, you can only cancel the order before the order is processed. Once the order is processed and Data Box device is prepared, it is not possible to cancel the order.
 
 Perform the following steps to cancel an order.
 
@@ -121,9 +125,12 @@ Perform the following steps to download the order history.
 
 2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. There will be two sets of log corresponding to the two nodes on a Data Box Heavy. If you scroll down to the bottom of this log, you can see the links to:
     
-   - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account.
+   - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account (import order) or *vice-versa* (export order).
    - **Audit logs** - contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter.
-   - **BOM files** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
+   - **BOM files in import order** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
+   - **Verbose logs in export order** - have the list of files with file names, file sizes, and checksum computation when the data was copied from the Azure Storage accounts to the Data Box.
+
+   Here is a sample of an order history from an import order.
 
        ```
        -------------------------------
