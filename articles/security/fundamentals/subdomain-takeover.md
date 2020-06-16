@@ -24,7 +24,7 @@ This article describes the common security threat of subdomain takeover, as well
 
 ## What is subdomain takeover?
 
-Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a stale DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. A/AAAA or CNAME record types are especially vulnerable to this threat.
+Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a stale DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME record types are especially vulnerable to this threat.
 
 A common scenario for a subdomain takeover:
 
@@ -117,15 +117,18 @@ It's often up to developers and operations teams to perform cleanup processes to
     |...|...|...|
 
     Use these Azure Resource Graph queries with the above table to build your service catalog: 
-    -	`az graph query -q "resources | where type == 'microsoft.classiccompute/domainnames' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.network/trafficmanagerprofiles' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsConfig.fqdn | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.network/publicipaddresses' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsSettings.fqdn | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.containerinstance/containergroups' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.ipAddress.fqdn | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.network/frontdoors' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.cName | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.storage/storageaccounts' and isnotempty(properties.customDomain) | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.primaryEndpoints.blob | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.cdn/profiles/endpoints' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type == 'microsoft.apimanagement/service' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostnameConfigurations.hostName | where isnotempty(endpoint)"`
-    -	`az graph query -q "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') and properties.defaultHostName endswith 'azurewebsites.net' | project tenantId, subscriptionId, type,resourceGroup, name, endpoint = properties.defaultHostName | where isnotempty(endpoint)"`
+    ```
+    az graph query -q "resources | where type == 'microsoft.classiccompute/domainnames' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.network/trafficmanagerprofiles' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsConfig.fqdn | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.network/publicipaddresses' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsSettings.fqdn | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.containerinstance/containergroups' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.ipAddress.fqdn | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.network/frontdoors' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.cName | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.storage/storageaccounts' and isnotempty(properties.customDomain) | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.primaryEndpoints.blob | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.cdn/profiles/endpoints' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)
+    az graph query -q "resources | where type == 'microsoft.apimanagement/service' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostnameConfigurations.hostName | where isnotempty(endpoint)
+    az graph query -q "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') and properties.defaultHostName endswith 'azurewebsites.net' | project tenantId, subscriptionId, type,resourceGroup, name, endpoint = properties.defaultHostName | where isnotempty(endpoint)
+    ```
+    
 
 
 - **Create procedures for remediation:**
