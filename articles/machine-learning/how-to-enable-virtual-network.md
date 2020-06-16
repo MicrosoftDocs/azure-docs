@@ -61,6 +61,68 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 <a id="amlcompute"></a>
 
+## Machine Learning studio
+
+If your data is stored in a virtual network, you must use the steps in this section to grant studio access to your data. This lets you to perform the following operations in the studio:
+
+* Preview the data
+* Visualize data in the designer
+* Start labeling projects
+
+The following datastore types are supported by studio when they are in a virtual network:
+
+* Azure Blob
+* Azure Data Lake Storage Gen1 and Gen2
+* Azure SQL Database
+
+To enable studio access to these datastore types, use the following steps:
+
+Add your workspace and storage service to the virtual network.
+
+1. [Enable Azure Private Link](how-to-configure-private-link.md) to connect your workspace to a virtual network.
+
+1. Navigate to the storage service in the [Azure portal](https://portal.azure.com/).
+
+1. In the **Settings** section, select **Firewalls and virtual networks**.
+
+1. Enable **Allow access from Selected networks**.
+
+1. Select **Add existing virtual network**. Find your virtual network and select **Add**.
+
+1. Make sure to enable **Allow trusted Microsoft services to access this storage account**.
+
+
+Now that the workspace and storage service are joined to the virtual network, configure your datastores to use managed identity to access your data.
+
+1. In the studio, select **Datastores**.
+
+1. To create a new datastore, select **+ New datastore**. To update an existing one, select the datastore and select **Update credentials**.
+
+1. In the datastore settings, enable **Use workspace managed identity for data access in the ML studio**.
+
+![Datastore creation with managed identity](TBD)
+
+These steps add the workspace managed identity as a **Reader** to the storage service using Azure resource-based access control (RBAC). **Reader** access lets the workspace retrieve firewall settings, and ensure that data does not leave the virtual network.
+
+For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) so that it can read the data.
+
+__Azure Data Lake Storage Gen2__   
+
+When using a datastore of type Azure Data Lake Storage Gen2 inside a virtual network, you can use both Azure role-based access control (RBAC) and POSIX-like access control lists to control access to the data. 
+
+To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) role.
+
+To use ACLs to grant the managed identity access to a subset of files or directories TBD. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+
+    __Azure Data Lake Storage Gen1__
+    
+    * Azure Data Lake Storage Gen1 supports POSIX-like access control lists. You can grant the managed identity access to a subset of files or directories. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+    __Azure SQL Database__
+    
+    * To use the managed identity to access data stored in the database, you must first create a mapping in the database. 
+
+
 ## <a name="compute-instance"></a>Compute clusters & instances 
 
 To use either a [managed Azure Machine Learning **compute target**](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute **instance**](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
@@ -443,6 +505,15 @@ To use ACI in a virtual network to your workspace, use the following steps:
     > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
 
 2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
+
+## Use the designer
+
+Configure Azure Machine Learning designer to work inside of a virtual network. To enable full functionality, enable a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable subnet delegation for the subnet used by the deployment.
+
+### Microsoft Service Identity perimssion
+
+### Set module storage
+
 
 ## Azure Firewall
 
