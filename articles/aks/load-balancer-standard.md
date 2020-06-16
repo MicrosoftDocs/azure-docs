@@ -36,7 +36,7 @@ If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-qui
 > [!IMPORTANT]
 > If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall or proxy for that purpose you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**Outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The Outbound type defines the egress method for a cluster and it defaults to type: load balancer.
 
-## Use the public Azure Standard Load Balancer
+## Use the public standard load balancer
 
 After creating an AKS cluster with Outbound Type: Load Balancer (default), the cluster is ready to use the load balancer to expose services as well.
 
@@ -76,7 +76,7 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 
 When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a minute or two for the IP address to change from *\<pending\>* to an actual public IP address, as shown in the above example.
 
-## Configure the public Azure standard load balancer
+## Configure the public standard load balancer
 
 When using the Standard SKU public load balancer, there's a set of options that can be customized at creation time or by updating the cluster. These options allow you to customize the Load Balancer to meet your workloads needs and should be reviewed accordingly. With the Standard load balancer you can:
 * Set or scale the number of Managed Outbound IPs;
