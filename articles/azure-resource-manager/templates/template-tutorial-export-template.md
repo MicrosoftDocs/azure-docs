@@ -2,7 +2,7 @@
 title: Tutorial - Export template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -29,7 +29,7 @@ This template works well for deploying storage accounts, but you might want to a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**.
-1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don’t select **App Service plan (classic)**
+1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don't select **App Service plan (classic)**
 1. Select **Create**.
 1. Enter:
 
@@ -92,6 +92,8 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addappserviceplan \
@@ -101,6 +103,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Verify deployment
 

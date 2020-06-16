@@ -2,16 +2,15 @@
 title: Hide an application from user's experience in Azure AD
 description: How to hide an application from user's experience in Azure Active Directory access panels or Office 365 launchers.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/26/2019
-ms.author: mimart
+ms.topic: how-to
+ms.date: 03/25/2020
+ms.author: kenwith
 ms.reviewer: kasimpso
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -48,7 +47,7 @@ Connect-AzureAD
 $objectId = "<objectId>"
 $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
 $tags = $servicePrincipal.tags
-$tags.Add("HideApp")
+$tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 

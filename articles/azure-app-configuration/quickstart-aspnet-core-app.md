@@ -28,7 +28,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -37,7 +37,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
     | TestApp:Settings:FontColor | Black |
     | TestApp:Settings:Message | Data from Azure App Configuration |
 
-    Leave **Label** and **Content Type** empty for now.
+    Leave **Label** and **Content Type** empty for now. Select **Apply**.
 
 ## Create an ASP.NET Core web app
 
@@ -55,44 +55,51 @@ dotnet new mvc --no-https
 
 To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 
-Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own. Save the file.
+1. Open the *.csproj* file.
 
-> [!IMPORTANT]
-> `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+1.  Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own.
 
-#### [.NET Core 2.x](#tab/core2x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    </ItemGroup>
-
-</Project>
-```
-
-#### [.NET Core 3.x](#tab/core3x)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
     
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
+    #### [.NET Core 2.x](#tab/core2x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp2.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+        <ItemGroup>
+            <PackageReference Include="Microsoft.AspNetCore.App" />
+            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+        </ItemGroup>
+    
+    </Project>
+    ```
+    
+    #### [.NET Core 3.x](#tab/core3x)
+    
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+        
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    
+    </Project>
+    ```
+    ---
 
-</Project>
-```
----
+1. Save the *.csproj* file.
 
-The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+
+> [!TIP]
+> To learn more about Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
 
 ## Connect to an App Configuration store
 
@@ -110,7 +117,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
-    This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store.
+    This secret contains the connection string to access your App Configuration store. Replace the value in the following command with the connection string for your App Configuration store. You can find the connection string under **Access Keys** in the Azure portal.
 
     This command must be executed in the same directory as the *.csproj* file.
 

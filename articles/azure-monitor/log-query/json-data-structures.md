@@ -44,7 +44,7 @@ print hosts_report
 If there is only one element, you can use only the dot notation:
 
 ```Kusto
-let hosts_report='{"location":"North_DC", "status":"running", "rate":5}';
+let hosts_report=dynamic({"location":"North_DC", "status":"running", "rate":5});
 print hosts_report 
 | extend status = hosts_report.status
 ```

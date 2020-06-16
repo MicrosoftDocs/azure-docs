@@ -20,6 +20,23 @@ By default, Event Hubs namespaces are accessible from internet as long as the re
 
 This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
+>[!WARNING]
+> Enabling IP filtering can prevent other Azure services from interacting with Event Hubs.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
+> - Azure Stream Analytics
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
+
+
 ## IP firewall rules
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
@@ -27,13 +44,16 @@ The IP firewall rules are applied at the Event Hubs namespace level. Therefore, 
 This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+2. On the left menu, select **Networking** option. If you select the **All networks** option, the event hub accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Select the **Selected networks** option at the top of the page. In the **Firewall** section, follow these steps:
+1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
     3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+
+        > [!WARNING]
+        > If you choose the **Selected networks** option and don't specify an IP address or address range, the service will allow traffic from all networks. 
 
         ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.

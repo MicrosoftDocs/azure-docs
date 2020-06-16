@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/9/2020
+ms.date: 05/08/2020
 ---
 
 # Azure Stream Analytics preview features
@@ -16,6 +16,15 @@ This article summarizes all the features currently in preview for Azure Stream A
 ## Public previews
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
+
+### Authenticate to SQL Database output with managed identities
+
+Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.
+
+### Output to Azure Synapse Analytics
+
+Azure Stream Analytics jobs can output to a SQL pool table in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) and can process throughput rates up to 200MB/sec. This supports the most demanding real-time analytics and hot-path data processing needs for workloads such as reporting and dashboarding.  
+
 
 ### Online scaling
 
@@ -42,9 +51,9 @@ You can test your queries against live data on your local machine before submitt
 Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 
-### Integration with Azure Machine Learning
+### Real-time high performance scoring with custom ML models managed by Azure Machine Learning
 
-You can scale Stream Analytics jobs with Machine Learning (ML) functions. To learn more about how you can use ML functions in your Stream Analytics job, visit [Scale your Stream Analytics job with Azure Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md). Check out a real-world scenario with [Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
+Azure Stream Analytics supports high-performance, real-time scoring by leveraging custom pre-trained Machine Learning models managed by Azure Machine Learning, and hosted in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI), using a workflow that does not require you to write code. [Sign up](https://aka.ms/asapreview1) for preview
 
 
 ### Live data testing in Visual Studio
@@ -59,10 +68,6 @@ With .NET standard user-defined functions, you can run .NET Standard code as par
 ## Other previews
 
 The following features are also available in preview on request.
-
-### Real-time high performance scoring with custom ML models managed by Azure Machine Learning
-
-Azure Stream Analytics supports high-performance, real-time scoring by leveraging custom pre-trained Machine Learning models managed by Azure Machine Learning, and hosted in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI), using a workflow that does not require you to write code. [Sign up](https://aka.ms/asapreview1) for preview
 
 ### Support for Azure Stack
 This feature enabled on the Azure IoT Edge runtime, leverages custom Azure Stack features, such as native support for local inputs and outputs running on Azure Stack (for example Event Hubs, IoT Hub, Blob Storage). This new integration enables you to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights.

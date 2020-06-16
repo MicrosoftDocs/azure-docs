@@ -81,7 +81,7 @@ When your application is ready for production, you can lock down version require
 > 
 
 ## Next steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/nodejs-microservice), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 For more information, see the [Node.js Developer Center](/azure/javascript/).
 

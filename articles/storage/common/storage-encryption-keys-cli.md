@@ -1,15 +1,15 @@
 ---
 title: Use Azure CLI to configure customer-managed keys
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+description: Learn how to use Azure CLI to configure customer-managed keys with Azure Key Vault for Azure Storage encryption.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: common
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using Azure CLI. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../../key-vault/quick-create-cli.md).
+This article shows how to configure an Azure Key Vault with customer-managed keys using Azure CLI. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../../key-vault/secrets/quick-create-cli.md).
 
 ## Assign an identity to the storage account
 
@@ -51,7 +51,7 @@ az keyvault create \
     --enable-purge-protection
 ```
 
-To learn how to enable **Soft Delete** and **Do Not Purge** on an existing key vault with Azure CLI, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in [How to use soft-delete with CLI](../../key-vault/key-vault-soft-delete-cli.md).
+To learn how to enable **Soft Delete** and **Do Not Purge** on an existing key vault with Azure CLI, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in [How to use soft-delete with CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## Configure the key vault access policy
 
@@ -69,7 +69,7 @@ az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
     --object-id $storage_account_principal \
-    --key-permissions get recover unwrapKey wrapKey
+    --key-permissions get unwrapKey wrapKey
 ```
 
 ## Create a new key
@@ -77,10 +77,12 @@ az keyvault set-policy \
 Next, create a key in the key vault. To create a key, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
-az keyvault key create
+az keyvault key create \
     --name <key> \
     --vault-name <key-vault>
 ```
+
+Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## Configure encryption with customer-managed keys
 

@@ -6,7 +6,6 @@ documentationcenter: .net
 author: spelluru
 manager: timlt
 editor: ''
-
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -34,8 +33,6 @@ For the complete template, see the [Service Bus namespace with topic and subscri
 > * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for **Service Bus**.
-> 
-> 
 
 ## What do you deploy?
 
@@ -54,6 +51,7 @@ With Azure Resource Manager, you define parameters for values you want to specif
 The template defines the following parameters:
 
 ### serviceBusNamespaceName
+
 The name of the Service Bus namespace to create.
 
 ```json
@@ -63,6 +61,7 @@ The name of the Service Bus namespace to create.
 ```
 
 ### serviceBusTopicName
+
 The name of the topic created in the Service Bus namespace.
 
 ```json
@@ -72,6 +71,7 @@ The name of the topic created in the Service Bus namespace.
 ```
 
 ### serviceBusSubscriptionName
+
 The name of the subscription created in the Service Bus namespace.
 
 ```json
@@ -81,6 +81,7 @@ The name of the subscription created in the Service Bus namespace.
 ```
 
 ### serviceBusApiVersion
+
 The Service Bus API version of the template.
 
 ```json
@@ -91,7 +92,9 @@ The Service Bus API version of the template.
            "description": "Service Bus ApiVersion used by the template" 
        }
 ```
+
 ## Resources to deploy
+
 Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription.
 
 ```json
@@ -130,19 +133,23 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [topics](/azure/templates/microsoft.servicebus/namespaces/topics), and [subscriptions](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## Commands to run deployment
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-```powershell
+
+```powershell-interactive
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Azure CLI
-```azurecli
+
+```azurecli-interactive
 az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Next steps
+
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)

@@ -4,7 +4,7 @@ description: This article describes certification coverage for Azure Cosmos DB c
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
 
@@ -16,7 +16,7 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 * **Azure public** cloud, which is available globally.
 
-* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country's largest internet providers.
+* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country/region's largest internet providers.
 
 * **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 

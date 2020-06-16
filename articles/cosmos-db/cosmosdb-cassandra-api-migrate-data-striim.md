@@ -150,7 +150,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    ![Connect to target](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
+1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Enter the configuration properties of your target Azure Cosmos DB instance and select **Save** to continue. Here are the key parameters to note:
 

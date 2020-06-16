@@ -15,6 +15,14 @@ Azure Diagnostics extension is an [agent in Azure Monitor](agents-overview.md) t
 > [!NOTE]
 > Azure Diagnostics extension is one of the agents available to collect monitoring data from the guest operating system of compute resources. See [Overview of the Azure Monitor agents ](agents-overview.md) for a description of the different agents and guidance on selecting the appropriate agents for your requirements.
 
+## Primary scenarios
+The primary scenarios addressed by the diagnostics extension are:
+
+- Collect guest metrics into Azure Monitor Metrics.
+- Send guest logs and metrics to Azure storage for archiving.
+- Send guest logs and metrics to Azure event hubs to send outside of Azure.
+
+
 ## Comparison to Log Analytics agent
 The Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You may choose to use either or both depending on your requirements. See [Overview of the Azure Monitor agents](agents-overview.md) for a detailed comparison of the Azure Monitor agents. 
 

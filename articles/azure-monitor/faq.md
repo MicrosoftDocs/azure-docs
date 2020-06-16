@@ -6,10 +6,9 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 05/15/2020
 
 ---
-
 
 # Azure Monitor Frequently Asked Questions
 
@@ -58,10 +57,6 @@ There is no limit to the amount of metric data you can collect, but this data is
 ### How do I access data collected by Azure Monitor?
 Insights and solutions provide a custom experience for working with data stored in Azure Monitor. You can work directly with log data using a log query written in Kusto Query Language (KQL). In the Azure portal, you can write and run queries and interactively analyze data using Log Analytics. Analyze metrics in the Azure portal with the Metrics Explorer. See [Analyze log data in Azure Monitor](log-query/log-query-overview.md) and [Getting started with Azure Metrics Explorer](platform/metrics-getting-started.md).
 
-
-
-
-
 ## Solutions and insights
 
 ### What is an insight in Azure Monitor?
@@ -73,11 +68,6 @@ To view insights in the Azure portal, see the **Insights** section of the **Moni
 Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
 
 To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
-
-
-
-
-
 
 ## Logs
 
@@ -103,8 +93,10 @@ Many resource providers are automatically registered, but you may need to manual
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
 
+## Metrics
 
-
+### Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
+[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Alerts
 
@@ -126,7 +118,6 @@ An action group is a collection of notifications and actions that can be trigger
 
 ### What is an action rule?
 An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
-
 
 ## Agents
 
@@ -187,7 +178,7 @@ Specify an existing or new [Action Group](platform/action-groups.md) so that whe
 
 
 ### What are the firewall requirements for Azure Monitor agents?
-See [Network firewall requirements](platform/log-analytics-agent.md#network-firewall-requirements)for details on firewall requirements.
+See [Network firewall requirements](platform/log-analytics-agent.md#network-requirements)for details on firewall requirements.
 
 
 ## Visualizations
@@ -195,7 +186,6 @@ See [Network firewall requirements](platform/log-analytics-agent.md#network-fire
 ### Why can't I see View Designer?
 
 View Designer is only available for users assigned with Contributor permissions or higher in the Log Analytics workspace.
-
 
 ## Application Insights
 
@@ -207,11 +197,15 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
-*I get no data from my server*
+*I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
+
+*How many Application Insights should I deploy?:*
+
+* [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
 ### Can I use Application Insights with ...?
 
@@ -265,6 +259,10 @@ See the [release notes](app/release-notes.md) for the SDK appropriate to your ty
 
 ### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
+
+### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
+
+We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
 ### What is Status Monitor?
 
@@ -423,7 +421,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ### Can I monitor an intranet web server?
 
@@ -508,10 +506,37 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 [windows]: app/app-insights-windows-get-started.md
 
 
-
 ## Azure Monitor for containers
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+### Health feature is in private preview
+
+We are planning to make a series of changes to add functionality and address your feedback. The Health feature is going to transition to a private preview at the end of June 2020, and for additional information review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
+
+### What does *Other Processes* represent under the Node view?
+
+**Other processes** is intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
+
+What are these **Other Processes**? 
+
+These are non-containerized processes that run on your node.  
+
+How do we calculate this?
+
+**Other Processes** = *Total usage from CAdvisor* - *Usage from containerized process*
+
+The **Other processes** includes:
+
+- Self-managed or managed Kubernetes non-containerized processes 
+
+- Container Run-time processes  
+
+- Kubelet  
+
+- System processes running on your node 
+
+- Other non-Kubernetes workloads running on node hardware or VM 
 
 ### I don't see Image and Name property values populated when I query the ContainerLog table.
 
@@ -706,7 +731,7 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).

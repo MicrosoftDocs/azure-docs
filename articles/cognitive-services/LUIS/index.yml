@@ -5,13 +5,12 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 06/15/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
-  ms.topic: landing-page
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure Cognitive Services
   description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
@@ -33,6 +32,8 @@ landingContent:
             url: luis-how-plan-your-app.md
           - text: Iterative app design
             url: luis-concept-app-iteration.md
+          - text: DevOps practices
+            url: luis-concept-devops-sourcecontrol.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -130,7 +131,7 @@ landingContent:
           - text: Developer resources
             url: developer-reference-resource.md
           - text: App limitations
-            url: luis-boundaries.md
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities

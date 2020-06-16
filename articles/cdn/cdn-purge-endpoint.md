@@ -3,7 +3,7 @@ title: Purge an Azure CDN endpoint | Microsoft Docs
 description: Learn how to purge all cached content from an Azure CDN endpoint.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: sohamnchatterjee
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Purge an Azure CDN endpoint

@@ -9,108 +9,8 @@
       href: azure-stack-edge-r-series-overview.md
   - name: Tutorials
     items:
-    - name: 1 - Prepare
-      href: azure-stack-edge-r-series-deploy-prep.md
-    - name: 2 - Install
-      href: azure-stack-edge-r-series-deploy-install.md
-    - name: 3 - Connect, set up, activate
-      href: azure-stack-edge-r-series-deploy-connect-setup-activate.md
-    - name: 4A - Add, connect to share
-      href: azure-stack-edge-r-series-deploy-add-shares.md
-    - name: 4B - Add, connect to storage accounts
-      href: azure-stack-edge-r-series-deploy-add-storage-accounts.md
-    - name: 5A - Configure compute (simple)
-      href: azure-stack-edge-r-series-deploy-configure-compute.md
-    - name: 5B - Configure compute (advanced)
-      href: azure-stack-edge-r-series-deploy-configure-compute-advanced.md
-  - name: Concepts
-    items:
-    - name: Review requirements
-      href: azure-stack-edge-r-series-system-requirements.md
-    - name: Understand limits
-      href: azure-stack-edge-r-series-limits.md
-    - name: Security overview
-      href: azure-stack-edge-r-series-security.md
-    - name: Review specifications
-      href: azure-stack-edge-r-series-technical-specifications-compliance.md
-  - name: How to
-    items:
-    - name: Develop C# module
-      href: azure-stack-edge-r-series-create-iot-edge-module.md
-    - name: Configure VPN
-      href: azure-stack-edge-r-series-configure-vpn.md
-    - name: Create VM image
-      href: azure-stack-edge-r-series-create-vm-image.md
-    - name: Connect to Azure Resource Manager
-      href: azure-stack-edge-r-series-connect-resource-manager.md
-    - name: Deploy VMs - Azure PowerShell
-      href: azure-stack-edge-r-series-deploy-vm-powershell.md
-    - name: Deploy VMs - Azure CLI/Python
-      href: azure-stack-edge-r-series-deploy-vm-cli-python.md
-    - name: Manage 
-      items:
-      - name: Certificates
-        href: azure-stack-edge-r-series-manage-certificates.md
-      - name: Edge compute
-        href: azure-stack-edge-r-series-manage-compute.md
-      - name: Edge compute network
-        href: azure-stack-edge-r-series-extend-compute-access-modules.md
-      - name: Shares
-        href: azure-stack-edge-r-series-manage-shares.md
-      - name: Edge storage accounts
-        href: azure-stack-edge-r-series-manage-storage-accounts.md
-      - name: Users
-        href: azure-stack-edge-r-series-manage-users.md
-      - name: Bandwidth schedules
-        href: azure-stack-edge-r-series-manage-bandwidth-schedules.md
-      - name: Power, access, connectivity
-        href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
-      - name: Via PowerShell
-        href: azure-stack-edge-r-series-connect-powershell-interface.md
-      - name: Update your device
-        href: azure-stack-edge-r-series-install-update.md
-      - name: Set Azure Resource Manager password
-        href: azure-stack-edge-r-series-set-azure-resource-manager-password.md
-      - name: Connect to Support session
-        href: azure-stack-edge-r-series-connect-support-session.md
-    - name: Troubleshoot 
-      href: azure-stack-edge-r-series-troubleshoot.md
-    - name: Contact Microsoft Support
-      href: azure-stack-edge-r-series-contact-microsoft-support.md
-    - name: Return or replace device
-      href: azure-stack-edge-r-series-return-device.md
-    - name: Deploy Azure services as modules
-      items:
-      - name: Cognitive services (Custom vision)
-        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision
-      - name: Azure Functions 
-        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function
-      - name: Stream Analytics 
-        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics
-      - name: Azure Machine Learning 
-        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning
-      - name: Azure SQL
-        href: https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server
-      - name: Custom (third party software) 
-        href: azure-stack-edge-r-series-placeholder.md
-      - name: Azure ML hardware accelerated models for FPGA
-        href: https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server
-
-  - name: Release notes
-    items:
-    - name: 1911 - Current
-      href: azure-stack-edge-r-series-placeholder.md
-
-- name: Azure Stack Hub/Data Box Gateway
-  items:
-  - name: Overview
-    items:
-    - name: What is Azure Stack Hub/Data Box Gateway?
-      href: azure-stack-edge-r-series-placeholder.md
-  - name: Tutorials
-    items:
-    - name: 1 - Prepare
-      href: azure-stack-edge-r-series-placeholder.md
+    - name: 1 - Prepare 
+      href: data-box-gateway-deploy-prep.md
     - name: 2A - Provision in Hyper-V
       href: azure-stack-edge-r-series-placeholder.md
     - name: 2B - Provision in VMware
@@ -148,9 +48,15 @@
     - name: Troubleshoot
       href: azure-stack-edge-r-series-placeholder.md
     - name: Contact Microsoft Support
-      href: azure-stack-edge-r-series-placeholder.md
+      href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
+      - name: 1911 - Current
+        href: data-box-gateway-1911-release-notes.md
+      - name: 1906
+        href: data-box-gateway-1906-release-notes.md
+      - name: 1905
+        href: data-box-gateway-1905-release-notes.md
       - name: General availability (GA)
         href: data-box-gateway-release-notes.md      
 
@@ -158,63 +64,69 @@
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge commercial series?
-      href: data-box-edge-overview.md
+    - name: What is Azure Stack Edge?
+      href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
     - name: 1 - Prepare
-      href: data-box-edge-deploy-prep.md
+      href: azure-stack-edge-deploy-prep.md
     - name: 2 - Install
-      href: data-box-edge-deploy-install.md
+      href: azure-stack-edge-deploy-install.md
     - name: 3 - Connect, set up, activate
-      href: data-box-edge-deploy-connect-setup-activate.md
+      href: azure-stack-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share
-      href: data-box-edge-deploy-add-shares.md
+      href: azure-stack-edge-deploy-add-shares.md
     - name: 5A - Configure compute (simple)
-      href: data-box-edge-deploy-configure-compute.md
+      href: azure-stack-edge-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
-      href: data-box-edge-deploy-configure-compute-advanced.md
+      href: azure-stack-edge-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
-      href: data-box-edge-system-requirements.md
+      href: azure-stack-edge-system-requirements.md
     - name: Understand limits
-      href: data-box-edge-limits.md
+      href: azure-stack-edge-limits.md
     - name: Security overview
-      href: data-box-edge-security.md
+      href: azure-stack-edge-security.md
     - name: Review specifications
-      href: data-box-edge-technical-specifications-compliance.md
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
   - name: How to
     items:
     - name: Develop C# module
-      href: data-box-edge-create-iot-edge-module.md
+      href: azure-stack-edge-create-iot-edge-module.md
     - name: Manage 
       items:
       - name: Edge compute
-        href: data-box-edge-manage-compute.md
+        href: azure-stack-edge-manage-compute.md
       - name: Edge compute network
-        href: data-box-edge-extend-compute-access-modules.md
+        href: azure-stack-edge-extend-compute-access-modules.md
       - name: Shares
-        href: data-box-edge-manage-shares.md
+        href: azure-stack-edge-manage-shares.md
       - name: Users
-        href: data-box-edge-manage-users.md
+        href: azure-stack-edge-manage-users.md
       - name: Bandwidth schedules
-        href: data-box-edge-manage-bandwidth-schedules.md
+        href: azure-stack-edge-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
-        href: data-box-edge-manage-access-power-connectivity-mode.md
+        href: azure-stack-edge-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
-        href: data-box-edge-connect-powershell-interface.md
+        href: azure-stack-edge-connect-powershell-interface.md
     - name: Troubleshoot 
-      href: data-box-edge-troubleshoot.md
+      href: azure-stack-edge-troubleshoot.md
     - name: Contact Microsoft Support
-      href: data-box-edge-contact-microsoft-support.md
+      href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
-      href: data-box-edge-monitor.md
+      href: azure-stack-edge-monitor.md
     - name: Return or replace device
-      href: data-box-edge-return-device.md
+      href: azure-stack-edge-return-device.md
   - name: Release notes
     items:
-    - name: 1906 - Current
+    - name: 1911 - Current
+      href: data-box-gateway-1911-release-notes.md
+    - name: 1906
       href: data-box-gateway-1906-release-notes.md
     - name: 1905
       href: data-box-gateway-1905-release-notes.md

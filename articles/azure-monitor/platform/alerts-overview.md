@@ -121,7 +121,10 @@ To show the **Rules** page, select **Manage alert rules**. The Rules page is a s
 
 
 ## Create an alert rule
-You can author alerts in a consistent manner, regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
+You can author alert rules in a consistent manner, regardless of the monitoring service or signal type.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tflw]
+
  
 Here's how to create a new alert rule:
 1. Pick the _target_ for the alert.

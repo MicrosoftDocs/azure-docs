@@ -1,31 +1,29 @@
 ---
-title: Azure networking | Microsoft Docs
-description: Learn about networking services in Azure and their capabilities.
+title: Azure networking services overview
+description: Learn about networking services in Azure and their capabilities - connectivity services, application protection services, application delivery services, and network monitoring.
 services: networking
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2019
+ms.date: 03/12/2020
 ms.author: kumud
 
 ---
 
-# Azure networking
+# Azure networking services overview
 
 The networking services in Azure provide a variety of networking capabilities that can be used together or separately. Click any of the following key capabilities to learn more about them:
-- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Azure DNS, or Azure Bastion.
-- [**Application protection services**](#protect) Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Firewall, Network Security Groups, Web Application Firewall, or Virtual Network Endpoints.
-- [**Application delivery services**](#deliver) Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, or Load Balancer.
-- [**Network monitoring**](#monitor) – Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
+- [**Connectivity services**](#connect): Connect Azure resources and on-premises resources using any or a combination of these networking services in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Peering service, and Azure Bastion.
+- [**Application protection services**](#protect): Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
+- [**Application delivery services**](#deliver): Deliver applications in the Azure network using any or a combination of these networking services in Azure - Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer, and Load Balancer.
+- [**Network monitoring**](#monitor): Monitor your network resources using any or a combination of these networking services in Azure - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, ExpressRoute, VPN Gateway, Virtual WAN, DNS, and Azure Bastion.
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual Network (VNet), Virtual WAN, ExpressRoute, VPN Gateway, Virtual network NAT Gateway, Azure DNS, Azure Peering service, and Azure Bastion.
 
 |Service|Why use?|Scenarios|
 |---|---|---|
@@ -34,7 +32,9 @@ This section describes services that provide connectivity between Azure resource
 |[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Hosts DNS domains that provide name resolution by using Microsoft Azure infrastructure.|<p>[Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Create DNS records for a web app](../dns/dns-web-sites-custom-domain.md)</p> <p>[Create an alias record for Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Create an alias record for public IP Address](../dns/tutorial-alias-pip.md)</p> <p>[Create an alias record for zone resource record](../dns/tutorial-alias-rr.md)</p>|
-|[Azure Bastion (Preview)](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure Bastion](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](../bastion/bastion-connect-vm-rdp.md)</p>|
+|[Virtual network NAT Gateway](#nat)|Create a NAT gateway to provide outbound connectivity for a virtual machine.|<p>[Create a NAT Gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
+|[Azure Peering Service (Preview)](#azurepeeringservice)|Collaborate with service providers for optimal and reliable routing to the Microsoft cloud over the public network.|<p>[Register Azure Peering Service](../peering-service/azure-portal.md)</p>|
 ||||
 
 
@@ -70,23 +70,32 @@ Azure Virtual WAN brings together many Azure cloud connectivity services such as
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../dns/dns-overview.md).
 
-### <a name="bastion"></a>Azure Bastion (Preview)
-The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+### <a name="bastion"></a>Azure Bastion
+The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over TLS. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 
 ![Azure Bastion architecture](./media/networking-overview/architecture.png)
 
+### <a name="nat"></a>Virtual network NAT Gateway
+Virtual Network NAT (network address translation) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. 
+For more information, see [What is virtual network NAT gateway?](../virtual-network/nat-overview.md) 
+
+![Virtual network NAT gateway](./media/networking-overview/flow-map.png)
+
+### <a name="azurepeeringservice"></a> Azure Peering Service
+Azure Peering service enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../peering-service/about.md).
 
 ## <a name="protect"></a>Application protection services
 
-This section describes networking services in Azure that help protect your network resources - DDoS Protection, Web Application Firewall, Azure Firewall, network security groups, and service endpoints.
+This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - Private Link, DDoS protection, Firewall, Network Security Groups, Web Application Firewall, and Virtual Network Endpoints.
 
 |Service|Why use?|Scenario|
 |---|---|---|
 |[DDoS protection](#ddosprotection) |High availability for your applications with protection from excess IP traffic charges|[Manage Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
-|[Web Application Firewall](#waf)|<p>[Azure WAF with Application Gateway](../application-gateway/waf-overview.md) provides regional protection to entities in public and private address space</p><p>[Azure WAF with Front Door](../frontdoor/waf-overview.md) provides protection at the network edge to public endpoints.</p>|<p>[Configure bot protection rules](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configure custom response code](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure IP restriction rules](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Configure rate limit rule](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Web Application Firewall](#waf)|<p>[Azure WAF with Application Gateway](../web-application-firewall/ag/ag-overview.md) provides regional protection to entities in public and private address space</p><p>[Azure WAF with Front Door](../web-application-firewall/afds/afds-overview.md) provides protection at the network edge to public endpoints.</p>|<p>[Configure bot protection rules](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Configure custom response code](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Configure IP restriction rules](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Configure rate limit rule](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.|<p>[Deploy an Azure Firewall in a Vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[- Deploy an Azure Firewall in a hybrid network](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filter inbound traffic with Azure Firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Network security groups](#nsg)|Full granular distributed end node control at VM/subnet for all network traffic flows|[Filter network traffic using network security groups](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Virtual network service endpoints](#serviceendpoints)|Enables you to limit network access to some Azure service resources to a virtual network subnet|[Restrict network access to PaaS resources](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
+[Private Link](#privatelink)|Enables you access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.|<p>[Create a private endpoint](../private-link/create-private-endpoint-portal.md)</p><p>[Create a Private Link service](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) provides countermeasures against the most sophisticated DDoS threats. The service provides enhanced DDoS mitigation capabilities for your application and resources deployed in your virtual networks. Additionally, customers using Azure DDoS Protection have access to DDoS Rapid Response support to engage DDoS experts during an active attack.
@@ -95,7 +104,7 @@ This section describes networking services in Azure that help protect your netwo
 
 ### <a name="waf"></a>Web Application Firewall
 
-Azure Web Application Firewall (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide additional protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
+[Azure Web Application Firewall](../web-application-firewall/overview.md) (WAF) provides protection to your web applications from common web exploits and vulnerabilities such as SQL injection, and cross site scripting. Azure WAF provides out of box protection from OWASP top 10 vulnerabilities via managed rules. Additionally customers can also configure custom rules, which are customer managed rules to provide additional protection based on source IP range, and request attributes such as headers, cookies, form data fields or query string parameters.
 
 Customers can choose to deploy [Azure WAF with Application Gateway](../application-gateway/waf-overview.md) which provides regional protection to entities in public and private address space. Customers can also choose to deploy [Azure WAF with Front Door](../frontdoor/waf-overview.md) which provides protection at the network edge to public endpoints.
 
@@ -117,9 +126,16 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 ![Virtual network service endpoints](./media/networking-overview/vnet-service-endpoints-overview.png)
 
+### <a name="privatelink"></a>Azure Private Link
+[Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
+Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
+
+![Private endpoint overview](./media/networking-overview/private-endpoint.png)
+
+
 ## <a name="deliver"></a>Application delivery services
 
-This section describes networking services in Azure that help deliver applications - Content Delivery Network (CDN), Azure Front Door service, Traffic Manager, Application Gateway, and Load Balancer.
+This section describes networking services in Azure that help deliver applications - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
 
 |Service|Why use?|Scenario|
 |---|---|---|
@@ -127,7 +143,7 @@ This section describes networking services in Azure that help deliver applicatio
 |[Azure Front Door Service](#frontdoor)|Enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability.|<p>[Add a custom domain to your Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configure HTTPS on a Front Door custom domain](../frontdoor/front-door-custom-domain-https.md)</p><p>[Set up geo-filtering Web Application Firewall policy](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distributes traffic based on DNS to services across global Azure regions, while providing high availability and responsiveness|<p> [Route traffic for low latency](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Route traffic to a priority endpoint](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Control traffic with weighted endpoints](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Route traffic based on geographic location of the endpoint](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Route traffic based on user's subnet](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
 |[Load Balancer](#loadbalancer)|Provides regional load-balancing by routing traffic across availability zones and into your VNets. Provides internal load-balancing by routing traffic across and between your resources to build your regional application.|<p> [Load balance internet traffic to VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Load-balance traffic across VMs inside a virtual network](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Port forward traffic to a specific port on specific VMs](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configure load balancing and outbound rules](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Configure an application gateway with SSL termination](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md) </p>|
+|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Tutorial: Configure an application gateway with TLS termination using the Azure portal](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md) </p>|
 |
 
 ### <a name="cdn"></a>Content Delivery Network
@@ -154,7 +170,7 @@ The Azure Load Balancer provides high-performance, low-latency Layer 4 load-bala
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
-![Azure Load Balancer example](./media/networking-overview/IC744147.png)
+![Azure Load Balancer example](./media/networking-overview/load-balancer.png)
 
 
 ### <a name="applicationgateway"></a>Application Gateway
@@ -178,7 +194,7 @@ This section describes networking services in Azure that help monitor your netwo
 ### <a name="networkwatcher"></a>Network Watcher
 Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. For more information, see [What is Network Watcher?](../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="expressroutemonitor"></a>ExpressRoute Monitor
-To learn about how view ExpressRoute circuit metrics, diagnostic logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
+To learn about how view ExpressRoute circuit metrics, resource logs and alerts, see [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="azuremonitor"></a>Azure Monitor
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. For more information, see [Azure Monitor Overview](../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 ### <a name="vnettap"></a>Virtual Network TAP

@@ -25,7 +25,7 @@ This article explains how the membership update works and how you can customize 
 
 ## How it works
 
-When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principles to the local administrators group on the device:
+When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
 - The Azure AD global administrator role
 - The Azure AD device administrator role 
@@ -46,7 +46,7 @@ To view and update the membership of the global administrator role, see:
 
 In the Azure portal, you can manage the device administrator role on the **Devices** page. To open the **Devices** page:
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator or device administrator.
+1. Sign in to your [Azure portal](https://portal.azure.com) as a global administrator.
 1. Search for and select *Azure Active Directory*.
 1. In the **Manage** section, click **Devices**.
 1. On the **Devices** page, click **Device settings**.

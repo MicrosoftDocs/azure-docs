@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: diberry
 ---
@@ -61,7 +61,7 @@ You can delay the migration process by canceling out of the window. You are peri
 * **Optionally**, save each app's collaborator's list. This email list is provided as part of the migration process.
 
 
-**Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-boundaries.md#key-limits).
+**Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
 If you do not have an Azure subscription, [sign up](https://azure.microsoft.com/free/).
 

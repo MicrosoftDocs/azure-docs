@@ -6,8 +6,9 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
+ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
@@ -16,7 +17,7 @@ You can enable Azure Arc for servers (preview) for one or a small number of Wind
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
+Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -34,9 +35,10 @@ The script to automate the download and installation, and to establish the conne
 
     >[!NOTE]
     >Azure Arc for servers (preview) supports only the following regions:
+    >- EastUS
     >- WestUS2
     >- WestEurope
-    >- WestAsia
+    >- SoutheastAsia
     >
     >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
 
@@ -52,7 +54,7 @@ The script to automate the download and installation, and to establish the conne
 
 ### Install manually
 
-You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. 
+You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. You can download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center. 
 
 > [!NOTE]
 > * To install or uninstall the agent, you must have *Administrator* permissions.
@@ -60,16 +62,21 @@ You can install the Connected Machine agent manually by running the Windows Inst
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described later in the article. This sets the proxy server system environment variable `https_proxy`.
 
-The following table highlights the parameters that are supported by setup for the agent from the command line.
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
-| Parameter | Description |
-|:--|:--|
-| /? | Returns a list of the command-line options. |
-| /S | Performs a silent installation with no user interaction. |
+For example, run the installation program with the `/?` parameter to review the help and quick reference option. 
 
-For example, to run the installation program with the `/?` parameter, enter `msiexec.exe /i AzureConnectedMachineAgent.msi /?`.
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /?
+```
 
-Files for the Connected Machine agent are installed in *C:\Program Files\AzureConnectedMachineAgent* by default. If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+To install the agent silently and create a setup log file in the `C:\Support\Logs` folder that exist, run the following command.
+
+```dos
+msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+```
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Install with the scripted method
 
@@ -78,6 +85,8 @@ Files for the Connected Machine agent are installed in *C:\Program Files\AzureCo
 1. Open an elevated PowerShell command prompt.
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
+
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### Configure the agent proxy setting
 
@@ -99,7 +108,7 @@ Restart-Service -Name himds
 
 After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Install and validate the agent on Linux
 
@@ -136,65 +145,13 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## Verify the connection with Azure Arc
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
-
-## Clean up
-
-To disconnect a machine from Azure Arc for servers (preview), do the following:
-
-1. Open Azure Arc for servers (preview) by going to the [Azure portal](https://aka.ms/hybridmachineportal).
-
-1. Select the machine in the list, select the ellipsis (**...**), and then select **Delete**.
-
-1. To uninstall the Windows agent from the machine, do the following:
-
-    a. Sign in to the computer with an account that has administrator permissions.  
-    b. In **Control Panel**, select **Programs and Features**.  
-    c. In **Programs and Features**, select **Azure Connected Machine Agent**, select **Uninstall**, and then select **Yes**.  
-
-    >[!NOTE]
-    > You can also run the agent setup wizard by double-clicking the **AzureConnectedMachineAgent.msi** installer package.
-
-    If you want to script removal of the agent, you can use the following example, which retrieves the product code and uninstalls the agent by using the Msiexec.exe command line - `msiexec /x {Product Code}`. To do so:  
-    
-    a. Open the Registry Editor.  
-    b. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.  
-    c. You can then uninstall the agent by using Msiexec.
-
-    The following example demonstrates how to uninstall the agent:
-
-    ```powershell
-    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-    Get-ItemProperty | `
-    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-    ```
-
-1. To uninstall the Linux agent, the command to use depends on the Linux operating system.
-
-    - For Ubuntu, run the following command:
-
-      ```bash
-      sudo apt purge azcmagent
-      ```
-
-    - For RHEL, CentOS, and Amazon Linux, run the following command:
-
-      ```bash
-      sudo yum remove azcmagent
-      ```
-
-    - For SLES, run the following command:
-
-      ```bash
-      sudo zypper remove azcmagent
-      ```
 
 ## Next steps
 

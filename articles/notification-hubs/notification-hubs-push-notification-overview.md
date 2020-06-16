@@ -14,7 +14,7 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/20/2020
+ms.date: 03/23/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
@@ -38,7 +38,7 @@ Push notifications are a form of app-to-user communication where users of mobile
 Push notifications are vital for consumer apps in increasing app engagement and usage, and for enterprise apps in communicating up-to-date business information. It's the best app-to-user communication because it is energy-efficient for mobile devices, flexible for the notifications senders, and available when corresponding applications are not active.
 
 > [!NOTE]
-> Azure Notification Hubs does not support Voice Over Internet Protocol (VOIP) push notifications.
+> Azure Notification Hubs does not officially support Voice Over Internet Protocol (VOIP) push notifications; however, [this article describes how you can use APNS VOIP notifications](voip-apns.md) through Azure Notification Hubs.
 
 For more information on push notifications for a few popular platforms, see the following topics:
 

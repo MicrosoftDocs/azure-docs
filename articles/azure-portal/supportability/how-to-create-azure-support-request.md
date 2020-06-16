@@ -6,8 +6,8 @@ author: ganganarayanan
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: kfollis
 ---
 
@@ -38,7 +38,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Role-based access control
 
-To create a support request, you must be an admin or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level.
+To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example Azure Active Directory (AAD) scenario, you must be an [Admin](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ### Go to Help + support from the global header
 
@@ -123,5 +123,5 @@ To learn more about self-help support options in Azure, watch this video:
 
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure)
+* Get help from your peers in the [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)

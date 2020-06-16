@@ -243,9 +243,21 @@ If you are using issuer stores, then no config upgrade needs to be performed for
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you need to obtain and install certificates for the client machines.
 
-For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx).
+For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+There are a number of properties that the certificate must have in order to function properly:
+
+* The certificate's provider must be **Microsoft Enhanced RSA and AES Cryptographic Provider**
+
+* When creating an RSA key, make sure the key is **2048 bits**.
+
+* The Key Usage extension has a value of **Digital Signature, Key Encipherment (a0)**
+
+* The Enhanced Key Usage extension has values of **Server Authentication** (OID: 1.3.6.1.5.5.7.3.1) and **Client Authentication** (OID: 1.3.6.1.5.5.7.3.2)
 
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
+
+For additional questions, consult [frequently asked certificate questions](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
 
 ## Optional: Create a self-signed certificate
 One way to create a self-signed certificate that can be secured correctly is to use the CertSetup.ps1 script in the Service Fabric SDK folder in the directory C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Edit this file to change the default name of the certificate. (Look for the value CN=ServiceFabricDevClusterCert.) Run this script as `.\CertSetup.ps1 -Install`.
@@ -304,7 +316,7 @@ After you have certificates, you can install them on the cluster nodes. Your nod
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
     # Specify the user, the permissions, and the permission type
-    $permission = "$($serviceAccount)","FullControl","Allow"
+    $permission = "$($serviceAccount)","FullControl","Allow" # "NT AUTHORITY\NetworkService" is the service account
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
     # Location of the machine-related keys

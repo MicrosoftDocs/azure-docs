@@ -20,7 +20,7 @@ ms.date: 08/23/2019
 | [Azure Machine Learning compute clusters](../articles/machine-learning/how-to-use-parallel-run-step.md) | (Preview) Batch&nbsp;inference | [Yes](../articles/machine-learning/how-to-use-parallel-run-step.md) (machine learning pipeline) | &nbsp;  | Run batch scoring on serverless compute. Supports normal and low-priority VMs. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | (Preview) Real-time inference | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Preview) IoT&nbsp;module |  &nbsp; | &nbsp; | Deploy and serve ML models on IoT devices. |
-| [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | Yes | Deploy and serve ML models on IoT devices. |
+| [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Yes | Deploy and serve ML models on IoT devices. |
 
 > [!NOTE]
 > Although compute targets like local, Azure Machine Learning compute instance, and Azure Machine Learning compute clusters support GPU for training and experimentation, using GPU for inference __when deployed as a web service__ is supported only on Azure Kubernetes Service.

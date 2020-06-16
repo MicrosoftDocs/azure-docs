@@ -8,7 +8,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/20/2020
 ms.author: aschhab
 
 ---
@@ -95,11 +95,17 @@ The following two types of errors are classified as user errors:
 | Metric Name | Description |
 | ------------------- | ----------------- |
 |ActiveConnections|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Resource usage metrics
 
 > [!NOTE] 
 > The following metrics are available only with the **premium** tier. 
+> 
+> The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/platform/alerts-metric.md) for these metrics using Azure Monitor.
+> 
+> The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
 | Metric Name | Description |
 | ------------------- | ----------------- |

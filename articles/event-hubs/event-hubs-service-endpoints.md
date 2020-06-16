@@ -23,6 +23,23 @@ Once configured to bound to at least one virtual network subnet service endpoint
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the `denyall` rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
 
+>[!WARNING]
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
+> - Azure Stream Analytics
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
+
+
 > [!IMPORTANT]
 > Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.
 
@@ -46,11 +63,11 @@ The virtual network rule is an association of the Event Hubs namespace with a vi
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your event hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+2. On the left menu, select **Networking** option. If you select the **All networks** option, the event hub accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Select the **Selected Networks** option at the top of the page.
-2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. 
+1. To restrct access to specific networks, select the **Selected Networks** option at the top of the page.
+2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
     ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.

@@ -1,0 +1,493 @@
+### YamlMime:Hub
+
+title: Azure compliance documentation
+summary: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
+brand: azure
+
+metadata:
+  title: Azure compliance documentation
+  description: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
+  services: security
+  ms.service: security
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 05/06/2020
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: Compliance offerings # < 60 chars (optional)
+  items:
+    # Card
+    - title: Global
+      links:
+        - url: ../governance/policy/concepts/regulatory-compliance.md
+          itemType: concept
+          text: Azure Policy Regulatory Compliance (preview)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cis-benchmark
+          itemType: concept
+          text: CIS benchmark
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-attestation
+          itemType: concept
+          text: CSA STAR attestation
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-certification
+          itemType: concept
+          text: CSA STAR certification
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-csa-star-self-assessment
+          itemType: concept
+          text: CSA STAR self-assessment
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-soc
+          itemType: concept
+          text: SOC 1, 2, 3
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-wcag-2-1
+          itemType: concept
+          text: WCAG
+
+    # Card
+    - title: Global
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-20000-1-2011
+          itemType: concept
+          text: ISO 20000-1
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-22301
+          itemType: concept
+          text: ISO 22301
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27001
+          itemType: concept
+          text: ISO 27001
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27017
+          itemType: concept
+          text: ISO 27017
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27018
+          itemType: concept
+          text: ISO 27018
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-27701
+          itemType: concept
+          text: ISO 27701
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-iso-9001
+          itemType: concept
+          text: ISO 9001
+
+    # Card
+    - title: US government
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cjis
+          itemType: concept
+          text: CJIS
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cnssi-1253
+          itemType: concept
+          text: CNSSI 1253
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-dfars
+          itemType: concept
+          text: DFARS
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-dod-disa-l2-l4-l5
+          itemType: concept
+          text: DoD DISA L2, L4, and L5
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-doe-10-cfr-part-810
+          itemType: concept
+          text: DoE 10 CFR Part 810
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ear
+          itemType: concept
+          text: EAR
+
+    # Card
+    - title: US government
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fedramp
+          itemType: concept
+          text: FedRAMP
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ferpa
+          itemType: concept
+          text: FERPA (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2
+          itemType: concept
+          text: FIPS 140-2
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-irs-1075
+          itemType: concept
+          text: IRS 1075
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-itar
+          itemType: concept
+          text: ITAR
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nist-sp-800-171
+          itemType: concept
+          text: NIST 800-171
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nist-csf
+          itemType: concept
+          text: NIST CSF
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-section-508-vpats
+          itemType: concept
+          text: Section 508 VPATs
+
+    # Card
+    - title: Financial services
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-23-nycrr-part-500
+          itemType: concept
+          text: 23 NYCRR Part 500 (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-afm-dnb-netherlands
+          itemType: concept
+          text: AFM and DNB (Netherlands)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-amf-acpr-france
+          itemType: concept
+          text: AMF and ACPR (France)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-apra-australia
+          itemType: concept
+          text: APRA (Australia)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cftc-1-31-us
+          itemType: concept
+          text: CFTC 1.31 (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eba-eu
+          itemType: concept
+          text: EBA (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fca-uk
+          itemType: concept
+          text: FCA and PRA (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ffiec-us
+          itemType: concept
+          text: FFIEC (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-finma-switzerland
+          itemType: concept
+          text: FINMA (Switzerland)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-finra-4511
+          itemType: concept
+          text: FINRA 4511 (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fisc-japan
+          itemType: concept
+          text: FISC (Japan)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fsa-denmark
+          itemType: concept
+          text: FSA (Denmark)
+
+
+    # Card
+    - title: Financial services
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-glba
+          itemType: concept
+          text: GLBA (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-knf-poland
+          itemType: concept
+          text: KNF (Poland)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mas-abs-singapore
+          itemType: concept
+          text: MAS and ABS (Singapore)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nbb-fsma-belgium
+          itemType: concept
+          text: NBB and FSMA (Belgium)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
+          itemType: concept
+          text: OSFI (Canada)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pci-dss
+          itemType: concept
+          text: PCI DSS
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-rbi-irdai-india
+          itemType: concept
+          text: RBI and IRDAI (India)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sec-17a-4
+          itemType: concept
+          text: SEC 17a-4 (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sec-reg-sci
+          itemType: concept
+          text: SEC Regulation SCI (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-shared-assessments
+          itemType: concept
+          text: Shared Assessments
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-sox
+          itemType: concept
+          text: SOX (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-trusight
+          itemType: concept
+          text: TruSight
+
+    # Card
+    - title: Health
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hds-france
+          itemType: concept
+          text: HDS (France)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hipaa-hitech
+          itemType: concept
+          text: HIPAA & HITECH (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-hitrust
+          itemType: concept
+          text: HITRUST (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mars-e
+          itemType: concept
+          text: MARS-E (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nen-7510-netherlands
+          itemType: concept
+          text: NEN 7510 (Netherlands)
+
+    # Card
+    - title: Media and manufacturing
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cdsa
+          itemType: concept
+          text: CDSA
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-dpp-uk
+          itemType: concept
+          text: DPP (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fact-uk
+          itemType: concept
+          text: FACT (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-fda-cfr-title-21-part-11
+          itemType: concept
+          text: GxP (FDA 21 CFR Part 11)
+        - url: https://docs.microsoft.com/en-us/microsoft-365/compliance/offering-mpaa
+          itemType: concept
+          text: MPAA
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nerc-cip
+          itemType: concept
+          text: NERC (US)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-tisax-germany
+          itemType: concept
+          text: TISAX (Germany)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-bir-2012-netherlands
+          itemType: concept
+          text: BIR 2012 (Netherlands)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-c5-germany
+          itemType: concept
+          text: C5 (Germany)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccpa
+          itemType: concept
+          text: CCPA (US California)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ccsl-irap-australia
+          itemType: concept
+          text: IRAP and CCSL (Australia)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cs-mark-gold-japan
+          itemType: concept
+          text: CS Gold Mark (Japan)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cyber-essentials-plus-uk
+          itemType: concept
+          text: Cyber Essentials PLUS (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-canadian-privacy-laws
+          itemType: concept
+          text: Canadian Privacy Laws
+        - url: https://www.trustcenter.cn/compliance/default.html#DJCP
+          itemType: concept
+          text: DJCP (China)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-en-301-549-eu
+          itemType: concept
+          text: EN 301 549 (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-ens-spain
+          itemType: concept
+          text: ENS (Spain)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-enisa
+          itemType: concept
+          text: ENISA IAF (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eu-model-clauses
+          itemType: concept
+          text: EU Model Clauses
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-eu-us-privacy-shield
+          itemType: concept
+          text: EU-US Privacy Shield
+        - url: https://www.trustcenter.cn/compliance/default.html#GB18030
+          itemType: concept
+          text: GB 18030 (China) 
+        - url: https://docs.microsoft.com/microsoft-365/compliance/gdpr
+          itemType: concept
+          text: GDPR (EU)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-g-cloud-uk
+          itemType: concept
+          text: G-Cloud (UK)
+
+    # Card
+    - title: Regional
+      links:
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-isms-korea
+          itemType: concept
+          text: ISMS (Korea)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-it-grundschutz-workbook-germany
+          itemType: concept
+          text: IT-Grundschutz (Germany)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-lopd-spain
+          itemType: concept
+          text: DPA (Spain)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-meity-india
+          itemType: concept
+          text: MeitY (India)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-mtcs-singapore
+          itemType: concept
+          text: MTCS (Singapore)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-my-number-act-japan
+          itemType: concept
+          text: My Number (Japan)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-nz-cc-framework-nz
+          itemType: concept
+          text: NZ CC (New Zealand)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pasf-uk
+          itemType: concept
+          text: PASF (UK)
+        - url: https://docs.microsoft.com/microsoft-365/compliance/offering-pdpa-argentina
+          itemType: concept
+          text: PDPA (Argentina)
+        - url: https://www.trustcenter.cn/compliance/default.html#TCS
+          itemType: concept
+          text: TRUCS (China)
+
+
+
+additionalContent:
+#  Maximum of 3 sections
+  sections:
+
+#  Section 1
+    - title: Additional compliance resources
+      summary: To access a resource you may need to be signed into your cloud service 
+      items:
+
+        - title: Audit reports
+          links:
+            - text: CCSL/IRAP
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=ffcb3aeb-475e-4f23-8a8f-2fc7dac18d68&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
+            - text: CDSA
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=5a989727-8eaa-410c-888f-91af0bb03811&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_GRC_Assessment_Reports
+            - text: ENS
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=69a6a010-85da-43ff-94cf-19cf921f25fb&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ENS_Audit_Reports_and_Certificates
+            - text: ISO 27001
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_ISO_Reports
+            - text: FedRAMP
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FedRAMP_Reports
+            - text: PCI DSS
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_PCI_DSS
+            - text: SOC 1, 2, 3
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_SOC_/_SSAE_16_Reports
+
+
+        - title: Privacy and GDPR
+          links:
+            - text: Checklists
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-arc-azure
+            - text: Data subject requests
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure
+            - text: Breach notification
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-breach-azure-dynamics
+            - text: Data protection impact assessments
+              url: https://docs.microsoft.com/microsoft-365/compliance/gdpr-dpia-azure
+
+        - title: Compliance blueprints
+          links:
+            - text: Azure Security Benchmark
+              url: ../governance/blueprints/samples/azure-security-benchmark.md
+            - text: Canada Federal PBMM
+              url: ../governance/blueprints/samples/canada-federal-pbmm/index.md
+            - text: CIS benchmarks
+              url: ../governance/blueprints/samples/cis-azure-1-1-0.md
+            - text: FedRAMP Moderate
+              url: ../governance/blueprints/samples/fedramp-m/index.md
+            - text: FedRAMP High
+              url: ../governance/blueprints/samples/fedramp-h/index.md
+            - text: HIPAA HITRUST
+              url: ../governance/blueprints/samples/hipaa-hitrust/index.md
+            - text: IRS 1075
+              url: ../governance/blueprints/samples/irs-1075/index.md
+            - text: ISO 27001
+              url: ../governance/blueprints/samples/iso27001/index.md
+            - text: NIST SP 800-53 R4
+              url: ../governance/blueprints/samples/nist-sp-800-53-r4.md
+            - text: PCI-DSS v3.2.1
+              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+            - text: SWIFT CSP-CSCF v2020
+              url: ../governance/blueprints/samples/swift-2020/index.md
+            - text: UK NHS and UK OFFICIAL (G-Cloud)
+              url: ../governance/blueprints/samples/ukofficial/index.md
+
+        # Card
+        - title: Country/Region privacy and compliance guides
+          links:
+            - text: Australian security and privacy requirements
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-0c790495
+            - text: Singapore security and privacy requirements
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-ced8dbf9
+            - text: Malaysian security and privacy requirements
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-8b936d6a
+            - text: New Zealand security and privacy requirements
+              url: https://gallery.technet.microsoft.com/Azure-Compliance-in-the-f19e44c2
+            - text: Navigating your way to the cloud in Europe 
+              url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
+            - text: Navigating your way to the cloud in Asia
+              url: https://www.microsoft.com/en-sg/apac/trustedcloud/default.aspx
+            - text: Navigating to the cloud in Middle East and Africa
+              url: https://msmea-staging.azurewebsites.net/mea/trustedcloud/default.aspx
+            - text: Cloud compliance guides for financial services
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3
+
+        - title: Implementation and mappings
+          links:
+            - text: BIR-2012 baseline coverage user guide
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f49ee594-6c56-4b6f-93c1-646850798354&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: CDSA-compliant content protection
+              url: https://gallery.technet.microsoft.com/Azure-Implementing-CDSA-8087c7a2
+            - text: CIS Azure foundations 
+              url: https://azure.microsoft.com/mediahandler/files/resourcefiles/cis-microsoft-azure-foundations-security-benchmark/CIS_Microsoft_Azure_Foundations_Benchmark_v1.0.0.pdf
+            - text: CJIS cloud computing mapping
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=f33bf55e-1f0e-41e4-a442-7182365833a0&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+            - text: CSA CAIQ
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=a966a424-ecfd-4de2-9739-b08aee2d3ca0&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: FCA Microsoft's approach to cloud guidance
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=991d2ba5-da00-48ed-a95e-a16f61db384c&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: FERPA implementation guide
+              url: https://gallery.technet.microsoft.com/Azure-FERPA-Implementation-441b6b71
+            - text: GDPR control mapping
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
+            - text: GxP guidelines
+              url: https://gallery.technet.microsoft.com/Azure-GxP-Guidelines-ab1b98d9
+            - text: HIPAA/HITECH Act implementation
+              url: https://gallery.technet.microsoft.com/Azure-HIPAAHITECH-Act-1d27efb0
+
+        # Card
+        - title: Implementation and mappings
+          links:
+            - text: HITRUST customer responsibility matrix
+              url: https://servicetrust.microsoft.com/ViewPage/Blueprint?command=Download&downloadType=Document&downloadId=3ccde498-4761-4be0-be8b-cd8d379a3a4f&docTab=fc060920-cdb8-11e7-bacf-0bf52b09d912_Healthcare_Blueprint
+            - text: ISO 27001 security controls
+              url: https://gallery.technet.microsoft.com/13-Effective-Security-72447e11
+            - text: IT-Grundschutz workbook
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=2b6fa69b-4cab-4f15-8e7b-560e0291e7f7&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_GRC_Assessment_Reports
+            - text: NEN7510-2011 standard coverage guide
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+            - text: NERC CIP standards
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=f5362bc0-0594-4fd2-a4a9-9b74b6a33c20&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+            - text: NZ GCIO cloud computing considerations
+              url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
+            - text: PCI DSS 3.2.1 responsibility matrix
+              url: https://gallery.technet.microsoft.com/Azure-PCI-DSS-Responsibilit-02d4b4b2
+            - text: SOX guidance
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=447ddef4-e55d-41f8-b233-328934efb461&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance%20Guides
+            - text: UK OFFICIAL cloud security controls
+              url: https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1
+ 
+        # Card
+        - title: White papers and analyst reports
+          links:
+            - text: Overview of Azure compliance
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers
+            - text: Azue security, privacy and compliance
+              url: https://gallery.technet.microsoft.com/Response-to-GCIO-Cloud-e117bbb9
+            - text: Data residency and security
+              url: https://gallery.technet.microsoft.com/Azure-for-Secure-Worlwide-19b91d44
+            - text: Azure RFI on security and compliance
+              url: https://gallery.technet.microsoft.com/Azure-Standard-Response-to-5de19cb6
+            - text: Azure Internet of Things compliance
+              url: https://gallery.technet.microsoft.com/Azure-and-Data-Compliance-bda1f632
+            - text: IDC - Azure manages regulatory challenges 
+              url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
+            - text: Azure risk compliance guide
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=edee9b14-3661-4a16-ba83-c35caf672bd7&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+            - text: Shared responsibilities for cloud computing
+              url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
+            - text: Government cloud assurance guide
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=c24c11f2-2cd4-444a-9160-19762855ad3a&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers
+            - text: Azure export controls
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=c24c11f2-2cd4-444a-9160-19762855ad3a&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers

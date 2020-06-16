@@ -1,16 +1,16 @@
 ---
-title: Tutorial - Prepare a Java Spring application for deployment in Azure Spring Cloud
-description: In this tutorial, you prepare a Java Spring application for deployment to Azure Spring Cloud.
+title: How-to - Prepare a Java Spring application for deployment in Azure Spring Cloud
+description: In this topic, you prepare a Java Spring application for deployment to Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 
 ---
 # Prepare a Java Spring application for deployment in Azure Spring Cloud
 
-This quickstart shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
+This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
 
 Other examples explain how to deploy an application to Azure Spring Cloud when the POM file is configured. 
 * [Launch App using the Azure portal](spring-cloud-quickstart-launch-app-portal.md)
@@ -22,7 +22,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](https://docs.microsoft.com/azure/java/jdk/java-jdk-install).
+Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
 
 ## Spring Boot and Spring Cloud versions
 
@@ -124,11 +124,24 @@ For Spring Boot version 2.2 add the following dependency to the application POM 
 </dependency>
 ```
 
-## Other required dependencies
+## Other recommended dependencies to enable Azure Spring Cloud features
 
-To enable the built-in features of Azure Spring Cloud, your application must include the following dependencies. This inclusion ensures that your application configures itself correctly with each component.
+To enable the built-in features of Azure Spring Cloud from service registry to distributed tracing, you need to also include the following dependencies in your application. You can drop some of these dependencies if you don't need corresponding features for the specific apps.
 
-### EnableDiscoveryClient annotation
+### Service Registry
+
+To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the pom.xml file as shown here:
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
+
+#### EnableDiscoveryClient annotation
 
 Add the following annotation to the application source code.
 ```java
@@ -148,26 +161,13 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableZuulProxy
 
 public class GatewayApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(GatewayApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GatewayApplication.class, args);
+    }
 }
 ```
 
-### Service Registry dependency
-
-To use the managed Azure Service Registry service, include the `spring-cloud-starter-netflix-eureka-client` dependency in the pom.xml file as shown here:
-
-```xml
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    </dependency>
-```
-
-The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
-
-### Distributed Configuration dependency
+### Distributed Configuration
 
 To enable Distributed Configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your pom.xml file:
 
@@ -181,7 +181,7 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
-### Metrics dependency
+### Metrics
 
 Include the `spring-boot-starter-actuator` dependency in the dependencies section of your pom.xml file as shown here:
 
@@ -194,7 +194,10 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
  Metrics are periodically pulled from the JMX endpoints. You can visualize the metrics by using the Azure portal.
 
-### Distributed Tracing dependency
+ > [!WARNING]
+ > Please specify `spring.jmx.enabled=true` in your configuration property. Otherwise, metrics can't be visualized in Azure portal.
+
+### Distributed Tracing
 
 Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies in the dependencies section of your pom.xml file:
 
@@ -220,7 +223,7 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 
 ## Next steps
 
-In this tutorial, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, continue to the next tutorial.
+In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see the following article.
 
 > [!div class="nextstepaction"]
 > [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)

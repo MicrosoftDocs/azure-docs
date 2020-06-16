@@ -1,11 +1,11 @@
 ---
 title: Cosmos DB Migration options
 description: This doc describes the various options to migrate your on-premises or cloud data to Azure Cosmos DB
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: bharathb
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
@@ -17,7 +17,7 @@ You can load data from various data sources to Azure Cosmos DB. Additionally, si
 The following factors determine the choice of the migration tool:
 * **Online vs offline migration**: Many migration tools provide a path to do a one-time migration only. This means that the applications accessing the database might experience a period of downtime. Some migration solutions provide a way to do a live migration where there is a replication pipeline set up between the source and the target.
 
-* **Data source**: The existing data can be in various data sources like Oracle DB2, Datastax Cassanda, Azure SQL Server, PostgreSQL, etc. The data can also be in an existing Azure Cosmos DB account and the intent of migration can be to change the data model or repartition the data in a container with a different partition key.
+* **Data source**: The existing data can be in various data sources like Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. The data can also be in an existing Azure Cosmos DB account and the intent of migration can be to change the data model or repartition the data in a container with a different partition key.
 
 * **Azure Cosmos DB API**: For the SQL API in Azure Cosmos DB, there are a variety of tools developed by the Azure Cosmos DB team which aid in the different migration scenarios. All of the other APIs have their own specialized set of tools developed and maintained by the community. Since Azure Cosmos DB supports these APIs at a wire protocol level, these tools should work as-is while migrating data into Azure Cosmos DB too. However, they might require custom handling for throttles as this concept is specific to Azure Cosmos DB.
 
@@ -33,7 +33,7 @@ The following factors determine the choice of the migration tool:
 |Offline|[Azure Cosmos DB Spark connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Needs a custom Spark setup <br/>&bull; Spark is sensitive to schema inconsistencies and this can be a problem during migration |
 |Offline|[Custom tool with Cosmos DB bulk executor library](https://docs.microsoft.com/azure/cosmos-db/migrate-cosmosdb-data)|&bull; Provides checkpointing, dead-lettering capabilities which increases migration resiliency <br/>&bull; Suitable for very large datasets (10 TB+)  <br/>&bull; Requires custom setup of this tool running as an App Service |
 |Online|[Cosmos DB Functions + ChangeFeed API](https://docs.microsoft.com/azure/cosmos-db/change-feed-functions)|&bull; Easy to set up <br/>&bull; Works only if the source is an Azure Cosmos DB container <br/>&bull; Not suitable for large datasets <br/>&bull; Does not capture deletes from the source container |
-|Online|[Custom Migration Service using ChangeFeed](https://aka.ms/CosmosDBMigrationSample)|&bull; Provides progress tracking <br/>&bull; Works only if the source is an Azure Cosmos DB container <br/>&bull; Works for larger datasets as well <br/>&bull; Requires the user to set up an App Service to host the Change feed processor <br/>&bull; Does not capture deletes from the source container|
+|Online|[Custom Migration Service using ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)|&bull; Provides progress tracking <br/>&bull; Works only if the source is an Azure Cosmos DB container <br/>&bull; Works for larger datasets as well <br/>&bull; Requires the user to set up an App Service to host the Change feed processor <br/>&bull; Does not capture deletes from the source container|
 |Online|[Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull; Works with a large variety of sources like Oracle, DB2, SQL Server <br/>&bull; Easy to build ETL pipelines and provides a dashboard for monitoring <br/>&bull; Supports larger datasets <br/>&bull; Since this is a third-party tool, it needs to be purchased from the marketplace and installed in the user's environment|
 
 ## Azure Cosmos DB Mongo API

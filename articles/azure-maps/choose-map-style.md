@@ -1,8 +1,8 @@
 ---
 title: Change the style of the map in Azure Maps | Microsoft Azure Maps
 description: In this article, you will learn about style-related functionalities available in Microsoft Azure Maps web SDK.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps

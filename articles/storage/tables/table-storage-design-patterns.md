@@ -575,7 +575,7 @@ Notice how this example expects the entity it retrieves to be of type **Employee
 ### Retrieving multiple entities using LINQ
 You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library. 
 
-```cli
+```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 

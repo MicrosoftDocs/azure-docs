@@ -3,7 +3,7 @@ title: Large file download optimization with Azure CDN
 description: This article explains how large file downloads can be optimized.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: magattus
+ms.author: allensu
 ---
 # Large file download optimization with Azure CDN
 

@@ -15,9 +15,13 @@ This quickstart introduces the basic general concepts behind how to build your f
 
 ![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-For this scenario, you need an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](https://docs.microsoft.com/connectors/). In this example, the logic app uses Office 365 Outlook. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
+For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](https://docs.microsoft.com/connectors/). In this example, the logic app uses an Office 365 Outlook account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
 
-Also, if you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+> [!IMPORTANT]
+> If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+> If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+> [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 ## Sign in to the Azure portal
 
@@ -39,9 +43,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
+   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". <p><p>**Note**: Names for logic apps must be unique across regions. |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". <p><p>**Note**: Names for resource groups must be unique across regions. |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||

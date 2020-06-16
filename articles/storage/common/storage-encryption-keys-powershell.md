@@ -1,15 +1,15 @@
 ---
 title: Use PowerShell to configure customer-managed keys
 titleSuffix: Azure Storage
-description: Learn how to use PowerShell to configure customer-managed keys for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+description: Learn how to use PowerShell to configure customer-managed keys for Azure Storage encryption.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/10/2020
+ms.date: 04/02/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: common
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/quick-create-powershell.md).
+This article shows how to configure an Azure Key Vault with customer-managed keys using PowerShell. To learn how to create a key vault using  Azure CLI, see [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../../key-vault/secrets/quick-create-powershell.md).
 
 ## Assign an identity to the storage account
 
@@ -47,7 +47,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-To learn how to enable **Soft Delete** and **Do Not Purge** on an existing key vault with PowerShell, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in [How to use soft-delete with PowerShell](../../key-vault/key-vault-soft-delete-powershell.md).
+To learn how to enable **Soft Delete** and **Do Not Purge** on an existing key vault with PowerShell, see the sections titled **Enabling soft-delete** and **Enabling Purge Protection** in [How to use soft-delete with PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
 ## Configure the key vault access policy
 
@@ -59,7 +59,7 @@ To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/p
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
-    -PermissionsToKeys wrapkey,unwrapkey,get,recover
+    -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
 ## Create a new key
@@ -69,6 +69,8 @@ Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVau
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
+
+Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ## Configure encryption with customer-managed keys
 

@@ -1,11 +1,11 @@
 ---
-title: 'Connect a virtual network gateway to an Azure Virtual WAN | Microsoft Docs'
+title: 'Connect a virtual network gateway to an Azure Virtual WAN'
 description: This article helps you connect an Azure virtual network gateway to an Azure Virtual WAN VPN gateway
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 03/19/2020
 ms.author: cherylmc
 
 ---
@@ -68,7 +68,7 @@ To create Virtual WAN VPN sites, navigate your to your virtual WAN and, under **
    * **IP Address** - Enter IP address (same as the first public IP address shown under the (VPN Gateway) virtual network gateway properties)
    * **BGP Address** and **ASN** - BGP address and ASN. These must be the same as one of the BGP peer IP addresses, and ASN from the VPN Gateway virtual network gateway that you configured in [Step 1](#vnetgw).
 4. Review and select **Confirm** to create the site.
-5. Repeat the previous steps to create the second site to match with the second instance of the VPN Gateway virtual network gateway. You’ll keep the same settings, except using second public IP address and second BGP peer IP address from VPN Gateway configuration.
+5. Repeat the previous steps to create the second site to match with the second instance of the VPN Gateway virtual network gateway. You'll keep the same settings, except using second public IP address and second BGP peer IP address from VPN Gateway configuration.
 6. You now have two sites successfully provisioned and can proceed to the next section to download configuration files.
 
 ## <a name="downloadconfig"></a>3. Download the VPN configuration files

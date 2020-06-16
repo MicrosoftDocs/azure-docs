@@ -10,11 +10,11 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-The following example shows how to create a 10Gbps Direct peering at Seattle.
+The following example shows how to create a 10-Gbps Direct peering in Seattle.
 
-Use PowerShell cmdlet **New-AzPeeringDirectConnectionObject** to create DirectConnections that are to be used in the new peering request.
+Use the PowerShell cmdlet **New-AzPeeringDirectConnectionObject** to create DirectConnection objects that are to be used in the new peering request.
 
-Below is an example to create a DirectConnection:
+This example shows how to create a DirectConnection object.
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -27,9 +27,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> The <index> for $peeringLocation[<index>] in the above example should correspond to the peering location of your choice
+> The value for <index>**$peeringLocation[]**<index> in the previous example should correspond to the peering location of your choice.
 
-Create another connection in case you need redundancy at given peering location:
+Create another connection in case you need redundancy at a given peering location.
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Use PowerShell cmdlet **New-AzPeering** to create a new Direct peering. This command requires ASN resource ID which can be retrieved as shown below.
+Use the PowerShell cmdlet **New-AzPeering** to create a new Direct peering. This command requires an ASN resource ID, which can be retrieved as shown here.
 
 
 ```powershell
@@ -55,7 +55,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Below is an example response when the request was processed successfully:
+This example shows the response when the request was processed successfully.
 
 ```powershell
 
@@ -73,4 +73,4 @@ Below is an example response when the request was processed successfully:
     Tags                 : {}
 
 ```
-Note that in place of **{subscriptionId}** in the output above, actual subscription ID will be displayed.
+Note that in place of **{subscriptionId}** in this output, the actual subscription ID will be displayed.

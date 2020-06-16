@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Speech-to-text documentation
-summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time and batch transcription of audio streams into text.
+summary: Speech-to-text from the Speech service, also known as speech recognition, enables real-time and batch transcription of audio streams into text. With additional reference text input, it also enables real-time pronunciation assessment and gives speakers feedback on the accuracy and fluency of spoken audio.
 metadata:
   title: Speech-to-text documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: IEvangelist
+  author: trevorbye
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/17/2020
-  ms.author: dapine
+  ms.date: 03/19/2020
+  ms.author: trbye
 
 landingContent:
 - title: About speech-to-text
@@ -22,8 +22,10 @@ landingContent:
         url: speech-to-text.md
       - text: What is batch speech-to-text?
         url: batch-transcription.md
-      - text: Speech recognition basics?
+      - text: Speech recognition basics
         url: speech-to-text-basics.md
+      - text: Use the Speech CLI for speech-to-text with no code
+        url: spx-overview.md
     - linkListType: quickstart
       links:
         - text: Recognize speech with microphone input
@@ -32,6 +34,8 @@ landingContent:
           url: quickstarts/speech-to-text-from-file.md
         - text: Recognize speech stored in blob storage
           url: quickstarts/from-blob.md
+        - text: Pronunciation assessment with reference input
+          url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Develop with speech-to-text
   linkLists:
     - linkListType: how-to-guide
@@ -44,10 +48,14 @@ landingContent:
           url: how-to-custom-speech.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
+    - linkListType: tutorial
+      links:
+        - text: Improve accuracy with tenant models
+          url: tutorial-tenant-model.md
     - linkListType: concept
       links:
         - text: Prepare data for Custom Speech
-          url: how-to-custom-speech-test-data.md
+          url: how-to-custom-speech-test-and-train.md
         - text: Train a model for Custom Speech
           url: how-to-custom-speech-train-model.md
         - text: Create human-labeled transcriptions

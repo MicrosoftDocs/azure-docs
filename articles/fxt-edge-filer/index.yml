@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ronhogue
   ms.author: rohogue
-  ms.date: 03/11/2020 
+  ms.date: 03/20/2020 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -41,15 +41,15 @@ landingContent:
           - text: 6 - Add back-end storage and configure the virtual namespace
             url: fxt-add-storage.md
           - text: 7 - Configure the cluster's network settings
-            url: fxt-configure-network.md            
+            url: fxt-configure-network.md
+          - text: 8 - Mount clients on the cluster
+            url: fxt-mount-clients.md
 
   # Card
   - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Mount clients on the cluster
-            url: fxt-mount-clients.md
           - text: Monitor hardware status
             url: fxt-monitor.md
           - text: Safely power off hardware

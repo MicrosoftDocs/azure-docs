@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
 
 ---
@@ -71,7 +71,7 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
 
 
 ## Next steps
-In this tutorial, you created a lab account. To learn about how to create a classroom lab as a professor, advance to the next tutorial:
+In this tutorial, you created a lab account. To learn about how to create a classroom lab as an educator, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Set up a classroom lab](tutorial-setup-classroom-lab.md)

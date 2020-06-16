@@ -18,7 +18,7 @@ Windows Virtual Desktop licensing allows you to apply a license to any Windows o
 
 There are a few ways to use the Windows Virtual Desktop license:
 - You can create a host pool and its session host virtual machines using the [Azure Marketplace offering](./create-host-pools-azure-marketplace.md). Virtual machines created this way automatically have the license applied.
-- You can create a host pool and its session host virtual machines using the [GitHub Azure Resource Manager template](./create-host-pools-arm-template.md). Virtual machines created this way automatically have the license applied.
+- You can create a host pool and its session host virtual machines using the [GitHub Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). Virtual machines created this way automatically have the license applied.
 - You can apply a license to an existing session host virtual machine. To do this, first follow the instructions in [Create a host pool with PowerShell](./create-host-pools-powershell.md) to create a host pool and associated VMs, then return to this article to learn how to apply the license.
 
 ## Apply a Windows license to a session host VM

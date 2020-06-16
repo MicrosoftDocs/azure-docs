@@ -5,13 +5,19 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
+ms.date: 05/31/2020
 
 ---
 
 # How to chart performance with Azure Monitor for VMs
 
 Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
+
+## Limitations
+Following are limitations in performance collection with Azure Monitor for VMs.
+
+- **Available memory** is not available for virtual machines running Red Hat Linux (RHEL) 6. This metric is calculated from **MemAvailable** which was introduced in [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Metrics are only available for data disks on Linux virtual machines using EXT filesystem family (EXT2, EXT3, EXT4).
 
 ## Multi-VM perspective from Azure Monitor
 
@@ -114,11 +120,7 @@ Clicking on the pin icon at the upper right-hand corner of any one of the charts
 >[!NOTE]
 >You can also access a detailed performance view for a specific instance from the Instances view for your scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights**.
 
-## Alerts  
 
-Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../platform/data-sources-performance-counters.md) in Log Analytics and define [log alerts](../platform/alerts-log.md). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
-
-Review the overview of [collection of metrics and logs with Azure Monitor](../platform/data-platform.md) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
 
 ## Next steps
 

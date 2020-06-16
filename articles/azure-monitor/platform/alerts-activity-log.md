@@ -63,6 +63,11 @@ Use the following procedure.
      **Add criteria screen**
 
      ![Add criteria](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  In order to have a high quality and effective rules, we ask to add at least one more condition to rules with the signal "All Administrative". 
+     > As a part of the definition of the alert you must fill one of the drop downs: "Event level", "Status" or "Initiated by" and by that the rule will be more specific.
 
      - **History time**: Events available for the selected operation can be plotted over the last 6, 12, or 24 hours or over the last week.
 
@@ -123,7 +128,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 
 ## Azure Resource Manager template
-To create an activity log rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log rule:
+To create an activity log alert rule by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert  rule:
 
 ```json
 {
@@ -192,8 +197,8 @@ To create an activity log rule by using an Azure Resource Manager template, you 
 ```
 The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
-The following fields are the fields that you can use in the Azure Resource Manager template for the conditions fields:
-Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. In the beginning.
+The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields:
+Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. 
 1. resourceId:	The resource ID of the impacted resource in the activity log event that the alert should be generated on.
 2. category: The category of in the activity log event. For example: Administrative, ServiceHealth, ResourceHealth, Autoscale, Security, Recommendation, Policy.
 3. caller: The email address or Azure Active Directory identifier of the user who performed the operation of the activity log event.

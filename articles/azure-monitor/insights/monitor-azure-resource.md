@@ -45,7 +45,7 @@ There may be Azure Monitor costs associated with the following. See [Azure Monit
 - Accessing metrics through API.
 
 ## Monitoring data
-Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
+Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
 
 ![Overview](media/monitor-azure-resource/logs-metrics.png)
 

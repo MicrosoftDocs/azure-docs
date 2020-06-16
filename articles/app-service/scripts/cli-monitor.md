@@ -9,8 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Monitor an App Service app with web server logs using Azure CLI

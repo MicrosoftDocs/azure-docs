@@ -40,7 +40,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Select **Register**. Record the **Application (client) ID** for use in a later step.
 1. Select **Certificates & secrets**, and then select **New client secret**.
@@ -53,10 +53,10 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
-1. From the **Manage** section, select **Token configuration (preview)**.
+1. From the **Manage** section, select **Token configuration**.
 1. Select **Add optional claim**.
-1. Select the token type you want to configure.
-1. Select the optional claims to add.
+1. For the **Token type**, select **ID**.
+1. Select the optional claims to add, `family_name` and `given_name`.
 1. Click **Add**.
 
 ## Create a policy key
