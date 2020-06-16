@@ -6,9 +6,12 @@ services: internet-peering
 author: derekolo
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 5/18/2020
+ms.date: 6/16/2020
 ms.author: derekol
 ---
+
+> [!IMPORTANT]
+> As an Internet Service Provider or Internet Exchange Provider, make sure you are familiar with our [Peering Policy](policy.md)
 
 # Associate peer ASN to Azure subscription using the portal
 
