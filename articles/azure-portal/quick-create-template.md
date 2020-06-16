@@ -58,7 +58,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](media/
 
 1. Select or enter the following values, then select **Review + create**.
 
-   ![Resource Manager template, create dashboard, deploy portal](media/quick-create-template/create-dashboard-using-template-portal.png)
+    ![Resource Manager template, create dashboard, deploy portal](media/quick-create-template/create-dashboard-using-template-portal.png)
 
     Unless it is specified, use the default values to create the dashboard.
 
@@ -68,21 +68,27 @@ The template used in this quickstart is from [Azure Quickstart Templates](media/
     * **Virtual Machine Name**: enter **SimpleWinVm**.
     * **Virtual Machine Resource Group**: enter **SimpleWinVmResourceGroup**.
 
-1. Select **Purchase**. After the dashboard has been deployed successfully, you get a notification:
+1. Select **Create** or **Purchase**. After the dashboard has been deployed successfully, you get a notification:
 
-   ![Resource Manager template, create dashboard, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Resource Manager template, create dashboard, deploy portal notification](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal was used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
 Check that the dashboard was created successfully and that you can see data from the VM.
 
-1.
+1. In the Azure portal, select **Dashboard**.
 
-1.
+    ![Azure portal navigation to dashboard](media/quick-create-template/navigate-to-dashboards.png)
 
-1.
+1. On the dashboard page, select **Simple VM Dashboard**.
+
+    ![Navigate to Simple VM Dashboard](media/quick-create-template/select-simple-vm-dashboard.png)
+
+1. Review the dashboard that the ARM template created. You can see that some of the content is static, but there are also charts that show the performance of the VM you created at the beginning.
+
+    ![Review Simple VM Dashboard](media/quick-create-template/review-simple-vm-dashboard.png)
 
 ## Clean up resources
 
