@@ -25,7 +25,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 1. Select **Roles and administrators** to see the list of all available roles.
 
-1. Select the ellipsis on the right of each row to open the detailed description of the role. Select a role to view the users assigned to the role.
+1. Select the ellipsis on the right of each row to see the permissions for the role. Select a role to view the users assigned to the role. If you see something different from the following picture, read the Note in [View assignments for privileged roles](#view-assignments-for-privileged-roles) to verify whether you're in Privileged Identity Management (PIM).
 
     ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
@@ -42,7 +42,7 @@ You can select **Manage in PIM** for additional management capabilities. Privile
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to see their active assigned roles.
 
 > [!Note]
-> If you have an Azure AD premium P2 license and you're already a Privileged Identity Management (PIM) user, all role management tasks are performed in Privilege Identity Management and not in Azure AD.
+> If you have an Azure AD premium P2 license and you already use Privileged Identity Management, all role management tasks are performed in Privilege Identity Management and not in Azure AD.
 >
 > ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/directory-manage-roles-portal/pim-manages-roles-for-p2.png)
 
