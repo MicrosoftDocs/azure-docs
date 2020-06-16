@@ -55,7 +55,8 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Import a library item by doing one of the following for the Source, and then click **Import**:
    1. Select URL and provide a URL to download an ISO.
-   2. Select Local File to upload from your local system.
+
+   1. Select Local File to upload from your local system.
 
    > [!TIP]
    > Optional, you can define a custom item name and notes for the Destination.
