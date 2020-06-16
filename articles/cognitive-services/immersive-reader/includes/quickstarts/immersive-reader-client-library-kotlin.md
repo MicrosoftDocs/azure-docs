@@ -1,10 +1,10 @@
 ---
-title: Immersive Reader Kotlin client library quickstart 
+title: Immersive Reader Kotlin (Android) client library quickstart 
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you build an Android app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/10/2020
@@ -13,7 +13,7 @@ ms.author: dylankil
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-In this quickstart, you build an iOS app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
+In this quickstart, you build an Android app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,27 +26,29 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create an Android project
 
-Start a new project in Android Studio.
+Start a new project in Android Studio. Source code for this example is available as part of the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-kotlin)
 
-![New Project](../../media/android/android-studio-create-project.png)
+![New Project](../../media/android/kotlin/android-studio-create-project.png)
 
 In the Choose your project window select **Empty Activity** then click 'Next'.
 
-![Empty Activity project](../../media/android/android-studio-empty-activity.png)
+![Empty Activity project](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## Configure the project
 
 Name the project 'QuickstartKotlin', select a save location and choose 'Kotlin' as the programming language then click 'Finish'.
 
-![Configure the project](../../media/android/android-studio-configure-project.png)
+![Configure the project](../../media/android/kotlin/android-studio-configure-project.png)
 
 ## Set up assets and authentication
 
 Create new **/assets** folder
 
-![Create a new Assets folder](../../media/android/android-studio-assets-folder.png)
+![Create a new Assets folder](../../media/android/kotlin/android-studio-assets-folder.png)
 
  Create a file named **env** inside the assets folder. Add the following, supplying values as appropriate. Be sure not to commit this env file into source control, as it contains secrets that should not be made public.
+
+![Create a new env file](../../media/android/kotlin/android-studio-create-env-file.png)
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -54,7 +56,7 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Environment variables in Android Studio](../../media/android/android-studio-assets-and-env-file.png)
+![Environment variables in Android Studio](../../media/android/kotlin/android-studio-assets-and-env-file.png)
 
 ## Add dependencies
 
@@ -77,13 +79,13 @@ dependencies {
 }
 ```
 
-![App Gradle implementations](../../media/android/android-studio-build-gradle.png)
+![App Gradle implementations](../../media/android/kotlin/android-studio-build-gradle.png)
 
 ## Update app strings and layout resources
 
 Replace the content in **res/strings/strings.xml** with the below strings to be used in the app.
 
-![App strings.xml](../../media/android/android-studio-strings.png)
+![App strings.xml](../../media/android/kotlin/android-studio-strings.png)
 
 ```strings.xml
 <resources>
@@ -101,7 +103,7 @@ Replace the content in **res/strings/strings.xml** with the below strings to be 
 
 Replace the content in **res/layout/activity_main.xml** with the XML below to be used in the app. This is the UI layout of the app.
 
-![App activity_main.xml](../../media/android/android-studio-activity-main-xml.png)
+![App activity_main.xml](../../media/android/kotlin/android-studio-activity-main-xml.png)
 
 ```activity_main.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -200,11 +202,11 @@ Replace the content in **res/layout/activity_main.xml** with the XML below to be
 
 ## Set up the app Kotlin code JavaScript interface
 
-In the **/Java/com.example.quickstartKotlin** folder create a new Kotlin Class and name it **WebAppInterface**, then add the below code to it. This enables the app to interface with JavaScript functions in HTML that will be added in a later step.
+In the **/Java/com.example.quickstartkotlin** folder create a new Kotlin Class and name it **WebAppInterface**, then add the below code to it. This enables the app to interface with JavaScript functions in HTML that will be added in a later step.
 
-![com.example.quickstartKotlin folder](../../media/android/android-studio-com-folder.png)
+![com.example.quickstartkotlin folder](../../media/android/kotlin/android-studio-com-folder.png)
 
-![WebAppInterface](../../media/android/android-studio-web-app-interface.png)
+![WebAppInterface](../../media/android/kotlin/android-studio-web-app-interface.png)
 
 ```WebAppInterface.kt
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -255,7 +257,7 @@ class WebAppInterface(private val mContext: Context, var parentLayout: LinearLay
 
 ## Set up the app Kotlin code Main Activity
 
-In the **/Java/com.example.quickstartKotlin** folder you'll see an existing **MainActivity.kt** Kotlin Class file. This is where the app logic is authored. Replace its contents with the following code.
+In the **/Java/com.example.quickstartkotlin** folder you'll see an existing **MainActivity.kt** Kotlin Class file. This is where the app logic is authored. Replace its contents with the following code.
 
 ```MainActivity.kt
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -516,9 +518,9 @@ class MainActivity : AppCompatActivity() {
 
 The web view implementation will need HTML to work. Right-click on the **/assets** folder and create a new file and name it **immersiveReader.html**.
 
-![Create a new html file](../../media/android/android-studio-immersive-reader-html.png)
+![Create a new html file](../../media/android/kotlin/android-studio-immersive-reader-html.png)
 
-![HTML asset location](../../media/android/android-studio-immersive-reader-html-assets.png)
+![HTML asset location](../../media/android/kotlin/android-studio-immersive-reader-html-assets.png)
 
 Add the HTML and JavaScript below. This adds the Immersive Reader SDK to the app and uses it to launch the Immersive Reader using the app code we've written.
 
@@ -567,7 +569,7 @@ Licensed under the MIT License. -->
 
 ## Set up app permissions
 
-![AndroidManifest](../../media/android/android-studio-android-manifest-xml.png)
+![AndroidManifest](../../media/android/kotlin/android-studio-android-manifest-xml.png)
 
 Because the application needs to make network calls to the Immersive Reader SDK in order to function, we'll need to ensure the app permissions are configured to allow network access. Replace the content of **/manifests/AndroidManifest.xml** with the below XML.
 
@@ -601,7 +603,7 @@ Because the application needs to make network calls to the Immersive Reader SDK 
 
 Use Android Studio to run the app on a device emulator. When you click on the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
-![Immersive Reader](../../media/android/android-studio-device-emulator.png)
+![Immersive Reader](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## Next steps
 

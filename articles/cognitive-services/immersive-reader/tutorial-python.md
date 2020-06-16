@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a Python application that launches the Immersive Reader.
 services: cognitive-services
 author: dylankil
-manager: nitinme
+manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
