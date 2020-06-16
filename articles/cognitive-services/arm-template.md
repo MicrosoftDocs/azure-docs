@@ -34,11 +34,11 @@ One Azure resource is defined in the template:
 
 ### Deploy the template
 
-1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
+1. Select the following image to sign in to Azure and open a template. The template creates a Cognitive Services resource.
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
-2. Select or enter the following values. Unless it is specified, use the default value to create the key vault and a secret.
+2. Select or enter the following values.
 
 * **Subscription**: select an Azure subscription.
 * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
@@ -47,13 +47,33 @@ One Azure resource is defined in the template:
 * **Sku**: The pricing tier for your resource. 
 * **I agree to the terms and conditions stated above**: Select.
 
-3. Select **Create**. After the key vault has been deployed successfully, you will get a notification:
+3. Select **Create**. After the resource has been deployed successfully, you will get a notification.
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
 
-## Review deployed resources
+## Validate the deployment
 
+You can either use the Azure portal to check your Cognitive Services resource, or use the following Azure CLI or Azure PowerShell script to list the secret created.
 
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter your Cognitive Services account name:" &&
+read accountName &&
+echo "Enter the resource group where the Cognitive Services resource exists:" &&
+read resourcegroupName &&
+az cognitiveservices show -g $resourcegroupName -n $accountName
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
+(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name
+ Write-Host "Press [ENTER] to continue..."
+```
+
+---
 
 
 ## Clean up resources
@@ -64,11 +84,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 2. Locate the resource group containing the resource to be deleted
 3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
 
+## See also
 
-## Next steps
-
-In this quickstart, you created a key vault and a secret using an Azure Resource Manager template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
-
-- Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+* [Authenticate requests to Azure Cognitive Services](authentication.md)
+* [What is Azure Cognitive Services?](Welcome.md)
+* [Natural language support](language-support.md)
+* [Docker container support](cognitive-services-container-support.md)
