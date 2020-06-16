@@ -7,7 +7,7 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
-ms.topic: Long Data Type
+ms.topic: conceptual
 ms.date: 06/15/2020
 ms.custom: dpalled
 ---
@@ -28,7 +28,7 @@ This change impacts you in the following cases:
 
 If any of the above cases apply to you, you will need to make changes to your model to accommodate this change. Please update the Time Series Expression in your variable definition in both TSI Explorer and in any custom client using our APIs with the recommended changes. See below for details.
 
-Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your TSI PAYG environment. If you’re unsure if your data if your data is integral only or both integral and nonintegral, you have two options. You can either pre-emptively make the changes below or you can observe your data after the feature is released and apply the recommended changes once it’s clear which columns in your storage are affected by this change. You can also observe your data through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). If you use IoT Hub, see the documentation here on how to access the built-in endpoint.
+Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your TSI PAYG environment. If you’re unsure if your data if your data is integral only or both integral and nonintegral, you have two options. You can either pre-emptively make the changes below or you can observe your data after the feature is released and apply the recommended changes once it’s clear which columns in your storage are affected by this change. You can also observe your data through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). If you use IoT Hub, see the documentation here on how to access the built-in endpoint.
 
 Please note that if you are impacted by these changes and are unable to make them by the above dates, you may experience a disruption where the impacted Time Series Variables accessed via the query APIs or Time Series Insights Explorer will return *null* (i.e. show no data in the Explorer).
 
@@ -40,7 +40,7 @@ If you are currently sending integer telemetry data, your data will be divided i
 
 Your integer data will be written to “propertyValue_long”  when the changes go into effect and previously ingested (and future ingested) numeric data in “propertyValue_double” will not be copied over.
 
-If you wish to query data across these two columns for the “propertyValue” property, you will have to use the *coalesce()* scalar function in your TSX. The function accepts arguments of the same DataType and returns the first non-null value in the argument list (read more about usage [here](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#other-functions)).
+If you wish to query data across these two columns for the “propertyValue” property, you will have to use the *coalesce()* scalar function in your TSX. The function accepts arguments of the same DataType and returns the first non-null value in the argument list (read more about usage [here](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions)).
 
 ### Variable Definition in Time Series Explorer - Numeric
 
@@ -52,7 +52,7 @@ If you wish to query data across these two columns for the “propertyValue” p
 
 [![New Variable Definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 ### Inline Variable Definition using Time Series Query APIs - Numeric
 
@@ -92,7 +92,7 @@ You may also use *“coalesce($event.propertyValue.Double, toDouble($event.prope
 
             "tsx": "avg($value)"
 
-You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 > [!NOTE]
 > We recommend you update these variables in all places they might be used (Time Series Model, saved queries, Power BI Connector queries).
@@ -111,9 +111,9 @@ If you are currently using categorical variables that map integer values to cate
 
 [![New Variable Definition](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+You may also use *“coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))”* as the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
-Categorical variables still require the value to be of an integer type. The DataType of all the arguments in coalesce() must be of type Long in the custom [Time Series Expression.](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Categorical variables still require the value to be of an integer type. The DataType of all the arguments in coalesce() must be of type Long in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 ### Inline Variable Definition using Time Series Query APIs - Categorical
 
@@ -191,7 +191,7 @@ Categorical variables still require the value to be of an integer type. The Data
 
     }
 
-Categorical variables still require the value to be of an integer type. The DataType of all the arguments in coalesce() must be of type Long in the custom [Time Series Expression.](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Categorical variables still require the value to be of an integer type. The DataType of all the arguments in coalesce() must be of type Long in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 > [!NOTE]
 > We recommend you update these variables in all places they might be used (Time Series Model, saved queries, Power BI Connector queries).
