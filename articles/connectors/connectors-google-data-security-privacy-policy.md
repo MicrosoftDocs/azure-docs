@@ -37,7 +37,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
-### Non-compliant logic app examples
+## Non-compliant examples
 
 * This logic app uses the Gmail connector with the HTTP built-in trigger, which isn't approved by Google:
 
