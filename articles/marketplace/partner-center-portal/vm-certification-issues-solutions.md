@@ -2,7 +2,7 @@
 title: Virtual Machine certification - issues and solutions 
 description: This article will walk you through common error messages encountered in images, and their related solutions.  
 author: v-miegge 
-ms.author: mayank.thapliyal
+ms.author: Mayank.Thapliyal
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
