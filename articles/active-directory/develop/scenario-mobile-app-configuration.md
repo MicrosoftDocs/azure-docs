@@ -360,7 +360,7 @@ Here's an example of how to add `LSApplicationQueriesSchemes`:
 
 ### Brokered authentication for Xamarin.Android
 
-MSAL.NET doesn't support brokers for Android.
+For information about enabling a broker on Android, see [Brokered authentication on Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
 ## Next steps
 
