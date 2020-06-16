@@ -56,7 +56,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 
    If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run ``az --version`` to find the version. If you need to install or upgrade your Azure CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
    
-   If you need to login to Cloud Shell with a different account than you are curerntly logged in to the Azure Portal with you can use ``az login`` [az login reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  To switch between subscriptions associated with your account you can use ``az account set --subscription`` [az account set reference](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+   If you need to login to Cloud Shell with a different account than you are currently logged in to the Azure Portal with you can use ``az login`` [az login reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  To switch between subscriptions associated with your account you can use ``az account set --subscription`` [az account set reference](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. If this is the first time you have used the `az vm repair` commands, add the vm-repair CLI extension.
 
