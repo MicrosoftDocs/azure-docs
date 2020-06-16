@@ -11,15 +11,15 @@
   items:
   - name: View access for a user
     href: check-access.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-role-assignments-template.md
 - name: Tutorials
   items:
   - name: Grant a user access - Portal
     href: quickstart-assign-role-user-portal.md
   - name: Grant a user access - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: Grant a user access - Resource Manager Template
-    displayName: ARM, resource manager template
-    href: tutorial-role-assignments-user-template.md
   - name: Grant a group access - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Create a custom role - PowerShell
@@ -67,7 +67,8 @@
       href: role-assignments-cli.md
     - name: REST API
       href: role-assignments-rest.md
-    - name: Template
+    - name: ARM template
+      displayName: Resource Manager
       href: role-assignments-template.md
   - name: List deny assignments
     items:
@@ -113,8 +114,8 @@
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API
     href: /rest/api/authorization/
-  - name: Resource Manager templates
-    displayName: ARM
+  - name: ARM templates
+    displayName: Resource Manager
     items:
     - name: Role Assignments
       href: /azure/templates/microsoft.authorization/roleassignments

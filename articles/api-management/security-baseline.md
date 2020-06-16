@@ -1066,9 +1066,9 @@ The service backup and restore features of API Management provide the necessary 
 
 * [How to implement disaster recovery using service backup and restore in Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
 
-* [How to call the API Management backup operation](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+* [How to call the API Management backup operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-* [How to call the API Management restore operation](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [How to call the API Management restore operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1092,7 +1092,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 **Guidance**: Validate backups by performing a test restore of the service and certificates from backups.
 
-* [How to call the API Management restore operation](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [How to call the API Management restore operation](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 * [How to restore Azure Key Vault certificates](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 

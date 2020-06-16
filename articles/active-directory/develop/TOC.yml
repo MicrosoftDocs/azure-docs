@@ -28,7 +28,9 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: quickstart-v2-javascript-auth-code.md
+    - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
@@ -73,7 +75,9 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: tutorial-v2-javascript-auth-code.md
+    - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
@@ -372,6 +376,11 @@
         displayName: shared device mode, firstline worker, frontline worker, flw
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+      - name: Scopes for web API accepting v1.0 tokens
+        href: msal-v1-app-scopes.md
+      - name: Migrate apps from ADAL to MSAL
+        href: msal-migration.md
+        displayName: migration
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -406,6 +415,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: UserInfo endpoint
+        href: userinfo.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
     - name: SAML 2.0 protocol
@@ -479,6 +490,10 @@
       href: active-directory-optional-claims.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
+    - name: Handle SameSite cookie changes in Chrome browser
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Handle ITP in Safari
+      href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
     items:
@@ -505,7 +520,7 @@
       href: howto-configure-publisher-domain.md
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
-    - name: Configure publisher verification for your app  
+    - name: Configure publisher verification for your app
       items:
       - name: Mark your app as publisher verified (preview)
         href: mark-app-as-publisher-verified.md
@@ -538,6 +553,9 @@
             href: msal-js-pass-custom-state-authentication-request.md
           - name: Prompt behavior
             href: msal-js-prompt-behavior.md
+          - name: Migrate SPA from implicit to auth code flow
+            href: migrate-spa-implicit-to-auth-code.md
+            displayName: authorization, single-page app, 2.0
       - name: MSAL for iOS and macOS
         items:
           - name: MSAL for iOS and macOS differences
@@ -576,7 +594,7 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
-- name: References
+- name: Reference
   items:
   - name: Application manifest
     href: reference-app-manifest.md
@@ -587,7 +605,7 @@
     displayName: MSAL, auth library, SDK
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
-    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
+    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md

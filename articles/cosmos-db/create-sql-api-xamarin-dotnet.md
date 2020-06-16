@@ -1,13 +1,13 @@
 ---
 title: 'Azure Cosmos DB: Build a todo app with Xamarin'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
-author: codemillmatt
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/30/2018
-ms.author: masoucou
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 ---
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
@@ -15,7 +15,7 @@ ms.author: masoucou
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

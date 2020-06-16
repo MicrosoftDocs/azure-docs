@@ -10,6 +10,7 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
+ms.custom: designer
 ---
 
 # Transform data in Azure Machine Learning designer (preview)

@@ -6,7 +6,7 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning vs Studio
+    - name: Azure Machine Learning vs Studio (classic)
       displayName: AML, Studio, designer
       href: compare-azure-ml-to-studio-classic.md
     - name: Architecture & terms
@@ -67,7 +67,12 @@
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
     - name: Machine Learning CLI
-      href: tutorial-train-deploy-model-cli.md
+      items: 
+        - name: Train & deploy with CLI
+          href: tutorial-train-deploy-model-cli.md
+        - name: Create workspaces with ARM template
+          displayName: Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
         - name: Set up Azure Machine Learning extension
@@ -79,9 +84,8 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
-    - name: Designer datasets
-      href: sample-designer-datasets.md
-    - name: Designer sample pipelines
+    - name: 'Designer examples & datasets'
+      displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
@@ -89,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
+    - name: 'Enterprise vs. Basic editions'
+      href: concept-editions.md
     - name: Plan and manage costs
       href: concept-plan-manage-cost.md
     - name: Designer (drag-n-drop ML)
@@ -124,6 +130,8 @@
         href: concept-data.md
       - name: Data ingestion
         href: concept-data-ingestion.md
+      - name: Data processing
+        href: concept-optimize-data-processing.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
@@ -261,6 +269,9 @@
       - name: Version & track datasets
         displayName: data, data set
         href: how-to-version-track-datasets.md
+      - name: Preserve data privacy
+        displayName: data,privacy,differential privacy
+        href: how-to-differential-privacy.md
   - name: Train models
     items:
     - name: Use estimators for ML
@@ -307,11 +318,14 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Define ML tasks
-      displayName: machine learning, task type
+      displayName: machine learning, task type, automl
       href: how-to-define-task-type.md
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Featurization in automated ML (Python)
+      displayName: automl, feature engineering, feature importance
+      href: how-to-configure-auto-features.md
     - name: Use automated ML in ML pipelines (Python)
       displayName: machine learning automl 
       href: how-to-use-automlstep-in-pipelines.md
@@ -353,6 +367,8 @@
           - name: Azure Functions
             displayName: functions app
             href: how-to-deploy-functions.md
+          - name: Azure Cognitive Search
+            href: how-to-deploy-model-cognitive-search.md
           - name: Azure IoT Edge devices
             href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
           - name: FPGA inference
@@ -376,6 +392,9 @@
             href: how-to-monitor-data-drift.md
           - name: Monitor with Application Insights
             href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md            
 
   - name: Build & use ML pipelines
     displayName: pipelines
@@ -394,9 +413,6 @@
     - name: Debug pipelines in Application Insights
       displayname: pipelines, log, monitor
       href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-      displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
     - name: 'Designer transform data'
       displayName: pipeline
       href: how-to-designer-transform-data.md
@@ -418,6 +434,9 @@
     - name: Iterating and evolving machine learning pipelines
       displayName: modularizing testing
       href: concept-pipeline-practices-tips.md
+  - name: 'Azure Pipelines for CI/CD'
+    displayName: continuous, integration, delivery
+    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -444,8 +463,6 @@
     - name: Designer module reference
       displayName: module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
-    - name: ML at scale
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitor data reference
       href: monitor-resource-reference.md
     - name: Machine learning pipeline YAML reference

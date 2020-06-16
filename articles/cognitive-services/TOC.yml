@@ -9,8 +9,6 @@
     href: cognitive-services-and-machine-learning.md
   - name: Custom subdomains for Cognitive Services
     href: cognitive-services-custom-subdomains.md
-  - name: Cognitive Services gating process
-    href: cognitive-services-gating-process.md
   - name: Language support
     href: language-support.md
 - name: Quickstarts

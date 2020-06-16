@@ -58,7 +58,13 @@ This will sign you directly into the subscription that is default for your admin
 If you want to change the default subscription after you've signed in, run this cmdlet:
 
 ```powershell
-Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -Subscription <preferredsubscriptionname>
+```
+
+You can also select one from a list using the Out-GridView cmdlet:
+
+```powershell
+Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
 
 When you select a new subscription to use, you don't need to specify that subscription's ID in cmdlets you run afterwards. For example, the following cmdlet retrieves a specific session host without needing the subscription ID:

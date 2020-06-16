@@ -2,8 +2,8 @@
 title: What is Azure SQL Edge (Preview)? 
 description: Learn about Azure SQL Edge (Preview)
 keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -28,7 +28,7 @@ Azure SQL Edge is available on the Azure Marketplace and can be deployed as a mo
 
 ## Editions of SQL Edge
 
-SQL Edge is available with three different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
+SQL Edge is available with two different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
 
    |**Plan**  |**Description**  |
    |---------|---------|
@@ -37,7 +37,7 @@ SQL Edge is available with three different editions or software plans. These edi
 
 ## Pricing and Availability
 
-Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).

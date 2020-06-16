@@ -1,37 +1,26 @@
 ---
-title: Azure Kubernetes Service (AKS) high availability with Uptime SLA
-description: Learn about the optional high availability Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
+title: Azure Kubernetes Service (AKS) with Uptime SLA
+description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/19/2020
+ms.custom: references_regions
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
 
-Uptime SLA is an optional feature to enable financially backed higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zone][availability-zones] and 99.9% of availability for clusters that don't use availability zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
+Uptime SLA is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-Customers needing SLA for compliance reasons or extending SLA's to their customers should turn on this feature. Customers with critical workloads who need higher availability with an option of SLA benefit from enabling this feature. Enable the feature with Availability Zones to obtain higher availability of the Kubernetes API server.  
+Customers needing an SLA to meet compliance requirements or require extending an SLA to their end-users should enable this feature. Customers with critical workloads that will benefit from a higher uptime SLA may also benefit. Using the Uptime SLA feature with Availability Zones enables a higher availability for the uptime of the Kubernetes API server.  
 
-Customers can create unlimited free clusters with a service level objective (SLO) of 99.5%.
+Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
 
 > [!Important]
-> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports for Uptime SLA.
+> For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
 ## SLA terms and conditions
 
-Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of clusters, and not by the size of the clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
-
-## Region Availability
-
-Uptime SLA is available in the following regions:
-
-* Australia East
-* Canada Central
-* East US
-* East US 2
-* South Central US
-* South East Asia
-* West US 2
+Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
 
 ## Before you begin
 
@@ -59,19 +48,18 @@ After a few minutes, the command completes and returns JSON-formatted informatio
     "name": "Basic",
     "tier": "Paid"
   },
-  "tags": null,
-  "type": "Microsoft.ContainerService/ManagedClusters",
-  "windowsProfile": null
 ```
 
 ## Limitations
 
-* You can't currently add Uptime SLA to existing clusters.
-* Currently, there is no way to remove Uptime SLA from an AKS cluster.  
+* Currently, cannot convert as existing cluster to enable the Uptime SLA.
+* Currently, there is no way to remove Uptime SLA from an AKS cluster after creation with it enabled.  
+* Private clusters aren't currently supported.
 
 ## Next steps
 
 Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
+Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

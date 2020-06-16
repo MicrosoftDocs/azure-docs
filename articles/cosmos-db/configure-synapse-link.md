@@ -183,11 +183,15 @@ container.replace(containerProperties).block();
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
-Use the instructions in [Connect to Azure Synapse Link]() on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
+Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
 ## <a id="query-analytical-store"></a> Query using Synapse Spark
 
-Use the instructions in the [Query Azure Cosmos DB analytical store]() article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+Use the instructions in the [Query Azure Cosmos DB analytical store](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article on how to query with Synapse Spark. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
+
+## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
+
+You can find samples to get started with Azure Synapse Link on [GitHub](https://aka.ms/cosmosdb-synapselink-samples). These showcase end-to-end solutions with IoT and Retail scenarios.
 
 ## Next steps
 

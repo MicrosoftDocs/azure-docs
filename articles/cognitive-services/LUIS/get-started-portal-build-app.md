@@ -2,7 +2,7 @@
 title: "Quickstart: Create a new app in the LUIS portal"
 description: In this quickstart, you create the basic parts of an app, intents, and entities as well as test with sample utterance in the LUIS portal.
 ms.topic: quickstart
-ms.date: 05/05/2020
+ms.date: 05/19/2020
 ---
 
 # Quickstart: Create a new app in the LUIS portal
@@ -132,7 +132,7 @@ The **None** intent's example utterances should be outside of your client applic
 
 1. Verify the entity is found in the **FindForm**  intent by selecting **Intents** from the left menu. Then select **FindForm** intent.
 
-   The entity is marked where it appears in the example utterances. If you want to see the original text instead of the entity name, toggle **Entities View** from the toolbar.
+   The entity is marked where it appears in the example utterances.
 
    > [!div class="mx-imgBorder"]
    > [![Screenshot of all example utterances marked with entities](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

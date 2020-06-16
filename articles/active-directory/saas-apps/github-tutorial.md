@@ -162,7 +162,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     d. Click on **Edit** icon to edit the **Signature Method** and **Digest Method** from **RSA-SHA1** and **SHA1** to **RSA-SHA256** and **SHA256** as shown below.
     
-    e. Update the **assertion consumer service URL (Reply URL)** from the default URL so that it the URL in Github matches the URL in the Azure app registration.
+    e. Update the **assertion consumer service URL (Reply URL)** from the default URL so that it the URL in GitHub matches the URL in the Azure app registration.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 

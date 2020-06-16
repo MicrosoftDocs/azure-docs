@@ -1,18 +1,16 @@
 ---
 title: Add a self-service sign-up user flow - Azure AD
 description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
@@ -22,7 +20,10 @@ ms.collection: M365-identity-device-management
 | Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up using the options configured in the user flow.
+You can create user flows for apps that are built by your organization. Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up and gain a guest account using the options configured in the user flow.
+
+> [!NOTE]
+> You can associate user flows with apps built by your organization. User flows can't be used for Microsoft apps, like SharePoint or Teams.
 
 ## Before you begin
 
@@ -30,9 +31,12 @@ Associating your user flow with an application allows you to enable sign-up on t
 
 Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. Social identity providers can also be included in these sign-up flows to support Google and Facebook accounts.
 
-- [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
- 
+- [Add Google to your list of social identity providers](google-federation.md)
+
+> [!NOTE]
+> In the current preview, if a self-service sign-up user flow is associated with an app and you send a user an invitation to that app, the user won't be able to use a Gmail account to redeem the invitation. As a workaround, the user can go through the self-service sign-up process. Or, they can redeem the invitation by accessing a different app or by using their My Apps portal at https://myapps.microsoft.com.
+
 ### Define custom attributes (optional)
 
 User attributes are values collected from the user during self-service sign-up. Azure AD comes with a built-in set of attributes, but you can create custom attributes for use in your user flow. You can also read and write these attributes by using the Microsoft Graph API. See [Define custom attributes for user flows](user-flow-add-custom-attributes.md).
@@ -100,3 +104,5 @@ Now you can associate applications with the user flow.
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
+- [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
+- [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)
