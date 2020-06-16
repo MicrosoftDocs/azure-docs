@@ -8,7 +8,7 @@ ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure RBAC
+# Azure Policy built-in definitions for Azure RBAC
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure RBAC. For additional Azure Policy built-ins for other services, see
