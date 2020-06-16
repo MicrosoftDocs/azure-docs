@@ -6,14 +6,11 @@ documentationcenter:
 author: LauraBrenner
 manager: evansma
 editor: ''
-
-ms.assetid:
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.workload:
-ms.date: 04/03/2020
+ms.date: 06/16/2020
 ms.author: labrenne
 ms.custom: include file
 ---
@@ -45,7 +42,7 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
 **Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet.
 
 > [!IMPORTANT]
->For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
+>For each 100 dedicated or low-priority nodes, Batch allocates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
 
 #### Network security groups: Batch default
 
