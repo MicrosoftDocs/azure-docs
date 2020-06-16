@@ -8,7 +8,7 @@ ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Data Lake Storage Gen1
+# Azure Policy built-in definitions for Azure Data Lake Storage Gen1
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Data Lake Storage Gen1. For additional Azure Policy built-ins for other
