@@ -22,11 +22,11 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
 
-## June 2020
+## May 2020
 
-Last month, we introduced the Windows Virtual Desktop Spring 2020 update. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
+In May, we introduced the Windows Virtual Desktop Spring 2020 update in preview. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
 
-### Windows Virtual Desktop is now integrated with Azure Resource Manager
+### Windows Virtual Desktop is now integrated with Azure Resource Manager (Preview)
 
 Windows Virtual Desktop is now integrated into Azure Resource Manager. In the latest update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. This update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
@@ -46,9 +46,6 @@ Here's what this change does for you:
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
-### Additional gateways
-
-We've added a new gateway cluster in South Africa to reduce connection latency.
 
 ### PowerShell support
 
@@ -60,7 +57,11 @@ You can also see a list of available commands at the [AzWvd PowerShell reference
 
 For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
 
-### Microsoft Teams on Windows Virtual Desktop
+### Additional gateways
+
+We've added a new gateway cluster in South Africa to reduce connection latency.
+
+### Microsoft Teams on Windows Virtual Desktop (Preview)
 
 We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 
