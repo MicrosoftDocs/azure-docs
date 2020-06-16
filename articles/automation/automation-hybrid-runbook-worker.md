@@ -45,9 +45,9 @@ For the Hybrid Runbook Worker to connect to and register with Azure Automation, 
 The following port and URLs are required for the Hybrid Runbook Worker:
 
 * Port: Only TCP 443 required for outbound internet access
-* Global URL: *.azure-automation.net
-* Global URL of US Gov Virginia: *.azure-automation.us
-* Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
+* Global URL: `*.azure-automation.net`
+* Global URL of US Gov Virginia: `*.azure-automation.us`
+* Agent service: `https://\<workspaceId\>.agentsvc.azure-automation.net`
 
 We recommend that you use the addresses listed when defining [exceptions](automation-runbook-execution.md#exceptions). For IP addresses, you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
@@ -102,9 +102,9 @@ On top of the standard addresses and ports that the Hybrid Runbook Worker requir
 
 |Azure Public  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 
