@@ -16,7 +16,7 @@ We recommend that you set up Azure Service Health alerts so you'll be notified w
 
 ## Design your storage accounts to prevent reaching the maximum subscription limit
 
-An Azure region can support a maximum of 250 storage accounts per subscription. After you reach that limit, you won't be able to create any more storage accounts in that region/subscription combination. Advisor checks your subscriptions and provides recommendations for you to design for fewer storage accounts for any region/subscription that's close to reaching the limit.
+An Azure region can support a maximum of 250 storage accounts per subscription. After you reach that limit, you won't be able to create storage accounts in that region/subscription combination. Advisor checks your subscriptions and provides recommendations for you to design for fewer storage accounts for any region/subscription that's close to reaching the limit.
 
 ## Ensure you have access to Azure cloud experts when you need it
 

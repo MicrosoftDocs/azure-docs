@@ -81,31 +81,31 @@ Advisor identifies any stand-alone storage accounts that are using the classic d
 
 ## Design your storage accounts to prevent hitting the maximum subscription limit
 
-An Azure region supports a maximum of 250 storage accounts per subscription. After this limit is reached, you won't be able to create storage accounts in that region/subscription combination. Advisor checks your subscriptions and surfaces recommendations for you to design for fewer storage accounts for any that are close to reaching the maximum limit.
+An Azure region supports a maximum of 250 storage accounts per subscription. After this limit is reached, you won't be able to create storage accounts in that region/subscription combination. Advisor checks your subscriptions and provides recommendations for you to design for fewer storage accounts for any subscription/region that's close to reaching the maximum limit.
 
-## Consider increasing the size of your VNet Gateway SKU to adress high P2S use
+## Consider increasing the size of your VPN Gateway SKU to address high P2S use
 
-Each gateway SKU can only support a specified count of concurrent P2S connections. If your connection count is close to your gateway limit, so additional connection attempts may fail. Increasing the size of your gateway will allow you to support more concurrent P2S users.Advisor provides recommendation and steps to take, for this.
+Each Azure VPN Gateway SKU can support only a specified number of concurrent P2S connections. If your connection count is close to your gateway limit, additional connection attempts might fail. If you increase the size of your gateway, you'll be able to support more concurrent P2S users. Advisor provides recommendations and instructions for increasing the size of your gateway.
 
-## Consider increasing the size of your VNet Gateway SKU to address high CPU
+## Consider increasing the size of your VPN Gateway SKU to address high CPU
 
-Under high traffic load, the VPN gateway may drop packets due to high CPU. You should consider upgrading your VPN Gateway SKU since your VPN has consistently been running at.Increasing the size of your VPN gateway will ensure that connections aren't dropped due to high CPU. Advisor provdes recommendation to address this issue proactively. 
+Under high traffic load, your VPN gateway might drop packets because of high CPU. Consider upgrading your VPN Gateway SKU. Increasing the size of your VPN gateway will ensure that connections aren't dropped because of high CPU. Advisor provides recommendations to proactively address this problem. 
 
 ## Increase batch size when loading to maximize load throughput, data compression, and query performance
 
-Advisor can detect that you can increase load performance and throughput by increasing the batch size when loading into your database. You could consider using the COPY statement. If you are unable to use the COPY statement, consider increasing the batch size when using loading utilities such as the SQLBulkCopy API or BCP - a good rule of thumb is a batch size between 100K to 1M rows. This will in increasing load throughput, data compression, and query performance.
+Advisor detects whether you can increase load performance and throughput by increasing the batch size when loading into your database. You could consider using the COPY statement. If you can't use the COPY statement, consider increasing the batch size when you use loading utilities like the SQLBulkCopy API or BCP. A good rule of thumb is to use a batch size that's between 100 thousand and 1 million rows. Increasing batch size will increase load throughput, data compression, and query performance.
 
-## Co-locate the storage account within the same region to minimize latency when loading
+## Co-locate the storage account in the same region to minimize latency when loading
 
-Advisor can detect that you are loading from a region that is different from your SQL pool. You should consider loading from a storage account that is within the same region as your SQL pool to minimize latency when loading data. This will help minimize latency and increase load performance.
+Advisor detects whether you're loading from a region that's different from your SQL pool. Consider loading from a storage account that's in the same region as your SQL pool to minimize latency when loading data. This change will help minimize latency and increase load performance.
 
-## Unsupported Kubernetes version is detected
+## Use a supported Kubernetes version
 
-Advisor can detect if an unsupported Kubernetes version is detected. The recommendation will help to ensure Kubernetes cluster runs with a supported version.
+Advisor detects unsupported versions of Kubernetes.
 
-## Optimize the performance of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers 
+## Optimize the performance of your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers
 
-### Fix the CPU pressure of your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers with CPU bottlenecks
+### Fix the CPU pressure of your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers with CPU bottlenecks
 Very high utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help in optimizing the runtime of the database queries and improve overall performance. Azure Advisor will identify servers with a high CPU utilization that are likely running CPU constrained workloads and recommend scaling your compute.
 
 ### Reduce memory constraints on your Azure MySQL, Azure PostgreSQL, and Azure MariaDB servers or move to a memory optimized SKU
