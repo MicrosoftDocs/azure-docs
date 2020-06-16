@@ -1,8 +1,9 @@
 ---
-title: Configure your SaaS offer listing details
+title: Configure your SaaS offer listing details in Partner Center
 description: How to configure your software as a service (SaaS) offer listing details in Microsoft commercial marketplace. 
-author: dannyevers 
-ms.author: mingshen-ms
+author: mingshen-ms 
+ms.author: mingshen
+ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

@@ -1,8 +1,9 @@
 ---
-title: Create plans for your SaaS offer | Microsoft commercial marketplace 
+title: Create plans for your SaaS offer in Partner Center 
 description: How to create plans for a new software as a service (SaaS) offer using the Microsoft commercial marketplace in Partner Center. 
-author: dannyevers 
-ms.author: mingshen-ms
+author: mingshen-ms 
+ms.author: mingshen
+ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

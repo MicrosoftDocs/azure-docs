@@ -1,8 +1,9 @@
 ---
-title: Marketing options for your SaaS offer | Microsoft commercial marketplace 
+title: Marketing options for your SaaS offer in Partner Center
 description: Learn about the co-sell with Microsoft and resell through CSP options for your software as a service (SaaS) offer in Microsoft Partner Center.
-author: dannyevers 
-ms.author: mingshen-ms
+author: mingshen-ms
+ms.author: mingshen
+ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to

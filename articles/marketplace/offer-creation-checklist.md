@@ -157,4 +157,4 @@ Only available if you select to offer a test drive for your offer. Define the de
 
 ## Next steps
 
-- [Create a new SaaS offer](../create-new-saas-offer.md)
+- [Create a new SaaS offer](create-new-saas-offer.md)

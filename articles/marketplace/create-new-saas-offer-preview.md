@@ -1,6 +1,6 @@
 ---
 title: Add a preview audience and technical details for your SaaS offer 
-description: How to add a preview audience and technical details for your software  as a service (SaaS) offer. 
+description: How to add a preview audience and technical details for your software  as a service (SaaS) offer in Microsoft Partner Center. 
 author: dannyevers 
 ms.author: mingshen-ms
 ms.service: marketplace 

@@ -1,8 +1,9 @@
 ---
-title: Plan a SaaS offer for Microsoft commercial marketplace | Microsoft Azure  
+title: Plan a SaaS offer for Microsoft commercial marketplace  
 description: How to plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
-author: dannyevers 
-ms.author: mingshen-ms
+author: mingshen-ms 
+ms.author: mingshen
+ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -73,7 +74,7 @@ When you [create a new SaaS app offer](create-new-saas-offer.md) in Partner Cent
 
 ***Figure 1: Example offer listing in the commercial marketplace***
 
-:::image type="content" source="partner-center-portal/media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+:::image type="content" source="./partner-center-portal/media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
 **Call-out descriptions**
 
