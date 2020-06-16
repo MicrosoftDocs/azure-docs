@@ -1,6 +1,6 @@
 ---
 title: How to create Guest Configuration policy definitions from Group Policy baseline for Windows
-description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition, and publish the Azure Policy Guest Configuration.
+description: Learn how to convert Group Policy from the Windows Server 2019 Security Baseline into a policy definition. 
 ms.date: 06/05/2020
 ms.topic: how-to
 ---
@@ -19,7 +19,7 @@ When auditing Windows, Guest Configuration uses a [Desired State Configuration](
 
 The DSC community has published the [BaselineManagement module](https://github.com/microsoft/BaselineManagement) to convert exported Group Policy templates to DSC format. Together with the GuestConfiguration cmdlet, the BaselineManagement module creates Azure Policy Guest Configuration for Windows from Group Policy content. For details about using the BaselineManagement module, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
 
-In this guide, we walk through the complete process of starting from a Group Policy Object (GPO) to creating an Azure Guest Configuration Policy. The walkthrough outlines the process of converting the Windows Server 2019 Security Baseline, but the same process can be applied to other GPO's.  
+In this guide, we walk through the process of creating an Azure Guest Configuration Policy from a Group Policy Object (GPO). While the walkthrough outlines conversion of the Windows Server 2019 Security Baseline, the same process can be applied to other GPOs.  
 
 ## Download Windows Server 2019 Security Baseline and install related PowerShell modules
 
@@ -50,7 +50,7 @@ To install the **DSC**, **GuestConfiguration**, **Baseline Management**, and rel
 1. Validate the Server 2019 Baseline contents using **MapGuidsToGpoNames.ps1**.
 
    ```azurepowershell-interactive
-   # Show content details of downloaded GPO's
+   # Show content details of downloaded GPOs
    C:\git\policyfiles\downloads\Scripts\Tools\MapGuidsToGpoNames.ps1 -rootdir C:\git\policyfiles\downloads\GPOs\ -Verbose
    ```
 
@@ -73,7 +73,7 @@ Next, we convert the downloaded Server 2019 Baseline into a Guest Configuration 
    C:\git\policyfiles\Server2019Baseline.ps1
    ```
 
-1. Create a Azure Policy Guest Configuration content package.
+1. Create an Azure Policy Guest Configuration content package.
 
    ```azurepowershell-interactive
    New-GuestConfigurationPackage -Name Server2019Baseline -Configuration c:\git\policyfiles\localhost.mof -Verbose
