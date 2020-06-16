@@ -198,7 +198,7 @@ Categorical variables still require the value to be of an integer type. The Data
 
 Case 4: **Using the JavaScript SDK to build a custom front-end application**
 
-If you're impacted by cases 1-3 above and build custom applications, you need to update your queries to use the use the *coalesce()* function, as demonstrated in the examples above.
+If you're impacted by cases 1-3 above and build custom applications, you need to update your queries to use the *coalesce()* function, as demonstrated in the examples above.
 
 Case 5: **Nearing Warm Store 1,000 property limit**
 
