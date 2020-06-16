@@ -24,7 +24,7 @@ A number of features have size or count limitations due to internal details of t
 ## Geometry
 
 * Total allowable materials in an asset: 65,535.
-* Maximum dimension of a single texture: 16,384 x 16,384.
+* Maximum dimension of a single texture: 16,384 x 16,384. Larger source textures will be scaled down by the conversion process.
 
 ## Overall number of polygons
 
