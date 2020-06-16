@@ -155,11 +155,11 @@ Before you begin, make sure that:
     If you have a valid subscription the command will output your subscription settings.
 
 2. Install the Azure Data Box CLI extension.
-   
+
    When working with extension references for the Azure CLI, you must first install the extension.Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.For more information about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
    Install the extension for Azure Data Box by running the following command: `az extension add --name databox`.
-    
+
    Here is an example of command usage:
 
     ```azurecli
@@ -287,7 +287,7 @@ You can get information about an existing Azure Data Box order using [az databox
 
    ```azurecli
     PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest3"
-    
+
     Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
     {
       "cancellationReason": null,
@@ -476,7 +476,7 @@ You can get information about an existing Azure Data Box order using [az databox
 
 ### Display all orders
 
-If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/en-us/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
+If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
 The command also displays time stamps of each order.
 
    ```azurecli
