@@ -53,7 +53,7 @@ Event Hubs ensures that all events sharing a partition key value are delivered i
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an event hub, using the following mechanism:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
@@ -82,13 +82,13 @@ In a stream processing architecture, each downstream application equates to a co
 
 There can be at most 5 concurrent readers on a partition per consumer group; however **it is recommended that there is only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all of the messages. If you have multiple readers on the same partition, then you process duplicate messages. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
 
-Some clients offered by the Azure SDKs are intelligent consumer agents which will automatically manage the details of ensuring that each partition has a single reader and that all partitions for an Event Hub are being read from. This allows your code to focus on processing the events being read from the Event Hub and ignoring many of the details of the partitions. More details can be found in [Connect to a Partition](#connect-to-a-partition) below.
+Some clients offered by the Azure SDKs are intelligent consumer agents that automatically manage the details of ensuring that each partition has a single reader and that all partitions for an event hub are being read from. This allows your code to focus on processing the events being read from the event hub so it can ignore many of the details of the partitions. For more information, see [Connect to a partition](#connect-to-a-partition).
 
-The following are examples of the consumer group URI convention:
+The following examples show the consumer group URI convention:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 The following figure shows the Event Hubs stream processing architecture:
@@ -120,7 +120,7 @@ All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirect
 
 #### Connect to a partition
 
-When connecting to partitions, it is common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs that act as  intelligent consumer agents. These are:
+When connecting to partitions, it's common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it's possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs, which act as intelligent consumer agents. These are:
 
 - The [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) for .NET
 - The [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) for Java
@@ -152,6 +152,4 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
-* [Event Hubs samples][]
-
-[Event Hubs samples]: /azure/event-hubs/event-hubs-samples
+* [Event Hubs samples](event-hubs-samples.md)
