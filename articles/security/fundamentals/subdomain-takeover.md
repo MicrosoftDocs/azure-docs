@@ -34,7 +34,7 @@ A common scenario for a subdomain takeover:
 
 1. A CNAME entry is added to the DNS pointing to the website. 
 
-    In this example, the following friendly name was created: `GreatApp.Contoso.com`
+    In this example, the following friendly name was created: `GreatApp.Contoso.com`.
 
 1. After a few months, the site is no longer needed so it is deleted **without** deleting the corresponding DNS entry. 
 
@@ -127,7 +127,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 - **Create procedures for prevention:**
 
-    - Review your DNS records regularly to ensure that your subdomains are correctly mapped to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)) and that ensuring all Azure mappings are in your service catalog
+    - Review your DNS records regularly to ensure that your subdomains are correctly mapped to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)) and that ensuring all Azure mappings are in your service catalog.
 
     - Educate your application developers to reroute addresses whenever they delete resources.
 
