@@ -10,7 +10,7 @@ ms.custom: mvc
 
 # Running Apache Spark jobs on AKS
 
-[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
+[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-kubernetes-earliest-version], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -337,7 +337,7 @@ Check out Spark documentation for more details.
 [java-install]: https://aka.ms/azure-jdks
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 
