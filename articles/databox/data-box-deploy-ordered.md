@@ -130,11 +130,13 @@ Before you begin, you must have:
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
+[!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Prepare your environment
 
-1. Open up a Windows PowerShell command window and sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
+For this tutorial, we use Windows PowerShell to run Azure CLI commands. You can substitute Windows PowerShell with a different command prompt or terminal that supports Azure CLI.
+
+1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
 
    Here is an example that shows how to sign in to Azure:
 
@@ -168,7 +170,7 @@ Before you begin, you must have:
 
 2. Install the Azure Data Box CLI extension.
 
-   When working with extension references for the Azure CLI, you must first install the extension.Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+   When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
    To install the extension for Azure Data Box, run the following command: `az extension add --name databox`.
 
@@ -205,6 +207,7 @@ For all Azure CLI commands discussed in this tutorial, output format is set to .
 PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
 
 ```
+
 Azure Data Box CLI supports the following output formats:
 
 * json (default setting)
@@ -219,9 +222,9 @@ You can use this parameter with all Azure Data Box job CLI commands.
 
 ## Create an order
 
-Perform the following steps to order a device using Azure CLI:
+Perform the following steps to create a device order:
 
-1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the settings you will need when creating the order using the CLI:
+1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the parameter settings used for `az databox job create`:
 
    | Setting (parameter) | Description |  Sample value |
    |---|---|---|
@@ -247,7 +250,7 @@ Perform the following steps to order a device using Azure CLI:
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include verbose logging. | --verbose |
 
-2. In Azure PowerShell, use the [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
+2. In your command-prompt of choice or terminal, use the [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -306,7 +309,7 @@ You can get tracking information about an existing Azure Data Box order using [a
    az databox job show --resource-group <resource-group> --name <order-name>
    ```
 
-   The following table shows the parameter information for displaying an order:
+   The following table shows the parameter information for `az databox job show`:
 
    | Parameter | Description |  Sample value |
    |---|---|---|
@@ -510,7 +513,7 @@ You can get tracking information about an existing Azure Data Box order using [a
 
    ```
 
-## Display all orders
+## List all orders
 
 If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
 The command also displays time stamps of each order.
@@ -519,7 +522,7 @@ The command also displays time stamps of each order.
    az databox job list --resource-group <resource-group>
    ```
 
-The following table shows the parameter information for deleting an order:
+The following table shows the parameter information for `az databox job list`:
 
    | Parameter | Description |  Sample value |
    |---|---|---|
@@ -665,7 +668,7 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
    ```
 
-   The following table shows the parameter information for deleting an order:
+   The following table shows the parameter information for `az databox job cancel`:
 
    | Parameter | Description |  Sample value |
    |---|---|---|
@@ -697,7 +700,7 @@ If you have cancelled an Azure Data Box order, you may delete the order using [a
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
    ```
 
-   The following table shows the parameter information for deleting an order:
+   The following table shows the parameter information for `az databox job delete`:
 
    | Parameter | Description |  Sample value |
    |---|---|---|
