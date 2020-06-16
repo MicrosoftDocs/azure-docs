@@ -330,6 +330,8 @@
           href: ./partner-center-portal/azure-vm-create-offer.md
         - name: Create an Azure VM technical asset
           items:
+            - name: Virtual Machine Certification - Issues and Solutions
+              href: ./partner-center-portal/vm-certification-issues-solutions.md
             - name: Create an Azure VM technical asset
               href: ./partner-center-portal/create-azure-vm-technical-asset.md
             - name: Azure VM technical asset FAQ
