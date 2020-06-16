@@ -13,7 +13,8 @@ ms.author: spelluru
 # System topics in Azure Event Grid
 Azure services like Azure Storage, Azure Media services, and Azure Event Hubs publish events to the Azure Event Grid service when activities are performed against those services. Those events are represented by **system topics** in Event Grid. For example, a system topic represents **all blob events** published for a **specific storage account**. You can create one or more subscriptions for a system topic to process those events.  
 
-> [!NOTE] Only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for custom topics or domains.
+> [!NOTE] 
+> Only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for custom topics or domains.
 
 ## Azure services that support system topics
 Here is the list of Azure services that support creation of system topics on them.
