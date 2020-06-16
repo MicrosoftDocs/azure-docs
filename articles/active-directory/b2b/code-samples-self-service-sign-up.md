@@ -34,10 +34,10 @@ The following tables provide links to code samples for leveraging web APIs in yo
 |--------| ----------- |
 | [Manual approval workflow](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connectors-approvals) | This sample demonstrates an end-to-end approval workflow to manage guest user account creation in self-service sign-up |
 
-## Identity proofing
+## Identity verification
 
 | Sample                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-proofing) | This sample shows how to add Identity proofing to your self-service sign-up user flow by using an API connector to integrate with IDology. |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | This sample shows how to verify a user identity as part of your self-service sign-up user flow by using an API connector to integrate with IDology. |
 
 <!-- | [Experian](https://github.com/Azure-Samples/) | This sample shows how add identity verification to your self-service sign-up user flow by using an API connector to integrate with Experian. | -->
