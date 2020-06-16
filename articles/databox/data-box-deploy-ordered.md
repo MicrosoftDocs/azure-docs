@@ -28,18 +28,9 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 
 ## Prerequisites
 
-Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
+Complete the following configuration prerequisites for Data Box service and device before you deploy the device:
 
-### For service
-
-[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
-
-### For device
-
-Before you begin, make sure that:
-
-* You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
 ## Order Data Box
 
@@ -78,7 +69,7 @@ Perform the following steps in the Azure portal to order a device.
 
     ![Data Box order for storage account](media/data-box-deploy-ordered/order-storage-account.png)
 
-    If using Data Box to create managed disks from the on-premises VHDs, you will also need to provide the following information:
+    If using Data Box to create managed disks from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
     |Setting  |Value  |
     |---------|---------|
@@ -131,29 +122,19 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 
 # [Azure CLI](#tab/azure-cli)
 
-## Azure CLI prerequisites
+## Prequisites
 
 Before you begin, you must have:
 
 * Installed [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
 
-### For service
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
-[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
-
-### For device
-
-Before you begin, make sure that:
-
-* You should have a host computer connected to the datacenter network. Data Box will copy the data from this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
-* Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
 
 ## Prepare your environment
 
-<!-- To view the commands in the Azure CLI [extension for Azure Data Box](https://docs.microsoft.com/cli/azure/ext/databox/databox?view=azure-cli-latest). -->
-1. Sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
+1. Open up a Windows PowerShell command window and sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
 
    Here is an example that shows how to sign in to Azure:
 
@@ -216,9 +197,9 @@ Before you begin, make sure that:
 
    For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
 
-## Use Azure CLI to manage orders
+<!--## Use Azure CLI to manage orders-->
 
-### Create an order
+## Create an order
 
 Perform the following steps to order a device using Azure CLI:
 
@@ -299,9 +280,9 @@ Perform the following steps to order a device using Azure CLI:
 
    ```
 
-### Display information for an existing order
+### Track an order
 
-You can get information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
+You can get tracking information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -511,7 +492,7 @@ You can get information about an existing Azure Data Box order using [az databox
 
    ```
 
-### Display all orders
+## Display all orders
 
 If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Cancelled order are also included in the list.
 The command also displays time stamps of each order.
@@ -658,7 +639,7 @@ The following table shows the parameter information for deleting an order:
 
 ```
 
-### Cancel an order
+## Cancel an order
 
 You can cancel an Azure Data Box order using [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel).
 
@@ -690,7 +671,7 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
    PS C:\Windows>
    ```
 
-### Delete an order
+## Delete an order
 
 If you have cancelled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
 
@@ -723,7 +704,6 @@ Here's an example of the command with output:
    ```
 
 ---
-
 
 ## Next steps
 
