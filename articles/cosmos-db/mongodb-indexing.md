@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/17/2020
 author: timsander1
 ms.author: tisande
 
@@ -109,12 +109,11 @@ The following command creates a wildcard index on any properties within `childre
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates** There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property.
+**Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates**. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property.
 
 You can create the following index types using wildcard syntax:
 
 - Single field
-- Multikey
 - Geospatial
 
 ### Indexing all properties
@@ -123,7 +122,7 @@ Here's how you can create a wildcard index on all fields:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-As you are starting development, it may be useful to create a wildcard index on all fields. As more properties are indexed in a document, the Request Unit (RU) charge for writing and updating the document will increase. Therefore, using a wildcard index on all fields is not recommended for write-heavy scenarios.
+As you are starting development, it may be useful to create a wildcard index on all fields. As more properties are indexed in a document, the Request Unit (RU) charge for writing and updating the document will increase. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
 
 ### Limitations
 
@@ -158,6 +157,8 @@ Wildcard indexes do not support any of the following index types or properties:
         }
     }
 )`
+
+As an alternative, you could create multiple wildcard indexes.
 
 ## Index properties
 
