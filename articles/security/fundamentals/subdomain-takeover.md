@@ -29,15 +29,20 @@ Subdomain takeovers are a common, high-severity threat for organizations that re
 A common scenario for a subdomain takeover:
 
 1. A website is created. 
+
     In this example, `wer123821432.azurewebsites.net`.
 
 1. A CNAME entry is added to the DNS pointing to the website. 
+
     In this example, the following friendly name was created: `GreatApp.Contoso.com`
 
-1. After a few months, the site is no longer needed so it is deleted. Cruciall, the CNAME DNS entry remains. It is now "dangling".
+1. After a few months, the site is no longer needed so it is deleted. Cruciall, the CNAME DNS entry remains. 
+It is now "dangling".
 
 1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own website at `wer123821432.azurewebsites.net`.
+
     Now, the traffic intended for `GreatApp.Contoso.com` goes to the threat actor's Azure site. 
+
     The 'dangling DNS' was exploited, and Contoso's subdomain "GreatApp" has been taken over. 
 
 ![Subdomain takeover from a deprovisioned website](./media/subdomain-takeover/subdomain-takeover.png)
