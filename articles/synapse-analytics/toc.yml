@@ -430,7 +430,7 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
-    - name: Analyze complex schema with arrays and nested structures
+    - name: Analyze arrays and nested structures
       href: how-to-analyze-complex-schema.md
     - name: Synapse Link
       items:
