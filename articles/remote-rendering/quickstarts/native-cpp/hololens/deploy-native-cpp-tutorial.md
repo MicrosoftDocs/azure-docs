@@ -1,6 +1,6 @@
 ---
 title: Deploy native C++ tutorial to Hololens
-description: Quickstart that shows how to run the native C++ tutorial to Hololens
+description: Quickstart that shows how to run the native C++ tutorial on Hololens
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
@@ -15,9 +15,9 @@ In this quickstart you will learn how to:
 
 > [!div class="checklist"]
 >
->* Build the tutorial application for HoloLens
->* Deploy the sample to the device
->* Run the sample on the device
+>* Build the tutorial application for HoloLens.
+>* Change the ARR credentials in the source code.
+>* Deploy and run the sample on the device.
 
 ## Prerequisites
 
@@ -87,7 +87,7 @@ Now the application can be compiled.
 1. Turn on the Hololens and wait until the start menu (pins panel) shows up.
 1. Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the device.
 
-The sample app should launch and a text panel should appear that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading has finished, the built-in engine model appears right at your head position. It interacts properly with the spinning cube that is rendered locally.
+The sample app should launch and a text panel should appear that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading has completed, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cube that is rendered locally.
 
  If you want to launch the sample a second time later, you can also find it from the HoloLens start menu, but note it may have an expired session ID compiled into it.
 
