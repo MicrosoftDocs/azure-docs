@@ -44,8 +44,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.instances.azureml.net** | Azure Machine Learning compute instances |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ## Python hosts
 

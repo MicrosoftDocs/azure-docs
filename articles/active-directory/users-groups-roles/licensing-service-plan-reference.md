@@ -10,7 +10,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: reference
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/27/2020
