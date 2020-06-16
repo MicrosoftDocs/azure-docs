@@ -75,18 +75,6 @@ When a Visual Studio solution includes multiple projects, the Visual Studio publ
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
 ```
 
-## Get detailed exceptions page
-
-When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic error message. To display the detailed exception page in App Service, open the *Web.config* file and add the `<customErrors mode="Off"/>` element under the `<system.web>` element. For example:
-
-```xml
-<system.web>
-    <customErrors mode="Off"/>
-</system.web>
-```
-
-Redeploy your app with the updated *Web.config*. You should now see the same detailed exception page.
-
 ## Access diagnostic logs
 
 ASP.NET Core provides a [built-in logging provider for App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). In *Program.cs* of your project, add the provider to your application through the `ConfigureLogging` extension method, as shown in the following example:
@@ -112,7 +100,7 @@ For more information on troubleshooting ASP.NET Core apps in App Service, see [T
 
 ## Get detailed exceptions page
 
-When your ASP.NET app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** error or **An error occurred while processing your request.** message. To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** error or **An error occurred while processing your request.** message. To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
