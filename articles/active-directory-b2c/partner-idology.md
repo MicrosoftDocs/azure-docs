@@ -1,7 +1,7 @@
 ---
-title: Twilio Verify App with Azure Active Directory B2C
+title: IDology integration with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Learn how to integrate a sample online payment app in Azure AD B2C with the Twilio Verify API. Comply with PSD2 (Payment Services Directive 2) transaction requirements through dynamic linking and strong customer authentication.
+description: Learn how to integrate a sample online payment app in Azure AD B2C with IDology. IDology is an identity verification and proofing provider with multiple solutions.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
