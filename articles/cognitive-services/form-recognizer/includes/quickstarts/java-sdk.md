@@ -310,7 +310,7 @@ private static String TrainModel(
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
     System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
 ```
 The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
@@ -318,7 +318,7 @@ The returned **CustomFormModel** object contains information on the form types t
     System.out.println("Recognized Fields:");
     // looping through the sub-models, which contains the fields they were trained on
     // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubModel -> {
         // Since the training data is unlabeled, we are unable to return the accuracy of this model
         customFormSubModel.getFieldMap().forEach((field, customFormModelField) ->
             System.out.printf("Field: %s Field Label: %s%n",
@@ -335,7 +335,7 @@ Finally, this method returns the unique ID of the model.
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **beginTraining** method with the *uselabels* parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents. The [Form Recognizer sample labeling tool](../../quickstarts/label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the **beginTraining** method with the *useTrainingLabels* parameter set to `true`.
 
 ```java
 private static String TrainModelWithLabels(
@@ -350,8 +350,8 @@ private static String TrainModelWithLabels(
     // Model Info
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Model created on: %s%n", customFormModel.getCreatedOn());
-    System.out.printf("Model last updated: %s%n%n", customFormModel.getLastUpdatedOn());
+    System.out.printf("Model created on: %s%n", customFormModel.getRequestedOn());
+    System.out.printf("Model last updated: %s%n%n", customFormModel.getCompletedOn());
 ```
 
 The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
@@ -361,7 +361,7 @@ The returned **CustomFormModel** indicates the fields the model can extract, alo
     // The labels are based on the ones you gave the training document.
     System.out.println("Recognized Fields:");
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubModel -> {
         System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
         customFormSubModel.getFieldMap().forEach((label, customFormModelField) ->
             System.out.printf("Field: %s Field Name: %s Field Accuracy: %.2f%n",
@@ -428,7 +428,7 @@ The following code block checks how many models you have saved in your Form Reco
     // First, we see how many custom models we have, and what our limit is
     AccountProperties accountProperties = client.getAccountProperties();
     System.out.printf("The account has %s custom models, and we can have at most %s custom models",
-        accountProperties.getCount(), accountProperties.getLimit());
+        accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
 ```
 
 ### List the models currently stored in the resource account
@@ -446,9 +446,9 @@ The following code block lists the current models in your account and prints the
         CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
         System.out.printf("Model Id: %s%n", customModel.getModelId());
         System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Created on: %s%n", customModel.getCreatedOn());
-        System.out.printf("Updated on: %s%n", customModel.getLastUpdatedOn());
-        customModel.getSubModels().forEach(customFormSubModel -> {
+        System.out.printf("Created on: %s%n", customModel.getRequestedOn());
+        System.out.printf("Updated on: %s%n", customModel.getCompletedOn());
+        customModel.getSubmodels().forEach(customFormSubModel -> {
             System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
             System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
             if (customFormSubModel.getFieldMap() != null) {
