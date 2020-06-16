@@ -24,7 +24,9 @@ This article describes how to configure object replication for your storage acco
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
-Also, make sure that you have registered for the following feature previews:
+A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
+
+Before you begin, make sure that you have registered for the following feature previews:
 
 - [Object replication (preview)](object-replication-overview.md)
 - [Blob versioning (preview)](versioning-overview.md)
