@@ -94,7 +94,7 @@ The **UI Locales ('ui_locales')** claim is sent by default in all requests. It p
 
 If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API.
 
-Custom attributes can be created for the user using the **extension*\<extensions-app-id>*\<AttributeName>** format. Your API should expect to receive claims in this same serialized format. Your API can return claims in that same format but without the `<extensions-app-id>`. <!--TODO: update once fix is rolled out--> For more information about custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
+Custom attributes can be created for the user using the **extension_\<extensions-app-id>_AttributeName** format. Your API should expect to receive claims in this same serialized format. Your API can return claims with or without the `<extensions-app-id>`. For more information about custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 > [!TIP][**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
 
@@ -200,8 +200,7 @@ Content-type: application/json
 
 ## Next steps
 
-<!-- - Learn [how your API should respond](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) -->
-
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow)
 - Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
+- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
 <!-- - Learn how to [use API connectors for identity proofing](code-samples-self-service-sign-up.md#identity-proofing) -->

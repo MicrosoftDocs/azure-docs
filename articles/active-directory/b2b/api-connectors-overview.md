@@ -22,8 +22,7 @@ ms.collection: M365-identity-device-management
 As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems by leveraging web APIs. For example, you can use API connectors to:
 
 - [**Integrate with a custom approval workflows**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing account creation.
-<!-- - [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions. -->
-- **Perform identity proofing**. Use an identity proofing and verification service to add an extra level of security to account creation decisions.
+- [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions.
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
@@ -61,10 +60,9 @@ An API connector at this step in the sign-up process is invoked after the attrib
 
 ## Frequently asked questions (FAQ)
 
-### How do I integrate with an existing API endpoint?
-You can use an [HTTP trigger in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) as a simple way to call and invoke other web APIs.
+### How do I integrate with an API that I can't change?
+You can use an HTTP trigger in Azure Functions as a simple way to call and invoke other web APIs. Get started with our [quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
 
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
-<!--#TODO: Make doc, link.-->

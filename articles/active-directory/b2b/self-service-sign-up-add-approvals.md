@@ -368,6 +368,7 @@ Content-type: application/json
 }
 ```
 
-<!-- ## Next steps -->
+## Next steps
+
+- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
 <!-- - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system).  -->
-<!--TODO: link to sample-->
