@@ -27,7 +27,10 @@ This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console ap
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-## Install the Azure development workload 
+## Create a console app
+Placeholder text while implementing the new outline.
+
+### Install the Azure development workload 
 
 The **Azure development** workload is required for developing WebJobs with Visual Studio 2019.  
 
@@ -39,7 +42,7 @@ The **Azure development** workload is required for developing WebJobs with Visua
 
 4. On the **Installer** page, in the **Visual Studio Community 2019** box, select **Launch**.
 
-## Create a project
+### Create a project
 
 1. In Visual Studio, select **File** > **New** > **Project**.
 
@@ -49,7 +52,7 @@ The **Azure development** workload is required for developing WebJobs with Visua
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
-## Install WebJobs NuGet packages
+### Install WebJobs NuGet packages
 
 Install the latest WebJobs NuGet package. This package includes Microsoft.Azure.WebJobs, which lets you publish your function code to WebJobs in Azure App Service.
 
@@ -66,7 +69,7 @@ Install the latest WebJobs NuGet package. This package includes Microsoft.Azure.
      ```
 5. In the **Package Manager Console**, execute the command. The extension list appears and automatically installs. 
   
-## Create the Host
+### Create the Host
 
 The host is the runtime container for functions that listens for triggers and calls functions. The following steps create a host that implements [`IHost`](/dotnet/api/microsoft.extensions.hosting.ihost), which is the Generic Host in ASP.NET Core.
 
@@ -97,7 +100,7 @@ The host is the runtime container for functions that listens for triggers and ca
 
 In ASP.NET Core, host configurations are set by calling methods on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. For more information, see [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). The `ConfigureWebJobs` extension method initializes the WebJobs host. In `ConfigureWebJobs`, initialize specific WebJobs extensions and set properties of those extensions.  
 
-## Enable console logging
+### Enable console logging
 
 Set up console logging that uses the [ASP.NET Core logging framework](/aspnet/core/fundamentals/logging). This framework, Microsoft.Extensions.Logging, includes an API that works with a variety of built-in and third-party logging providers.
 
