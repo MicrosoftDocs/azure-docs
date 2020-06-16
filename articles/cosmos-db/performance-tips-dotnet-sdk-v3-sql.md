@@ -83,9 +83,8 @@ Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Addi
 For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that direct mode is the default.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -94,6 +93,18 @@ new CosmosClientOptions
 
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
+![The Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+
+**Ephemeral port exhaustion**
+
+If you are facing a high connection volume or high port usage on your instances, first verify your client instances are singletons or unique for the lifetime of the application.
+
+When running on the TCP protocol, the client optimizes for latency by using long-lived connections as opposed to HTTPS protocol, which terminates connections after 2 minutes of inactivity. 
+
+In scenarios where you have sparse access and you notice a higher connection count compared to Gateway mode you can:
+
+* Configure [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This allows the SDK to use a small pool of ephemeral ports for different Cosmos DB destination endpoints.
+* Configure [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) with the values suggested in the documentation.
 
 <a id="same-region"></a>
 

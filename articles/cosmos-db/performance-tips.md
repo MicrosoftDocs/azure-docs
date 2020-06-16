@@ -89,8 +89,8 @@ Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Addi
 For the Microsoft.Azure.DocumentDB SDK, you configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
+Uri serviceEndpoint = new Uri("https://contoso.documents.net");
+string authKey = "your authKey from the Azure portal";
 DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
 new ConnectionPolicy
 {
@@ -102,6 +102,17 @@ new ConnectionPolicy
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway and the `Protocol` value in `ConnectionPolicy` is ignored.
 
 ![The Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+
+**Ephemeral port exhaustion**
+
+If you are facing a high connection volume or high port usage on your instances, first verify your client instances are singletons or unique for the lifetime of the application.
+
+When running on the TCP protocol, the client optimizes for latency by using long-lived connections as opposed to HTTPS protocol, which terminates connections after 2 minutes of inactivity. 
+
+In scenarios where you have sparse access and you notice a higher connection count compared to Gateway mode you can:
+
+* Configure [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This allows the SDK to use a small pool of ephemeral ports for different Cosmos DB destination endpoints.
+* Configure [ConnectionPolicy.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) with the values suggested in the documentation.
 
 **Call OpenAsync to avoid startup latency on first request**
 
