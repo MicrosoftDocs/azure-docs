@@ -93,10 +93,16 @@ $ helm upgrade --name myrelease-1 \
 
 ### Upgrade agent on Azure Arc enabled Kubernetes
 
-Perform the following steps to upgrade the agent on an Azure Arc enabled Kubernetes cluster. 
+Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster without a proxy endpoint.
 
 ```
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+Perform the following command to upgrade the agent when a proxy endpoint is specified. For more information about the proxy endpoint, see [Configure proxy endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+
+```
+helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## How to disable environment variable collection on a container

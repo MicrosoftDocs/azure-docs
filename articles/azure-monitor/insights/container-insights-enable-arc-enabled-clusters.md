@@ -122,19 +122,9 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
     ```
 
-5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `$proxyEndpoint` with the URL of the proxy server.
+5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `$proxyEndpoint` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint) later in this article.
 
-    ```powershell
-    $proxyEndpoint = https://<proxyhost>:<port>
-    ```
-
-    If authentication is required, you need to specify the username and password. For example:
-
-    ```powershell
-    $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
-    ```
-
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint).
+    
 
 6. Run the following command to enable monitoring.
 
@@ -172,19 +162,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
     ```
 
-5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server.
-
-    ```bash
-    export proxyEndpoint=https://<proxyhost>:<port>
-    ```
-
-    If authentication is required, you need to specify the username and password. For example:
-
-    ```bash
-    export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
-    ```
-
-    If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint).
+5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you can set the value to `""`. For more information, see [Configure proxy](#configure-proxy-endpoint).
 
 6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
 
@@ -218,18 +196,54 @@ After you've enabled monitoring, it might take about 15 minutes before you can v
 
 With the containerized agent for Azure Monitor for containers, you can configure a proxy endpoint to allow it to communicate through your proxy server. Communication between the containerized agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
 
-The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]` The *protocol* property accepts `http` or `https`, and the *proxyhost* property accepts a fully qualified domain name or IP address of the proxy server.
-
-For example: `https://proxy01.contoso.com:30443`
-
-If authentication is required in either case, you need to specify the username and password.
-
-For example: `http://user01:password@proxy01.contoso.com:8080`
+The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]` 
 
 > [!NOTE]
 >If your proxy server does not require authentication, you still need to specify a psuedo user/password. This can be any username or password.
 
+|Property| Description |
+|--------|-------------|
+|Protocol | http or https |
+|user | Optional username for proxy authentication |
+|password | Optional password for proxy authentication |
+|proxyhost | Address or FQDN of the proxy server |
+|port | Optional port number for the proxy server |
+
+For example: `https://proxy01.contoso.com:3128`
+
+If authentication is required in either case, you need to specify the username and password.
+
+For example: `http://user01:password@proxy01.contoso.com:3128`
+
 If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
+
+### Configure using PowerShell
+
+Specify the IP address or FQDN, and port number for the proxy server. For example:
+
+```powershell
+$proxyEndpoint = https://<proxyhost>:<port>
+```
+
+If authentication is required, you need to specify the username and password. For example:
+
+```powershell
+$proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
+```
+
+### Configure using bash
+
+Specify the IP address or FQDN, and port number for the proxy server. For example:
+
+```bash
+export proxyEndpoint=https://<proxyhost>:<port>
+```
+
+If authentication is required, you need to specify the username and password. For example:
+
+```bash
+export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
+```
 
 ## Next steps
 
@@ -239,4 +253,4 @@ If you specify the protocol as **http**, the HTTP requests are created using SSL
 
 - To scrape and analyze Prometheus metrics from your cluster, review [Configure Prometheus metrics scraping](container-insights-prometheus-integration.md)
 
-- To learn how to stop monitoring your Arc enabled Kubernetes cluster with Azure Monitor for containers, see [How to stop monitoring your hybrid cluster](container-insights-optout-hybrid.md).
+- To learn how to stop monitoring your Arc enabled Kubernetes cluster with Azure Monitor for containers, see [How to stop monitoring your hybrid cluster](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes).
