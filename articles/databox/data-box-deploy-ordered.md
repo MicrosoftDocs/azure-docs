@@ -137,6 +137,17 @@ After placing an order, you can cancel it at any point before the order status i
 
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
+## Next steps
+
+In this tutorial, you learned about Azure Data Box topics such as:
+
+> [!div class="checklist"]
+>
+> * Prerequisites to deploy Data Box
+> * Order Data Box
+> * Track the order
+> * Cancel the order
+
 # [Azure CLI](#tab/azure-cli)
 
 ## Prequisites
@@ -173,7 +184,7 @@ To run the code in this article in Azure Cloud Shell:
 
 ## Prepare your environment
 
-1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
+1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. If you are not authenticated, follow the steps displayed in Azure CLI  to complete the authentication process.
 
    Here is an example that shows how to sign in to Azure:
 
@@ -255,7 +266,7 @@ Azure Data Box CLI supports the following output formats:
 * yamlc
 * none
 
-You can use this parameter with all Azure Data Box job CLI commands.
+You can use this parameter with all Azure Data Box CLI commands.
 
 ## Create an order
 
@@ -338,7 +349,7 @@ Perform the following steps to create a device order:
 
    ```
 
-### Track an order
+## Track an order
 
 You can get tracking information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
 
@@ -761,8 +772,6 @@ Here's an example of the command with output:
    PS C:\Windows>
    ```
 
----
-
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
@@ -773,6 +782,9 @@ In this tutorial, you learned about Azure Data Box topics such as:
 > * Order Data Box
 > * Track the order
 > * Cancel the order
+> * Delete the order
+
+---
 
 Advance to the next tutorial to learn how to set up your Data Box.
 
