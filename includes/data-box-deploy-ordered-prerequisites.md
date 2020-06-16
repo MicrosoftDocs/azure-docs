@@ -1,9 +1,8 @@
 ---
-title: Tutorial to order Azure Data Box | Microsoft Docs
-description: Learn the deployment prerequisites and how to order an Azure Data Box
+title: Prerequisites include file shared by two tabs in the same file  | Microsoft Docs
+description: Azure Data Box deploy ordered prerequisites
 services: databox
 author: priestlg
-
 ms.service: databox
 ms.subservice: pod
 ms.topic: include

@@ -132,9 +132,29 @@ Before you begin, you must have:
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-## Prepare your environment
+### Azure Cloud Shell
 
-For this tutorial, we use Windows PowerShell to run Azure CLI commands. You can substitute Windows PowerShell with a different command prompt or terminal that supports Azure CLI.
+For this tutorial, we use Windows PowerShell to run Azure CLI commands. Alternatively, you can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. You can use either Bash or PowerShell with Cloud Shell to work with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
+
+To start Azure Cloud Shell:
+
+| Option | Example/Link |
+|-----------------------------------------------|---|
+| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+
+To run the code in this article in Azure Cloud Shell:
+
+1. Start Cloud Shell.
+
+2. Select the **Copy** button on a code block to copy the code.
+
+3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+
+4. Select **Enter** to run the code.
+
+## Prepare your environment
 
 1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. Follow the steps displayed in Azure CLI  to complete the authentication process.
 
