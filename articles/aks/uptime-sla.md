@@ -31,7 +31,7 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 ## Before you begin
 
-* Install the Azure CLI version 2.7.0 or later
+* Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.7.0 or later
 
 ## Creating a cluster with Uptime SLA
 
