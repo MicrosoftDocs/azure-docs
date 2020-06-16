@@ -53,7 +53,7 @@ key = os.environ["FORM_RECOGNIZER_KEY"]
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure_ai_formrecognizer-1.0.0b3-py2.py3-none-any.whl
+pip install azure_ai_formrecognizer
 ```
 
 <!-- 
