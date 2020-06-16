@@ -20,7 +20,7 @@ This article is relevant for Parquet files and containers in **Azure Synapse Lin
 With modern data types, complex data types are often common to handle and represent a challenge for data engineers. Analyzing nested schema and arrays present some challenges:
 * Complex to write SQL queries
 * Difficult to rename/cast datatype of nested columns
-* Performance issues on deeply nested objects
+* Hit performance issues with deeply nested objects
 
 Data Engineers need to understand how to efficiently process those data types and make them easily accessible by everyone.
 
