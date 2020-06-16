@@ -48,7 +48,7 @@ For a local installation:
             --source $storageid
         ```           
 
-        For a list of `topic-type` values that you can use to create a system topic, run the following command. These topic type values represent the event sources that support creation of system topics.  
+        For a list of `topic-type` values that you can use to create a system topic, run the following command. These topic type values represent the event sources that support creation of system topics.  Ignore `Microsoft.EventGrid.Topics` and `Microsoft.EventGrid.Domains` from the list. 
 
         ```azurecli-interactive
         az eventgrid topic-type  list --output json | grep -w id
