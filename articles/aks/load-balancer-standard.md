@@ -17,7 +17,7 @@ The Azure Load Balancer is an L4 of the Open Systems Interconnection (OSI) model
 
 A **public** Load Balancer when integrated with AKS serves two purposes:     
 
-1. To provide outbound connections to the cluster nodes inside the AKS virtual network. It achieves this objective by translating the nodes private IP address to a public IP address that is part if its *Outbound Pool*. 
+1. To provide outbound connections to the cluster nodes inside the AKS virtual network. It achieves this objective by translating the nodes private IP address to a public IP address that is part of its *Outbound Pool*. 
 2. To provide access to applications via Kubernetes services of type `LoadBalancer`. With it, you can easily scale your applications and create highly available services.
 
 An **internal (or private)** load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario. 
@@ -85,6 +85,16 @@ When using the Standard SKU public load balancer, there's a set of options that 
 * Configure the timeout setting for idle connections.
 
 ### Scale the number of managed outbound public IPs
+
+Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound. Outbound rules make it simple to configure public Standard Load Balancer's outbound network address translation. 
+
+Like all Load Balancer rules, outbound rules follow the same familiar syntax as load balancing and inbound NAT rules:
+
+***frontend IPs + parameters + backend pool***
+
+An outbound rule configures outbound NAT for all virtual machines identified by the backend pool to be translated to the frontend. And parameters provide additional fine grained control over the outbound NAT algorithm.
+
+While an outbound rule can be used with just a single public IP address, outbound rules ease the configuration burden for scaling outbound NAT. You can use multiple IP addresses to plan for large-scale scenarios and you can use outbound rules to mitigate SNAT exhaustion prone patterns. Each additional IP address provided by a frontend provides 64k ephemeral ports for Load Balancer to use as SNAT ports. 
 
 When using a *Standard* SKU load balancer with managed outbound public IPs, which are created by default, you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
 
@@ -299,7 +309,7 @@ Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound
 ### Steps
 1. Check if your connections remain idle for a long time and rely on the default idle timeout for releasing that port. If so the default timeout of 30 min might need to be reduced for your scenario.
 2. Investigate how your application is creating outbound connectivity (for example, code review or packet capture).
-3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric.
+3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) and [logs](../load-balancer/load-balancer-monitor-log.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric for example.
 4. Evaluate if appropriate [patterns](#design-patterns) are followed.
 5. Evaluate if SNAT port exhaustion should be mitigated with [additional Outbound IP addresses + additional Allocated Outbound Ports](#configure-the-allocated-outbound-ports) .
 
