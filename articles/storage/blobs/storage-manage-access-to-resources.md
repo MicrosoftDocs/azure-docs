@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ---
 
 # Manage anonymous read access to containers and blobs
