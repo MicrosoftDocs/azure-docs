@@ -38,7 +38,7 @@ First, create a spoke virtual network where you can place your servers.
 2. For **Subscription**, select your subscription.
 1. For **Resource group**, select **Create new**, and type **FW-Manager** for the name and select **OK**.
 2. For **Name**, type **Spoke-01**.
-3. For **Region**, select **(US) East US**.
+3. For **Region**, select **(US) West Central US**.
 4. Select **Next: IP Addresses**.
 1. For **Address space**, accept the default **10.0.0.0/16**.
 3. Under **Subnet name**, select **default**.
@@ -67,7 +67,7 @@ Create your secured virtual hub using Firewall Manager.
 3. On the **Firewall Manager** page, select **View secured virtual hubs**.
 4. On the **Firewall Manager | Secured virtual hubs** page, select **Create new secured virtual hub**.
 5. For **Resource group**, select **FW-Manager**.
-7. For **Region**, select **East US**.
+7. For **Region**, select **West Central US**.
 1. For the **Secured virtual hub name**, type **Hub-01**.
 2. For **Hub address space**, type **10.1.0.0/16**.
 3. For the new vWAN name, type **Vwan-01**.
@@ -77,7 +77,7 @@ Create your secured virtual hub using Firewall Manager.
 7. Accept the default **Azure Firewall** **Enabled** setting.
 8. For **Specify the number of Public IP addresses**, use the slider to select **2**.
 9. Select **Next: security partner provider**.
-10. For **Security Partner Provider**, select **Enabled** and then select ZScaler.
+10. For **Security Partner Provider**, select **Enabled** and then select **ZScaler**.
 11. Select **Next: Review + create**.
 12. Select **Create**. It will take about 30 minutes to deploy.
 
@@ -100,24 +100,28 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 1. From Firewall Manager, select **View Azure Firewall policies**.
 2. Select **Create Azure Firewall Policy**.
-3. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
-4. Select **Next:Rules**.
-5. On the **Rules** tab, select **Add a rule collection**.
-6. On the **Add a rule collection** page, type **RC-01** for the **Name**.
-7. For **Rule collection type**, select **Application**.
-8. For **Priority**, type **100**.
-9. Ensure **Rule collection action** is **Allow**.
-10. For the rule **Name** type **Allow-msft**.
-11. For **Source address**, type **\***.
-12. For **Protocol**, type **http,https**.
-13. Ensure **Destination type is **FQDN**.
-14. For **Destination**, type **\*.microsoft.com**.
-15. Select **Add**.
-16. Select **Next: Hubs**.
-17. On the **Hubs** tab, select **Associate virtual hubs**.
-18. Select **Hub-01** and then select **Add**.
-1. Select **Review + create**.
-2. Select **Create**.
+3. Select your subscription and select **FW-Manager** for the resource group.
+4. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **West Central US**.
+5. Select **Next:Rules**.
+6. On the **Rules** tab, select **Add a rule collection**.
+7. On the **Add a rule collection** page, type **RC-01** for the **Name**.
+8. For **Rule collection type**, select **Application**.
+9. For **Priority**, type **100**.
+10. Ensure **Rule collection action** is **Allow**.
+11. For the rule **Name** type **Allow-msft**.
+12. For **Source type**, select **IP address**.
+13. For **Source**, type **\***.
+14. For **Protocol**, type **http,https**.
+15. Ensure **Destination type is **FQDN**.
+16. For **Destination**, type **\*.microsoft.com**.
+17. Select **Add**.
+18. Select **Next: Threat intelligence**.
+19. Ensure that **Threat intelligence mode** is **Alert Only**.
+20. Select **Next: Hubs**.
+21. On the **Hubs** tab, select **Associate virtual hubs**.
+22. Select **Hub-01** and then select **Add**.
+23. Select **Review + create**.
+24. Select **Create**.
 
 This can take about five minutes or more to complete.
 
