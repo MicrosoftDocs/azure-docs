@@ -24,27 +24,27 @@ This article describes the common security threat of subdomain takeover and the 
 
 ## What is subdomain takeover?
 
-Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a stale DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat.
+Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. CNAME records are especially vulnerable to this threat.
 
 A common scenario for a subdomain takeover:
 
 1. A website is created. 
 
-    In this example, `wer123821432.azurewebsites.net`.
+    In this example, `app-contogreat-dev-001.azurewebsites.net`.
 
 1. A CNAME entry is added to the DNS pointing to the website. 
 
-    In this example, the following friendly name was created: `GreatApp.Contoso.com`.
+    In this example, the following friendly name was created: `greatapp.contoso.com`.
 
 1. After a few months, the site is no longer needed so it is deleted **without** deleting the corresponding DNS entry. 
 
     The CNAME DNS entry is now "dangling".
 
-1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own website at `wer123821432.azurewebsites.net`.
+1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own website at `app-contogreat-dev-001.azurewebsites.net`.
 
-    Now, the traffic intended for `GreatApp.Contoso.com` goes to the threat actor's Azure site. 
+    Now, the traffic intended for `greatapp.contoso.com` goes to the threat actor's Azure site, and the threat actor is in control of the content that is displayed. 
 
-    The 'dangling DNS' was exploited, and Contoso's subdomain "GreatApp" has been taken over. 
+    The 'dangling DNS' was exploited, Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
 
 ![Subdomain takeover from a deprovisioned website](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -52,38 +52,50 @@ A common scenario for a subdomain takeover:
 
 ## The risks of dangling DNS records
 
-When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS tables. If it hasn't been deleted, it's a “dangling DNS” record and a security risk.
+When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS zone. If it hasn't been deleted, it's a “dangling DNS” record and a security risk.
 
 The risk to the organization is that it enables a threat actor to take control of the associated DNS name to host a malicious website or service. This malicious website on the organization's subdomain can result in:
 
-- Authentication bypass - As unsuspecting users are tricked into entering their credentials.
-- Cookie extraction from unsuspecting visitors.
-- CORS bypass.
-- Authentic-looking subdomains can be used in phishing campaigns - This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
-- SSL certificate generation - It's possible to validate SSL certificate requests with a hijacked subdomain. A certificate can further increase the perceived legitimacy of the malicious site on the subdomain that has been taken over.
-- Negative press reports about your organization's security issues.
-- Loss of trust.
+- **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, as well as the brand damage and loss of trust.
+
+- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.example.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. This then grants them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
+
+- **Phishing campaigns** - Authentic-looking subdomains can be used in phishing campaigns. This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
+
+- **Further risks** - Escalate into other classic attacks such as XSS, CSRF, CORS bypass, and more.
 
 
 
 ## Preventing dangling DNS entries
 
-It's clear that when you find a dangling DNS, the easiest solution might be to delete the DNS entry. However, deleting the entry isn't always the safest or correct approach.
+Ensuring that your organization has implemented processes to prevent dangling DNS entries and the resulting subdomain takeovers is a crucial part of your security program.
 
-However, your security program should include preventative measures such as those described below.
+The preventative measures available to you today are listed below.
 
-### Use Azure DNS's alias records
 
-By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) feature can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records:
+### Use Azure DNS alias records
 
+By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) feature can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
+
+- Azure Front Door
 - Traffic Manager profiles
 - Azure Content Delivery Network (CDN) endpoints
 - Public IPs
-- Other DNS records of the same type
 
-Despite these limitations, if you have resources that *can* be protected from subdomain takeover with alias records, we recommend doing so.
+If you have resources that can be protected from subdomain takeover with alias records, we recommend doing so despite these limitations.
 
 [Learn more](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) about the capabilities of Azure DNS's alias records.
+
+
+
+### Use Azure App Service's custom domain verification
+
+When creating DNS entries for Azure App Service, create an asuid.{subdomain} TXT record with the Domain Verification ID. When such a TXT record exists, no other Azure Subscription can validate the Custom Domain that is, take it over. 
+
+These records don't prevent someone from creating the Azure App Service with the same name as is in your CNAME entry, but they won't be able to receive traffic, or control the content, because they can't prove ownership of the domain name.
+
+[Learn more](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) about how to map an existing custom DNS name to Azure App Service.
+
 
 
 ### Educate developers and expand internal development procedures
@@ -92,9 +104,9 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 - **Create procedures for discovery:**
 
-    Threat actors are running subdomain enumeration tools in an automated fashion to find and exploit your dangling DNS entries.
+    Threat actors are running subdomain enumeration tools in an automated fashion to find and exploit your dangling DNS entries. They also make use of publicly available lists of subdomains.
 
-    - One way to try to discover dangling DNS entries is to access your DNS provider and query everything that points to an Azure resource. This is time consuming and inefficient, but may be an effective way to perform discovery. 
+    - To discover dangling DNS entries, access your DNS provider and query everything that points to an Azure resource.
 
     - Use automated tools to review your records. Many Azure customers are using PowerShell scripts for discovery of dangling DNS entries. Two of the benefits of PowerShell are that it has native support of Azure CLI and is extensible to cover other related environments.
 
@@ -127,14 +139,19 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 - **Create procedures for prevention:**
 
-    - Review your DNS records regularly to ensure that your subdomains are correctly mapped to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)) and that ensuring all Azure mappings are in your service catalog.
-
     - Educate your application developers to reroute addresses whenever they delete resources.
 
     - Put "removing DNS entries" on the list of required checks when decommissioning a service.
 
     - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
 
+    - Review your DNS records regularly to ensure that your subdomains are mapped to Azure resources that exist (are not dangling) that you own (have not been taken over):
+
+        1. Query your DNS zones for resources pointing to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)).
+        
+        1. Confirm that you own all resources that your DNS subdomains are targeting.
+
+        1. Ensure all the Azure mappings are in your service catalog.
 
 
 - **Create procedures for remediation:**
@@ -142,6 +159,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
     - Investigate why the address wasn't rerouted when the resource was decommissioned.
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
+
 
 ## Next steps
 
