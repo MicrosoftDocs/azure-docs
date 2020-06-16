@@ -30,7 +30,7 @@ Before you get started, here's what you need to configure MSIX app attach:
 
 ## Get the OS image
 
-First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a Windows Insider, you have the option to use the Windows Insider portal instead.
+First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
 
 ### Get the OS image from the Azure portal
 
