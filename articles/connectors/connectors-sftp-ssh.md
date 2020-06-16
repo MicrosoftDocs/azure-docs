@@ -17,9 +17,9 @@ To automate tasks that monitor, create, send, and receive files on a [Secure Fil
 > [!NOTE]
 > The SFTP-SSH connector currently doesn't support these SFTP servers:
 > 
-> * IBM DataPower 2018.4.1.9 with the latest release for the OpenSSH format
-> * OpenText in VMWare cloud
-> * OpenText GXS on Unix OS
+> * IBM DataPower
+> * OpenText Secure MFT
+> * OpenText GXS
 
 Here are some example tasks you can automate:
 
