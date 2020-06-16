@@ -17,7 +17,7 @@ Windows Virtual Desktop is a desktop and app virtualization service that runs on
 Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
-* Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
+* Virtualize Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios
 * Provide Windows 7 virtual desktops with free Extended Security Updates
 * Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 * Virtualize both desktops and apps
@@ -104,11 +104,11 @@ The following table lists optional URLs that your Azure virtual machines can hav
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
-|*.microsoftonline.com|443|Authentication to MS Online Services|None|
+|*.microsoftonline.com|443|Authentication to Microsoft Online Services|None|
 |*.events.data.microsoft.com|443|Telemetry Service|None|
 |www.msftconnecttest.com|443|Detects if the OS is connected to the internet|None|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
-|login.windows.net|443|Login to MS Online Services, Office 365|None|
+|login.windows.net|443|Sign in to Microsoft Online Services, Office 365|None|
 |*.sfx.ms|443|Updates for OneDrive client software|None|
 |*.digicert.com|443|Certificate revocation check|None|
 
