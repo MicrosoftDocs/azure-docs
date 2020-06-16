@@ -54,7 +54,7 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
 ## Regional availability
 
-Azure Files authentication with AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
+Azure Files authentication with Azure AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview of the workflow
 
