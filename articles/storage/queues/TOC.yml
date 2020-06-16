@@ -38,7 +38,7 @@
   - name: JavaScript
     href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Other languages
-    href: ../common/storage-sample.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Concepts
   items:
   - name: Storage accounts
