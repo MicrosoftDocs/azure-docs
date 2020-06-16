@@ -26,6 +26,17 @@ Azure Security is in active development and receives improvements on an ongoing 
 This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## June 2020
+
+### Secure score API (preview)
+
+You can now access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
 ## May 2020
 
 

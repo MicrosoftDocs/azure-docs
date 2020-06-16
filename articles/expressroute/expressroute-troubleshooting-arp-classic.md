@@ -5,7 +5,7 @@ services: expressroute
 author: charwen
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: charwen
 
