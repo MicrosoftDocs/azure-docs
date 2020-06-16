@@ -83,7 +83,7 @@ Here is part of an example document in that collection:
   ]
 ```
 
-Here's another example , this time with a slightly different set of properties:
+Here's another example , this time with a slightly different set of properties in `children`:
 
 ```json
   "children": [
@@ -109,7 +109,7 @@ The following command creates a wildcard index on any properties within `childre
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Unlike in MongoDB, your queries can use multiple wildcard indexes.** There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property.
+**Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates** There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property.
 
 You can create the following index types using wildcard syntax:
 
@@ -132,6 +132,32 @@ Wildcard indexes do not support any of the following index types or properties:
 - Compound
 - TTL
 - Unique
+
+**Unlike in MongoDB**, in Azure Cosmos DB's API for MongoDB you **can't** use wildcard indexes for:
+
+- Creating a wildcard index that includes multiple specific fields
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection " :
+        {
+            "children.givenName" : 1,
+            "children.grade" : 1
+        }
+    }
+)`
+
+- Creating a wildcard index that excludes multiple specific fields
+
+`db.coll.createIndex(
+    { "$**" : 1 },
+    { "wildcardProjection" :
+        {
+           "children.givenName" : 1,
+            "children.grade" : 1
+        }
+    }
+)`
 
 ## Index properties
 
