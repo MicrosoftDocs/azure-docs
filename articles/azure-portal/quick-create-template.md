@@ -25,7 +25,7 @@ The dashboard you create in the next part of this quickstart requires an existin
 
     ![Select Cloud shell from the Azure portal ribbon](media/quick-create-template/cloud-shell.png)
 
-1. At the command prompt, enter the following command.
+1. At the command prompt, enter the following command to create a resource group.
 
     ```powershell
     New-AzResourceGroup -Name SimpleWinVmResourceGroup -Location EastUS
@@ -33,7 +33,7 @@ The dashboard you create in the next part of this quickstart requires an existin
 
     ![Copy a command into the command prompt](media/quick-create-template/command-prompt.png)
 
-1. At the command prompt, enter the following command.
+1. At the command prompt, enter the following command to create a VM in the resource group.
 
     ```powershell
     New-AzVm `
