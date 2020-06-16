@@ -129,6 +129,22 @@ const client = new ChatClient(endpoint, userCredential);
 #### [Android (Java)](#tab/java-user-token-refresh)
 
 ```java
+import com.azure.communication.ChatClient;
+import com.azure.communication.CommunicationCredential;
+
+// Your unique Azure Communication service endpoint
+String endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
+
+CommunicationCredential credential = new CommunicationCredential(new ICommunicationCredentialListener() {
+     @Override
+     public void onTokenWillExpire(CommunicationCredential credential) {
+          // fetch a new token from your trusted service
+          credential.setToken(newUserToken);
+     }
+});
+
+// Initialize the chat client
+ChatClient client = new ChatClient(endpoint, credential);
 ```
 
 #### [iOS (Swift)](#tab/swift-user-token-refresh)
@@ -140,11 +156,8 @@ import AzureCommunicationServicesCommon
 // Your unique Azure Communication service endpoint
 let endpoint = URL(string: "https://<RESOURCE_NAME>.communcationservices.azure.com")!
 
-// User access token fetched from your trusted service
-let accessToken = 'SECRET';
-
 // create a user credential and provide a delegate to manage the token lifecycle
-let userCredential = new CommunicationUserCredential(accessToken: accessToken, delegate: self);
+let userCredential = new CommunicationUserCredential(delegate: self);
 
 // Initialize the chat client
 let client = CommunicationChatClient(endpoint: endpointUrl, credential: userCredential)
@@ -156,7 +169,7 @@ extension MyViewController: CommunicationUserCredentialDelegate {
     // user access token lifecycle
     public func credentialWillExpire(_ credential: CommunicationUserCredential) {
         // fetch a new token from your trusted service
-        credential.updateToken(string: token);
+        credential.updateToken(string: newUsertoken);
     }
 }
 ```
@@ -164,7 +177,7 @@ extension MyViewController: CommunicationUserCredentialDelegate {
 
 User access tokens are valid for 24 hours by default. If your application does not require long-running sessions, you can decide to not use the built-in refresh callback and just pass the token string to the client that you want to instantiate. You won't get notified before the token expires.
 
-#### [Javascript](#tab/javascript-user-token-refresh)
+#### [Javascript](#tab/javascript-simple-token-init)
 
 ```javascript
 import { ChatClient } from '@azure/communicationservices-chat';
@@ -179,12 +192,22 @@ const userAccessToken = 'SECRET';
 const client = new ChatClient(endpoint, userAccessToken);
 ```
 
-#### [Android (Java)](#tab/java-user-token-refresh)
+#### [Android (Java)](#tab/java-simple-token-init)
 
 ```java
+import com.azure.communication.ChatClient;
+
+// Your unique Azure Communication service endpoint
+String endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
+
+// User access token fetched from your trusted service
+String userAccessToken = 'SECRET';
+
+// Initialize the chat client
+ChatClient client = new ChatClient(endpoint, userAccessToken); 
 ```
 
-#### [iOS (Swift)](#tab/swift-user-token-refresh)
+#### [iOS (Swift)](#tab/swift-simple-token-init)
 
 ```swift
 import AzureCommunicationServicesChat
@@ -219,9 +242,29 @@ const chatClient = new ChatClient(resourceUrl, userCredential);
 const callingClient = await CallingFactory.create(userCredential);
 ```
 
-#### [Android (Java)](#tab/java-user-token-refresh)
+#### [Android (Java)](#tab/java-shared-credentail)
 
 ```java
+import com.azuer.communication.CallingClient;
+import com.azure.communication.ChatClient;
+import com.azure.communication.CommunicationCredential;
+
+// Your unique Azure Communication service endpoint
+String endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
+
+CommunicationCredential credential = new CommunicationCredential(new ICommunicationCredentialListener() {
+     @Override
+     public void onTokenWillExpire(CommunicationCredential credential) {
+          // consolidated logic for refreshing tokens
+          credential.setToken(newUserToken);
+     }
+});
+
+// Initialize the chat client
+ChatClient client = new ChatClient(endpoint, credential);
+
+// Intialize the calling client
+CallingClient client = new CallingClient(endpoing, credential);
 ```
 
 #### [iOS (Swift)](#tab/swift-shared-credentail)
