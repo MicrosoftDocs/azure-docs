@@ -221,7 +221,7 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 If the array had 5 elements with 4 nested structures, SQL serverless would return 5 rows and 4 columns.
 
-SQL serverless will directly query in-place, flatten the object in 2 rows and, display all nested elements into columns:
+SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns:
 
 ![SQL query](./media/how-to-complex-schema/query-complex-sql.png)
 
