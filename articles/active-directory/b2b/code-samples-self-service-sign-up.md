@@ -1,16 +1,16 @@
 ---
 title: API connector code samples for user flows - Azure AD
 description: Code samples for API connectors in self-service sign-up flows for Azure Active Directory External Identities.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 06/11/2020
+ms.topic: sample
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
+ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 

@@ -1,17 +1,16 @@
 ---
-title: API connectors for custom approval workflows in External Identities self-service sign-up - Azure AD
+title: Add custom approvals to self-service sign-up flows - Azure AD
 description: Add API connectors for custom approval workflows in External Identities self-service sign-up - Azure Active Directory (Azure AD)
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
