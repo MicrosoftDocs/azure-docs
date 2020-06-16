@@ -5,7 +5,7 @@ services: bastion
 author: mialdrid
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.

@@ -8,7 +8,7 @@ ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Virtual Network
+# Azure Policy built-in definitions for Azure Virtual Network
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Virtual Network. For additional Azure Policy built-ins for other services,
