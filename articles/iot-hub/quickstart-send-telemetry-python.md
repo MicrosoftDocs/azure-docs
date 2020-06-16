@@ -146,20 +146,6 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     ![Run the back-end application](media/quickstart-send-telemetry-python/read-device-to-cloud.png)
 
-## Read the telemetry with Azure CLI
-
-You can also read telemetry with the Azure CLI. The IoT Hub CLI extension can connect to the service-side **Events** endpoint on your IoT Hub. The extension receives the device-to-cloud messages sent from your simulated device.
-
-Run the following commands in Azure Cloud Shell, replacing `YourIoTHubName` with the name of your IoT hub:
-
-```azurecli-interactive
-az iot hub monitor-events --hub-name {YourIoTHubName} --device-id MyPythonDevice
-```
-
-The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:
-
-![Run the back-end application](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
-
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
