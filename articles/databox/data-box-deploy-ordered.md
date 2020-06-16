@@ -102,6 +102,33 @@ Perform the following steps in the Azure portal to order a device.
 
 11. Click **Order**. The order takes a few minutes to be created.
 
+## Track the order
+
+After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
+
+If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
+
+* SMB shares are created for each storage account associated with the device.
+* For each share, access credentials such as username and password are generated.
+* Device password that helps unlock the device is also generated.
+* The Data Box is locked to prevent unauthorized access to the device at any point.
+
+When the device preparation is complete, the portal shows the order in **Processed** state.
+
+![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
+
+Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
+
+![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
+
+## Cancel the order
+
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
+
+After placing an order, you can cancel it at any point before the order status is marked processed.
+
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+
 # [Azure CLI](#tab/azure-cli)
 
 ## Azure CLI prerequisites
@@ -133,7 +160,13 @@ Before you begin, make sure that:
     ```azurecli
 
     PS C:\Windows> az login
-    You have logged in. Now let us find all the subscriptions to which you have access...
+    ```
+
+    If you log in successfully, you will see the following output:
+
+    ```azurecli
+
+    You have logged in. Now let us find all the subscriptions to which you have access.
     [
       {
         "cloudName": "AzureCloud",
@@ -141,7 +174,7 @@ Before you begin, make sure that:
         "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "isDefault": true,
         "managedByTenants": [],
-        "name": "ExpressPod BVT (Creates order in BVT env)",
+        "name": "My Subscription",
         "state": "Enabled",
         "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
         "user": {
@@ -152,13 +185,11 @@ Before you begin, make sure that:
     ]
     ```
 
-    If you have a valid subscription the command will output your subscription settings.
-
 2. Install the Azure Data Box CLI extension.
 
-   When working with extension references for the Azure CLI, you must first install the extension.Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.For more information about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+   When working with extension references for the Azure CLI, you must first install the extension.Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-   Install the extension for Azure Data Box by running the following command: `az extension add --name databox`.
+   To install the extension for Azure Data Box, run the following command: `az extension add --name databox`.
 
    Here is an example of command usage:
 
@@ -185,9 +216,9 @@ Before you begin, make sure that:
 
    For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
 
-## Managing Data Box orders using Azure CLI
+## Use Azure CLI to manage orders
 
-### Create a Data Box order
+### Create an order
 
 Perform the following steps to order a device using Azure CLI:
 
@@ -210,6 +241,12 @@ Perform the following steps to order a device using Azure CLI:
    |postal-code| The zip code or postal code associated with the shipping address.| "98052"|
    |company-name| The name of your company you work for.| "Contoso, LTD" |
    |storage account| The Azure Storage account from where you want to import data.| "mystorageaccount"|
+   |debug| Include debugging information to verbose logging (implies --verbose) | --debug |
+   |help| Display help information for this command. | --help -h |
+   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
+   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |verbose| Include verbose logging. | --verbose |
 
 2. In Azure PowerShell, use the [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
 
@@ -262,7 +299,7 @@ Perform the following steps to order a device using Azure CLI:
 
    ```
 
-### Display information for an existing Data Box order
+### Display information for an existing order
 
 You can get information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
 
@@ -621,7 +658,7 @@ The following table shows the parameter information for deleting an order:
 
 ```
 
-### Cancel a Data Box order
+### Cancel an order
 
 You can cancel an Azure Data Box order using [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel).
 
@@ -653,7 +690,7 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
    PS C:\Windows>
    ```
 
-### Delete a Data Box order
+### Delete an order
 
 If you have cancelled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
 
@@ -685,47 +722,8 @@ Here's an example of the command with output:
    PS C:\Windows>
    ```
 
-<!-- 06/11/20 priestlg: More information such as showing the reader how to check the order using Azure portal -->
 ---
 
-## Track the order
-
-After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
-
-If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
-
-* SMB shares are created for each storage account associated with the device.
-* For each share, access credentials such as username and password are generated.
-* Device password that helps unlock the device is also generated.
-* The Data Box is locked to prevent unauthorized access to the device at any point.
-
-When the device preparation is complete, the portal shows the order in **Processed** state.
-
-![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
-
-Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
-
-![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
-
-## Cancel the order
-
-# [Portal](#tab/portal)
-
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
-
-After placing an order, you can cancel it at any point before the order status is marked processed.
-
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
-
-# [Azure CLI](#tab/azure-cli)
-
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
-
-After placing an order, you can cancel it at any point before the order status is marked processed.
-
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
-
----
 
 ## Next steps
 
