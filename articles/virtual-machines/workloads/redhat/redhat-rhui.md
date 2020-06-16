@@ -160,6 +160,11 @@ If you're using a network configuration to further restrict access from RHEL PAY
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
+
+>[!NOTE]
+>Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps [here](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## Azure RHUI Infrastructure
 

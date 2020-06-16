@@ -5,7 +5,7 @@ description: Troubleshoot module exceptions in Azure Machine Learning designer u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 
 author: likebupt
 ms.author: keli19

@@ -34,7 +34,7 @@ Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and 
 
 | Lab settings | Value/instructions | 
 | ------------ | ------------------ |
-| Virtual machine (VM) size | Small GPU (Compute). This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
+| Virtual machine (VM) size | **Small GPU (Compute)**. This size is best suited for compute-intensive and network-intensive applications like Artificial Intelligence and Deep Learning. |
 | VM image | [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). This image provides deep learning frameworks and tools for machine learning and data science. To view the full list of installed tools on this image, see the following article: [What’s included on the DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Enable remote desktop connection | <p>The Data Science image is already configured to use X2Go so that teachers and students can connect using a GUI remote desktop.  X2Go does *not* require the **Enable remote desktop connection** setting to be enabled.  This setting only needs to be enabled if you choose to instead use RDP.
 

@@ -9,6 +9,8 @@ ms.date: 05/21/2020
 
 This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see [Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
+This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
+
 Resource names are case-insensitive unless specifically noted in the valid characters column.
 
 In the following tables, the term alphanumeric refers to:
@@ -167,8 +169,8 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
