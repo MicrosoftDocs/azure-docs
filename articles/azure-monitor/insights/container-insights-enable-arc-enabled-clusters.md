@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/16/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -101,7 +101,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     ```powershell
-    wget https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/managed/enable-monitoring.ps1 -outfile enable-monitoring.ps1
+    wget https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
     ```
 
 2. Configure the `$azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
@@ -110,7 +110,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
     $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure the `$kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
+3. Configure the `$kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, set the value to `""`.
 
     ```powershell
     $kubeContext = "<kubeContext name of your k8s cluster>"
@@ -151,7 +151,7 @@ Perform the following steps to enable monitoring using the provided bash script.
 1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     ```bash
-    curl -LO https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/onboarding/managed/enable-monitoring.sh
+    curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script
     ```
 
 2. Configure the `azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.
@@ -187,6 +187,13 @@ Perform the following steps to enable monitoring using the provided bash script.
     If the cluster does not communicate through a proxy server, then you can set the value to `""`.  For more information, see [Configure proxy](#configure-proxy-endpoint).
 
 6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
+
+    Run the following command to enable monitoring with default options, such as using current kube-context, create a default Log Analytics workspace, and without specifying a proxy server:
+
+    ```bash
+    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId
+    ```
+
 
     Run the following command to create a default Log Analytics workspace and without specifying a proxy server:
 
