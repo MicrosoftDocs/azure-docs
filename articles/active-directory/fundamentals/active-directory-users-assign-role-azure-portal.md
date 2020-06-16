@@ -22,7 +22,7 @@ In Azure Active Directory (Azure AD), if one of your users needs permission to m
 
 For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). To add users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
-## To assign privileged roles
+## Assign privileged roles
 
 A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also the eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
@@ -31,7 +31,7 @@ A common way to assign Azure AD roles to a user is on the **Assigned roles** pag
 >
 > ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
-### To assign a role to a user
+## Assign a role to a user
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in using a Global administrator account for the directory.
 
