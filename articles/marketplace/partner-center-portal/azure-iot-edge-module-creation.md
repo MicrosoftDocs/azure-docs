@@ -346,7 +346,7 @@ Select **Save draft** after completing these fields.
 
 #### Plan examples
 
-Here's an example of Azure Marketplace plan details:
+Here's an example of Azure Marketplace plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
@@ -356,7 +356,7 @@ Here's an example of Azure Marketplace plan details:
 2. Plan name
 3. Plan description
 
-<br>Here's an example of the Azure portal plan details:
+<br>Here's an example of the Azure portal plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
 
