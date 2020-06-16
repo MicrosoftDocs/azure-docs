@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/06/2020
+ms.date: 06/15/2020
 ms.author: pafarley
 ---
 
@@ -83,7 +83,7 @@ In your project's *build.gradle.kts* file, be sure to include the client library
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.1'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
 }
 ```
 
@@ -162,10 +162,10 @@ private static void GetContent(
     FormRecognizerClient recognizerClient, String invoiceUri)
 {
     String analyzeFilePath = invoiceUri;
-    SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller =
+    SyncPoller<OperationResult, List<FormPage>> recognizeContentPoller =
         recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
     
-    IterableStream<FormPage> contentResult = recognizeContentPoller.getFinalResult();
+    List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
 ```
 
 The returned value is a collection of **FormPage** objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
@@ -199,41 +199,87 @@ To recognize receipts from a URI, use the **beginRecognizeReceiptsFromUrl** meth
 private static void AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    SyncPoller<OperationResult, IterableStream<RecognizedReceipt>> syncPoller =
+    SyncPoller<OperationResult, List<RecognizedReceipt>> syncPoller =
         formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    IterableStream<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
+    List<RecognizedReceipt> receiptPageResults = syncPoller.getFinalResult();
 ```
 
 The next block of code iterates through the receipts and prints their details to the console.
 
 ```java
-    receiptPageResults.forEach(recognizedReceipt -> {
-        USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
-        System.out.printf("Page Number: %d%n", usReceipt.getMerchantName().getPageNumber());
-        System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getFieldValue(), usReceipt.getMerchantName().getConfidence());
-        System.out.printf("Merchant Address: %s, confidence: %.2f%n", usReceipt.getMerchantAddress().getName(), usReceipt.getMerchantAddress().getConfidence());
-        System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
-        System.out.printf("Total: %s confidence: %.2f%n", usReceipt.getTotal().getName(), usReceipt.getTotal().getConfidence());
+    for (int i = 0; i < receiptPageResults.size(); i++) {
+        RecognizedReceipt recognizedReceipt = receiptPageResults.get(i);
+        Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
+        System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
+        FormField merchantNameField = recognizedFields.get("MerchantName");
+        if (merchantNameField != null) {
+            if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+                System.out.printf("Merchant Name: %s, confidence: %.2f%n",
+                    merchantNameField.getFieldValue().asString(),
+                    merchantNameField.getConfidence());
+            }
+        }
+        FormField merchantAddressField = recognizedFields.get("MerchantAddress");
+        if (merchantAddressField != null) {
+            if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+                System.out.printf("Merchant Address: %s, confidence: %.2f%n",
+                    merchantAddressField.getFieldValue().asString(),
+                    merchantAddressField.getConfidence());
+            }
+        }
+        FormField transactionDateField = recognizedFields.get("TransactionDate");
+        if (transactionDateField != null) {
+            if (transactionDateField.getFieldValue().getType() == FieldValueType.DATE) {
+                System.out.printf("Transaction Date: %s, confidence: %.2f%n",
+                    transactionDateField.getFieldValue().asDate(),
+                    transactionDateField.getConfidence());
+            }
+        }
 ```
 The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
 
 ```java
-        System.out.printf("Receipt Items: %n");
-        usReceipt.getReceiptItems().forEach(receiptItem -> {
-            if (receiptItem.getName() != null) {
-                System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
+        FormField receiptItemsField = recognizedFields.get("Items");
+        if (receiptItemsField != null) {
+            System.out.printf("Receipt Items: %n");
+            if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
+                List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
+                receiptItems.forEach(receiptItem -> {
+                    if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
+                        receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
+                            if (key.equals("Name")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.STRING) {
+                                    System.out.printf("Name: %s, confidence: %.2fs%n",
+                                        formField.getFieldValue().asString(),
+                                        formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("Quantity")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
+                                    System.out.printf("Quantity: %d, confidence: %.2f%n",
+                                        formField.getFieldValue().asInteger(), formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("Price")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                                    System.out.printf("Price: %f, confidence: %.2f%n",
+                                        formField.getFieldValue().asFloat(),
+                                        formField.getConfidence());
+                                }
+                            }
+                            if (key.equals("TotalPrice")) {
+                                if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                                    System.out.printf("Total Price: %f, confidence: %.2f%n",
+                                        formField.getFieldValue().asFloat(),
+                                        formField.getConfidence());
+                                }
+                            }
+                        });
+                    }
+                });
             }
-            if (receiptItem.getQuantity() != null) {
-                System.out.printf("Quantity: %s, confidence: %.2f%n", receiptItem.getQuantity().getFieldValue(), receiptItem.getQuantity().getConfidence());
-            }
-            if (receiptItem.getPrice() != null) {
-                System.out.printf("Price: %s, confidence: %.2f%n", receiptItem.getPrice().getFieldValue(), receiptItem.getPrice().getConfidence());
-            }
-            if (receiptItem.getTotalPrice() != null) {
-                System.out.printf("Total Price: %s, confidence: %.2f%n", receiptItem.getTotalPrice().getFieldValue(), receiptItem.getTotalPrice().getConfidence());
-            }
-        });
-    });
+        }
+    }
 }
 ```
 
@@ -340,10 +386,10 @@ private static void AnalyzePdfForm(
     FormRecognizerClient formClient, String modelId, String pdfFormUrl)
 {    
     String modelId = modelId;
-    SyncPoller<OperationResult, IterableStream<RecognizedForm>> recognizeFormPoller =
+    SyncPoller<OperationResult, List<RecognizedForm>> recognizeFormPoller =
         client.beginRecognizeCustomFormsFromUrl(pdfFormUrl, modelId);
 
-    IterableStream<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
+    List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 ```
 
 The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
