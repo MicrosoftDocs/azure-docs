@@ -17,7 +17,7 @@ Azure services like Azure Storage, Azure Media services, and Azure Event Hubs pu
 > Only Azure services can publish events to system topics. Therefore, you don't get an endpoint or access keys that you can use to publish events like you do for custom topics or domains.
 
 ## Azure services that support system topics
-Here is the list of Azure services that support creation of system topics on them.
+Here is the current list of Azure services that support creation of system topics on them.
 
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
@@ -35,7 +35,7 @@ Here is the list of Azure services that support creation of system topics on the
 - [Azure subscriptions](event-schema-subscriptions.md)
 
 ## System topics as Azure resources
-Previously, the system topic resource was implicit and wasn't exposed to you for simplicity. Now, it's exposed as an Azure resource so that you can:
+In the past, a system topic was implicit and wasn't exposed for simplicity. System topics are now visible as Azure resources and provide the following capabilities:
 
 - [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-system-topics)
 - Export Resource Manager templates for system topics and event subscriptions in the Azure portal
