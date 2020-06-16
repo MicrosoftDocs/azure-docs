@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: batch
 documentationcenter:
-author: LauraBrenner
+author: JnHs
 manager: evansma
 editor: ''
 ms.service: batch
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.date: 06/16/2020
-ms.author: labrenne
+ms.author: jenhayes
 ms.custom: include file
 ---
 
