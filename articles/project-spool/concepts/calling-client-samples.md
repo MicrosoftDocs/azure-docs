@@ -25,19 +25,30 @@ by "@ic3/communicationservices-client" module
 
 #### [Javascript](#tab/javascript)
 ```ts
+//ARTUR INIT
 const communicationUserCredential = 'communicationUserCredential';
 const callClient = await CallClientFactory.create(token);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-String rawUserToken = <Raw-User-Token-Fetched-From-Token-Provider>; // Retrieve token from a remote provider
+String rawUserToken = "<user token>";
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 Future<AdHocCallClient> callClientTask = CallClientFactory.create(rawUserToken, appContext);
-AdHocCallClient callClient = callClientTask.get();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+let tokenString = "<user token>";
+let callClientInstance: CallClient? = nil;
+CallClientFactory.create(tokenString, completionHandler: { (callClient, error) -> Void in
+    if(error != nil)
+    {
+        // handle error
+        return;
+    }
+    
+    callClientInstance = callClient;
+}));
+
 ```
 --- 
 
