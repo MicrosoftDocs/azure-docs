@@ -58,10 +58,6 @@
     href: tutorial-build-deploy-azure-pipelines.md
   - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 16b - Create LEMP stack
-    href: tutorial-lemp-stack.md
-  - name: 16c - Create MEAN stack
-    href: tutorial-mean-stack.md
   - name: 17 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
