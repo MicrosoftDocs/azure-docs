@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB .NET 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/16/2020
 ms.author: sngun
 
 ---
