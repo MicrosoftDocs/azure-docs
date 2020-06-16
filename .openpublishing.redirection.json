@@ -43357,11 +43357,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/platform/activity-log-view.md",
-      "redirect_url": "/azure/azure-monitor/platform/activity-log#view-the-activity-log",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-monitor/platform/activity-log-export.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log#legacy-collection-methods",
       "redirect_document_id": false
