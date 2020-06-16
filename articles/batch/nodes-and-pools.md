@@ -161,13 +161,14 @@ For more information about using application packages to deploy your application
 
 When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
-To ensure that the public IP addresses used to access nodes don't change, you can [create a pool with specified public IP addresses that you control](create-pool-public-ip.md).
-
 ### VNet requirements
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 For more information about setting up a Batch pool in a VNet, see [Create a pool of virtual machines with your virtual network](batch-virtual-network.md).
+
+> [!TIP]
+> To ensure that the public IP addresses used to access nodes don't change, you can [create a pool with specified public IP addresses that you control](create-pool-public-ip.md).
 
 ## Pool and compute node lifetime
 
