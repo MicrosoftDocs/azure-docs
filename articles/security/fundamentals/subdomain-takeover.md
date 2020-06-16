@@ -19,7 +19,7 @@ ms.author: memildin
 ---
 # Prevent dangling DNS entries and avoid subdomain takeover
 
-This article describes the common security threat of subdomain takeover, as well as things you can do to mitigate against it.
+This article describes the common security threat of subdomain takeover and the steps you can take to mitigate against it.
 
 
 ## What is subdomain takeover?
@@ -52,7 +52,7 @@ A common scenario for a subdomain takeover:
 
 ## The risks of dangling DNS records
 
-When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS tables. If it hasn't been deleted, it's a “dangling DNS” record and presents a security risk.
+When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS tables. If it hasn't been deleted, it's a “dangling DNS” record and a security risk.
 
 The risk to the organization is that it enables a threat actor to take control of the associated DNS name to host a malicious website or service. This malicious website on the organization's subdomain can result in:
 
@@ -68,13 +68,13 @@ The risk to the organization is that it enables a threat actor to take control o
 
 ## Preventing dangling DNS entries
 
-It's clear that when you find a dangling DNS, the easiest solution might to delete the DNS entry. However, deleting the entry isn't always the safest or correct approach.
+It's clear that when you find a dangling DNS, the easiest solution might be to delete the DNS entry. However, deleting the entry isn't always the safest or correct approach.
 
 However, your security program should include preventative measures such as those described below.
 
 ### Use Azure DNS's alias records
 
-By tightly coupling the life cycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) feature can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records:
+By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) feature can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records:
 
 - Traffic Manager profiles
 - Azure Content Delivery Network (CDN) endpoints
@@ -88,7 +88,7 @@ Despite these limitations, if you have resources that *can* be protected from su
 
 ### Educate developers and expand internal development procedures
 
-It's often up to developers and operations teams to perform cleanup processes to avoid dangling DNS threats. The practices below will help ensure your organization avoids suffering from this threat. 
+It's often up to developers and operations teams to run cleanup processes to avoid dangling DNS threats. The practices below will help ensure your organization avoids suffering from this threat. 
 
 - **Create procedures for discovery:**
 
@@ -106,7 +106,7 @@ It's often up to developers and operations teams to perform cleanup processes to
 
     |Resource name  |Resource type  |FQDN property  |
     |---------|---------|---------|
-    |Azure Frontdoor|microsoft.network/frontdoors|properties.cName|
+    |Azure Front Door|microsoft.network/frontdoors|properties.cName|
     |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
     |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
     |...|...|...|
@@ -127,11 +127,11 @@ It's often up to developers and operations teams to perform cleanup processes to
 
 - **Create procedures for prevention:**
 
-    - Perform regular reviews of your DNS records to ensure that your subdomains are correctly mapped to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)) and that ensuring all Azure mappings are in your service catalog
+    - Review your DNS records regularly to ensure that your subdomains are correctly mapped to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)) and that ensuring all Azure mappings are in your service catalog
 
     - Educate your application developers to reroute addresses whenever they delete resources.
 
-    - Put "removing DNS entries" on the list of checks performed when decommissioning a service.
+    - Put "removing DNS entries" on the list of required checks when decommissioning a service.
 
     - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
 
