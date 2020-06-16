@@ -1,9 +1,9 @@
 ---
-author: rothja
-ms.service: cost-management-billing
+author: sunilkh31
+ms.service: dns
 ms.topic: include
 ms.date: 2/14/2020    
-ms.author: rohink
+ms.author: sunilkh31
 ---
 **Public DNS zones**
 
@@ -13,6 +13,11 @@ ms.author: rohink
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
 | Records per record set in public DNS zone |20 |
 | Number of Alias records for a single Azure resource |20|
+
+**Private DNS zones**
+
+| Resource | Limit |
+| --- | --- |
 | Private DNS zones per subscription |1000|
 | Record sets per private DNS zone |25000|
 | Records per record set for private DNS zones |20|
