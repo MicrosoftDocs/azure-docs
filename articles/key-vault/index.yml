@@ -136,7 +136,7 @@ conceptualContent:
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
-        - url: ../databricks/security/secrets/secret-scopes
+        - url: ../databricks/security/secrets/secret-scopes.md
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault
 
