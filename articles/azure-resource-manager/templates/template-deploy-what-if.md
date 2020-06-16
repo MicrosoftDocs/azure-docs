@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/05/2020
 ms.author: tomfitz
 ---
 # ARM template deployment what-if operation (Preview)
@@ -130,6 +130,8 @@ The preceding commands return a text summary that you can manually inspect. To g
 
 * `az deployment group what-if --no-pretty-print` for resource group deployments
 * `az deployment sub what-if --no-pretty-print` for subscription level deployments
+
+If you want to return the results without colors, open your [Azure CLI configuration](/cli/azure/azure-cli-configuration) file. Set **no_color** to **yes**.
 
 ### Azure REST API
 

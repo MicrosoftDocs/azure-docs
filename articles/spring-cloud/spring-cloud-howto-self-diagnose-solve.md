@@ -9,7 +9,7 @@ ms.date: 05/29/2020
 ---
 
 # How to self-diagnose and solve problems in Azure Spring Cloud
-App Service diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, App Service diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
+Azure Spring Cloud diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 ## Prerequisites
 To complete this tutorial, you need:

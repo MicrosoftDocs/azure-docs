@@ -4,7 +4,6 @@ description: Register your Azure SQL Server virtual machine with the SQL VM reso
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -375,7 +374,7 @@ Yes. Customers should register their SQL Server VMs with the SQL VM resource pro
 
 **Should I register with the SQL VM resource provider if my SQL Server VM already has the SQL Server IaaS extension installed?**
 
-If your SQL Server VM is self-installed and not provisioned from the SQL Server images in Azure Marketplace, you should register with the SQL VM resource provider even if you installed the SQL Server IaaS extension. Registering with the SQL VM resource provider creates a new resource of type Microsoft.SqlVirtualMachines. Installing the SQL Server IaaS extension does not create that resource.
+If your SQL Server VM is self-installed and not provisioned from the SQL Server images in Azure Marketplace, you should register with the SQL VM resource provider even if you installed the SQL Server IaaS extension. Registering with the SQL VM resource provider creates a new resource of type Microsoft.SqlVirtualMachine. Installing the SQL Server IaaS extension does not create that resource.
 
 **What is the default management mode when registering with the SQL VM resource provider?**
 

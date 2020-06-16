@@ -334,14 +334,14 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 The cmdlet performs these checks below in sequence and provides guidance for failures:
-1. CheckPort445Connectivity: check that Port 445 is opened for SMB connection
-2. CheckDomainJoined: validate that the client machine is domain joined to AD
-3. CheckADObject: confirm that the logged on user has a valid representation in the AD domain that the storage account is associated with
-4. CheckGetKerberosTicket: attempt to get a Kerberos ticket to connect to the storage account 
-5. CheckADObjectPasswordIsCorrect: ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb key
-6. CheckSidHasAadUser: check that the logged on AD user is synced to Azure AD
-
-We are actively working on extending this diagnostics cmdlet to provide better troubleshooting guidance.
+1. CheckPort445Connectivity: Check that Port 445 is opened for SMB connection
+2. CheckDomainJoined: Validate that the client machine is domain joined to AD
+3. CheckADObject: Confirm that there is an object in the Active Directory that represents the storage account and has the correct SPN (service principal name).
+4. CheckGetKerberosTicket: Attempt to get a Kerberos ticket to connect to the storage account 
+5. CheckADObjectPasswordIsCorrect: Ensure that the password configured on the AD identity that represents the storage account is matching that of the storage account kerb1 or kerb2 key
+6. CheckSidHasAadUser: Check that the logged on AD user is synced to Azure AD. If you want to look up whether a specific AD user is synchronized to Azure AD, you can specify the -UserName and -Domain in the input parameters.
+7. CheckAadUserHasSid: Check if an Azure AD user has a SID in AD, this check requires user to input Object Id of the Azure AD user with parameter -ObjectId. 
+8. CheckStorageAccountDomainJoined: Check the storage account's properties to see that AD authentication has been enabled and the account's AD properties are populated.
 
 ## Unable to configure directory/file level permissions (Windows ACLs) with Windows File Explorer
 

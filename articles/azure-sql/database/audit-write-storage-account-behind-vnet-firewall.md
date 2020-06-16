@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/19/2020
+ms.date: 06/09/2020
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
@@ -121,7 +121,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Sample request
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
+     PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>/auditingSettings/default?api-version=2017-03-01-preview
    ```
 
    Request body
