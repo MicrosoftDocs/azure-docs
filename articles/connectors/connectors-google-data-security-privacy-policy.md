@@ -37,17 +37,19 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
-For example, this logic app *is not compliant*:
+### Non-compliant logic app examples
 
-![Non-compliant logic app](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app.png)
+* This logic app uses the Gmail connector with the HTTP built-in trigger, which isn't approved by Google:
 
-As a sample workaround, you could split this logic app into these two logic apps that *are compliant*. Here is Part 1:
+  ![Non-compliant logic app - Example 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
 
-![Compliant logic app - part 1](./media/connectors-google-data-security-privacy-policy/compliant-logic-app-part-1.png)
+* This logic app uses the Gmail connector with the Azure Blob Storage connector, which isn't approved by Google:
 
-Here is Part 2:
+  ![Non-compliant logic app - Example 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
 
-![Compliant logic app - part 1](./media/connectors-google-data-security-privacy-policy/compliant-logic-app-part-2.png)
+* This logic app uses the Gmail connector with the Twitter connector, which isn't approved by Google:
+
+  ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 
