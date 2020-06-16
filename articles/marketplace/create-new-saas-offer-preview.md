@@ -21,14 +21,14 @@ On the **Preview audience** tab, you can define a limited audience who can revie
 > [!TIP]
 > This tab is not visible if you choose to process transactions independently. If so, go to [Marketing options](create-new-saas-offer-marketing.md).
 
-You can send invites to Microsoft Account (MSA) or Azure Active Directory (AAD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
+You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
 > The preview audience differs from a private audience. A preview audience is allowed access to your offer prior to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. We’ll show you how to create a private plan later in this article.
 
 **Add email addresses manually**
 
-1. On the **Preview Audience** tab, add a single AAD or MSA email address and an optional description in the boxes provided.
+1. On the **Preview Audience** tab, add a single Azure AD or MSA email address and an optional description in the boxes provided.
 2. To add another email, select the **Add another email** link.
 3. Select **Save draft** before continuing to the next tab, **Technical configuration**.
 4. Go to [Provide technical details](#provide-technical-details).
