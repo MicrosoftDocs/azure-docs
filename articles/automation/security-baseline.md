@@ -4,7 +4,7 @@ description: Azure security baseline for Automation
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 06/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -32,9 +32,10 @@ For more information, see the [Azure security baselines overview](https://docs.m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23730).
 
-**Guidance**: Azure Automation account does not yet support Azure Private Link for restricting access to the service through private endpoints. The multi-tenant Hybrid Runbook Workers leverage shared backend resources, which Microsoft is responsible for isolating from each other; their networking is unrestricted and can access public resources. Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation account does not yet support Azure Private Link for restricting access to the service through private endpoints. Runbooks that authenticate and run against resources in Azure run on an Azure sandbox, and leverage shared backend resources, which Microsoft is responsible for isolating from each other; their networking is unrestricted and can access public resources. Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers running on Azure virtual machines, then when you create an Azure virtual machine, you must create a virtual network (VNet) or use an existing VNet and configure your VMs with a subnet.   Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service specific requirements, refer to the security recommendation for that specific service.  Alternatively, if you have a specific requirement, Azure Firewall may also be used to meet it.
+To get further isolation for your runbooks you can use Hybrid Runbook Workers running on Azure virtual machines. When you create an Azure virtual machine, you must create a virtual network (VNet) or use an existing VNet and configure your VMs with a subnet. Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service specific requirements, refer to the security recommendation for that specific service. 
+Alternatively, if you have a specific requirement, Azure Firewall may also be used to meet it.
 
 Virtual networks and virtual machines in Azure: https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
 
@@ -43,6 +44,9 @@ How to create a Virtual Network: https://docs.microsoft.com/azure/virtual-networ
 How to create an NSG with a Security Config: https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 How to deploy and configure Azure Firewall: https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
+
+Runbook execution environment: https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -288,9 +292,9 @@ View and retrieve Azure Activity log events:  https://docs.microsoft.com/azure/a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23744).
 
-**Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
+**Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underlying virtual machines.
  
-However when using the Hybrid Runbook Worker feature, Azure Security Center provides Security Event log monitoring for Windows virtual machines. If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link.
+When using the Hybrid Runbook Worker feature, Azure Security Center provides Security Event log monitoring for Windows virtual machines. If your organization would like to retain the security event log data, it can be stored within a Data Collection tier, at which point it can be queried in Log Analytics. There are different tiers: Minimal, Common and All, which are detailed in the following link.
 
 Configure data collection tier within Azure Security Center: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier
 
@@ -394,7 +398,7 @@ How to Enable guest-level monitoring for virtual machines: https://docs.microsof
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23750).
 
-**Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underylying virtual machines.
+**Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underlying virtual machines.
  
 However, when using the Hybrid Runbook Worker feature, Azure Security Center provides Security event log monitoring for Azure virtual machines.  Security Center provisions the Log Analytics agent on all supported Azure VMs, and any new ones that are created if automatic provisioning is enabled. Or you can install the agent manually.  The agent enables the process creation event 4688 and the commandline field inside event 4688. New processes created on the VM are recorded by event log and monitored by Security Center’s detection services.
 
@@ -648,7 +652,7 @@ How to create and use tags: https://docs.microsoft.com/azure/azure-resource-mana
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23765).
 
-**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Isolate environments by using separate Automation Account resources. Resources like Hybrid Runbook Workers should be separated by virtual network/subnet, tagged appropriately, and secured within an network security group (NSG) or Azure Firewall. For virtual machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
+**Guidance**: Implement separate subscriptions and/or management groups for development, test, and production. Isolate environments by using separate Automation Account resources. Resources like Hybrid Runbook Workers should be separated by virtual network/subnet, tagged appropriately, and secured within a network security group (NSG) or Azure Firewall. For virtual machines storing or processing sensitive data, implement policy and procedure(s) to turn them off when not in use.
 
 How to create additional Azure subscriptions: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
@@ -717,7 +721,7 @@ Azure Automation TLS 1.2 enforcement: https://azure.microsoft.com/updates/azure-
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23769).
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least priviledged or 'just-enough' acccess model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
+**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least privileged or 'just-enough' access model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
 
 How to configure RBAC in Azure:
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
@@ -737,7 +741,7 @@ Manage role permissions and security: https://docs.microsoft.com/azure/automatio
 
 **Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you need to use a third party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines..
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you need to use a third party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines.
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -807,7 +811,7 @@ Security Center recommendation reference:  https://docs.microsoft.com/azure/secu
 
 **Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use the Azure Update Management to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software. 
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use Azure Update Management to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software. 
 
 Update Management in Azure:  https://docs.microsoft.com/azure/automation/automation-update-management
 
@@ -822,7 +826,7 @@ Manage updates and patches for your Azure VMs: https://docs.microsoft.com/azure/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23775).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant hybrid runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can use Azure Update Management to manage updates and patches for your virtual machines.  Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allows you to publish custom updates into Windows Server Update Services (WSUS). This scenario enables Update Management to patch machines that use Configuration Manager as their update repository with third-party software. 
 
@@ -867,9 +871,9 @@ Understand Azure Security Center Secure Score: https://docs.microsoft.com/azure/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23778).
 
-**Guidance**: Use Azure Resource Graph to query and discover all Azure Automation resources within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions. 
+**Guidance**: Use Azure Resource Graph to query and discover all Azure Automation resources within your subscriptions. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions. 
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal 
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal 
 
 How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0 
 
@@ -930,12 +934,12 @@ Manage an Azure Automation Run As account: https://docs.microsoft.com/azure/auto
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23782).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: 
 
 - Not allowed resource types 
 - Allowed resource types 
 
-In addition, use the Azure Resource Graph to query/discover resources within the subscription(s). This can help in high security based environments, such as those with Storage accounts. 
+In addition, use the Azure Resource Graph to query/discover resources within subscriptions. This can help in high security based environments, such as those with Storage accounts. 
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage 
 
@@ -952,7 +956,7 @@ Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23783).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install,remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
+**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
 If you are using Hybrid Runbook Workers backed by Azure Virtual Machines  then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources.  Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
 
@@ -999,7 +1003,7 @@ How to use Azure Security Center Adaptive Application Controls:  https://docs.mi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23786).
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions: 
+**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: 
 
 - Not allowed resource types 
 - Allowed resource types 
@@ -1060,17 +1064,17 @@ How to use Azure Security Center Adaptive Application Controls: https://docs.mic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23790).
 
-**Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual network, subnet, subscriptions, management groups etc. and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG). 
+**Guidance**: High risk applications deployed in your Azure environment may be isolated using separate network and resource containers using constructs like virtual networks, subnet, subscriptions, management groups, they can be sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG). 
 
 Virtual networks and virtual machines in Azure:  https://docs.microsoft.com/azure/virtual-machines/windows/network-overview
 
-What is Azure Firewall?:  https://docs.microsoft.com/azure/firewall/overview
+Azure Firewall Overview:  https://docs.microsoft.com/azure/firewall/overview
 
-What is Azure Web Application Firewall?: https://docs.microsoft.com/azure/web-application-firewall/overview
+Azure Web Application Firewall Overview: https://docs.microsoft.com/azure/web-application-firewall/overview
 
 Network security groups: https://docs.microsoft.com/azure/virtual-network/security-overview
 
-What is Azure Virtual Network?: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+Azure Virtual Network Overview: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
 
 Organize your resources with Azure management groups: https://docs.microsoft.com/azure/governance/management-groups/overview
 
@@ -1114,7 +1118,7 @@ Security recommendations - a reference guide: https://docs.microsoft.com/azure/s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23792).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS.  This is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS.  This is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, use Azure Security Center recommendation [Remediate Vulnerabilities in Security Configurations on your Virtual Machines] to maintain security configurations on your virtual machines.
 
@@ -1154,7 +1158,7 @@ Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23794).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, there are several options for maintaining a secure configuration for Azure virtual machines for deployment:
 
@@ -1196,7 +1200,7 @@ Use source control integration: https://docs.microsoft.com/azure/automation/sour
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23796).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, ensure you are properly limiting access to the custom OS image located in your storage account so only authorized users may access the image.
 
@@ -1230,7 +1234,7 @@ Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23798).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, use Azure Automation State Configuration on the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
@@ -1268,7 +1272,7 @@ Azure policy sample built-ins for Azure Automation:  https://docs.microsoft.com/
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
 
-When using the Hybrid Runbook Worker feature,  use Azure Automation State Configuration for the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
+When using the Hybrid Runbook Worker feature, use Azure Automation State Configuration for the runbook workers which is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
 Onboarding machines for management by Azure Automation State Configuration:  https://docs.microsoft.com/azure/automation/automation-dsc-onboarding
 
@@ -1332,7 +1336,7 @@ How to setup Credential Scanner:  https://secdevtools.azurewebsites.net/helpcred
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23804).
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers.
+**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure Windows virtual machines to continuously monitor and defend your runbook worker resources. 
 
@@ -1361,7 +1365,7 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/23806).
 
-**Guidance**: Azure Automation does not currently expose the underlying multi-tenant Hybrid Runbook Worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
+**Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
 When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure to automatically install the latest signature, platform, and engine updates by default onto your runbook worker. Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all endpoints are up to date with the latest signatures. The Windows OS can be further protected with additional security to limit the risk of virus or malware based attacks with the Microsoft Defender Advanced Threat Protection service that integrates with Azure Security Center. 
 
