@@ -65,7 +65,7 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
-<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 <sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
 Characteristics you can expect from the different storage types list like:
@@ -79,7 +79,7 @@ Characteristics you can expect from the different storage types list like:
 | Disk snapshots possible | yes | yes | yes | no | yes |
 
 
-<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv1 VM families for log/redo log volumes
+<sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
 
