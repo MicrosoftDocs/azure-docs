@@ -29,7 +29,7 @@ No matter which properties you set, you need to configure networking, and the Az
 ## Enabling networking and self-reporting a successful provisioning
 
 
-If have a reasonably standard kernel that can detect networking interfaces, you will need a DHCP client to get an IP from your virtual network, a DNS resolver and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
+If you have a reasonably standard kernel that can detect networking interfaces, you will need a DHCP client to get an IP from your virtual network, a DNS resolver, and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
  
 When you're done setting up networking, it's time to self-report the provisioning event. To do this, you need to send an HTTP request to the wire server, and you should have suitable retry logic, at least 5 attempts.
 
@@ -48,7 +48,8 @@ Here is an example on to report ready.
 When you create a VM from an image that doesn't contain the Linux Agent, you need to ensure the VM deployment configuration indicates that extensions are not supported on this VM.
 
 
-To deploy the VM with extensions disabled, you can use `az vm create` with [--enable-agent](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+To deploy the VM with extensions disabled, use `az vm create` with [--enable-agent](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create).
+
 ```bash
 az vm create \
     --resource-group $resourceGroup \
