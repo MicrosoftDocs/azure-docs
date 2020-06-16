@@ -5,7 +5,7 @@
 
 Push notification integration is included in the calling SDK. These are not the visual push notifications that pop a UI to the end user. These notifications are silent notifications that are delivered to the application in the background. THe purpose for these notifications is to notify the client application that there is an incoming call it needs to receive.
 
-In order to improve reliability of your calls and ensure the application is able to receive incoming call, you will need to registre your client applications for push notification. Azure Communication Services relies on Azure Notification Hubs to deliver notifications to the different endpoints. 
+In order to improve reliability of your calls and ensure the application is able to receive incoming call, you will need to register your client application(s) for push notification. Azure Communication Services relies on Azure Notification Hubs to deliver notifications to the different endpoints. 
 
 ## Registering your app in the Azure Portal
 
