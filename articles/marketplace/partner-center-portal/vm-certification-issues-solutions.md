@@ -1,6 +1,6 @@
 ---
 title: Virtual Machine certification - issues and solutions 
-description: This article will walk you through common error messages encountered in images, and their related solutions.  
+description: This article will walk you through common error messages come acrossed in images, and their related solutions.  
 author: v-miegge 
 ms.author: v-krmall
 ms.service: marketplace
@@ -11,20 +11,20 @@ ms.date: 06/16/2020
 
 # Virtual Machine certification - issues and solutions
 
-While publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high quality tests fail, the publishing will fail with a message containing the error.
+While publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail with a message containing the error.
 
-This article will walk you through common error messages encountered in images, and their related solutions:
+This article will walk you through common error messages come acrossed in images, and their related solutions:
 
 > [!NOTE]
-> If you have questions or feedback for improvement, reach out to [Partner Center Support](https://partner.microsoft.com/en-US/support/v2/?stage=1).
+> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/en-US/support/v2/?stage=1).
 
 ## Approved base image
 
-When you submit a request for re-publishing your image with updates performed on it, the part-number verification test case may fail. In that instance, your image won't be approved.
+When you submit a request to republish your image with updates, the part-number verification test case may fail. In that instance, your image won't be approved.
 
-This failure will occur when you have used a base image which belongs to another publisher and you have updated the image. In this situation, you will not be allowed to publish your image.
+This failure will occur when you used a base image that belongs to another publisher and you have updated the image. In this situation, you won't be allowed to publish your image.
 
-To fix this issue, retrieve your latest image from Azure Marketplace and perform changes on that image. See the following to view approved base images where you can search for your image:
+To fix this issue, retrieve your latest image from Azure Marketplace and make changes to that image. See the following to view approved base images where you can search for your image:
 
 - [Linux-Images](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows-Images](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
@@ -50,7 +50,7 @@ Enable VM Extensions:
 
    (IMAGE)
 
-   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, reach out to the support team and ask them to disable the extension.
+   If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
 
 ## Virtual Machine provisioning issue
 
@@ -62,7 +62,7 @@ Provisioning issues can include the following failure scenarios:
 |---|---|---|---|
 |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer isn't correct, then the VHD will be considered invalid.|Recreate the image and submit the request.|
 |2|Invalid Blob Type|VM provisioning failed as the used block is a blob type instead of a page type.|Recreate the image and submit the request.|
-|3|Provisioning timeout or not properly generalized|There is an issue with VM generalization.|Recreate the image with generalization and submit the request.|
+|3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Recreate the image with generalization and submit the request.|
 
 > [!NOTE]
 > Follow these links for documentation related to VM generalization:
@@ -71,11 +71,11 @@ Provisioning issues can include the following failure scenarios:
 
 ## Software compliance for Windows
 
-If your windows image request is rejected due to software compliance, then you may have created a Windows image with the SQL server installed, instead of taking the relevant SQL version base image from Azure Marketplace.
+If your windows image request is rejected because of software compliance, then you may have created a Windows image with the SQL server installed, instead of taking the relevant SQL version base image from Azure Marketplace.
 
 Don't create your own windows image with SQL server installed in it. Instead, use the approved SQL base images (Enterprise/Standard/web) from Azure Marketplace.
 
-If you are trying to install Visual studio or any office licensed product, then get prior approval by reaching out to the support team.
+If you're trying to install Visual studio or any office licensed product, then contact the support team for prior approval.
 
 For more information, visit [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) to select an approved base.
 
@@ -98,20 +98,20 @@ The following are the Linux test cases that the toolkit will execute. Test valid
 |5|Root Partition on OS Disk|Create single root partition for the OS disk.|
 |6|OpenSSL Version|The OpenSSL Version should be greater or equal to v0.9.8.|
 |7|Python Version|Python version 2.6+ is highly recommended.|
-|8|Client Alive Interval|Set ClientAliveInterval to 180. On the application need, it can be set between 30 to 235. If you are enabling the SSH for your end-users, this value must be set as explained.|
+|8|Client Alive Interval|Set ClientAliveInterval to 180. On the application need, it can be set between 30 to 235. If you're enabling the SSH for your end users, this value must be set as explained.|
 |9|OS Architecture|Only 64-bit operating systems are supported.|
 |10|Auto Update|Identifies whether Linux Agent Auto Update is enabled.|
 
-### Common errors encountered while executing the previous test cases
+### Common errors found while executing the previous test cases
 
-These are the common errors encountered while executing the previous test cases.
+Common errors found while executing the previous test cases.
  
 |S.NO|test case|error|solution|
 |---|---|---|---|
-|1|Linux Agent Version Test Case|The minimum Linux agent version is 2.241 or higher. This has been mandatory since May 1st 2020|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
-|2|Bash History Test Case|You'll see an error if the size of the bash history in your submitted image is more than 1 KB. The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes (for example, delete the .bash history files) you want to reduce the size to less than or equal to 1KB.|
-|3|Required Kernel Parameter Test Case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by executing the command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0** and re-submit the request.|
-|4|ClientAlive Interval Test Case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, then re-submit the request.|
+|1|Linux Agent Version Test Case|The minimum Linux agent version is 2.241 or higher. This requirement has been mandatory since May 1, 2020|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|2|Bash History Test Case|You'll see an error if the size of the bash history in your submitted image is more than 1 KB. The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes (for example, delete the `.bash` history files) you want to reduce the size to less than or equal to 1 KB.|
+|3|Required Kernel Parameter Test Case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by executing the command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0** and resubmit the request.|
+|4|ClientAlive Interval Test Case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, then resubmit the request.|
 
 ### Windows test cases
 
@@ -119,31 +119,31 @@ The following are the Windows test cases that the toolkit will execute. Test val
 
 |S.No|test cases|description|
 |---|---|---|---|
-|1|OS Architecture|Azure only supports 64bit operating systems.|
-|2|User account dependency|Application execution should not be dependant on the administrator account.|
-|3|Failover Cluster|Windows Server Failover Clustering feature isn't yet supported. the application should not be dependent on this feature.|
-|4|IPV6|IPv6 isn't yet supported in the Azure environment. The application should not be dependent on this feature.|
-|5|DHCP|Dynamic Host Configuration Protocol Server role isn't yet supported. The application should not be dependent on this feature.|
-|6|Hyper-V|Hyper-V Server role isn't yet supported. The application should not be dependent on this feature.|
-|7|Remote Access|Remote Access (Direct Access) Server role isn't yet supported. The application should not be dependent on this feature.|
-|8|Rights Management Services|Rights Management Services. The server role isn't yet supported. The application should not be dependent on this feature.|
-|9|Windows Deployment Services|Windows Deployment Services. The server role isn't yet supported. The application should not be dependent on this feature.|
+|1|OS Architecture|Azure only supports 64 bit operating systems.|
+|2|User account dependency|Application execution shouldn't be dependant on the administrator account.|
+|3|Failover Cluster|Windows Server Failover Clustering feature isn't yet supported. the application shouldn't be dependent on this feature.|
+|4|IPV6|IPv6 isn't yet supported in the Azure environment. The application shouldn't be dependent on this feature.|
+|5|DHCP|Dynamic Host Configuration Protocol Server role isn't yet supported. The application shouldn't be dependent on this feature.|
+|6|Hyper-V|Hyper-V Server role isn't yet supported. The application shouldn't be dependent on this feature.|
+|7|Remote Access|Remote Access (Direct Access) Server role isn't yet supported. The application shouldn't be dependent on this feature.|
+|8|Rights Management Services|Rights Management Services. The server role isn't yet supported. The application shouldn't be dependent on this feature.|
+|9|Windows Deployment Services|Windows Deployment Services. The server role isn't yet supported. The application shouldn't be dependent on this feature.|
 |10|BitLocker Drive Encryption|BitLocker Drive Encryption isn't supported on the operating system hard disk, but may be used on data disks.|
-|11|Internet Storage Name Server|Internet Storage Name Server feature isn't yet supported. The application should not be dependent on this feature.|
-|12|Multipath I/O|Multipath I/O. This server feature isn't yet supported. The application should not be dependent on this feature.|
-|13|Network Load Balancing|Network Load Balancing. This server feature isn't yet supported. The application should not be dependent on this feature.|
-|14|Peer Name Resolution Protocol|Peer Name Resolution Protocol. This server feature isn't yet supported. The application should not be dependent on this feature.|
-|15|SNMP Services|The SNMP Services feature isn't yet supported. The application should not be dependent on this feature.|
-|16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application should not be dependent on this feature.|
-|17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application should not be dependent on this feature.|
+|11|Internet Storage Name Server|Internet Storage Name Server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|12|Multipath I/O|Multipath I/O. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|13|Network Load Balancing|Network Load Balancing. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|14|Peer Name Resolution Protocol|Peer Name Resolution Protocol. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|15|SNMP Services|The SNMP Services feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 
-If you encounter any failures with the above test cases, refer to the **Description** column in the previous table for the solution. If you require more information, reach out to support team. 
+If you come across any failures with the above test cases, refer to the **Description** column in the previous table for the solution. If you require more information, contact support team. 
 
 ## Data disk size verification
 
-If the size of any request submitted with the data disk is greater than 1023 GB, that request won't be approved. This applies to both Linux & Windows.
+If the size of any request submitted with the data disk is greater than 1023 GB, that request won't be approved. This rule applies to both Linux & Windows.
 
-Re-submit the request with a size less than or equal to 1023 GB.
+resubmit the request with a size less than or equal to 1023 GB.
 
 ## OS disk size validation
 
@@ -151,15 +151,15 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 
 |OS|recommended VHD size|
 |---|---|
-|Linux|30GB to 1023GB|
-|Windows|30GB to 250GB|
+|Linux|30 GB to 1023 GB|
+|Windows|30 GB to 250 GB|
 
-As VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Because disks aren’t completely expandable without downtime, use a disk size between 30-50GB.
+As VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Because disks aren’t expandable without downtime, use a disk size between 30 and 50 GB.
 
 |VHD size|actual occupied size|solution|
 |---|---|---|
-|>500TIB|n/a|Reach out to the support team for an exception approval.|
-|250-500TiB|>200GiB different from blob size|Reach out to the support team for an exception approval.|
+|>500 TiB|n/a|contact the support team for an exception approval.|
+|250-500 TiB|>200 GiB different from blob size|contact the support team for an exception approval.|
 
 > [!NOTE]
 > Larger disk sizes incur higher costs and will incur a delay during provisioning and replication steps. Because of this delay and cost, the support team may seek justification for the exception approval.
@@ -173,7 +173,7 @@ To check the Windows Server patched version, refer to the following table for th
 The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
 > [!NOTE]
-> WindowsServer2019 does not have any mandatory version requirements.
+> WindowsServer2019 doesn't have any mandatory version requirements.
 
 |OS|version|
 |---|---|
@@ -185,7 +185,7 @@ The image file version can be verified from `C:\windows\system32\drivers\srv.sys
 
 ## SACK vulnerability patch verification
 
-When you submit a Linux image, your request may be rejected due to kernel version issues.
+When you submit a Linux image, your request may be rejected because of kernel version issues.
 
 Update the kernel with an approved version and resubmit the request. You can find the approved kernel version in the following table. The version number should be equal to or greater than the one listed below.
 
@@ -242,13 +242,13 @@ If your image in not installed with one of the following kernel versions, update
 
 ## Image size should be in multiples of megabytes
 
-All VHDs on Azure must have a virtual size aligned to multiple of 1 MB. If your VHD does not adhere to the recommended virtual size then your request might get rejected.
+All VHDs on Azure must have a virtual size aligned to multiple of 1 MB. If your VHD doesn't adhere to the recommended virtual size, your request might get rejected.
 
-follow guidelines, when you are converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
+follow guidelines, when you're converting from a raw disk to VHD and must ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for Non-endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
 
 ## VM access denied
 
-If you encounter access denied issue while executing the test cases on VM then it may be due to insufficient privileges to execute the test cases.
+If you come across access denied issues while executing the test cases on VM, it may be because of insufficient privileges to execute the test cases.
 
 Check whether proper access is enabled for the account on which the self-test cases are executing. if they are not, enable access to execute the test cases. If you don't want to enable access, you may share the self-test case results with the support team.
 
@@ -265,9 +265,9 @@ Refer to the following table for any issues when downloading the VM image using 
 |6|HTTP Conditional Header|Invalid SAS URL.|Get the correct SAS URL.|
 |7|Invalid VHD Name|Check whether any special characters such as **%** or **“ “** exist in the VHD name|Rename the VHD file by removing special characters|
 
-## First 1MB partition
+## First 1 MB partition
 
-When submitting the VHD, ensure that the first 1MB partition of the VHD is empty. Otherwise, your request will fail.
+When submitting the VHD, ensure that the first 1 MB partition of the VHD is empty. Otherwise, your request will fail.
 
 ## Default credentials
 
@@ -275,9 +275,9 @@ Always ensure that default credentials aren't sent with the submitted VHD. Addin
   
 ## DataDisk mapped incorrectly
 
-When a request is submitted with multiple data disks, but their order isn't in sequence, this is considered a mapping issue. For example, if there are three data disks, the numbering order must be **0, 1, 2**. Any order other than this will be treated as a mapping issue.
+When a request is submitted with multiple data disks, but their order isn't in sequence, this is considered a mapping issue. For example, if there are three data disks, the numbering order must be **0, 1, 2**. Any other order will be treated as a mapping issue.
 
-Re-submit the request with proper sequencing of data disks.
+resubmit the request with proper sequencing of data disks.
 
 ## Incorrect OS mapping
 
@@ -305,8 +305,8 @@ Refer the following table for solutions to errors related to the data disk.
 
 |Error|reason|solution|
 |---|---|---|
-|`DataDisk- InvalidUrl:`|This error may be due to an invalid number specified for LUN while submitting the offer.|Verify that the LUN number sequence for the data disk is in Partner center.|
-|`DataDisk- NotFound:`|This error may be due to a data disk not being located at a specified SAS URL|Verify the data disk is located at SAS URL specified in the request.|
+|`DataDisk- InvalidUrl:`|This error may be because of an invalid number specified for LUN while submitting the offer.|Verify that the LUN number sequence for the data disk is in Partner center.|
+|`DataDisk- NotFound:`|This error may be because of a data disk not being located at a specified SAS URL|Verify the data disk is located at SAS URL specified in the request.|
 
 ## Remote Access issue
 
