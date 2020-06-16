@@ -134,6 +134,10 @@ The unit of scale for Azure Functions is the function app. When the function app
 
 ![Scale controller monitoring events and creating instances](./media/functions-scale/central-listener.png)
 
+### Cold Start
+
+After your function app has been idle for a number of minutes, the platform may scale the number of instances on which your app runs down to zero. The next request has the added latency of scaling from zero to one. This latency is referred to as a _cold start_. The number of dependencies that must be loaded by your function app can impact the cold start time. Cold start is more of an issue for  synchronous operations, such as HTTP triggers that must return a response. If cold starts are impacting your functions, consider running in a Premium plan or in a Dedicated plan with Always on enabled.   
+
 ### Understanding scaling behaviors
 
 Scaling can vary on a number of factors, and scale differently based on the trigger and language selected. There are a few intricacies of scaling behaviors to be aware of:
@@ -176,10 +180,10 @@ The following comparison table shows all important aspects to help the decision 
 
 <sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
-### Operating System/Runtime
+### Operating system/runtime
 
 | | Linux<sup>1</sup><br/>Code-only | Windows<sup>2</sup><br/>Code-only | Linux<sup>1,3</sup><br/>Docker container |
-| --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | **[Consumption plan](#consumption-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python | .NET Core<br/>Node.js<br/>Java<br/>PowerShell Core | No support  |
 | **[Premium plan](#premium-plan)** | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python  | 
 | **[Dedicated plan](#app-service-plan)**<sup>4</sup> | .NET Core<br/>Node.js<br/>Java<br/>Python|.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core |.NET Core<br/>Node.js<br/>Java<br/>PowerShell Core<br/>Python |
@@ -203,7 +207,7 @@ The following comparison table shows all important aspects to help the decision 
 
 <sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
-### Cold Start
+### Cold start behavior
 
 |    |    | 
 | -- | -- |
