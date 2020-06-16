@@ -22,10 +22,10 @@ In this scenario, VPN, ExpressRoute, and User VPN connections are associated to 
 In **Figure 1**, all VNets and Branches (VPN, ExpressRoute, P2S) can reach each other. In a virtual hub, connections work as follows:
 
 * A VPN connection connects a VPN site to a VPN gateway.
-* A virtual network connection connects a virtual network to a virtual hub. The router provides the transit functionality.
+* A virtual network connection connects a virtual network to a virtual hub. The virtual hub's router provides the transit functionality between VNets.
 * An ExpressRoute connection connects an ExpressRoute circuit to an ExpressRoute gateway.
 
-These connections (by default at creation) are associated to the Default route table, unless you set up the routing configuration of the connection to either **None**, or a custom route table. These connections also propagate by default to the Default route table. This is what enables an any-to-any scenario where any spoke (VNet, VPN, ER, P2S) can reach each other.
+These connections (by default at creation) are associated to the Default route table, unless you set up the routing configuration of the connection to either **None**, or a custom route table. These connections also propagate routes, by default to the Default route table. This is what enables an any-to-any scenario where any spoke (VNet, VPN, ER, P2S) can reach each other.
 
 **Figure 1**
 
@@ -33,7 +33,7 @@ These connections (by default at creation) are associated to the Default route t
 
 ## <a name="workflow"></a>Scenario workflow
 
-This scenario is enabled by default for Standard Virtual WAN.
+This scenario is enabled by default for Standard Virtual WAN. If the setting for branch-to-branch are disabled in WAN configuration, that will disallow connectivity between branch spokes. VPN/ExpressRoute/User VPN are considered as branch spokes in Virtual WAN
 
 ## Next steps
 
