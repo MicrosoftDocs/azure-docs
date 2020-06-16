@@ -38,7 +38,7 @@ Create a service principal to control which resources can be accessed from your 
 ```azurecli
 az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
 ```
-This operation returns a series of key values pairs:
+This operation returns a series of key/value pairs:
 
 ![Screenshot showing the appId and password for contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
@@ -52,10 +52,10 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
 
 > [!NOTE] 
 > If you plan to use a pod identity instead of a service principal, be sure to enable it when you create the Kubernetes cluster, as shown in the following command:
-
-```azurecli
-az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
-```
+>
+> ```azurecli
+> az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
+> ```
 
 1. [Set your PATH environment variable](https://www.java.com/en/download/help/path.xml) to the *kubectl.exe* file that you downloaded.
 1. Check your Kubernetes version by using the following command, which outputs the client and server version. The client version is the *kubectl.exe* file that you installed, and the server version is the Azure Kubernetes Services (AKS) that your cluster is running on.
@@ -185,10 +185,10 @@ If you're using a service principal, grant permissions for it to access your key
 
 > [!NOTE] 
 > If you're deploying the Kubernetes pod and you receive an error about an invalid Client Secret ID, you might have an older Client Secret ID that was expired or reset. To resolve this issue, delete your *secrets-store-creds* secret and create a new one with the current Client Secret ID. To delete your *secrets-store-creds*, run the following command:
-
-```azurecli
-kubectl delete secrets secrets-store-creds
-```
+>
+> ```azurecli
+> kubectl delete secrets secrets-store-creds
+> ```
 
 If you forgot your service principal's Client Secret ID, you can reset it by using the following command:
 
