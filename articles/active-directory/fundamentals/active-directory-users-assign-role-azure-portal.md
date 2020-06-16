@@ -29,9 +29,9 @@ A common way to assign Azure AD roles to a user is on the **Directory role** pag
 You can also assign roles using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
-> If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/active-directory-assign-role-azure-portal/directory-manage-roles-portal.md).
+> If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/directory-manage-roles-portal.md).
 >
-> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manage-roles-for-p2.png)
+> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
 ### To assign a role to a user
 
