@@ -100,7 +100,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 **The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
 
-See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+See specific [VM size limits](../reference/limits.md#overall-number-of-polygons).
 
 **The model is not inside the camera frustum:**
 
@@ -140,6 +140,12 @@ There can be two problems with this bounding box that lead to invisible geometry
 Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *:::no-loc text="Window > Analysis > Frame debugger":::*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
+
+## Checkerboard pattern is rendered after model loading
+
+If the rendered image looks like this:
+![Checkerboard](../reference/media/checkerboard.png)
+then the renderer hits the [polygon limits for the standard VM size](../reference/vm-sizes.md). To mitigate, either switch to **premium VM** size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
 
