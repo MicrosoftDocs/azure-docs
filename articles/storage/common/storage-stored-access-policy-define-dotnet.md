@@ -1,12 +1,13 @@
 ---
-title: Define a stored access policy with .NET - Azure Storage
+title: Define a stored access policy with .NET
+titleSuffix: Azure Storage
 description: Learn how to define a stored access policy using the .NET client library.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -16,7 +17,7 @@ ms.subservice: common
 
 A stored access policy provides an additional level of control over service-level shared access signatures (SAS) on the server side. Defining a stored access policy serves to group shared access signatures and to provide additional restrictions for shared access signatures that are bound by the policy. You can use a stored access policy to change the start time, expiry time, or permissions for a SAS, or to revoke it after it has been issued.
   
- The following storage resources support stored access policies:  
+ The following Azure Storage resources support stored access policies:  
   
 - Blob containers  
 - File shares  
