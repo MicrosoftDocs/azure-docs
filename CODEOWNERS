@@ -13,7 +13,7 @@ articles/active-directory/app-provisioning/ @CelesteDG
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
-articles/cognitive-services/ @diberry @erhopf @aahill @ievangelist @patrickfarley @nitinme
+articles/cognitive-services/ @diberry @erhopf @aahill @trevorbye @patrickfarley @nitinme
 
 # DevOps
 articles/ansible/ @TomArcherMsft

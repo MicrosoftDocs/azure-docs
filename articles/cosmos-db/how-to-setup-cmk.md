@@ -215,9 +215,34 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## Key rotation
+
+Rotating the customer-managed key used by your Azure Cosmos account can be done in two ways.
+
+- Create a new version of the key currently used from Azure Key Vault:
+
+  ![Create a new key version](./media/how-to-setup-cmk/portal-akv-rot.png)
+
+- Swap the key currently used with a totally different one by updating the `keyVaultKeyUri` property of your account. Here's how to do it in PowerShell:
+
+    ```powershell
+    $resourceGroupName = "myResourceGroup"
+    $accountName = "mycosmosaccount"
+    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    
+    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    
+    $account.Properties.keyVaultKeyUri = $newKeyUri
+    
+    $account | Set-AzResource -Force
+    ```
+
+The previous key or key version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore.
+    
 ## Error handling
 
-When using Customer-Managed Keys (CMK) in Azure Cosmos DB, if there are any errors, Azure Cosmos DB returns the error details along with a HTTP sub-status code in the response. You can use this sub-status code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb.md) article to get the list of supported HTTP sub-status codes.
+When using Customer-Managed Keys (CMK) in Azure Cosmos DB, if there are any errors, Azure Cosmos DB returns the error details along with a HTTP sub-status code in the response. You can use this sub-status code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article to get the list of supported HTTP sub-status codes.
 
 ## Frequently asked questions
 
@@ -262,14 +287,6 @@ You can programmatically fetch the details of your Azure Cosmos account and look
 ### How do customer-managed keys affect a backup?
 
 Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. To use the restored backup, the encryption key that you used at the time of the backup is required. This means that no revocation was made and the version of the key that was used at the time of the backup will still be enabled.
-
-### How do I rotate an encryption key?
-
-Key rotation is performed by creating a new version of the key in Azure Key Vault:
-
-![Create a new key version](./media/how-to-setup-cmk/portal-akv-rot.png)
-
-The previous version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that version anymore.
 
 ### How do I revoke an encryption key?
 

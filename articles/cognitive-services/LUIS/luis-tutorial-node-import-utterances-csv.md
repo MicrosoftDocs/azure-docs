@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
 ---
 
 # Build a LUIS app programmatically using Node.js
 
-LUIS provides a programmatic API that does everything that the [LUIS](luis-reference-regions.md) website does. This can save time when you have pre-existing data and it would be faster to create a LUIS app programmatically than by entering information by hand. 
+LUIS provides a programmatic API that does everything that the [LUIS](luis-reference-regions.md) website does. This can save time when you have pre-existing data and it would be faster to create a LUIS app programmatically than by entering information by hand.
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -27,14 +27,14 @@ LUIS provides a programmatic API that does everything that the [LUIS](luis-refer
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
 * **[Recommended]** Visual Studio Code for IntelliSense and debugging, download it from [here](https://code.visualstudio.com/) for free.
 
-All of the code in this article is available on the [Azure-Samples Language Understanding GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv). 
+All of the code in this article is available on the [Azure-Samples Language Understanding GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
 
 ## Map preexisting data to intents and entities
 Even if you have a system that wasn't created with LUIS in mind, if it contains textual data that maps to different things users want to do, you might be able to come up with a mapping from the existing categories of user input to intents in LUIS. If you can identify important words or phrases in what the users said, these words might map to entities.
 
-Open the [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. It contains a log of user queries to a hypothetical home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them. 
+Open the [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) file. It contains a log of user queries to a hypothetical home automation service, including how they were categorized, what the user said, and some columns with useful information pulled out of them.
 
-![CSV file of pre-existing data](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![CSV file of pre-existing data](./media/luis-tutorial-node-import-utterances-csv/csv.png)
 
 You see that the **RequestType** column could be intents, and the **Request** column shows an example utterance. The other fields could be entities if they occur in the utterance. Because there are intents, entities, and example utterances, you have the requirements for a simple, sample app.
 
@@ -42,12 +42,12 @@ You see that the **RequestType** column could be intents, and the **Request** co
 To generate a new LUIS app from the CSV file:
 
 * Parse the data from the CSV file:
-    * Convert to a format that you can upload to LUIS using the Authoring API. 
-    * From the parsed data, gather information about intents and entities. 
+    * Convert to a format that you can upload to LUIS using the Authoring API.
+    * From the parsed data, gather information about intents and entities.
 * Make authoring API calls to:
     * Create the app.
-    * Add intents and entities that were gathered from the parsed data. 
-    * Once you have created the LUIS app, you can add the example utterances from the parsed data. 
+    * Add intents and entities that were gathered from the parsed data.
+    * Once you have created the LUIS app, you can add the example utterances from the parsed data.
 
 You can see this program flow in the last part of the `index.js` file. Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js) this code and save it in `index.js`.
 
@@ -56,7 +56,7 @@ You can see this program flow in the last part of the `index.js` file. Copy or [
 
 ## Parse the CSV
 
-The column entries that contain the utterances in the CSV have to be parsed into a JSON format that LUIS can understand. This JSON format must contain an `intentName` field that identifies the intent of the utterance. It must also contain an `entityLabels` field, which can be empty if there are no entities in the utterance. 
+The column entries that contain the utterances in the CSV have to be parsed into a JSON format that LUIS can understand. This JSON format must contain an `intentName` field that identifies the intent of the utterance. It must also contain an `entityLabels` field, which can be empty if there are no entities in the utterance.
 
 For example, the entry for "Turn on the lights" maps to this JSON:
 
@@ -101,7 +101,7 @@ Once you have an app, you need to intents to it. The following code creates the 
 The following code adds the entities to the LUIS app. Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_entities.js) it, and save it into `_entities.js`.
 
    [!code-javascript[Node.js code for creating entities](~/samples-luis/examples/build-app-programmatically-csv/_entities.js)]
-   
+
 
 
 ## Add utterances
@@ -130,7 +130,7 @@ Open the index.js file, and change these values at the top of the file.
 // Change these values
 const LUIS_programmaticKey = "YOUR_AUTHORING_KEY";
 const LUIS_appName = "Sample App";
-const LUIS_appCulture = "en-us"; 
+const LUIS_appCulture = "en-us";
 const LUIS_versionId = "0.1";
 ```
 
@@ -191,5 +191,5 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 This sample application uses the following LUIS APIs:
 - [create app](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [add intents](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e)
 - [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
