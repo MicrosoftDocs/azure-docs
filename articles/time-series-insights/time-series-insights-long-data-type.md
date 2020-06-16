@@ -8,29 +8,29 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/16/2020
 ms.custom: dpalled
 ---
 
-# Adding Support for Long Data Type
+# Adding support for long data type
 
 These changes will be applied to Preview (PAYG) environments only. If you have a Standard (S) SKU TSI environment, you may disregard these changes.
 
-We are making changes to how we store and index numeric data in Azure Time Series Insights Preview that might impact you. If you’re impacted by any of the cases below, please make the necessary changes as soon as possible. Your data will start being indexed as Long and Double between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns regarding this change, please submit a support ticket through the Azure Portal and mention this communication.
+We are making changes to how we store and index numeric data in Azure Time Series Insights Preview that might impact you. If you’re impacted by any of the cases below, make the necessary changes as soon as possible. Your data will start being indexed as Long and Double between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
 
 This change impacts you in the following cases:
 
 1. If you currently use Time Series Model variables and send only integral data types in your telemetry data.
 1. If you currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
-1. If you use categorical variables mapping integer values to categories.
+1. If you use categorical variables to map integer values to categories.
 1. If you use the JavaScript SDK to build a custom front-end Application.
-1. If you are nearing the 1,000-property name limit in Warm Store (WS) and send both integral and nonintegral data, property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
+1. If you're nearing the 1,000-property name limit in Warm Store (WS) and send both integral and nonintegral data, property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
 
-If any of the above cases apply to you, you will need to make changes to your model to accommodate this change. Please update the Time Series Expression in your variable definition in both TSI Explorer and in any custom client using our APIs with the recommended changes. See below for details.
+If any of the above cases apply to you, you'll need to make changes to your model to accommodate this change. Update the Time Series Expression in your variable definition in both TSI Explorer and in any custom client using our APIs with the recommended changes. See below for details.
 
-Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your TSI PAYG environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options. You can observe your data via the Explore Events feature in the explorer after the feature is released and then apply the recommended changes, you can pre-emptively make the changes below for all numeric tags, or you can start temporarily storing telemetry events now in order to better understand and explore your schema. To store events you can turn on [event capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) for Event Hubs, or [route](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) from your IoT Hub to Azure Blob Storage. Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). If you use IoT Hub, see the documentation [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) on how to access the built-in endpoint.
+Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your TSI PAYG environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options. You can wait for the feature to be released and then explore your raw events in the explorer UI to understand which properties have been saved in two separate columns. You could pre-emptively make the changes below for all numeric tags, or temporarily route a subset of events to storage to better understand and explore your schema. To store events, turn on [event capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) for Event Hubs, or [route](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) from your IoT Hub to Azure Blob Storage. Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). If you use IoT Hub, see the documentation [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) on how to access the built-in endpoint.
 
-Please note that if you are impacted by these changes and are unable to make them by the above dates, you may experience a disruption where the impacted Time Series Variables accessed via the query APIs or Time Series Insights Explorer will return *null* (i.e. show no data in the Explorer).
+Note that if you are affected by these changes and are unable to make them by the above dates, you may experience a disruption where the impacted Time Series Variables accessed via the query APIs or Time Series Insights Explorer will return *null* (i.e. show no data in the Explorer).
 
 ## Recommended Changes
 
@@ -97,7 +97,7 @@ You may also use *“coalesce($event.propertyValue.Double, toDouble($event.prope
 > [!NOTE]
 > We recommend you update these variables in all places they might be used (Time Series Model, saved queries, Power BI Connector queries).
 
-Case 3: **Using categorical variables mapping integer values to categories**
+Case 3: **Using categorical variables to map integer values to categories**
 
 If you are currently using categorical variables that map integer values to categories, you are likely using the toLong function to convert data from Double type to Long type. Like in the cases above, you will need to coalesce the Double and Long DataType columns.
 
@@ -196,8 +196,14 @@ Categorical variables still require the value to be of an integer type. The Data
 > [!NOTE]
 > We recommend you update these variables in all places they might be used (Time Series Model, saved queries, Power BI Connector queries).
 
-Case 4: **Using the JavaScript SDK to build a custom front-end Application**
+Case 4: **Using the JavaScript SDK to build a custom front-end application**
+
+If you're impacted by cases 1-3 above and build custom applications, you need to update your queries to use the use the *coalesce()* function, as demonstrated in the examples above.
 
 Case 5: **Nearing Warm Store 1,000 property limit**
 
-If you are a Warm Store user with a large number of properties and believe that this change would push your environment over the 1,000 WS property-name limit, please submit a support ticket through the Azure Portal and mention this communication.
+If you are a Warm Store user with a large number of properties and believe that this change would push your environment over the 1,000 WS property-name limit, submit a support ticket through the Azure portal and mention this communication.
+
+## Next steps
+
+* Check out the article on [ingress and storage](/time-series-insights-update-storage-ingress.md) to learn about the supported data types.
