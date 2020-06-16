@@ -131,4 +131,4 @@ When using Azure Lighthouse, it is recommended to create a group for each Azure 
 In this document, you learned how Azure Sentinel's capabilities can be extended across multiple workspaces and tenants. For practical guidance on implementing Azure Sentinel's cross-workspace architecture, see the following articles:
 
 - Learn how to [work with multiple tenants](./multiple-tenants-service-providers.md) in Azure Sentinel, using Azure Lighthouse.
-- Learn how to [view and manage incidents in multiple workspaces](./multiple-workspace-view) seamlessly.
+- Learn how to [view and manage incidents in multiple workspaces](./multiple-workspace-view.md) seamlessly.
