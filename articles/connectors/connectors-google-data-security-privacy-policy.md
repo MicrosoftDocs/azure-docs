@@ -39,15 +39,17 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 ## Non-compliant examples
 
-* This logic app uses the Gmail connector with the HTTP built-in trigger, which isn't approved by Google:
+Here are some examples that use the Gmail connector with built-in triggers and actions or managed connectors that aren't approved by Google:
+
+* This logic app uses the Gmail connector with the HTTP built-in trigger:
 
   ![Non-compliant logic app - Example 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
 
-* This logic app uses the Gmail connector with the Azure Blob Storage connector, which isn't approved by Google:
+* This logic app uses the Gmail connector with the Azure Blob Storage connector:
 
   ![Non-compliant logic app - Example 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
 
-* This logic app uses the Gmail connector with the Twitter connector, which isn't approved by Google:
+* This logic app uses the Gmail connector with the Twitter connector:
 
   ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
