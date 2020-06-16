@@ -135,11 +135,10 @@ import com.azure.communication.CommunicationCredential;
 // Your unique Azure Communication service endpoint
 String endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 
-CommunicationCredential credential = new CommunicationCredential(new ICommunicationCredentialListener() {
+CommunicationUserCredential credential = new CommunicationUserCredential(new ICommunicationUserCredentialProvider() {
      @Override
-     public void onTokenWillExpire(CommunicationCredential credential) {
-          // fetch a new token from your trusted service
-          credential.setToken(newUserToken);
+     public Future<String> getToken(String userName) {
+          // fetch and return a new token from your trusted service
      }
 });
 
@@ -252,11 +251,10 @@ import com.azure.communication.CommunicationCredential;
 // Your unique Azure Communication service endpoint
 String endpoint = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 
-CommunicationCredential credential = new CommunicationCredential(new ICommunicationCredentialListener() {
+CommunicationUserCredential credential = new CommunicationUserCredential(new ICommunicationUserCredentialProvider() {
      @Override
-     public void onTokenWillExpire(CommunicationCredential credential) {
-          // consolidated logic for refreshing tokens
-          credential.setToken(newUserToken);
+     public Future<String> getToken(String userName) {
+          // fetch and return a new token from your trusted service
      }
 });
 
