@@ -56,11 +56,6 @@ An API connector at this step in the sign-up process is invoked after the attrib
 <!-- > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
 
-## Frequently asked questions (FAQ)
-
-### How do I integrate with an API that I can't change?
-You can use an HTTP trigger in Azure Functions as a simple way to call and invoke other web APIs. Get started with our [quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-
 ## Next steps
 - Learn how to [add an API connector to a user flow](self-service-sign-up-add-api-connector.md)
 - Learn how to [add a custom approval system to self-service sign-up](self-service-sign-up-add-approvals.md)
