@@ -26,8 +26,7 @@ After provisioning completes, cloud-init will run on each boot. Cloud-init will 
 
 Whilst there are currently two provisioning agents, cloud-init should be the provisioning agent you choose, and the Linux Agent should be installed for extension support. This allows you to take advantage of platform optimizations, and allows you to disable/remove the Linux Agent, for more details on how to create images without the agent, and how to remove it, please review this [documentation](disable-provisioning.md).
 
-If you have a Linux flavor or kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](no-agent.md), and meet platform requirements.
-
+If you have a Linux kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](no-agent.md), and meet platform requirements.
 
 
 ## Provisioning Agent Responsibilities
@@ -79,3 +78,4 @@ The Linux Agent, and cloud-init, depend on some system packages in order to func
 
 ## Next steps
 
+If you need to, you can [disable provisioning and remove the Linux agent](disable-provisioning.md).

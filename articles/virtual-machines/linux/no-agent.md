@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/08/2020
+ms.date: 06/16/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -14,7 +14,7 @@ ms.reviewer: cynthn
 
 # Create generalized images without a provisioning agent
 
-Most deployments in Azure do not need to use this process. There are provisioning agents, like cloud-init, that are maintained, tested, and updated to support the VM provisioning with Azure.
+Most deployments in Azure do not need to use images without a provisioning agent. Provisioning agents, like cloud-init, are maintained, tested, and updated to support the most Azure deployments.
 
 You should only consider this if:
 1. You Linux OS will not meet the cloud-init prerequisites.
@@ -27,9 +27,9 @@ No matter which properties you set, you need to configure networking, and the Az
 
 
 ## Enabling networking and self-reporting a successful provisioning
-NOTICE: failure to self-report ready state will result in the instance being power cycled.
- 
-To do this, and assuming you have a reasonably standard kernel that can detect the networking interface(s), you will require a DHCP client to get an IP from your virtual network, a DNS resolver and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
+
+
+If have a reasonably standard kernel that can detect networking interfaces, you will need a DHCP client to get an IP from your virtual network, a DNS resolver and a route. Even if you manually specify private IP addresses and hardcode resolver settings, we only support DHCP-enabled instances. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
  
 When you're done setting up networking, it's time to self-report the provisioning event. To do this, you need to send an HTTP request to the wire server, and you should have suitable retry logic, at least 5 attempts.
 
@@ -37,12 +37,16 @@ When you're done setting up networking, it's time to self-report the provisionin
 >> ANH - can you share 
 Here is an example on to report ready.
             https://gist.github.com/arithx/dae948f3d9558c8863ac55cba3391eb4
- 
 
-## Creating a VM from an image that does not contain a Linux Agent
-When you create the VM from the image with no Linux Agent, you need to ensure the VM deployment config indicates extensions are not supported on this VM.
 
->Note! If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
+> [!IMPORTANT]
+>
+> Failure to self-report ready state will result in the instance being power cycled.
+
+## Creating a VM from an image without a Linux Agent
+
+When you create a VM from an image that doesn't contain the Linux Agent, you need to ensure the VM deployment configuration indicates that extensions are not supported on this VM.
+
 
 To deploy the VM with extensions disabled, you can use `az vm create` with [--enable-agent](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
 ```bash
@@ -55,7 +59,9 @@ az vm create \
     --enable-agent false
 ```
 
-Alternatively, you can do this using Azure Resource Manager templates, by setting `"provisionVMAgent": false,`:
+
+You can also set this in an Azure Resource Manager (ARM) template, by setting `"provisionVMAgent": false,`:
+
 ```json
 "osProfile": {
     "computerName": "[parameters('virtualMachineName')]",
@@ -71,9 +77,13 @@ Alternatively, you can do this using Azure Resource Manager templates, by settin
 ```
 
 
+> [!NOTE] 
+> If `--enable-agent` or `provisionVMAgent` are not set to `false` , the platform will try to send the extension configuration and timeout after 40min.
+
 
 ## Support
-If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes, significant improves ETA early 2021.
+If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
  
 ## Next steps
 
+For more information, see [Provisioning](provisioning.md).

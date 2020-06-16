@@ -165,8 +165,12 @@
     items:
     - name: Overview
       href: imaging.md
+    - name: Provisioning
+      href: provisioning.md
     - name: Shared image galleries
       href: shared-image-galleries.md
+    - name: Image builder
+      href: image-builder-overview.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -463,6 +467,10 @@
         href: cloudinit-bash-script.md
       - name: Prepare existing VM for cloud-init
         href: cloudinit-prepare-custom-image.md
+    - name: Create images without an 
+      href: no-agent.md
+    - name: Disable Linux Agent provisioning
+      href: disable-provisioning.md
     - name: Shared Image Galleries
       items:
       - name: CLI
@@ -528,8 +536,6 @@
         href: ../image-version-encryption.md
     - name: Image builder (preview)
       items:
-      - name: Overview
-        href: image-builder-overview.md
       - name: Use Azure CLI
         href: image-builder.md
       - name: ARM template reference

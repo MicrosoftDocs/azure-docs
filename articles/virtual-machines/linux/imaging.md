@@ -14,9 +14,7 @@ ms.reviewer: cynthn
 
 # Bringing and creating Linux images in Azure
 
-This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure.
-
-If you have a requirement to bring a custom images to Azure, you need to be aware of the types and options available to you.
+This overview covers the basic concepts around imaging and how to successfully build and use Linux images in Azure. Before you bring a custom image to Azure, you need to be aware of the types and options available to you.
 
 This article will talk through the image decision points and requirements, explain key concepts, so that you can follow this, and be able to create your own custom images to your specification.
 
@@ -43,7 +41,8 @@ Azure offers two main image types, generalized and specialized. The terms genera
 
 
 ### Generalized images
-A generalized images is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called **provisioning**. 
+
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called **provisioning**. 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
 - [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)

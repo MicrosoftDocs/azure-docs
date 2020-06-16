@@ -1,20 +1,12 @@
 ---
 title: Overview of cloud-init support for Linux VMs in Azure 
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 06/15/2019
+ms.topic: how-to
+ms.date: 06/15/2020
 ms.author: danis
 
 ---
@@ -116,6 +108,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
+
 The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
@@ -150,6 +143,10 @@ Once the VM has been provisioned, cloud-init will run through all the modules an
 For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## Next steps
+
+[Troubleshoot issues with cloud-init](cloud-init-troubleshooting.md).
+
+
 For cloud-init examples of configuration changes, see the following documents:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
