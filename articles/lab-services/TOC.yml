@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Lab Services and DevTest Labs 
-    href: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2flab-services%2fclassroom-labs%2ftoc.json
-  - name: About Classroom Labs
-    href: classroom-labs-overview.md
+  - name: About Lab Services
+    href: lab-services-overview.md
 - name: Tutorials
   items:
   - name: Set up a lab account
@@ -18,6 +16,8 @@
     href: tutorial-track-usage.md            
 - name: Concepts
   items:
+  - name: Classroom Labs overview
+    href: classroom-labs-overview.md 
   - name: Classroom Labs concepts
     href: classroom-labs-concepts.md    
   - name: Classroom Labs architecture fundamentals
