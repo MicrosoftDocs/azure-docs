@@ -5,11 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-<<<<<<< HEAD
 ms.date: 06/30/2020
-=======
-ms.date: 06/11/2020
->>>>>>> 1d93c25cd4fc12993b556f4cf926f0bd913316dc
 ms.author: victorh
 ---
 

@@ -13,8 +13,6 @@ ms.author: victorh
 
 *Security partner providers* in Azure Firewall Manager allow you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
-*Security partner providers* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
-
 To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
 
 The supported security partners are **ZScaler**, **Check Point**, and **iboss** for this preview. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
@@ -47,13 +45,14 @@ Skip this section if you are deploying a third-party provider into an existing h
 7. Select the **Gateway scale units** appropriate for your requirements.
 8. Select **Next: Azure Firewall**
    > [!NOTE]
-   > Trusted security partners connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your Trusted security partners are lost.
-7. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
-8. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
-9. Select  **Next: Security Partner Provider**.
-10. Select **Security Partner Provider** to set it to **Enabled**. Select a partner. 
-11. Select **Next**. 
-12. Review the content and then select **Create**.
+   > Security partner providers connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your security partner providers are lost.
+9. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
+10. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
+11. Select  **Next: Security Partner Provider**.
+12. Set **Security Partner Provider** to **Enabled**. 
+13. Select a partner. 
+14. Select **Next: Review + create**. 
+15. Review the content and then select **Create**.
 
 The VPN gateway deployment can take more than 30 minutes.
 
