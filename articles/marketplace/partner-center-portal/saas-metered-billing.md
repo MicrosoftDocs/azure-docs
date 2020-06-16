@@ -100,11 +100,11 @@ Dimensions also have two special concepts, "enabled" and "infinite":
 
 ### Setting dimension price per unit per supported market
 
-Like flat rate pricing, billing dimension prices can be set per supported country. The publisher needs to use pricing data import and export feature in Partner Center.
+Like flat rate pricing, billing dimension prices can be set per supported country or region. The publisher needs to use pricing data import and export feature in Partner Center.
 
 1. First define the desired dimensions and mark which markets are supported. 
 1. Then export this data into file.
-1. Add the correct prices per country and import the file in Partner Center.
+1. Add the correct prices per country/region and import the file in Partner Center.
 
 The UI of the meter will change to reflect that the prices of the dimension can only be seen in the file.
 
