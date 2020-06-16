@@ -69,7 +69,6 @@ For Office 365, network latency and performance are critical for successful user
 
 Furthermore Office 365 connections are strongly encrypted for privacy and use efficient, proprietary protocols for performance reasons. This makes it impractical and impactful to subject those connections to traditional network level security solutions. For these reasons we strongly recommend that customers send Office 365 traffic directly from branches, before sending rest of the traffic through Azure. Microsoft has partnered with several SD-WAN solution providers, who integrate with Azure and Office 365 and make it easy for customers to enable Office 365 direct and local Internet breakout. For details  see [How do I set my O365 policies via Virtual WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
 
-
 ## Next steps
 
 [Deploy a security partner offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).
