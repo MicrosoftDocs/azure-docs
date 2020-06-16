@@ -1,6 +1,6 @@
 ---
-title: Deploy native C++ tutorial to Hololens
-description: Quickstart that shows how to run the native C++ tutorial on Hololens
+title: Deploy native C++ tutorial to HoloLens
+description: Quickstart that shows how to run the native C++ tutorial on HoloLens
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
@@ -46,7 +46,7 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
 
-The C++ Hololens tutorial can be found in the subdirectory *NativeCpp/HoloLens*.
+The C++ HoloLens tutorial can be found in the subdirectory *NativeCpp/HoloLens*.
 
 ## Build the project
 
@@ -56,7 +56,7 @@ Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make 
 
 ![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual Studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
 
 
 ```cpp
@@ -77,14 +77,14 @@ Specifically, change the following values:
 * `init.AccountId` and `init.AccountKey` to use your account data. See paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * The region part of the `init.AccountDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`
 * In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the powershell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md#create-a-session) directly.
-Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed, the sample will create a new session upon each startup, which may take several minutes.
+Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed in, the sample will create a new session upon each startup, which may take several minutes.
 
 Now the application can be compiled.
 
 ## Launch the application
 
 1. Connect the HoloLens with a USB cable to your PC.
-1. Turn on the Hololens and wait until the start menu (pins panel) shows up.
+1. Turn on the HoloLens and wait until the start menu shows up.
 1. Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the device.
 
 The sample app should launch and a text panel should appear that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading has completed, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cube that is rendered locally.
