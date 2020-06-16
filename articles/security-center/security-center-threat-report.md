@@ -57,7 +57,7 @@ This type of information is useful during the incident response process, where t
 
 1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/ti-report.png)](media/security-center-threat-report/ti-report.png#lightbox)
+    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-report.png)](media/security-center-threat-report/threat-intelligence-report.png#lightbox)
 
     You can optionally download the PDF report. 
 
