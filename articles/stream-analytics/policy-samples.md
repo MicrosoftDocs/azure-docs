@@ -8,7 +8,7 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Stream Analytics
+# Azure Policy built-in definitions for Azure Stream Analytics
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Stream Analytics. For additional Azure Policy built-ins for other services,
