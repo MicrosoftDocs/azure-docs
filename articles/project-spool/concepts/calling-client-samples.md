@@ -21,6 +21,16 @@ To initialize CallClient you have to use CallClientFactory.create method that as
 To create call client you have to pass client token, either as a string or using CommunicationUserCredential object provided
 by "@ic3/communicationservices-client" module
 * pass token as string
+
+
+#### [Android (Java)](#tab/java)
+```java
+String rawUserToken = <Raw-User-Token-Fetched-From-Token-Provider>; // Retrieve token from a remote provider
+android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
+Future<AdHocCallClient> callClientTask = CallClientFactory.create(rawUserToken, appContext);
+AdHocCallClient callClient = callClientTask.get();
+```
+#### [Javascript](#tab/javascript)
 ```ts
 const communicationUserCredential = 'communicationUserCredential';
 const callClient = await CallClientFactory.create(token);
