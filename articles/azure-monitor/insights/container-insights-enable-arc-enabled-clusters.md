@@ -162,7 +162,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
     ```
 
-5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you can set the value to `""`. For more information, see [Configure proxy](#configure-proxy-endpoint).
+5. If you Arc-enabled Kubernetes cluster communicates through a proxy server, configure the variable `proxyEndpoint` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you can set the value to `""`. For more information, see [Configure proxy](#configure-proxy-endpoint) later in this article.
 
 6. To enable monitoring on your cluster, there are different commands provided based on your deployment scenario.
 
