@@ -26,7 +26,7 @@ This article describes what is new and what has changed with every new build of 
     
     i. 	RUNTIME parameter required for ONNX 
     
-4. 	TSQL Streaming support (private preview) 
+4. 	TSQL Streaming support (limited preview) 
  
 ### Known Issues
 
