@@ -212,7 +212,7 @@ When you're ready to integrate, **reference the VideoFrameAnalyzer library from 
 
 ## Summary
 
-In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how to use our sample code to get started. You can start building your app with free API keys at the [Azure Cognitive Services sign-up page](https://azure.microsoft.com/try/cognitive-services/). 
+In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how to use our sample code to get started.
 
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice site](https://cognitive.uservoice.com/).
 
