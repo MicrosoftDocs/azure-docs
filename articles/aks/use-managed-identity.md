@@ -2,15 +2,17 @@
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
+author: mlearned
 ms.topic: article
 ms.date: 06/04/2020
+ms.author: mlearned
 ---
 
 # Use managed identities in Azure Kubernetes Service
 
 Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernetes cloud provider) requires an identity to create additional resources like load balancers and managed disks in Azure, this identity can be either a *managed identity* or a *service principal*. If you use a [service principal](kubernetes-service-principal.md), you must either provide one or AKS creates one on your behalf. If you use managed identity, this will be created for you by AKS automatically. Clusters using service principals eventually reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, which is why it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
 
-*Managed identities* are essentially a wrapper around service principals, and make their management simpler. Credential rotation for MSI happens automatically every 46 days according to Azure Active Directory default. To learn more, read about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+*Managed identities* are essentially a wrapper around service principals, and make their management simpler. Credential rotation for MI happens automatically every 46 days according to Azure Active Directory default. To learn more, read about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 AKS creates two managed identities:
 
@@ -25,6 +27,12 @@ Add-ons also authenticate using a managed identity. For each add-on, a managed i
 You must have the following resource installed:
 
 - The Azure CLI, version 2.2.0 or later
+
+## Limitations
+
+* AKS clusters with managed identities can be enabled only during creation of the cluster.
+* Existing AKS clusters cannot be updated or upgraded to enable managed identities.
+* During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 
 ## Create an AKS cluster with managed identities
 
@@ -64,8 +72,3 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
 
 The cluster will be created in a few minutes. You can then deploy your application workloads to the new cluster and interact with it just as you've done with service-principal-based AKS clusters.
-
-> [!IMPORTANT]
->
-> - AKS clusters with managed identities can be enabled only during creation of the cluster.
-> - Existing AKS clusters cannot be updated or upgraded to enable managed identities.

@@ -222,6 +222,9 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
+        - name: Enable the AGIC add-on for an existing AKS cluster
+          href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+          maintainContext: true
         - name: Use TLS with your own certificates
           href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
@@ -256,12 +259,10 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: Integrate Azure AD (preview)
+        - name: AKS-managed AAD (preview)
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
-        - name: Use the Azure portal
-          href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true

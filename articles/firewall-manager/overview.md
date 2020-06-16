@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
 ---
 
@@ -17,16 +17,16 @@ Azure Firewall Manager Preview is a security management service that provides ce
 
 Firewall Manager can provide security management for two network architecture types:
 
-- **secured virtual hub**
+- **Secured virtual hub**
 
    An [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) is a Microsoft-managed resource that lets you easily create hub and spoke architectures. When security and routing policies are associated with such a hub, it is referred to as a *[secured virtual hub](secured-virtual-hub.md)*. 
-- **hub virtual network**
+- **Hub virtual network**
 
    This is a standard Azure virtual network that you create and manage yourself. When security policies are associated with such a hub, it is referred to as a *hub virtual network*. At this time, only Azure Firewall Policy is supported. You can peer spoke virtual networks that contain your workload servers and services. You can also manage firewalls in standalone virtual networks that are not peered to any spoke.
 
 For a detailed comparison of *secured virtual hub* and *hub virtual network* architectures, see [What are the Azure Firewall Manager architecture options?](vhubs-and-vnets.md).
 
-![firewall-manager](media/overview/firewallmanagerv5.png)
+![firewall-manager](media/overview/trusted-security-partners.png)
 
 ## Azure Firewall Manager Preview features
 
