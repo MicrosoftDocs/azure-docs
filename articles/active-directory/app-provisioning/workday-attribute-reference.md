@@ -2,14 +2,14 @@
 title: Workday attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 05/25/2020
-ms.author: chmutali
+ms.author: kenwith
 ms.reviewer: celested
 ---
 
