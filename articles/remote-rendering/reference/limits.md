@@ -35,6 +35,7 @@ The allowable number of polygons for all loaded models depends on the size of th
 |standard| 20 million |
 |premium| no limit |
 
+See [VM size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
 
 ## Platform limitations
 
