@@ -125,7 +125,7 @@ Certificate has now been successfully issued by Digicert CA inside specified Key
 
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the DigiCert error message for that certificate.
 
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation.png)
+ ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
