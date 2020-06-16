@@ -25,7 +25,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 1. Select **Roles and administrators** to see the list of all available roles.
 
-1. Select the ellipsis on the right of each row to open the detailed description of the role.
+1. Select the ellipsis on the right of each row to open the detailed description of the role. Select a role to view the users assigned to the role.
 
     ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/view-roles-in-azure-active-directory.png)
 
@@ -33,9 +33,9 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 It's easy to view your own permissions as well. Select **Your Role** on the **Roles and administrators** page to see the roles that are currently assigned to you.
 
-## View assignments for a role
+## View assignments for privileged roles
 
-Select a role to view the users assigned to the role. You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
+You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
 ![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
@@ -62,7 +62,7 @@ When you're viewing a role's members, select **Description** to see the complete
 
     ![list of permissions for an admin role](./media/directory-manage-roles-portal/member-list.png)
 
-1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, [read the Note in View assignments for a role](#view-assignments-for-a-role) to verify whether you're in PIM.
+1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, read the Note in [View assignments for privileged roles](#view-assignments-for-privileged-roles) to verify whether you're in PIM.
 
     ![list of permissions for an admin role](./media/directory-manage-roles-portal/directory-role-select-role.png)
 
