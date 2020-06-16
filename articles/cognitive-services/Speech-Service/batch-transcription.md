@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # What is batch transcription?
 
-Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. With the new v3.0 API you have the choice of transcribing one or more audio files, or process a whole storage container.
+Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. With the new v3.0 API, you have the choice of transcribing one or more audio files, or process a whole storage container.
 
 Asynchronous speech-to-text transcription is just one of the features. You can use batch transcription REST APIs to call the following methods:
 
@@ -177,7 +177,7 @@ Use these optional properties to configure transcription:
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      A duration to automatically delete transcriptions after completing the transcription. This is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`).
+      A duration to automatically delete transcriptions after completing the transcription. The 'timeToLive' is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -193,7 +193,7 @@ Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azu
 
 ## The batch transcription result
 
-For eaach input audio, one transcription result file is being created. You can get the list of result files by calling the 
+For each input audio, one transcription result file is being created. You can get the list of result files by calling the 
 
 
 Each has this structure:
@@ -329,7 +329,7 @@ To request diarization, you simply have to add the relevant parameter in the HTT
 }
 ```
 
-Word-level timestamps would also have to be enabled as the parameters in the above request indicate.
+Word-level timestamps must be enabled as the parameters in the above request indicate.
 
 ## Best practices
 
@@ -339,7 +339,7 @@ The transcription service can handle large number of submitted transcriptions. Y
 
 Complete samples are available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
 
-You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model.
+Please update the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model location in case you want to use a custom model.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
 
