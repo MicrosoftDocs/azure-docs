@@ -46,6 +46,8 @@
       items:
       - name: Isolate VNets
         href: scenario-isolate-vnets.md
+      - name: Isolate VNets - custom
+        href: scenario-isolate-vnets-custom.md
       - name: Route through NVA
         href: scenario-route-through-nva.md
       - name: Any-to-any
