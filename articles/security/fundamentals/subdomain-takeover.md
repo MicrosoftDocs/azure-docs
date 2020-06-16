@@ -1,7 +1,7 @@
 ---
 
-title: Ensuring resilient and secure configurations of your Azure DNS
-description: Learn about how to avoid common DNS threats 
+title: Prevent dangling DNS entries and the resulting threat of subdomain takeover
+description: Learn about how to avoid the common high-severity threat of subdomain takeover
 services: security
 author: memildin
 manager: rkarlin
@@ -17,42 +17,48 @@ ms.date: 06/15/2020
 ms.author: memildin
 
 ---
-# Subdomain takeover or "dangling DNS"
+# Prevent "dangling DNS" entries and avoid subdomain takeover
 
 This article describes the common security threat of subdomain takeover, as well as things you can do to mitigate against it.
 
 
 ## What is subdomain takeover?
 
-Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a stale DNS record that pointing to a deprovisioned Azure resource. Such records are also known as "dangling DNS" entries. A/AAAA or CNAME record types are especially vulnerable to this threat.
+Subdomain takeovers are a common, high-severity threat for organizations that regularly create, and delete many resources. A subdomain takeover can occur when you have a stale DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. A/AAAA or CNAME record types are especially vulnerable to this threat.
 
-A common scenario for subdomain takeover:
+A common scenario for a subdomain takeover:
 
-1. A website `wer123821432.azurewebsites.net` is created.
+1. A website is created. 
+    In this example, `wer123821432.azurewebsites.net`.
 
-1. The CNAME entry `GreatApp.Contoso.com` is added to the DNS pointing to this website.
+1. A CNAME entry is added to the DNS pointing to the website. 
+    In this example, the following friendly name was created: `GreatApp.Contoso.com`
 
-1. After a few months, the site is no longer needed so it is deleted. **The CNAME entry remains.**
+1. After a few months, the site is no longer needed so it is deleted. Cruciall, the CNAME DNS entry remains. It is now "dangling".
 
-1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own `wer123821432.azurewebsites.net` website.
-    Now, the traffic intended to go to `GreatApp.Contoso.com` is reaching the threat actor's Azure site. 
+1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own website at `wer123821432.azurewebsites.net`.
+    Now, the traffic intended for `GreatApp.Contoso.com` goes to the threat actor's Azure site. 
     The 'dangling DNS' was exploited, and Contoso's subdomain "GreatApp" has been taken over. 
 
 ![Subdomain takeover from a deprovisioned website](./media/subdomain-takeover/subdomain-takeover.png)
+
+
 
 ### The risks of dangling DNS records
 
 When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS tables. If it hasn't been deleted, it's a “dangling DNS” record and presents a security risk.
 
-The risk to the organization is that it enables a threat actor to take control of the associated DNS name to host a malicious website or service and that can, in turn, lead to:
+The risk to the organization is that it enables a threat actor to take control of the associated DNS name to host a malicious website or service. This malicious website on the organization's subdomain can result in:
 
-- Authentication bypass.
+- Authentication bypass - As unsuspecting users are tricked into entering their credentials.
 - Cookie extraction from unsuspecting visitors.
 - CORS bypass.
 - Authentic-looking subdomains can be used in phishing campaigns - This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
 - SSL certificate generation - It's possible to validate SSL certificate requests with a hijacked subdomain. A certificate can further increase the perceived legitimacy of the malicious site on the subdomain that has been taken over.
 - Negative press reports about your organization's security issues.
 - Loss of trust.
+
+
 
 ### Preventing dangling DNS entries
 
@@ -100,14 +106,14 @@ It's often up to developers and operations teams to perform cleanup processes to
     - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. As a user with access to all of your Azure subscriptions, use Azure Resource Graph queries to build this service catalog. 
     
     >[!IMPORTANT]
-    > Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. Learn more about [working with large Azure resource data sets](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data)  
+    > Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets.  
 
 
     |Resource name  |Resource type  |FQDN property  |
     |---------|---------|---------|
     |Azure Frontdoor|microsoft.network/frontdoors|properties.cName|
     |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
-    |Public IP Addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
+    |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
     |...|...|...|
 
     Use these Azure Resource Graph queries with the above table to build your service catalog: 
@@ -130,7 +136,7 @@ It's often up to developers and operations teams to perform cleanup processes to
 
 ## Next steps
 
-To learn more about related services and Azure features you can use to defend your DNS, see the following pages.
+To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
 - [Azure DNS supports using alias records for custom domains](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
 
