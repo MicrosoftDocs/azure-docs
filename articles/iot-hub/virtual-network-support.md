@@ -90,7 +90,7 @@ To allow other services to find your IoT hub as a trusted Microsoft service, it 
 
 ### Assign managed identity to your IoT Hub at creation time using ARM template
 
-To assign managed identity to your IoT hub at resource provisioning time, use the ARM resource template below:
+To assign managed identity to your IoT hub at resource provisioning time, use the ARM template below:
 
 ```json
 {
