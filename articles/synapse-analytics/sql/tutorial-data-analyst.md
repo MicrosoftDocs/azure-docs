@@ -18,7 +18,7 @@ In this tutorial, you learn how to perform exploratory data analysis by combinin
 In particular, you analyze the [New York City (NYC) Taxi dataset](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) that includes:
 
 - Pickup and drop-off dates and times.
-- Pickup and drop-off locations. 
+- Pick up and drop-off locations. 
 - Trip distances.
 - Itemized fares.
 - Rate types.
@@ -27,7 +27,7 @@ In particular, you analyze the [New York City (NYC) Taxi dataset](https://azure.
 
 ## Automatic schema inference
 
-Since data is stored in the Parquet file format, automatic schema inference is available. You can easily query the data without a need to list the data types of all columns in the files. You also can use the virtual column mechanism and the filepath function to filter out a certain subset of files.
+Since data is stored in the Parquet file format, automatic schema inference is available. You can easily query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the filepath function to filter out a certain subset of files.
 
 Let's first get familiar with the NYC Taxi data by running the following query:
 
