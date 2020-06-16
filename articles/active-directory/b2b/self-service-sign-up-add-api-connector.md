@@ -199,6 +199,9 @@ Content-type: application/json
 
 ![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
+### Integration with Azure Functions
+You can use an HTTP trigger in Azure Functions as a simple way create an API to use with the API connector. You use the Azure Function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. You can also call and invoke other web APIs, user stores, and other cloud services.
+
 ## Next steps
 
 - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow)
