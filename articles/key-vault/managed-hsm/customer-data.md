@@ -2,21 +2,21 @@
 title: Managed HSM customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data in Managed HSM
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: reference
-ms.date: 03/07/2020
-ms.author: mbaldwin
+ms.date: 09/01/2020
+ms.author: ambapat
 
 ---
 # Managed HSM customer data features​
 
-Managed HSM receives customer data during creation or update of HSMs, keys, and managed storage accounts. This Customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
+Managed HSM receives customer data during creation or update of HSM pools and keys. This customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
 
-System access logs are generated when a user or application accesses an HSM. Detailed access logs are available to customers using Azure Insights.
+System access logs are generated when a user or application accesses an HSM pool. Detailed access logs are available to customers using Azure Insights.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -24,23 +24,20 @@ System access logs are generated when a user or application accesses an HSM. Det
 
 The following information identifies customer data within Managed HSM:
 
-- Access policies for Azure Key Vault contain object-IDs representing users, groups, or applications
-- Certificate subjects may include email addresses or other user or organizational identifiers
-- Certificate contacts may contain user email addresses, names, or phone numbers
-- Certificate issuers may contain email addresses, names, phone numbers, account credentials, and organizational details
-- Arbitrary tags can be applied to Objects in Azure Key Vault. These objects include vaults, keys, secrets, certificates, and storage accounts. The tags used may contain personal data
-- Azure Key Vault access logs contain object-IDs, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md), and IP addresses for each REST API call
-- Azure Key Vault diagnostic logs may contain object-IDs and IP addresses for REST API calls
+- Role-based access control assignments for Managed HSM contain object-IDs representing users, groups, or applications.
+- Arbitrary tags can be applied to keys in Managed HSM. These objects include Managed HSM pool and keys. The tags used may contain personal data.
+- Managed HSM access logs contain object-IDs, [UPNs](../active-directory/hybrid/plan-connect-userprincipalname.md), and IP addresses for each REST API call
+- Managed HSM diagnostic logs may contain object-IDs and IP addresses for REST API calls
 
 ## Deleting customer data
 
-The same REST APIs, Portal experience, and SDKs used to create HSMs, keys, and managed storage accounts, are also able to update and delete these objects.
+The same REST APIs, Portal experience, and SDKs used to create Managed HSM pools and keys are also able to update and delete these objects.
 
-Soft delete allows you to recover deleted data for 90 days after deletion. When using soft delete, the data may be permanently deleted prior to the 90 days retention period expires by performing a purge operation. If the vault or subscription has been configured to block purge operations, it is not possible to permanently delete data until the scheduled retention period has passed.
+Soft-delete allows you to recover deleted data for up to 90 days after deletion (retention period can be configured  between 7 and 90 days). When using soft-delete, the data may be permanently deleted prior to the retention period expires by performing a purge operation. If the HSM pool or subscription has been configured to block purge operations, it is not possible to permanently delete data until the scheduled retention period has passed.
 
 ## Exporting customer data
 
-The same REST APIs, portal experience, and SDKs that are used to create HSMs, keys, and managed storage accounts  also allow you to view and export these objects.
+The same REST APIs, portal experience, and SDKs that are used to create HSM pools and keys also allow you to view and export these objects.
 
 Managed HSM access logging is an optional feature that can be turned on to generate logs for each REST API call. These logs will be transferred to a storage account in your subscription where you apply the retention policy that meets your organization's requirements.
 
@@ -48,14 +45,8 @@ Managed HSM diagnostic logs that contain personal data can be retrieved by makin
 
 ## Next steps
 
-- [Azure Key Vault Logging](key-vault-logging.md)
+- [Managed HSM Logging](logging.md)
 
-- [Azure Key Vault soft-delete overview](key-vault-soft-delete-cli.md)
+- [Managed HSM soft-delete overview](soft-delete-cli.md)
 
-- [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations)
-
-- [Azure Key Vault secret operations](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
-
-- [Azure Key Vault certificates and policies](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Azure Key Vault storage account operations](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Managed HSM key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations)

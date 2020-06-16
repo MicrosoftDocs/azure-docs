@@ -15,7 +15,7 @@ ms.author: ambapat
 
 # Import HSM-protected keys to Managed HSM (BYOK)
 
-For added assurance when you use Azure Key Vault Managed HSM, you can import or generate a key in a hardware security module (HSM); the key will  never leave the HSM boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the nCipher nShield family of HSMs (FIPS 140-2 Level 2 validated) to protect your keys.
+ Azure Key Vault Managed HSM supports importing keys generated in your on-premise hardware security module (HSM); the key will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the nCipher nShield family of HSMs (FIPS 140-2 Level 3 validated) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
@@ -24,33 +24,31 @@ Use the information in this article to help you plan for, generate, and transfer
 > 
 > This import method is available only for [supported HSMs](#supported-hsms). 
 
->FIXME
-For more information, and for a tutorial to get started using Key Vault (including how to create a  key vault for HSM-protected keys), see [What is Azure Key Vault?](../general/overview.md).
->
+For more information, and for a tutorial to get started using Managed HSM, see [What is Managed HSM?](about-managed-hsm.md).
 
 ## Overview
 
 Here's an overview of the process. Specific steps to complete are described later in the article.
 
-* In Key Vault, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. 
+* In Managed HSM, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. 
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file. 
 * The target key is encrypted with a KEK, which stays encrypted until it is transferred to the Managed HSM. Only the encrypted version of your key leaves the on-premises HSM.
 * A KEK that's generated inside a Managed HSM is not exportable. HSMs enforce the rule that no clear version of a KEK exists outside a Managed HSM.
-* The KEK must be in the same key vault where the target key will be imported.
+* The KEK must be in the same Managed HSM pool where the target key will be imported.
 * When the BYOK file is uploaded to Managed HSM, a Managed HSM uses the KEK private key to decrypt the target key material and import it as an HSM key. This operation happens entirely inside the HSM. The target key always remains in the HSM protection boundary.
 
 ## Prerequisites
 
-The following table lists prerequisites for using BYOK in Azure Key Vault:
+The following table lists prerequisites for using BYOK in Managed HSM:
 
 | Requirement | More information |
 | --- | --- |
-| An Azure subscription |To create a key vault in Managed HSM, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
-| A Managed HSM pool to import HSM-protected keys |For more information about the service tiers and capabilities in TODO [FIX PRICING], see. |
+| An Azure subscription |To create a Managed HSM pool, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
+| A Managed HSM pool to import HSM-protected keys |For more information about the service tiers and capabilities in see [Pricing](https://azure.microsoft.com/pricing/details/key-vault/) |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
-| Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).|
+| Azure CLI version !FIXME 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).|
 
 ## Supported HSMs
 
@@ -68,25 +66,25 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 |Key name|Key type|Key size|Origin|Description|
 |---|---|---|---|---|
-|Key Exchange Key (KEK)|RSA| 2,048-bit<br />3,072-bit<br />4,096-bit|Azure Key Vault HSM|An HSM-backed RSA key pair generated in Azure Key Vault|
-|Target key|RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+|Key Exchange Key (KEK)|RSA| 2,048-bit<br />3,072-bit<br />4,096-bit|Managed HSM|An HSM-backed RSA key pair generated in Managed HSM|
+|Target key|RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Managed HSM|
 
-## Generate and transfer your key to the Key Vault HSM
+## Generate and transfer your key to the Managed HSM
 
-To generate and transfer your key to a Key Vault HSM:
+To generate and transfer your key to a Managed HSM:
 
 * [Step 1: Generate a KEK](#step-1-generate-a-kek)
 * [Step 2: Download the KEK public key](#step-2-download-the-kek-public-key)
 * [Step 3: Generate and prepare your key for transfer](#step-3-generate-and-prepare-your-key-for-transfer)
-* [Step 4: Transfer your key to Azure Key Vault](#step-4-transfer-your-key-to-azure-key-vault)
+* [Step 4: Transfer your key to Managed HSM](#step-4-transfer-your-key-to-managed-hsm)
 
 ### Step 1: Generate a KEK
 
-A KEK is an RSA key that's generated in a Key Vault HSM. The KEK is used to encrypt the key you want to import (the *target* key).
+A KEK is an RSA key that's generated in a Managed HSM. The KEK is used to encrypt the key you want to import (the *target* key).
 
 The KEK must be:
 - An RSA-HSM key (2,048-bit; 3,072-bit; or 4,096-bit)
-- Generated in the same key vault where you intend to import the target key
+- Generated in the same Managed HSM pool where you intend to import the target key
 - Created with allowed key operations set to `import`
 
 > [!NOTE]
@@ -121,7 +119,7 @@ Transfer the BYOK file to your connected computer.
 
 ### Step 4: Transfer your key to Managed HSM
 
-To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the BYOK file to the Key Vault HSM.
+To complete the key import, transfer the key transfer package (a BYOK file) from your disconnected computer to the internet-connected computer. Use the [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) command to upload the BYOK file to the Managed HSM.
 
 ```azurecli
 az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
@@ -131,7 +129,7 @@ If the upload is successful, Azure CLI displays the properties of the imported k
 
 ## Next steps
 
-You can now use this HSM-protected key in your key vault. For more information, see [this price and feature comparison](https://azure.microsoft.com/pricing/details/key-vault/).
+You can now use this HSM-protected key in your Managed HSM. For more information, see [this price and feature comparison](https://azure.microsoft.com/pricing/details/key-vault/).
 
 
 
