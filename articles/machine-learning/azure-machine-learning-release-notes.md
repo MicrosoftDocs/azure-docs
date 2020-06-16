@@ -70,7 +70,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Doc improvements to azureml-mlflow.
     + Adds support for AML model registry with MLFlow.
   + **azureml-opendatasets**
-    + As pr, related versions were be modifed
+    + Added support for Python 3.8
   + **azureml-pipeline-core**
     + Updated `PipelineDataset`'s documentation to make it clear it is an internal class.
     + ParallelRunStep updates to accept multiple values for one argument, for example: "--group_column_names", "Col1", "Col2", "Col3"
