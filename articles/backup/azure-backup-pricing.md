@@ -28,10 +28,12 @@ The Azure Backup cost estimator sheet has an option for you to estimate all poss
 To estimate the costs of backing up Azure VMs or on-prem servers using Azure Backup, you’ll need the following parameters:
 
 - Size of the VMs or on-premises servers that you're trying to back up
+- Enter the “used size” of disks or servers required to be backed up
 
 - Number of servers with that size
 
-- What is the expected amount of data churn on these servers?
+- What is the expected amount of data churn on these servers?<br>
+  Churn refers to the amount of change in data. For example, if you had a VM with 200 GB of data to be backed up and if 10 GB of it changes every day, the daily churn is 5%.
 
   - Higher churn will mean that you back up more data
 
@@ -55,11 +57,11 @@ To estimate the costs of backing up Azure VMs or on-prem servers using Azure Bac
 
 - **Optional** – Selective Disk backup
 
-  - If you're using the **Selective Disk Backup** option while backing up Azure VMs, choose the **Exclude Disk** option
+  - If you're using the **Selective Disk Backup** option while backing up Azure VMs, choose the **Exclude Disk** option and enter the percentage of disks excluded from backup in terms of size. For example, if you have a VM connected to three disks with 200 GB used in each disk and if you want to exclude two of them from backing up, enter 66.7%.
 
 - **Optional** – Backup Storage Redundancy
 
-  - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using GRS for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup. Choose **RAGRS** if you want to enable **Cross-region-restore** for your backups
+  - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using **GRS** for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup. Choose **RAGRS** if you want to enable **Cross-region-restore** for your backups
 
 - **Optional** – Modify regional pricing or apply discounted rates
 
@@ -109,7 +111,7 @@ To estimate the costs of backing up SQL servers running in Azure VMs using Azure
 
 - **Optional** – Backup Storage Redundancy
 
-  - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using GRS for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup.
+  - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using **GRS** for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup.
 
 - **Optional** – Modify regional pricing or apply discounted rates
 
