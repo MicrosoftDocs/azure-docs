@@ -44,7 +44,7 @@ For this article you need,
     
 ## Default cross-validation and data splits
 
-For automated machine learning experiments, you use an [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object to define your experiment and training settings. In the following code snippet, notice that only the basic parameters are defined, that is no parameters for `n_cross_validation` or `validation_ data` are included.
+For automated machine learning experiments, you use an [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object to define your experiment and training settings. In the following code snippet, notice that only the basic parameters are defined, that is the parameters for `n_cross_validation` or `validation_ data` are **not** included.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -69,11 +69,9 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 
 ## Provide validation data
 
-In this case, you explicitly provide a validation data set using the `validation_data` parameter, separate from the training data.
+In this case, you can either start with a single data file and split it into training and validation sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
-With validation data provided in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe, `training_data` defines what data to use for training purposes, and `validation_data` specifies what data to use for model validation and metrics calculation. 
-
-The following code example explicitly defines which portion of the provided data is to be used for training and validation.
+The following code example explicitly defines which portion of the provided data in `dataset`to use for training and validation.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,9 +91,9 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## Provide validation set size
 
-In this case, only a single dataset is provided for the experiment. That is, the `validation_data` parameter is **not** specified and the provided dataset is assigned to the  `training_data` parameter .  In your `AutoMLConfig` object, you can set the `validation_size` parameter to hold out a portion of the training data for validation. That is,  the validation set will be split by AutoML from the initial `training_data` provided. This value should be between 0.0 and 1.0 non-inclusive (that is, 0.2 means 20% of the data hold out for validation data).
+In this case, only a single dataset is provided for the experiment. That is, the `validation_data` parameter is **not** specified, and the provided dataset is assigned to the  `training_data` parameter.  In your `AutoMLConfig` object, you can set the `validation_size` parameter to hold out a portion of the training data for validation. This means that the validation set will be split by AutoML from the initial `training_data` provided. This value should be between 0.0 and 1.0 non-inclusive (for example, 0.2 means 20% of the data is held out for validation data).
 
-See the following code example
+See the following code example:
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -160,3 +158,4 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 * [Prevent imbalanced data and overfitting](concept-manage-ml-pitfalls.md).
 * [Tutorial: Use automated machine learning to predict taxi fares - Split data section](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).
+* How to [Auto-train a time-series forecast model](how-to-auto-train-forecast.md).
