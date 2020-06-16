@@ -18,15 +18,13 @@ ms.collection: M365-identity-device-management
 
 # Assign administrator and non-administrator roles to users with Azure Active Directory
 
-In Azure Active Directory (Azure AD), if a user in your organization needs permission to manage Azure AD resources, you must assign the user a role to provide the permissions the user needs. If you're not sure if want to manage Azure roles or Azure AD roles, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles).
+In Azure Active Directory (Azure AD), if one of your users needs permission to manage Azure AD resources, you must assign them to a role that provides the permissions they need. For info on which roles manage Azure resources and which roles manage Azure AD resources, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles).
 
-For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
+For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). To add users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
-## Assign roles
+## To assign privileged roles
 
-A common way to assign Azure AD roles to a user is on the **Directory role** page for a user.
-
-You can also assign roles using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also the eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 > [!Note]
 > If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/directory-manage-roles-portal.md).
