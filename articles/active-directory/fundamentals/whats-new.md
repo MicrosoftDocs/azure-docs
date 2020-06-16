@@ -37,7 +37,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## May 2020
 
-### Deprecation of properties in signIns, riskyUsers, and riskDetections APIs
+### Retirement of properties in signIns, riskyUsers, and riskDetections APIs
 
 **Type:** Plan for change  
 **Service category:** Identity Protection 
