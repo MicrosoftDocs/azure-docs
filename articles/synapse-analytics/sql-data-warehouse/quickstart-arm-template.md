@@ -135,9 +135,9 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter your Azure Cosmos account name:" &&
+echo "Enter your Synapse SQL pool name:" &&
 read cosmosAccountName &&
-echo "Enter the resource group where the Azure Cosmos account exists:" &&
+echo "Enter the resource group where the Synapse SQL pool exists:" &&
 read resourcegroupName &&
 az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
 ```
