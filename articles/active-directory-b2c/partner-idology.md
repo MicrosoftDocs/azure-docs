@@ -48,7 +48,8 @@ The following architecture diagram shows the implementation.
 |7     | Azure AD B2C receives information back from middle layer API. If it shows a **Failure** response, an error message is displayed to user. If it shows a **Success** response, the user is authenticated and written into the directory. |
 |      |      |
 
-[!NOTE] Azure AD B2C can also ask the customer to perform step-up authentication, but this scenario is out of scope of this tutorial.
+> [!NOTE]
+> Azure AD B2C can also ask the customer to perform step-up authentication, but this scenario is out of scope of this tutorial.
 
 ## Onboard with IDology
 
