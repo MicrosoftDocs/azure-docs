@@ -93,10 +93,12 @@ The *images* container's public access is set to `off`. The *thumbnails* contain
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount \
+az storage container create --name images \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount \
+az storage container create --name thumbnails \
+  --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your Blob storage account key..."
@@ -107,10 +109,12 @@ echo $blobStorageAccountKey
 $blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount `
+az storage container create --name images `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey
 
-az storage container create -n thumbnails --account-name $blobStorageAccount `
+az storage container create --name thumbnails `
+  --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your Blob storage account key..."
