@@ -17,7 +17,7 @@ ms.service: azure-project-spool
 Every client interaction with Azure Communication services must have be authenticated and authorized, so that the service ensures that the client has the permissions required to access the data. Various options for authorizing service clients are below:
 
 
-|---|Device type|Access Keys| SAS Keys| Azure Active Directory (AAD) | User Access Tokens |
+|---|Device type|Access Keys| SAS Tokens| Azure Active Directory (AAD) | User Access Tokens |
 |---|---|---|---|---|---|
 |||*HMAC using access keys from Azure portal*|*Scoped, time-bound self signed tokens derived from access keys*|*User and trusted services from linked AAD*| *Scoped, time-bound user tokens created by trusted service*
 |ARM|Trusted Service|-|-|Supported|-|
@@ -30,9 +30,35 @@ The following sections will explore authorization concepts around a common datap
 
 ## SAS token scopes
 
-## Creating SAS tokens
+The SAS token is encoded in JWT form using the resource's Access Key. The tokens are validated by the Resource Provider so the access key isn't leaked to the Auth library.
+
+The SAS token may contain the following claims:
+
+* `iss` (required) is the resource the token is specific to.
+* `res:rgn` (required) is the region of the resource the token is specific to.
+* `nbf` (optional) is the "not before time" before which the SAS token will not be accepted.
+* `exp` (optional) is the expiration time after which the SAS token will not be accepted.
+* `sas:ip` (optional) is an IP network range that the client must comply with, in the form `<ip-address-range>/<mask-bits>`, e.g. "192.168.1.0/28"
+* `sas:areas` (required) is a JSON array of string containing the allowed areas. Values in this array must match the `AuthenticationRole` values, i.e. be one of the following: `"manageNumbers"`, `"manageRooms"`, `"manageTokens"`, `"calling"`, `"chat"`, or `"sms"`. Multiple values can be passed, e.g. `[ "manageRooms", "manageTokens" ]`
+
+The `AuthenticationRoles` value enables us to work with SAS tokens that are scoped to specific areas of functionality. The possible values are:
+
+* `ManageNumbers` — allows for creation/management of PSTN Telephone Numbers.
+* `ManageRooms` — allows for creation/management of Rooms.
+* `ManageTokens` — allows for creation/management of User Tokens.
+* `Calling` — allows access to calling functionality.
+* `Chat` — allows access to chat functionality.
+* `SMS` — allows access to SMS functionality.
+
+In order to use a SAS token to authenticate, it should be passed via an HTTP `Authorization` header using the custome `SpoolSAS` protocol. For example:
+
+```
+Authorization: SpoolSAS <SAS Token>
+```
+
 ## Creating HMACs
 
+`HMAC-SHA256` where the value is a sequence of fields used to perform HMAC validation. The value will be in the form:<br>`SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>`
 
 
 
