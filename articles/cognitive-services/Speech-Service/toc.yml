@@ -399,10 +399,10 @@
         - name: How-to guides
           items:
             - name: Develop
-              items: 
-                - name: Create a Custom Commands application 
+              items:
+                - name: Create a Custom Commands application
                   href: how-to-custom-commands-create-empty-project.md
-                - name: Add simple commands  
+                - name: Add simple commands
                   href: how-to-custom-commands-add-simple-commands.md
                 - name:  Add parameters to commands
                   href: how-to-custom-commands-add-parameters-to-commands.md
@@ -417,7 +417,7 @@
                 - name: Use language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
             - name: Integrate
-              items: 
+              items:
                 - name: Integrate with a client app using Speech SDK
                   href: how-to-custom-commands-setup-speech-sdk.md
                 - name: Send activity to client application
@@ -439,11 +439,11 @@
               - name: Debug errors when running the app
                 href: how-to-custom-commands-debug-runtime.md
             - name: References
-                items: 
-                  - name: Custom Commands concepts
-                    href: custom-commands-references.md
-                  - name: Custom Commands Samples (GitHub)
-                    href: http://aka.ms/speech/cc-samples
+              items:
+                - name: Custom Commands concepts
+                  href: custom-commands-references.md
+                - name: Custom Commands Samples (GitHub)
+                  href: http://aka.ms/speech/cc-samples
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?
@@ -619,7 +619,7 @@
       - name: What is Speech Studio?
         href: https://speech.microsoft.com
       - name: Create a Custom Commands app with Speech Studio
-        href: quickstart-custom-speech-commands-create-new.md 
+        href: quickstart-custom-speech-commands-create-new.md
 - name: Migration
   items:
   - name: From Bing Speech
