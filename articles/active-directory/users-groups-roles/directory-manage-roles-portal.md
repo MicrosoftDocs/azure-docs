@@ -62,7 +62,7 @@ When you're viewing a role's members, select **Description** to see the complete
 
     ![list of permissions for an admin role](./media/directory-manage-roles-portal/member-list.png)
 
-1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities.
+1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, [read the Note in View assignments for a role](#view-assignments-for-a-role) to verify whether you're in PIM.
 
     ![list of permissions for an admin role](./media/directory-manage-roles-portal/directory-role-select-role.png)
 

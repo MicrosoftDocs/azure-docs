@@ -31,7 +31,7 @@ You can also assign roles using Privileged Identity Management (PIM). For more i
 > [!Note]
 > If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/active-directory-assign-role-azure-portal/directory-manage-roles-portal.md).
 >
-> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
+> ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manage-roles-for-p2.png)
 
 ### To assign a role to a user
 
@@ -58,6 +58,7 @@ You can also assign roles using Privileged Identity Management (PIM). For more i
     The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Directory role** page.
 
 ## Remove a role assignment
+
 If you need to remove the role assignment from a user, you can also do that from the **Alain Charon - Directory role** page.
 
 ### To remove a role assignment from a user
