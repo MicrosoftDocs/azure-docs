@@ -82,6 +82,7 @@ In a stream processing architecture, each downstream application equates to a co
 
 There can be at most 5 concurrent readers on a partition per consumer group; however **it is recommended that there is only one active receiver on a partition per consumer group**. Within a single partition, each reader receives all of the messages. If you have multiple readers on the same partition, then you process duplicate messages. You need to handle this in your code, which may not be trivial. However, it's a valid approach in some scenarios.
 
+Some clients offered by the Azure SDKs are intelligent consumer agents which will automatically manage the details of ensuring that each partition has a single reader and that all partitions for an Event Hub are being read from. This allows your code to focus on processing the events being read from the Event Hub and ignoring many of the details of the partitions. More details can be found in [Connect to a Partition](#connect-to-a-partition) below.
 
 The following are examples of the consumer group URI convention:
 
@@ -119,7 +120,12 @@ All Event Hubs consumers connect via an AMQP 1.0 session, a state-aware bidirect
 
 #### Connect to a partition
 
-When connecting to partitions, it is common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) class for .NET clients. The Event Processor Host is an intelligent consumer agent.
+When connecting to partitions, it is common practice to use a leasing mechanism to coordinate reader connections to specific partitions. This way, it is possible for every partition in a consumer group to have only one active reader. Checkpointing, leasing, and managing readers are simplified by using the clients within the Event Hubs SDKs that act as  intelligent consumer agents. These are:
+
+- The [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) for .NET
+- The [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) for Java
+- The [EventHubConsumerClient](python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) for Python
+- The [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) for JavaScript/TypeScript
 
 #### Read events
 
@@ -139,7 +145,7 @@ It is your responsibility to manage the offset.
 For more information about Event Hubs, visit the following links:
 
 - Get started with Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
@@ -148,4 +154,4 @@ For more information about Event Hubs, visit the following links:
 * [Event Hubs FAQ](event-hubs-faq.md)
 * [Event Hubs samples][]
 
-[Event Hubs samples]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Event Hubs samples]: /azure/event-hubs/event-hubs-samples
