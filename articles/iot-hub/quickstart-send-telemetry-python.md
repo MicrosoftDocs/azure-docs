@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: [mvc, mqtt]
-ms.date: 10/17/2019
+ms.date: 06/16/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
