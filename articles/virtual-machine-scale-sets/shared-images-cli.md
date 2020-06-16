@@ -4,6 +4,7 @@ description: Learn how to use the Azure CLI to create shared VM images to use fo
 author: axayjo
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: akjosh

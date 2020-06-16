@@ -10,6 +10,8 @@ ms.custom: mvc
 
 When you're finished deploying changes to VMs in your environment, you can remove them from the [Change Tracking and Inventory](change-tracking.md) feature.
 
+## To remove your VMs
+
 1. From your Automation account, select **Change tracking** or **Inventory** under **Configuration Management**.
 
 2. Use the following command to identify the UUID of a VM that you want to remove from management.
@@ -18,7 +20,7 @@ When you're finished deploying changes to VMs in your environment, you can remov
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. In your Log Analytics workspace under **General**, access the saved searches.
+3. In your Log Analytics workspace under **General**, access the saved searches for the scope configuration `MicrosoftDefaultScopeConfig-ChangeTracking`.
 
 4. For the saved search `MicrosoftDefaultComputerGroup`, click the ellipsis to the right and select **Edit**. 
 

@@ -79,9 +79,11 @@
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
     - name: Get bulk data with pagination
-      href: logic-apps-exceed-default-page-size-with-pagination.md  
+      href: logic-apps-exceed-default-page-size-with-pagination.md
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
+    - name: Send messages in order - sequential convoy
+      href: send-related-messages-sequential-convoy.md
     - name: Author JSON definitions
       href: logic-apps-author-definitions.md
     - name: Handle content types
@@ -377,6 +379,8 @@
     href: logic-apps-limits-and-config.md
   - name: Pricing model & usage metering
     href: logic-apps-pricing.md
+  - name: Azure CLI
+    href: /cli/azure/ext/logic/logic?view=azure-cli-latest
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API

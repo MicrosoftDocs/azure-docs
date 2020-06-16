@@ -86,7 +86,10 @@ For web pages, Application Insights JavaScript SDK automatically collects AJAX c
 
 For SQL calls, the name of the server and database is always collected and stored as name of the collected `DependencyTelemetry`. There's an additional field called 'data', which can contain the full SQL query text.
 
-For ASP.NET Core applications, there's no additional step required to get the full SQL Query.
+For ASP.NET Core applications, It is now required to opt-in to SQL Text collection by using
+```csharp
+services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
+```
 
 For ASP.NET applications, full SQL query is collected with the help of byte code instrumentation, which requires instrumentation engine or by using the [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet package instead of the System.Data.SqlClient library. Additional platform-specific steps, as described below, are required.
 

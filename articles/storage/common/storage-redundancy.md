@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -58,8 +58,8 @@ The following table shows which types of storage accounts support ZRS in which r
 |    Storage account type    |    Supported regions    |    Supported services    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europe West<br /> US East    |    Block blobs only    |
-|    FileStorage    | Europe West<br /> US East    |    Azure Files only    |
+|    BlockBlobStorage<sup>1</sup>    | Asia Southeast<br /> Europe West<br /> US East    |    Block blobs only    |
+|    FileStorage    | Asia Southeast<br /> Europe West<br /> US East    |    Azure Files only    |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Storage accounts that contain Azure managed disks for virtual machines always use LRS. Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Neither managed nor unmanaged disks support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -77,7 +77,7 @@ Azure Storage offers two options for copying your data to a secondary region:
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region.
 
-The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary location, data is always replicated synchronously three times using LRS.
+The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary location, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
 
 With GRS or GZRS, the data in the secondary location isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary location, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
 

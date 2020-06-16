@@ -19,7 +19,7 @@ The basic steps to use the samples are:
 2. Modify the parameters for your environment and save as a JSON file.
 4. Deploy the template using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md). 
 
-For example, use the following commands to deploy the template and parameters file to your subscription using PowerShell or Azure CLI.
+For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.
 
 
 ```powershell
@@ -30,7 +30,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ```azurecli
 az login
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \
@@ -43,6 +43,7 @@ az group deployment create \
 - Alerts
   - [Log alert rules](resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
   - [Metric alert rules](resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
+- Application Insights - Coming soon.
 - [Diagnostic settings](resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
 - [Log queries](resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
 - [Log Analytics Workspace](resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.

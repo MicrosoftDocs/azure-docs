@@ -32,7 +32,7 @@ Seamless SSO is a free feature and you don't need any paid editions of Azure AD 
 
 **Q: Is Seamless SSO available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?**
 
-No. Seamless SSO is only available in the worldwide instance of Azure AD.
+Seamless SSO is available for the Azure Government cloud. For details, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
 **Q: What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?**
 

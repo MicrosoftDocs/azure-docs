@@ -73,7 +73,7 @@ You can set a **Default compute target** for the entire pipeline, which will tel
     If you already have an available compute target, you can select it to run this pipeline.
 
     > [!NOTE]
-    > The designer can only run training experiments on Azure Machine Learning Compute and Azure Machine Learning compute instance targets. Other compute targets won't be shown.
+    > The designer can only run training experiments on Azure Machine Learning Compute and Azure Machine Learning compute instances but other compute targets won't be shown.
 
 1. Enter a name for the compute resource.
 
@@ -216,11 +216,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
 1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
 
-1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
-
 1. In the module palette, expand the section **Module training**, and drag the **Train Model** module to the canvas.
 
-1. Select the **Train Model** module, and drag it to the pipeline canvas.
+1. Connect the output of the **Linear Regression** module to the left input of the **Train Model** module.
 
 1. Connect the training data output (left port) of the **Split Data** module to the right input of the **Train Model** module.
     

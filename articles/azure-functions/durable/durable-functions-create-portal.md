@@ -53,7 +53,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 
    ![Kudu run npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
    
-5. Lastly, (enable compatibility mode)[https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1] by adding an app setting `FUNCTIONS_V2_COMPATIBILITY_MODE` with value of `true`.
+5. Lastly, [enable compatibility mode](https://docs.microsoft.com/azure/azure-functions/durable/quickstart-js-vscode#enable-compatibility-mode-1) by adding an app setting `FUNCTIONS_V2_COMPATIBILITY_MODE` with value of `true`.
 
 ## Create an orchestrator function
 

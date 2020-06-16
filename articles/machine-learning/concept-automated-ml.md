@@ -30,14 +30,15 @@ Data scientists, analysts, and developers across industries can use automated ML
 
 ### Classification
 
-Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-configure-auto-features.md#featurization). 
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
 
 See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
 ### Regression
-Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](how-to-use-automated-ml-for-ml-models.md#featurization).
+
+Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers [featurizations specifically for these tasks](how-to-configure-auto-features.md#featurization).
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. Learn more and see an example of [regression with automated machine learning](tutorial-auto-train-models.md).
 
@@ -95,21 +96,22 @@ While model building is automated, you can also [learn how important or relevant
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## Preprocessing
+## Feature engineering
 
-In every automated machine learning experiment, your data is preprocessed using the default methods and optionally through advanced preprocessing.
+Feature engineering is the process of using domain knowledge of the data to create features that help ML algorithms learn better. In Azure Machine Learning, scaling and normalization techniques are applied to facilitate feature engineering. Collectively, these techniques and feature engineering are referred to as featurization.
+
+For automated machine learning experiments, featurization is applied automatically, but can also be customized based on your data. [Learn more about what featurization is included](how-to-configure-auto-features.md#featurization).  
 
 > [!NOTE]
-> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> Automated machine learning featurization steps (feature normalization, handling missing data,
 > converting text to numeric, etc.) become part of the underlying model. When using the model for
-> predictions, the same pre-processing steps applied during training are applied to
+> predictions, the same featurization steps applied during training are applied to
 > your input data automatically.
 
-### Automatic preprocessing (standard)
+### Automatic featurization (standard)
 
-In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how autoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
+In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well. During model training, one of the following scaling or normalization techniques will be applied to each model. Learn how AutoML helps [prevent over-fitting and imbalanced data](concept-manage-ml-pitfalls.md) in your models.
 
 |Scaling&nbsp;&&nbsp;normalization| Description |
 | ------------- | ------------- |
@@ -121,16 +123,15 @@ In every automated machine learning experiment, your data is automatically scale
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |This transformer performs linear dimensionality reduction by means of truncated singular value decomposition (SVD). Contrary to PCA, this estimator does not center the data before computing the singular value decomposition, which means it can work with scipy.sparse matrices efficiently |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Each sample (that is, each row of the data matrix) with at least one non-zero component is rescaled independently of other samples so that its norm (l1 or l2) equals one |
 
-### Advanced preprocessing & featurization
+### Customize featurization
 
-Additional advanced preprocessing and featurization are also available, such as data guardrails, encoding, and transforms. [Learn more about what featurization is included](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Additional feature engineering techniques such as, encoding and transforms are also available. 
+
 Enable this setting with:
 
-+ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
++ Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specifying `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` for the [`AutoMLConfig` class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
-
-
++ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization]((how-to-configure-auto-features.md). 
 
 ## <a name="ensemble"></a> Ensemble models
 

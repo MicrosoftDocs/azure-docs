@@ -11,7 +11,7 @@ ms.custom: mvc
 Application Insights, a feature of [Azure Monitor](../overview.md), is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js, Java, and Python hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
 
 ## How does Application Insights work?
-You install a small instrumentation package (SDK) in your application or enable Application Insights codelessly when [supported](../../azure-monitor/app/platforms.md). The instrumentation monitors your app and directs the telemetry data to an Azure Application Insights Resource using a unique GUID that we refer to as an Instrumentation Key.
+You install a small instrumentation package (SDK) in your application or enable Application Insights using the Application Insights Agent when [supported](../../azure-monitor/app/platforms.md). The instrumentation monitors your app and directs the telemetry data to an Azure Application Insights Resource using a unique GUID that we refer to as an Instrumentation Key.
 
 You can instrument not only the web service application, but also any background components, and the JavaScript in the web pages themselves. The application and its components can run anywhere - it doesn't have to be hosted in Azure.
 
@@ -22,7 +22,7 @@ In addition, you can pull in telemetry from the host environments such as perfor
 All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
 
 ### What's the overhead?
-The impact on your app's performance is very small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
+The impact on your app's performance is small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
 
 ## What does Application Insights monitor?
 
@@ -65,7 +65,7 @@ There are plenty of ways to explore your data. Check out these articles:
 ### Monitor
 Install Application Insights in your app, set up [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), and:
 
-* Check-out the default [application dashboard](../../azure-monitor/app/overview-dashboard.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
+* Check out the default [application dashboard](../../azure-monitor/app/overview-dashboard.md) for your team room to keep an eye on load, responsiveness, and the performance of your dependencies, page loads, and AJAX calls.
 * Discover which are the slowest and most failing requests.
 * Watch [Live Stream](../../azure-monitor/app/live-stream.md) when you deploy a new release, to know immediately about any degradation.
 

@@ -61,7 +61,8 @@ If you want to change the default subscription after you've signed in, run this 
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-You can also select on from a list using the Out-GridView cmdlet:
+You can also select one from a list using the Out-GridView cmdlet:
+
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```

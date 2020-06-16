@@ -26,6 +26,17 @@ Azure Security is in active development and receives improvements on an ongoing 
 This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## June 2020
+
+### Secure score API (preview)
+
+You can now access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+For examples of external tools made possible with the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
+
+
 ## May 2020
 
 
@@ -41,12 +52,12 @@ Suppression rules define the criteria for which alerts should be automatically d
 
 - suppress alerts that are being triggered too often to be useful
 
-[Learn more about suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
+Learn more about [suppressing alerts from Azure Security Center's threat protection](alerts-suppression-rules.md).
 
 
 ### Virtual machine vulnerability assessment is now generally available
 
-Security Center's standard tier now includes a built-in vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
+Security Center's standard tier now includes an integrated vulnerability assessment for virtual machines for no additional fee. This extension is powered by Qualys but reports its findings directly back to Security Center. You don't need a Qualys license or even a Qualys account - everything's handled seamlessly inside Security Center.
 
 The new solution can continuously scan your virtual machines to find vulnerabilities and present the findings in Security Center. 
 
@@ -54,7 +65,7 @@ To deploy the solution, use the new security recommendation:
 
 "Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)"
 
-[Learn more](built-in-vulnerability-assessment.md).
+Learn more about [Security Center's integrated vulnerability assessment for virtual machines](built-in-vulnerability-assessment.md).
 
 
 
@@ -68,7 +79,7 @@ This update brings the following changes to this feature:
 
 - The recommendation has been set to be triggered only if there are open management ports.
 
-[Learn more about the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](security-center-just-in-time.md).
 
 
 ### Custom recommendations have been moved to a separate security control
@@ -109,13 +120,14 @@ The three recommendations that moved are:
 
 The two new recommendations added to the control are:
 
-- **[Preview] Guest configuration agent should be installed** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
+- **Guest configuration extension should be installed on Windows virtual machines (Preview)** - Using [Azure Policy Guest Configuration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) provides visibility inside virtual machines to server and application settings (Windows only).
 
-- **[Preview] Windows exploit guard should be enabled** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
+- **Windows Defender Exploit Guard should be enabled on your machines (Preview)** - Windows Defender Exploit Guard leverages the Azure Policy Guest Configuration agent. Exploit Guard has four components that are designed to lock down devices against a wide variety of attack vectors and block behaviors commonly used in malware attacks while enabling enterprises to balance their security risk and productivity requirements  (Windows only).
 
 Learn more about Windows Defender Exploit Guard in [Create and deploy an Exploit Guard policy](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+
 
 
 ### Custom policies with custom metadata are now generally available
@@ -126,7 +138,8 @@ Create a custom initiative in Azure policy, add policies to it and onboard it to
 
 We've now also added the option to edit the custom recommendation metadata. Metadata options include severity, remediation steps, threats information, and more.  
 
-[Learn more about enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Learn more about [enhancing your custom recommendations with detailed information](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+
 
 
 ### Crash dump analysis capabilities migrating to fileless attack detection 
@@ -135,7 +148,7 @@ We are integrating the Windows crash dump analysis (CDA) detection capabilities 
 
 Some of the benefits of this transition:
 
-- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find active malware. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
+- **Proactive and timely malware detection** - The CDA approach involved waiting for a crash to occur and then running analysis to find malicious artifacts. Using fileless attack detection brings proactive identification of in-memory threats while they are running. 
 
 - **Enriched alerts** - The security alerts from fileless attack detection include enrichments that aren't available from CDA, such as the active network connections information. 
 
@@ -163,7 +176,7 @@ Now, you can add standards such as:
 
 In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
  
-[Learn more about customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 
 ### Identity recommendations now included in Azure Security Center free tier
@@ -178,8 +191,9 @@ Examples of identity and access recommendations include:
 
 If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
 
-[Learn more about identity and access recommendations](recommendations-reference.md#recs-identity).
-[Learn more about monitoring identity and access](security-center-identity-access.md).
+Learn more about [identity and access recommendations](recommendations-reference.md#recs-identity).
+
+Learn more about [monitoring identity and access](security-center-identity-access.md).
 
 
 ## March 2020
@@ -192,7 +206,7 @@ Every security program includes multiple workflows for incident response. These 
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-To learn about creating Logic Apps, see [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Learn more about [creating Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ### Integration of Azure Security Center with Windows Admin Center
@@ -204,7 +218,7 @@ After moving a server from Windows Admin Center to Azure Security Center, you’
 - View security alerts and recommendations in the Security Center extension of the Windows Admin Center.
 - View the security posture and retrieve additional detailed information of your Windows Admin Center managed servers in the Security Center within the Azure portal (or via an API).
 
-Learn more about how to [integrate Azure Security Center with Windows Admin Center](windows-admin-center-integration.md).
+Learn more about [how to integrate Azure Security Center with Windows Admin Center](windows-admin-center-integration.md).
 
 
 ### Protection for Azure Kubernetes Service
@@ -219,8 +233,9 @@ The Security Center defense includes:
 - **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they’re viewed as a part of your organization’s security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
 - **Threat protection** - Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
 
-[Learn more about Azure Kubernetes Services integration with Security Center](azure-kubernetes-service-integration.md).
-[Learn more about the container security features in Security Center](container-security.md).
+Learn more about [Azure Kubernetes Services' integration with Security Center](azure-kubernetes-service-integration.md).
+
+Learn more about [the container security features in Security Center](container-security.md).
 
 
 ### Improved just-in-time experience
@@ -230,7 +245,7 @@ The features, operation, and UI for Azure Security Center’s just-in-time tools
 - **Justification field** - When requesting access to a virtual machine (VM) through the just-in-time page of the Azure portal, a new optional field is available to enter a justification for the request. Information entered into this field can be tracked in the activity log. 
 - **Automatic cleanup of redundant just-in-time (JIT) rules** - Whenever you update a JIT policy, a cleanup tool automatically runs to check the validity of your entire ruleset. The tool looks for mismatches between rules in your policy and rules in the NSG. If the cleanup tool finds a mismatch, it determines the cause and, when it's safe to do so, removes built-in rules that aren't needed anymore. The cleaner never deletes rules that you've created. 
 
-[Learn more about the JIT access feature](security-center-just-in-time.md).
+Learn more about [the JIT access feature](security-center-just-in-time.md).
 
 
 ### Two security recommendations for web applications deprecated
@@ -245,7 +260,9 @@ Two security recommendations related to web applications are being deprecated:
 
 These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
 
-[Learn more about security recommendations](recommendations-reference.md).
+Learn more about [security recommendations](recommendations-reference.md).
+
+
 
 ## February 2020
 
@@ -267,4 +284,4 @@ An enhanced version of the secure score feature of Azure Security Center is now 
 
 Familiarize yourself with the secure score changes during the preview phase and determine other remediations that will help you to further secure your environment.
 
-Learn more in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
+Learn more about [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).

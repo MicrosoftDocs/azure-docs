@@ -71,7 +71,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Planned maintenance notifications are currently in preview
+> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
 ## Next steps
 
