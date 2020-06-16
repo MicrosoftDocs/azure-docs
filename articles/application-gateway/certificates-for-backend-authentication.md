@@ -5,7 +5,7 @@ description: This article provides examples of how a TLS/SSL certificate can be 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
 ---
