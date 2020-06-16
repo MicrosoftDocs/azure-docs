@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Analyze complex data types in Synapse
 
-This article is relevant for **Parquet** files and containers in **Azure Synapse Link for Azure Cosmos DB**. It explains how users can use Spark or SQL to read or transform data with complex schema such as arrays or nested structures. The example below is done with a single document but can easily scale to billions documents with Spark or SQL. The code below uses PySpark (Python).
+This article is relevant for Parquet files and containers in **Azure Synapse Link for Azure Cosmos DB**. It explains how users can use Spark or SQL to read or transform data with complex schema such as arrays or nested structures. The example below is done with a single document but can easily scale to billions documents with Spark or SQL. The code below uses PySpark (Python).
 
 ## Use Case
 
