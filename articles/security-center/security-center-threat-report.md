@@ -51,15 +51,18 @@ This type of information is useful during the incident response process, where t
 
 1. From Security Center's sidebar, open the **Security alerts** page.
 1. Select an alert. 
-    The alerts details page opens with more details about the alert. Below is the **Potentially Unsafe Action** alert details page.
+    The alerts details page opens with more details about the alert. Below is the **Ransomware indicators detected** alert details page.
 
-    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-closed.png)](media/security-center-threat-report/threat-intelligence-closed.png#lightbox)
+    [![Ransomware indicators detected alert details page](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png)](media/security-center-threat-report/ransomware-indicators-detected-link-to-threat-intel-report.png#lightbox)
 
-1. The amount of information available for each security alert will vary according to the type of alert. In the **Threat Intelligence** field, select the **View** link to open the threat intelligence report pane.
+1. Select the link to the report, and a PDF will open in your default browser.
 
-    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/threat-intelligence-open.png)](media/security-center-threat-report/threat-intelligence-open.png#lightbox)
+    [![Potentially Unsafe Action alert details page](media/security-center-threat-report/ti-report.png)](media/security-center-threat-report/ti-report.png#lightbox)
 
-From here you can download the PDF for this report, read more about the security issue that was detected, and take actions based on the information provided.
+    You can optionally download the PDF report. 
+
+    >[!TIP]
+    > Note that the amount of information available for each security alert will vary according to the type of alert.
 
 
 
