@@ -362,10 +362,6 @@ Storage Explorer requires .NET Core to be installed on your system. We recommend
      sudo apt-get update && \
      sudo apt-get install -y dotnet-runtime-2.1
    ```
-1. Run the following command:
-   ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
 ---
 
 Many libraries needed by Storage Explorer come preinstalled with Canonical's standard installations of Ubuntu. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
