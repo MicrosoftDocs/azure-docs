@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Assign administrator and non-administrator roles to users with Azure Active Directory
 
-If a user in your organization needs permission to manage Azure Active Directory (Azure AD) resources, you must assign the user an appropriate role in Azure AD, based on the actions the user needs permission to perform.
+In Azure Active Directory (Azure AD), if a user in your organization needs permission to manage Azure AD resources, you must assign the user a role to provide the permissions the user needs. If you're not sure if want to manage Azure roles or Azure AD roles, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles).
 
-For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
+For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For more information about adding users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
 ## Assign roles
 
@@ -79,4 +79,5 @@ If you need to remove the role assignment from a user, you can also do that from
 
 - [Add guest users from another directory](../b2b/what-is-b2b.md)
 
-Or you can perform other user management tasks, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Other user management tasks you can check out
+are available in [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
