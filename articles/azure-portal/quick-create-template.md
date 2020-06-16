@@ -42,7 +42,7 @@ The dashboard you create in the next part of this quickstart requires an existin
         -Location "East US" 
     ```
 
-1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../articles/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) and [password requirements](../articles/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+1. Enter a username and password for the VM. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../articles/virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) and [password requirements](../articles/virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     The VM deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
 
@@ -94,9 +94,11 @@ Check that the dashboard was created successfully and that you can see data from
 
 If you want to remove the VM and associated dashboard, delete the resource group that contains them.
 
-1. In the Azure portal, search for 
+1. In the Azure portal, search for **SimpleWinVmResourceGroup**, then select it in the search results.
 
+1. On the **SimpleWinVmResourceGroup** page, select **Delete resource group**, enter the resource group name to confirm, then select **Delete**.
 
+    ![Delete resource group](media/quick-create-template/delete-resource-group.png)
 
 ## Next steps
 
