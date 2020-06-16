@@ -160,7 +160,7 @@ Perform the following steps to enable monitoring using the provided bash script.
     export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
     ```
 
-3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`.
+3. Configure the `kubeContext` variable with the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, set the value to `""`.
 
     ```bash
     export kubeContext="<kubeContext name of your k8s cluster>"
@@ -193,7 +193,6 @@ Perform the following steps to enable monitoring using the provided bash script.
     ```bash
     bash enable-monitoring.sh --resource-id $azureArcClusterResourceId
     ```
-
 
     Run the following command to create a default Log Analytics workspace and without specifying a proxy server:
 
