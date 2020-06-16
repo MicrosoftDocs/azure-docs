@@ -1,17 +1,15 @@
 ---
-title: Add an API connector to a user flow
+title: Add API connectors to self-service sign-up flows - Azure AD
 description: Configure a web API to be used in a user flow.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 04/20/2020
+ms.topic: article
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---

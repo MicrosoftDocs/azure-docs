@@ -1,17 +1,15 @@
 ---
-title: Manage API connectors in self-service sign-up flows
-description: Use API connectors to customize and extend your self-service sign-up user flows
-
+title: About API connectors in self-service sign-up flows - Azure AD
+description: Use Azure Active Directory (Azure AD) API connectors to customize and extend your self-service sign-up user flows by using web APIs. 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro"                 
 ms.collection: M365-identity-device-management
 ---
