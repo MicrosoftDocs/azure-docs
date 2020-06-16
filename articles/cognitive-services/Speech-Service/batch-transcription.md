@@ -170,14 +170,14 @@ Use these optional properties to configure transcription:
       `channels`
    :::column-end:::
    :::column span="2":::
-      A list of channel number to process. Here a subset of the available channels in the audio file can be specified to be processed (e.g. `0` only).
+      A optional array of channel numbers to process. Here a subset of the available channels in the audio file can be specified to be processed (e.g. `0` only). If not specified, channels `0` and `1` are transcribed as default.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      A duration to automatically delete transcriptions after completing the transcription. The 'timeToLive' is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`).
+      An optional duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`). If not specified or set to `PT0H` , the transcription will not be deleted automatically.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -196,7 +196,7 @@ Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azu
 For each input audio, one transcription result file is being created. You can get the list of result files by calling the 
 
 
-Each has this structure:
+Each transcription result file follows this format:
 
 ```json
 {
@@ -207,18 +207,9 @@ Each has this structure:
   "combinedRecognizedPhrases": [                                   // concatenated results for simple access in single string for each channel
     {
       "channel": 0,                                                // channel number of the concatenated results
-      
-      // the actual words recognized in normalized/long form. Numbers are spelled out, street instead of st ...
       "lexical": "yeah i also like the one where uh",
-
-      // inverse text normalized form of the recognized text.
-      // Abbreviations ("doctor smith" to "dr smith"), phone number formatting, and other transformations are applied.
       "itn": "yeah i also like the one where uh",
-
-      // The ITN form with profanity filtering/masking applied.
       "maskedITN": "yeah i also like the one where uh",
-
-      // display form of the recognized text. Added punctuation and capitalization are included.
       "display": "Yeah, I also like the one. Where? Uh."
     }
   ],
@@ -235,13 +226,13 @@ Each has this structure:
       "nBest": [
         {
           "confidence": 0.898652852,                               // confidence value for the recognition of the whole phrase
-          "speaker": 1,                                            // if 'diarizationEnabled' is 'true', this is the identified speaker (1 or 2)
+          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2); otherwise not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
           
-          // if wordLevelTimestampsEnabled is 'true', there will be a result for each word of the phrase
+          // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase
           "words": [
             {
               "word": "hello",
@@ -278,28 +269,28 @@ The result contains these forms:
 :::row-end:::
 :::row:::
    :::column span="1":::
-      `Lexical`
+      `lexical`
    :::column-end:::
    :::column span="2":::
       The actual words recognized.
 :::row-end:::
 :::row:::
    :::column span="1":::
-      `ITN`
+      `itn`
    :::column-end:::
    :::column span="2":::
       Inverse-text-normalized form of the recognized text. Abbreviations ("doctor smith" to "dr smith"), phone numbers, and other transformations are applied.
 :::row-end:::
 :::row:::
    :::column span="1":::
-      `MaskedITN`
+      `maskedITN`
    :::column-end:::
    :::column span="2":::
       The ITN form with profanity masking applied.
 :::row-end:::
 :::row:::
    :::column span="1":::
-      `Display`
+      `display`
    :::column-end:::
    :::column span="2":::
       The display form of the recognized text. Added punctuation and capitalization are included.
