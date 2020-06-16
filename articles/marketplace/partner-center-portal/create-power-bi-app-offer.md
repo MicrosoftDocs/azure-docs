@@ -265,4 +265,4 @@ On the review page you can:
 
 To submit the offer for publishing, select **Publish**.
 
-We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public, go to Partner Center and select **Go-live**.
