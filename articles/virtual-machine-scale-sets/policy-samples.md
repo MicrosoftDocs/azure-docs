@@ -8,7 +8,7 @@ ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure virtual machine scale sets
+# Azure Policy built-in definitions for Azure virtual machine scale sets
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure virtual machine scale sets. For additional Azure Policy built-ins for other
