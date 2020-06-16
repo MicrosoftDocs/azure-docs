@@ -85,7 +85,7 @@ Azure Maps and GitHub style properties are the two main sets of supported proper
 
 If the reader comes across a less common style property, it will convert it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
+The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence. Colors can be any CSS3 color value; HEX, RGB, RGBA, HSL, HSLA, or named color value.
 
 ### Bubble layer style properties
 
