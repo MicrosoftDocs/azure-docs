@@ -19,7 +19,7 @@
   - name: Manage
     items:
     - name: Manage and use Azure VM extensions
-      href: ./server/manage-vm-extensions.md
+      href: ./servers/manage-vm-extensions.md
     - name: Manage agent
       href: ./servers/manage-agent.md
 - name: Samples
