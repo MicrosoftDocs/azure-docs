@@ -62,13 +62,13 @@ This type of information is useful during the incident response process, where t
     You can optionally download the PDF report. 
 
     >[!TIP]
-    > Note that the amount of information available for each security alert will vary according to the type of alert.
+    > The amount of information available for each security alert will vary according to the type of alert.
 
 
 
 ## Next steps
 
-This page explained how to open threat intelligence reports to help an investigation of security alerts. To learn more about Azure Security Center, see the following pages:
+This page explained how to open threat intelligence reports when investigating security alerts. For related information, see the following pages:
 
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
 * [Handling security incidents in Azure Security Center](security-center-incident.md)
