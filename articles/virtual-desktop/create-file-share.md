@@ -115,7 +115,7 @@ Here's how to get the UNC path:
 
 2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Select **Settings**, then select **Properties**.
+3. In **Settings**, then select **Properties**.
 
 4. Copy the **Primary File Service Endpoint** URI to the text editor of your choice.
 
@@ -182,7 +182,6 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Select **Apply**.
 
 ## Configure FSLogix on session host VMs
 
