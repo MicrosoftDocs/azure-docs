@@ -11,32 +11,32 @@ In this article, you learn how to get help with Azure VMware Solution (AVS) depl
 
 - Correlation ID (of the failed deployment)
 - ExpressRoute circuit ID (when trying to scale or peer an existing private cloud with the private cloud ExpressRoute circuit, and it fails)
+
+## Collect the correlation ID
  
 Let's look at the correlation ID first. When you create a private cloud (or any resource in Azure), an associated correlation ID is generated. Each Azure resource manager deployment also generates a unique correlation ID. This ID enables faster SR creation and resolution. 
- 
-If the failure occurs in the pre-validation stages, before a private cloud is deployed, then no correlation ID is generated. In this case, you can simply provide the information you used when trying to create the AVS private cloud, including:
-
-- Location
-- Resource group
-- Resource name
- 
-## Collect a correlation ID
  
 Here is an example of the output from a failed private cloud deployment, with the correlation ID highlighted.
 
 :::image type="content" source="media/fix-deployment-provisioning-failures/failed-private-cloud-deployment.png" alt-text="Failed private cloud deployment with correlation ID.":::
 
-Copy and save this correlation ID to include in the service request. For details, see the [Create your support request](#create-your-support-request) section at the end of this article.
+Copy and save this correlation ID to include in the service request. For details, see [Create your support request](#create-your-support-request) at the end of this article.
 
+If the failure occurs in the pre-validation stages, before a private cloud is deployed, then no correlation ID is generated. In this case, you can simply provide the information you used when creating the AVS private cloud, including:
+
+- Location
+- Resource group
+- Resource name
+ 
 ### Collect a summary of errors
 
-From the same screen, you can open a summary of errors. Select **Click here for details** (highlighted in the screenshot above) and a summary of errors opens as shown below.
+The details of any errors can also be helpful in resolving your issue. From the preceding screen, select **Click here for details** (highlighted) and a summary of errors opens, as shown in the following screenshot.
  
  :::image type="content" source="media/fix-deployment-provisioning-failures/summary-of-errors.png" alt-text="Summary of errors.":::
 
-Again, copy and save this summary to include in the SR, as this information can be helpful in resolving issues.
+Again, copy and save this summary to include in the SR.
  
-## Retrieve past deployments
+### Retrieve past deployments
 
 You can retrieve past deployments, including failed ones, by searching in the deployment activity log accessed by selecting the notifications icon.
 
@@ -50,9 +50,9 @@ Then search on the name of the resource, or on another unique piece of informati
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Find past failed AVS deployments.":::
  
-Selecting the operation name of the failed deployment opens a window with details. Select the JSON tab and look for correlationId. Copy and include this in the SR. 
+Selecting the operation name of the failed deployment opens a window with details. Select the JSON tab and look for correlationId. Copy and include in the SR. 
  
-## Collect an ExpressRoute ID (URI)
+## Collect the ExpressRoute ID (URI)
  
 Perhaps you already have a private cloud and you experience a failure when you are trying to scale it or peer with the private cloud ExpressRoute circuit. In that case, the ExpressRoute ID of the private cloud can be used to identify it when you create an SR.
 
@@ -60,11 +60,10 @@ When viewing a private cloud in the portal, select **Connectivity > ExpressRoute
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Collect an ExpressRoute ID."::: 
  
-Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see [Create your support request](#create-your-support-request) below).
- 
+Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see the following section, [Create your support request](#create-your-support-request)).
  
 > [!NOTE]
-> On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the [Collect a summary of errors](#collect-a-summary-of-errors) 
+> On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the earlier section, [Collect a summary of errors](#collect-a-summary-of-errors) 
 
 ## Create your support request
 
