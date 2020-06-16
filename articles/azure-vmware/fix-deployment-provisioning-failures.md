@@ -14,7 +14,7 @@ In this article, you learn how to get help with Azure VMware Solution (AVS) depl
 
 ## Collect the correlation ID
  
-Let's look at the correlation ID first. When you create a private cloud (or any resource in Azure), an associated correlation ID is generated. Each Azure resource manager deployment also generates a unique correlation ID. This ID enables faster SR creation and resolution. 
+Let's look at the correlation ID first. When you create a private cloud (or any resource in Azure), an associated correlation ID is generated. Each Azure Resource Manager deployment also generates a unique correlation ID. This ID enables faster SR creation and resolution. 
  
 Here is an example of the output from a failed private cloud deployment, with the correlation ID highlighted.
 
