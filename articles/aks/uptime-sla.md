@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 Uptime SLA is an optional feature to enable a financially backed, higher SLA for a cluster. Uptime SLA guarantees 99.95% availability of the Kubernetes API server endpoint for clusters that use [Availability Zones][availability-zones] and 99.9% of availability for clusters that don't use Availability Zones. AKS uses master node replicas across update and fault domains to ensure SLA requirements are met.
 
-Customers needing an SLA to meet compliance requirements or require extending an SLA to their end-users should enable this feature. Customers with critical workloads that will benefit from a higher uptime SLA may also benefit. Using the Uptime SLA feature with Availability Zones enables a higher availability for the uptime of the Kubernetes API server.  
+Customers needing an SLA to meet compliance requirements or require extending an SLA to their end users should enable this feature. Customers with critical workloads that will benefit from a higher uptime SLA may also benefit. Using the Uptime SLA feature with Availability Zones enables a higher availability for the uptime of the Kubernetes API server.  
 
 Customers can still create unlimited free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO or SLA Uptime as needed.
 
@@ -23,7 +23,7 @@ Customers can still create unlimited free clusters with a service level objectiv
 Uptime SLA is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
 * Azure Government isn't currently supported.
-* Azure China isn't currently supported.
+* Azure China 21Vianet isn't currently supported.
 
 ## SLA terms and conditions
 
