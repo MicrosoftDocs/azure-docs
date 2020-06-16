@@ -379,6 +379,8 @@
       items:
         - name: Device disconnects
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Troubleshoot message routing
+          href: troubleshoot-message-routing.md
         - name: Problem resolution
           items:          
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
