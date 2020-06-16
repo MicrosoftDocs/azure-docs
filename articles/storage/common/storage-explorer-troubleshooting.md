@@ -313,8 +313,16 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 You can also download the application as a .tar.gz file, but you'll have to install dependencies manually.
 
-> [!IMPORTANT]
-> Storage Explorer as provided in the .tar.gz download is supported only for Ubuntu distributions. Other distributions haven't been verified and may require alternative or additional packages.
+Storage Explorer as provided in the .tar.gz download is supported for the following versions of Ubuntu only. Storage Explorer might work on other Linux distributions, but they are not officially supported.
+
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
+
+Storage Explorer requires .NET Core to be installed on your system. We recommend .NET Core 2.1, but Storage Explorer will work with 2.2 as well.
+
+> [!NOTE]
+> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
 
 # [Ubuntu 20.04](#tab/2004)
 
@@ -360,10 +368,7 @@ You can also download the application as a .tar.gz file, but you'll have to inst
    ```
 ---
 
-> [!NOTE]
-> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you should be able to use up to .NET Core 2.1. Versions beyond 2.1 have not been verified to work at this time.
-
-Many libraries come preinstalled with standard installations of Ubuntu provided by Canonical. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
+Many libraries needed by Storage Explorer come preinstalled with Canonical's standard installations of Ubuntu. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
 
 - iproute2
 - libasound2
