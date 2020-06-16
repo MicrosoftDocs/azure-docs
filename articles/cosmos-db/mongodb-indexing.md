@@ -101,7 +101,7 @@ Here's another example , this time with a slightly different set of properties i
   ]
 ```
 
-In this collection, documents can have many different possible properties. If you wanted to index all the data in the `children` array, you would have two options: create separate indexes for each individual property or create one wildcard index for the entire `children` array.
+In this collection, documents can have many different possible properties. If you wanted to index all the data in the `children` array, you have two options: create separate indexes for each individual property or create one wildcard index for the entire `children` array.
 
 ### Create a wildcard index
 
@@ -123,7 +123,7 @@ Here's how you can create a wildcard index on all fields:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-It may be useful to create a wildcard index on all fields as you are starting development. As more properties are indexed in a document, the Request Unit (RU) charge for writing and updating the document will increase. Therefore, using a wildcard index on all fields is not recommended for write-heavy scenarios.
+As you are starting development, it may be useful to create a wildcard index on all fields. As more properties are indexed in a document, the Request Unit (RU) charge for writing and updating the document will increase. Therefore, using a wildcard index on all fields is not recommended for write-heavy scenarios.
 
 ### Limitations
 
@@ -141,8 +141,8 @@ Wildcard indexes do not support any of the following index types or properties:
     { "$**" : 1 },
     { "wildcardProjection " :
         {
-            "children.givenName" : 1,
-            "children.grade" : 1
+           "children.givenName" : 1,
+           "children.grade" : 1
         }
     }
 )`
@@ -153,8 +153,8 @@ Wildcard indexes do not support any of the following index types or properties:
     { "$**" : 1 },
     { "wildcardProjection" :
         {
-           "children.givenName" : 1,
-            "children.grade" : 1
+           "children.givenName" : 0,
+           "children.grade" : 0
         }
     }
 )`
