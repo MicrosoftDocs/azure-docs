@@ -221,7 +221,7 @@ To copy data from and to Dynamics, the following properties are supported:
 | type | The type property of the dataset must be set to "DynamicsEntity", "DynamicsCrmEntity", or "CommonDataServiceForAppsEntity". |Yes |
 | entityName | The logical name of the entity to retrieve. | No for source if the activity source is specified as "query" and yes for sink |
 
-### Example
+#### Example
 
 ```json
 {
@@ -417,7 +417,7 @@ Also assume you want to copy such data to the sink Dynamics entity field **Custo
 In copy-activity column mapping, map the two columns as follows:
 
 - **CustomerField** to **CustomerField**. This mapping is the normal field mapping.
-- **Target** to **CustomerField@EntityReference**. The sink column is a virtual column representing the entity reference. Input such field names in a mapping, as they won't show up by importing schemas.
+- **Target** to **CustomerField\@EntityReference**. The sink column is a virtual column representing the entity reference. Input such field names in a mapping, as they won't show up by importing schemas.
 
 ![Dynamics lookup-field column mapping](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 
