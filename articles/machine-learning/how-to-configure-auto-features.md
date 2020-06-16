@@ -27,7 +27,7 @@ In this guide, you'll learn:
 This article assumes that you already know how to configure an AutoML experiment. For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
-- For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+- For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 ## Configure featurization
 
@@ -39,7 +39,7 @@ In every automated machine learning experiment, [automatic scaling and normaliza
 > predictions, the same featurization steps that are applied during training are applied to
 > your input data automatically.
 
-For experiments that you configure with the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using Machine Learning Studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+For experiments that you configure with the Python SDK, you can enable or disable the featurization setting and further specify the featurization steps to be used for your experiment. If you're using the Azure Machine Learning studio, see the [steps to enable featurization](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 The following table shows the accepted settings for `featurization` in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
@@ -53,7 +53,7 @@ The following table shows the accepted settings for `featurization` in the [Auto
 
 ## Automatic featurization
 
-The following table summarizes techniques that are automatically applied to your data. These techniques are applied for experiments that are configured by using the SDK or Machine Learning Studio. To disable this behavior, set `"featurization": 'off'` in your `AutoMLConfig` object.
+The following table summarizes techniques that are automatically applied to your data. These techniques are applied for experiments that are configured by using the SDK or the studio. To disable this behavior, set `"featurization": 'off'` in your `AutoMLConfig` object.
 
 > [!NOTE]
 > If you plan to export your AutoML-created models to an [ONNX model](concept-onnx.md), only the featurization options indicated with an asterisk ("*") are supported in the ONNX format. Learn more about [converting models to ONNX](concept-automated-ml.md#use-with-onnx).
@@ -77,13 +77,13 @@ The following table summarizes techniques that are automatically applied to your
 Data guardrails are applied:
 
 - **For SDK experiments**: When the parameters `"featurization": 'auto'` or `validation=auto` are specified in your `AutoMLConfig` object.
-- **For Machine Learning Studio experiments**: When automatic featurization is enabled.
+- **For studio experiments**: When automatic featurization is enabled.
 
 You can review the data guardrails for your experiment:
 
 - By setting `show_output=True` when you submit an experiment by using the SDK.
 
-- In Machine Learning Studio, on the **Data guardrails** tab of your automated ML run.
+- In the studio, on the **Data guardrails** tab of your automated ML run.
 
 ### Data guardrail states
 
@@ -112,7 +112,7 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using Machine Learning Studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customizations include:
 
@@ -143,7 +143,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 * Learn how to set up your automated ML experiments:
 
     * For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK](how-to-configure-auto-train.md).
-    * For a low-code or no-code experience: [Create your automated ML experiments in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
+    * For a low-code or no-code experience: [Create your automated ML experiments in the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
