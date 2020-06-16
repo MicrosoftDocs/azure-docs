@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/17/2020 
+ms.date: 06/11/2020 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -131,9 +131,9 @@ Dynamic packaging supports audio that's encoded with the following protocols:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, or HE-AAC v2)
 * [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3)
-* Dolby Atmos<br />
-   Streaming Dolby Atmos content is supported for standards like the MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+* Dolby Atmos
 
+   Streaming Dolby Atmos content is supported for standards like the MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
 * [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)<br />
    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
 
@@ -144,12 +144,20 @@ Dynamic packaging supports audio that's encoded with the following protocols:
 
 Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-### Additional notes
+### Limitations
 
-Dynamic packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
+#### iOS limitation on AAC 5.1 audio
+
+Apple iOS devices do not support 5.1 AAC audio codec. Multi-channel audio must be encoded using Dolby Digital or Dolby Digital Plus codecs.
+
+For detailed information, see [HLS authoring specification for apple devices](https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices).
 
 > [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus via the legacy v2 APIs.
+> Media Services does not support encoding of Dolby Digital, Dolby Digital Plus or Dolby Digital Plus with Dolby Atmos multi-channel audio formats.
+
+#### Dolby Digital audio
+
+Media Services dynamic packaging does not currently support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (as this is considered a legacy codec by Dolby).
 
 ## Manifests
 
