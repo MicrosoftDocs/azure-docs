@@ -8,7 +8,7 @@ ms.topic: sample
 ms.service: event-grid
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Event Grid
+# Azure Policy built-in definitions for Azure Event Grid
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Event Grid. For additional Azure Policy built-ins for other services, see

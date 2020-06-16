@@ -6,7 +6,7 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/17/2020
+ms.date: 06/12/2020
 ms.reviewer: jeking
 ---
 

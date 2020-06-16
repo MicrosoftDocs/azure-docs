@@ -20,6 +20,9 @@
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
     href: first-query-python.md
+  - name: Run your first query - Go
+    displayName: package, sdk, golang
+    href: ./first-query-go.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: shared-query-template.md

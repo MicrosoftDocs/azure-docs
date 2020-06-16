@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 05/20/2020
+ms.date: 06/16/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -213,6 +213,10 @@ tutorial:
 
 The Azure Policy extension for VS Code extension makes it easy to browse your resources and
 [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
+
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
 
 ### Azure CLI
 
