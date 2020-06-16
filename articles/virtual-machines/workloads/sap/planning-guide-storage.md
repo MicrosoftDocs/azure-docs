@@ -318,7 +318,7 @@ As limitations, you can note that:
 - With ANF, the traffic to the shared volumes is consuming the VM's network bandwidth and not storage bandwidth
 - With large NFS volumes in the double digit TiB capacity space, the throughput accessing such a volume out of a single VM is going to plateau based on limits of Linux for a single session interacting with the shared volume. 
 
-As you up-size Azure VMs in the lifecycle of a SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could makse sense to adjust the storage configuration to the new capabilities of the Azure VM. 
+As you up-size Azure VMs in the lifecycle of a SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could make sense to adjust the storage configuration to the new capabilities of the Azure VM. 
 
 
 ## Striping or not striping
