@@ -22,9 +22,9 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
 
-## May 2020
+## June 2020
 
-In May, we introduced the Windows Virtual Desktop Spring 2020 update in preview. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
+Last month, we introduced the Windows Virtual Desktop Spring 2020 update in preview. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
 
 ### Windows Virtual Desktop is now integrated with Azure Resource Manager (Preview)
 
