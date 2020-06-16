@@ -18,6 +18,13 @@ Customers can still create unlimited free clusters with a service level objectiv
 > [!Important]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.
 
+## Region availability
+
+Uptime SLA is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government isn't currently supported.
+* Azure China isn't currently supported.
+
 ## SLA terms and conditions
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
