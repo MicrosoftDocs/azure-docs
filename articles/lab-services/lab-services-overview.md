@@ -17,23 +17,23 @@ ms.author: spelluru
 
 ---
 # An introduction to Azure Lab Services
-**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. Currently, classroom lab is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors, and scaling the infrastructure. After an IT admin creates a lab account in Azure Lab Services, an instructor can quickly set up a lab for his class, specify the number and type of VMs that are need to exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.  
+**Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. Currently, classroom lab is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab account in Azure Lab Services, an instructor can quickly set up a lab for the class, specify the number and type of VMs that are need to exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.  
 
 ## Key capabilities
 Azure Lab Services supports the following key capabilities/features:
 
 - **Fast and flexible setup of a lab**. Using Azure Lab Services, lab owners can quickly set up a lab for their needs. The service offers the option to take care of all Azure infrastructure work for managed lab types. The service provides built-in scaling and resiliency of infrastructure for labs that the service manages for you.
-- **Simplified experience for lab users**. Lab users can register to a lab with a registration code, and access the lab anytime to use the lab’s resources. 
-- **Cost optimization and analysis**. A lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost. 
+- **Simplified experience for lab users**. Lab users can register to a lab with a registration code and can access the lab anytime to use the lab’s resources. 
+- **Cost optimization and analysis**. A lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users and set usage policies per user or per lab to optimize cost. 
 
 If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed lab types**. Currently, **classroom lab** is the only managed lab type that you can create with Azure Lab Services.
 
 The following sections provide more details about these labs. 
 
 ## Managed lab types
-Azure Lab Services allows you to create labs whose infrastructure is managed by Azure. This article refers to them as managed lab types. Managed lab types offer different types of labs that fit for your specific need. Currently, only managed lab type that's supported is **classroom lab**. 
+Azure Lab Services allows you to create labs whose infrastructure is managed by Azure. This article refers to them as managed lab types. Managed lab types offer different types of labs that fit for your specific need. Currently, the only managed lab type that's supported is **classroom lab**. 
 
-Managed lab types enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab type such as a classroom lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
+Managed lab types enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors and scaling the infrastructure. To create a managed lab type such as a classroom lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
 
 When you create and use Azure resources in these managed lab types, the service creates and manages resources in internal Microsoft subscriptions. They are not created in your own Azure subscription. The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is billed back to your Azure subscription that contains the lab account.   
 
