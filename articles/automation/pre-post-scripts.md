@@ -110,7 +110,6 @@ By selecting the update deployment run, you're shown additional details of pre-s
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
-es in your script.
 
 ## Stop a deployment
 

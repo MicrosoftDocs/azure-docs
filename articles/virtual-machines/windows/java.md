@@ -206,7 +206,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### Create the public IP address
 
-A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/public-ip-addresses.md) is needed to communicate with the virtual machine.
 
 To create the public IP address for the virtual machine, add this code to the try block in the main method:
 

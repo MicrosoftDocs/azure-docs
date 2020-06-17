@@ -75,7 +75,7 @@ A CNAME record maps one domain to another. You can use a CNAME record to map `ww
 
 1. Click the **Validate** button.
 
-Now that the custom domain is configured, it may take several hours for the DNS provider to propagate he changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select CNAME from the drop-down, and select **Start**.
+Now that the custom domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide. You can check the status of the propagation by going to [dnspropagation.net](https://dnspropagation.net). Enter your custom domain including the `www`, select CNAME from the drop-down, and select **Start**.
 
 If your DNS changes have populated, the website returns the auto-generated URL of your Static Web App (for instance, _random-name-123456789c.azurestaticapps.net_).
 

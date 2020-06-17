@@ -110,6 +110,24 @@ Starting with versions released after August 2018, we are making the following c
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
+
+### Python 2 requirement
+ The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to "python" using the following command:
+
+```
+alternatives --set python /usr/sbin/python2
+```
+
+### Supported distros
+
+The following versions of the Linux operating system are officially supported for the Linux agent:
+
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x64) and 7 (x64)  
 * Oracle Linux 6 and 7 (x64) 
@@ -207,4 +225,3 @@ For example:
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
-

@@ -23,7 +23,7 @@ This is the basic template format:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},			 
     "dependsOn": [], 
     "properties": { 

@@ -69,6 +69,7 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 
 ## Additional considerations
 
+- Azure Active Directory authentication is only available for MySQL 5.7 and newer.
 - Only one Azure AD administrator can be configured for a Azure Database for MySQL server at any time.
 - Only an Azure AD administrator for MySQL can initially connect to the Azure Database for MySQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 - If a user is deleted from Azure AD, that user will no longer be able to authenticate with Azure AD, and therefore it will no longer be possible to acquire an access token for that user. In this case, although the matching user will still be in the database, it will not be possible to connect to the server with that user.

@@ -2,14 +2,14 @@
 title: Workday attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
-ms.date: 05/21/2020
-ms.author: chmutali
+ms.date: 05/25/2020
+ms.author: kenwith
 ms.reviewer: celested
 ---
 
@@ -25,7 +25,7 @@ The table below captures the list of Workday attributes and corresponding XPATH 
 :::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Workday no version info":::
 
 
-| \# | Name                                  | Workday API expression                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Workday Attribute Name                                  | Workday XPATH API expression                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                                                                                             |
@@ -120,7 +120,7 @@ If you are using WWS API v30.0 or above in the connection URL as shown below:
 To configure additional XPATHs, refer to the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Name                                  | Workday XPATH API expression                                                                                                                                                                                                                                                                                                                                                |
+| \# | Workday Attribute Name                                  | Workday XPATH API expression                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Active                                | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Status\_Data/wd:Active/text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Business\_Site\_Summary\_Data/wd:Address\_Data/wd:Address\_Line\_Data\[@wd:Type='ADDRESS\_LINE\_2'\]/text\(\)                                                                                                                                                            |
@@ -203,4 +203,44 @@ To configure additional XPATHs, refer to the section [Tutorial: Managing your co
 | 79 | WorkerType                            | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Worker\_Type\_Reference/wd:ID\[@wd:type="Employee\_Type\_ID"\]/text\(\)                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
+## Custom XPATH values
+The table below provides a list of other commonly used custom XPATH API expressions when provisioning workers from Workday to Active Directory or Azure AD. Please test the XPATH API expressions provided here with your version of Workday referring to the instructions captured in the section [Tutorial: Managing your configuration](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
+
+To add more attributes to the XPATH table for the benefit of customers implementing this integration, please leave a comment below or directly [contribute](https://docs.microsoft.com/contribute) to the article. 
+
+> [!div class="mx-tdBreakAll"]
+> | \# | Workday Attribute Name  | Workday API version | Workday XPATH API expression   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | Universal ID  | v30.0+   | wd:Worker/wd:Worker_Data/wd:Universal_ID/text()      |
+> | 2  | User Name     | v30.0+   | wd:Worker/wd:Worker_Data/wd:User_Account_Data/wd:User_Name/text() |
+> | 3  | Management Level ID  | v30.0+  | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=1]/wd:Position_Data/wd:Job_Profile_Summary_Data/wd:Management_Level_Reference/wd:ID[@wd:type="Management_Level_ID"]/text()  |
+> | 4 | Hire Rescinded | v30.0+ | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Status_Data/wd:Hire_Rescinded/text() |
+> | 5 | Assigned Provisioning Group | v21.1+ | wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text() | 
+
+
+## Supported XPATH functions
+Given below is the list of XPATH functions supported by [Microsoft .NET XPATH library](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) that you can use while creating your XPATH API expression. 
+
+* name
+* last
+* position
+* string
+* substring
+* concat
+* substring-after
+* starts-with
+* string-length
+* contains
+* translate
+* normalize-space
+* substring-before
+* boolean
+* true
+* not
+* false
+* number
+* ceiling
+* sum
+* round
+* floor
 

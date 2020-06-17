@@ -270,7 +270,7 @@ Leveraging PaaS can provide enhanced functionality and availability and reduce m
 
 To provide a secure entry point, PaaS capabilities such as Application Gateway can be configured with an external, public facing interface and an internal, private interface for communicating with application services. This prevents the need to configure application servers with Public IP addresses and expose them to external networks.
 
-To use PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed instances and more.
+To use PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed Instance, and more.
 
 |Resource | Link|
 |---|---|

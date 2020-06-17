@@ -104,7 +104,7 @@ SQL on-demand offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

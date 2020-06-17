@@ -36,7 +36,9 @@ FROM
 
 ## Access elements from nested columns
 
-The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column:
+The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+- Specifying the nested value path expression after type specification.
+- Formatting the column name as nested path using do "." to reference the fields.
 
 ```sql
 SELECT
@@ -48,15 +50,15 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original n"sted columns values by uncommenting lines below
+        -- you can see original nested columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
-        [DateStruct.Date] DATE,
+        [DateValue] DATE '$.DateStruct.Date',
         --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
         --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
         --DecimalStruct VARCHAR(8000),
-        [DecimalStruct.Decimal] DECIMAL(18, 5),
+        DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];

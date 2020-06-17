@@ -1,6 +1,6 @@
 ---
-title: Quickstart - create a workspace  
-description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
+title: Quickstart - create a Synapse workspace  
+description: Create an  Synapse workspace by following the steps in this guide. 
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Create an Azure Synapse Analytics workspace (preview)
+# Quickstart: Create a Synapse workspace
 
 This quickstart describes the steps to create an Azure Synapse workspace by using the Azure portal.
 
@@ -20,9 +20,6 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites
 
 - [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## Register Azure Synapse resource provider
-If you have not already done so, register Azure Synapse resource provider. Registering a resource provider configures your subscription to work with the resource provider. For registering Azure Synapse resource provider, see [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Choose *Microsoft.Synapse* from the list of resource providers when you register.
 
 ## Sign in to the Azure portal
 

@@ -5,11 +5,11 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 01/16/2020
+ms.date: 06/12/2020
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -132,6 +132,7 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 
 * [Create an AKS cluster (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/cloudmelon/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 The following examples demonstrate how to attach an existing AKS cluster to your workspace:
 

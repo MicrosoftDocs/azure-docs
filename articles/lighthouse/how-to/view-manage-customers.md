@@ -2,7 +2,7 @@
 title: View and manage customers and delegated resources
 description: As a service provider using Azure delegated resource management, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal. 
 ms.date: 01/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # View and manage customers and delegated resources
