@@ -196,9 +196,9 @@ NonScheduled    True             True                       False          True 
 
 ---
 
-# [Portal](#tab/portal)
-
 ## Order Data Box
+
+# [Portal](#tab/portal)
 
 Do the following steps in the Azure portal to order a device.
 
@@ -260,8 +260,6 @@ Do the following steps in the Azure portal to order a device.
 11. Click **Order**. The order takes a few minutes to be created.
 
 # [Azure CLI](#tab/azure-cli)
-
-## Create an order
 
 Perform the following steps to create a device order:
 
@@ -344,9 +342,9 @@ Perform the following steps to create a device order:
 
 ---
 
-# [Portal](#tab/portal)
-
 ## Track the order
+
+# [Portal](#tab/portal)
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
@@ -366,8 +364,6 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 ![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # [Azure CLI](#tab/azure-cli)
-
-## Track an order
 
 To get tracking information about an existing Azure Data Box order, run [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
@@ -728,9 +724,9 @@ The following table shows the parameter information for `az databox job list`:
 
 ---
 
-# [Portal](#tab/portal)
-
 ## Cancel the order
+
+# [Portal](#tab/portal)
 
 To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
 
@@ -739,8 +735,6 @@ After placing an order, you can cancel it at any point before the order status i
 To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 # [Azure CLI](#tab/azure-cli)
-
-## Cancel an order
 
 To cancel an Azure Data Box order, run [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). You are required to specify your reason for canceling the order.
 
@@ -806,9 +800,9 @@ Here's an example of the command with output:
 
 ---
 
-# [Portal](#tab/portal)
-
 ## Next steps
+
+# [Portal](#tab/portal)
 
 In this tutorial, you learned about Azure Data Box articles such as:
 
@@ -820,8 +814,6 @@ In this tutorial, you learned about Azure Data Box articles such as:
 > * Cancel the order
 
 # [Azure CLI](#tab/azure-cli)
-
-## Next steps
 
 In this tutorial, you learned about Azure Data Box articles such as:
 
