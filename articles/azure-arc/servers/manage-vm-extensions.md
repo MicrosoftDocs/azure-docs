@@ -29,17 +29,7 @@ Azure Arc for servers (preview) VM extension support provides the following key 
 
 ## Availability
 
-VM extension functionality is available only in the following regions:
-
- * EastUS
-
- * WestUS2
-
- * WestEurope
-
- * SoutheastAsia
-
-Ensure you onboard your machine in one of these regions.
+VM extension functionality is available only in the list of [supported regions](overview.md#supported-regions). Ensure you onboard your machine in one of these regions.
 
 ## Extensions
 

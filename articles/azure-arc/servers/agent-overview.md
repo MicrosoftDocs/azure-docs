@@ -79,7 +79,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Records details of the agents (HIMDS) service and interaction with Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contains the output of the azcmagent tool commands, when the verbose (-v) argument is used.|
-    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the HIMS service and Azure Policy.|
+    |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent.log |Records details of the DSC service activity,<br> in particular the connectivity between the HIMDS service and Azure Policy.|
     |%ProgramData%\GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Records details about DSC service telemetry and verbose logging.|
     |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Records details about the Extension agent component.|
     |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Records details from the installed extension.|
