@@ -10,7 +10,8 @@ ms.author: bewatrou
 
 Azure CycleCloud supports deploying [Spot VMs](https://docs.microsoft.com/azure/virtual-machines/windows/spot-vms) in nodearrays to greatly reduce the operational cost of clusters.  
 
-[!CAUTION] Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity.   They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
+> [!CAUTION]
+> Spot VMs are not appropriate for all workloads and cluster types.  They offer no SLA for availability or capacity.   They are "preemptible" or "low-priority" instances and may be evicted by the Azure fabric to manage capacity and as the Spot price changes.
 
 ## Configuring a Nodearray for Spot
 
@@ -32,14 +33,11 @@ For most HPC applications, `MaxPrice=-1` is a good default choice.   However, if
 
 For full details see [Spot Virtual Machines](./cluster-templates.md#spot-virtual-machines) in the cluster template guide.
 
-
 ## Frequently Asked Questions
 
 Using Spot with CycleCloud has some considerations that are specific to HPC workloads and CycleCloud auto-scaling.
 
-
 ### When should I consider using Spot?
-
 
 * Are your individual jobs relatively short?
   * A good rule of thumb is that jobs that run in under one hour may be a good fit for Spot instances, because relatively little forward progress will be lost if the instance is evicted.
@@ -60,7 +58,6 @@ Using Spot with CycleCloud has some considerations that are specific to HPC work
 * If your Jobs runtimes are very long, then Spot may not be a good fit.
   * For long processes, both the chance of Spot eviction and dollar and time costs of retries increase.
   * However, this is a case that may require measurement on a case by case basis.
-
 
 ### Eviction / Preemption
 
