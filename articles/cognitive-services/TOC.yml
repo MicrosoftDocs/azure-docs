@@ -21,7 +21,7 @@
     href: diagnostic-logging.md
   - name: ARM template
     displayName: Resource Manager
-    href: arm-template.md
+    href: azure-resource-manager-template.md
 - name: Security
   items:
   - name: Cognitive Services security
