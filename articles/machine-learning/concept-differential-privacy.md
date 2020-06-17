@@ -75,4 +75,6 @@ The system library provides the following tools and services for working with ta
 
 ## Next steps
 
-To learn how to use the components of WhiteNoise, check out the GitHub repositories for [WhiteNoise Core package](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System package](https://github.com/opendifferentialprivacy/whitenoise-system) and [WhiteNoise samples](https://github.com/opendifferentialprivacy/whitenoise-samples).
+[Preserve data privacy](how-to-differential-privacy.md) in Azure Machine Learning.
+
+To learn more about the components of WhiteNoise, check out the GitHub repositories for [WhiteNoise Core package](https://github.com/opendifferentialprivacy/whitenoise-core), [WhiteNoise System package](https://github.com/opendifferentialprivacy/whitenoise-system) and [WhiteNoise samples](https://github.com/opendifferentialprivacy/whitenoise-samples).

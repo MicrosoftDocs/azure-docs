@@ -14,6 +14,8 @@ Azure File Sync connects your on-premises servers to Azure Files, enabling multi
 
 This article will provide insight into specific requirements and options available to successfully and securely connect your server to Azure File Sync.
 
+We recommend reading [Azure File Sync networking considerations](storage-sync-files-networking-overview.md) prior to reading this how to guide.
+
 ## Overview
 Azure File Sync acts as an orchestration service between your Windows Server, your Azure file share, and several other Azure services to sync data as described in your sync group. For Azure File Sync to work correctly, you will need to configure your servers to communicate with the following Azure services:
 

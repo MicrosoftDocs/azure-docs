@@ -137,7 +137,7 @@ It can take a while to replicate the image to all of the target regions.
 
 ## Create a VM 
 
-Once you have a specialized image, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. To use the image, use ``Set-AzVMSourceImage` and set the `-Id` to the image definition ID ($galleryImage.Id in this case) to always use the latest image version. 
+Once you have a specialized image, you can create one or more new VMs. Using the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. To use the image, use `Set-AzVMSourceImage` and set the `-Id` to the image definition ID ($galleryImage.Id in this case) to always use the latest image version. 
 
 Replace resource names as needed in this example. 
 

@@ -11,6 +11,7 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
+ms.custom: tracking-python
 
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 

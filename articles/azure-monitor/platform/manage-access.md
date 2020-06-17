@@ -264,6 +264,18 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+The examples above define a whitelist of tables that are allowed. This example shows blacklist definition when a user can access all tables but the _SecurityAlert_ table:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### Custom logs
 

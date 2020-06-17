@@ -1,6 +1,6 @@
 ---
 title: Permissions to repositories in Azure Container Registry
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
+description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
 ms.date: 05/27/2020
 ---
@@ -15,7 +15,7 @@ Scenarios for creating a token include:
 * Provide an external organization with permissions to a specific repository 
 * Limit repository access to different user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
 
-This feature is available in **Premium** container registries. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).

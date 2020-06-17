@@ -10,7 +10,7 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/14/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.

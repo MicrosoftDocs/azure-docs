@@ -174,18 +174,22 @@ associated with the `BatchNodeManagement` service tag (or the regional variant t
 ### Honoring DNS
 
 Ensure that your systems are honoring DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure
-that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses.
+that your Batch service clients and other connectivity mechanisms to the Batch service do not rely on IP addresses (or [create a pool with static public IP addresses](create-pool-public-ip.md) as described below).
 
 If your requests receive 5xx level HTTP responses and there is a "Connection: close" header in the response, your
 Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the
 Batch account service URL, and attempt following requests on a new connection.
 
-### Retrying requests automatically
+### Retry requests automatically
 
 Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even
 during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an
 interval of at least 5 minutes. Automatic retry capabilities are provided with various Batch SDKs, such as the
 [.NET RetryPolicyProvider class](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+
+### Static public IP addresses
+
+Typically, virtual machines in a Batch pool are accessed through public IP addresses that can change over the lifetime of the pool. This can make it difficult to interact with a database or other external service that limits access to certain IP addresses. To ensure that the public IP addresses in your pool don't change unexpectedly, you can create a pool using a set of static public IP addresses that you control. For more information, see [Create an Azure Batch pool with specified public IP addresses](create-pool-public-ip.md).
 
 ## Batch node underlying dependencies
 

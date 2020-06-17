@@ -1,12 +1,12 @@
 ---
- title: HBv2-series - Azure Virtual Machines
- description: Specifications for the HBv2-series VMs.
- services: virtual-machines
- author: vermagit
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: amverma
+title: HBv2-series - Azure Virtual Machines
+description: Specifications for the HBv2-series VMs.
+author: vermagit
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: amverma
 ---
 
 # HBv2-series

@@ -9,6 +9,7 @@ ms.subservice: core
 ms.topic: how-to
 ms.reviewer: trbye
 ms.date: 03/05/2020
+ms.custom: tracking-python
 ---
 
 # Enable logging in Azure Machine Learning

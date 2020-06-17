@@ -2,7 +2,7 @@
 title: Migrate Azure Data Lake Storage from Gen1 to Gen2
 description: Migrate Azure Data Lake Storage from Gen1 to Gen2.
 author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.date: 03/11/2020
 ms.service: storage

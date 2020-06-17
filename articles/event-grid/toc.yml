@@ -195,7 +195,13 @@
 - name: How-to guides
   items:
   - name: Create, view, and manage system topics
-    href: create-view-manage-system-topics.md
+    items:
+    - name: Azure portal
+      href: create-view-manage-system-topics.md
+    - name: Azure CLI
+      href: create-view-manage-system-topics-cli.md
+    - name: Azure Resource Manager template
+      href: create-view-manage-system-topics-arm.md      
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Subscribe to Auth0 events
@@ -238,7 +244,7 @@
       href: troubleshoot-errors.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
-    - name: Monitor event delivery
+    - name: View metrics and set alerts
       href: monitor-event-delivery.md
 - name: Reference
   items:

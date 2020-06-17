@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
 
 ---
@@ -136,7 +136,63 @@ Supported **delimited text write settings** under `formatSettings`:
 
 ## Mapping data flow properties
 
-Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+In mapping data flows, you can read and write to delimited text format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### Source properties
+
+The below table lists the properties supported by a delimited text source. You can edit these properties in the **Source options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Wild card paths | All files matching the wildcard path will be processed. Overrides the folder and file path set in the dataset. | no | String[] | wildcardPaths |
+| Partition root path | For file data that is partitioned, you can enter a partition root path in order to read partitioned folders as columns | no | String | partitionRootPath |
+| List of files | Whether your source is pointing to a text file that lists files to process | no | `true` or `false` | fileList |
+| Multiline rows | Does the source file contain rows that span multiple lines. Multiline values must be in quotes. | no `true` or `false` | multiLineRow |
+| Column to store file name | Create a new column with the source file name and path | no | String | rowUrlColumn |
+| After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
+
+### Source example
+
+The below image is an example of a delimited text source configuration in mapping data flows.
+
+![DelimitedText source](media/data-flow/delimited-text-source.png)
+
+The associated data flow script is:
+
+```
+source(
+	allowSchemaDrift: true,
+	validateSchema: false,
+	multiLineRow: true,
+	wildcardPaths:['*.csv']) ~> CSVSource
+```
+
+### Sink properties
+
+The below table lists the properties supported by a delimited text sink. You can edit these properties in the **Settings** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> As data in column: String <br> Output to single file: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Quote all | Enclose all values in quotes | no | `true` or `false` | quoteAll |
+
+### Sink example
+
+The below image is an example of a delimited text sink configuration in mapping data flows.
+
+![DelimitedText sink](media/data-flow/delimited-text-sink.png)
+
+The associated data flow script is:
+
+```
+CSVSource sink(allowSchemaDrift: true,
+	validateSchema: false,
+	truncate: true,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> CSVSink
+```
 
 ## Next steps
 

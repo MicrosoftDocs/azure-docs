@@ -195,6 +195,19 @@
     - name: Streaming
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-streaming.md
+  - name: Troubleshooting
+    items:
+    - name: Frequently asked questions
+      displayName: faqs
+      href: frequently-asked-questions.md      
+    - name: Error codes
+      items:
+      - name: Streaming endpoint error codes  
+        href: streaming-endpoint-error-codes.md
+      - name: Live event error codes
+        href: live-event-error-codes.md
+      - name: Job error codes
+        href: job-error-codes.md        
   - name: Migration from v2 to v3
     items:
     - name: v2 vs v3
@@ -340,19 +353,6 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
-  - name: Troubleshoot
-    items:
-    - name: Frequently asked questions
-      displayName: faqs
-      href: frequently-asked-questions.md      
-    - name: Error codes
-      items:
-      - name: Streaming endpoint error codes  
-        href: streaming-endpoint-error-codes.md
-      - name: Live event error codes
-        href: live-event-error-codes.md
-      - name: Job error codes
-        href: job-error-codes.md   
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
