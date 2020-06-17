@@ -1,5 +1,5 @@
 ---
-title: 'How To: Use language generation templates for speech responses'
+title: 'How To: Use language generation templates for speech responses - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to configure a string parameter to refer to catalog exposed over a web endpoint.
 services: cognitive-services
