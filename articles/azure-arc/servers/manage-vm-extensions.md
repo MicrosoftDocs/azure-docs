@@ -82,7 +82,7 @@ The minimum version of the Connected Machine agent that is supported with this f
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
 
-## How do agents and extensions get updated?
+## How do extensions get updated?
 
 When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the Guest Config agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. Support to opt in or opt out of extensions *Minor* updates when you provision the extension is not supported during public preview.
 
