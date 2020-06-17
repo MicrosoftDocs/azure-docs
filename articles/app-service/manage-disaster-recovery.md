@@ -37,7 +37,7 @@ Certain resources, such as imported certificates or hybrid connections, contain 
 
 ## Restore app to a different region
 
-1. Create a new App Service app a *different* Azure region than the impacted app. This is the target app in the disaster recovery scenario.
+1. Create a new App Service app in a *different* Azure region than the impacted app. This is the target app in the disaster recovery scenario.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the impacted app's management page. In a failed Azure region, the impacted app shows a warning text. Click the warning text.
 
