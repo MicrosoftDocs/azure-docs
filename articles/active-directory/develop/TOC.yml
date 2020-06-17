@@ -376,6 +376,11 @@
         displayName: shared device mode, firstline worker, frontline worker, flw
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+      - name: Scopes for web API accepting v1.0 tokens
+        href: msal-v1-app-scopes.md
+      - name: Migrate apps from ADAL to MSAL
+        href: msal-migration.md
+        displayName: migration
   - name: Authentication protocols
     displayName: Auth protocol
     items:
