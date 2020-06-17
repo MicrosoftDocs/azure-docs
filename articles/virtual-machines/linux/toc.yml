@@ -56,7 +56,7 @@
     href: tutorial-azure-devops-blue-green-strategy.md
   - name: 15d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
-  - name: 16a - Create LAMP stack
+  - name: 16 - Create LAMP stack
     href: tutorial-lamp-stack.md
   - name: 17 - Secure web server with SSL
     href: tutorial-secure-web-server.md
