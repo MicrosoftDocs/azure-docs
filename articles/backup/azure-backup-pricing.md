@@ -28,7 +28,7 @@ The Azure Backup cost estimator sheet has an option for you to estimate all poss
 To estimate the costs of backing up Azure VMs or on-prem servers using Azure Backup, you’ll need the following parameters:
 
 - Size of the VMs or on-premises servers that you're trying to back up
-- Enter the “used size” of disks or servers required to be backed up
+  - Enter the “used size” of disks or servers required to be backed up
 
 - Number of servers with that size
 
