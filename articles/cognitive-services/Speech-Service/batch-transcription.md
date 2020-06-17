@@ -87,9 +87,7 @@ Configuration parameters are provided as JSON (processing a whole storage contai
 
 ```json
 {
-  "contentContainerUrl": [
-    "<SAS URL to the Azure blob container to transcribe>",
-  ],
+  "contentContainerUrl": "<SAS URL to the Azure blob container to transcribe>",
   "properties": {
     "wordLevelTimestampsEnabled": true
   },
