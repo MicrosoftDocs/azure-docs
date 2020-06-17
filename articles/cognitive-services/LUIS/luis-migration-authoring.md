@@ -68,7 +68,8 @@ Migration is the process of changing authoring authentication from an email acco
 
 2. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
 
-   ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
+   > [!div class="mx-imgBorder"]
+   > ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/prompt-when-migrating-2.png)
 
 3. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
 
