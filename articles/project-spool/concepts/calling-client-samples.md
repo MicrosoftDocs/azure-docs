@@ -121,7 +121,6 @@ Call call = callClient.call(participants, placeCallOptions);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// Sanath please fill this in
 let placeCallOptions = ACSPlaceCallOptions();
 let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
 ```
@@ -295,7 +294,7 @@ identity.type = 'user' | 'phoneNumber';
 
 const state: string = remoteParticipant.state; // one of 'Idle' | 'Connecting' | 'Connected' | 'OnHold' | 'InLobby' | 'EarlyMedia' | 'Disconnected';
 
-const callEndReason: AcsError = remoteParticipant.callEndReason; // reason why participant left the call, contains code/subcode/message
+const callEndReason: AcsEndReason = remoteParticipant.callEndReason; // reason why participant left the call, contains code/subcode/message
 
 const isMuted: boolean = remoteParticipant.isMuted; // indicates if participant is muted
 
@@ -336,7 +335,7 @@ var userId = remoteParticipant.identity;
 // ACSParticipantStateIdle = 0, ACSParticipantStateEarlyMedia = 1, ACSParticipantStateConnecting = 2, ACSParticipantStateConnected = 3, ACSParticipantStateOnHold = 4, ACSParticipantStateInLobby = 5, ACSParticipantStateDisconnected = 6
 var state = remoteParticipant.state;
 
-// [AcsError] callEndReason - reason why participant left the call, contains code/subcode/message
+// [AcsEndReason] callEndReason - reason why participant left the call, contains code/subcode/message
 var callEndReason = remoteParticipant.callEndReason
 
 // [Bool] isMuted - indicating if participant is muted
