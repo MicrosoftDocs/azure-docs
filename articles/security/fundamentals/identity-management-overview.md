@@ -87,6 +87,11 @@ Learn more:
 
 RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
 
+- [Owner](built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others.
+- [Contributor](built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
+- [Reader](built-in-roles.md#reader) - Can view existing Azure resources.
+- [User Access Administrator](built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
+
 Learn more:
 
 * [What is role-based access control (RBAC)?](/azure/role-based-access-control/overview)
