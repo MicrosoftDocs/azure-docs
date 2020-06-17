@@ -784,7 +784,16 @@ call.removeOnCallIdChangedListener(callIdChangeListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+    self.adHocCallClient.delegate = self
+    public func onCallsUpdated(_ adHocCallClient: ACSAdHocCallClient!,
+                            _ args: ACSCallsUpdatedEventArgs!)
+    {
+        for addedCall in args.addedCalls { print(addedCall); }
+        for removedCall in args.removedCalls { print(removedCall); }
+    }
+// unsubscribe
+self.adHocCallClient.delegate = nil
+
 ```
 --- 
 #### Collections
@@ -821,7 +830,7 @@ call.removeOnLocalVideoStreamsChangedListener(localVideoStreamsChangedListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// NA - same as with properties
 ```
 --- 
 
