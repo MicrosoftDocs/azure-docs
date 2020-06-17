@@ -9,11 +9,11 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 06/12/2020
+ms.date: 06/17/2020
 ms.author: sebansal
 ---
 
-# Creating and merging CSR in Key Vault 
+# Creating and merging CSR in Key Vault
 
 Azure Key Vault supports to create the certificate signing request with private-public key pair and get it signed by any Certificate Authority of your choice. It could be internal enterprise CA or external public CA. A certificate  signing request (also CSR or certification request) is a message that is sent by the user to a certificate authority (CA) in order to request issuance of a digital certificate.
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Adding Certificate in Key Vault issued by a non-trusted CA
 
-The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is a not a trusted key vault CA) 
+The following steps will help you create a certificate from certificate authorities that are not partnered with Key Vault (for example, GoDaddy is not a trusted key vault CA) 
 
 
 ### Azure PowerShell
@@ -45,7 +45,7 @@ $csr.CertificateSigningRequest
 ```
 
 3. Getting the CSR **request signed by the CA**
-The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to lookup your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
+The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
 
 
 4. **Merging the signed request** in Key Vault
