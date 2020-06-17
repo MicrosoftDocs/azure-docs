@@ -61,7 +61,7 @@ To create and start a call you need to call one of the APIs on CallClient and pr
 
 Call creation and start is synchronous, as a result you'll receive call instance, allowing you to subscribe to all events on the call.
 
-##### Make 1:1 call to user or making 1:n call with users and PSTN
+##### Make 1:1 call to user or 1:n call with users and PSTN
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -102,8 +102,7 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ---
 
 ### Mid-call operations
-During a call you can control modalities
-//ARTUR REPHRASE
+You can perform various operations on a call
 
 #### Mute/unmute
 To mute or umute the local endpoint you can use the `mute` and `unmute` asynchronous APIs 
@@ -223,7 +222,7 @@ var screenSharingStreams = remoteParticipant.screenSharingStreams; // [ACSRemote
 ```
 --- 
 
-#### d d participant to a call
+#### Add participant to a call
 To add a participant to a call, either a user or a phone number you have to call 'addParticipant' API
 It will synchronously return remote participant instance
 
@@ -265,7 +264,8 @@ call.removeParticipant(participant: remoteParticipant,
 --- 
 
 ### Start/stop sending local video
-* [Asynchronous] start local video, pass videoDevice from deviceManager.getCameraList() API enumeration call
+To start sending local video to other participants in the call,
+use 'startVideo' api and pass videoDevice from deviceManager.getCameraList() API enumeration call
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -273,12 +273,14 @@ const localVideoStream = await call.startVideo(videoDevice);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+Future startVideoTask = call.stapVideo(localVideoStream);
+startVideoTask.get();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
 call.startVideo(device: ACSVideoDeviceInfo(),
-                completionHandler: ((error: Error?) -> Void) { 
+                completionHandleFuture stopVideoTask = call.stopVideo(localVideoStream);
+stopVideoTask.get();r: ((error: Error?) -> Void) { 
     if(error == nil)
     {
         print("Video was started successfully.");
@@ -299,11 +301,11 @@ call.localVideoStreams[0] === localVideoStream;
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+call.getLocalVideoStreams().get(0) == localVideoStream;
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+call.localVideoStreams
 ```
 --- 
 
@@ -315,7 +317,8 @@ await call.stopVideo(localVideoStream);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+Future stopVideoTask = call.stopVideo(localVideoStream);
+stopVideoTask.get();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
@@ -409,10 +412,25 @@ let renderer: ASARemoteVideoRenderer = remoteVideoStream.render(ScalingMode.Stre
 let targetSurface: UIView = renderer.target;
 ```
 --- 
-
 Where:
 * [HTMLNode] target - an HTML node that should be used as a placeholder for stream to render in
 * [string] scalingMode - one of 'Stretch' | 'Crop' | 'Fit'
+
+As a result of this call remoteVideoRenderer is added to activeRenderers collection
+
+#### [Javascript](#tab/javascript)
+```js
+remoteParticipantStream.activeRenderers[0] === remoteVideoRenderer;
+```
+#### [Android (Java)](#tab/java)
+```java
+remoteParticipantStream.activeRenderers.get(0) == remoteVideoRenderer;
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
+```
+--- 
 
 ##### RemoteVideoRenderer
 Represents remote video stream renderer, it has following properties
@@ -445,30 +463,13 @@ remoteVideoRenderer.scalingMode
 remoteVideoRenderer.target
 ```
 --- 
-As a result of this call remoteVideoRenderer is added to activeRenderers collection
-
-#### [Javascript](#tab/javascript)
-```js
-remotePArticipantStream.activeRenderers[0] === remoteVideoRenderer;
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
 
 RemoteVideoRenderer instance has following methods
 
 #### [Javascript](#tab/javascript)
 ```js
 remoteVideoRenderer.setScalingMode(scalingModel); // 'Stretch' | 'Crop' | 'Fit', change scaling mode
-
 await remoteVideoRenderer.pause(); // pause rendering
-
 await remoteVideoRenderer.resume(); // resume rendering
 ```
 #### [Android (Java)](#tab/java)
@@ -500,14 +501,6 @@ You can access deviceManager on a callClient object
 ```js
 const deviceManager = callClient.deviceManager;
 ```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
 --- 
 
 #### Request permission to camera/microphone
@@ -519,14 +512,6 @@ const result = await deviceManager.askDevicePermission(audio: true, video: true)
 // result.audio = true|false
 // result.video = true|false
 ```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
 --- 
 
 You can check what's the current permission state for a given type by calling
@@ -537,14 +522,6 @@ const result = deviceManager.getPermissionState('Microphone'); // for microphone
 const result = deviceManager.getPermissionState('Camera'); // for camera permission state
 
 console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
 ```
 --- 
 
