@@ -12,7 +12,7 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-## Windows Hybrid Runbook Worker installation and configuration
+## Windows Hybrid Runbook Worker installation options
 
 To install and configure a Windows Hybrid Runbook Worker, you can use one of the following methods.
 
@@ -25,13 +25,17 @@ To install and configure a Windows Hybrid Runbook Worker, you can use one of the
 > [!NOTE]
 > To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
 
-Before continuing, review the following if you are planning to deploy the Hybrid Runbook Worker role on Azure or non-Azure VMs:
+## Prerequisites
 
-* If you don't already have a Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create a workspace.
+Before you start, make sure that you have the following:
 
-* If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. 
+### A Log Analytics workspace
 
-* If your Automation account is already linked to a workspace, refer to steps 2 and 3 in the [Manual deployment](#manual-deployment) section.
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+
+If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. If your Automation account is already linked to a workspace, refer to step 2 and the following steps in the [Manual deployment](#manual-deployment) section.
 
 ### Supported Windows operating system
 
@@ -45,7 +49,7 @@ The following versions of the Windows operating system are officially supported 
 * Windows 8 Enterprise and Pro
 * Windows 7 SP1
 
-### Minimum requirements for Windows Hybrid Runbook Worker
+### Minimum requirements
 
 The minimum requirements for a Windows Hybrid Runbook Worker are:
 
@@ -59,11 +63,11 @@ The minimum requirements for a Windows Hybrid Runbook Worker are:
 
 To get more networking requirements for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
-### Enabling servers for management with Azure Automation State Configuration
+### Enabling machines for management with Azure Automation State Configuration
 
 For information about enabling servers for management with Azure Automation State Configuration, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-### Addition of the computer to a Hybrid Runbook Worker group
+### Adding a machine to a Hybrid Runbook Worker group
 
 You can add the worker computer to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 

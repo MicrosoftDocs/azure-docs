@@ -12,7 +12,19 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-## Supported Linux operating systems
+## Prerequisites
+
+Before you start, make sure that you have the following:
+
+### A Log Analytics workspace
+
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), or in the [Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+
+If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. If your Automation account is already linked to a workspace, refer to step 2 and the following steps in the [Manual deployment](#manual-deployment) section.
+
+### Supported Linux operating systems
 
 The Hybrid Runbook Worker feature supports the following distributions:
 
@@ -23,6 +35,24 @@ The Hybrid Runbook Worker feature supports the following distributions:
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+
+### Minimum requirements
+
+The minimum requirements for a Linux Hybrid Runbook Worker are:
+
+* Two cores
+* 4 GB of RAM
+* Port 443 (outbound)
+
+| **Required package** | **Description** | **Minimum version**|
+|--------------------- | --------------------- | -------------------|
+|Glibc |GNU C Library| 2.5-12 |
+|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
+|Curl | cURL web client | 7.15.5|
+|Python-ctypes | Python 2.x is required |
+|PAM | Pluggable Authentication Modules|
+| **Optional package** | **Description** | **Minimum version**|
+| PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
 
 ## Supported runbook types
 
@@ -38,26 +68,6 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 <sup>1</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
-## Deployment requirements
-
-The minimum requirements for a Linux Hybrid Runbook Worker are:
-
-* Two cores
-* 4 GB of RAM
-* Port 443 (outbound)
-
-### Package requirements
-
-| **Required package** | **Description** | **Minimum version**|
-|--------------------- | --------------------- | -------------------|
-|Glibc |GNU C Library| 2.5-12 |
-|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
-|Curl | cURL web client | 7.15.5|
-|Python-ctypes | Python 2.x is required |
-|PAM | Pluggable Authentication Modules|
-| **Optional package** | **Description** | **Minimum version**|
-| PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
-
 ## Install a Linux Hybrid Runbook Worker
 
 To install and configure a Linux Hybrid Runbook Worker, you can use one of the following methods.
@@ -68,14 +78,6 @@ To install and configure a Linux Hybrid Runbook Worker, you can use one of the f
 
 > [!NOTE]
 > To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
-
-Before continuing, review the following if you are planning to deploy the Hybrid Runbook Worker role on Azure or non-Azure VMs:
-
-* If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
-
-* If you have a workspace, but it is not linked to your Automation account, refer to step 1.
-
-* If your Automation account is already linked to a workspace, refer to steps 2 and 3.
 
 >[!NOTE]
 > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
