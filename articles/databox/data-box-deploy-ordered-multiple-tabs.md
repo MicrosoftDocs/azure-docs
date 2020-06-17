@@ -261,7 +261,7 @@ Do the following steps in the Azure portal to order a device.
 
 # [Azure CLI](#tab/azure-cli)
 
-Perform the following steps to create a device order:
+Do the following steps using Azure CLI to order a device:
 
 1. Write down your settings for your Data Box order. These settings include your personal/business information, subscription name, device information, and shipping information. You will need to use these settings as parameters when running the CLI command to create the Data Box order. The following table shows the parameter settings used for `az databox job create`:
 
