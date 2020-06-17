@@ -9,22 +9,22 @@ ms.topic: how-to
 
 As a service provider, you may have onboarded multiple customer tenants for Azure delegated resource management. Azure Lighthouse allows service providers to perform operations at scale across several Azure Active Directory (Azure AD) tenants at once, making management tasks more efficient.
 
-Azure Sentinel delivers intelligent security analytics and threat intelligence, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. With Azure Lighthouse, you can manage multiple Sentinel workspaces across tenants at scale, for scenarios such as running queries across multiple workspaces, creating workbooks to visualize and monitor data from your connected data sources to gain insights. IP such as queries, playbooks, etc. remain in your managing tenant, but can be used to perform security management in the customer tenants.
+Azure Sentinel delivers security analytics and threat intelligence, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. With Azure Lighthouse, you can manage multiple Azure Sentinel workspaces across tenants at scale. This enables scenarios such as running queries across multiple workspaces, or creating workbooks to visualize and monitor data from your connected data sources to gain insights. IP such as queries and playbooks remain in your managing tenant, but can be used to perform security management in the customer tenants.
 
 This topic provides an overview of how to use [Azure Sentinel](../../sentinel/overview.md) in a scalable way for cross-tenant visibility and managed security services.
 
 ## Architectural considerations
 
-For a managed security service provider (MSSP) who wants to build a Security-as-a-service offering using Azure Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage and configure multiple Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Sentinel workspaces deployed across Azure AD tenants.
+For a managed security service provider (MSSP) who wants to build a Security-as-a-service offering using Azure Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Azure Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Azure Sentinel workspaces deployed across their tenants.
 
 This centralized model of deployment has the following advantages:
 
 - Ownership of data remains with each managed tenant.
 - Supports requirements to store data within geographical boundaries.
-- Ensures data isolation, since data for multiple managed tenants is not stored in the same workspace. 
+- Ensures data isolation, since data for multiple customers isn't stored in the same workspace. 
 - Prevents data exfiltration from the managed tenants, helping to ensure data compliance.
 - Related costs are charged to each managed tenant, rather than to the managing tenant.
-- Data from all data sources/data connectors integrated with Azure Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsof Threat Protection alerts) will remain within each customer tenant.
+- Data from all data sources and data connectors that are integrated with Azure Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
 
@@ -40,7 +40,7 @@ When creating your authorizations, you can assign the Azure Sentinel built-in ro
 
 You may also want to assign additional built-in roles to perform additional functions. For information about specific roles that can be used with Azure Sentinel, see [Permissions in Azure Sentinel](../../sentinel/roles.md).
 
-Once you have onboarded your customers, designated users can log into your managing tenant and [directly access the customer's Azure Sentinel workspace](../../sentinel/multiple-tenants-service-providers.md) with the roles that were assigned.
+Once you've onboarded your customers, designated users can log into your managing tenant and [directly access the customer's Azure Sentinel workspace](../../sentinel/multiple-tenants-service-providers.md) with the roles that were assigned.
 
 ## View and manage incidents across workspaces
 
@@ -67,7 +67,7 @@ You can create and save Log Analytics queries for threat detection centrally in 
 
 ## Use automation for cross-workspace management
 
-You can use automation to manage multiple Azure Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
+You can use automation to manage multiple Azure Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
 Note that some capabilities are [not currently supported across multiple workspaces](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
