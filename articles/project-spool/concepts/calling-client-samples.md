@@ -105,85 +105,33 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 During a call you can control modalities
 
 #### Mute/unmute
-* [Asynchronous] To mute a call:
+To mute or umute the local endpoint you can use the `mute` and `unmute` asynchronous APIs 
 
 #### [Javascript](#tab/javascript)
 ```js
+//mute local device 
 await call.mute();
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
-* [Asynchronous] To unmute a call:
 
-#### [Javascript](#tab/javascript)
-```js
+//unmute device 
 await call.unmute();
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+//mute local device 
+Future muteCallFuture = call.mute();
+
+//unmute local device 
+Future unmuteCallFuture = call.unmute();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
-```
---- 
+//mute local device 
+call.mute(completionHandler: nil);
 
-#### Start/stop sending local video
-* [Asynchronous] start local video, pass videoDevice from deviceManager.getCameraList() API enumeration call
-
-#### [Javascript](#tab/javascript)
-```js
-const localVideoStream = await call.startVideo(videoDevice);
+//unmute local device 
+call.unmute(completionHandler: nil);
 ```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
-
-Once you start sending video 'LocalVideoStream' instance is added to localVideoStreams collection on a call instance
-
-#### [Javascript](#tab/javascript)
-```js
-call.localVideoStreams[0] === localVideoStream;
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
-
-* [Asynchronous] stop local video, pass localVideoStream you got from call.startVideo() API call
-
-#### [Javascript](#tab/javascript)
-```js
-await call.stopVideo(localVideoStream);
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
+---
  
 ### Remote participants management
 All remote participants are represented by RemoteParticipant type and available through 'remoteParticipants' collection on a call instance
@@ -225,6 +173,55 @@ const isSpeaking: boolean = remoteParticipant.isSpeaking; // indicates if partic
 const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // collection of video streams this participants has [RemoteVideoStream, RemoteVideoStream, ...]
 
 const screenSharingStreams: RemoteVideoStream[] = remoteParticipant.screenSharingStreams; // collection of screen sharing streams this participants has, [RemoteVideoStream, RemoteVideoStream, ...]
+```
+#### [Android (Java)](#tab/java)
+```java
+// bar
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// swift
+```
+--- 
+
+### Start/stop sending local video
+* [Asynchronous] start local video, pass videoDevice from deviceManager.getCameraList() API enumeration call
+
+#### [Javascript](#tab/javascript)
+```js
+const localVideoStream = await call.startVideo(videoDevice);
+```
+#### [Android (Java)](#tab/java)
+```java
+// bar
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// swift
+```
+--- 
+
+Once you start sending video 'LocalVideoStream' instance is added to localVideoStreams collection on a call instance
+
+#### [Javascript](#tab/javascript)
+```js
+call.localVideoStreams[0] === localVideoStream;
+```
+#### [Android (Java)](#tab/java)
+```java
+// bar
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// swift
+```
+--- 
+
+* [Asynchronous] stop local video, pass localVideoStream you got from call.startVideo() API call
+
+#### [Javascript](#tab/javascript)
+```js
+await call.stopVideo(localVideoStream);
 ```
 #### [Android (Java)](#tab/java)
 ```java
