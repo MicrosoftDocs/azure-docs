@@ -1,5 +1,5 @@
 ---
-title: Introduction to AI enrichment
+title: AI enrichment concepts
 titleSuffix: Azure Cognitive Search
 description: Content extraction, natural language processing (NLP) and image processing are used to create searchable content in Azure Cognitive Search indexes with both pre-defined cognitive skills and custom AI algorithms.
 
@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2020
 ---
-# Getting started with AI enrichment
+# AI enrichment in Azure Cognitive Search
 
 AI enrichment is a capability of Azure Cognitive Search indexing used to extract text from images, blobs, and other unstructured data sources. Enrichment and extraction make your content more searchable in an [index](search-what-is-an-index.md) or [knowledge store](knowledge-store-concept-intro.md). Extraction and enrichment are implemented using *cognitive skills* attached to the indexing pipeline. Cognitive skills built into the service fall into these categories: 
 
