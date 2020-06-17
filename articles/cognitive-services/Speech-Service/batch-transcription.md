@@ -76,10 +76,7 @@ Configuration parameters are provided as JSON (one or more individual files):
     "<URL to an audio file to transcribe>",
   ],
   "properties": {
-    "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "punctuationMode": "DictatedAndAutomatic",
-    "profanityFilterMode": "Masked"
+    "wordLevelTimestampsEnabled": true
   },
   "locale": "en-US",
   "displayName": "Transcription of file using default model for en-US"
@@ -94,10 +91,7 @@ Configuration parameters are provided as JSON (processing a whole storage contai
     "<SAS URL to the Azure blob container to transcribe>",
   ],
   "properties": {
-    "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "punctuationMode": "DictatedAndAutomatic",
-    "profanityFilterMode": "Masked"
+    "wordLevelTimestampsEnabled": true
   },
   "locale": "en-US",
   "displayName": "Transcription of container using default model for en-US"
@@ -112,10 +106,7 @@ To use custom trained models in batch transcriptions they can be referenced like
     "<URL to an audio file to transcribe>",
   ],
   "properties": {
-    "diarizationEnabled": false,
-    "wordLevelTimestampsEnabled": true,
-    "punctuationMode": "DictatedAndAutomatic",
-    "profanityFilterMode": "Masked"
+    "wordLevelTimestampsEnabled": true
   },
   "locale": "en-US",
   "model": {
@@ -206,10 +197,10 @@ Each transcription result file his this format:
   "combinedRecognizedPhrases": [                                   // concatenated results for simple access in single string for each channel
     {
       "channel": 0,                                                // channel number of the concatenated results
-      "lexical": "yeah i also like the one where uh",
-      "itn": "yeah i also like the one where uh",
-      "maskedITN": "yeah i also like the one where uh",
-      "display": "Yeah, I also like the one. Where? Uh."
+      "lexical": "hello world",
+      "itn": "hello world",
+      "maskedITN": "hello world",
+      "display": "Hello world."
     }
   ],
   "recognizedPhrases": [                                           // results for each phrase and each channel individually
