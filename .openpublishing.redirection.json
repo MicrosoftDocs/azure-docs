@@ -55443,6 +55443,10 @@
       "source_path": "articles/aks/azure-ad-integration.md",
       "redirect_url": "/azure/aks/managed-aad",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-xamarin-blob-storage.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin"
     }
   ]
 }
