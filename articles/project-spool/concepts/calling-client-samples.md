@@ -136,7 +136,7 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ```java
 Future<Call> handlePushNotificationFuture = callClient.handlePushNotification(jsonPayload);
 try {
-    handlePushNotificationFuture.get();
+    Call call = handlePushNotificationFuture.get();
     // Push Notification succeeds
 } catch(ExecutionException) {
     // Push Notification fails
