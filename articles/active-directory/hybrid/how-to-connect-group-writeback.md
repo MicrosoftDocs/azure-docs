@@ -53,15 +53,15 @@ To disable Group Writeback, use the following steps:
 
 1. Launch the Azure Active Directory Connect wizard and navigate to the Additional Tasks page. Select the **Customize synchronization options** task and click **next**.
 2. On the **Optional Features** page, uncheck group writeback.  You will receive a warning letting you know that groups will be deleted.  Click **Yes**.
- >[!IMPORTANT]
- > Disabling Group Writeback will cause any groups that were previously created by this feature to be deleted from your local Active Directory on the next synchronization cycle. 
+  >[!IMPORTANT]
+  > Disabling Group Writeback will cause any groups that were previously created by this feature to be deleted from your local Active Directory on the next synchronization cycle. 
 
- ![Uncheck box](media/how-to-connect-group-writeback/group2.png)
+  ![Uncheck box](media/how-to-connect-group-writeback/group2.png)
 3. Click **Next**.
 4. Click **Configure**.
 
->[!NOTE]
-> Disabling Group Writeback will set the Full Import and Full Synchronization flags to ‘true’ on the Azure Active Directory Connector, causing the rule changes to propagate through on the next synchronization cycle, deleting the groups that were previously written back to your Active Directory.
+ >[!NOTE]
+ > Disabling Group Writeback will set the Full Import and Full Synchronization flags to ‘true’ on the Azure Active Directory Connector, causing the rule changes to propagate through on the next synchronization cycle, deleting the groups that were previously written back to your Active Directory.
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
