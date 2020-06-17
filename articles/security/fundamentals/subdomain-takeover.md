@@ -44,7 +44,7 @@ A common scenario for a subdomain takeover:
 
     Now, the traffic intended for `greatapp.contoso.com` goes to the threat actor's Azure site, and the threat actor is in control of the content that is displayed. 
 
-    The 'dangling DNS' was exploited and Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
+    The dangling DNS was exploited and Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
 
 ![Subdomain takeover from a deprovisioned website](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -129,6 +129,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
     |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
 
     Example of using the Azure Resource Graph query with the above table to build your service catalog: 
+
     ```
     Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
     ```
@@ -138,7 +139,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Educate your application developers to reroute addresses whenever they delete resources.
 
-    - Put "removing DNS entries" on the list of required checks when decommissioning a service.
+    - Put "Remove DNS entry" on the list of required checks when decommissioning a service.
 
     - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
 
