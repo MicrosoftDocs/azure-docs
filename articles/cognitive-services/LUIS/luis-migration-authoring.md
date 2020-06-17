@@ -53,7 +53,7 @@ Migration is the process of changing authoring authentication from an email acco
 |Portal|Purpose|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Create prediction and authoring resources.<br>* Assign contributors on resources.|
-|[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authrosing resource to another.  |
+|[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authroing resource to another.  |
 
 > [!Note]
 > **Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
@@ -85,6 +85,7 @@ Migration is the process of changing authoring authentication from an email acco
 
         Thank you
         ```
+   
    > [!Note]
    > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
 
@@ -109,7 +110,7 @@ If you want to create a new authoring resource, select **create a new Authoring 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
 * **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
-* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the furthertest to the right avatar which contains your initials.
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the furtherest to the right avatar which contains your initials.
 
 After you enter the above information, select **Done**.
 
