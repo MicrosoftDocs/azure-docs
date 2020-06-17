@@ -186,6 +186,8 @@
       href: migration.md
     - name: Migrate from composite entity
       href: migrate-from-composite-entity.md
+    - name: Migrate to authoring resource
+      href: luis-migration-authoring.md
     - name: Migrate to V3 API
       href: luis-migration-api-v3.md
   - name: Manage app
