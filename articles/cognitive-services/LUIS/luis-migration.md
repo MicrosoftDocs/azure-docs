@@ -104,7 +104,7 @@ If you want to create a new authoring resource, select **create a new Authoring 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
 * **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
-* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the furthertest to the right avatar which contains your initials.
 
 After you enter the above information, select **Done**.
 
@@ -120,7 +120,7 @@ If your subscription already is associated with a LUIS authoring azure resource 
 
 ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
 
-* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. <URL to switching of tenants>
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. 
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
 * **Resource name** - Select the authoring resource that you want to migrate to.
 
@@ -191,7 +191,7 @@ It is recommended to:
 * Collaborators are to migrate and re-assign the prediction resources back to the applications.
 Note this will have cause a break in the application temporarily until the prediction resources are re-assigned.
 
-Another solution here is, before owner migration, collaborators may add app owners as contributors on their Azure subscriptions <URL to have this>. This will grant the owner access to the runtimme prediction resource. If owner migrates using the new subscription they have been added to (which will be found under a new tenant), this will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
+Another solution here is, before owner migration, collaborators may add app owners as contributors on their Azure subscriptions from the Azure portal. This will grant the owner access to the runtimme prediction resource. If owner migrates using the new subscription they have been added to (which will be found under a new tenant), this will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
 
 
 ### Recommended steps to do if you are a collaborator on an app
