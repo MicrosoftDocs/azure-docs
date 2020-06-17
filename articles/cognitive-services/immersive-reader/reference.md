@@ -29,7 +29,7 @@ The SDK exposes the functions:
 
 ## launchAsync
 
-Launches the Immersive Reader within an `iframe` in your web application.
+Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
