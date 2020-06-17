@@ -81,17 +81,17 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 
 ### Mount the Azure file share
 
-The Azure portal will provide you with a cmdlet allowing you to easily mount your file share. We recommend using this provided cmdlet, rather than constructing the mount cmd yourself.
+The Azure portal provides you with a cmdlet allowing you to easily mount your file share. We recommend using this provided cmdlet, rather than constructing the mount cmd yourself.
 
 To get this cmdlet:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Navigate to the storage account that contains the file share you'd like to mount.
 1. Select **File shares**.
+1. Select the file share you'd like to mount.
 
 :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
 
-1. Select the file share you'd like to mount.
 1. Select **Connect**.
 
 :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
