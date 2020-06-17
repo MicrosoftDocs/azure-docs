@@ -91,7 +91,8 @@ Migration is the process of changing authoring authentication from an email acco
 
 4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option during the migration flow. Once you select the option, you will find the page below where you click on the download button on the left to export the apps you want. You may import these apps back after you migrate as they will not be automatically migrated with you. This is an optional step.
 
-   ![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+   > [!div class="mx-imgBorder"]
+   > ![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
 
 5. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
 
@@ -116,13 +117,15 @@ Note that you can have 10 free authoring resources per region, per subscription.
 
 * When the authoring resource is created, the success message is shown. Select **Close** to close the pop-up window.
 
-  ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+  > [!div class="mx-imgBorder"]
+  > ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
 
 ### Use existing authoring resource to migrate
 
 If your subscription already is associated with a LUIS authoring Azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
 
-![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
+> [!div class="mx-imgBorder"]
+>![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
 
 * **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
