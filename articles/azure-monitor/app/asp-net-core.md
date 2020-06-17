@@ -52,7 +52,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
 ## Enable Application Insights server-side telemetry (no Visual Studio)
 
-1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
+1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend that you always use the latest stable version. Find full release notes for the SDK on the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
     The following code sample shows the changes to be added to your project's `.csproj` file.
 
