@@ -40,7 +40,7 @@ To set up a managed identity in the portal, you will first create an application
 
 
 > [!NOTE] 
-> To find the managed identity for your web or slot app in the Azure portal, go to the User settings section under Enterprise applications.
+> To find the managed identity for your web or slot app in the Azure portal, go to the User settings section under Enterprise applications. Usually the slot name would be like `<App Service Name>/slot/<slot Name>`
 
 
 ### Using the Azure CLI
