@@ -948,8 +948,8 @@
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance
           href: virtual-machines/windows/failover-cluster-instance-overview.md
-        - name: Cluster configurations
-          href: virtual-machines/windows/hadr-high-availability-disaster-recovery-supported-configurations.md
+        - name: Cluster configuration
+          href: virtual-machines/windows/hadr-cluster-best-practices.md
       - name: Best practices
         items:
         - name: Performance

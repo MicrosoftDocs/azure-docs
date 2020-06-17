@@ -1,5 +1,5 @@
 ---
-title: Supported cluster configurations for HADR
+title: Cluster configuration best practices
 description: "Learn about the different supported cluster configurations when you configure high availability and disaster recovery (HADR) for your SQL Server on Azure Virtual Machines, such as supported quorum or connection routing options. " 
 services: virtual-machines
 documentationCenter: na
@@ -15,7 +15,7 @@ ms.author: mathoma
 
 ---
 
-# Supported cluster configurations for HADR (SQL Server on Azure VMs)
+# Cluster configuration best practices (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 A cluster is used for high availability and disaster recovery (HADR) with SQL Server on Azure VMs. 

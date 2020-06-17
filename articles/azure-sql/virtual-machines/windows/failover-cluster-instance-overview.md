@@ -33,7 +33,7 @@ The rest of the article focuses on the differences for failover cluster instance
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using a disk witness, a cloud witness, or a file share witness for cluster quorum.
 
-To learn more, see [Quorum with SQL Server VMs in Azure](hadr-supported-cluster-configurations.md#quorum). 
+To learn more, see [Quorum with SQL Server VMs in Azure](hadr-cluster-best-practices.md#quorum). 
 
 
 ## Storage
@@ -110,7 +110,7 @@ For third-party shared storage and data replication solutions, you should contac
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
 
-To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-supported-cluster-configurations.md#route-connections). 
+To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
 
 Using the DNN with FCI has additional considerations when used with other SQL Server features: 
 
@@ -180,7 +180,7 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Be sure to review [supported cluster configurations](hadr-supported-cluster-configurations.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review [supported cluster configurations](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

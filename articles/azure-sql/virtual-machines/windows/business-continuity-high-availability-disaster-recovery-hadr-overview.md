@@ -147,7 +147,7 @@ Geo-replication in Azure disks does not support the data file and log file of th
 
 ## Next steps
 
-Decide if an [availability group](availability-group-overview.md) or a [failover cluster instance](failover-cluster-instance-overview.md) is the best business continuity solution for your business, and then review the [best practices](hadr-supported-cluster-configurations.md) for configuring your environment for high availability and disaster recovery. 
+Decide if an [availability group](availability-group-overview.md) or a [failover cluster instance](failover-cluster-instance-overview.md) is the best business continuity solution for your business, and then review the [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
 
 
