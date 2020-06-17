@@ -4,7 +4,7 @@ description: Learn about Azure File Sync's feature Cloud Tiering
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -130,7 +130,7 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ``` 
 
-> [!Notes]  
+> [!Note]  
 > - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
 >- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
@@ -140,6 +140,10 @@ Windows File Explorer exposes two properties to represent the size of a file: **
 
 <a id="afs-force-tiering"></a>
 ### How do I force a file or directory to be tiered?
+
+> [!NOTE]
+> When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+
 When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
 
 ```powershell
