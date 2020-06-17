@@ -1,5 +1,5 @@
 ---
-title: VM is unresponsive while applying Security Policy to the system
+title: Azure VM is unresponsive while applying Security Policy to the system
 description: This article provides steps to resolve issues where the load screen is stuck when VM is unresponsive while applying security policy to the system in an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 06/15/2020
 ms.author: v-mibufo
 ---
 
-# VM is unresponsive while applying Security Policy to the system
+# Azure VM is unresponsive while applying Security Policy to the system
 
 This article provides steps to resolve issues where the OS hangs and becomes unresponsive while it is applying a security policy in an Azure VM.
 
@@ -28,7 +28,7 @@ When you use [Boot diagnostics](boot-diagnostics.md) to view the screenshot of t
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Screenshot of Windows Server 2012 R2 startup screen is stuck.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy2.png" alt-text="Screenshot of OS startup screen is stuck.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Screenshot of OS startup screen is stuck.":::
 
 ## Cause
 
@@ -63,7 +63,7 @@ To enable memory dump collection and Serial Console, run this script:
 
         In the command, replace \<BOOT PARTITON> with the letter of the partition in the attached disk that contains the boot folder.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/bcdedit.png" alt-text="Diagram shows the output of listing the BCD store in a Generation 1 VM, which lists under Windows Boot Loader the identifier number.":::
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Diagram shows the output of listing the BCD store in a Generation 1 VM, which lists under Windows Boot Loader the identifier number.":::
 
      2. For a Generation 2 VM, enter the following command and note the identifier listed:
 
