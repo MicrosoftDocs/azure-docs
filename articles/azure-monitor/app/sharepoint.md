@@ -9,6 +9,8 @@ ms.date: 07/11/2018
 # Monitor a SharePoint site with Application Insights
 Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
 
+>NOTE: Due to security concerns, there is no direct replacement of the capability to add the script to your web pages in SharePoint’s modern UX.  As an alternative, you can build your own extesion via the [SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/extensions/overview-extensions) that would allow you to install Application Insights on your sites. Please check [here](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO#how-to-create-a-spfx-extension-solution-with-appinsights-installed-from-scratch) for the instruction to create a SPFx extension solution with AppInsights installed or check the sample [here](https://github.com/microsoft/ApplicationInsights-JS/tree/master/SPO/AppInsightsExtensionSolutionSample). 
+
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
