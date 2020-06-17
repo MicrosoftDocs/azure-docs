@@ -10,7 +10,7 @@ ms.date: 06/17/2020
 ms.author: cherylmc
 ---
 
-# View effective routes of a virtual hub
+# View virtual hub effective routes
 
 You can view all of the routes of your Virtual WAN hub in the Azure portal. This article walks you through the steps to view effective routes. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
