@@ -168,7 +168,7 @@ Use these optional properties to configure transcription:
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      An optional duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`). If not specified or set to `PT0H` , the transcription will not be deleted automatically.
+      An optional duration to automatically delete transcriptions after completing the transcription. The `timeToLive` is useful in mass processing transcriptions to ensure they will be eventually deleted (e.g. `PT12H`). If not specified or set to `PT0H`, the transcription will not be deleted automatically.
 :::row-end:::
 :::row:::
    :::column span="1":::
