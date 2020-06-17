@@ -56,7 +56,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A requirements.txt file is also created in the root folder.
+A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
 ## Install azure-functions-durable from PyPI
 
