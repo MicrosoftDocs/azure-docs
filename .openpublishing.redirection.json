@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+    "source_path": "articles/virtual-machines/linux/tutorial-lemp-stack.md",
+    "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-mean-stack.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/secure-aad-app.md",
       "redirect_url": "/previous-versions/azure/security/develop/secure-aad-app",
       "redirect_document_id": false
@@ -9918,7 +9928,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-php-configure.md",
-      "redirect_url": "/azure/app-service/web-sites-php-configure",
+      "redirect_url": "/azure/app-service/configure-language-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-php-configure.md",
+      "redirect_url": "/azure/app-service/configure-language-php",
       "redirect_document_id": false
     },
     {
@@ -16725,141 +16740,6 @@
       "source_path": "articles/machine-learning/studio/algorithm-choice.md",
       "redirect_url": "/azure/machine-learning/how-to-select-algorithms",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-algorithm-parameters-optimize.md",
-      "redirect_url": "/azure/machine-learning/studio/algorithm-parameters-optimize",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-azure-ml-customer-churn-scenario.md",
-      "redirect_url": "/azure/machine-learning/studio/azure-ml-customer-churn-scenario",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-azure-ml-netsharp-reference-guide.md",
-      "redirect_url": "/azure/machine-learning/studio/azure-ml-netsharp-reference-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-basics-infographic-with-algorithm-examples.md",
-      "redirect_url": "/azure/machine-learning/studio/basics-infographic-with-algorithm-examples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-consume-web-services.md",
-      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-consume-web-service-with-web-app-template.md",
-      "redirect_url": "/azure/machine-learning/studio/consume-web-service-with-web-app-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-consuming-from-excel.md",
-      "redirect_url": "/azure/machine-learning/studio/consuming-from-excel",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-convert-training-experiment-to-scoring-experiment.md",
-      "redirect_url": "/azure/machine-learning/studio/convert-training-experiment-to-scoring-experiment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-create-endpoint.md",
-      "redirect_url": "/azure/machine-learning/studio/create-endpoint",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-create-experiment.md",
-      "redirect_url": "/azure/machine-learning/studio/create-experiment",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-create-models-and-endpoints-with-powershell.md",
-      "redirect_url": "/azure/machine-learning/studio/create-models-and-endpoints-with-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-create-workspace.md",
-      "redirect_url": "/azure/machine-learning/studio/create-workspace",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-custom-r-modules.md",
-      "redirect_url": "/azure/machine-learning/studio/custom-r-modules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-datamarket-deprecation.md",
-      "redirect_url": "/azure/machine-learning/studio/datamarket-deprecation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
-      "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md",
-      "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-copy-other-peoples-work-to-do-data-science",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md",
-      "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-is-your-data-ready-for-data-science",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md",
-      "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-predict-an-answer-with-a-simple-model",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md",
-      "redirect_url": "/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-debug-models.md",
-      "redirect_url": "/azure/machine-learning/studio/debug-models",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-dedicated-capacity-for-bes-jobs.md",
-      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/studio/dedicated-capacity-for-bes-jobs.md",
-      "redirect_url": "/azure/machine-learning/studio/consume-web-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-deploy-consume-web-service-guide.md",
-      "redirect_url": "/azure/machine-learning/studio/deploy-consume-web-service-guide",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-deploy-with-resource-manager-template.md",
-      "redirect_url": "/azure/machine-learning/studio/deploy-with-resource-manager-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-evaluate-model-performance.md",
-      "redirect_url": "/azure/machine-learning/studio/evaluate-model-performance",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-excel-add-in-for-web-services.md",
-      "redirect_url": "/azure/machine-learning/studio/excel-add-in-for-web-services",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/machine-learning-execute-python-scripts.md",
-      "redirect_url": "/azure/machine-learning/studio/execute-python-scripts",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-apps-anomaly-detection-api.md",
@@ -43339,6 +43219,36 @@
     {
       "source_path": "articles/azure-monitor/learn/tutorial-archive-data.md",
       "redirect_url": "/azure/azure-monitor/platform/platform-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-view.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log#view-the-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-collect-storage.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-collect-workspace.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-log-analytics-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-collect.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-export.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log#legacy-collection-methods",
       "redirect_document_id": false
     },
     {

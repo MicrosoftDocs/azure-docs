@@ -250,7 +250,7 @@ Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to 
 
 ###  Working with other types of applications
 
-Azure AD Application Proxy can also support applications that have been developed to use the Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
+Azure AD Application Proxy can also support applications that have been developed to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
 
 Read [publishing native and mobile client apps](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) and [claims-based applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) to learn about available configurations of Application Proxy.
 

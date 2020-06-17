@@ -22,9 +22,9 @@ The following tables provide links to code samples for leveraging web APIs in yo
 
 | Sample                                                                                                                          | Description                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to a specific domain (e.g. @fabrikam.com) and validate user-provided information. |
-| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to a specific domain (e.g. @fabrikam.com) and validate user-provided information.   |
-| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | This Python Azure Function sample demonstrates how to limit sign-ups to a specific domain (e.g. @fabrikam.com) and validate user-provided information.    |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific tenant domains and validate user-provided information. |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific tenant domains and validate user-provided information.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific tenant domains and validate user-provided information.    |
 
 <!-- \| [Java](../../azure-docs-pr/articles/active-directory/b2b/invite-internal-users.md#use-the-invitation-api-to-send-a-b2b-invitation) |  The sample below illustrates how to call the invitation API to invite an internal user as a B2B user. | -->
 
@@ -34,10 +34,10 @@ The following tables provide links to code samples for leveraging web APIs in yo
 |--------| ----------- |
 | [Manual approval workflow](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connectors-approvals) | This sample demonstrates an end-to-end approval workflow to manage guest user account creation in self-service sign-up |
 
-## Identity proofing
+## Identity verification
 
 | Sample                                                                                                            | Description                                                                                                                          |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-proofing) | This sample shows how to add ID proofing to your self-service sign-up user flow by using an API connector to integrate with IDology. |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | This sample shows how to verify a user identity as part of your self-service sign-up by using an API connector to integrate with IDology. |
 
 <!-- | [Experian](https://github.com/Azure-Samples/) | This sample shows how add identity verification to your self-service sign-up user flow by using an API connector to integrate with Experian. | -->
