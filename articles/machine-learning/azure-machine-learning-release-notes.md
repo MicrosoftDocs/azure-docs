@@ -39,7 +39,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
     + Added a new type of user exception `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException` which is raised if the cache store contents have been tampered with
   + **azureml-automl-runtime**
-    + We recently had a customer report that they were seeing the Class Balancing Sweeping message in their runs even when they chose NOT to use featurization. This exposed the fact that we were enabling the Class Balancing logic even when featurization was turned off. Fixing this problem here.
+    + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
   + **azureml-contrib-itp**
     + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
   + **azureml-contrib-notebook**
