@@ -8,7 +8,7 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/10/2020
 ---
 
 # Incremental enrichment and caching in Azure Cognitive Search
@@ -17,7 +17,11 @@ ms.date: 01/09/2020
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-Incremental enrichment adds caching and statefulness to an enrichment pipeline, preserving your investment in existing output, while changing only those documents impacted by particular modification. Not only does this preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+Incremental enrichment applies to [indexers](search-indexer-overview.md) that include a [skillset definition](cognitive-search-working-with-skillsets.md) that makes up an AI enrichment pipeline.
+
+Incremental enrichment adds caching and statefulness to an enrichment pipeline, preserving your investment in existing processed output, while changing only those documents impacted by particular modification. Not only does this preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+
+To use this feature, you must [enable incremental enrichment](search-howto-incremental-index.md) in the indexer, and then use [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) to invoke the pipeline. Existing enrichments that can be repurposed are retrieved from the cache instead of reprocessed in full from the source.
 
 ## Indexer cache
 
