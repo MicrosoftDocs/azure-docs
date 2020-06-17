@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
 ---
@@ -50,6 +50,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
+| Configure the minimum version of Transport Layer Security (TLS) for a storage account.  | Configure the minium version of TLS that clients must use to send and receive data from a storage account. | - |
 | Enable firewall rules | Configure firewall rules to limit access to your storage account to requests that originate from specified IP addresses or ranges, or from a list of subnets in an Azure Virtual Network (VNet). For more information about configuring firewall rules, see [Azure File Sync proxy and firewall settings](../files/storage-sync-files-firewall-and-proxy.md). | - |
 | Allow trusted Microsoft services to access the storage account | Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. You can permit requests from other Azure services by adding an exception to allow trusted Microsoft services to access the storage account. For more information about adding an exception for trusted Microsoft services, see [Azure File Sync proxy and firewall settings](../files/storage-sync-files-firewall-and-proxy.md).| - |
 | Use private endpoints | A private endpoint assigns a private IP address from your Azure Virtual Network (VNet) to the storage account. It secures all traffic between your VNet and the storage account over a private link. For more information about private endpoints, see [Connect privately to a storage account using Azure Private Endpoint](../../private-link/create-private-endpoint-storage-portal.md). | - |
