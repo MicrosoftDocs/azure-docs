@@ -1,12 +1,12 @@
 ---
-title: Cancel operation API | Azure Marketplace
-description: Cancel operations .
-author: dsindona
+title: Cancel operation API - Microsoft commercial marketplace
+description: The API to cancel an operation currently in progress on the offer
+author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.author: dsindona
+ms.date: 06/16/2020
+ms.author: mingshen
 ---
 
 # Cancel operation
