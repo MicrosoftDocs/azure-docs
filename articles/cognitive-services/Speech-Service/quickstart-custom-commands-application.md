@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an end to end voice assistant using Custom Commands'
+title: 'Quickstart: Create a voice assistant using Custom Commands'
 titleSuffix: Azure Cognitive Services
 description: In this article, we explain how to add validations to a parameter in Custom Commands.
 services: cognitive-services
@@ -12,8 +12,8 @@ ms.date: 05/27/2020
 ms.author: sausin
 ---
 
-# Create an end to end voice assistant using Custom Commands
-In this article you will create and test Custom Commands application using Speech Studio. You will also be able to access this application from a UWP client.
+# Create a voice assistant using Custom Commands
+In this article you will create and test Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Prerequisites
 

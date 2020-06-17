@@ -17,8 +17,8 @@ In this article we will show you how to set up continuous deployment for your Cu
 
 ## Prerequisite
 > [!div class = "checklist"]
-> * A Custom Commands application that for development (DEV)
-> * A Custom Commands application thatfor production (PROD)
+> * A Custom Commands application for development (DEV)
+> * A Custom Commands application for production (PROD)
 > * Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## Export/Import/Publish

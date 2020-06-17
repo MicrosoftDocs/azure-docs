@@ -1,7 +1,7 @@
 ---
-title: 'Errors when building an application (Preview)'
+title: 'Debug errors when authoring a Custom Commands application (Preview)'
 titleSuffix: Azure Cognitive Services
-description: debug errors when building the custom commands apps  
+description: debug errors when authoring a custom commands apps  
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -12,7 +12,7 @@ ms.date: 05/27/2020
 ms.author: xiaojul
 ---
 
-# Errors when building an application (Preview)
+# Debug errors when authoring a Custom Commands application
 
 This article describes how to debug when you see errors while building Custom Commands application. 
 

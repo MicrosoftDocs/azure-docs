@@ -390,15 +390,14 @@
           href: voice-assistants.md
     - name: Custom Commands
       items:
-        - name: What is Custom Commands app?
+        - name: What is Custom Commands?
           href: custom-commands.md
         - name: Quickstarts
           items:
-            - name: Custom Commands E-2-E scenario
-              href: quickstart-custom-commands-e2e-application.md
+            - name: Build a Custom Commands App
+              href: quickstart-custom-commands-application.md
         - name: How-to guides
           items:
-            - name: Design
             - name: Develop
               items:
                 - name: Create application with simple commands  
@@ -412,79 +411,33 @@
                 - name: Add language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
             - name: Integrate
-              items: 
-                - name: Setup client application with Speech SDK (Preview) 
+              items:
+                - name: Integrate with a client app using Speech SDK
                   href: how-to-custom-commands-setup-speech-sdk.md
-                - name: Send activity to client application (Preview)  
+                - name: Send activity to client application
                   href: how-to-custom-commands-send-activity-to-client.md
-                - name: Set up web endpoints (Preview)
+                - name: Set up web endpoints
                   href: how-to-custom-commands-setup-webendpoints.md
             - name: Deploy
               items:
-                - name: Continuous Deployment with Azure DevOps (Preview)
+                - name: Continuous Deployment with Azure DevOps
                   href: how-to-custom-commands-deploy-CICD.md
             - name: Test
-              href: how-to-custom-commands-developerflow-test.md
+              items:
+              - name: Test your Custom Commands app
+                href: how-to-custom-commands-developerflow-test.md
             - name: Debug
               items:
-                - name: Errors when building the application (Preview)
-                  href: how-to-custom-commands-debug-buildtime.md
-                - name: Errors when running the application (Preview)
-                  href: how-to-custom-commands-debug-runtime.md
+              - name: Debug errors when authoring the app
+                href: how-to-custom-commands-debug-buildtime.md
+              - name: Debug errors when running the app
+                href: how-to-custom-commands-debug-runtime.md
             - name: References
-              items: 
+              items:
                 - name: Custom Commands concepts
                   href: custom-commands-references.md
-    - name: Custom Commands (Preview)
-      items:
-        - name: What is Custom Commands app?
-        - name: Quickstarts
-        - name: How-to guides
-          items:
-            - name: Integrate
-              items: 
-                - name: Setup client application with Speech SDK (Preview) 
-                  href: how-to-custom-commands-setup-speech-sdk.md
-                - name: Send activity to client application (Preview)  
-                  href: how-to-custom-commands-send-activity-to-client.md
-                - name: Set up web endpoints (Preview)
-                  href: how-to-custom-commands-setup-webendpoints.md
-            - name: Deploy
-              items:
-                - name: Continuous Deployment with Azure DevOps (Preview)
-                  href: how-to-custom-commands-deploy-CICD.md
-            - name: Test
-              href: how-to-custom-commands-developerflow-test.md
-            - name: Debug
-              items:
-                - name: Errors when building the application (Preview)
-                  href: how-to-custom-commands-debug-buildtime.md
-                - name: Errors when running the application (Preview)
-                  href: how-to-custom-commands-debug-runtime.md
-    - name: Custom Commands (Old)
-      items:
-        - name: What is Custom Commands app?
-          href: custom-commands.md
-        - name: Quickstarts
-          items:
-            - name: Create a Custom Commands app
-              href: quickstart-custom-speech-commands-create-new.md
-            - name: Create a custom command with parameters
-              href: quickstart-custom-speech-commands-create-parameters.md
-            - name: Use Custom Commands with Custom Voice
-              href: quickstart-custom-speech-commands-select-custom-voice.md
-            - name: Use Custom Commands with the Speech SDK
-              href: quickstart-custom-speech-commands-speech-sdk.md
-        - name: How-to guides
-          items:
-            - name: Fulfill commands from a client
-              href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Add parameter validation
-              href: how-to-custom-speech-commands-validations.md
-            - name: Add a confirmation
-              href: how-to-custom-speech-commands-confirmations.md
-            - name: Add a one-step correction
-              href: how-to-custom-speech-commands-one-step-correction.md
+                - name: Custom Commands Samples (GitHub)
+                  href: http://aka.ms/speech/cc-samples
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?
@@ -660,7 +613,7 @@
       - name: What is Speech Studio?
         href: https://speech.microsoft.com
       - name: Create a Custom Commands app with Speech Studio
-        href: quickstart-custom-speech-commands-create-new.md 
+        href: quickstart-custom-speech-commands-create-new.md
 - name: Migration
   items:
   - name: From Bing Speech
