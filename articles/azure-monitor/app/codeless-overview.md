@@ -41,7 +41,7 @@ As we're adding more and more integrations, the auto-instrumentation capability 
 
 ### Linux 
 
-Monitoring of Java and Node.js applications are in public preview and can be enabled in Azure portal, available in all regions.
+Monitoring of Java and Node.js applications in App Service is in public preview and can be enabled in Azure portal, available in all regions.
 
 ## Azure Functions
 
