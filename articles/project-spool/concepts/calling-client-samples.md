@@ -190,7 +190,7 @@ call.unmute(completionHandler: nil);
 ```
 ---
  
-#### Remote participants management
+## Remote participants management
 All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance
 
 ##### List participants in a call
@@ -210,7 +210,7 @@ call.remoteParticipants
 ```
 --- 
 
-## Remote participant has set of properties
+#### Remote participant has set of properties
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -393,7 +393,7 @@ call.stopVideo(completionHandler: ((error: Error?) -> Void) {
 ```
 --- 
 
-## Handle remote participant video streams
+## Render remote participant video streams
 Remote participant may send video or screen sharing during a call, this sections coves how to discover and handle remote streams
 
 #### Handle remote participant video/screen sharing streams
