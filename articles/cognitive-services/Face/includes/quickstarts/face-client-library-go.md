@@ -249,7 +249,7 @@ In this example, you'll migrate the **PersonGroup** you created in [Create and t
 
 ### Set up target subscription
 
-First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Set up](#set-up) section. 
+First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Set up](#setting-up) section. 
 
 Then, create the following variables near the top of your **main** method. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account.
 
