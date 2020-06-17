@@ -199,12 +199,14 @@
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-go
-    - name: Node.js
+    - name: JavaScript
       items:
       - name: Reference Documentation
         href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
-      - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+      - name: NPM - Authoring
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
+      - name: NPM - Query runtime
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker-runtime
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python
