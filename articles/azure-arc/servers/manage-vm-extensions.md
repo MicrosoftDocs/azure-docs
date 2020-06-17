@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 06/15/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -81,10 +81,6 @@ The minimum version of the Connected Machine agent that is supported with this f
 * Linux - 0.8.x
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
-
-## How do extensions get updated?
-
-When an update is available, the behavior is consistent with Azure VMs, where it is only installed on the machine when there is a change to the extension. When an extension update is available, the Guest Config agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. Support to opt in or opt out of extensions *Minor* updates when you provision the extension is not supported during public preview.
 
 ## Enable extensions from the portal
 
