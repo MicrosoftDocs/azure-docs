@@ -101,6 +101,29 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ```
 ---
 
+## Handle incoming push notification
+#### [Android (Java)](#tab/java)
+```java
+// bar
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+call.handlePushNotificationWithCompletionHandler(jsonPayload, 
+                completionHandler: (call: ACSCall, error: Error?) -> Void) { 
+                if (error != nil)
+                {
+                    print("Failed to handle the incoming call notification")
+                }
+                else
+                {
+                    self.call = call
+                    self.call.delegate = self; // To get notified about call state changes
+                }
+});
+```
+---
+
+
 ### Mid-call operations
 You can perform various operations on a call
 
@@ -749,7 +772,18 @@ object.off('collectionNameUpdated',eventHandler);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+LocalVideoStreamsChangedListener localVideoStreamsChangedListener = new LocalVideoStreamsChangedListener()
+{
+    @Override
+    @Override
+    public void onLocalVideoStreamsUpdated(LocalVideoStreamsEvent localVideoStreamsEventArgs) {
+        Log.d(localVideoStreamsEventArgs.getAddedStreams().size());
+        Log.d(localVideoStreamsEventArgs.getRemovedStreams().size());
+    }
+}
+call.addOnLocalVideoStreamsChangedListener(localVideoStreamsChangedListener);
+// To unsubscribe
+call.removeOnLocalVideoStreamsChangedListener(localVideoStreamsChangedListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
