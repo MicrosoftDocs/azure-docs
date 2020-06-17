@@ -17,7 +17,7 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 ## Architecture
 
-The *Hub* is an Azure Virtual Network that acts as a central point of connectivity to your on-premises and AVS private cloud. The *Spokes* are virtual networks peered with the Hub to enable cross virtual network communication.
+The *Hub* is an Azure Virtual Network that acts as a central point of connectivity to your on-premises and AVS private cloud. The *Spokes* are virtual networks peered with the Hub to enable cross-virtual network communication.
 
 Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled. 
 
@@ -43,7 +43,7 @@ The architecture has the following main components:
 
 -   **Spoke virtual network**
 
-    -   **IaaS Spoke:** An IaaS spoke will host Azure IaaS based workloads, including VM Availability Sets and VM scale sets, and the corresponding network components.
+    -   **IaaS Spoke:** An IaaS spoke will host Azure IaaS based workloads, including VM Availability Sets and virtual machine scale sets, and the corresponding network components.
 
     -   **PaaS Spoke:** A PaaS Spoke hosts Azure PaaS services using private addressing thanks to [Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
 
