@@ -129,7 +129,7 @@ alternatives --set python /usr/sbin/python2
 The following versions of the Linux operating system are officially supported for the Linux agent:
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x64) and 7 (x64)  
+* CentOS Linux 6 (x64) and 7 (x64) and 8 (x64)
 * Oracle Linux 6 and 7 (x64) 
 * Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
 * Debian GNU/Linux 8 and 9 (x64)
