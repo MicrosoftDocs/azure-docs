@@ -97,14 +97,14 @@ Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS
 
 **Ephemeral port exhaustion**
 
-If you are facing a high connection volume or high port usage on your instances, first verify your client instances are singletons or unique for the lifetime of the application.
+If you see a high connection volume or high port usage on your instances, first verify that your client instances are singletons. In other words, the client instances should be unique for the lifetime of the application.
 
-When running on the TCP protocol, the client optimizes for latency by using long-lived connections as opposed to HTTPS protocol, which terminates connections after 2 minutes of inactivity. 
+When running on the TCP protocol, the client optimizes for latency by using the long-lived connections as opposed to the HTTPS protocol, which terminates the connections after 2 minutes of inactivity.
 
-In scenarios where you have sparse access and you notice a higher connection count compared to Gateway mode you can:
+In scenarios where you have sparse access and if you notice a higher connection count when compared to the gateway mode access, you can:
 
-* Configure [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This allows the SDK to use a small pool of ephemeral ports for different Cosmos DB destination endpoints.
-* Configure [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) with the values suggested in the documentation.
+* Configure the [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
+* Configure the [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property must be greater than or equal to 10 minutes. The recommended values are between 20 minutes and 24 hours.
 
 <a id="same-region"></a>
 
