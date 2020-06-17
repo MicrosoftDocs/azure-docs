@@ -46,6 +46,7 @@ One Azure resource is defined in the template:
 | **Resource group** | Select **Create new**, enter a unique name for the resource group, and then click **OK**. |
 | **Region** | Select a region.  For example, **East US** |
 | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
+| **Location** | Replace with the region used above. |
 | **Sku** | The pricing tier for your resource. |
 
 3. Select **Review + Create**, then **Create**. After the resource has successfully finished deploying, the **Go to resource** button will be highlighted.
