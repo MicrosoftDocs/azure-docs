@@ -496,7 +496,7 @@
       href: active-directory-v2-registration-portal.md
     - name: Azure portal registration fields for custom-developed apps
       href: registration-config-specific-application-property-how-to.md
-    - name: Configure a new multi-tenant application
+    - name: Configure a new multitenant application
       href: setup-multi-tenant-app.md
     - name: Add a multitenant application to the Azure AD application gallery
       href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
