@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 06/19/2020
 ms.author: dsindona
 ---
 
@@ -31,7 +31,7 @@ Grant AppSource permission to provision and deprovision Test Drive users in your
 
 In this step, you will generate the \'Azure AD App Id\' and \'Azure AD App Key\' values mentioned below.
 
-Provide the following fields in the \'Technical Configuration\' section:
+Complete the following fields in the **Technical Configuration** section:
 
 - **Type of Test Drive**: Choose \'Microsoft Hosted (example Dynamics 365 for Customer Engagement)' option. This indicates that Microsoft will host and maintain the service that performs the Test Drive user
     provisioning and deprovisioning.

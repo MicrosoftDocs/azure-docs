@@ -152,20 +152,6 @@
         href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
       - name: Delete offer
         href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
-    - name: Test Drive
-      items:
-      - name: What is Test Drive?
-        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
-      - name: Azure Resource Manager Test Drive
-        href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
-      - name: Hosted Test Drive
-        href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
-      - name: Logic app Test Drive
-        href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
-      - name: Transforming examples for Test Drive
-        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
-      - name: Marketing and best practices
-        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
     - name: Azure application offer
       href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
       items:
@@ -416,8 +402,18 @@
           href: ./partner-center-portal/marketplace-metering-service-apis.md   
         - name: Marketplace metering service APIs - FAQ
           href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-    - name: Test Drive your offer
-      href: ./partner-center-portal/test-drive.md
+    - name: Test Drive
+      items:
+      - name: What is test drive?
+        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+      - name: Types of test drives
+        href: ./cloud-partner-portal/test-drive/types-of-test-drives.md
+      - name: Create your test drive
+        href: ./partner-center-portal/test-drive.md
+      - name: Transforming examples for test drive
+        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+      - name: Marketing and best practices
+        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:

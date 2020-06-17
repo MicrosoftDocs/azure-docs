@@ -13,7 +13,7 @@ ms.date: 08/13/2019
 
 The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](../cloud-partner-portal/test-drive/what-is-test-drive.md).
 
-If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and uncheck **Enable test drive**.
+If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box.
 
 ## Technical configuration
 
@@ -98,7 +98,7 @@ The **Test Drive listings** option found under the **Test drive** tab displays t
 
 - **Access information** (required for Azure Resource Manager and Logic test drives): Explain what a customer needs to know in order to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access features throughout the test drive. Up to 10,000 characters of text can be entered in this field.
 
-- **User Manual** (required): An in-depth walkthrough of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
+- **User Manual** (required): An in-depth walk-through of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
 
 - **Videos: Add videos** (optional): Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk-through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
   - **Name** (required)
