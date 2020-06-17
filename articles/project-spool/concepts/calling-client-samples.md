@@ -535,12 +535,13 @@ await remoteVideoRenderer.resume(); // resume rendering
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// [boolean] isRendering - indicating if stream is being rendered
-remoteVideoRenderer.getIsRendering();
-// [ScalingMode] ScalingMode.Stretch = 0, ScalingMode.Crop = 1, ScalingMode.Fit = 2
-remoteVideoRenderer.getScalingMode();
-// [UIView] target an UI node that should be used as a placeholder to render stream
-remoteVideoRenderer.getTarget()
+remoteVideoRenderer.setScalingMode(scalingMode); // 'Stretch' | 'Crop' | 'Fit', change scaling mode
+// pause rendering
+Future remoteVideoRendererPauseFuture = remoteVideoRenderer.pause(); 
+remoteVideoRendererPauseFuture.get();
+// resume rendering
+Future remoteVideoRendererResumeFuture = remoteVideoRenderer.resume(); 
+remoteVideoRendererResumeFuture.get();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
