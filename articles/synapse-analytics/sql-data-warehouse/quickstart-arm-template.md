@@ -207,4 +207,4 @@ In this quickstart, you created an Azure Synapse Analytics SQL pool using an Azu
 
 - Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Create and deploy your first Azure Resource Manager template](../../azure-resource-manager/templates/template-tutorial-create-first-template)
+- [Create and deploy your first Azure Resource Manager template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
