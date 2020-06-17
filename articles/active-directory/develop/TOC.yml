@@ -476,9 +476,9 @@
       href: /azure/active-directory/app-provisioning/scim-graph-scenarios
     - name: Automate configuration using MS Graph
       href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
-  - name: Azure portal help 
+  - name: Azure portal help articles
     items:
-    - name: Change the token lifetime defaults for a custom-developed application
+    - name: Token lifetime defaults for a custom-developed application
       href: registration-config-change-token-lifetime-how-to.md
     - name: Discover endpoints
       href: registration-config-how-to.md
