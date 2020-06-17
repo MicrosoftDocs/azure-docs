@@ -71,7 +71,7 @@ AzureActivity
 
 
 ## Send to Azure Event Hubs
-Send the Activity Log to Azure Event Hubs to send entries outside of Azure, for example to a third-party SIEM or other log analytics solutions. Activity log  from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the category and is described in [Schema from storage account and event hubs](activity-log-schema.md).
+Send the Activity Log to Azure Event Hubs to send entries outside of Azure, for example to a third-party SIEM or other log analytics solutions. Activity log events from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the category and is described in [Schema from storage account and event hubs](activity-log-schema.md).
 
 Following is sample output data from Event Hubs for an Activity log:
 
@@ -299,7 +299,7 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 ### Enable the solution for new subscriptions
-You will soon no longer be able to add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a resource manager template. 
+You will soon no longer be able to add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a Resource Manager template. 
 
 1. Copy the following json into a file called *ActivityLogTemplate*.json.
 
