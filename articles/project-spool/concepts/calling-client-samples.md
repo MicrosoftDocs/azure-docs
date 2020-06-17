@@ -1,5 +1,5 @@
 ---
-title: User Access Tokens
+title: Calling Client library samples
 description: Learn how to manage users and authenticate them to ACS
 author: mikben
 manager: jken
@@ -17,29 +17,32 @@ ms.service: azure-project-spool
 
 
 ### Initialization
-To initialize CallClient you have to use CallClientFactory.create method that asynchronously returns call client once it's ready
-To create call client you have to pass client token, either as a string or using CommunicationUserCredential object provided
-by "@ic3/communicationservices-client" module
-* pass token as string
+To create a `CallClient` you have to use `CallClientFactory.create` method that asynchronously returns a `CallClient` object once it's initialized
+
+To create call client you have to pass a `CommunicationUserCredential` object.
 
 
 #### [Javascript](#tab/javascript)
 ```ts
-//ARTUR INIT
-const communicationUserCredential = 'communicationUserCredential';
-const callClient = await CallClientFactory.create(token);
+const userToken = '<user token>';
+const fetchNewUserTokenFunc = async () => {
+// return new token
+};
+
+const communicationUserCredential = new CommunicationUserCredential(fetchNewUserTokenFunc, userToken);
+const callClient = await CallClientFactory.create(communicationUserCredential);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-String rawUserToken = "<user token>";
+String userToken = "<user token>";
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
-Future<AdHocCallClient> callClientTask = CallClientFactory.create(rawUserToken, appContext);
+Future<AdHocCallClient> callClientFuture = CallClientFactory.create(userToken, appContext);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-let tokenString = "<user token>";
+let userToken = "<user token>";
 let callClientInstance: CallClient? = nil;
-CallClientFactory.create(tokenString, completionHandler: { (callClient, error) -> Void in
+CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> Void in
     if(error != nil)
     {
         // handle error
@@ -52,94 +55,51 @@ CallClientFactory.create(tokenString, completionHandler: { (callClient, error) -
 ```
 --- 
 
-* pass token as CommunicationUserCredential using string for a token, used for one time, short lived interactions with call client
-```ts
-const token = 'string';
-const callClient = await CallClientFactory.create(new CommunicationUserCredential(token));
-```
-* pass token as CommunicationUserCredential with callback, used to lazy fetch tokens from trusted service
-```ts
-const tokenCallback = () => {
-    const tokenFromService = await Promise.resolve('communicationUserCredential');
-    return tokenFromService;
-}
-const callClient = await CallClientFactory.create(new CommunicationUserCredential(tokenCallback));
-```
-above also allows you to refresh token, tokens lifetime is controlled by setting TTL when tokens are provisioned on trusted service
-client tokens may eventually expire and so Calling library will call callback to refresh toke
-```ts
-const communicationUserCredential = new CommunicationUserCredential(() => Promise.resolve(token));
-const callClient = await CallClientFactory.create(communicationUserCredential);
-```
-
-If your application is initilized with initial **communicationUserCredential** you can choose to pass it to CommunicationUserCredential
-to allow it initialize without requesting initial token
-```ts
-const initialCredential = 'initialCredential';
-const communicationUserCredential = new CommunicationUserCredential(() => Promise.resolve(token), initialCredential);
-const callClient = await CallClientFactory.create(communicationUserCredential);
-``` 
-
 ### Make outgoing call
 
-To create and start a call you need to call one of the APIs on CallClient
-and provide ACS Identity of a user that you've provisioned using ACS Management SDK on your trusted service
-or a normalized phone number.
+To create and start a call you need to call one of the APIs on CallClient and provide ACS Identity of a user that you've provisioned using ACS Management SDK on your trusted service or a phone number in E.164 format
 
-
-```ts
-const callClient = await CallClientFactory.create('communicationUserCredential');
-``` 
 Call creation and start is synchronous, as a result you'll receive call instance, allowing you to subscribe to all events on the call.
 
-* make 1:1 call to user, to address other participants use ACS Identities you received from ACS Management SDK when you've created these users on your trusted service
+* make 1:1 call to user or making 1:n call with users and PSTN
 
 #### [Javascript](#tab/javascript)
 ```js
-const call = callClient.call(['acsId']);
+const placeCallOptions = {};
+const oneToOneCall = callClient.call(['acsUserId'], placeCallOptions);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+String participants[] = new String[]{ "acsUserId" };
+PlaceCallOptions callOptions = new PlaceCallOptions();
+call = callClient.call(participants, callOptions);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+let placeCallOptions = ACSPlaceCallOptions();
+let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
 ```
---- 
+---
 
-* make 1:1 call to a pstn number, use phone numbers in e.164 format
+* making 1:n call with users and PSTN
 
 #### [Javascript](#tab/javascript)
 ```js
-const call = callClient.call([utils.normalizePhoneNumber('+1234567890')]);
+const placeCallOptions = {};
+const groupCall = callClient.call(['acsUserId', '+1234567890'], placeCallOptions);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+String participants[] = new String[]{ "acsUserId", "+1234567890" };
+PlaceCallOptions callOptions = new PlaceCallOptions();
+Call groupCall = callClient.call(participants, callOptions);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+let placeCallOptions = ACSPlaceCallOptions();
+let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId', '+1234567890'], options: placeCallOptions);
 ```
---- 
-
-* make group call
-
-#### [Javascript](#tab/javascript)
-```js
-const call = callClient.call(['acsId1', 'acsId2', 'acsId3']);
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
-
+---
 
 ### Mid-call operations
 During a call you can control modalities
