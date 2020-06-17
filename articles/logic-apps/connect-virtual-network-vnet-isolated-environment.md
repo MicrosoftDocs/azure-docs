@@ -132,7 +132,6 @@ This table describes the ports that your ISE requires to be accessible and the p
 | Intersubnet communication within virtual network | Address space for the virtual network with ISE subnets | * | Address space for the virtual network with ISE subnets | * | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
 | Communication from your logic app | **VirtualNetwork** | * | Varies based on destination | 80, 443 | Destination varies based on the endpoints for the external service with which your logic app needs to communicate. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
-| TLS/SSL root domains | **VirtualNetwork** | * | `ocsp.msocsp.com` <br>`mscrl.microsoft.com` <br>`crl.microsoft.com` <br>`www.microsoft.com` <br>`crl3.digicert.com` <br>`ocsp.digicert.com` <br>`cacerts.digicert.com` <br>`www.thawte.com` | 80, 443 ||
 | Azure Storage dependency | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Connection management | **VirtualNetwork** | * | **AppService** | 443 ||
 | Publish diagnostic logs & metrics | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
@@ -141,6 +140,12 @@ This table describes the ports that your ISE requires to be accessible and the p
 | Dependency from Log to Event Hub policy and monitoring agent | **VirtualNetwork** | * | **EventHub** | 5672 ||
 | Access Azure Cache for Redis Instances between Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383, plus see **Notes**| For ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 |||||||
+
+Also, you need to add the [App Service Environment](../app-service/environment/intro.md) network rules:
+
+* If you use Azure Firewall, your firewall must be set up with all the [current fully qualified domain name (FQDN) tags](../firewall/fqdn-tags.md) that are required by App Service Environment.
+
+* If you use a firewall appliance other than Azure Firewall, your firewall must be set up with all the [firewall integration dependencies](../app-service/environment/firewall-integration.md#dependencies) that are required by App Service Environment.
 
 <a name="create-environment"></a>
 
