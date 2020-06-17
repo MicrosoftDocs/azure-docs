@@ -44,7 +44,7 @@ A common scenario for a subdomain takeover:
 
     Now, the traffic intended for `greatapp.contoso.com` goes to the threat actor's Azure site, and the threat actor is in control of the content that is displayed. 
 
-    The 'dangling DNS' was exploited, Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
+    The 'dangling DNS' was exploited and Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
 
 ![Subdomain takeover from a deprovisioned website](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -124,9 +124,9 @@ It's often up to developers and operations teams to run cleanup processes to avo
     |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
     |Azure Traffic Manager|microsoft.network/trafficmanagerprofiles|properties.dnsConfig.fqdn|
     |Azure Container Instance|microsoft.containerinstance/containergroups|properties.ipAddress.fqdn|
-    |Azure API Mnagement|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
-    |Azure AppService|microsoft.web/sites|properties.defaultHostName|
-    |Azure AppService - Slots|microsoft.web/sites/slots|properties.defaultHostName|
+    |Azure API Management|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
+    |Azure App Service|microsoft.web/sites|properties.defaultHostName|
+    |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
 
     Example of using the Azure Resource Graph query with the above table to build your service catalog: 
     ```
