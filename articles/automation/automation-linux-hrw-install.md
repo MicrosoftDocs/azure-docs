@@ -71,11 +71,11 @@ To install and configure a Linux Hybrid Runbook Worker, you can use one of the f
 
 Before continuing, review the following if you are planning to deploy the Hybrid Runbook Worker role on Azure or non-Azure VMs:
 
-    * If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+* If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-    * If you have a workspace, but it is not linked to your Automation account, refer to step 1. 
+* If you have a workspace, but it is not linked to your Automation account, refer to step 1.
 
-    * If your Automation account is already linked to a workspace, refer to steps 2 and 3.
+* If your Automation account is already linked to a workspace, refer to steps 2 and 3.
 
 >[!NOTE]
 > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
