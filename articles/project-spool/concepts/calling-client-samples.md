@@ -273,8 +273,9 @@ const localVideoStream = await call.startVideo(videoDevice);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-Future startVideoTask = call.stapVideo(localVideoStream);
-startVideoTask.get();
+VideoDeviceInfo videoDevice = <get-video-device>;
+Future startVideoFuture = call.startVideo(videoDevice);
+startVideoFuture.get();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
