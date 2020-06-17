@@ -19,13 +19,11 @@ Use this article to create and deploy a Cognitive Services resource, using an [A
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 
-Make sure to write down the object ID. You need it in the next section of this quickstart.
-
 ## Create a Cognitive Services resource.
 
 ### Review the template
 
-You can find the template in the [Azure quickstart ARM templates](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts).
+You can find the template in [Azure quickstart ARM templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
@@ -49,28 +47,26 @@ One Azure resource is defined in the template:
 
 3. Select **Create**. After the resource has been deployed successfully, you will get a notification.
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, REST API, or the Azure CLI. See [Deploy templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell) for more information.
 
 ## Validate the deployment
 
-You can either use the Azure portal to check your Cognitive Services resource, or use the following Azure CLI or Azure PowerShell script to list the secret created.
+You can either use the Azure portal to check your Cognitive Services resource, or use the following Azure CLI and PowerShell scripts.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-echo "Enter your Cognitive Services account name:" &&
-read accountName &&
 echo "Enter the resource group where the Cognitive Services resource exists:" &&
-read resourcegroupName &&
-az cognitiveservices show -g $resourcegroupName -n $accountName
+read resourceGroupName &&
+az cognitiveservices account list -g $resourceGroupName
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
-(Get-AzResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" -ResourceGroupName $resourceGroupName).Name
- Write-Host "Press [ENTER] to continue..."
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Cognitive Services resource exists" 
+(Get-AzResource -ResourceType "Microsoft.CognitiveServices/accounts" -ResourceGroupName $resourceGroupName).Name 
+Write-Host "Press [ENTER] to continue..." 
 ```
 
 ---
