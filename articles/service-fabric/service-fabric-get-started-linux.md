@@ -59,7 +59,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 2. Add the `dotnet` repo to your sources list.
 
     ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
