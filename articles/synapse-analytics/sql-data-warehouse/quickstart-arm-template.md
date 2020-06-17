@@ -77,6 +77,7 @@ Notice the resourceType and sort elements in the URL.
     * **Service Level Objective**: Accept the default, DW400c.
     * **Location**: Accept the default location of the resource group.
     * **Review and Create**: Select.
+    * **Create**: Select.
 <!--
 <a href="https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create" target="_blank">
 <img src="../../media/template-deployments/deploy-to-azure.svg"/>
@@ -155,7 +156,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 <!-- Include a paragraph that explains how to delete unneeded resources. Add a portal screenshot or use interactive Azure CLI and Azure PowerShell commands to clean up the resources. -->
 
 
-When no longer needed, delete the resource group. Delete the resource group by using Azure CLI or Azure PowerShell:
+When no longer needed, delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
@@ -208,3 +209,5 @@ For a step-by-step tutorial that guides you through the process of creating a te
 
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
+See additional quickstarts to create a Synape  SQL pool using the [portal]() or pwershell.
