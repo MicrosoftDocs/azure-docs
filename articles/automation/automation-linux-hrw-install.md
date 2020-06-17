@@ -92,7 +92,7 @@ Before continuing, review the following if you are planning to deploy the Hybrid
 
 2. Verify agent is reporting to workspace.
  
-    The Log Analytics agent for Windows connects machines to an Azure Monitor Log Analytics workspace. When you install the agent on your machine and connect it to your workspace, it automatically downloads the components that are required for the Hybrid Runbook Worker.
+    The Log Analytics agent for Linux connects machines to an Azure Monitor Log Analytics workspace. When you install the agent on your machine and connect it to your workspace, it automatically downloads the components that are required for the Hybrid Runbook Worker.
 
     When the agent has successfully connected to your Log Analytics workspace after a few minutes, you can run the following query to verify that it is sending heartbeat data to the workspace.
 
@@ -113,7 +113,7 @@ Before continuing, review the following if you are planning to deploy the Hybrid
 3. After the command is completed, the Hybrid Worker Groups page in the Azure portal shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and select the **Hybrid Workers** tile. On the Hybrid Workers page, you see each member of the group listed.
 
 > [!NOTE]
-> If you are using the Azure Monitor virtual machine extension for Linux for an Azure VM we recommend setting `autoUpgradeMinorVersion` to false as auto-upgrading versions can cause issues the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> If you are using the Azure Monitor virtual machine extension for Linux for an Azure VM, we recommend setting `autoUpgradeMinorVersion` to `false` as auto-upgrading versions can cause issues with the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## Turn off signature validation
 
