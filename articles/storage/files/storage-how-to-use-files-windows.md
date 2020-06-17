@@ -79,7 +79,7 @@ This article uses the storage account key to access the file share. A storage ac
 
 A common pattern for lifting and shifting line-of-business (LOB) applications that expect an SMB file share to Azure is to use an Azure file share as an alternative for running a dedicated Windows file server in an Azure VM. One important consideration for successfully migrating a line-of-business application to use an Azure file share is that many line-of-business applications run under the context of a dedicated service account with limited system permissions rather than the VM's administrative account. Therefore, you must ensure that you mount/save the credentials for the Azure file share from the context of the service account rather than your administrative account.
 
-### Mount the Azure file share with PowerShell
+### Mount the Azure file share
 
 The Azure portal will provide you with a cmdlet allowing you to easily mount your file share. We recommend using this provided cmdlet, rather than constructing the mount cmd yourself.
 
