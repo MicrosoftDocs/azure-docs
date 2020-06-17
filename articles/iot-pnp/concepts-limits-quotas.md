@@ -49,4 +49,4 @@ The parser library follows the limits that apply to the [Digital Twins Definitio
 
 ## Next steps
 
-A suggested next step is to learn how to [Connect to and interact with an IoT Plug and Play device](./howto-connect-pnp-device-solution.md).
+The suggested next step is to review the [IoT Plug and Play architecture](concepts-architecture.md).

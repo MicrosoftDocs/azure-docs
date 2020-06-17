@@ -51,8 +51,6 @@
     href: howto-install-iot-explorer.md
   - name: Manage models in the repository
     href: howto-manage-models.md
-  - name: Connect to a device in your solution
-    href: howto-connect-pnp-device-solution.md
 - name: Reference
   items:
   - name: Libraries and SDKs
