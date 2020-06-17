@@ -71,7 +71,7 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 | Bronze          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
 > [!WARNING]
-> With Bronze durability, the manual trigger for automatic OS image upgrade might not work as expected. [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* as a workaround.
+> With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 
 > [!IMPORTANT]
 > Regardless of durability level, running a [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the cluster.
