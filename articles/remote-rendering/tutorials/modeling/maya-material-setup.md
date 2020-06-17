@@ -1,4 +1,12 @@
-# Creating Physically Based Rendering materials in Maya
+---
+title: Setting up Physically Based Rendering materials in Maya
+description: Explains how to set up Physically Based Rendering materials in Maya and export it into FBX format
+author: muxanickms
+ms.author: misams
+ms.date: 06/16/2020
+ms.topic: tutorial
+---
+# Setting up Physically Based Rendering materials in Maya
 
 ## Overview
 Creating Physically Based Rendering (**PBR**) materials in Maya is a relatively straight forward task, similar in many ways to PBR set-up in other content creation apps like 3DS Max. The following is a guide to basic PBR shader set-up and FBX export for ARR projects. 
@@ -78,5 +86,3 @@ Once you have set your configuration for Export, click 'Export Selection'.
 ## Conclusion
 
 In general this type of materials looks more realistic as it is based on real world physics. It creates an additional immersive effect that the scene exists in the real world.
-
-You can download a Sample scene [here](sample_scene.zip).
