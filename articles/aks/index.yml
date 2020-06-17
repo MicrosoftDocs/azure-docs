@@ -54,18 +54,14 @@ landingContent:
             url: kubernetes-walkthrough-rm-template.md
 
   # Card
-  - title: Develop and debug applications with AKS and Dev Spaces
+  - title: Develop and debug applications with Local Process with Kubernetes
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
-          - text: Java
-            url: ../dev-spaces/quickstart-java.md
-          - text: .NET and VS Code
-            url: ../dev-spaces/quickstart-netcore.md
-          - text: .NET and Visual Studio
-            url: ../dev-spaces/quickstart-netcore-visualstudio.md
-          - text: Node.js
-            url: ../dev-spaces/quickstart-nodejs.md
+          - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
+            url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          - text: Use Local Process with Kubernetes with Visual Studio (preview)
+            url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
 
   # Card
   - title: Deploy, manage, and update applications
