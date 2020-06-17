@@ -17,14 +17,14 @@ In this tutorial, you learn how to:
 > * How to handle instancing of objects and materials.
 > * How to export a scene to FBX format and important options to select.
 
-Creating [Physically Based Rendering (**PBR**)](../../overview/features/pbr-materials.md) materials in `Maya` are a relatively straight forward task, similar in many ways to PBR set-up in other content creation apps like `3DS Max`. The following tutorial is a guide to basic PBR shader set-up and FBX export for ARR projects. 
+Creating [Physically Based Rendering (PBR) materials](../../overview/features/pbr-materials.md) in `Maya` are a relatively straight forward task, similar in many ways to PBR set-up in other content creation apps like `3DS Max`. The following tutorial is a guide to basic PBR shader set-up and FBX export for ARR projects. 
 
-The sample scene in this tutorial contains a number of `Polygon Box` objects that have been assigned a number of different materials - Wood, Metal, Painted Metal, Plastic, and Rubber. Broadly speaking, each material contains all or most of the following textures 
+The sample scene in this tutorial contains a number of `Polygon Box` objects that have been assigned a number of different materials - wood, metal, painted metal, plastic, and rubber. Broadly speaking, each material contains all or most of the following textures 
 
-* `Albedo`, also called 'Diffuse' which is the materials color map, 
+* `Albedo`, is the materials color map, also called `Diffuse`, or `BaseColor`
 * `Metalness`, which determines if a material is metallic and which parts are metallic. 
 * `Roughness`, which determines how rough or smooth a surface is, affecting the sharpness or blurriness of the reflections and highlights on a surface.
-*  , which adds detail to a surface, for example pitting and dents on a metal surface or grain in wood without having to add more polygons.
+* `Normals`, which adds detail to a surface, for example pitting and dents on a metal surface or grain in wood without having to add more polygons.
 * `Ambient Occlusion`, which is used to add soft shading and contact shadows to a model. It is a greyscale map that indicates which areas of a model receive full lighting (white) or full shade (Black). 
 
 ## Prerequisites
@@ -85,7 +85,7 @@ In the sample scene, each individual box object has been instanced. This action 
 
 We can now move on to the FBX export of your scene or scene assets. Generally speaking, it makes sense when exporting assets to only select for export those objects/assets from your scene that you want. If you have 100 objects in a scene but you only want to use 30 of them, there is no point in exporting the whole scene. So unless you are happy to export the entire scene, make your selection and go to:
 
-* `File` > `Export Selection` and in the export dialogue go to the bottom and set `Files of Type` to `FBX Export`. This window will expose the FBX Export settings. The Primary settings for FBX Export are highlighted in red in the image below.
+* `File` > `Export Selection` and in the export dialog go to the bottom and set `Files of Type` to `FBX Export`. This window will expose the FBX Export settings. The primary settings for FBX Export are highlighted in red in the image below.
 
 ![FBX exporting](media/FBX-exporting.jpg)
 
@@ -94,7 +94,7 @@ Depending on your requirements - for example, you may want to send an asset to a
 > [!TIP]
 > Notice that the file in this case has been named to reflect this condition. This is a good practice means of keeping track of your assets. 
 
-Once you have set your configuration for Export, click 'Export Selection'.
+Once you have finished setting your configuration for Export, click 'Export Selection' button in the bottom right.
 
 ![Embedding media](media/embedding-media.jpg)
 
