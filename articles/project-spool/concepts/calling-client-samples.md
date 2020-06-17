@@ -61,7 +61,7 @@ To create and start a call you need to call one of the APIs on CallClient and pr
 
 Call creation and start is synchronous, as a result you'll receive call instance, allowing you to subscribe to all events on the call.
 
-* make 1:1 call to user or making 1:n call with users and PSTN
+##### Make 1:1 call to user or making 1:n call with users and PSTN
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -81,7 +81,7 @@ let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(particip
 ```
 ---
 
-* making 1:n call with users and PSTN
+##### Making 1:n call with users and PSTN
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -103,6 +103,7 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 
 ### Mid-call operations
 During a call you can control modalities
+//ARTUR REPHRASE
 
 #### Mute/unmute
 To mute or umute the local endpoint you can use the `mute` and `unmute` asynchronous APIs 
@@ -133,27 +134,27 @@ call.unmute(completionHandler: nil);
 ```
 ---
  
-### Remote participants management
-All remote participants are represented by RemoteParticipant type and available through 'remoteParticipants' collection on a call instance
+#### Remote participants management
+All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance
 
-#### List participants in a call
-List all participants in a call
+##### List participants in a call
 
 #### [Javascript](#tab/javascript)
+
 ```js
 call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+RemoteParticipant[] remoteParticipants = call.getRemoteParticipants();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+call.remoteParticipants
 ```
 --- 
 
-Remote participant has set of properties
+##### Remote participant has set of properties
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -176,11 +177,90 @@ const screenSharingStreams: RemoteVideoStream[] = remoteParticipant.screenSharin
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// [String] userId - same as the one used to provision token for another user
+String userId = remoteParticipant.getIdentity();
+
+// ParticipantState.Idle = 0, ParticipantState.EarlyMedia = 1, ParticipantState.Connecting = 2, ParticipantState.Connected = 3, ParticipantState.OnHold = 4, ParticipantState.InLobby = 5, ParticipantState.Disconnected = 6
+ParticipantState state = remoteParticipant.getState();
+
+// [boolean] isMuted - indicating if participant is muted
+boolean isParticipantMuted = remoteParticipant.getIsMuted();
+
+// [boolean] isSpeaking - indicating if participant is currently speaking
+boolean isParticipantSpeaking = remoteParticipant.getIsSpeaking();
+
+// List<RemoteVideoStream> - collection of video streams this participants has
+List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
+
+// List<RemoteVideoStream> - collection of screen sharing streams this participants has
+List<RemoteVideoStream> screenSharingStreams = remoteParticipant.getScreenSharingStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
+
+// [AcsError] callEndReason - containing code/subcode/message indicating how call ended
+AcsError callEndReason = remoteParticipant.getCallEndReason();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// [String] userId - same as the one used to provision token for another user
+var userId = remoteParticipant.identity;
+
+// ACSParticipantStateIdle = 0, ACSParticipantStateEarlyMedia = 1, ACSParticipantStateConnecting = 2, ACSParticipantStateConnected = 3, ACSParticipantStateOnHold = 4, ACSParticipantStateInLobby = 5, ACSParticipantStateDisconnected = 6
+var state = remoteParticipant.state;
+
+// [AcsError] callEndReason - reason why participant left the call, contains code/subcode/message
+var callEndReason = remoteParticipant.callEndReason
+
+// [Bool] isMuted - indicating if participant is muted
+var isMuted = remoteParticipant.isMuted;
+
+// [Bool] isSpeaking - indicating if participant is currently speaking
+var isSpeaking = remoteParticipant.isSpeaking;
+
+// ACSRemoteVideoStream[] - collection of video streams this participants has
+var videoStreams = remoteParticipant.videoStreams; // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
+
+// ACSRemoteVideoStream[] - collection of screen sharing streams this participants has
+var screenSharingStreams = remoteParticipant.screenSharingStreams; // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
+```
+--- 
+
+#### d d participant to a call
+To add a participant to a call, either a user or a phone number you have to call 'addParticipant' API
+It will synchronously return remote participant instance
+
+#### [Javascript](#tab/javascript)
+```js
+const remoteParticipant = call.addParticipant('acsId');
+const remoteParticipant = call.addParticipant(utils.normalizePhoneNumber('+123456789'));
+```
+#### [Android (Java)](#tab/java)
+```java
+RemoteParticipant remoteParticipant = call.addParticipant("userId");
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+ACSRemoteParticipant* remoteParticipant = self.call.addParticipant("userId");
+```
+--- 
+
+#### Remove participant from a call
+To remove participant from a call, either a user or a phone number you have to call 'removeParticipant' API
+It will resolve asynchronously
+
+#### [Javascript](#tab/javascript)
+```js
+await call.removeParticipant(remoteParticipant);
+```
+#### [Android (Java)](#tab/java)
+```java
+// Get and remove first participant from a call
+RemoteParticipant remoteParticipant = call.getParticipants().get(0);
+Future removeParticipantTask = call.removeParticipant(remoteParticipant);
+removeParticipantTask.get();
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+call.removeParticipant(participant: remoteParticipant,
+                       completionHandler: ((error: Error?) -> Void)
 ```
 --- 
 
@@ -197,7 +277,17 @@ const localVideoStream = await call.startVideo(videoDevice);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+call.startVideo(device: ACSVideoDeviceInfo(),
+                completionHandler: ((error: Error?) -> Void) { 
+    if(error == nil)
+    {
+        print("Video was started successfully.");
+    }
+    else
+    {
+        print("Video failed to start.");
+    }   
+});
 ```
 --- 
 
@@ -229,44 +319,16 @@ await call.stopVideo(localVideoStream);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
-```
---- 
-
-#### Add participant to a call
-To add a participant to a call, either a user or a phone number you have to call 'addParticipant' API
-It will synchronously return remote participant instance
-
-#### [Javascript](#tab/javascript)
-```js
-const remoteParticipant = call.addParticipant('acsId');
-const remoteParticipant = call.addParticipant(utils.normalizePhoneNumber('+123456789'));
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
---- 
-
-#### Remote participant from a call
-To remove participant from a call, either a user or a phone number you have to call 'removeParticipant' API
-It will resolve asynchronously
-
-#### [Javascript](#tab/javascript)
-```js
-await call.removeParticipant(remoteParticipant);
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
+call.stopVideo(completionHandler: ((error: Error?) -> Void) { 
+    if(error == nil)
+    {
+        print("Video was stopped successfully.");
+    }
+    else
+    {
+        print("Video failed to stop.");
+    }   
+});
 ```
 --- 
 
@@ -279,33 +341,18 @@ To list streams of remote participants inspect his videoStreams or screenSharing
 
 #### [Javascript](#tab/javascript)
 ```js
-const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, RemoteVideoStream ...]
-const screenSharingStreams = remoteParticipant.screenSharingStreams; // [RemoteVideoStream, RemoteVideoStream ...]
-```
-#### [Android (Java)](#tab/java)
-```java
-// bar
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// swift
-```
----
-##### RemoteVideoStream
-RemoteVideoStream represents remote video or screen sharing stream that this participant sends in a call
-
-#### [Javascript](#tab/javascript)
-```js
 const remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
 const remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+RemoteVideoStream remoteVideoStream = remoteParticipant.getVideoStreams().get(0);
+RemoteVideoStream remoteScreenShareStream = remoteParticipant.getScreenSharingStreams().get(0);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+var remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
+var remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
 ```
 --- 
 It has following properties:
@@ -313,18 +360,30 @@ It has following properties:
 #### [Javascript](#tab/javascript)
 ```js
 const type: string = remoteParticipantStream.type; // 'Video' | 'ScreenSharing';
-
 const type: boolean = remoteParticipantStream.isAvailable; // indicates if remote stream is available
-
 const activeRenderers: RemoteVideoRenderer[] = remoteParticipantStream.activeRenderers; // collection of active renderers rendering given stream
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// [MediaStreamType] type one of 'Video' | 'ScreenSharing';
+MediaStreamType type = remoteVideoStream.getType();
+
+// [boolean] if remote stream is available
+var isAvailable = remoteScreenShareStream.getIsAvailable();
+
+// RemoteVideoRenderer[] collection of active renderers rendering given stream
+var activeRenders = remoteVideoStream.getActiveRenderers();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// [ACSMediaStreamType] type one of 'Video' | 'ScreenSharing';
+var type = remoteParticipantStream.type;
+
+// [Bool] if remote stream is available
+var isAvailable = remoteParticipantStream.isAvailable;
+
+// RemoteVideoRenderer[] collection of active renderers rendering given stream
+var activeRenders = remoteParticipantStream.activeRenderers;
 ```
 --- 
 
@@ -340,11 +399,14 @@ const remoteVideoRenderer = await remoteParticipantStream.render(target, scaling
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+Future remoteVideoRenderTask = remoteVideoStream.render(ScalingMode.Fit);
+RenderTarget renderingSurface = remoteVideoRenderTask.get();
+// Attach the renderingSurface to a viewable location on the app at this point
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+let renderer: ASARemoteVideoRenderer = remoteVideoStream.render(ScalingMode.Stretch);
+let targetSurface: UIView = renderer.target;
 ```
 --- 
 
@@ -366,14 +428,24 @@ remoteVideoRenderer.target
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// [boolean] isRendering - indicating if stream is being rendered
+remoteVideoRenderer.getIsRendering();
+// [ScalingMode] ScalingMode.Stretch = 0, ScalingMode.Crop = 1, ScalingMode.Fit = 2
+remoteVideoRenderer.getScalingMode();
+// [UIView] target an UI node that should be used as a placeholder to render stream
+remoteVideoRenderer.getTarget()
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// [Bool] isRendering - indicating if stream is being rendered
+remoteVideoRenderer.isRendering; 
+// [ACSScalingMode] ACSScalingModeStretch = 0, ACSScalingModeCrop = 1, ACSScalingModeFit = 2
+remoteVideoRenderer.scalingMode
+// [UIView] target an HTML node that should be used as a placeholder for stream to render in
+remoteVideoRenderer.target
 ```
 --- 
-As a result of this call remoteVideoRenderer is added to activeRenderes collection
+As a result of this call remoteVideoRenderer is added to activeRenderers collection
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -401,11 +473,21 @@ await remoteVideoRenderer.resume(); // resume rendering
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// [boolean] isRendering - indicating if stream is being rendered
+remoteVideoRenderer.getIsRendering();
+// [ScalingMode] ScalingMode.Stretch = 0, ScalingMode.Crop = 1, ScalingMode.Fit = 2
+remoteVideoRenderer.getScalingMode();
+// [UIView] target an UI node that should be used as a placeholder to render stream
+remoteVideoRenderer.getTarget()
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// [Bool] isRendering - indicating if stream is being rendered
+remoteVideoRenderer.isRendering; 
+// [ACSScalingMode] ACSScalingModeStretch = 0, ACSScalingModeCrop = 1, ACSScalingModeFit = 2
+remoteVideoRenderer.scalingMode
+// [UIView] target an HTML node that should be used as a placeholder for stream to render in
+remoteVideoRenderer.target
 ```
 --- 
 
@@ -480,11 +562,21 @@ const localSpeakers = await deviceManager.getSpeakerList(); // [AudioDeviceInfo,
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// enumerate local cameras
+List<VideoDeviceInfo> localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
+// enumerate local cameras
+List<AudioDeviceInfo> localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+// enumerate local cameras
+List<AudioDeviceInfo> localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// enumerate local cameras
+var localCameras = deviceManager.getCameraList(); // [ACSVideoDeviceInfo, ACSVideoDeviceInfo...]
+// enumerate local cameras
+var localMicrophones = deviceManager.getMicrophoneList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
+// enumerate local cameras
+var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ```
 --- 
 #### Set default camera/microphone/speaker
@@ -495,32 +587,46 @@ If not ACS will fallback to OS defaults
 
 #### [Javascript](#tab/javascript)
 ```js
-
 // get default camera
 const defaultCamera = deviceManager.getCamera();
-
 // [asynchronous] set default camera
 await deviceManager.setCamera(VideoDeviceInfo);
-
 // get default microphone
 const defaulttMicrophone = deviceManager.gettMicrophone();
-
 // [asynchronous] set default microphone
 await devicetMicrophone.settMicrophone(AudioDeviceInfo);
-
 // get default speaker
 const defaultSpeaker = deviceManager.getSpeaker();
-
 // [asynchronous] set default speaker
 await deviceManager.setSpeaker(AudioDeviceInfo);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// get default camera
+VideoDeviceInfo defaultCamera = deviceManager.getCamera();
+// get default microphone
+AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophone();
+// get default speaker
+AudioDeviceInfo defaultSpeaker = deviceManager.getSpeaker();
+// [Synchronous] set default microphone
+defaultMicrophone.setMicrophone(new AudioDeviceInfo());
+// [Synchronous] set default speaker
+deviceManager.setSpeakers(new AudioDeviceInfo());
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// get default camera
+var defaultCamera = deviceManager.getCamera();
+// [Synchronous] set default camera
+var deviceManager.setCamera(VideoDeviceInfo);
+// get default microphone
+var defaultMicrophone = deviceManager.getMicrophone();
+// [Synchronous] set default microphone
+defaultMicrophone.setDefaultMicrophone(AudioDeviceInfo);
+// get default speaker
+var defaultSpeaker = deviceManager.getSpeaker();
+// [Synchronous] set default speaker
+deviceManager.setDefaultSpeakers(AudioDeviceInfo);
 ```
 --- 
 #### Local camera preview
@@ -534,18 +640,21 @@ await previewRenderer.start();
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+PreviewRenderer previewRenderer = deviceManager.renderPreviewVideo(new VideoDeviceInfo(), ScalingMode.Fit);
+Future renderTask = previewRenderer.start();
+RenderTarget renderingSurface = renderTask.get();
+// Attach the renderingSurface to a viewable location on the app at this point
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+var previewRenderer = deviceManager.renderPreviewVideoWithCameraDevice(defaultCamera, target, remoteVideoRenderer.scalingMode);
+previewRenderer.start();
 ```
 --- 
 Preview renderer has set of properties and methods that allows you to control it:
 
 #### [Javascript](#tab/javascript)
 ```js
-
 // [bool] isRendering
 previewRenderer.isRendering
 // [HTMLNode] target
@@ -554,7 +663,6 @@ previewRenderer.target
 previewRenderer.scalingMode
 // [VideoDeviceInfo] videoDeviceInfo
 previewRenderer.videoDeviceInfo
-
 // [asynchronous] start
 previewRenderer.start();
 // [asynchronous] stop
@@ -566,11 +674,41 @@ previewRenderer.setScalingMode(ScalingMode);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// [boolean] isRendering
+previewRenderer.getIsRendering()
+// [RenderTarget] target
+previewRenderer.getTarget()
+// [ScalingMode] scalingMode
+previewRenderer.getScalingMode()
+// [VideoDeviceInfo] videoDeviceInfo
+previewRenderer.getVideoDeviceInfo()
+// [Asynchronous] start
+previewRenderer.start().get();
+// [Asynchronous] stop
+previewRenderer.stop().get();
+// [Asynchronous] switchDevice
+previewRenderer.switchDevice(new VideoDeviceInfo()).get();
+// setScalingMode
+previewRenderer.setScalingMode(ScalingMode);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// swift
+// [Bool] isRendering
+previewRenderer.isRendering
+// [UIView] target
+previewRenderer.target
+// [ACSScalingMode] scalingMode
+previewRenderer.scalingMode
+// [ACSVideoDeviceInfo] videoDeviceInfo
+previewRenderer.videoDeviceInfo
+// [Synchronous] start
+previewRenderer.start();
+// [Synchronous] stop
+previewRenderer.stop();
+// [Synchronous] switchDevice
+previewRenderer.switchDevice(ACSVideoDeviceInfo);
+// setScalingMode
+previewRenderer.setScalingMode(ACSScalingMode);
 ```
 --- 
  
@@ -595,7 +733,19 @@ object.off('propertyNameChanged',eventHandler);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// bar
+// subscribe
+PropertyChangedListener callIdChangeListener = new PropertyChangedListener()
+{
+    @Override
+    public void onPropertyChanged(PropertyChangedEvent args)
+    {
+        Log.d("The call id has changed.");
+    }
+}
+call.addOnCallIdChangedListener(callIdChangeListener);
+
+//unsubscribe
+call.removeOnCallIdChangedListener(callIdChangeListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
@@ -628,7 +778,6 @@ object.off('collectionNameUpdated',eventHandler);
 // swift
 ```
 --- 
-
 
 
 
