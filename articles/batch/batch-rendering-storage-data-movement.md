@@ -6,7 +6,7 @@ ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Storage and data movement options for rendering asset and output files

@@ -6,7 +6,6 @@
   - name: What are Azure Reservations?
     href: save-compute-costs-reservations.md
 - name: How-to guides
-  expanded: true
   items:
   - name: Determine what to purchase
     items:
@@ -36,7 +35,13 @@
       href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: SQL Data Warehouse
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MySQL
+      href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MariaDB
+      href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Synapse Analytics
       href: prepay-sql-data-warehouse-charges.md
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -50,12 +55,17 @@
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
+  - name: Report costs
+    items:
+    - name: View reservation transactions
+      href: view-purchase-refunds.md
+    - name: Charge back reservation costs
+      href: charge-back-usage.md
   - name: Renew reservations
     items:
     - name: Renew a reservation
       href: reservation-renew.md
 - name: Concepts
-  expanded: true
   items:
   - name: How reservation recommendations are created
     href: reserved-instance-purchase-recommendations.md
@@ -91,7 +101,7 @@
       href: understand-storage-charges.md
     - name: SQL Database
       href: understand-reservation-charges.md
-    - name: SQL Data Warehouse
+    - name: Azure Synapse Analytics
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md
@@ -113,4 +123,3 @@
     href: /rest/api/consumption/usagedetails
   - name: Cost Management - Consumption Reservations Details REST API
     href: /rest/api/consumption/reservationsdetails
-    

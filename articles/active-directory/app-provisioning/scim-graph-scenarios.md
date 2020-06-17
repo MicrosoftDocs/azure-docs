@@ -1,29 +1,22 @@
 ---
-title: Using SCIM, the Microsoft Graph, and the Azure AD provisioning service to provision users and enrich your application with the data it needs | Microsoft Docs
-description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs .
+title: Use SCIM, Microsoft Graph, and Azure AD to provision users and enrich apps with data
+description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/23/2020
-ms.author: mimart
-ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
+ms.topic: reference
+ms.date: 04/26/2020
+ms.author: kenwith
+ms.reviewer: arvinh, celested
 ---
 
 
 # Using SCIM and Microsoft Graph together to provision users and enrich your application with the data it needs
 
-**Target audience:** This document is targeted towards developers building applications to be integrated with Azure AD. For others looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this and review the application specific [tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) or review [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Target audience:** This article is targeted towards developers building applications to be integrated with Azure Active Directory (Azure AD). If you're looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this article and review the application specific [tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) or review [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Common scenarios**
 
@@ -44,7 +37,6 @@ Today, IT admins provision users by manually creating user accounts or periodica
 **Recommendation**: 
 * If your customers use various IdPs and you do not want to maintain a sync engine to integrate with each, support a SCIM compliant [/Users](https://aka.ms/scimreferencecode) endpoint. Your customers will be able to easily use this endpoint to integrate with the Azure AD provisioning service and automatically create user accounts when they need access. You can build the endpoint once and it will be compatible with all IdPs. Check out the example request below for how a user would be created using SCIM.
 * If you require user data found on the user object in Azure AD and other data from across Microsoft, consider building a SCIM endpoint for user provisioning and calling into the Microsoft Graph to get the rest of the data. 
-
 
 ```json
 POST /Users
@@ -107,8 +99,8 @@ My application is built into Microsoft Teams and relies on message data. In addi
 I need to be able to track changes to Teams and Outlook messages and react to them in real time. How can I get these changes pushed to my application?
 
 **Recommendation:** The Microsoft Graph provides [change notifications](https://docs.microsoft.com/graph/webhooks) and [change tracking](https://docs.microsoft.com/graph/delta-query-overview) for various resources. Note the following limitations of change notifications:
-- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost
-- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost
+- If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost.
+- The order in which changes are received are not guaranteed to be chronological.
 - Change notifications don't always contain the [resource data](https://docs.microsoft.com/graph/webhooks-with-resource-data)
 For the reasons above, developers often use change notifications along with change tracking for synchronization scenarios. 
 

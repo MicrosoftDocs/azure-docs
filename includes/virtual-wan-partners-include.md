@@ -24,6 +24,7 @@ You can check the links in this section for more information about services offe
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[EdgeConnect and Microsoft Azure Virtual WAN Integration Guide](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
+|[Velocloud-VMWare]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Azure Virtual WAN Velocloud Deployment Guide](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Configuring Versa SD-WAN and Microsoft Azure vWAN (Available for registered customers)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
 
 *\* Direct link unavailable. Please contact partner company for support.*

@@ -5,7 +5,7 @@ description: Learn how to update a web service to use a newly trained machine le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,8 +13,6 @@ ms.custom: seodec18
 ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio (classic). If you're looking to retrain a classic web service, [view this how-to article.](retrain-classic-web-service.md)
 

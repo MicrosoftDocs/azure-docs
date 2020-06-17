@@ -25,6 +25,7 @@ These capabilities are provided out-of-box by native integration with Azure Reso
 > * Backup Explorer is currently not supported in national clouds.
 > * Currently, customizing the Backup Explorer template is not supported.
 > * We do not recommend writing custom automations on Azure Resource Graph data.
+> * Currently, Backup Explorer allows you to monitor backups across a maximum of 1000 subscriptions (across tenants).
 
 ## Get started
 

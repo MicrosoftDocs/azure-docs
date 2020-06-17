@@ -171,6 +171,14 @@ The VM is backed up using the schedule and retention settings in the modified or
 
 You can restore the VM from available restore points that were created before the move operation.
 
+### What happens after I move a VM to a different resource group?
+
+Once a VM is moved to a different resource group, it's a new VM as far as Azure Backup is concerned.
+
+After moving the VM to a new resource group, you can reprotect the VM either in the same vault or a different vault. Since this is a new VM for Azure Backup, you'll be billed for it separately.
+
+The old VM's restore points will be available for restore if needed. If you don't need this backup data, you can stop protecting your old VM with delete data.
+
 ### Is there a limit on number of VMs that can be associated with the same backup policy?
 
 Yes, there's a limit of 100 VMs that can be associated to the same backup policy from the portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.

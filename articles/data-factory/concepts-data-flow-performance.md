@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
+ms.date: 05/21/2020
 ---
 
 # Mapping data flows performance and tuning guide
@@ -36,7 +36,7 @@ While designing mapping data flows, you can unit test each transformation by cli
 
 An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data. ADF Data Flows utilizes Spark for the compute engine. The Spark environment works very well on memory-optimized resources.
 * Try a **Compute Optimized** cluster if you want your processing rate to be higher than your input rate.
-* Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds.
+* Try a **Memory Optimized** cluster if you want to cache more data in memory. Memory optimized has a higher price-point per core than Compute Optimized, but will likely result in faster transformation speeds. If you experience out of memory errors when execution your data flows, switch to a memory optimized Azure IR configuration.
 
 ![New IR](media/data-flow/ir-new.png "New IR")
 
@@ -135,6 +135,10 @@ For example, if you have a list of data files from July 2019 that you wish to pr
 ```DateFiles/*_201907*.txt```
 
 By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+The pipeline For Each in parallel mode will spawn multiple clusters by spinning-up job clusters for every executed data flow activity. This can cause Azure service throttling with high numbers of concurrent executions. However, use of Execute Data Flow inside of a For Each with Sequential set in the pipeline will avoid throttling and resource exhaustion. This will force Data Factory to execute each of your files against a data flow sequentially.
+
+It is recommended that if you use For Each with a data flow in sequence, that you utilize the TTL setting in the Azure Integration Runtime. This is because each file will incur a full 5 minute cluster startup time inside of your iterator.
 
 ### Optimizing for CosmosDB
 

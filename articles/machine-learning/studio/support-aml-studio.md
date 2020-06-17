@@ -5,10 +5,10 @@ description: Get support and training and provide feedback for Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019 
 ---
 # Get support and training for Azure Machine Learning Studio (classic)

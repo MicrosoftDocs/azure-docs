@@ -30,7 +30,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO needs the user's device to be **domain-joined** only, but it is not used on [Azure AD Joined](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md) devices. SSO on Azure AD joined and Hybrid Azure AD joined works based on the [primary refresh token](../devices/concept-primary-refresh-token.md).
+>Seamless SSO needs the user's device to be **domain-joined** only, but it is not used on [Azure AD Joined](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD joined](../devices/concept-azure-ad-join-hybrid.md) devices. SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [primary refresh token](../devices/concept-primary-refresh-token.md).
 
 ## Key benefits
 

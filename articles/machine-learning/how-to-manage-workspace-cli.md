@@ -5,7 +5,7 @@ description: Learn how to use the Azure CLI to create a new Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.author: larryfr
 author: Blackmist

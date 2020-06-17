@@ -4,8 +4,8 @@ description: Learn about the impact that Google security and privacy policies ha
 services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
-ms.topic: article
-ms.date: 04/24/2020
+ms.topic: conceptual
+ms.date: 06/05/2020
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
@@ -29,13 +29,29 @@ If you have logic apps that use the Gmail connector, you'll receive an email abo
 
 Under this policy, when you use a Gmail consumer account, you can use the Gmail connector with only specific Google-approved services, which are subject to change. Our engineering teams continue working with Google to add more services to this list. For now, here are the Google-approved triggers, actions, and connectors that you can use in the same logic app workflow with the Gmail connector when you use a Gmail consumer account:
 
-* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, HTTP, Liquid, Request, Schedule, Variables, and XML
+* Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
 * Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
+
+## Non-compliant examples
+
+Here are some examples that use the Gmail connector with built-in triggers and actions or managed connectors that aren't approved by Google:
+
+* This logic app uses the Gmail connector with the HTTP built-in trigger:
+
+  ![Non-compliant logic app - Example 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+
+* This logic app uses the Gmail connector with the Azure Blob Storage connector:
+
+  ![Non-compliant logic app - Example 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
+
+* This logic app uses the Gmail connector with the Twitter connector:
+
+  ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
 For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
 

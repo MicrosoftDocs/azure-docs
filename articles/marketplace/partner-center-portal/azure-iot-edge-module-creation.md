@@ -1,31 +1,25 @@
 ---
-title: Create an Azure IoT Edge module offer with Partner Center - Azure Marketplace
-description: Learn how to create an IoT Edge module offer in Azure Marketplace using Partner Center
+title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 05/19/2020
 ---
 
-# Create an IoT Edge module offer
+# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
 
-> [!IMPORTANT]
-> We're moving the management of your IoT Edge module offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [IoT Edge module offer publishing overview](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) for Cloud Partner Portal to manage your offers.
-
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace.
-
-Before you can create an IoT Edge module offer, you must have a commercial marketplace account in Partner Center. If you haven't created one yet, see [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
-1. Sign in to Partner Center.
-2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **IoT Edge module**.
 
-    ![Illustrates the left-navigation menu.](./media/cs-menu-overview.png)
-
-3. Select **+ New offer** > **IoT Edge module**. The **New offer** dialog box appears.
+    ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -36,14 +30,14 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
 - Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- The Offer ID can't be changed after you select Create.
+- The Offer ID can't be changed after you select **Create**.
 
-Enter an **Offer alias**. This is the name used to refer to the offer in Partner Center.
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - This can't be changed after you select **Create**.
 
-After you enter these two values, select **Create** before continuing to the next page, Offer overview.
+Select **Create** to generate the offer and continue.
 
 ## Offer overview
 
@@ -60,7 +54,7 @@ This page includes links to perform operations on this offer based on the select
 
 Follow these steps to set up your offer.
 
-### Connect lead management
+### Customer leads
 
 When publishing your offer to the marketplace with Partner Center, you can optionally connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product.
 
@@ -81,10 +75,10 @@ Here are some additional lead management resources:
 
 - [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
-Select **Save draft** before continuing to the next section, Properties.
+Select **Save draft** before continuing.
 
 ### Properties
 
@@ -112,7 +106,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
 
-![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
+![Illustrates using the Standard Contract for Microsoft's commercial marketplace checkbox.](media//iot-edge-module-standard-contract-checkbox.png)
 
 ##### Your own terms and conditions
 
@@ -147,44 +141,15 @@ Provide a more detailed description of your offer. This can be up to 256 charact
 
 ### Description
 
-Provide a longer description of your offer, up to 3,000 characters. This is displayed to customers in the marketplace listing overview.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Include one or more of the following in your description:
+IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description, such as:
 
-- The value and key benefits your offer provides
-- Category or industry associations, or both
-- In-app purchase opportunities
-- Any required disclosures
+- Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage
 
-IoT Edge module offers must include a minimum hardware requirements paragraph at the bottom of the description. For example:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Minimum hardware requirements: Linux x64 and arm32 OS, 1 GB of RAM, 500 Mb of storage*
-
-Here are some tips for writing your description:
-
-- Clearly describe the value of your offer in the first few sentences of your description. Include the following items:
-    - Description of the offer.
-    - The type of user that benefits from the offer.
-    - Customer needs or issues the offer addresses.
-- Remember that the first few sentences might be displayed in search results.
-- Don't rely on features and functionality to sell your product. Instead, focus on the value your offer provides.
-- Try to use industry-specific vocabulary or benefit-based wording.
-
-To make your offer **Description** more engaging, use the rich text editor to format your description. The rich text editor lets you add numbers, bullets, bold, italics, and indents to make your description more readable.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrates the rich text editor." border="false":::
-
-- To change the format of your content, highlight the text that you want to format and select a text style, as shown in this screenshot:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Illustrates the text style control in the rich text editor." border="false":::
-
-- To add a bulleted or numbered list to the text, use the options shown in this screenshot:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Illustrates the bulleted and number list controls in the rich text editor." border="false":::
-
-- To add or remove indentation to the text, use the options shown in this screenshot:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrates the indentation controls in the rich text editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### Privacy policy URL
 
@@ -195,7 +160,7 @@ Enter the web address of your organization's privacy policy. You're responsible 
 Provide supplemental online documents about your offer. You can add up to 25 links. To add a link, select **+ Add a link** and then complete the following fields:
 
 - **Title** - Customers will see the title on your offer's details page.
-- **Link (URL)** - Enter a link for customers to view your online document. The link must start with http:// or https://.
+- **Link (URL)** - Enter a link for customers to view your online document. The link must start with `http://` or `https://`.
 
 Make sure to add at least one link to your documentation and one link to the compatible IoT Edge devices from the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/).
 
@@ -217,14 +182,14 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 ### Marketplace images
 
-Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
+Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide .png files of your offer's logo in each of the following four pixel sizes:
+Provide PNG files of your offer's logo in each of the following four pixel sizes:
 
 - **Small (48 x 48)**
 - **Medium (90 x 90)**
@@ -235,33 +200,63 @@ All four logos are required and are used in different places in the marketplace 
 
 #### Screenshots (optional)
 
-Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in .png format.
+Add up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in PNG format.
 
 #### Videos (optional)
 
-Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail .png image of the video at 1280 x 720 pixels in size.
+Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and a thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
-#### Offer examples
+#### Marketplace  examples
 
-The following examples show how the offer listing fields appear in different places of the offer.
+Here's an example of how offer information appears in Azure Marketplace:
 
-This screenshot shows the **Offer listing** page in Azure Marketplace.
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Illustrates the Offer listing page in Azure Marketplace.":::
+#### Call-out descriptions
 
-This screenshot shows the search results in Azure Marketplace:
+1. Large logo
+2. Categories
+3. Support address (link)
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Name
+7. Summary
+8. Description
+9. Useful links
+10. Screenshots/videos
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Illustrates the search results in Azure Marketplace.":::
+<br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-This screenshot shows the **Offer listing** page in the Azure portal.
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+#### Call-out descriptions
 
-This screenshot shows search results in the Azure portal.
+1. Small logo
+2. Offer name
+3. Search results summary
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Illustrates the Offer listing page in Azure portal.":::
+<br>Here's an example of how offer information appears in the Azure portal:
 
-Select **Save draft** before proceeding to the next section, Preview.
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots
+
+<br>Here's an example of how offer information appears in the Azure portal search results:
+
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
+
+<br>Select **Save draft** before proceeding to the next section, Preview.
 
 ## Preview
 
@@ -316,20 +311,18 @@ Select **Create**.
 
 This tab lets you configure which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
-#### Cloud availability
+#### Azure regions
 
-Your plan must be available in at least one cloud using Azure IoT Hub.
+All plans for IoT Edge module offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
-
-Select the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option is only visible if **Azure Government Cloud** is selected under **Cloud availability**.
+This option is only visible if **Azure Government** is selected under **Cloud availability**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe your certifications. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
@@ -339,7 +332,7 @@ This tab displays specific information for each different plan within the same o
 
 ### Plan name
 
-This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and Azure portal. It's used as the default module name after the plan is ready to be used.
+This is pre-filled with the name you gave your plan when you created it. You can change this name, as needed. It can be up to 50 characters long. This name appears as the title of this plan in Azure Marketplace and the Azure portal. It's used as the default module name after the plan is ready to be used.
 
 ### Plan summary
 
@@ -353,15 +346,25 @@ Select **Save draft** after completing these fields.
 
 #### Plan examples
 
-The following examples show how the plan listing fields appear in different views.
+Here's an example of Azure Marketplace plan details:
 
-These are the fields in Azure Marketplace when viewing plan details:
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Illustrates the fields you see when viewing plan details in Azure Marketplace.":::
+#### Call-out descriptions
 
-These are plan details on the Azure portal:
+1. Offer name
+2. Plan name
+3. Plan description
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Illustrates plan details on the Azure portal.":::
+<br>Here's an example of the Azure portal plan details:
+
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
+
+#### Call-out descriptions
+
+1. Offer name
+2. Plan name
+3. Plan description
 
 ## Availability
 
@@ -396,11 +399,21 @@ You'll provide the following information on the **Image repository details** tab
 
 **Admin username for the Azure Container Registry**: Provide the [admin username](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) associated with the Azure Container Registry that has your container image. The username and password are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Illustrates the Update container registry dialog box.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustrates the Update container registry dialog box.":::
 
-**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+#### Call-out description
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Illustrates the access key screen in Azure portal.":::
+1. Admin user
+
+<br>**Password for the Azure Container Registry**: Provide the password for the admin username that's associated with the Azure Container Registry and has your container image. The username and password are required to ensure your company has access to the registry. You can get the password from the Azure portal by going to **Container Registry** > **Access Keys** or with Azure CLI using the [show command.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustrates the access key screen in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Access keys
+2. Username
+3. Password
 
 **Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
 

@@ -1,16 +1,16 @@
 ---
 title: Authenticate with managed identities
-description: Access resources in other Azure Active Directory tenants without signing in with credentials or secrets by using a managed identity
+description: Access resources in protected by Azure Active Directory without signing in with credentials or secrets by using a managed identity
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
 
-To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
+To easily access other resources that are protected by Azure Active Directory (Azure AD) and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets.
 
 Azure Logic Apps supports both [*system-assigned*](../active-directory/managed-identities-azure-resources/overview.md) and [*user-assigned*](../active-directory/managed-identities-azure-resources/overview.md) managed identities. Your logic app can use either the system-assigned identity or a *single* user-assigned identity, which you can share across a group of logic apps, but not both. Currently, only [specific built-in triggers and actions](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) support managed identities, not managed connectors or connections, for example:
 
