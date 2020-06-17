@@ -948,17 +948,16 @@
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance
           href: virtual-machines/windows/failover-cluster-instance-overview.md
-        - name: Cluster configuration
-          href: virtual-machines/windows/hadr-cluster-best-practices.md
       - name: Best practices
         items:
         - name: Performance
           href: virtual-machines/windows/performance-guidelines-best-practices.md
         - name: Security 
           href: virtual-machines/windows/security-considerations-best-practices.md
-
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Cluster configuration
+          href: virtual-machines/windows/hadr-cluster-best-practices.md
       - name: Management
         items:
         - name: Dedicated host
@@ -967,9 +966,9 @@
           href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
     - name: How-to guides
       items:
-      - name: Connect to SQL VM
+      - name: Connect to SQL Server VM
         href: virtual-machines/windows/ways-to-connect-to-sql.md
-      - name: Create SQL VM
+      - name: Create SQL Server VM
         items:
         - name: Use the portal
           href: virtual-machines/windows/create-sql-vm-portal.md
