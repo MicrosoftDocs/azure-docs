@@ -141,25 +141,6 @@ landingContent:
       - text: Set up and configure AWS integration
         url: costs/aws-integration-set-up-configure.md
 
- # Card (optional)
- # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-  - title: Get involved
-    linkLists:
-    - linkListType: reference
-      links:
-      - text: Cost Management feedback
-        url: https://feedback.azure.com/forums/906772-cost-management
-      - text: Cost Management on Twitter
-        url: https://twitter.com/azurecostmgmt
-      - text: Azure Cost Management Tech Community
-        url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
-      - text: Request a Billing service feature
-        url: https://feedback.azure.com/forums/170030-signup-and-billing
-      - text: Azure Billing Tech Community
-        url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
-      - text: Ask a Cost Management and Billing question
-        url: https://docs.microsoft.com/answers/topics/azure-cost-management.html
-
   # Card (optional)
   - title: Review individual accounts
     linkLists:
