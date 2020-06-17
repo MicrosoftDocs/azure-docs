@@ -32,7 +32,7 @@ One Azure resource is defined in the template:
 
 ### Deploy the template
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Click the **Deploy to Azure** button.
 
@@ -48,7 +48,7 @@ One Azure resource is defined in the template:
 | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
 | **Sku** | The pricing tier for your resource. |
 
-3. Select **Review + Create**, then **Create**. After the resource has been finished deploying successfully, the **Go to resource** button will become highlighted.
+3. Select **Review + Create**, then **Create**. After the resource has successfully finished deploying, the **Go to resource** button will be highlighted.
 
 
 # [Azure CLI](#tab/CLI)
@@ -116,7 +116,7 @@ Write-Host "Press [ENTER] to continue..."
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group containing the resource to be deleted
