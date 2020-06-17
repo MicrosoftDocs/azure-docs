@@ -56,9 +56,9 @@ MSAL can interactively prompt the user for their credentials to sign in and obta
 For more information on interactively acquiring tokens on specific platforms, see:
 
 - [MSAL.js interactive requests](msal-js-prompt-behavior.md)
+- [Universal Windows Platform](msal-net-uwp-considerations.md)
 - [Xamarin Android](msal-net-xamarin-android-considerations.md)
 - [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
-- [Universal Windows Platform](msal-net-uwp-considerations.md)
 
 ## Implicit grant
 
