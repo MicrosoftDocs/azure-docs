@@ -68,7 +68,7 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## Schedule updates
-The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. When the maintenance window is specified, any Redis server updates are made during this window. 
+The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. A maintenance window allows you to control the day and time of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will a best effort to start and complete updating Redis server software within the specified time window you define.
 
 > [!NOTE] 
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
