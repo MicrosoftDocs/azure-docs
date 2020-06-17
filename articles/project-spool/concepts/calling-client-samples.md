@@ -102,6 +102,10 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ---
 
 ## Handle incoming push notification
+#### [Javascript](#tab/javascript)
+```js
+// NA
+```
 #### [Android (Java)](#tab/java)
 ```java
 // bar
@@ -525,6 +529,14 @@ You can access deviceManager on a callClient object
 ```js
 const deviceManager = callClient.deviceManager;
 ```
+#### [Android (Java)](#tab/java)
+```java
+// NA
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// NA
+```
 --- 
 
 #### Request permission to camera/microphone
@@ -536,6 +548,14 @@ const result = await deviceManager.askDevicePermission(audio: true, video: true)
 // result.audio = true|false
 // result.video = true|false
 ```
+#### [Android (Java)](#tab/java)
+```java
+// NA
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// NA
+```
 --- 
 
 You can check what's the current permission state for a given type by calling
@@ -546,6 +566,14 @@ const result = deviceManager.getPermissionState('Microphone'); // for microphone
 const result = deviceManager.getPermissionState('Camera'); // for camera permission state
 
 console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
+```
+#### [Android (Java)](#tab/java)
+```java
+// NA
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// NA
 ```
 --- 
 
