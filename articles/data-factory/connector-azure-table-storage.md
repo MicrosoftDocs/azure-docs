@@ -19,6 +19,8 @@ ms.date: 08/27/2019
 > * [Version 1](v1/data-factory-azure-table-connector.md)
 > * [Current version](connector-azure-table-storage.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -234,13 +236,16 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 
 ### azureTableSourceQuery examples
 
-If the Azure Table column is of the datetime type:
+>[!NOTE]
+>Azure Table query operation times out in 30 seconds as [enforced by Azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Learn how to optimize the query from [Design for querying](../storage/tables/table-storage-design-for-query.md) article.
+
+In Azure Data Factory, if you want to filter the data against a datetime type column, refer to this example:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-If the Azure Table column is of the string type:
+If you want to filter the data against a string type column, refer to this example:
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"

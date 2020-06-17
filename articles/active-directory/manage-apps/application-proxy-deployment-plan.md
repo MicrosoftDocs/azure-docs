@@ -3,10 +3,9 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 documentationcenter: 'azure'
-author: barbaraselden
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
+ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.reviewer: 
-
+ms.author: kenwith
+ms.custom: has-adal-ref
 ---
+
 # Plan an Azure AD Application Proxy deployment
 
 Azure Active Directory (Azure AD) Application Proxy is a secure and cost-effective remote access solution for on-premises applications. It provides an immediate transition path for “Cloud First” organizations to manage access to legacy on-premises applications that aren’t yet capable of using modern protocols. For additional introductory information, see [What is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
 Application Proxy is recommended for giving remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy for these remote access use cases. It is not intended for users who are on the corporate network. These users who use Application Proxy for intranet access may experience undesirable performance issues.
 
-This article includes the resources you need to plan, operate, and manage Azure AD Application Proxy. 
+This article includes the resources you need to plan, operate, and manage Azure AD Application Proxy.
 
 ## Plan your implementation
 
-The following section provides a broad view of the key planning elements that will set you up for an efficient deployment experience. 
+The following section provides a broad view of the key planning elements that will set you up for an efficient deployment experience.
 
 ### Prerequisites
 
@@ -46,7 +45,7 @@ You need to meet the following prerequisites before beginning your implementatio
      * If possible, deploy connectors in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connectors after you complete a discovery of applications.
      * We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. Review the [connector capacity table](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning) to help with deciding what type of machine to install connectors on. The larger the machine the more buffer and performant the connector will be.
 
-* **Network access settings**: Azure AD Application Proxy connectors [connect to Azure via HTTPS (TCP Port 443) and HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
+* **Network access settings**: Azure AD Application Proxy connectors [connect to Azure via HTTPS (TCP Port 443) and HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md).
 
    * Terminating connector TLS traffic isn't supported and will prevent connectors from establishing a secure channel with their respective Azure App Proxy endpoints.
 
@@ -60,11 +59,11 @@ The following core requirements must be met in order to configure and implement 
 
 *  **Azure onboarding**: Before deploying application proxy, user identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
-* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can directly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
+* **Conditional Access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and Conditional Access policies for remote access from the internet.  An  approach to provide Conditional Access for intranet use is to modernize applications so they can directly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information.
 
 * **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and tenant. To see these limits refer to [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for a majority of deployments.
 
-* **Public certificate**: If you are using custom domain names, you must procure a public certificate issued by a non-Microsoft trusted certificate authority. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates.
+* **Public certificate**: If you are using custom domain names, you must procure a TLS/SSL certificate. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates. For more details see [Configure custom domains with Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
 * **Domain requirements**: Single sign-on to your published applications using Kerberos Constrained Delegation (KCD) requires that the server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains.
 For detailed information on the topic, see [KCD for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) with Application Proxy. The connector service runs in the context of the local system and should not be configured to use a custom identity.
@@ -77,11 +76,11 @@ For detailed information on the topic, see [KCD for single sign-on](application-
 
 * **Administrative rights and roles**
 
-   * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an *Application Administrator* role to authenticate and register the connector instance to your Azure AD tenant. 
+   * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an *Application Administrator* role to authenticate and register the connector instance to your Azure AD tenant.
 
    * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage Conditional Access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
-* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.  
+* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.
 
 ### Application Discovery
 
@@ -113,7 +112,7 @@ The following are areas for which you should define your organization’s busine
 
 * Remote users with approved personal devices can securely access published applications provided they are enrolled in MFA and have registered the Microsoft Authenticator app on their mobile phone as an authentication method.
 
-**Governance** 
+**Governance**
 
 * Administrators can define and monitor the lifecycle of user assignments to applications published through Application Proxy.
 
@@ -137,9 +136,9 @@ The following are areas for which you should define your organization’s busine
 
 Determine the amount of time and effort needed to fully commission a single application for remote access with Single sign-on (SSO). Do so by running a pilot that considers its initial discovery, publishing, and general testing. Using a simple IIS-based web application that is already preconfigured for Integrated Windows Authentication (IWA) would help establish a baseline, as this setup requires minimal effort to successfully pilot remote access and SSO.
 
-The following design elements should increase the success of your pilot implementation directly in a production tenant.  
+The following design elements should increase the success of your pilot implementation directly in a production tenant.
 
-**Connector management**:  
+**Connector management**:
 
 * Connectors play a key role in providing the on-premises conduit to your applications. Using the **Default** connector group is adequate for initial pilot testing of published applications before commissioning them into production. Successfully tested applications can then be moved to production connector groups.
 
@@ -152,9 +151,9 @@ The following design elements should increase the success of your pilot implemen
 **Single sign-on settings**:
 Some SSO settings have specific dependencies that can take time to set up, so avoid change control delays by ensuring dependencies are addressed ahead of time. This includes domain joining connector hosts to perform SSO using Kerberos Constrained Delegation (KCD) and taking care of other time-consuming activities. For example, Setting up a PING Access instance, if needing header-based SSO.
 
-**SSL Between Connector Host and Target Application**: Security is paramount, so TLS between the connector host and target applications should always be used. Particularly if the web application is configured for forms-based authentication (FBA), as user credentials are then effectively transmitted in clear text.
+**TLS Between Connector Host and Target Application**: Security is paramount, so TLS between the connector host and target applications should always be used. Particularly if the web application is configured for forms-based authentication (FBA), as user credentials are then effectively transmitted in clear text.
 
-**Implement incrementally and test each step**. 
+**Implement incrementally and test each step**.
 Conduct basic functional testing after publishing an application to ensure that all user and business requirements are met by following the directions below:
 
 1. Test and validate general access to the web application with pre-authentication disabled.
@@ -229,7 +228,7 @@ Once your application is published, it should be accessible by typing its extern
 
 ### Enable pre-authentication
 
-Verify that your application is accessible through Application Proxy accessing it via the external URL. 
+Verify that your application is accessible through Application Proxy accessing it via the external URL.
 
 1. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** and choose the app you want to manage.
 
@@ -241,7 +240,7 @@ With pre-authentication enabled, Azure AD will challenge users first for authent
 
 ### Enable Single Sign-On
 
-SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure AD. Once a user has pre-authenticated, SSO is performed by the Application Proxy connector authenticating to the on-premises application, on behalf of the user. The backend application processes the login as if it were the user themselves. 
+SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure AD. Once a user has pre-authenticated, SSO is performed by the Application Proxy connector authenticating to the on-premises application, on behalf of the user. The backend application processes the login as if it were the user themselves.
 
 Choosing the **Passthrough** option allows users to access the published application without ever having to authenticate to Azure AD.
 
@@ -251,7 +250,7 @@ Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to 
 
 ###  Working with other types of applications
 
-Azure AD Application Proxy can also support applications that have been developed to use our Azure AD Authentication Library ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) or Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
+Azure AD Application Proxy can also support applications that have been developed to use the Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
 
 Read [publishing native and mobile client apps](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) and [claims-based applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) to learn about available configurations of Application Proxy.
 
@@ -284,8 +283,8 @@ Microsoft advocates the principle of granting the least possible privilege to pe
 | Application owner| Create and manage all aspects of enterprise applications, application registrations, and application proxy settings.| Application Admin |
 | Infrastructure admin | Certificate Rollover Owner | Application Admin |
 
-Minimizing the number of people who have access to secure information or resources will help in reducing the chance of a malicious actor obtaining unauthorized access, or an authorized user inadvertently impacting a sensitive resource. 
- 
+Minimizing the number of people who have access to secure information or resources will help in reducing the chance of a malicious actor obtaining unauthorized access, or an authorized user inadvertently impacting a sensitive resource.
+
 However, users still need to carry out day to day privileged operations, so enforcing just-in-time (JIT) based [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) policies to provide on-demand privileged access to Azure resources and Azure AD is our recommended approach towards effectively managing administrative access and auditing.
 
 ### Reporting and monitoring
@@ -308,9 +307,9 @@ Connectors have both admin and session logs. The admin logs include key events a
 
 ### Troubleshooting guide and steps
 
-Learn more about common issues and how to resolve them with our guide to [troubleshooting](application-proxy-troubleshoot.md) error messages. 
+Learn more about common issues and how to resolve them with our guide to [troubleshooting](application-proxy-troubleshoot.md) error messages.
 
-The following articles cover common scenarios that can also be used to create troubleshooting guides for your support organization. 
+The following articles cover common scenarios that can also be used to create troubleshooting guides for your support organization.
 
 * [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
 * [Application load is too long](application-proxy-page-load-speed-problem.md)

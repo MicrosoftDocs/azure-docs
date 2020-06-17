@@ -41,7 +41,7 @@ For full details about pricing, see [Azure Container Registry pricing][pricing].
 
 ## Next steps
 
-For more information about the different Azure Container Registry SKUs (Basic, Standard, Premium), see [Azure Container Registry SKUs](container-registry-skus.md).
+For more information about Basic, Standard, and Premium container registries, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 <!-- IMAGES -->
 

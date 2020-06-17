@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ Before you try this tutorial, consider the following items:
 3. Ensure that the objects in the pilot scope have ms-ds-consistencyGUID populated so cloud provisioning hard matches the objects. 
 
    > [!NOTE]
-   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects. Follow the steps documented in [this blog post](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) to populate *ms-ds-consistencyGUID* for group objects.
+   > Azure AD Connect sync does not populate *ms-ds-consistencyGUID* by default for group objects.
 
 4. This is an advanced scenario. Ensure that you follow the steps documented in this tutorial precisely.
 
@@ -63,8 +63,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  3. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
-    **Description:** Add a meaningful description<br> 
-    
+    **Description:** Add a meaningful description<br>
     **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
@@ -96,7 +95,7 @@ Same steps need to be followed for all object types (user, group and contact). R
  2. On the **Description** page, enter the following and click **Next**:
 
     **Name:** Give the rule a meaningful name<br>
-    **Description:** Add a meaningful description<br> 
+    **Description:** Add a meaningful description<br>
     **Connected System:** Choose the AAD connector that you are writing the custom sync rule for<br>
     **Connected System Object Type:** User<br>
     **Metaverse Object Type:** Person<br>
@@ -116,7 +115,7 @@ Same steps need to be followed for all object types (user, group and contact).
 
 ## Install the Azure AD Connect provisioning agent
 1. Sign in to the server you will use with enterprise admin permissions.  If you are using the  [Basic AD and Azure environment](tutorial-basic-ad-azure.md) tutorial it would be CP1.
-2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Download the Azure AD Connect cloud provisioning agent using the steps outlined [here](how-to-install.md#install-the-agent).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
 ![Welcome screen](media/how-to-install/install1.png)</br>
@@ -197,7 +196,9 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 3.  Run `Start-ADSyncSyncCycle`.  Hit Enter.  
 
 >[!NOTE] 
->If you are running your own custom scheduler for AAD Connect sync, then please enable the scheduler. 
+>If you are running your own custom scheduler for Azure AD Connect sync, then please enable the scheduler. 
+
+Once the scheduler is enabled, Azure AD Connect will stop exporting any changes on objects with `cloudNoFlow=true` in the metaverse, unless any reference attribute (eg. manager) is being updated. In case there is any reference attribute update on the object, Azure AD Connect will ignore the `cloudNoFlow` signal and export all updates on the object.
 
 ## Something went wrong
 In case the pilot does not work as expected, you can go back to the Azure AD Connect sync setup by following the steps below:

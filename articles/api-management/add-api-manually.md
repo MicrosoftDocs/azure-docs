@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 08/27/2018
+ms.date: 04/20/2020
 ms.author: apimpm
 
 ---
@@ -32,24 +32,14 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 ## Create an API
 
-1. Select **APIs** from under **API MANAGEMENT**.
+1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. From the left menu, select **+ Add API**.
-3. Select **Blank API** from the list.
-
-    ![Blank API](media/add-api-manually/blank-api.png)
-4. Enter settings for the API.
-
-    |**Name**|**Value**|**Description**|
-    |---|---|---|
-    |**Display name**|*Blank API*|This name is displayed in the Developer portal.|
-    |**Name**|*blank-api*|Provides a unique name for the API.|
-    |**Web Service URL** (optional)|*https://httpbin.org*| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [https://httpbin.org](https://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
-    |**URL scheme**|*HTTPs*|In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.|
-    |**URL suffix**|*hbin*| The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.|
-    |**Products**|*Unlimited*|Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 
+3. Select **Blank API** from the list.  
+    ![Blank API](media/add-api-manually/blank-api.png)  
+4. Enter settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
 5. Select **Create**.
 
-At this point, you have no operations in APIM that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the APIM, you get a **404**.
+At this point, you have no operations in API Management that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the API Management, you get a **404**.
 
 >[!NOTE] 
 > By default, when you add an API, even if it is connected to some back-end service, APIM will not expose any operations until you whitelist them. To whitelist an operation of your back-end service, create an APIM operation that maps to the back-end operation.

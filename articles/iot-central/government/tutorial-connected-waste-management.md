@@ -126,7 +126,7 @@ The **Connected waste management** application comes with a sample connected was
 
 To view the device template:
 
-1. Click on **Device templates** from the left navigation pane of your application in IoT Central. 
+1. Click on **Device templates** from the left pane of your application in IoT Central. 
 
     ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -175,7 +175,7 @@ The **Connected waste management** application has two simulated devices mapped 
 
 ### To view the devices:
 
-1. Navigate to **Device** from IoT Central left navigation pane. 
+1. Navigate to **Device** from IoT Central left pane. 
 
    ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -200,7 +200,7 @@ In Azure IoT Central, you can create rules to automatically monitor on device te
 The **Connected waste management** application has four sample rules.
 
 ### To view rules:
-1. Navigate to **Rules** from IoT Central left navigation pane
+1. Navigate to **Rules** from IoT Central left pane
 
    ![Rules](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -229,13 +229,13 @@ You should receive email when the configured **condition** is met.
 > The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
   
 To create a new rule: 
-1. Select **+New** on the **Rules** from the left navigation pane.
+1. Select **+New** on the **Rules** from the left pane.
 
 ## Configure Jobs
 
 In IoT Central, jobs allow you to trigger device or cloud properties updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
 
-1. Go to **Jobs** from the left navigation pane. 
+1. Go to **Jobs** from the left pane. 
 2. Click **+New** and configure one or more jobs. 
 
 

@@ -5,8 +5,8 @@ author: tamram
 services: storage
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/23/2019
+ms.topic: how-to
+ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -14,6 +14,9 @@ ms.subservice: blobs
 # Create a BlockBlobStorage account
 
 The BlockBlobStorage account kind lets you create block blobs with premium performance characteristics. This type of storage account is optimized for workloads with high transactions rates or that require very fast access times. This article shows how to create a BlockBlobStorage account by using the Azure portal, the Azure CLI, or Azure PowerShell.
+
+> [!NOTE]
+> The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
 
 For more information about BlockBlobStorage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -72,7 +75,7 @@ To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.
 
 To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
-```cli
+```azurecli
 az login
 ```
 
@@ -85,21 +88,21 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, select **All services** > the **Storage** category > **Storage accounts**.
 
-1. Under **Storage accounts**, select **Add**.
+2. Under **Storage accounts**, select **Add**.
 
-1. In the **Subscription** field, select the subscription in which to create the storage account.
+3. In the **Subscription** field, select the subscription in which to create the storage account.
 
-1. In the **Resource group** field, select an existing resource group or select **Create new**, and enter a name for the new resource group.
+4. In the **Resource group** field, select an existing resource group or select **Create new**, and enter a name for the new resource group.
 
-1. In the **Storage account name** field, enter a name for the account. Note the following guidelines:
+5. In the **Storage account name** field, enter a name for the account. Note the following guidelines:
 
    - The name must be unique across Azure.
    - The name must be between three and 24 characters long.
    - The name can include only numbers and lowercase letters.
 
-1. In the **Location** field, select a location for the storage account, or use the default location.
+6. In the **Location** field, select a location for the storage account, or use the default location.
 
-1. For the rest of the settings, configure the following:
+7. For the rest of the settings, configure the following:
 
    |Field     |Value  |
    |---------|---------|
@@ -109,29 +112,38 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
    ![Shows portal UI to create a block blob storage account](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Select **Review + create** to review the storage account settings.
+8. Choose the **Advanced** tab.
 
-1. Select **Create**.
+9. If you want to optimize your storage account for data analytics, then set **Hierarchical namespace** to **Enabled**. Otherwise, leave this option set to it's default value.
 
-## [Azure Powershell](#tab/azure-powershell)
+   To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
+
+8. Select **Review + create** to review the storage account settings.
+
+9. Select **Create**.
+
+## [Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 1. Open an elevated Windows PowerShell session (Run as administrator).
 
-1. Run the following command to make sure the latest version of the `Az` PowerShell module is installed.
+2. Run the following command to make sure the latest version of the `Az` PowerShell module is installed.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
    ```
 
-1. Open a new PowerShell console and sign in with your Azure account.
+3. Open a new PowerShell console and sign in with your Azure account.
 
    ```powershell
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. If needed, create a new resource group. Replace the values in quotations, and run the following command.
+4. If needed, create a new resource group. Replace the values in quotations, and run the following command.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -139,7 +151,7 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Create the BlockBlobStorage account. Replace the values in quotations, and run the following command.
+5. Create the BlockBlobStorage account. Replace the values in quotations, and run the following command.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -148,6 +160,10 @@ To create a BlockBlobStorage account in the Azure portal, follow these steps:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   If you want to optimize your storage account for data analytics, then add `-EnableHierarchicalNamespace $True` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -159,7 +175,7 @@ To create a block blob account by using the Azure CLI, you must first install Az
    az login
    ```
 
-1. If needed, create a new resource group. Replace the values in brackets (including the brackets), and run the following command.
+2. If needed, create a new resource group. Replace the values in brackets (including the brackets), and run the following command.
 
    ```azurecli
    az group create \
@@ -167,7 +183,7 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --location "<location>"
    ```
 
-1. Create the BlockBlobStorage account. Replace the values in brackets (including the brackets), and run the following command.
+3. Create the BlockBlobStorage account. Replace the values in brackets (including the brackets), and run the following command.
 
    ```azurecli
    az storage account create \
@@ -178,6 +194,11 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --sku "Premium_LRS"
    ```
 
+   If you want to optimize your storage account for data analytics, then add `--hierarchical-namespace true` to the command. To learn more, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > The hierarchical namespace feature in a block blob storage account is in public preview, and is available in the US East, US East 2, US Central, US South Central, US West 2, UK South, Canada Central and Australia East regions. To review limitations, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) and [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this form](https://aka.ms/adlspremiumonboard).
+   
 ---
 
 ## Next steps

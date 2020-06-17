@@ -1,13 +1,13 @@
 ---
 title: Gathering required parameters
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: The parameters for all Cognitive Services' containers
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/15/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Gathering required parameters

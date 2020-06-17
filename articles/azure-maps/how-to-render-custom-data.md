@@ -1,8 +1,8 @@
 ---
 title: Render custom data on a raster map | Microsoft Azure Maps
 description: In this article, you'll learn how to render custom data on a raster map by using Microsoft Azure Maps static image Service.
-author: walsehgal
-ms.author: v-musehg
+author: philmea
+ms.author: philmea
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Render custom data on a raster map
 
-This article explains how to use the [static image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage) with image composition functionality to allow overlays on top of a raster map. Image composition includes the ability to get a raster tile back, with additional data like custom pushpins, labels, and geometry overlays.
+This article explains how to use the [static image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage), with image composition functionality, to allow overlays on top of a raster map. Image composition includes the ability to get a raster tile back, with additional data like custom pushpins, labels, and geometry overlays.
 
 To render custom pushpins, labels, and geometry overlays, you can use the Postman application. You can use Azure Maps [Data Service APIs](https://docs.microsoft.com/rest/api/maps/data) to store and render overlays.
 
@@ -38,7 +38,7 @@ To render pushpins with labels and a custom image, complete these steps:
 
 1. Create a collection in which to store the requests. In the Postman app, select **New**. In the **Create New** window, select **Collection**. Name the collection and select the **Create** button. 
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins. Select the collection you created in the previous step as the location in which to save the request, and then select **Save**.
+2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the pushpins. Select the collection you created in the previous step, as the location to save the request. Then, select **Save**.
     
     ![Create a request in Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -143,7 +143,7 @@ You can also obtain the path and pin location information by using the [Data Upl
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. To get the udId, open a new tab in the Postman app and select GET HTTP method on the builder tab and make a GET request at the status URI. If your data upload was successful, you will receive a udId in the response body. Copy the udId.
+6. To get the udId, open a new tab in the Postman app. Select GET HTTP method on the builder tab. Make a GET request at the status URI. If your data upload was successful, you'll receive a udId in the response body. Copy the udId.
 
    ```JSON
    {

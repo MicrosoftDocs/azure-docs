@@ -1,17 +1,17 @@
 ---
 title: C# tutorial on using facets to aid navigation
 titleSuffix: Azure Cognitive Search
-description: This tutorial builds on the "Search results pagination - Azure Cognitive Search" project, to add facet navigation. Learn how facets can be used to easily narrow a search.
+description: Continue from "Paging results" to add faceted navigation. Learn how facets can be used to easily narrow a search.
 
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ---
 
-# C# tutorial: Use facets to aid navigation - Azure Cognitive Search
+# Tutorial: Add faceted navigation using the .NET SDK
 
 Facets are used to aid navigation, by providing the user with a set of links to use to focus their search. Facets are attributes of the data (such as the category, or a specific feature, of a hotel in our sample data).
 

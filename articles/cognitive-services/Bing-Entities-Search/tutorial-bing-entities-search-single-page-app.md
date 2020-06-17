@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 # Tutorial: Single-page web app
@@ -50,6 +50,10 @@ In this tutorial, we discuss only selected portions of the source code. The full
 
 > [!NOTE]
 > This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API, and Bing Maps API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## App components
 

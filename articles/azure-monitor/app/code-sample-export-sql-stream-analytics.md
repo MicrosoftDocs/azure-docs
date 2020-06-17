@@ -1,11 +1,7 @@
 ---
 title: 'Export to SQL from Azure Application Insights | Microsoft Docs'
 description: Continuously export Application Insights data to SQL using Stream Analytics.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2017
 
 ---
@@ -61,7 +57,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Choose event types](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/app/metrics-explorer.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/platform/metrics-charts.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -240,7 +236,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to PowerBI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Export to Power BI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detailed data model reference for the property types and values.](../../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -249,7 +245,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

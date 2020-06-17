@@ -75,7 +75,7 @@ Notification Hubs sends notifications to devices running mobile apps. It does no
 
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, you must partition your devices across multiple hubs.
+If you need support for more than 10 million registered devices, you must partition your devices across multiple namespaces.
 
 ### How many push notifications can I send out?
 

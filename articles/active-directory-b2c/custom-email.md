@@ -3,14 +3,14 @@ title: Custom email verifications
 titleSuffix: Azure AD B2C
 description: Learn how to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
-ms.author: marsma
+ms.date: 03/05/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -295,10 +295,6 @@ Add the following technical profiles to the `<ClaimsProviders>` element.
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="Operation">VerifyCode</Item>
-        <Item Key="UserMessage.VerificationHasExpired">You have exceed the maximum time allowed.</Item>
-        <Item Key="UserMessage.MaxRetryAttemped">You have exceed the number of retries allowed.</Item>
-        <Item Key="UserMessage.InvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessage.ServerError">Cannot verify the code, please try again later.</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
@@ -359,6 +355,12 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
         <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
         <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
         <Item Key="language.button_continue">Create</Item>
+        
+        <!--OTP validation error messages-->
+        <Item Key="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</Item>
+        <Item Key="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
+        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
       <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />

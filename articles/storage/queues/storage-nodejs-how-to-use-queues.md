@@ -2,13 +2,12 @@
 title: Use Azure Queue storage from Node.js - Azure Storage
 description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js.
 author: mhopkins-msft
-ms.service: storage
 
 ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
 ---
@@ -25,6 +24,9 @@ API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**.
 
+> [!IMPORTANT]
+> This article refers to the legacy version of the Azure Storage client library for JavaScript. To get started with the latest version, please see [Quickstart: Azure Queue storage client library for JavaScript](storage-quickstart-queues-nodejs.md)
+
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -40,18 +42,18 @@ communicate with the storage REST services.
 1. Use a command-line interface such as **PowerShell** (Windows,) **Terminal** (Mac,) or **Bash** (Unix), navigate to the folder where you created your sample application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
  
-	```bash
-	azure-storage@0.5.0 node_modules\azure-storage
-	+-- extend@1.2.1
-	+-- xmlbuilder@0.4.3
-	+-- mime@1.2.11
-	+-- node-uuid@1.4.3
-	+-- validator@3.22.2
-	+-- underscore@1.4.4
-	+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-	+-- xml2js@0.2.7 (sax@0.5.2)
-	+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-	```
+    ```bash
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+    ```
 
 3. You can manually run the **ls** command to verify that a
    **node\_modules** folder was created. Inside that folder you will

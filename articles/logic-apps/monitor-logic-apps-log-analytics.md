@@ -141,7 +141,7 @@ After your logic app runs, you can view the data about those runs in your Log An
    ![View tracked properties for a logic app](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
 
    > [!NOTE]
-   > Tracked properties or completed events might might experience 10-15 minute 
+   > Tracked properties or completed events might experience 10-15 minute 
    > delays before appearing in your Log Analytics workspace.
    > Also, the **Resubmit** capability on this page is currently unavailable.
 

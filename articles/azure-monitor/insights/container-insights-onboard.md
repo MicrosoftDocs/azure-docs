@@ -2,7 +2,7 @@
 title: How to enable Azure Monitor for containers | Microsoft Docs
 description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 05/28/2020
 
 ---
 
@@ -12,9 +12,13 @@ This article provides an overview of the options available to setup Azure Monito
 
 - [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS)
 
-- AKS Engine on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) or Kubernetes deployed on-premises.
+- Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine).
 
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises using AKS Engine.
+
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3.x and 4.x
+
+- [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Kubernetes using the following supported methods:
 
@@ -56,10 +60,8 @@ The information in the following table lists the proxy and firewall configuratio
 |Agent Resource|Ports |
 |--------------|------|
 | *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 | 
-| *.blob.core.windows.net | 443 |
+| *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *.monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -69,8 +71,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.cn | 443 | Data ingestion |
 | *.oms.opinsights.azure.cn | 443 | OMS onboarding |
-| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
@@ -79,8 +79,6 @@ The information in the following table lists the proxy and firewall configuratio
 |--------------|------|-------------|
 | *.ods.opinsights.azure.us | 443 | Data ingestion |
 | *.oms.opinsights.azure.us | 443 | OMS onboarding |
-| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components
@@ -101,10 +99,11 @@ You enable Azure Monitor for containers by using one of the following methods de
 
 | Deployment State | Method | Description |
 |------------------|--------|-------------|
-| New Kubernetes cluster | [Create AKS cluster using Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring of a new AKS cluster that you create with Azure CLI. |
+| New AKS Kubernetes cluster | [Create AKS cluster using Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring of a new AKS cluster that you create with Azure CLI. |
 | | [Create AKS cluster using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring of a new AKS cluster that you create using the open-source tool Terraform. |
 | | [Create OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | You can enable monitoring of a new OpenShift cluster that you create with a pre-configured Azure Resource Manager template. |
-| Existing Kubernetes cluster | [Enable for AKS cluster using Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring of an AKS cluster already deployed using Azure CLI. |
+| | [Create OpenShift cluster using Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | You can enable monitoring while deploying a new OpenShift cluster using Azure CLI. |
+| Existing AKS Kubernetes cluster | [Enable for AKS cluster using Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring of an AKS cluster already deployed using Azure CLI. |
 | |[Enable for AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring of an AKS cluster already deployed using the open-source tool Terraform. |
 | | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring of one or more AKS clusters already deployed from the multi-cluster page in Azure Monitor. |
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |

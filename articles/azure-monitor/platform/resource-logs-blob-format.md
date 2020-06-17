@@ -3,7 +3,7 @@ title: Prepare for format change to Azure Monitor resource logs
 description: Azure resource logs moved to use append blobs on November 1, 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
@@ -12,7 +12,7 @@ ms.subservice: logs
 # Prepare for format change to Azure Monitor platform logs archived to a storage account
 
 > [!WARNING]
-> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](activity-log-export.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
+> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](resource-logs-collect-storage.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
 >
 
 ## What changed
@@ -54,60 +54,60 @@ The current format of the PT1H.json file in Azure blob storage uses a JSON array
 
 ```json
 {
-	"records": [
-		{
-			"time": "2016-01-05T01:32:01.2691226Z",
-			"resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
-			"operationName": "VaultGet",
-			"operationVersion": "2015-06-01",
-			"category": "AuditEvent",
-			"resultType": "Success",
-			"resultSignature": "OK",
-			"resultDescription": "",
-			"durationMs": "78",
-			"callerIpAddress": "104.40.82.76",
-			"correlationId": "",
-			"identity": {
-				"claim": {
-					"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
-					"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
-					"appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
-				}
-			},
-			"properties": {
-				"clientInfo": "azure-resource-manager/2.0",
-				"requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
-				"id": "https://contosokeyvault.vault.azure.net/",
-				"httpStatusCode": 200
-			}
-		},
+    "records": [
         {
-			"time": "2016-01-05T01:33:56.5264523Z",
-			"resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
-			"operationName": "VaultGet",
-			"operationVersion": "2015-06-01",
-			"category": "AuditEvent",
-			"resultType": "Success",
-			"resultSignature": "OK",
-			"resultDescription": "",
-			"durationMs": "83",
-			"callerIpAddress": "104.40.82.76",
-			"correlationId": "",
-			"identity": {
-				"claim": {
-					"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
-					"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
-					"appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
-				}
-			},
-			"properties": {
-				"clientInfo": "azure-resource-manager/2.0",
-				"requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
-				"id": "https://contosokeyvault.vault.azure.net/",
-				"httpStatusCode": 200
-			}
-		}
-	]
+            "time": "2016-01-05T01:32:01.2691226Z",
+            "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
+            "operationName": "VaultGet",
+            "operationVersion": "2015-06-01",
+            "category": "AuditEvent",
+            "resultType": "Success",
+            "resultSignature": "OK",
+            "resultDescription": "",
+            "durationMs": "78",
+            "callerIpAddress": "104.40.82.76",
+            "correlationId": "",
+            "identity": {
+                "claim": {
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
+                    "appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
+                }
+            },
+            "properties": {
+                "clientInfo": "azure-resource-manager/2.0",
+                "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
+                "id": "https://contosokeyvault.vault.azure.net/",
+                "httpStatusCode": 200
+            }
+        },
+        {
+            "time": "2016-01-05T01:33:56.5264523Z",
+            "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
+            "operationName": "VaultGet",
+            "operationVersion": "2015-06-01",
+            "category": "AuditEvent",
+            "resultType": "Success",
+            "resultSignature": "OK",
+            "resultDescription": "",
+            "durationMs": "83",
+            "callerIpAddress": "104.40.82.76",
+            "correlationId": "",
+            "identity": {
+                "claim": {
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com",
+                    "appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"
+                }
+            },
+            "properties": {
+                "clientInfo": "azure-resource-manager/2.0",
+                "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
+                "id": "https://contosokeyvault.vault.azure.net/",
+                "httpStatusCode": 200
+            }
+        }
+    ]
 }
 ```
 

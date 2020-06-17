@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: erikre
 ms.reviewer: dx@sendgrid.com
 
 ---
@@ -71,7 +70,7 @@ To install the SendGrid NuGet package in your application, do the following:
 
 SendGrid's .NET class library is called **SendGrid**. It contains the following namespaces:
 
-* **SendGrid** for communicating with SendGrid’s API.
+* **SendGrid** for communicating with SendGrid's API.
 * **SendGrid.Helpers.Mail** for helper methods to easily create SendGridMessage objects that specify how to send emails.
 
 Add the following code namespace declarations to the top of any C# file in which you want to programmatically access the SendGrid email service.

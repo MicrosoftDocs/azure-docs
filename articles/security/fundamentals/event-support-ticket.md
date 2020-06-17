@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # How to Log a Security Event Support Ticket

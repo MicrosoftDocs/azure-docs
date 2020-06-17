@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
 ---
 
@@ -34,7 +34,7 @@ To access the Serial Console on your VM or virtual machine scale set instance, y
 - The Azure account accessing Serial Console must have [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for both the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
 > [!NOTE]
-> - Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
+> Classic deployments aren't supported. Your VM or virtual machine scale set instance must use the Azure Resource Manager deployment model.
 
 ## Get started with the Serial Console
 The Serial Console for VMs and virtual machine scale set is accessible only through the Azure portal:
@@ -62,6 +62,10 @@ Serial Console is available for virtual machine scale sets, accessible on each i
   1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
 
      ![Linux virtual machine scale set Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+
+### TLS 1.2 in Serial Console
+Serial Console uses TLS 1.2 end-to-end to secure all communication within the service. Serial Console has a dependency on a user-managed boot diagnostics storage account, and TLS 1.2 must be configured separately for the storage account. Instructions to do so are located [here](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
 
 ## Advanced uses for Serial Console
 Aside from console access to your VM, you can also use the Azure Serial Console for the following:

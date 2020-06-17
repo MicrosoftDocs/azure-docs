@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: barclayn
+ author: msmbaldwin
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 11/13/2019
- ms.author: barclayn
+ ms.author: mbaldwin
  ms.custom: include file
 ---
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 12/20/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -24,7 +24,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+To follow along with the tutorial, you need a subscription key for the Bing Spell Check API. If you don't have one, [Create a Bing Spell Check resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) in the Azure portal. You can also use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## Create a new Web page
 

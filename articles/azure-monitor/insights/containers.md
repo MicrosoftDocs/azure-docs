@@ -1,7 +1,6 @@
 ---
 title: Container Monitoring solution in Azure Monitor | Microsoft Docs
 description: The Container Monitoring solution in Azure Monitor helps you view and manage your Docker and Windows container hosts in a single location.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
@@ -246,7 +245,32 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 
     `oc describe secret omsagent-secret`  
 
-    and the  output should resemble:  
+    and the output should resemble:  
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
+    ```
+
+5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+
+6. Verify deployment by running the following:
+
+    `oc describe ds oms`
+
+    and the output should resemble:
 
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
@@ -262,31 +286,6 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     Number of Nodes Misscheduled: 0  
     Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
     No events.  
-    ```
-
-5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
-
-    `oc create -f ocp-ds-omsagent.yaml`  
-
-6. Verify deployment by running the following:
-
-    `oc describe ds oms`
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-     Data  
-     ====  
-     KEY:    89 bytes  
-     WSID:   37 bytes  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes

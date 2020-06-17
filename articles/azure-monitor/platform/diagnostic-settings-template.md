@@ -3,7 +3,7 @@ title: Create diagnostic setting in Azure using Resource Manager template
 description: Create diagnostic settings using a Resource Manager template to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren

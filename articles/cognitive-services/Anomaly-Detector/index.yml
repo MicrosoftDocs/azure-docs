@@ -10,7 +10,6 @@ metadata:
   services: cognitive-services
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
@@ -48,9 +47,11 @@ landingContent:
     - linkListType: quickstart
       links:
         - text: Using C#
-          url: quickstarts/detect-data-anomalies-csharp-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Using JavaScript
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Using Python
-          url: quickstarts/detect-data-anomalies-python-sdk.md
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
     - linkListType: tutorial
       links:
         - text: Visualize anomalies using batch detection and Power BI

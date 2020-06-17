@@ -1,16 +1,13 @@
 ---
-title: Understand how the reservation discount is applied to Azure Cosmos DB | Microsoft Docs
+title: Understand reservation discount in Azure Cosmos DB
 description: Learn how reservation discount is applied to provisioned throughput (RU/s) in Azure Cosmos DB.
-services: cosmos-db
 author: bandersmsft
-manager: kfile
-ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 02/12/2020
 ---
-
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
 After you buy an Azure Cosmos DB reserved capacity, the reservation discount is automatically applied to Azure Cosmos DB resources that match the attributes and quantity of the reservation. A reservation covers the throughput provisioned for Azure Cosmos DB resources. It doesn’t cover software, networking, storage, or predefined container charges.
@@ -114,7 +111,7 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

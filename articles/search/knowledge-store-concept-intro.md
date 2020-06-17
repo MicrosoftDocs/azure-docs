@@ -1,5 +1,5 @@
 ---
-title: Introduction to knowledge store (preview)
+title: Knowledge store concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications. This feature is in public preview.
 
@@ -8,10 +8,10 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 05/05/2020
 ---
 
-# Introduction to knowledge stores in Azure Cognitive Search
+# Knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -22,6 +22,10 @@ Knowledge store is a feature of Azure Cognitive Search that persists output from
 If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, are products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in very different ways.
 
 Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
+
 
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Knowledge store in pipeline diagram")
 
@@ -43,6 +47,10 @@ Enumerated, the benefits of knowledge store include the following:
 > New to AI enrichment and cognitive skills? Azure Cognitive Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
 
 ## Physical storage
+
+
+> [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=455&end=542]
+
 
 The physical expression of a knowledge store is articulated through the `projections` element of a `knowledgeStore` definition in a Skillset. The projection defines a structure of the output so that it matches your intended use.
 
@@ -144,3 +152,13 @@ The simplest approach for creating enriched documents is [through the portal](kn
 
 > [!div class="nextstepaction"]
 > [Create a knowledge store using Postman and REST](knowledge-store-create-rest.md)
+
+To learn more about projections, the capabilities and how you [define them in a skillset](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projections in a knowledge store](knowledge-store-projection-overview.md)
+
+For a tutorial covering advanced projections concepts like slicing, inline shaping and relationships, start with [define projections in a knowledge store](knowledge-store-projections-examples.md)
+
+> [!div class="nextstepaction"]
+> [Define projections in a knowledge store](knowledge-store-projections-examples.md)

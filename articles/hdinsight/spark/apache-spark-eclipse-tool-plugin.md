@@ -30,7 +30,7 @@ Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to 
 
 ### Install Azure Toolkit for Eclipse
 
-For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
+For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### Install the Scala plug-in
 

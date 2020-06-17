@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS) - AVS Private Clouds  
-description: Learn about AVS Private Clouds and concepts. 
+title: Azure VMware Solution by CloudSimple - Private Clouds  
+description: Learn about CloudSimple Private Clouds and concepts. 
 author: sharaths-cs
 ms.author: dikamath 
 ms.date: 08/20/2019 
@@ -9,19 +9,19 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# AVS Private Cloud overview
+# CloudSimple Private Cloud overview
 
-AVS transforms and extends VMware workloads to public clouds in minutes. Using the AVS service, you can deploy VMware natively on Azure bare metal infrastructure. Your deployment lives on Azure locations and fully integrates with the rest of the Azure cloud.
+CloudSimple transforms and extends VMware workloads to public clouds in minutes. Using the CloudSimple service, you can deploy VMware natively on Azure bare metal infrastructure. Your deployment lives on Azure locations and fully integrates with the rest of the Azure cloud.
 
-The AVS solution provides complete VMware operational continuity. This solution gives you the public cloud benefits of:
+The CloudSimple solution provides complete VMware operational continuity. This solution gives you the public cloud benefits of:
 
 * Elasticity
 * Innovation
 * Efficiency
 
-With AVS, you benefit from a cloud consumption model that lowers your total cost of ownership. It also offers on-demand provisioning, pay-as-you-grow, and capacity optimization.
+With CloudSimple, you benefit from a cloud consumption model that lowers your total cost of ownership. It also offers on-demand provisioning, pay-as-you-grow, and capacity optimization.
 
-AVS is fully compatible with:
+CloudSimple is fully compatible with:
 
 * Existing tools
 * Skills
@@ -34,7 +34,7 @@ This compatibility enables your teams to manage workloads on the Azure cloud, wi
 * Data protection  
 * Audit
 
-AVS manages the infrastructure and all the necessary networking and management services. The AVS service enables your team to focus on:
+CloudSimple manages the infrastructure and all the necessary networking and management services. The CloudSimple service enables your team to focus on:
 
 * Business value
 * Application provisioning
@@ -42,16 +42,16 @@ AVS manages the infrastructure and all the necessary networking and management s
 * Support
 * Policy enforcement
 
-## AVS Private Cloud environment overview
+## Private Cloud environment overview
 
-An AVS Private Cloud is an isolated VMware stack that supports:
+A Private Cloud is an isolated VMware stack that supports:
 
 * ESXi hosts
 * vCenter
 * vSAN
 * NSX
 
-AVS Private Clouds are managed through the AVS portal. They have their own vCenter server in its own management domain.
+Private Clouds are managed through the CloudSimple portal. They have their own vCenter server in its own management domain.
 
 The stack runs on:
 
@@ -63,25 +63,25 @@ Users consume the stack through native VMware tools, including:
 * vCenter
 * NSX Manager
 
-You can deploy dedicated nodes in Azure locations. Then you can manage them with Azure and AVS. An AVS Private Cloud consists of one or more vSphere clusters, and each cluster contains 3 to 16 nodes.
+You can deploy dedicated nodes in Azure locations. Then you can manage them with Azure and CloudSimple. A Private Cloud consists of one or more vSphere clusters, and each cluster contains 3 to 16 nodes.
 
-You can create an AVS Private Cloud using purchased, pay-as-you-go nodes, or reserved, dedicated nodes.
+You can create a Private Cloud using purchased, pay-as-you-go nodes, or reserved, dedicated nodes.
 
-You can connect the AVS Private Cloud to your on-premises environment and the Azure network using the following connections:
+You can connect the Private Cloud to your on-premises environment and the Azure network using the following connections:
 
 * Secure
 * Private VPN
 * Azure ExpressRoute
 
-The AVS Private Cloud environment is designed to eliminate single points of failure:
+The Private Cloud environment is designed to eliminate single points of failure:
 
 * ESXi clusters are configured with vSphere high availability and are sized to have at least one spare node for resiliency.
 * vSAN provides redundant primary storage. vSan requires at least three nodes to provide protection against a single failure. You can configure vSAN to provide higher resiliency for larger clusters.
 * You can configure vCenter, PSC, and NSX Manager VMs with RAID-10 storage policy to protect against storage failure. vSphere HA protects against node and network failures.
 
-## Scenarios for deploying an AVS Private Cloud
+## Scenarios for deploying a Private Cloud
 
-Here are some example use cases for AVS Private Cloud deployment.
+Here are some example use cases for Private Cloud deployment.
 
 ### Data center retirement or migration
 
@@ -100,11 +100,11 @@ Here are some example use cases for AVS Private Cloud deployment.
 
 * Establish remote access to data, apps, and desktops in the Azure cloud. With high-bandwidth connections, you upload / download data fast to recover from incidents. Low-latency networks give you fast response times that users expect from a desktop app.
 
-* Replicate all your policies and networking in the cloud using the AVS portal and familiar VMware tools. Replication reduces the effort and risk of creating and managing DR and VDI implementations.
+* Replicate all your policies and networking in the cloud using the CloudSimple portal and familiar VMware tools. Replication reduces the effort and risk of creating and managing DR and VDI implementations.
 
 ### High-performance applications and databases
 
-* Run your most demanding workloads with the hyperconverged architecture provided by AVS.
+* Run your most demanding workloads with the hyperconverged architecture provided by CloudSimple.
 * Run Oracle, Microsoft SQL server, middleware systems, and high-performance no-SQL databases.
 * Experience the cloud as your own data center with high-speed 25-Gbps network connections. High-speed connections enable you to run hybrid apps that span on-premises, VMware on Azure, and Azure private workloads, without compromising performance.
 
@@ -117,16 +117,16 @@ Here are some example use cases for AVS Private Cloud deployment.
 
 ## Limits
 
-The following table lists the node limits on resources of an AVS Private Cloud.
+The following table lists the node limits on resources of a Private Cloud.
 
 | Resource | Limit |
 |----------|-------|
-| Minimum number of nodes to create an AVS Private Cloud | 3 |
-| Maximum number of nodes in a cluster on an AVS Private Cloud | 16 |
-| Maximum number of nodes in an AVS Private Cloud | 64 |
+| Minimum number of nodes to create a Private Cloud | 3 |
+| Maximum number of nodes in a cluster on a Private Cloud | 16 |
+| Maximum number of nodes in a Private Cloud | 64 |
 | Minimum number of nodes on a new cluster | 3 |
 
 ## Next steps
 
-* Learn how to [create an AVS Private Cloud](create-private-cloud.md)
-* Learn how to [configure an AVS Private Cloud environment](quickstart-create-private-cloud.md)
+* Learn how to [create a Private Cloud](create-private-cloud.md)
+* Learn how to [configure a Private Cloud environment](quickstart-create-private-cloud.md)

@@ -57,9 +57,9 @@ Depending on what you want to review, you will create your access review in Azur
 | Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 
-## Onboard access reviews
+## Create access reviews
 
-To onboard access reviews, follow these steps.
+To create an access reviews, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage access reviews and sign in as a Global administrator or User administrator.
 
@@ -69,14 +69,16 @@ To onboard access reviews, follow these steps.
 
 1. Select **Identity Governance**.
 
-1. Click **Access reviews**.
- 
-    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. On the Getting started page, click the **Create an access review** button.
 
-1. On the page, click the **Onboard now** button.
-    
-      ![Access reviews onboard](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### Creating access review on a group that can be assigned to Azure AD role
+If you are on the newest version of Access Reviews (your reviewers are directed to **My Access** by default) , then only Global Administrator can create access review on role-assignable groups. However, if you are on older version of Access Reviews (your reviewers are directed to the **Access Panel** by default), then both Global Administrator and User Administrator can create access review on role-assignable groups.  
+
+The new experience will be rolled out to all customers on August 1st, 2020 but if you’d like to upgrade sooner, please make a request here - [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Learn more about assigning groups to Azure AD roles](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## Learn about access reviews
 

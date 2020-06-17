@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
+ms.custom: tracking-python
 ---
 
 # Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)
 
 In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to synthesize audio from text greater than 5,000 character (or more than 10 minutes in length). For more information, see [Long Audio API](../../long-audio-api.md).
 
-> [!NOTE]
-> Asynchronous synthesis for long-form audio can only be used with [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices).
+Asynchronous synthesis for long-form audio can be used with [Public Neural Voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) and [Custom Neural Voices](../../how-to-custom-voice.md#custom-neural-voices), each of which supports a specific language and dialect. 
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This quickstart requires:
 
 * Python 2.7.x or 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor.
-* An Azure subscription and a Speech service subscription key. [Create an Azure account](../../get-started.md#try-the-speech-service-using-a-new-azure-account) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
+* An Azure subscription and a Speech service subscription key. [Create an Azure account](../../get-started.md#new-resource) and [create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) to get the key. When creating the Speech resource, make sure that your pricing tier is set to **S0**, and location is set to a [supported region](../../regions.md#standard-and-neural-voices).
 
 ## Create a project and import required modules
 
@@ -51,15 +51,15 @@ These modules are used to parse arguments, construct the HTTP request, and call 
 
 ## Get a list of supported voices
 
-This code gets a list of available voices that you can use to convert text-to-speech. Add the code to `voice_synthesis_client.py`:
+This code allows you to get a full list of voices for a specific region/endpoint that you can use. Please check the [supported region/endpoint](../../long-audio-api.md). Add the code to `voice_synthesis_client.py`:
 
 ```python
-parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
+parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
 parser.add_argument('--voices', action="store_true", default=False, help='print voice list')
-parser.add_argument('-key', action="store", dest="key", required=True, help='the cris subscription key, like ff1eb62d06d34767bda0207acb1da7d7 ')
+parser.add_argument('-key', action="store", dest="key", required=True, help='the speech subscription key, like fg1f763i01d94768bda32u7a******** ')
 parser.add_argument('-region', action="store", dest="region", required=True, help='the region information, could be centralindia, canadacentral or uksouth')
 args = parser.parse_args()
-baseAddress = 'https://%s.cris.ai/api/texttospeech/v3.0-beta1/' % args.region
+baseAddress = 'https://%s.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0-beta1/' % args.region
 
 def getVoices():
 	response=requests.get(baseAddress+"voicesynthesis/voices", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
@@ -94,6 +94,8 @@ There are xx voices available:
 Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xxx , Id: xxx, Locale: en-US, Gender: Male, PublicVoice: xxx, Created: 2019-07-22T09:38:14Z
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
+
+If **PublicVoice** parameter is **True**, the voice is public neural voice. Otherwise, it's custom neural voice. 
 
 ## Prepare input files
 

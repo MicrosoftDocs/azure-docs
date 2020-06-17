@@ -13,7 +13,8 @@ Azure Stream Analytics support processing events in CSV, JSON, and Avro data for
 
 >[!NOTE]
 >AVRO files created by Event Hub Capture use a specific format that requires you to use the *custom deserializer* feature. For more information, see [Read input in any format using .NET custom deserializers](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>Stream Analytics AVRO deserialization does not support Map type. Stream Analytics can't read EventHub capture blobs because EventHub capture uses map.
 
 
 ## Record data types
@@ -161,6 +162,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### Parse JSON record in SQL reference data
+When using Azure SQL Database as reference data in your job, it's possible to have a column that has data in JSON format. An example is shown below.
+
+|DeviceID|Data|
+|-|-|
+|12345|{"key" : "value1"}|
+|54321|{"key" : "value2"}|
+
+You can parse the JSON record in the *Data* column by writing a simple JavaScript user-defined function.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+You can then create a step in your Stream Analytics query as shown below to access the fields of your JSON records.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## Array data types

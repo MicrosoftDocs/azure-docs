@@ -1,6 +1,6 @@
 --- 
 title: Ensure application high availability when running in VMware on Azure 
-description: Describes AVS high availability features to address common application failure scenarios for applications running in a AVS Private Cloud
+description: Describes CloudSimple high availability features to address common application failure scenarios for applications running in a CloudSimple Private Cloud
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 08/20/2019 
@@ -12,7 +12,7 @@ manager: dikamath
 
 # Ensure application high availability when running in VMware on Azure
 
-The AVS solution provides high availability for your applications running on VMware in the Azure environment. The following table lists failure scenarios and the associated high availability features.
+The CloudSimple solution provides high availability for your applications running on VMware in the Azure environment. The following table lists failure scenarios and the associated high availability features.
 
 | Failure scenario | Application protected? | Platform HA feature | VMware HA feature | Azure HA feature |
 ------------ | ------------- | ------------ | ------------ | ------------- |
@@ -30,15 +30,15 @@ The AVS solution provides high availability for your applications running on VMw
 | Datacenter Failure | YES |  |  | Availability zones |
 | Regional Failure | YES  |  |  | Azure regions |
 
-Azure VMware Solution by AVS provides the following high availability features.
+Azure VMware Solution by CloudSimple provides the following high availability features.
 
 ## Fast replacement of failed node
 
-The AVS control plane software continuously monitors the health of VMware clusters and detects when an ESXi node fails. It then automatically adds a new ESXi host to the affected VMware cluster from its pool of readily available nodes and takes the failed node out of the cluster. This functionality ensures that the spare capacity in the VMware cluster is restored quickly so that the cluster’s resiliency provided by vSAN and VMware HA is restored.
+The CloudSimple control plane software continuously monitors the health of VMware clusters and detects when an ESXi node fails. It then automatically adds a new ESXi host to the affected VMware cluster from its pool of readily available nodes and takes the failed node out of the cluster. This functionality ensures that the spare capacity in the VMware cluster is restored quickly so that the cluster’s resiliency provided by vSAN and VMware HA is restored.
 
 ## Placement groups
 
-A user who creates an AVS Private Cloud can select an Azure region and a placement group within the selected region. A placement group is a set of nodes spread across multiple racks but within the same spine network segment. Nodes within the same placement group can reach each other with a maximum of two extra switch hops. A placement group is always within a single Azure availability zone and spans multiple racks. The AVS control plane distributes nodes of an AVS Private Cloud across multiple racks based on best effort. Nodes in different placement groups are guaranteed to be placed in different racks.
+A user who creates a Private Cloud can select an Azure region and a placement group within the selected region. A placement group is a set of nodes spread across multiple racks but within the same spine network segment. Nodes within the same placement group can reach each other with a maximum of two extra switch hops. A placement group is always within a single Azure availability zone and spans multiple racks. The CloudSimple control plane distributes nodes of a Private Cloud across multiple racks based on best effort. Nodes in different placement groups are guaranteed to be placed in different racks.
 
 ## Availability zones
 
@@ -50,7 +50,7 @@ Data center connectivity to Azure vNet using ExpressRoute has redundant circuits
 
 ## Redundant networking services
 
-All the AVS networking services for the AVS Private Cloud (including VLAN, firewall, public IP addresses, Internet, and VPN) are designed to be highly available and able to support the service SLA.
+All the CloudSimple networking services for the Private Cloud (including VLAN, firewall, public IP addresses, Internet, and VPN) are designed to be highly available and able to support the service SLA.
 
 ## Azure Layer 7 Load Balancer for stateless VMware VMs
 

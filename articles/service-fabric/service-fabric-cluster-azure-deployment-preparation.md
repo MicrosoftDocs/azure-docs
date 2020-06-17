@@ -72,7 +72,6 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {
@@ -82,6 +81,16 @@ Ephemeral OS disks is not a specific Service Fabric feature, but rather a featur
             }
         }
     ```
+
+> [!NOTE]
+> User applications should not have any dependency/file/artifact on the OS disk, as the OS disk would be lost in the case of an OS upgrade.
+> Hence, it is not recommended to use [PatchOrchestrationApplication](https://github.com/microsoft/Service-Fabric-POA) with ephemeral disks.
+>
+
+> [!NOTE]
+> Existing non-ephemeral VMSS can't be upgraded in-place to use ephemeral disks.
+> To migrate, users will have to [add](./virtual-machine-scale-set-scale-node-type-scale-out.md) a new nodeType with ephemeral disks, move the workloads to the new nodeType & [remove](./service-fabric-how-to-remove-node-type.md) the existing nodeType.
+>
 
 For more info and further configuration options, see [Ephemeral OS disks for Azure VMs](../virtual-machines/windows/ephemeral-os-disks.md) 
 

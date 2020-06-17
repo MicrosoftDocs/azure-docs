@@ -39,9 +39,11 @@ There are two load-balancing layers in an Azure Container Service DC/OS cluster:
 
 Marathon Load Balancer dynamically reconfigures itself based on the containers that you've deployed. It's also resilient to the loss of a container or an agent - if this occurs, Apache Mesos restarts the container elsewhere and marathon-lb adapts.
 
+Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
+
 Run the following command to install the marathon load balancer on the public agent's cluster.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -93,7 +95,7 @@ Next, create a file named *hello-web.json* and copy in the following contents. T
 
 Use the DC/OS CLI to run the application. By default Marathon deploys the application to the private cluster. This means that the above deployment is only accessible via your load balancer, which is usually the desired behavior.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

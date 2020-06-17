@@ -32,7 +32,7 @@ landingContent:
           - text: Event Grid concepts
             url: concepts.md
           - text: Event sources
-            url: event-sources.md
+            url: overview.md#event-sources
           - text: Event handlers
             url: event-handlers.md
           - text: Event filters

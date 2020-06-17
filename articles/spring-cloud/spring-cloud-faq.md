@@ -11,7 +11,7 @@ ms.author: brendm
 
 # Azure Spring Cloud FAQ
 
-This article answers frequently asked questions about Azure Spring Cloud. 
+This article answers frequently asked questions about Azure Spring Cloud.
 
 ## General
 
@@ -40,7 +40,7 @@ For more information, see [Azure Support FAQ](https://azure.microsoft.com/suppor
 
 Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. All the service instances in Azure Spring Cloud are isolated from each other.
 
-Azure Spring Cloud provides complete SSL and certificate management.
+Azure Spring Cloud provides complete TLS/SSL and certificate management.
 
 Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
@@ -55,7 +55,10 @@ During preview release, Azure Spring Cloud has the following known limitations:
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` is not allowed in the configuration file from the Git repo. Adding it to the configuration file will likely render your application unreachable from other applications or the internet.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
-* To learn about quota limitations, see [What service plans does Azure Spring Cloud offer?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### What pricing tiers are available? 
+Which one should I use and what are the limits within each tier?
+* Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](placeholder: link to ACOM page) for limits and feature level comparison.
 
 ### How can I provide feedback and report issues?
 
@@ -88,6 +91,10 @@ Three services are currently supported: Azure Cosmos DB, Azure Database for MySQ
 ### Can I view, add, or move persistent volumes from inside my applications?
 
 Yes.
+
+### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
+
+It depends on the logics of resource providers where the extension resources belong to. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behaviors vary according to different resource providers. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## Deployment
 

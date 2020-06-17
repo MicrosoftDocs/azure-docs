@@ -72,10 +72,10 @@ The following management operations are captured in operational logs:
 
 | Scope | Operation|
 |-------| -------- |
-| Namespace | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li>  </ul> | 
-| Queue | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> </ul> | 
-| Topic | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> </ul> |
-| Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> </ul> |
+| Namespace | <ul> <li> Create Namespace</li> <li> Update Namespace </li> <li> Delete Namespace </li> <li> Update Namespace SharedAccess Policy </li> </ul> | 
+| Queue | <ul> <li> Create Queue</li> <li> Update Queue</li> <li> Delete Queue </li> <li> AutoDelete Delete Queue </li> </ul> | 
+| Topic | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> <li> AutoDelete Delete Topic </li> </ul> |
+| Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> <li> AutoDelete Delete Subscription </li> </ul> |
 
 > [!NOTE]
 > Currently, *Read* operations are not tracked in the operational logs.

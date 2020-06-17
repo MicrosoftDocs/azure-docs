@@ -20,6 +20,9 @@ The following table lists the limits that apply to Azure IoT Hub Device Provisio
 > [!NOTE]
 > To increase the number of enrollments and registrations on your provisioning service, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
 
+> [!NOTE]
+> Increasing the maximum number of CAs is not supported.
+
 The Device Provisioning Service throttles requests when the following quotas are exceeded.
 
 | Throttle | Per-unit value |

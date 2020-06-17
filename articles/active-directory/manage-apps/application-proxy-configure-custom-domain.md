@@ -3,20 +3,18 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Configure and manage custom domains in Azure AD Application Proxy. 
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
-ms.reviewer: harshja
+ms.author: kenwith
+ms.reviewer: japere
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -117,7 +115,7 @@ For more detailed instructions for Application Proxy, see [Tutorial: Add an on-p
 
 ## Certificates for custom domains
 
-A certificate creates the secure SSL connection for your custom domain. 
+A certificate creates the secure TLS connection for your custom domain. 
 
 ### Certificate formats
 
@@ -127,19 +125,19 @@ There's no restriction on the certificate signature methods. Elliptic Curve Cryp
 
 You can use wildcard certificates as long as the wildcard matches the external URL. You must use wildcard certificates for [wildcard applications](application-proxy-wildcard.md). If you want to use the certificate to also access subdomains, you must add the subdomain wildcards as subject alternative names in the same certificate. For example, a certificate for *\*.adventure-works.com* won't work for *\*.apps.adventure-works.com* unless you add *\*.apps.adventure-works.com* as a subject alternative name. 
 
-You can use certificates issued by your own public key infrastructure (PKI) if the certificate chain is installed on your client devices. Intune can deploy these certificates to managed devices. For non-managed devices, you must manually install these certificates.
+You can use certificates issued by your own public key infrastructure (PKI) if the certificate chain is installed on your client devices. Intune can deploy these certificates to managed devices. For non-managed devices, you must manually install these certificates. 
 
-It's not a good idea to use a private root CA. The private root CA would also need to be pushed to client machines, which introduces many challenges. 
+We do not recommend using a private root CA since the private root CA would also need to be pushed to client machines, which may introduce many challenges.
 
 ### Certificate management
 
 All certificate management is through the individual application pages. Go to the application's **Application proxy** page to access the **Certificate** field.
 
-You can use the same certificate for multiple applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
+Once a certificate is uploaded for an application it will also be automatically applied to **new** apps configured that use the same certificate. You will need to re-upload the certificate for existing apps in your tenant.
 
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
 ## Next steps
-* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable Conditional Access](../conditional-access/technical-reference.md#cloud-apps-assignments) to your published apps.
 
+* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
+* [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) for your published cloud apps.

@@ -31,10 +31,10 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   The following example shows how to find all family documents within a polygon using `ST_WITHIN`.  
   
 ```sql
-SELECT f.id   
-FROM Families f   
+SELECT f.id
+FROM Families f
 WHERE ST_WITHIN(f.location, {  
-    'type':'Polygon',   
+    'type':'Polygon',
     'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]  
 })  
 ```  
@@ -44,6 +44,10 @@ WHERE ST_WITHIN(f.location, {
 ```json
 [{ "id": "WakefieldFamily" }]  
 ```  
+
+## Remarks
+
+This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes).
 
 ## Next steps
 

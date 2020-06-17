@@ -10,6 +10,9 @@
     href: analysis-services-create-server.md
   - name: Create a server - PowerShell
     href: analysis-services-create-powershell.md
+  - name: Create a server - ARM template
+    displayName: Resource Manager
+    href: analysis-services-create-template.md
   - name: Configure server firewall - Portal
     href: analysis-services-qs-firewall.md
 - name: Tutorials
@@ -36,8 +39,12 @@
     href: analysis-services-connect.md
   - name: High availability
     href: analysis-services-bcdr.md
+  - name: Long running operations
+    href: analysis-services-long-operations.md
   - name: Supported data sources
     href: analysis-services-datasource.md
+  - name: Network connectivity FAQ
+    href: analysis-services-network-faq.md
 - name: How-to
   items:
   - name: Server
@@ -64,6 +71,8 @@
       href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
     - name: Add a service principal to server administrator role
       href: analysis-services-addservprinc-admins.md
+    - name: Move between regions
+      href: move-between-regions.md
   - name: Model
     items:
     - name: Tabular modeling
@@ -113,11 +122,9 @@
   - name: Samples
     href: analysis-services-samples.md
   - name: Analysis Services team blog
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Azure Analysis Services forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+    href: https://powerbi.microsoft.com/blog/category/analysis-services/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
     href: https://azure.microsoft.com/status/
   - name: Feedback

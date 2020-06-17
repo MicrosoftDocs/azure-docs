@@ -2,16 +2,15 @@
 title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: arvindha, celested
 #customer intent: As an admin, I want to automate user provisioning to SaaS apps
 ---
 

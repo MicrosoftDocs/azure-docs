@@ -3,14 +3,14 @@ title: Boolean claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Boolean claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 06/06/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -44,7 +44,7 @@ The following claims transformation demonstrates how to And two boolean ClaimTyp
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of AndClaims
 
 - Input claims:
     - **inputClaim1**: true
@@ -62,7 +62,7 @@ Checks that boolean values of two claims are equal, and throws an exception if t
 | inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
 
-The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user.
+The **AssertBooleanClaimIsEqualToValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). The **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** self-asserted technical profile metadata controls the error message that the technical profile presents to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 ![AssertStringClaimsAreEqual execution](./media/boolean-transformations/assert-execution.png)
 
@@ -81,6 +81,7 @@ The following claims transformation demonstrates how to check the value of a boo
 
 
 The `login-NonInteractive` validation technical profile calls the `AssertAccountEnabledIsTrue` claims transformation.
+
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -103,7 +104,7 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 </TechnicalProfile>
 ```
 
-### Example
+### Example of AssertBooleanClaimIsEqualToValue
 
 - Input claims:
     - **inputClaim**: false
@@ -112,14 +113,13 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 
 ## CompareBooleanClaimToValue
 
-Checks that boolean value of a claims is equal to `true` or `false`, and return the result of the compression. 
+Checks that boolean value of a claim is equal to `true` or `false`, and return the result of the compression.
 
 | Item | TransformationClaimType  | Data Type  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | boolean | The ClaimType to be asserted. |
+| InputClaim | inputClaim | boolean | The ClaimType to be asserted. |
 | InputParameter |valueToCompareTo | boolean | The value to compare (true or false). |
-| OutputClaim | inputClaim | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
-
+| OutputClaim | compareResult | boolean | The ClaimType that is produced after this ClaimsTransformation has been invoked. |
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.
 
@@ -132,21 +132,19 @@ The following claims transformation demonstrates how to check the value of a boo
     <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
   </InputParameters>
   <OutputClaims>
-      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+    <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
   </OutputClaims>
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of CompareBooleanClaimToValue
 
 - Input claims:
     - **inputClaim**: false
 - Input parameters:
     - **valueToCompareTo**: true
 - Output claims:
-    - **compareResult**: false 
-
-
+    - **compareResult**: false
 
 ## NotClaims
 
@@ -163,13 +161,14 @@ Use this claim transformation to perform logical negation on a claim.
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="outputClaim" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
 
-### Example
+### Example of NotClaims
 
 - Input claims:
     - **inputClaim**: false
@@ -198,10 +197,9 @@ The following claims transformation demonstrates how to `Or` two boolean ClaimTy
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
 </ClaimsTransformation>
-</ClaimsTransformation>
 ```
 
-### Example
+### Example of OrClaims
 
 - Input claims:
     - **inputClaim1**: true

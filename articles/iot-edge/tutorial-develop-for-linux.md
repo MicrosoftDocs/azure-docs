@@ -60,7 +60,7 @@ A development machine:
   * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on MacOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
 An Azure IoT Edge device on Linux:
@@ -85,6 +85,7 @@ Use the Docker documentation to install on your development machine:
 * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
 
 * Read [About Docker CE](https://docs.docker.com/install/) for installation information on several Linux platforms.
+  * For the Windows Subsystem for Linux (WSL), install Docker Desktop for Windows.
 
 ## Set up VS Code and tools
 
