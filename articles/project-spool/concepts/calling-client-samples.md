@@ -563,11 +563,11 @@ const deviceManager = callClient.deviceManager;
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// NA
+DeviceManager deviceManager = callClient.getDeviceManager();
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// NA
+var deviceManager = callClient.deviceManager;
 ```
 --- 
 
