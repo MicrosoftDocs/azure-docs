@@ -162,7 +162,7 @@ Before you begin, you must have:
 
 ### Azure Cloud Shell
 
-For this tutorial, we use Windows PowerShell to run Azure CLI commands. Alternatively, you can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. You can use either Bash or PowerShell with Cloud Shell to work with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
+For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. Alternatively, you can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or PowerShell with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
 
 To start Azure Cloud Shell:
 
@@ -216,9 +216,9 @@ To run the code in this article in Azure Cloud Shell:
     ]
     ```
 
-2. Install the Azure Data Box CLI extension.
+2. Install the Azure Data Box CLI extension (if you are not using Azure Cloud Shell).
 
-   When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+   Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
    To install the extension for Azure Data Box, run the following command: `az extension add --name databox`.
 
@@ -249,7 +249,25 @@ To run the code in this article in Azure Cloud Shell:
 
 ## Change the output format type
 
-For all Azure CLI commands discussed in this tutorial, output format is set to .json by default. You can change the output format by using the global parameter `--output <output-type>`.
+All Azure CLI commands will use json as the output format unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
+
+```azurecli
+
+az databox job <command> --output <output-format>
+
+```
+
+Azure Data Box CLI commands support the following output formats:
+
+* json (default setting)
+* jsonc
+* table
+* tsv
+* yaml
+* yamlc
+* none
+
+You can use the parameter `--output` with all Azure Data Box CLI commands.
 
 To set the output format to yaml:
 
@@ -265,7 +283,7 @@ PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "myd
 
 ```
 
-Here is the sample output after setting the output format to "table":
+Here's the example output of `az databox job show` after changing the output format to table:
 
 ```azurecli
 PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
@@ -276,18 +294,6 @@ DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShi
 NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
 
 ```
-
-Azure Data Box CLI supports the following output formats:
-
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
-
-You can use this parameter with all Azure Data Box CLI commands.
 
 ## Create an order
 
