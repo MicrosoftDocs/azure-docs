@@ -210,4 +210,6 @@ For a step-by-step tutorial that guides you through the process of creating a te
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
-See additional quickstarts to create a Synape  SQL pool using the [portal]() or pwershell.
+See additional quickstarts to create a Synapse SQL pool using the [portal](create-data-warehouse-portal.md) or [PowerShell](create-data-warehouse-powershell.md).
+
+See addtional quickstarts to scale your Synapse SQL pool using the [portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) or [T-SQL](quickstart-scale-compute-tsql.md)
