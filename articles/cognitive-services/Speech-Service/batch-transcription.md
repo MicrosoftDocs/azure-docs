@@ -50,7 +50,7 @@ As with all features of the Speech service, you create a subscription key from t
 
 ### Custom models
 
-If you plan to customize models, follow the steps in [Acoustic customization of models](how-to-customize-acoustic-models.md) and [Language customization of models](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (.self property). A deployed custom endpoint is *not needed* for the batch transcription service.
+If you plan to customize models, follow the steps in [Acoustic customization](how-to-customize-acoustic-models.md) and [Language customization](how-to-customize-language-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
 
 ## The Batch Transcription API
 
@@ -184,7 +184,7 @@ Use these optional properties to configure transcription:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container.
+      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
 :::row-end:::
 
 ### Storage
@@ -193,10 +193,9 @@ Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azu
 
 ## The batch transcription result
 
-For each input audio, one transcription result file is being created. You can get the list of result files by calling the 
+For each input audio, one transcription result file is being created. You can get the list of result files by calling [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). This method returns a list of result files for this transcription. To find the transcription file for a specific input file, filter all returned files with `kind` == `Transcription` and  `name` == `{originalInputName.suffix}.json`.
 
-
-Each transcription result file follows this format:
+Each transcription result file his this format:
 
 ```json
 {
@@ -226,13 +225,13 @@ Each transcription result file follows this format:
       "nBest": [
         {
           "confidence": 0.898652852,                               // confidence value for the recognition of the whole phrase
-          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2); otherwise not present
+          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
           
-          // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase
+          // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
               "word": "hello",
@@ -300,7 +299,7 @@ The result contains these forms:
 
 Diarization is the process of separating speakers in a piece of audio. Our Batch pipeline supports diarization and is capable of recognizing two speakers on mono channel recordings. The feature is not available on stereo recordings.
 
-All transcription output contains a `SpeakerId`. If diarization is not used, it shows `"SpeakerId": null` in the JSON output. For diarization we support two voices, so the speakers are identified as `"1"` or `"2"`.
+The output of transcription with diarization enabled contains a `Speaker` entry for each transcribed phrase. If diarization is not used, the property `Speaker` is not present in the JSON output. For diarization we support two voices, so the speakers are identified as `1` or `2`.
 
 To request diarization, you simply have to add the relevant parameter in the HTTP request as shown below.
 
@@ -324,7 +323,7 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on the [transcriptions method](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). [Delete transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to a reasonable value to ensure eventual deletion of the results.
+The transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to a reasonable value to ensure eventual deletion of the results.
 
 ## Sample code
 
