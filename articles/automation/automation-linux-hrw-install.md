@@ -26,7 +26,7 @@ The Hybrid Runbook Worker feature supports the following distributions:
 
 ## Supported runbook types
 
-Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Automation, and this is described in the following table.
+Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Automation, and they are described in the following table.
 
 |Runbook type | Supported |
 |-------------|-----------|
@@ -60,24 +60,35 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 
 ## Install a Linux Hybrid Runbook Worker
 
-To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a set of manual steps. It requires enabling the Hybrid Runbook Worker in your Azure Monitor Log Analytics workspace, run a set of commands to register the computer as a worker, and then add it to a group.
+To install and configure a Linux Hybrid Runbook Worker, you can use one of the following methods.
 
-Before you proceed, note the Log Analytics workspace that your Automation account is linked to. If is not linked, because you haven't linked it or you don't have a workspace, 
+* For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or the Azure CLI. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account.
 
+* For non-Azure VMs, install the Log Analytics agent for Linux using the deployment options described in the [Connect Linux computers to Azure Monitor](../azure-monitor/platform/agent-linux.md) article. You can repeat this process for multiple computers to add multiple workers to your environment. Once the agent is installed, the VMs can be added to a Hybrid Runbook Worker group in your Automation account.
 
-Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
+> [!NOTE]
+> To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
+
+Before continuing, review the following if you are planning to deploy the Hybrid Runbook Worker role on Azure or non-Azure VMs:
+
+    * If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
+
+    * If you have a workspace, but it is not linked to your Automation account, refer to step 1. 
+
+    * If your Automation account is already linked to a workspace, refer to steps 2 and 3.
 
 >[!NOTE]
 > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
-1. Enable the Hybrid Runbook Worker in Azure by using one of the following methods:
+### Step 1 - Add an Azure Automation feature to the Log Analytics workspace
 
-   * Add the Hybrid Runbook Worker to your subscription by using the procedure at [Add Azure Monitor logs to your workspace](../log-analytics/log-analytics-add-solutions.md).
-   * Run the following cmdlet:
+An Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](automation-update-management.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent computer.
 
-        ```azurepowershell-interactive
-         Set-AzOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
-        ```
+For example, to add the Update Management feature to your workspace, run the following PowerShell cmdlet:
+
+```powershell-interactive
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+```
 
 1. Install the Log Analytics agent for Linux by running the following command. Replace \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.
 
