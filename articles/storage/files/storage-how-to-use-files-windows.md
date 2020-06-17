@@ -4,7 +4,7 @@ description: Learn how to use an Azure file share with Windows and Windows Serve
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/17/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -81,16 +81,26 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 
 ### Mount the Azure file share with PowerShell
 
-The Azure portal will provide you with a cmdlet allowing you to easily mount your file share. We recommend using this provided cmdlet due to the complexity involved, otherwise.
+The Azure portal will provide you with a cmdlet allowing you to easily mount your file share. We recommend using this provided cmdlet, rather than constructing the mount cmd yourself.
 
 To get this cmdlet:
 
-1. Sign in to the Azure portal
-1. Navigate to the storage account with the file share you'd like to mount
-1. Select **File shares**
-1. Select the file share you'd like to mount
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to the storage account that contains the file share you'd like to mount.
+1. Select **File shares**.
+
+:::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
+
+1. Select the file share you'd like to mount.
 1. Select **Connect**.
-1. Select the provided cmdlet and copy it.
+
+:::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
+
+1. Select the drive letter to mount the share to.
+1. Copy the provided cmdlet.
+
+:::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet.png" alt-text="Example text":::
+
 1. Paste the cmdlet into a shell on the host you'd like to mount the file share to, and run it.
 
 You have now mounted your Azure file share.
