@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/06/2020
+ms.date: 06/16/2020
 ms.author: robb
 ms.subservice: metrics
 ---
@@ -2078,17 +2078,6 @@ There are some limitations in what can be routed and the form in which they are 
 <sup>1</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. 
 
 <sup>2</sup> This metric is available for databases using the vCore purchasing model with 2 vCores and higher, or 200 DTU and higher for DTU-based purchasing models. This metric is not currently available for Hyperscale databases.
-
-
-## Microsoft.Sql/servers
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|ElasticPoolResourceId|
-|database_dtu_consumption_percent|DTU percentage|Percent|Average|DTU percentage|DatabaseResourceId,ElasticPoolResourceId|
-|storage_used|Data space used|Bytes|Average|Data space used|ElasticPoolResourceId|
-|database_storage_used|Data space used|Bytes|Average|Data space used|DatabaseResourceId,ElasticPoolResourceId|
-|dtu_used|DTU used|Count|Average|DTU used|DatabaseResourceId|
 
 ## Microsoft.Sql/managedInstances
 
