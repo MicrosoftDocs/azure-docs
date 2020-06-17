@@ -14,7 +14,7 @@ ms.author: sausin
 
 # Add interaction rules
 
-In the previous articles, you learns how to create and configure completion rules. In this article, you'll learn about **interaction rules**. These are additional rules to handle more specific or complex situations.
+In the previous articles, you learnt how to create and configure completion rules. In this article, you'll learn about **interaction rules**. These are additional rules to handle more specific or complex situations.
 
 While you're free to author your own custom interaction rules, in this article, you'll learn how to make use of interaction rules for following targeted scenarios:
 

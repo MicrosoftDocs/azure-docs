@@ -23,7 +23,7 @@ In this article, you will learn more about parameter configuration. In the previ
 You must have completed the steps in the following articles:
 
 > [!div class="checklist"]
-> * [Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 > * [How To: Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
 
 

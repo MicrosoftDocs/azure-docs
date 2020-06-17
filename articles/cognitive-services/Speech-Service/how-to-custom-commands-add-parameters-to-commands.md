@@ -17,7 +17,7 @@ In this article, you will be adding parameters to the commands.
 
 ## Prerequisites
 > [!div class="checklist"]
-> * [Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 
 ## Configure parameters for TurnOn command
 
@@ -26,7 +26,7 @@ Let's edit the existing **TurnOn** command to turn on and turn off multiple devi
 1. Because the command will now handle both on and off scenario, rename the Command to **TurnOnOff**.
    - In the left pane, select the **TurnOn** command and then select the ellipsis (...) button next to **New command** at the top of the pane.
    
-   - Select **Rename**. In the **Rename command** windows, change **Name** to **TurOnOff**.
+   - Select **Rename**. In the **Rename command** windows, change **Name** to **TurnOnOff**.
 
 1. Next, you add a new parameter to this command which represents whether the user wants to turn the device on or off.
    - Select  **Add** present at top of the middle pane. From the drop-down, select **Parameter**.

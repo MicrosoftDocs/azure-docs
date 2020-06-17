@@ -21,7 +21,6 @@ In this article, you'll learn how to:
 ## Create empty application
 Create an empty Custom Commands application. For details, refer to the [quickstart](quickstart-custom-commands-application.md). Only this time, instead of importing a project, you create a blank project.
 
-
    > [!div class="mx-imgBorder"]
    > ![Create a project](media/custom-commands/create-new-project.png)
 
@@ -116,9 +115,10 @@ Now, let's add one more command **SetTemperature** that will take a single utter
 Follow the steps as illustrated for the **TurnOn** command to create a new command with the following configuration-
 
 ### Example sentences
-    ```
+
+   ```
     set the temperature to 40 degrees
-    ```
+   ```
 
 ### Completion rules
 Edit the existing **Done** completion as follows:

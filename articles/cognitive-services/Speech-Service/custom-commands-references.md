@@ -74,6 +74,8 @@ Custom Commands support following rule categories:
 1. Interaction rules
 
     Interaction rules can be used to configure additional custom validations, confirmations, one-step correction or for for accomplishing any other custom dialog logic. These rules are evaluated at each turn processing and can be used to trigger completion rules.
+
+The different actions configured as part of a rule are executed in the order they appear in the authoring portal.
     
 ### Conditions
 Set of conditions which must be met for a rule to execute. Rules condition can be of the following types:
