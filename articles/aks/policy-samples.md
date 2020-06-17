@@ -15,10 +15,6 @@ The name of each built-in policy definition links to the policy definition in th
 the link in the **Version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-## Microsoft.Kubernetes
-
-[!INCLUDE [azure-policy-samples-rp-aks-kubernetes](../../includes/policy/samples/byrp/microsoft.kubernetes.md)]
-
 ## Microsoft.ContainerService
 
 [!INCLUDE [azure-policy-samples-rp-aks-containerservice](../../includes/policy/samples/byrp/microsoft.containerservice.md)]
