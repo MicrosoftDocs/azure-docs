@@ -5,7 +5,7 @@ description: Use role-based access control to grant users authorization to Azure
 author: philmea
 ms.author: philmea
 ms.date: 06/17/2020
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
