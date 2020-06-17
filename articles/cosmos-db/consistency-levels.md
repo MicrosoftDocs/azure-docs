@@ -39,7 +39,7 @@ The semantics of the five consistency levels are described here:
 
   ![video](media/consistency-levels/strong-consistency.gif)
 
-- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
+- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
 
 - The number of versions (*K*) of the item
 - The time interval (*T*) by which the reads might lag behind the writes
