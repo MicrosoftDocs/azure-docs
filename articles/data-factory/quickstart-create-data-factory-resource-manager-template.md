@@ -273,11 +273,11 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder (C
 
 There are Azure resources defined in the template:
 
-* Microsoft.DataFactory/factories: Create an Azure Data Factory.
-* Microsoft.DataFactory/factories/linkedServices: Create an Azure Data Factory linked service.
-* Microsoft.DataFactory/factories/datasets: Create an Azure Data Factory dataset.
-* Microsoft.DataFactory/factories/pipelines: Create an Azure Data Factory pipeline.
-container.
+- [Microsoft.DataFactory/factories](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
+- [Microsoft.DataFactory/factories/linkedServices](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
+- [Microsoft.DataFactory/factories/datasets](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
+- [Microsoft.DataFactory/factories/pipelines](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
+- [Microsoft.DataFactory/factories/triggers](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/triggers): Ccreate an ADF trigger resource.
 
 Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
 
@@ -349,80 +349,30 @@ Outputs                 :
 DeploymentDebugLogLevel : 
 ```
 
-### Start the trigger
+### Add an input folder and file for the blob container
+In this section, you create a folder named **input** in the container you just created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
 
-The template deploys the following Data Factory entities:
+```emp.txt
+John, Doe
+Jane, Doe
+```
 
-- Azure Storage linked service
-- Binary datasets (input and output)
-- Pipeline with a copy activity
-- Trigger to trigger the pipeline
+Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then return to the Azure portal and follow these steps:
 
-The deployed trigger is in stopped state. One of the ways to start the trigger is to use the **Start-AzDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps:
+1. In the *\<Account name>* - **Containers** page where you left off, select **adftutorial** from the updated list of containers.
 
-1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzResourceGroupDeployment command, update the value here.
+   1. If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again.
+   1. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
+   1. Select your storage account, and then select **Containers** > **adftutorial**.
 
-    ```powershell
-    $resourceGroupName = "ADFTutorialResourceGroup"
-    ```
-2. Create a variable to hold the name of the data factory. Specify the same name that you specified in the ADFTutorialARM-Parameters.json file.
+2. On the **adftutorial** container page's toolbar, select **Upload**.
+3. In the **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
+4. Expand the **Advanced** heading. The page now displays as shown:
+5. In the **Upload to folder** box, enter **input**.
+6. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+7. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
-    ```powershell
-    $dataFactoryName = "<yourdatafactoryname>"
-    ```
-3. Set a variable for the name of the trigger. The name of the trigger is hardcoded in the Resource Manager template file (ADFTutorialARM.json).
-
-    ```powershell
-    $triggerName = "ArmTemplateTestTrigger"
-    ```
-4. Get the **status of the trigger** by running the following PowerShell command after specifying the name of your data factory and trigger:
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
-
-    Here is the sample output:
-
-    ```json
-
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Stopped
-    ```
-
-    Notice that the runtime state of the trigger is **Stopped**.
-
-5. **Start the trigger**. The trigger runs the pipeline defined in the template at the hour. That's, if you executed this command at 2:25 PM, the trigger runs the pipeline at 3 PM for the first time. Then, it runs the pipeline hourly until the end time you specified for the trigger.
-
-    ```powershell
-    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    Here is the sample output:
-    
-    ```console
-    Confirm
-    Are you sure you want to start trigger 'ArmTemplateTestTrigger' in data factory 'ARMFactory1128'?
-    [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
-    True
-    ```
-6. Confirm that the trigger has been started by running the Get-AzDataFactoryV2Trigger command again.
-
-    ```powershell
-    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
-    ```
-    
-    Here is the sample output:
-    
-    ```console
-    TriggerName       : ArmTemplateTestTrigger
-    ResourceGroupName : ADFTutorialResourceGroup
-    DataFactoryName   : ADFQuickstartsDataFactory0905
-    Properties        : Microsoft.Azure.Management.DataFactory.Models.ScheduleTrigger
-    RuntimeState      : Started
-    ```
+Keep the **adftutorial** container page open. You use it to verify the output at the end of this quickstart.
 
 ### Monitor the pipeline
 
