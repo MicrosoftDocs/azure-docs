@@ -101,7 +101,7 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ```
 ---
 
-##### TODO: Making 1:1 call with with video camera
+##### Making 1:1 call with with video camera
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -191,7 +191,79 @@ call.mute(completionHandler: nil);
 call.unmute(completionHandler: nil);
 ```
 ---
- 
+
+### Start/stop sending local video
+To start sending local video to other participants in the call,
+use 'startVideo' api and pass videoDevice from deviceManager.getCameraList() API enumeration call
+
+#### [Javascript](#tab/javascript)
+```js
+const localVideoStream = await call.startVideo(videoDevice);
+```
+#### [Android (Java)](#tab/java)
+```java
+VideoDeviceInfo videoDevice = <get-video-device>;
+Future startVideoFuture = call.startVideo(videoDevice);
+startVideoFuture.get();
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+call.startVideo(device: ACSVideoDeviceInfo(),
+                completionHandleFuture stopVideoTask = call.stopVideo(localVideoStream);
+stopVideoTask.get();r: ((error: Error?) -> Void) { 
+    if(error == nil)
+    {
+        print("Video was started successfully.");
+    }
+    else
+    {
+        print("Video failed to start.");
+    }   
+});
+```
+--- 
+
+Once you start sending video 'LocalVideoStream' instance is added to localVideoStreams collection on a call instance
+
+#### [Javascript](#tab/javascript)
+```js
+call.localVideoStreams[0] === localVideoStream;
+```
+#### [Android (Java)](#tab/java)
+```java
+call.getLocalVideoStreams().get(0) == localVideoStream;
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+call.localVideoStreams
+```
+--- 
+
+* [Asynchronous] stop local video, pass localVideoStream you got from call.startVideo() API call
+
+#### [Javascript](#tab/javascript)
+```js
+await call.stopVideo(localVideoStream);
+```
+#### [Android (Java)](#tab/java)
+```java
+Future stopVideoTask = call.stopVideo(localVideoStream);
+stopVideoTask.get();
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+call.stopVideo(completionHandler: ((error: Error?) -> Void) { 
+    if(error == nil)
+    {
+        print("Video was stopped successfully.");
+    }
+    else
+    {
+        print("Video failed to stop.");
+    }   
+});
+```
+--- 
 ## Remote participants management
 All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance
 
@@ -319,79 +391,6 @@ removeParticipantTask.get();
 ```swift
 call.removeParticipant(participant: remoteParticipant,
                        completionHandler: ((error: Error?) -> Void)
-```
---- 
-
-### Start/stop sending local video
-To start sending local video to other participants in the call,
-use 'startVideo' api and pass videoDevice from deviceManager.getCameraList() API enumeration call
-
-#### [Javascript](#tab/javascript)
-```js
-const localVideoStream = await call.startVideo(videoDevice);
-```
-#### [Android (Java)](#tab/java)
-```java
-VideoDeviceInfo videoDevice = <get-video-device>;
-Future startVideoFuture = call.startVideo(videoDevice);
-startVideoFuture.get();
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-call.startVideo(device: ACSVideoDeviceInfo(),
-                completionHandleFuture stopVideoTask = call.stopVideo(localVideoStream);
-stopVideoTask.get();r: ((error: Error?) -> Void) { 
-    if(error == nil)
-    {
-        print("Video was started successfully.");
-    }
-    else
-    {
-        print("Video failed to start.");
-    }   
-});
-```
---- 
-
-Once you start sending video 'LocalVideoStream' instance is added to localVideoStreams collection on a call instance
-
-#### [Javascript](#tab/javascript)
-```js
-call.localVideoStreams[0] === localVideoStream;
-```
-#### [Android (Java)](#tab/java)
-```java
-call.getLocalVideoStreams().get(0) == localVideoStream;
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-call.localVideoStreams
-```
---- 
-
-* [Asynchronous] stop local video, pass localVideoStream you got from call.startVideo() API call
-
-#### [Javascript](#tab/javascript)
-```js
-await call.stopVideo(localVideoStream);
-```
-#### [Android (Java)](#tab/java)
-```java
-Future stopVideoTask = call.stopVideo(localVideoStream);
-stopVideoTask.get();
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-call.stopVideo(completionHandler: ((error: Error?) -> Void) { 
-    if(error == nil)
-    {
-        print("Video was stopped successfully.");
-    }
-    else
-    {
-        print("Video failed to stop.");
-    }   
-});
 ```
 --- 
 
