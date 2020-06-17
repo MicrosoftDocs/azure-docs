@@ -122,7 +122,12 @@ Call call = callClient.call(participants, placeCallOptions);
 #### [iOS (Swift)](#tab/swift)
 ```swift
 let placeCallOptions = ACSPlaceCallOptions();
-let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
+let videoOptions = ACSVideoOptions()
+let cameras = deviceManager.getCameraList();
+videoOptions.camera = (cameras.first ?? nil)!;
+placeCallOptions.videoOptions = videoOptions
+let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
+call.delegate = self;
 ```
 ---
 
