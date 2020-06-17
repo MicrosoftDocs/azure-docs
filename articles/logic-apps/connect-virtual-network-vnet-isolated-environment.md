@@ -42,11 +42,13 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md). Your virtual network needs to have four *empty* subnets for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets that aren't delegated to any service for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
 
   > [!IMPORTANT]
+  >
   > Don't use the following IP address spaces for your virtual network or 
   > subnets because the Logic Apps service can't resolve these addresses:
+  > 
   > 
   > * 0.0.0.0/8
   > * 100.64.0.0/10
