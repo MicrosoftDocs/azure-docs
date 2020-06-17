@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/17/2020
+ms.date: 06/15/2020
 
 ---
 
@@ -133,8 +133,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Notification Hubs | Yes | No | No |  |
 |Open Datasets | No | No | No |  |
 |Policy | No | No | No |  |
-|Power BI | Yes | Yes | No |  |
-|Power BI Embedded | No | No | No |  |
+|Power BI Embedded | Yes | Yes | No |  |
 |Private Link | No | No | No |  |
 |Project Spool Communication Platform | No | No | No |  |
 |Red Hat OpenShift | No | No | No |  |

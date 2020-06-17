@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Data Lake Analytics
+# Azure Policy built-in definitions for Azure Data Lake Analytics
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Data Lake Analytics. For additional Azure Policy built-ins for other services,

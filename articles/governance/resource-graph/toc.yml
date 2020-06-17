@@ -10,19 +10,22 @@
   items:
   - name: Run your first query - Azure portal
     displayName: portal, resource, graph, explorer
-    href: first-query-portal.md
+    href: ./first-query-portal.md
   - name: Run your first query - Azure CLI
     displayName: extension, docker
-    href: first-query-azurecli.md
-  - name: Run your first query - PowerShell
+    href: ./first-query-azurecli.md
+  - name: Run your first query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
-    href: first-query-powershell.md
+    href: ./first-query-powershell.md
+  - name: Run your first query - Go
+    displayName: package, sdk, golang
+    href: ./first-query-go.md
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
-    href: first-query-python.md
+    href: ./first-query-python.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
-    href: shared-query-template.md
+    href: ./shared-query-template.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
