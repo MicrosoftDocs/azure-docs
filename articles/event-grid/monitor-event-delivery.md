@@ -44,7 +44,7 @@ For subscriptions, here are some of the metrics:
 If you've published a custom topic, you can view the metrics for it. 
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
-2. In the search bar at the topic, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop down list. 
+2. In the search bar at the topic, type **Event Grid Topics**, and then select **Event Grid Topics** from the drop-down list. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topics.png" alt-text="Search for and select Event Grid Topics":::
 3. Select your custom topic from the list of topics. 
@@ -67,7 +67,7 @@ To learn more about metrics, see [Metrics in Azure Monitor](../azure-monitor/pla
 
     :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="Select event subscription":::    
 
-    You can also search for **Event Grid Subscriptions** in the search bar in the Azure portal, select **Topic Type**, **Susbscription**, and **Location** to see an event subscription. 
+    You can also search for **Event Grid Subscriptions** in the search bar in the Azure portal, select **Topic Type**, **Subscription**, and **Location** to see an event subscription. 
 
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Select event subscription from Event Grid Subscriptions page":::        
 3. See the metrics for the subscription on the home page for the subscription in a chart. You can see **General**, **Error**, **Latency**, and **Dead-Letter** metrics for past 1 hour, 6 hours, 12 hours, 1 day, 7 days, or 30 days. 
