@@ -73,13 +73,10 @@ When printing the schema of the data frame of that object (called **df**) with t
 * the yellow color represents nested structure
 * the green color represents an array with two elements
 
-![Schema origin](./media/how-to-complex-schema/schema-origin.png)
+[!div class="mx-imgBorder"]
+[![Schema origin](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
-_rid, _ts and _etag have been added in the system as I added them into Azure Cosmos DB.
-
-Displaying the data frame with the command display(df.limit(10)) will show the following result:
-
-![Initial schema](./media/how-to-complex-schema/initial-schema-document.png)
+_rid, _ts and _etag have been added in the system as the document was ingested into Azure Cosmos DB transactional store.
 
 The data frame above counts for 5 columns and 1 row only. After transformation, the curated data frame will have 13 columns and 2 rows in a tabular format.
 
@@ -87,7 +84,8 @@ The data frame above counts for 5 columns and 1 row only. After transformation, 
 
 With Synapse Spark, transforming nested structures into columns and array elements into multiple rows, is easy. The steps below can be used by everyone for their own implementation.
 
-![Spark transformations steps](./media/how-to-complex-schema/spark-transfo-steps.png)
+[!div class="mx-imgBorder"]
+[![Spark transformations steps](./media/how-to-complex-schema/spark-transfo-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
 
 **Step 1**: We define a function to flatten nested schema. This function can be used without change. Create a cell in a Pyspark notebook with that function:
 
@@ -130,9 +128,7 @@ df_flat = flatten_df(df)
 display(df_flat.limit(10))
 ```
 
-The display function should return the following result: 10 columns and 1 row. The array and its nested elements are still there.
-
-![Spark second step](./media/how-to-complex-schema/flat-schema-document.png)
+The display function should return 10 columns and 1 row. The array and its nested elements are still there.
 
 **Step 3**: we now transform the array **context_custom_dimensions** in the data frame **df_flat** into a new dataframe **df_flat_explode**. In the code below, we also define which column we select:
 
@@ -148,20 +144,18 @@ display(df_flat_explode.limit(10))
 
 The display function should return the following result: 10 columns and 2 rows. The next step is to flatten nested schemas with the function defined in step 1.
 
-![Spark third step](./media/how-to-complex-schema/explode-array-document.png)
-
 **Step 4**: use the function to flatten the nested schema of the data frame **df_flat_explode** into a new data frame **df_flat_explode_flat**:
 ```python
 df_flat_explode_flat = flatten_df(df_flat_explode)
 display(df_flat_explode_flat.limit(10))
 ```
 
-There are now 13 columns and 2 rows:
-![Spark forth step](./media/how-to-complex-schema/curated-document.png)
+The display function should show 13 columns and 2 rows:
 
 The function printSchema of the data frame df_flat_explode_flat returns the following result:
 
-![Schema final](./media/how-to-complex-schema/schema-final.png)
+[!div class="mx-imgBorder"]
+[![Schema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
 ## Read arrays and nested structures directly with SQL serverless
 
@@ -221,9 +215,7 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 
 If the array had 5 elements with 4 nested structures, SQL serverless would return 5 rows and 4 columns.
 
-SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns:
-
-![SQL query](./media/how-to-complex-schema/query-complex-sql.png)
+SQL serverless can query in-place, map the array in 2 rows and, display all nested structures into columns.
 
 ## Next steps
 
