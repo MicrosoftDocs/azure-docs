@@ -4,28 +4,21 @@
 
 ```ts
 
-import { CommunicationUserCredential } from '@ic3/communicationservices-client';
+export { CommunicationUserCredential } from '@ic3/communicationservices-client';
 
 
-// @public (undocumented)
+// @public 
 export class CallingFactory {
     static create(communicationUserCredential: CommunicationUserCredential, options: CallClientOptions): Promise<CallClient>;
 }
 
-// @public (undocumented)
+// @public 
 export type CallClientOptions = {
     logger?: Logger;
-    
-    // @beta
-    platformId?: string;
-    // @beta
-    prod?: boolean;
-    // @beta
-    displayName?: string;
 };
 
 
-// @public (undocumented)
+// @public 
 export interface CallClient {
     
     readonly calls: Call[];
@@ -37,7 +30,6 @@ export interface CallClient {
     // @beta
     handlePushNotification(pushNotification: any): Promise<Call>;
     
-    // @beta
     on(event: 'callsUpdated', listener: CollectionUpdatedEvent<Call>): void;
     off(event: 'callsUpdated', listener: CollectionUpdatedEvent<Call>): void;
     
@@ -46,47 +38,41 @@ export interface CallClient {
 
 // @public
 export interface CallOptions {
-    // (undocumented)
     audioOptions?: AudioOptions;
-    // (undocumented)
-    screenSharingOptions?: ScreenSharingOptions;
-    // (undocumented)
     videoOptions?: VideoOptions;
 }
 
-// @public
+// @beta
 export interface CallAcceptOptions {
     
 }
 
-// @public (undocumented)
+// @public 
 export type CallGroupOptions = {
     placeCallOptions: CallOptions;
     groupId: string;
+    // @beta
     meetingOptions?: MeetingOptions;
 };
 
-// @public (undocumented)
-export interface AudioOptions {
-    // (undocumented)
+// @public 
+export interface AudioOptions {    
     microphone?: AudioDeviceInfo;
-    muted?: boolean;
-    // (undocumented)
+    muted?: boolean;    
     speakers?: AudioDeviceInfo;
 }
 
-// @public (undocumented)
-export interface ScreenSharingOptions {
-    // (undocumented)
+// @public 
+export interface ScreenSharingOptions {    
     source?: SourceInfo;
 }
 
 
-// @public (undocumented)
+// @public 
 export interface Call {
-    
-    readonly callId: string;
     // @beta
+    readonly callId: string;
+    
     readonly isIncoming: boolean;
     readonly isMicrophoneMuted: boolean;
     readonly localVideoStreams?: LocalVideoStream[];
@@ -97,7 +83,7 @@ export interface Call {
 
     readonly remoteParticipants: RemoteParticipant[];
 
-    accept(options: CallAcceptOptions): Promise<void>;
+    accept(options: CallOptions): Promise<void>;
     reject(options: CallRejectOptions): Promise<void>;
     
     hangUp(options: CallHangupOptions): Promise<void>;
@@ -128,34 +114,22 @@ export interface Call {
     
 }
 
-// @public
-export interface CallAcceptOptions {
-    audioOptions?: AudioOptions;
-    screenSharingOptions?: ScreenSharingOptions;
-    videoOptions?: VideoOptions;
-}
 
-// @public (undocumented)
-export interface CallHangupOptions {
-    // (undocumented)
+// @public 
+export interface CallHangupOptions {    
     forEveryone: boolean;
 }
 
-// @public (undocumented)
-export interface CallRejectOptions {
-    // (undocumented)
+// @public 
+export interface CallRejectOptions {    
     globalDecline: boolean;
 }
 
-// @public (undocumented)
-export interface LocalVideoStream {
-    // (undocumented)
-    readonly isSending: boolean;
-    // (undocumented)
-    readonly mediaStreamType: MediaStreamType;
-    // (undocumented)
-    switchVideo(videoDeviceInfo: VideoDeviceInfo): Promise<void>;
-    // (undocumented)
+// @public 
+export interface LocalVideoStream {    
+    readonly isSending: boolean;    
+    readonly mediaStreamType: MediaStreamType;    
+    switchVideo(videoDeviceInfo: VideoDeviceInfo): Promise<void>;    
     readonly videoDeviceInfo: VideoDeviceInfo;
 }
 
@@ -166,7 +140,7 @@ export type MediaStreamType = 'Video' | 'ScreenSharing';
 export type CallState = 'None' | 'Incoming' | 'Connecting' | 'Ringing' | 'Connected' | 'LocalHold' | 'RemoteHold' | 'InLobby' | 'Disconnecting' | 'Disconnected' | 'EarlyMedia';
 
 
-// @public (undocumented)
+// @public 
 export interface RemoteParticipant {
     
     readonly identity: { id: string, type: 'User' | 'PhoneNumber' };
@@ -193,11 +167,11 @@ export interface RemoteParticipant {
     
 }
 
-// @public (undocumented)
+// @public 
 export type RemoteParticipantState = 'Idle' | 'Connecting' | 'Connected' | 'OnHold' | 'InLobby' | 'EarlyMedia' | 'Disconnected';
 
 
-// @public (undocumented)
+// @public 
 export interface RemoteVideoStream {
     
     readonly activeRenderers: RemoteVideoRenderer[];
@@ -213,7 +187,7 @@ export interface RemoteVideoStream {
     
 }
 
-// @public (undocumented)
+// @public 
 export interface RemoteVideoRenderer extends Disposable {
     readonly isRendering: boolean;
     readonly target: RenderTarget;    
@@ -235,11 +209,11 @@ export interface RemoteVideoRenderer extends Disposable {
 // @public
 export type RenderTarget = HTMLElement;
 
-// @public (undocumented)
+// @public 
 export type ScalingMode = 'Stretch' | 'Crop' | 'Fit';
 
 
-// @public (undocumented)
+// @public 
 export interface AcsError extends Error {
     readonly code: number;
     readonly subcode?: number;
@@ -253,25 +227,25 @@ export interface AudioDeviceInfo {
     readonly name: string;
 }
 
-// @public (undocumented)
+// @public 
 export type AudioDeviceType = 'Microphone' | 'Speaker' | 'CompositeAudioDevice';
 
-// @public (undocumented)
+// @public 
 export interface CompositeAudioDeviceInfo {
-    // (undocumented)
+    
     readonly composityAudioDeviceType: CompositeAudioDeviceType;
-    // (undocumented)
+    
     readonly isPcInternalDevice: boolean;
-    // (undocumented)
+    
     readonly microphone: AudioDeviceInfo;
-    // (undocumented)
+    
     readonly speakers: AudioDeviceInfo;
 }
 
-// @public (undocumented)
+// @public 
 export type CompositeAudioDeviceType = 'Speakers' | 'Headphones' | 'Headset' | 'Handset' | 'Speakerphone';
 
-// @public (undocumented)
+// @public 
 export interface DeviceManager {
     askDevicePermission(audio: boolean, video: boolean): Promise<IDeviceAccess>;
     getCamera(): VideoDeviceInfo;
@@ -281,90 +255,78 @@ export interface DeviceManager {
     getPermissionState(permission: PermissionType): Promise<PermissionState>;
     getSpeakerList(): AudioDeviceInfo[];
     getSpeakers(): AudioDeviceInfo;
-    off(event: 'videoDevicesUpdated', listener: CollectionUpdatedEvent<VideoDeviceInfo>): void;
-    off(event: 'audioDevicesUpdated', listener: CollectionUpdatedEvent<AudioDeviceInfo>): void;
-    off(event: 'permissionStateChanged', listener: PropertyChangedEvent<void>): void;
     on(event: 'videoDevicesUpdated', listener: CollectionUpdatedEvent<VideoDeviceInfo>): void;
     on(event: 'audioDevicesUpdated', listener: CollectionUpdatedEvent<AudioDeviceInfo>): void;
     on(event: 'permissionStateChanged', listener: PropertyChangedEvent<void>): void;
+    off(event: 'videoDevicesUpdated', listener: CollectionUpdatedEvent<VideoDeviceInfo>): void;
+    off(event: 'audioDevicesUpdated', listener: CollectionUpdatedEvent<AudioDeviceInfo>): void;
+    off(event: 'permissionStateChanged', listener: PropertyChangedEvent<void>): void;
     renderPreviewVideo(videoDeviceInfo: VideoDeviceInfo, target: RenderTarget, scalingMode: ScalingMode): Promise<PreviewRenderer>;
     setCamera(cameraDevice: VideoDeviceInfo): Promise<void>;
     setMicrophone(microphoneDevice: AudioDeviceInfo): Promise<void>;
     setSpeakers(speakerDevice: AudioDeviceInfo): Promise<void>;
 }
 
-// @public (undocumented)
+// @public 
 export type CameraFacing = 'Unknown' | 'External' | 'Front' | 'Back' | 'Panoramic' | 'LeftFront' | 'RightFront';
 
 
-// @public (undocumented)
+// @public 
 export type DeviceType = 'Camera' | 'Microphone' | 'Speaker';
 
-// @public (undocumented)
-export interface Disposable {
-    // (undocumented)
+// @public 
+export interface Disposable {    
     dispose(causeId?: string): void;
 }
 
-// @public (undocumented)
+// @public 
 export type EventCallback = (...args: any[]) => void;
 
-// @public (undocumented)
+// @public 
 export type IDeviceAccess = {
     audio?: boolean;
     video?: boolean;
 };
 
-// @public (undocumented)
-export interface Logger {
-    // (undocumented)
-    createChild(namespace: string | LoggerPrefixFunction): Logger;
-    // (undocumented)
-    createFnLogger(fnName: string, causeId: string, ...additionalPrefix: string[]): Logger;
-    // (undocumented)
-    debug(...values: any[]): void;
-    // (undocumented)
-    error(...values: any[]): void;
-    // (undocumented)
-    info(...values: any[]): void;
-    // (undocumented)
-    log(...values: any[]): void;
-    // (undocumented)
+// @public 
+export interface Logger {    
+    createChild(namespace: string | LoggerPrefixFunction): Logger;    
+    createFnLogger(fnName: string, causeId: string, ...additionalPrefix: string[]): Logger;    
+    debug(...values: any[]): void;    
+    error(...values: any[]): void;    
+    info(...values: any[]): void;    
+    log(...values: any[]): void;    
     warn(...values: any[]): void;
 }
 
-// @public (undocumented)
+// @public 
 export type LoggerPrefixFunction = () => string;
 
-// @public (undocumented)
-export enum LogLevels {
-    // (undocumented)
-    Debug = 30000,
-    // (undocumented)
-    Error = 70000,
-    // (undocumented)
-    Info = 40000,
-    // (undocumented)
+// @public 
+export enum LogLevels {    
+    Debug = 30000,    
+    Error = 70000,    
+    Info = 40000,    
     Warn = 60000
 }
 
-// @public (undocumented)
+// @public 
 export type MeetingOptions = {
     messageId: string;
     tenantId: string;
     organizerId: string;
 };
 
-// @public (undocumented)
+// @public 
 export type PermissionState = 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
 
-// @public (undocumented)
+// @public 
 export type PermissionType = 'Microphone' | 'Camera';
 
-// @public (undocumented)
+// @public 
 export type PlatformType = 'chrome' | 'edge' | 'firefox' | 'safari' | 'ie' | 'unknown';
 
-// @public (undocumented)
+// @public 
 export interface PreviewRenderer extends Disposable {
     readonly isRendering: boolean;
     readonly scalingMode: ScalingMode;
@@ -377,28 +339,11 @@ export interface PreviewRenderer extends Disposable {
     readonly videoDeviceInfo: VideoDeviceInfo;
 }
 
-// @public (undocumented)
-export type PropertyChangedEvent<T> = () => void;
-
-// @public (undocumented)
-export interface RelayTokenModel {
-    readonly endpoint: string;
-    readonly expiryDate: Date;
-    readonly password: string;
-    readonly username: string;
-}
-
-
-// @public (undocumented)
+// @public 
 export interface SourceInfo {
 }
 
-// @public (undocumented)
-export type TokenProvider = () => Promise<string>;
-
-export { UserAccessTokenCredential }
-
-// @public (undocumented)
+// @public 
 export interface VideoDeviceInfo {
     readonly cameraFacing: CameraFacing;
     readonly deviceType: VideoDeviceType;
@@ -406,16 +351,18 @@ export interface VideoDeviceInfo {
     readonly name: string;
 }
 
-// @public (undocumented)
+// @public 
 export type VideoDeviceType = 'Unknown' | 'UsbCamera' | 'CaptureAdapter' | 'Virtual' | 'SRAugmented';
 
-// @public (undocumented)
-export interface VideoOptions {
-    // (undocumented)
+// @public 
+export interface VideoOptions {    
     camera: VideoDeviceInfo;
 }
 
-// @public (undocumented)
+// @public 
+export type PropertyChangedEvent<T> = () => void;
+
+// @public 
 export type CollectionUpdatedEvent<T> = (args: {
     added: T[];
     removed: T[];
