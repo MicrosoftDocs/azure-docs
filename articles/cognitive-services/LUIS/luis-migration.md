@@ -227,3 +227,9 @@ If you see the error below, check the [Recommended steps to do if you are the ow
 
 If you see the error below, check the [Recommended steps to do if you are a collaborator on an app Section]
 ![Migration fails for collaborators](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
+
+
+## Next steps
+
+* Review [concepts](luis-concept-keys.md) about authoring and runtime keys
+* Review [how to assign keys](luis-how-to-azure-subscription.md) and add [contributors](luis-how-to-collaborate.md)
