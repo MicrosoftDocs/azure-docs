@@ -941,6 +941,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
+      "redirect_url": "/azure/cognitive-services/luis/luis-migration-authoring",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-list-entity.md",
       "redirect_url": "/azure/cognitive-services/luis/reference-entity-list",
       "redirect_document_id": false
