@@ -67,7 +67,7 @@ Notice the resourceType and sort elements in the URL.
 1. Enter or update the following values:
 
     * **Subscription**: Select an Azure subscription.
-    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resourge group will facilitate resource clean up.
+    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resource group will facilitate resource clean up.
     * **Region**: Select a region.  For example, **Central US**.
     * **SQL Server name**: Accept the default name or enter a name for the SQL Server name.
     * **SQL Administrator login**: Enter the administrator username for the SQL Server.
