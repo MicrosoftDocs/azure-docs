@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
-ms.date: 06/17/2020
+ms.date: 06/11/2020
 ---
 
 # Enterprise and Basic Editions of Azure Machine Learning 
@@ -64,8 +64,8 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| [Model explainability](how-to-machine-learning-interpretability-automl.md)                                              | All                     |
-| [Differential privacy](how-to-differential-privacy.md)                          | All                     |
+| [Model Explainability](how-to-machine-learning-interpretability-automl.md)                                              | All                     |
+| Differential privacy WhiteNoise toolkit                           | All                     |
 | Custom tags to implement datasheets     | All                     |
 | Fairness AzureML Integration                                      | All                     |
 
