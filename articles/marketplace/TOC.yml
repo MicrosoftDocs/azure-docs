@@ -405,15 +405,15 @@
     - name: Test Drive
       items:
       - name: What is test drive?
-        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+        href: ./what-is-test-drive.md
       - name: Types of test drives
-        href: ./cloud-partner-portal/test-drive/types-of-test-drives.md
+        href: ./types-of-test-drives.md
       - name: Create your test drive
-        href: ./partner-center-portal/test-drive.md
+        href: ./test-drive.md
       - name: Transforming examples for test drive
-        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+        href: ./transforming-examples-for-test-drive.md
       - name: Marketing and best practices
-        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
+        href: ./marketing-and-best-practices.md
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:

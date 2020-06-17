@@ -11,7 +11,7 @@ ms.date: 08/13/2019
 
 # Learn about test drive for your offer
 
-The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](../cloud-partner-portal/test-drive/what-is-test-drive.md).
+The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](what-is-test-drive.md).
 
 If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box.
 
@@ -26,7 +26,7 @@ The following types of test drives are available, each with their own technical 
 
 ### Technical configuration for Azure Resource Manager test drive
 
-There is a deployment template that contains all the Azure resources that comprise your solution. This is suited for products that use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](../cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md).
+There is a deployment template that contains all the Azure resources that comprise your solution. This is suited for products that use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](azure-resource-manager-test-drive.md).
 
 - **Regions** (required): Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
 
