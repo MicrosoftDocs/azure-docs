@@ -8,7 +8,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 06/17/2020
 ms.author: aschhab
 
 ---
@@ -26,6 +26,8 @@ It is not possible to change the partitioning option on any existing queue or to
 Each partitioned queue or topic consists of multiple partitions. Each partition is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the partitions. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
 When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all partitions for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+
+The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responds first. There is no guarantee that the returned message is the oldest one across all partitions. You can query multiple times and determine the oldest message in the partitioned entity based on the time stamp ([EnqueuedTimeUtc](message-headers-and-properties.md)) on it. 
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
