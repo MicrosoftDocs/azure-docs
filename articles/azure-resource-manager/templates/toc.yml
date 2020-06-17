@@ -12,7 +12,7 @@
     href: quickstart-create-templates-use-visual-studio-code.md
   - name: Azure services
     items:
-    - name: AI + Machine Learning
+    - name: AI+Machine Learning
       items:
       - name: Data Science Virtual Machine
         href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -20,7 +20,7 @@
         href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Analytics
       items:
-      - name: Analysis Services - create a server
+      - name: Analysis Services
         href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Databricks
         href: ../../azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
@@ -86,13 +86,13 @@
       items:
       - name: Event Grid
         href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Service Bus messaging
+      - name: Service Bus
         href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Backup
         href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Cost Management + Billing - create a budget
+      - name: Cost Management+Billing
         href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
