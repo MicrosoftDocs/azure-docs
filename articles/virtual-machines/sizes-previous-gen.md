@@ -248,7 +248,7 @@ Premium Storage caching:  Supported
 
 ### DS-series - memory optimized  
 
-**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md) and [Dasv4-series](dav4-dasv4-series.md)
 
 ACU: 160-250 <sup>1,2</sup>
 
