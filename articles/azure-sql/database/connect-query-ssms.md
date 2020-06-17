@@ -149,7 +149,7 @@ Run this [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL code 
 
 ### Update data
 
-Run this [UPDATE](/sql/t-sql/statements/update-transact-sql) Transact-SQL code to modify your new product.
+Run this [UPDATE](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one that returns the new record created previously:
 
