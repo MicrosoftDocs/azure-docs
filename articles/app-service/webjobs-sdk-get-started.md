@@ -1,7 +1,7 @@
 ---
 title: Get started with the WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
-author: LauraKellerGitHub
+author: ggailey777
 
 ms.devlang: dotnet
 ms.topic: article
@@ -28,7 +28,18 @@ This tutorial uses version 3 of the WebJobs SDK to create a .NET Core console ap
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## Create a console app
-Placeholder text while implementing the new outline.
+***Start by creating a project in Visual Studio 2019. Next, you'll add tools for Azure development, code publishing, and functions that listen for triggers and call functions. Last, you'll set up console logging that disables a legacy monitoring tool and enables a console provider with default filtering.
+
+### Create a project
+
+1. In Visual Studio, select **File** > **New** > **Project**.
+
+2. Under **Create a new project**, select **Console App (.NET Core)**, and then select **Next**.
+
+3. Under **Configure your new project**, name the project *WebJobsSDKSample*, and then select **Create**.
+
+   ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
+
 
 ### Install the Azure development workload 
 
@@ -42,15 +53,6 @@ The **Azure development** workload is required for developing WebJobs with Visua
 
 4. On the **Installer** page, in the **Visual Studio Community 2019** box, select **Launch**.
 
-### Create a project
-
-1. In Visual Studio, select **File** > **New** > **Project**.
-
-2. Under **Create a new project**, select **Console App (.NET Core)**, and then select **Next**.
-
-3. Under **Configure your new project**, name the project *WebJobsSDKSample*, and then select **Create**.
-
-   ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
 ### Install WebJobs NuGet packages
 
@@ -98,7 +100,7 @@ The host is the runtime container for functions that listens for triggers and ca
     }
     ```
 
-In ASP.NET Core, host configurations are set by calling methods on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. For more information, see [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). The `ConfigureWebJobs` extension method initializes the WebJobs host. In `ConfigureWebJobs`, initialize specific WebJobs extensions and set properties of those extensions.  
+In ASP.NET Core, host configurations are set by calling methods on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. For more information, see [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host). The `ConfigureWebJobs` extension method initializes the WebJobs host. In `ConfigureWebJobs`, initialize specific WebJobs extensions, such as console logging, and set properties of those extensions.  
 
 ### Enable console logging
 
@@ -156,7 +158,10 @@ Set up console logging that uses the [ASP.NET Core logging framework](/aspnet/co
 
 Now, you can add a function that is triggered by messages arriving in an Azure Storage queue.
 
-## Install the Storage binding extension
+## Add a function
+***Messages that arrive in an Azure Storage queue trigger a function.
+
+### Install the Storage binding extension
 
 The WebJobs SDK version 3 requires manual installation of the Storage binding extension. In prior versions, the Storage bindings were included in the SDK.
 
@@ -179,7 +184,9 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
                     });
     ```
 
-## Create a function
+### Create a Queue-triggered function
+
+The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
 1. In Solution Explorer, right-click the project, select **Add** > **New Item**, and then select **Class**. 
 
@@ -202,25 +209,25 @@ The WebJobs SDK version 3 requires manual installation of the Storage binding ex
         }
     }
     ```
-   The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
+   
+The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
-   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
-
-## Create a storage account
+### Create an Azure storage account
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
 
 To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal)
 
-## Locate and copy your connection string
+### Locate and copy your connection string
 A connection string is required to configure storage. Keep this connection string for the next steps.
+
 1. In your storage account, select **Settings**.
 1. In **Settings**, select **Access keys**.
 1. For the **Connection string** under **key1**, select the **Copy to clipboard** icon.
 
      ![key](./media/webjobs-sdk-get-started/connectionkey.png)
 
-## Configure storage to run locally
+### Configure storage to run locally
 
 The WebJobs SDK looks for the storage connection string in the Application Settings in Azure. When you run locally, it looks for this value in the local configuration file or in environment variables.
 
@@ -264,7 +271,7 @@ Build and run the project locally and create a message queue to trigger the func
 
 1. Close the console window.
 
-1. In **Server Explorer** in Visual Studio, expand the node for your new storage account, and then right-click **Queues**.
+1. In **Cloud Explorer** in Visual Studio, expand the node for your new storage account, and then right-click **Queues**.
 
 1. Select **Create Queue**.
 
@@ -305,6 +312,27 @@ Build and run the project locally and create a message queue to trigger the func
 
 1. Go back to the **Queue** window and refresh it. The message is gone, since it has been processed by your function running locally. 
 
+## <a name="deploy-as-a-webjob"></a>Deploy to Azure
+
+During deployment, you create an app service instance where you'll run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically runs as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+
+[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
+
+## Create an app setting (AzureWebJobsStorage)
+ *** New section placeholder text while implementing new outline.
+
+## Trigger the function in Azure
+
+1. Make sure you're not running locally. Close the console window if it's still open. Otherwise, the local instance might be the first to process any queue messages you create.
+
+1. In the **Queue** page in Visual Studio, add a message to the queue as before.
+
+1. Refresh the **Queue** page, and the new message disappears because it has been processed by the function running in Azure.
+
+   > [!TIP]
+   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
+
+
 ## Add Application Insights logging
 
 When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../azure-monitor/app/app-insights-overview.md), a feature of Azure Monitor. For context, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
@@ -323,43 +351,14 @@ Before you deploy to Azure, do the following tasks to set up Application Insight
 
 1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
-### Configure app settings 
+### Configure app settings (Azure)
+***Deploy your app to a folder, IIS, Azure, or another destination.
 
-1. In **Server Explorer** in Visual Studio, expand the **App Service** node under **Azure**.
+1. Right-click on your WebJobsSDKSample to open the **Publish** page.
+1.  
 
-1. Expand the resource group that your App Service app is in, and then right-click your App Service app.
+   ![publish](./media/webjobs-sdk-get-started/publish-app.png)
 
-1. Select **View Settings**.
-
-1. In the **Connection Strings** box, add the following entry.
-
-   |Name  |connection String  |Database Type|
-   |---------|---------|------|
-   |AzureWebJobsStorage | {the Storage connection string that you copied earlier}|Custom|
-
-1. If the **Application Settings** box doesn't have an Application Insights instrumentation key, add the one that you copied earlier. (The instrumentation key might already be there, depending on how you created the App Service app.)
-
-   |Name  |Value  |
-   |---------|---------|
-   |APPINSIGHTS_INSTRUMENTATIONKEY | {instrumentation key} |
-
-1. Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
-
-
-1. Select **Save**.
-
-1. Add the Application Insights connection to the project so that you can run it locally. In the *appsettings.json* file, add an `APPINSIGHTS_INSTRUMENTATIONKEY` field, as in the following example:
-
-    ```json
-    {
-        "AzureWebJobsStorage": "{storage connection string}",
-        "APPINSIGHTS_INSTRUMENTATIONKEY": "{instrumentation key}"
-    }
-    ```
-
-    Replace *{instrumentation key}* with the instrumentation key from the Application Insights resource that you're using.
-
-1. Save your changes.
 
 ### Add Application Insights logging provider
 
@@ -409,12 +408,25 @@ Add the Application Insights provider to your logging code with the following st
         }
     }
     ```
-   
-## Test Application Insights logging
+### Republish the project and trigger the function again
+placeholder text
+
+
+### View logs in Application Insights
+
+1. Open the [Azure portal](https://portal.azure.com), and go to your Application Insights resource.
+
+1. Select **Search**.
+
+1. If you don't see the *Hello Azure!* message, select **Refresh** periodically for several minutes.
+
+   You see the logs from the function running in a WebJob, including the *Hello Azure!* text that you entered in the preceding section.
+
+### Test Application Insights logging
 
 In this section, run locally again to verify that logging data is now going to both Application Insights and to the console.
 
-1. Use **Server Explorer** in Visual Studio to create a queue message like you did [earlier](#test-locally), except enter *Hello App Insights!* as the message text.
+1. Use **Cloud Explorer** in Visual Studio to create a queue message like you did [earlier](#test-locally), except enter *Hello App Insights!* as the message text.
 
 1. Run the project.
 
@@ -436,34 +448,10 @@ In this section, run locally again to verify that logging data is now going to b
 
 1. Close the console window.
 
-## <a name="deploy-as-a-webjob"></a>Deploy to Azure
+## Add input/output bindings
+***Bindings simplify code that reads and writes data. Input bindings simplify code that reads data. Output bindings simplify code that writes data.  
 
-During deployment, you create an app service instance in which to run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically gets run as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
-
-[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
-
-## Trigger the function in Azure
-
-1. Make sure you're not running locally. Close the console window if it's still open. Otherwise, the local instance might be the first to process any queue messages you create.
-
-1. In the **Queue** page in Visual Studio, add a message to the queue as before.
-
-1. Refresh the **Queue** page, and the new message disappears because it has been processed by the function running in Azure.
-
-   > [!TIP]
-   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
-
-### View logs in Application Insights
-
-1. Open the [Azure portal](https://portal.azure.com), and go to your Application Insights resource.
-
-1. Select **Search**.
-
-1. If you don't see the *Hello Azure!* message, select **Refresh** periodically for several minutes.
-
-   You see the logs from the function running in a WebJob, including the *Hello Azure!* text that you entered in the preceding section.
-
-## Add an input binding
+### Add input binding
 
 Input bindings simplify code that reads data. For this example, the queue message will be a blob name and you'll use the blob name to find and read a blob in Azure Storage.
 
@@ -489,13 +477,13 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
 1. Create a blob container in your storage account.
 
-   a. In **Server Explorer** in Visual Studio, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
+   a. In **Cloud Explorer** in Visual Studio, expand the node for your storage account, right-click **Blobs**, and then select **Create Blob Container**.
 
    b. In the **Create Blob Container** dialog, enter *container* as the container name, and then select **OK**.
 
 1. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
 
-   a. In **Server Explorer**, double-click the node for the container you created.
+   a. In **Cloud Explorer**, double-click the node for the container you created.
 
    b. In the **Container** window, select the **Upload** button.
 
@@ -520,8 +508,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
    Size: 532 bytes
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
    ```
-
-## Add an output binding
+### Add an output binding
 
 Output bindings simplify code that writes data. This example modifies the previous one by writing a copy of the blob instead of logging its size. Blob storage bindings are included in the Azure Storage extension package that we installed previously.
 
@@ -545,7 +532,7 @@ Output bindings simplify code that writes data. This example modifies the previo
 
    The queue message triggers the function, which then reads the blob, logs its length, and creates a new blob. The console output is the same, but when you go to the blob container window and select **Refresh**, you see a new blob named *copy-Program.cs.*
 
-## Republish the updates to Azure
+## Republish the project
 
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
