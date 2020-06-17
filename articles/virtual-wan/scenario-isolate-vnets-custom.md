@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/17/2020
 ms.author: cherylmc
 
 ---
 # Scenario: Custom isolation for VNets
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific VNets from being able to reach other. However, the VNets are required to reach all branches (VPN/ER/User VPN).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific VNets from being able to reach other specific VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN).
 
 In this scenario, VPN, ExpressRoute, and User VPN connections are associated to the same route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
