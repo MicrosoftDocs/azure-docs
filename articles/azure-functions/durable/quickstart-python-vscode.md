@@ -58,25 +58,6 @@ Visual Studio Code installs the Azure Functions Core Tools, if needed. It also c
 
 A requirements.txt file is also created in the root folder.
 
-### Enable Azure Functions V2 compatibility mode
-
-Currently, Python Durable Functions require Azure Functions V2 compatibility mode to be enabled.
-
-1. Open *local.settings.json* to edit the settings used when running the app locally.
-
-1. Add a setting named `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true`.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
-
 ## Install azure-functions-durable from PyPI
 
 When you created the project, the Azure Functions VS Code extension automatically created a virtual environment with your selected Python version. You will activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
@@ -84,11 +65,9 @@ When you created the project, the Azure Functions VS Code extension automaticall
 1. Open `requirements.txt` in the editor and change its content to the following:
 
     ```
-    azure-functions>=1.2.0
-    azure-functions-durable>=1.0.0b4
+    azure-functions
+    azure-functions-durable>=1.0.0b5
     ```
-
-    Durable Functions requires `azure-functions` version 1.2.0 or greater.
 
 1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
 
@@ -221,20 +200,6 @@ After you've verified that the function runs correctly on your local computer, i
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
-
-### Enable Azure Functions V2 compatibility mode
-
-The same Azure Functions V2 compatibility that you enabled locally needs to be enabled in the app in Azure.
-
-1. Using the command palette, search for and select `Azure Functions: Edit Setting...`.
-
-1. Follow the prompts to locate your function app in your Azure subscription.
-
-1. Select `Create new App Setting...`.
-
-1. Enter a new setting key of `FUNCTIONS_V2_COMPATIBILITY_MODE`.
-
-1. Enter a setting value of `true`.
 
 ## Test your function in Azure
 
