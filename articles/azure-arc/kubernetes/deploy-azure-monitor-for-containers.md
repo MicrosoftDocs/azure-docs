@@ -94,18 +94,20 @@ Onboard [Azure Monitor enabled containers](https://docs.microsoft.com/azure/azur
 ## Configure agent data collection
 
 By default, the agent doesn't collect stdout and stderr logs of containers in kube-system namespace.
+
 Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config to configure agent with desired data collection settings.
 
 ## Configure scraping of Prometheus metrics
 
-Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor backend.
+Azure Monitor for containers scrapes the Prometheus metrics and ingest to the Azure Monitor back end.
+
 Refer to https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-prometheus-integration for the instructions on how to configure Prometheus scraping.
 
 ## User interface
 
 Go to https://aka.ms/azmon-containers-azurearc to view the onboarded cluster.
 
-## Disable Monitoring
+## Disable monitoring
 
 To disable monitoring, delete the Azure Monitor for containers HELM chart to stop collecting and ingesting monitoring data to Azure Monitor for the containers back end:
 
