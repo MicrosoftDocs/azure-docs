@@ -42,7 +42,7 @@ Advisor identifies virtual machines that belong to a storage account that's reac
 
 ## Improve the performance and reliability of virtual machine disks by using Premium Storage
 
-Advisor identifies virtual machines with standard disks that have a high volume of transactions on your storage account and recommends upgrading to premium disks. 
+Advisor identifies virtual machines with standard disks that have a high volume of transactions on your storage account. It recommends upgrading to premium disks. 
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use Premium Storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrate any virtual machine disks that require high IOPS to Premium Storage.
 
@@ -65,7 +65,13 @@ Azure Advisor detects whether your SQL Data Warehouse tables have a high cache-u
 
 ## Convert SQL Data Warehouse tables to replicated tables to increase query performance
 
-Advisor identifies tables that aren't replicated tables but that would benefit from conversion. It suggests that you convert these tables. Recommendations are based on the replicated table size, number of columns, table distribution type, and number of partitions of the SQL Data Warehouse table. Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identifies tables that aren't replicated tables but that would benefit from conversion. It suggests that you convert these tables. Recommendations are based on:
+- The size of the replicated table. 
+- The number of columns. 
+- The table distribution type. 
+- The number of partitions on the SQL Data Warehouse table. 
+
+Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## Migrate your storage account to Azure Resource Manager to get the latest Azure features
 
@@ -109,7 +115,7 @@ Advisor detects unsupported versions of Kubernetes.
 High utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help to optimize the runtime of the database queries and improve overall performance. Azure Advisor identifies servers with a high CPU utilization that are likely running CPU-constrained workloads and recommend scaling your compute.
 
 ### Reduce memory constraints on your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers or move to a Memory Optimized SKU
-A low cache hit ratio can result in slower query performance and increased IOPS. This could be caused by a bad query plan or a memory intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends either fixing the query plan, moving to an SKU that has more memory, or increasing storage size to get more IOPS.
+A low cache hit ratio can result in slower query performance and increased IOPS. This condition could be caused by a bad query plan or a memory intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends either fixing the query plan, moving to an SKU that has more memory, or increasing storage size to get more IOPS.
 
 ### Use an Azure Database for MySQL or Azure Database for PostgreSQL read replica to scale out reads for read-intensive workloads
 Azure Advisor uses workload-based heuristics like the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. An Azure Database for PostgreSQL or Azure Database for MySQL resource with a high reads/writes ratio can result in CPU or memory contentions and lead to slow query performance. Adding a [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) will help to scale out reads to the replica server and prevent CPU or memory constraints on the primary server. Advisor identifies servers with read-intensive workloads and recommends that you add a [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) to offload some of the read workloads.

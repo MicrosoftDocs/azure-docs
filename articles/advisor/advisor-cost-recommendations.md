@@ -18,9 +18,9 @@ The recommended actions are shut down and resize, specific to resource being eva
 
 The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
 - P95th of the maximum of maximum value of CPU utilization is less than 3%. 
-- Network utilization is less than 2% over a seven day period.
+- Network utilization is less than 2% over a seven-day period.
 
-Advisor considers resizing virtual machines when it's possible to fit the current load in a smaller SKU (within the same SKU family) or a smaller number number of instances such that:
+Advisor considers resizing virtual machines when it's possible to fit the current load in a smaller SKU (within the same SKU family) or a smaller number of instances such that:
 - The current load doesn’t go above 80% utilization for workloads that aren't user facing. 
 - The load doesn't go above 40% for user-facing workloads. 
 
@@ -31,7 +31,7 @@ Advisor shows the estimated cost savings for either recommended action: resize o
 If you want to be more aggressive about identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per-subscription basis.
 
 ## Optimize spend for MariaDB, MySQL, and PostgreSQL servers by right-sizing 
-Advisor analyses your usage and evaluates whether your MariaDB, MySQL, or PostgreSQL database server resources have been underutilized for an extended period of time over the past seven days. Low resource utilization results in unwanted expenditure that you can fix without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend that you reduce the compute size (vCores) by half.
+Advisor analyses your usage and evaluates whether your MariaDB, MySQL, or PostgreSQL database server resources have been underutilized for an extended time over the past seven days. Low resource utilization results in unwanted expenditure that you can fix without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend that you reduce the compute size (vCores) by half.
 
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
@@ -43,7 +43,7 @@ Advisor identifies virtual network gateways that have been idle for more than 90
 
 ## Buy reserved virtual machine instances to save money over pay-as-you-go costs
 
-Advisor reviews your virtual machine usage over the past 30 days to determine if you could save money by purchasing an Azure reservation. Advisor shows you the regions and sizes where the potential for savings are highest and the estimated savings from purchasing reservations. With Azure reservations, you can pre-purchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reservations. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+Advisor reviews your virtual machine usage over the past 30 days to determine if you could save money by purchasing an Azure reservation. Advisor shows you the regions and sizes where the potential for savings is highest and the estimated savings from purchasing reservations. With Azure reservations, you can pre-purchase the base costs for your virtual machines. Discounts automatically apply to new or existing VMs that have the same size and region as your reservations. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 Advisor also notifies you of your reserved instances that will expire in the next 30 days. It will recommend that you purchase new reserved instances to avoid pay-as-you-go pricing.
 
@@ -55,16 +55,16 @@ Advisor analyzes usage patterns for the past 30 days for the following resources
 Advisor analyzes your Azure Cosmos DB usage patterns for the past 30 days and recommends reserved capacity purchases to optimize costs. By using reserved capacity, you can pre-purchase Azure Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ### SQL PaaS reserved capacity
-Advisor analyzes SQL PaaS elastic database pools and managed instance usage patterns over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
+Advisor analyzes SQL PaaS elastic database pools and managed instance usage patterns over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. Your SQL license is charged separately and isn't discounted by the reservation. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and by extrapolating the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ### App Service Stamp Fee reserved capacity
 Advisor analyzes your Azure App Service isolated environment Stamp Fee usage pattern over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase hourly usage for the isolated environment Stamp Fee and save over your pay-as-you-go costs. Note that reserved capacity applies only to the Stamp Fee and not to App Service instances. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing based on usage patterns over the past 30 days.
 
 ### Blob storage reserved capacity
-Advisor analyzes your Azure Blob storage and Azure Data Lake storage usage over the past 30 days and calculates reserved capacity purchases that optimize costs. With reserved capacity, you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved capacity applies only to data stored on Azure Blob general-purpose v2 and Azure Data Lake Storage Gen2 accounts. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
+Advisor analyzes your Azure Blob storage and Azure Data Lake storage usage over the past 30 days. It then calculates reserved capacity purchases that optimize costs. With reserved capacity, you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved capacity applies only to data stored on Azure Blob general-purpose v2 and Azure Data Lake Storage Gen2 accounts. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ### MariaDB, MySQL, and PostgreSQL reserved capacity
-Advisor analyzes your usage patterns for Azure Database for MariaDB, Azure Database for MySQL, and Azure Database for PostgreSQL over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase MariaDB, MySQL, and PostgreSQL hourly usage and save over your current costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
+Advisor analyzes your usage patterns for Azure Database for MariaDB, Azure Database for MySQL, and Azure Database for PostgreSQL over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase MariaDB, MySQL, and PostgreSQL hourly usage and save over your current costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ### Synapse Analytics (formerly SQL Data Warehouse) reserved capacity
 Advisor analyzes your Azure Synapse Analytics usage patterns over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates saving estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
@@ -75,7 +75,7 @@ Advisor identifies public IP addresses that aren't associated with Azure resourc
 
 ## Delete Azure Data Factory pipelines that are failing
 
-Advisor detects Azure Data Factory pipelines that repeatedly fail and recommends that you resolve the problems or delete the pipelines if you don't need them. You're billed for these pipelines even if though they're not serving you while they're failing.
+Advisor detects Azure Data Factory pipelines that repeatedly fail. It recommends that you resolve the problems or delete the pipelines if you don't need them. You're billed for these pipelines even if though they're not serving you while they're failing.
 
 ## Use standard snapshots for managed disks
 To save 60% of cost, we recommend storing your snapshots in standard storage, regardless of the storage type of the parent disk. This option is the default option for managed disk snapshots. Advisor identifies snapshots that are stored in premium storage and recommends migrating then from premium to standard storage. [Learn more about managed disk pricing.](https://aka.ms/aa_manageddisksnapshot_learnmore)

@@ -7,7 +7,12 @@ ms.date: 10/24/2019
 
 # Achieve operational excellence by using Azure Advisor
 
-Operational excellence recommendations in Azure Advisor can help you with process and workflow efficiency, resource manageability, and deployment best practices. You can get these recommendations on the **Operational Excellence** tab of the Advisor dashboard.
+Operational excellence recommendations in Azure Advisor can help you with: 
+- Process and workflow efficiency.
+- Resource manageability.
+- Deployment best practices. 
+
+You can get these recommendations on the **Operational Excellence** tab of the Advisor dashboard.
 
 ## Create Azure Service Health alerts to be notified when Azure problems affect you
 

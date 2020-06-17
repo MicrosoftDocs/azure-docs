@@ -27,11 +27,11 @@ Virtual machines that are in an availability set with disks that share either st
 
 ## Check the version of your Check Point network virtual appliance image
 
-Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity in the event of a platform servicing operation. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
+Advisor can identify whether your virtual machine is running a version of the Check Point image that has been known to lose network connectivity during platform servicing operations. The Advisor recommendation will help you upgrade to a newer version of the image that addresses this problem. This check will ensure business continuity through better network connectivity.
 
 ## Ensure application gateway fault tolerance
 
-This recommendation ensures the business continuity of mission-critical applications that are powered by application gateways. Advisor identifies application gateway instances that aren't configured for fault tolerance and suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways and recommends adding at least one more instance. It also identifies single-instance and multiple-instance small application gateways and recommends migrating them to medium or large SKUs. Advisor recommends these actions to ensure that your application gateway instances are configured to satisfy the current SLA requirements for these resources.
+This recommendation ensures the business continuity of mission-critical applications that are powered by application gateways. Advisor identifies application gateway instances that aren't configured for fault tolerance. It then suggests remediation actions that you can take. Advisor identifies medium or large single-instance application gateways and recommends adding at least one more instance. It also identifies single-instance and multiple-instance small application gateways and recommends migrating them to medium or large SKUs. Advisor recommends these actions to ensure your application gateway instances are configured to satisfy the current SLA requirements for these resources.
 
 ## Protect your virtual machine data from accidental deletion
 
@@ -63,7 +63,12 @@ In active-active configuration, both instances of a VPN gateway establish S2S VP
 
 ## Use production VPN gateways to run your production workloads
 
-Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends that you use a production SKU instead. The Basic SKU is designed for development and testing. Production SKUs offer more tunnels, BGP support, active-active configuration options, custom Ipsec/IKE policy, and higher stability and availability.
+Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends that you use a production SKU instead. The Basic SKU is designed for development and testing. Production SKUs offer:
+- More tunnels. 
+- BGP support. 
+- Active-active configuration options. 
+- Custom Ipsec/IKE policy. 
+- Higher stability and availability.
 
 ## Repair invalid log alert rules
 
@@ -78,13 +83,13 @@ Configuring Azure Cosmos DB containers with Lazy indexing mode might affect the 
 
 Azure Advisor identifies Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It recommends that you migrate these collections to new collections with a partition key definition so that they can be automatically scaled out by the service. [Learn more about choosing a partition key.](https://aka.ms/cosmosdb/choose-partitionkey)
 
-## Upgrade your Azure Cosmos DB .NET SDK to the latest version from Nuget
+## Upgrade your Azure Cosmos DB .NET SDK to the latest version from NuGet
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from Nuget for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the .NET SDK. It recommends that you upgrade to the latest version from NuGet for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
 
-Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+Azure Advisor identifies Azure Cosmos DB accounts that are using old versions of the Java SDK. It recommends that you upgrade to the latest version from Maven for the latest fixes, performance improvements, and feature capabilities. [Learn more about Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## Upgrade your Azure Cosmos DB Spark connector to the latest version from Maven
 
