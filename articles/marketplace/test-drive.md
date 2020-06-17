@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ---
 
-# Learn about test drive for your offer
+# Configure a test drive
 
 The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](what-is-test-drive.md).
 
@@ -26,7 +26,7 @@ The following types of test drives are available, each with their own technical 
 
 ### Technical configuration for Azure Resource Manager test drive
 
-There is a deployment template that contains all the Azure resources that comprise your solution. This is suited for products that use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](azure-resource-manager-test-drive.md).
+There is a deployment template that contains all the Azure resources that comprise your solution. This is suited for products that use only Azure resources.
 
 - **Regions** (required): Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
 
@@ -109,4 +109,4 @@ Select **Save** after completing these fields.
 
 ## Next steps
 
-[Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
+[Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md)

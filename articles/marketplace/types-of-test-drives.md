@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Types of test drives
 
-This article describes the three different types of test drives available on the Microsoft commercial marketplace: logic app, hosted test drive, or Azure Resource Manager. When you are ready to publish a test drive, see [Configure test drives in the commercial marketplace](partner-center-portal/test-drive.md).
+This article describes the three different types of test drives available on the Microsoft commercial marketplace: logic app, hosted test drive, or Azure Resource Manager. When you are ready to publish a test drive, see [Configure a test drive](test-drive.md).
 
 ## Logic app test drive
 
