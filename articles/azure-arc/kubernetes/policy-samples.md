@@ -9,7 +9,7 @@ ms.author: mlearned
 ms.topic: sample
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Arc enabled Kubernetes
+# Azure Policy built-in definitions for Azure Arc enabled Kubernetes
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
 definitions for Azure Arc enabled Kubernetes. For additional Azure Policy built-ins for other
