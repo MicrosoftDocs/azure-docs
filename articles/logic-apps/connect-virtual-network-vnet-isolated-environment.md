@@ -42,13 +42,23 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets that aren't delegated to any service for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
 
-  * Your virtual network needs to have four *empty* subnets for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
-
-  * Subnet names need to start with either an alphabetic character or an underscore and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
-  
-  * If you want to deploy the ISE through an Azure Resource Manager template, first make sure that you delegate one empty subnet to Microsoft.Logic/integrationServiceEnvironment. You don't need to do this delegation when you deploy through the Azure portal.
+  > [!IMPORTANT]
+  >
+  > Don't use the following IP address spaces for your virtual network or subnets because they aren't resolvable by Azure Logic Apps:<p>
+  > 
+  > * 0.0.0.0/8
+  > * 100.64.0.0/10
+  > * 127.0.0.0/8
+  > * 168.63.129.16/32
+  > * 169.254.169.254/32
+  > 
+  > Subnet names need to start with either an alphabetic character or an underscore 
+  > and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. To deploy your 
+  > ISE through an Azure Resource Manager template, first make sure that you delegate 
+  > one empty subnet to `Microsoft.Logic/integrationServiceEnvironment`. You don't need 
+  > to do this delegation when you deploy through the Azure portal.
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
 
@@ -171,7 +181,7 @@ This table describes the ports that your ISE requires to be accessible and the p
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
-   * Uses a `/27` in the address space because each subnet requires 32 addresses. For example, `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. More addresses won't provide additional benefits.  To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
+   * Uses a `/27` in the address space because each subnet requires 32 addresses. For example, `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. More addresses won't provide additional benefits. To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), you have to [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table with each subnet that's used by your ISE:
 
