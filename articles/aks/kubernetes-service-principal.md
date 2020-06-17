@@ -87,6 +87,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
 
+> [!NOTE]
+> If you have removed the Contributor role assignment from the node resource group, the operations below may fail.  
+
 The following sections detail common delegations that you may need to make.
 
 ### Azure Container Registry
@@ -95,7 +98,7 @@ If you use Azure Container Registry (ACR) as your container image store, you nee
 
 ### Networking
 
-You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. The role permissions must be assigned to both the Kubernetes service resource group and the node resource group. Assign one of the following set of role permissions:
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign one of the following set of role permissions:
 
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
