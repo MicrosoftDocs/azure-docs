@@ -40,8 +40,6 @@
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-    - name: About virtual hub effective routes
-      href: effective-routes-virtual-hub.md
     - name: Scenarios
       items:
       - name: Isolate VNets
@@ -108,6 +106,8 @@
     items:
     - name: How to configure virtual hub routing
       href: how-to-virtual-hub-routing.md
+    - name: How to view virtual hub effective routes
+      href: effective-routes-virtual-hub.md
     - name: Route traffic from a virtual hub to an NVA
       items:
         - name: Azure portal
