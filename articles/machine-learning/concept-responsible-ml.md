@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
+ms.date: 06/17/2020
 #intent: As a data scientist, I want to know learn what responsible ML is and how I can use it in Azure Machine Learning
 ---
 
@@ -56,6 +56,9 @@ When data is used for analysis, it's important that the data remains private and
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points.
 
 Implementing differentially private systems is difficult. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and WhiteNoise](./concept-differential-privacy.md) article.
+
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks.
 
 ## Document the machine learning lifecycle with datasheets
 
