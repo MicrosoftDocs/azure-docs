@@ -123,7 +123,7 @@ Call call = callClient.call(participants, placeCallOptions);
 ```swift
 let placeCallOptions = ACSPlaceCallOptions();
 let videoOptions = ACSVideoOptions()
-let cameras = deviceManager.getCameraList();
+let cameras = callClient.deviceManager.getCameraList();
 videoOptions.camera = (cameras.first ?? nil)!;
 placeCallOptions.videoOptions = videoOptions
 let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
