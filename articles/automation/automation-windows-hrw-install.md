@@ -186,6 +186,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 ## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows computer
 
 1. In the Azure portal, go to your Automation account.
+
 2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
 
 3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
@@ -199,6 +200,7 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group. Then use the following steps to remove the group:
 
 1. Open the Automation account in the Azure portal.
+
 2. Select **Hybrid worker groups** under **Process Automation**. Select the group that you want to delete. The properties page for that group appears.
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
@@ -212,4 +214,5 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
 * To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/hybrid-runbook-worker.md#general).
