@@ -26,23 +26,6 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Track the order
 > * Cancel the order
 
-# [Azure CLI](#tab/azure-cli)
-
-This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
-
-> [!div class="checklist"]
->
-> * Prerequisites to deploy Data Box
-> * Order a Data Box
-> * Track the order
-> * List all orders
-> * Cancel the order
-> * Delete the order
-
----
-
-# [Portal](#tab/portal)
-
 ## Prerequisites
 
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device:
@@ -149,6 +132,17 @@ In this tutorial, you learned about Azure Data Box articles such as:
 > * Cancel the order
 
 # [Azure CLI](#tab/azure-cli)
+
+This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
+
+> [!div class="checklist"]
+>
+> * Prerequisites to deploy Data Box
+> * Order a Data Box
+> * Track the order
+> * List all orders
+> * Cancel the order
+> * Delete the order
 
 ## Prerequisites
 
