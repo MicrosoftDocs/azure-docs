@@ -71,6 +71,20 @@ Use the following tools for CI/CD automation workflows for Custom Speech:
 - [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
 - [Azure Speech CLI](https://github.com/msimecek/Azure-Speech-CLI) to interact with the Speech Service from the command line or an automated workflow.
 
+## DevOps solution for Custom Speech using GitHub Actions
+
+Go to the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to create a copy of the template and begin development of Custom Speech models with a robust DevOps system, including testing, training, and versioning using GitHub Actions. The repository provides sample testing and training data to aid in setup and explain the workflow. After initial setup, replace the sample data with your project data.
+
+The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) provides the infrastructure and detailed guidance to:
+
+- Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions [continuous integration (CI) and continuous delivery (CD)](how-to-custom-speech-continuous-integration-continuous-deployment.md) workflows.
+- Walk through the "[dev inner loop](https://mitchdenny.com/the-inner-loop/)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
+- When training data is updated in a pull request to *master*, train models with the GitHub Actions CI workflow.
+- Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER). Store the test results in Azure Blob.
+- Execute the CD workflow to create an endpoint when the WER improves.
+
 ## Next steps
 
-- Use the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to implement [DevOps for Custom Speech with GitHub Actions](how-to-custom-speech-devops-with-github.md).
+Learn more about DevOps with Speech:
+
+- Use the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to implement DevOps for Custom Speech with GitHub Actions.
