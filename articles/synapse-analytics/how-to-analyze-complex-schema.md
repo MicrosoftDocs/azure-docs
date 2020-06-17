@@ -73,7 +73,6 @@ When printing the schema of the data frame of that object (called **df**) with t
 * the yellow color represents nested structure
 * the green color represents an array with two elements
 
-[!div class="mx-imgBorder"]
 [![Schema origin](./media/how-to-complex-schema/schema-origin.png)](./media/how-to-complex-schema/schema-origin.png#lightbox)
 
 _rid, _ts and _etag have been added in the system as the document was ingested into Azure Cosmos DB transactional store.
@@ -84,7 +83,6 @@ The data frame above counts for 5 columns and 1 row only. After transformation, 
 
 With Synapse Spark, transforming nested structures into columns and array elements into multiple rows, is easy. The steps below can be used by everyone for their own implementation.
 
-[!div class="mx-imgBorder"]
 [![Spark transformations steps](./media/how-to-complex-schema/spark-transfo-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
 
 **Step 1**: We define a function to flatten nested schema. This function can be used without change. Create a cell in a Pyspark notebook with that function:
@@ -154,7 +152,6 @@ The display function should show 13 columns and 2 rows:
 
 The function printSchema of the data frame df_flat_explode_flat returns the following result:
 
-[!div class="mx-imgBorder"]
 [![Schema final](./media/how-to-complex-schema/schema-final.png)](./media/how-to-complex-schema/schema-final.png#lightbox)
 
 ## Read arrays and nested structures directly with SQL serverless
