@@ -55,6 +55,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345
 ```
+> [!NOTE]
+> Scopes listed here are an URI encoded, space separated list. Your application may need to send an unencoded list to avoid receiving a consent error AADSTS65001. For example, scope="openid offline_access mail.read".
 
 > [!TIP]
 > Click the link below to execute this request! After signing in, your browser should be redirected to `https://localhost/myapp/` with a `code` in the address bar.
