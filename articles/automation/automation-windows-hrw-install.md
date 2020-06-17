@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
-You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Azure Automation stores and manages runbooks and then delivers them to one or more designated computers. This article describes how to deploy a Hybrid Runbook Worker on a Windows machine.
+You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Azure Automation stores and manages runbooks and then delivers them to one or more designated computers. This article describes how to deploy a Hybrid Runbook Worker on a Windows machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -113,7 +113,7 @@ After the script is finished, the Hybrid Worker Groups page shows the new group 
 
 ## Manual deployment
 
-Perform the first two steps once for your Automation environment. Then perform the remaining steps for each worker computer.
+Perform the first two steps once for your Automation account. Then perform the remaining steps for each worker computer.
 
 ### Step 1 - Create a Log Analytics workspace
 

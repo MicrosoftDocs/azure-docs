@@ -3,14 +3,14 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based computers in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/02/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ---
 # Deploy a Linux Hybrid Runbook Worker
 
-You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Runbooks are stored and managed in Azure Automation and then delivered to one or more designated computers.
+You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more designated computers. This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
 
-This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
+After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 ## Supported Linux operating systems
 
@@ -26,21 +26,17 @@ The Hybrid Runbook Worker feature supports the following distributions:
 
 ## Supported runbook types
 
-Linux Hybrid Runbook Workers don't support the full set of runbook types in Azure Automation.
+Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Automation, and this is described in the following table.
 
-The following runbook types work on a Linux Hybrid Worker:
+|Runbook type | Supported |
+|-------------|-----------|
+|Python 2 |Yes |
+|PowerShell |Yes<sup>1</sup> |
+|PowerShell Workflow |No |
+|Graphical |No |
+|Graphical PowerShell Workflow |No |
 
-* Python 2
-* PowerShell
-
-  > [!NOTE]
-  > PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
-
-The following runbook types don't work on a Linux Hybrid Worker:
-
-* PowerShell Workflow
-* Graphical
-* Graphical PowerShell Workflow
+<sup>1</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
 ## Deployment requirements
 
@@ -60,13 +56,13 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |Python-ctypes | Python 2.x is required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
-| PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
+| PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
 
 ## Install a Linux Hybrid Runbook Worker
 
-To install and configure a Hybrid Runbook Worker on your Linux computer, follow a straightforward manual process. It requires enabling the Hybrid Runbook Worker in your Azure Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a group.
+To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a set of manual steps. It requires enabling the Hybrid Runbook Worker in your Azure Monitor Log Analytics workspace, run a set of commands to register the computer as a worker, and then add it to a group.
 
-Before you proceed, note the Log Analytics workspace that your Automation account is linked to. Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
+Before you proceed,  the Log Analytics workspace that your Automation account is linked to. Also note the primary key for your Automation account. You can find both from the Azure portal by selecting your Automation account, selecting **Workspace** for the workspace ID, and selecting **Keys** for the primary key. For information on ports and addresses that you need for the Hybrid Runbook Worker, see [Configuring your network](automation-hybrid-runbook-worker.md#network-planning).
 
 >[!NOTE]
 > The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
