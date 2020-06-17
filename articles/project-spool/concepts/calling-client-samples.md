@@ -13,10 +13,10 @@ ms.service: azure-project-spool
 
 ---
 
-## Calling Client library samples
+# Calling Client library samples
 
 
-### Initialization
+## Initialization
 To create a `CallClient` you have to use `CallClientFactory.create` method that asynchronously returns a `CallClient` object once it's initialized
 
 To create call client you have to pass a `CommunicationUserCredential` object.
@@ -55,7 +55,7 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 ```
 --- 
 
-### Make outgoing call
+## Make outgoing call
 
 To create and start a call you need to call one of the APIs on CallClient and provide ACS Identity of a user that you've provisioned using ACS Management SDK on your trusted service or a phone number in E.164 format
 
