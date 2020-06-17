@@ -95,4 +95,4 @@ To make changes to your deployment, see [Modify a deployment](how-to-deploy-cli-
 
 ## Next steps
 
-Learn how to [communicate with EdgeAgent using built-in direct methods](how-to-edgeagent-direct-method.md).
+Learn how to [monitor module twins](how-to-monitor-module-twins.md), primarily the IoT Edge Agent and IoT Edge Hub runtime modules, for the connectivity and health of your IoT Edge deployments.

@@ -107,7 +107,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `startSession()` and add the following line, substituting in your account domain from earlier: `_cloudSession.configuration.accountKey = @"MyAccountDomain";`.
+Locate `startSession()` and add the following line, substituting in your account domain from earlier: `_cloudSession.configuration.accountDomain = @"MyAccountDomain";`.
 
 ---
 

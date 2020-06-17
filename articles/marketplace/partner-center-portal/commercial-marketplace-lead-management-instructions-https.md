@@ -224,8 +224,9 @@ When you're ready to configure the lead management information for your offer in
 
 1. Select your offer, and go to the **Offer setup** tab.
 
-1. Under the **Lead management** section, select **Connect**. 
-    ![Lead management Connect button](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. Under the **Customer leads** section, select **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Customer leads":::
 
 1. In the **Connection details** pop-up window, select **HTTPS Endpoint** for the **Lead Destination**. Paste the HTTP POST URL from the flow you created by following earlier steps into the **HTTPS endpoint URL** field.
     ![Connection details Contact email](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

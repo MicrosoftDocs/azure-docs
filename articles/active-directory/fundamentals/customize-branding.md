@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 06/05/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18, fasttrack-edit"
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Add branding to your organization's Azure Active Directory sign-in page
 Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Office 365, which uses Azure AD as your identity provider.
 
->[!Note]
+>[!NOTE]
 >Adding custom branding requires you to use Azure Active Directory Premium 1, Premium 2, or Basic editions, or to have an Office 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Customize your Azure AD sign-in page
@@ -39,7 +39,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
 3. On the **Configure company branding** page, provide any or all of the following information.
 
-    >[!Important]
+    >[!IMPORTANT]
     >All the custom images you add on this page have image size (pixels), and potentially file size (KB), restrictions. Because of these restrictions, you'll most-likely need to use a photo editor to create the right-sized images.
 
     - **General settings**
@@ -73,8 +73,10 @@ Your custom branding won't immediately appear when your users go to sites such a
         - **Square logo image, dark theme.** Same as the square logo image above. This logo image takes the place of the square logo image when used with a dark background, such as with Windows 10 Azure AD joined screens during the out-of-box experience (OOBE).  If your logo looks good on white, dark blue, and black backgrounds, you don't need to add this image. 
         
         - **Show option to remain signed in.** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you choose **No**,  this option is hidden, and users must sign in each time the browser is closed and reopened.
+
+            To learn more about configuring and troubleshooting the option to remain signed in, see [Configure the 'Stay signed in?' prompt for Azure AD accounts](keep-me-signed-in.md)
         
-            >[!Note]
+            >[!NOTE]
             >Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this option to **No**, your users may see additional and unexpected prompts to sign-in.
    
 
@@ -82,7 +84,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
     If this process creates your first custom branding configuration, it becomes the default for your tenant. If you have additional configurations, you'll be able to choose your default configuration.
     
-    >[!Important]
+    >[!IMPORTANT]
     >To add more corporate branding configurations to your tenant, you must choose **New language** on the **Contoso - Company branding** page. This opens the **Configure company branding** page, where you can follow the same steps as above.
 
 ## Update your custom branding
@@ -130,5 +132,3 @@ Add your custom branding to pages by modifying the end of the URL with the text,
 
 **Original URL:** https://aka.ms/SSPR<br>
 **Custom URL:** `https://passwordreset.microsoftonline.com/?whr=contoso.com`
-
- 

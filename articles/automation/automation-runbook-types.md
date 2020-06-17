@@ -109,7 +109,7 @@ Python runbooks compile under Python 2. You can directly edit the code of the ru
 
 ## Next steps
 
-* [Manage runbooks in Azure Automation](manage-runbooks.md)
-* [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md)
-* [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md)
-* [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview)
+* To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
+* To learn about Python runbooks, see [Tutorial: Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

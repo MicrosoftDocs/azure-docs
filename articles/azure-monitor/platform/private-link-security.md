@@ -69,11 +69,17 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 Start by creating an Azure Monitor Private Link Scope resource.
 
-1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**. 
-2. Click **create**. 
-3. Pick a Subscription and Resource Group. 
-4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem". 
+1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
+
+   ![Find Azure Monitor Private Link Scope](./media/private-link-security/ampls-find-1c.png)
+
+2. Click **create**.
+3. Pick a Subscription and Resource Group.
+4. Give the AMPLS a name. It is best to use a name that is clear what purpose and security boundary the Scope will be used for so that someone won't accidentally break network security boundaries. For example, "AppServerProdTelem".
 5. Click **Review + Create**. 
+
+   ![Create Azure Monitor Private Link Scope](./media/private-link-security/ampls-create-1d.png)
+
 6. Let the validation pass, and then click **Create**.
 
 ## Connect Azure Monitor resources
@@ -170,7 +176,7 @@ To create and manage private link scopes, use [az monitor private-link-scope](ht
 
 To manage network access, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) or [Application Insights components](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 
-## Collect Custom Logs over Private Link
+## Collect custom logs over Private Link
 
 Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
 
@@ -184,7 +190,7 @@ The latest versions of the Windows and Linux agents must be used on private netw
 
 **Log Analytics Windows agent**
 
-Use the Log Analytics agent version 18.20.18038.0 or later.
+Use the Log Analytics agent version 10.20.18038.0 or later.
 
 **Log Analytics Linux agent**
 
@@ -223,3 +229,8 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 ### Browser DNS settings
 
 To connect to your Azure Monitor resources over a Private Link, traffic to these resource must go through the private endpoint configured on your network. To enable that, DNS settings are updated as explained in the 'Connect to a private endpoint' section. Some browsers use their own DNS settings instead, and may attempt to connect to Azure Monitor public endpoints, bypassing the Private Link entirely. You should verify your browsers settings don't override or cache old DNS settings. 
+
+
+## Next steps
+
+- Learn about [private storage](private-storage.md)

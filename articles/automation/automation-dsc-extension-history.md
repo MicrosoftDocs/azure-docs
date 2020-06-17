@@ -349,5 +349,5 @@ environments it supports, and comments and remarks on new features or changes.
 
 - For more information about PowerShell DSC, see [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
 - Examine the [Resource Manager template for the DSC extension](/azure/virtual-machines/extensions/dsc-template).
-- For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- For more functionality and resources that you can manage with PowerShell DSC, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](/azure/virtual-machines/extensions/dsc-credentials).

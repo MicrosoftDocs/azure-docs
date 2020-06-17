@@ -237,7 +237,7 @@
     - name: Data loading
       items:
       - name: Overview
-        href: sql/data-loading-overview.md
+        href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Best practices
         href: sql/data-loading-best-practices.md
       - name: Columnstore compression
@@ -430,6 +430,8 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
+    - name: Analyze arrays and nested structures
+      href: how-to-analyze-complex-schema.md
     - name: Synapse Link
       items:
       - name: Configure Synapse Link
@@ -548,7 +550,7 @@
         href: ../data-factory/connector-azure-search.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Database
         href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Azure SQL Database Managed Instance
+      - name: Azure SQL Managed Instance
         href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Data Warehouse
         href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -558,6 +560,8 @@
         href: ../data-factory/format-binary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Cassandra
         href: ../data-factory/connector-cassandra.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Common Data Model format
+        href: ../data-factory/format-common-data-model.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Common Data Service for Apps
         href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Concur
@@ -580,6 +584,8 @@
         href: ../data-factory/connector-file-system.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: FTP
         href: ../data-factory/connector-ftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: GitHub
+        href: ../data-factory/connector-github.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google AdWords
         href: ../data-factory/connector-google-adwords.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google BigQuery
@@ -880,10 +886,10 @@
   items: 
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
   - name: Feature requests
     href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/synapse-analytics/
   - name: Pricing calculator
@@ -893,7 +899,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-sqldw/
+    href: https://stackoverflow.com/questions/tagged/azure-synapse/
   - name: Support
     href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Customer self-help

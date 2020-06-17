@@ -253,6 +253,7 @@ For more information on configuring integration with Azure Monitor logs to colle
 
 ## Next steps
 
-* [Runbook execution in Azure Automation](automation-runbook-execution.md)
-* [Create modular runbooks](automation-child-runbooks.md)
-* [PowerShell Docs](/powershell/scripting/overview)
+* To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
+* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

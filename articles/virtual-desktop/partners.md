@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -28,12 +28,12 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 ![VMware Logo](./media/partners/vmware.png)
 
-VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure. This functionality will be available in Tech Preview by the end of 2019.
- 
-As an approved provider, the benefits of Windows Virtual Desktop will be extended to VMware Horizon Cloud on Microsoft Azure customers, including Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix. Additionally, customers will receive the enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering; flexible desktop options and configurations; user-environment management; and support for hybrid environments.
+VMware Horizon Cloud on Microsoft Azure is a native cloud service that lets organizations quickly deploy remote desktops and applications from their existing Microsoft Azure subscriptions while leveraging all the features of VMware Horizon. Horizon Cloud uses the Horizon Control Plane to provide a single management interface for all Horizon environments, on-premises or in the cloud. This enables hybrid desktop virtualization and lets customers move their workloads to Azure at their own pace.
 
-- [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+As a Windows Virtual Desktop approved provider, VMware can help customers that want to use Windows Virtual Desktop while still enjoying the additional functionality that comes with VMware Horizon, such as integrated and easy-to-use power management, cloud-based monitoring, and the Blast Extreme protocol. These features adapt to changing network conditions on the fly to provide a consistently excellent user experience. VMware Horizon Cloud also comes with VMware App Volumes and Dynamic Environment Manager, which add advanced application and user environment management capabilities that work with MSIX app attach and FSLogix.
+
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Read VMWare Horizon Cloud technical documentation](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## 10ZiG
 
@@ -97,6 +97,28 @@ deviceTRUST extends the value of Windows Virtual Desktop with their contextual s
 
 - [Go to the partner website](https://devicetrust.com/wvd).
 
+## Ekran System
+
+![Ekran System Logo](./media/partners/ekran.png)
+
+Ekran System is a Windows Virtual Desktop value-add partner that lets IT teams monitor all remote user activity on Microsoft Azure virtual machines. With Ekran System, you can record on-screen activity for every user session in published applications or virtual desktops while collecting a wide range of context-rich metadata, such as application names, active window titles, visited URLs, and keystrokes. Advanced features offer in-depth visibility and quick incident response times, making Ekran System an efficient insider threat management and compliance solution.  
+
+The unique floating endpoint licensing of Ekran System clients is automated to support dynamically changing virtual desktops. Ekran System lets you automatically unassign licenses from deleted non-persistent virtual desktops and remove them from your database. Ekran System seamlessly integrates with Azure Active Directory and Azure Sentinel.
+
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Go to the partner page](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## Flexxible IT
+
+![Flexxible IT Logo](./media/partners/flexxible.png)
+
+Flexxible IT is a Windows Virtual Desktop value-add partner that offers organizations the ability to rapidly scale, monitor, and efficiently manage Windows Virtual Desktop and Citrix Workspace infrastructure. Flexxible|SUITE allows IT admins to intelligently provision and manage Windows Virtual Desktop workloads on-premises and hosted in Azure.
+ 
+Flexxible IT's technology extends the value of both native Windows Virtual Desktop and Citrix Workspace by automating common processes to simplify infrastructure configuration, desktop provisioning, and day-to-day management. With no need for complex PowerShell scripts or time-consuming manual processes, SUITE provides scalable desktop deployment, extensive monitoring and reporting, and secure delegated management. These features allow you to focus on delivering enhanced levels of service and a quality Windows Virtual Desktop experience for your users.
+
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Go to the partner website](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## HP
 
 ![HP logo](./media/partners/hp.png)
@@ -158,6 +180,7 @@ Liquit application aggregation and delivery software enables enterprises and ser
 
 As a certified integration partner, Liquit helps accelerate transition to the cloud without a rip-and-replace delay. Windows Virtual Desktop can easily connect to an existing environment, create a workspace, and deliver the desktop. You can then take your time migrating off of old platforms and make changes on the back-end without your users noticing. Gain a consistent end-user experience, flexible infrastructure, and maintain control of your applications no matter where they are.
 
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Go to the partner website](https://www.liquit.com/wvd/).
 
 ## Login VSI
@@ -231,6 +254,17 @@ RDPSoft's Remote Desktop Commander solutions enhance Windows Virtual Desktop adm
 
 - [Go to the partner website](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
+## Rimo3
+
+![Rimo3 logo](./media/partners/rimo3.png)
+
+Rimo3 enhances the Windows Virtual Desktop experience by accelerating deployment and improving ongoing change management. Rimo3 equips IT teams with the knowledge they need to support your application portfolio for Azure migration readiness of application workloads. Users can onboard applications and test them in their target Windows Virtual Desktop workspace quickly and painlessly. Users can also proactively understand the impact of any changes as their organization rolls out new applications and updates. Finally, IT admins can leverage Rimo3's Intelligent Smoke Testing capability and automate functionality testing without interrupting user sessions.
+
+Rimo3 offers an easy-to-use, scalable, automated application testing platform. This platform includes capabilities for all three application testing fundamentals: compatibility, functionality, and performance. It allows organizations, leaders, and teams to improve business continuity, adopt change faster, and optimize user experience.
+
+- [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Go to the partner website](https://rimo3.com/outcomes/).
+
 ## sepago
 
 ![sepago logo](./media/partners/sepago.png)
@@ -240,7 +274,7 @@ sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT ma
 sepago's innovation and development lab builds smart solutions using big data and AI technologies. These solutions focus on improving the business, user experience, and administrations of partner products like Windows Virtual Desktop.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Go to the partner website](https://www.sepago.de/wvd-value-add-tools/).
+- [Go to the partner website](https://www.sepago.de/en/).
 
 ## ThinPrint
 

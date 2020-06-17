@@ -33,4 +33,4 @@ After you have created and copied your AWS security keys, you must create a Cred
 
 ## Next steps
 
-* [Automate deployment of a VM in Amazon Web Services](automation-scenario-aws-deployment.md)
+* To learn how to create runbooks to automate tasks in AWS, see [Deploy an Amazon Web Services VM with a runbook](automation-scenario-aws-deployment.md).

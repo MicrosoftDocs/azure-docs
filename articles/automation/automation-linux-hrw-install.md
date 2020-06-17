@@ -125,4 +125,4 @@ To remove a Hybrid Runbook Worker group of Linux computers, you use the same ste
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux).
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues - Linux](troubleshoot/hybrid-runbook-worker.md#linux).

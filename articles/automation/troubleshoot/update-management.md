@@ -45,7 +45,7 @@ This error can occur for the following reasons:
 
 * Go to [Network configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
 
-* Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in the Update Management portal, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Check for scope configuration problems. [Scope configuration](../automation-scope-configurations-update-management.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in the Update Management portal, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remove the worker configuration by following the steps in [Remove the Hybrid Runbook Worker from an on-premises Windows computer](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove the Hybrid Runbook Worker from an on-premises Linux computer](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 

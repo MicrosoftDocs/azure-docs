@@ -106,7 +106,7 @@ If you want to create a new machine group, click **+ Create a machine group**. T
 
 ## Disconnect your VM from management
 
-To remove your VM from inventory management:
+To remove your VM from Change Tracking and Inventory management:
 
 1. In the left pane of the Azure portal, select **Log Analytics**, and then select the workspace that you used when enabling your VM for Change Tracking and Inventory.
 2. On the Log Analytics page, open the **Resource** menu.
@@ -121,6 +121,6 @@ To remove your VM from inventory management:
 
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Track software changes in your environment with Change Tracking](../log-analytics/log-analytics-change-tracking.md).
-* [Update Management in Azure](../operations-management-suite/oms-solution-update-management.md).
+* For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To find out more about tracking software changes, see [Track software changes in your environment with Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

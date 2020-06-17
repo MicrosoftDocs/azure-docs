@@ -110,7 +110,6 @@ By selecting the update deployment run, you're shown additional details of pre-s
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
-es in your script.
 
 ## Stop a deployment
 
@@ -240,4 +239,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Next steps
 
-* [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md)
+* For details of update management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).

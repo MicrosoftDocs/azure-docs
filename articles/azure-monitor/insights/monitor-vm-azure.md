@@ -101,14 +101,12 @@ Install the diagnostics extension for a single Windows virtual machine in the Az
 See [Install and configure Telegraf](../platform/collect-custom-metrics-linux-telegraf.md#install-and-configure-telegraf) for details on configuring the Telegraf agents on Linux virtual machines. The **Diagnostic setting** menu option is available for Linux, but it will only allow you to send data to Azure storage.
 
 ### Collect platform metrics and Activity log
-You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into the same Log Analytics workspace as Azure Monitor for VMs to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../platform/diagnostic-settings.md). Collect the Activity log with a [diagnostic setting for the subscription](../platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal).
+You can view the platform metrics and Activity log collected for each virtual machine host in the Azure portal. Collect this data into the same Log Analytics workspace as Azure Monitor for VMs to analyze it with the other monitoring data collected for the virtual machine. This collection is configured with a [diagnostic setting](../platform/diagnostic-settings.md). Collect the Activity log with a [diagnostic setting for the subscription](../platform/diagnostic-settings.md#create-in-azure-portal).
 
-Collect platform metrics with a diagnostic setting for the virtual machine. Unlike other Azure resources, you cannot create a diagnostic setting for a virtual machine in the Azure portal but must use [another method](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). The following examples show how to collect metrics for a virtual machine using both PowerShell and CLI.
+Collect platform metrics with a diagnostic setting for the virtual machine. Unlike other Azure resources, you cannot create a diagnostic setting for a virtual machine in the Azure portal but must use [another method](../platform/diagnostic-settings.md#create-using-powershell). The following examples show how to collect metrics for a virtual machine using both PowerShell and CLI.
 
 ```powershell
-Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
+Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
 ```
 
 ```CLI

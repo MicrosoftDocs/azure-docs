@@ -288,7 +288,7 @@ Azure Cosmos DB is an SLA-based system that provides latency, throughput, availa
 You can share your feedback in any of the following ways:
 
 * [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [MSDN forum](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
 
 ## Next steps

@@ -6,7 +6,7 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
 ---
-# Unlink workspace from Automation account for Change Tracking and Inventory
+# Unlink workspace from Automation account
 
 You can decide not to integrate your Automation account with a Log Analytics workspace when enabling [Change Tracking and Inventory](change-tracking.md) operations. This article tells you to unlink the workspace from your account.
 
@@ -31,7 +31,5 @@ Alternatively, you can unlink your Log Analytics workspace from your Automation 
 
 ## Next steps
 
-* [Manage Change Tracking and Inventory](change-tracking-file-contents.md)
-* [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md)
-* [Troubleshoot changes on an Azure VM](automation-tutorial-troubleshoot-changes.md)
-* [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md)
+* To work with Change Tracking and Inventory, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
+* To troubleshoot general feature issues, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

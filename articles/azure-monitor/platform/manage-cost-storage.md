@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 06/16/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -35,7 +35,7 @@ The default pricing for Log Analytics is a **Pay-As-You-Go** model based on data
   
 In addition to the Pay-As-You-Go model, Log Analytics has **Capacity Reservation** tiers which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The Capacity Reservation tiers have a 31-day commitment period. During the commitment period, you can change to a higher level Capacity Reservation tier (which will restart the 31-day commitment period), but you cannot move back to Pay-As-You-Go or to a lower Capacity Reservation tier until after the commitment period is finished. Billing for the Capacity Reservation tiers is done on a daily basis. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Log Analytics Pay-As-You-Go and Capacity Reservation pricing. 
 
-In all pricing tiers, the data volume is calculated from a string representation of the data as it is prepared to be stored. Several [properties common to all data types](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) are not included in the calculation of the event size, including `_ResourceId`, `_ItemId`, `_IsBillable` and `_BilledSize`.
+In all pricing tiers, an event's data size is calculated from a string representation of the properties which are stored in Log Analytics for this event, whether the data is sent from an agent or added during the ingestion process. This  includes any [custom fields](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties), are excluded in the calculation of the event size. This includes `_ResourceId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the AzureActivity, Heartbeat and Usage types. To determine whether an event was excluded from billing for data ingestion, you can use the `_IsBillable` property as shown [below](#data-volume-for-specific-events).
 
 Also, note that some solutions, such as [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
@@ -45,7 +45,13 @@ Log Analytics Dedicated Clusters are collections of workspaces into a single man
 
 The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed [here](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Because the billing for ingested data is done at the cluster level, workspaces associated to a cluster no longer have a pricing tier. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. Data retention is still billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). The two modes are: 
+
+1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
+
+2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for each workspace.) If the total data volume ingested into a workspace for a day is less than the Capacity Reservation, then each workspace is billed for its ingested data at the effective per-GB Capacity Reservation rate by billing them a fraction of the Capacity Reservation, and the unused part of the Capacity Reservation is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the Capacity Reservation, then each workspace is billed for a fraction of the Capacity Reservation based on it’s fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the Capacity Reservation. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the Capacity Reservation.
+
+In cluster billing options, data retention is billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, note that workspaces associated to a cluster no longer have a pricing tier.
 
 ## Estimating the costs to manage your environment 
 
@@ -181,7 +187,9 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace.  
 
-Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. (Latency inherent in applying the daily cap can mean that the cap is not applied as precisely the specified daily cap level.) A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
+Each workspace has its daily cap applied on a different hour of the day. The reset hour is shown in the **Daily Cap** page (see below). This reset hour cannot be configured. 
+
+Soon after the daily limit is reached, the collection of billable data types stops for the rest of the day. (Latency inherent in applying the daily cap means that the cap is not applied at precisely the specified daily cap level.) A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 > [!WARNING]
 > The daily cap does not stop the collection of data from Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
@@ -195,10 +203,12 @@ Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to un
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics workspace will ingest per day.  
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
-2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
+2. On the **Usage and estimated costs** page for the selected workspace, click **Data Cap** from the top of the page. 
 3. Daily cap is **OFF** by default ? click **ON** to enable it, and then set the data volume limit in GB/day.
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
+	
+The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described [here](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 ### Alert when Daily Cap reached
 
@@ -239,7 +249,7 @@ Heartbeat
 The get a count of nodes sending data in the last 24 hours use the query: 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -249,7 +259,7 @@ union withsource = tt *
 To get a list of nodes sending any data (and the amount of data sent by each) the follow query can be used:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -275,7 +285,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Note that the clause `where IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. 
+Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](log-standard-properties.md#_isbillable) about `_IsBillable`.
 
 ### Data volume by solution
 
@@ -319,11 +329,12 @@ Usage
 The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName 
+| sort by BillableDataBytes nulls last
 ```
 
 The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies whether the ingested data will incur charges. 
@@ -331,11 +342,12 @@ The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies w
 To see the **count** of billable events ingested per computer, use 
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount = count() by computerName  | sort by eventCount nulls last
+| summarize eventCount = count() by computerName  
+| sort by eventCount nulls last
 ```
 
 > [!TIP]
@@ -346,24 +358,40 @@ union withsource = tt *
 For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, parse the `_ResourceId` property as:
+For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get subscription ID the `_ResourceId` property as:
 
 ```kusto
-union withsource = tt * 
+union * 
 | where TimeGenerated > ago(24h)
 | where _IsBillable == true 
-| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
-    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend subscriptionId = split(_ResourceId, "/")[2] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
-Changing `subscriptionId` to `resourceGroup` will show the billable ingested data volume by Azure resource group. 
+Similarly, to get data volume by resource group this would be:
+
+```kusto
+union * 
+| where TimeGenerated > ago(24h)
+| where _IsBillable == true 
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
+| extend resourceGroup = split(_ResourceId, "/")[4] 
+| summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
+```
+
+You can also parse the `_ResourceId` more fully if needed as well using
+
+```Kusto
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+```
 
 > [!TIP]
 > Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
@@ -395,12 +423,13 @@ To dig deeper into the source of data for a particular data type, here are some 
 + **AzureDiagnostics** data type
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-### Tips for reducing data volume
+## Tips for reducing data volume
 
 Some suggestions for reducing the volume of logs collected include:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
+| Container Insights         | [Configure Container Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) to collect only the data you required. |
 | Security events            | Select [common or minimal security events](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
 | Performance counters       | Change [performance counter configuration](data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
@@ -415,7 +444,7 @@ To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbilla
 data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto
-union withsource = tt * 
+union * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -489,7 +518,7 @@ let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the 
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
 let EndDate = startofday(now());
-union withsource = tt * 
+union * 
 | where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
@@ -533,64 +562,23 @@ This query is not an exact replication of how usage is calculated, but will work
 
 ## Create an alert when data collection is high
 
-This section describes how to create an alert if:
-- Data volume exceeds a specified amount.
-- Data volume is predicted to exceed a specified amount.
+This section describes how to create an alert the data volume in the last 24 hours exceeded a specified amount, using Azure Monitor [Log Alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). 
 
-Azure Alerts support [log alerts](alerts-unified-log.md) that use search queries. 
-
-The following query has a result when there is more than 100 GB of data collected in the last 24 hours:
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
-| where DataGB > 100
-```
-
-The following query uses a simple formula to predict when more than 100 GB of data will be sent in a day: 
-
-```kusto
-union withsource = $table Usage 
-| where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
-| where EstimatedGB > 100
-```
-
-To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
-
-Use the steps described in [create a new log alert](alerts-metric.md) to be notified when data collection is higher than expected.
-
-When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:  
+To alert if the billable data volume ingested in the last 24 hours was greater than 50 GB, follow these steps: 
 
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
    - **Signal Name** select **Custom log search**
-   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
+   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. If you want a differetn 
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *1440* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
+   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutesto run once a day.
 - **Define alert details** specify the following:
-   - **Name** to *Data volume greater than 100 GB in 24 hours*
+   - **Name** to *Billable data volume greater than 50 GB in 24 hours*
    - **Severity** to *Warning*
 
 Specify an existing or create a new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified.
 
-When creating the alert for the second query -- when it is predicted that there will be more than 100 GB of data in 24 hours, set the:
-
-- **Define alert condition** specify your Log Analytics workspace as the resource target.
-- **Alert criteria** specify the following:
-   - **Signal Name** select **Custom log search**
-   - **Search query** to `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
-   - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *180* minutes and **Alert frequency** to every *60* minutes since the usage data only updates once per hour.
-- **Define alert details** specify the following:
-   - **Name** to *Data volume expected to greater than 100 GB in 24 hours*
-   - **Severity** to *Warning*
-
-Specify an existing or create a new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified.
-
-When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
+When you receive an alert, use the steps in the above sections about how to troubleshoot why usage is higher than expected.
 
 ## Data transfer charges using Log Analytics
 

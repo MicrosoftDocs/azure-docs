@@ -10,7 +10,7 @@ ms.date: 02/25/2020
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
 
-When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article provides examples for configuring authentication between these two Azure services. 
+When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This operation is implemented as part of the CLI and Portal experience by granting the required permissions to your ACR. This article provides examples for configuring authentication between these two Azure services. 
 
 You can set up the AKS to ACR integration in a few simple commands with the Azure CLI. This integration assigns the AcrPull role to the service principal associated to the AKS Cluster.
 
@@ -29,7 +29,7 @@ You can set up AKS and ACR integration during the initial creation of your AKS c
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
-$MYACR=myContainerRegistry
+MYACR=myContainerRegistry
 
 # Run the following line to create an Azure Container Registry if you do not already have one
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
@@ -138,6 +138,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### Troubleshooting
+* Learn more about [ACR Diagnostics](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create

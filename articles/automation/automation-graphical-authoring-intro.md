@@ -262,7 +262,7 @@ Graphical authoring saves data created by any activity that does not have an out
 
 ## Work with PowerShell expressions
 
-One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
 ### Use a PowerShell expression as a data source
 
@@ -426,9 +426,7 @@ You have the option to revert to the Published version of a runbook. This operat
 
 ## Next steps
 
-* To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md).
-* To get started with graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md).
+* To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
-* To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
+* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

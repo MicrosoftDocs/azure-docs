@@ -2,8 +2,8 @@
 title: Using Azure Stream Analytics Edge jobs with Azure SQL Edge (Preview)
 description: Learn about using Stream Analytics jobs in Azure SQL Edge (Preview)
 keywords: SQL Edge, stream analytics, 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha

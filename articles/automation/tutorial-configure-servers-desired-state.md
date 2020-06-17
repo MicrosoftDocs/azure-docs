@@ -21,8 +21,6 @@ For this tutorial, we use a simple [DSC configuration](/powershell/scripting/dsc
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-
 - An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
 - An Azure Resource Manager VM (not classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
@@ -177,9 +175,10 @@ follow the documentation for the cmdlet
 
 ## Next steps
 
-* [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md)
-* [Enable Azure Automation State Configuration](automation-dsc-onboarding.md)
-* [Compile configurations in Azure Automation State Configuration](automation-dsc-compile.md)
-* [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation)
-* [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
-- [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md)
+- To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
+- To learn how to enable nodes, see [Enable Azure Automation State Configuration](automation-dsc-onboarding.md).
+- To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
+- To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
+- For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
+- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

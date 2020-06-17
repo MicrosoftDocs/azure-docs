@@ -403,5 +403,5 @@ Update
 
 ## Next steps
 
-* [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md)
-* [Configure alerts](automation-tutorial-update-management.md#configure-alerts)
+* For details of Azure Monitor logs, see [Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* For help with alerts, see [Configure alerts](automation-tutorial-update-management.md#configure-alerts).

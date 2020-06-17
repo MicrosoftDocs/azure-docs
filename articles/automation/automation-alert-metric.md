@@ -71,4 +71,4 @@ Once the metric is no longer outside of the threshold defined, the alert is deac
 
 ## Next steps
 
-* [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md)
+* For more information, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).

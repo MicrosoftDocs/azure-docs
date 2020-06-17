@@ -8,7 +8,7 @@ ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, references_regions
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 

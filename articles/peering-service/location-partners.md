@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/18/2020
+ms.date: 05/29/2020
 ms.author: derekol
 ---
 
@@ -46,7 +46,7 @@ The table in this article provides information on the Peering Service connectivi
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
 - To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
-- To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](https://peering-docs.azurewebsites.net/azure/peering/peering-service-overview).
+- To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](connection.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
 - To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).

@@ -127,7 +127,4 @@ You can view the status of all State Configuration-managed nodes in your Automat
 In this quickstart, you enabled a Linux VM for State Configuration, created a configuration for a LAMP stack, and deployed the configuration to the VM. To learn how you can use Azure Automation State Configuration to enable continuous deployment, continue to the article:
 
 > [!div class="nextstepaction"]
-> [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* To learn more about PowerShell DSC, see [PowerShell Desired State Configuration overview](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* To learn how to forward DSC reports to Azure Monitor logs for reporting and alerting, see [Forwarding DSC reporting to Azure Monitor logs](automation-dsc-diagnostics.md).
+> [Set up continuous deployment with Chocolatey](./automation-dsc-cd-chocolatey.md)
