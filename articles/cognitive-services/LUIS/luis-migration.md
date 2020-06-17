@@ -39,7 +39,8 @@ Migration is the process of changing authoring authentication from an email acco
 * A migrated user can not be added as a collaborator of the application.
 * If **you own prediction keys that are assigned to applications owned by another user**, this will **block migration** for both the owner and collaborators. See below for recommendations.
 
-**NOTE**: If you need to create a prediction runtime resource, there is [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> [!Note]
+> If you need to create a prediction runtime resource, there is [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
 
 ## Migration prerequisites
 
@@ -61,12 +62,12 @@ Migration is the process of changing authoring authentication from an email acco
 ## Migration steps
 
 1. In the LUIS portal that you are working on, you can begin the migration process from the **Azure** icon on the top tool bar of the LUIS portal.
-> [!div class="mx-imgBorder"]
-> ![Migration icon](./media/migrate-authoring-key/migration-button.png)
+ > [!div class="mx-imgBorder"]
+ > ![Migration icon](./media/migrate-authoring-key/migration-button.png)
 
 2. The migration pop-up window allows you to continue the migration or migrate later. Select **Migrate now**.
 
-![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
+ ![First pop-up window in migration process, select Migrate now.](./media/migrate-authoring-key/migrate-now.png)
 
 3. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
 
@@ -88,18 +89,19 @@ For each collaborator and app, the default email application opens with a lightl
 
 4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option during the migration flow. Once you select the option, you will find the page below where you click on the download button on the left to export the apps you want. You may import these apps back after you migrate as they will not be automatically migrated with you. This is an optional step.
 
-![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+ ![Prompt to export you application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
 
 5. You can choose to create a new LUIS authoring resource or migrate to an existing authoring resource if you have already created one from Azure. Choose the option that you want by selecting the proper button from below.
 
-> [!div class="mx-imgBorder"]
-> ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
+ > [!div class="mx-imgBorder"]
+ > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
 
 ### Create new authoring resource from LUIS to migrate
 
 If you want to create a new authoring resource, select **create a new Authoring resource** and provide the following information in the next window.
 
-![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
+> [!div class="mx-imgBorder"]
+> ![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
@@ -116,7 +118,7 @@ Note that you can have 10 free authoring resources per region, per subscription.
 
 ### Use existing authoring resource to migrate
 
-If your subscription already is associated with a LUIS authoring azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
+If your subscription already is associated with a LUIS authoring Azure resource or if you have created on from the Azure portal and you want to migrate to it instead of creating a new resource, select **Use Existing Authoring resource** and provide the following information in the next window.
 
 ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource-2.png)
 
@@ -125,16 +127,18 @@ If your subscription already is associated with a LUIS authoring azure resource 
 * **Resource name** - Select the authoring resource that you want to migrate to.
 
 > [!Note]
-> If you can do see your authoring resource in the dropdown list, make sure that you created it in the **proper location** as per the LUIS portal you are signed in. Also make sure that what you created is indeed an **Authoring resource** and not a **prediction resource**.
+> If you can not see your authoring resource in the dropdown list, make sure that you created it in the **proper location** as per the LUIS portal you are signed in. Also make sure that what you created is indeed an **Authoring resource** and not a **prediction resource**.
 
 
 * Validate your authoring resource name and click on the **Migrate now** button.
 
-![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.png)
+ > [!div class="mx-imgBorder"]
+ > ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-and-migrate-2.png)
 
 * The success message is shown. Select **Close** to close the pop-up window.
-
-![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
+ 
+ > [!div class="mx-imgBorder"]
+ > ![Your authoring resource was successfully created.](./media/migrate-authoring-key/migration-success-2.png)
 
 ## Accessing my applications after migration
 
@@ -142,13 +146,14 @@ If your subscription already is associated with a LUIS authoring azure resource 
 * The **My apps** list shows the apps migrated to the new authoring resource.
 * Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
-> [!div class="mx-imgBorder"]
-> ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
+ > [!div class="mx-imgBorder"]
+ > ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
 * You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal.
 * If you plan to edit your apps programmatically, you will need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
-
-![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2.png)
+ 
+ > [!div class="mx-imgBorder"]
+ > ![Manage authoring resource.](./media/migrate-authoring-key/manage-authoring-resource-2.png)
 
 ## Add co-authors/contributors to authoring resources
 
@@ -191,7 +196,7 @@ It is recommended to:
 * Collaborators are to migrate and re-assign the prediction resources back to the applications.
 Note this will have cause a break in the application temporarily until the prediction resources are re-assigned.
 
-Another solution here is, before owner migration, collaborators may add app owners as contributors on their Azure subscriptions from the Azure portal. This will grant the owner access to the runtimme prediction resource. If owner migrates using the new subscription they have been added to (which will be found under a new tenant), this will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
+Another solution here is, before owner migration, collaborators may add app owners as contributors on their Azure subscriptions from the Azure portal. This will grant the owner access to the runtime prediction resource. If owner migrates using the new subscription they have been added to (which will be found under a new tenant), this will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
 
 
 ### Recommended steps to do if you are a collaborator on an app
