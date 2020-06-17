@@ -544,12 +544,10 @@ remoteVideoRenderer.getTarget()
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// [Bool] isRendering - indicating if stream is being rendered
-remoteVideoRenderer.isRendering; 
-// [ACSScalingMode] ACSScalingModeStretch = 0, ACSScalingModeCrop = 1, ACSScalingModeFit = 2
+// [ScalingMode] ASAScalingModeStretch = 0, ASAScalingModeCrop = 1, ASAScalingModeFit = 2
 remoteVideoRenderer.scalingMode
-// [UIView] target an HTML node that should be used as a placeholder for stream to render in
-remoteVideoRenderer.target
+await remoteVideoRenderer.pauseWithCompletionHandler(completionHandler: nil); // pause rendering
+await remoteVideoRenderer.resumeWithCompletionHandler(completionHandler: nil); // resume rendering
 ```
 --- 
 
