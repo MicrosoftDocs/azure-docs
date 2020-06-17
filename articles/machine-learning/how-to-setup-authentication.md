@@ -69,7 +69,7 @@ To use service principal (SP) authentication, you must first create the SP and g
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
 
-The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
+The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
 
 > [!NOTE]
 > You must be an admin on the subscription to perform all of these steps.
