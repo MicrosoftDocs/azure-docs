@@ -16,9 +16,13 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 To install and configure a Windows Hybrid Runbook Worker, you can use one of the following methods.
 
-* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account.
+* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account. Before continuing, consider the following:
 
-    If you don't have an Azure Monitor Log Analytics workspace, refer to step 1 in the [Manual deployment](#manual-deployment) section. If you have a workspace, but it is not linked to your Automation account, refer to step 2 in the [Manual deployment](#manual-deployment) section. Otherwise, refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
+    * If you don't have an Azure Monitor Log Analytics workspace, refer to step 1 in the [Manual deployment](#manual-deployment) section.
+
+    * If you have a workspace, but it is not linked to your Automation account, refer to step 2 in the [Manual deployment](#manual-deployment) section. 
+
+    * If you have your Automation account already linked to a workspace, refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
 
 * Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your datacenter or another cloud environment.
 
