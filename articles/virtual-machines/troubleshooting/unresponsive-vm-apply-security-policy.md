@@ -22,7 +22,7 @@ This article provides steps to resolve issues where the OS hangs and becomes unr
 
 ## Symptoms
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays the OS stuck while booting with the message:
+When you use [Boot diagnostics](boot-diagnostics.md) to view the screenshot of the VM, you will see that the screenshot displays the OS stuck while booting with the message:
 
 > 'Applying security policy to the system'.
 
@@ -45,7 +45,7 @@ There is a plethora of potential causes of this issue. You will not be able to k
 
 ### Create and Access a Repair VM
 
-1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to prepare a Repair VM.
 2. Use Remote Desktop Connection connect to the Repair VM.
 
 ### Enable Serial Console and Memory Dump Collection
@@ -121,7 +121,7 @@ To enable memory dump collection and Serial Console, run this script:
 
 ### Rebuild the VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
+Use [step 5 of the VM Repair Commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to reassemble the VM.
 
 ### Collect the Memory Dump File
 
@@ -129,10 +129,15 @@ To resolve this problem, you would need first to gather the memory dump file for
 
 1. Attach the OS disk to a new Repair VM:
 
-    - Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a new Repair VM.
+    - Use [steps 1-3 of the VM Repair Commands](repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to prepare a new Repair VM.
     - Use Remote Desktop Connection connect to the Repair VM.
 
 2. Locate the dump file and submit a support ticket:
 
     - On the repair VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is `F`, you need to go to `F:\Windows`.
     - Locate the memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
+    - If you are having trouble locating the memory.dmp file, you may wish to use [non-maskable interrupt (NMI) calls in serial console](serial-console-windows.md#use-the-serial-console-for-nmi-calls) instead. You can follow the guide to [generate a crash dump file using NMI calls](/windows/client-management/generate-kernel-or-complete-crash-dump).
+
+## Next steps
+
+If you have issues when you apply Local Users and Groups policy see [VM is unresponsive when applying Group Policy Local Users and Groups policy](unresponsive-vm-apply-group-policy.md)
