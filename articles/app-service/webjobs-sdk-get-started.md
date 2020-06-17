@@ -409,7 +409,7 @@ Add the Application Insights provider to your logging code with the following st
     }
     ```
 ### Republish the project and trigger the function again
-placeholder text
+***placeholder text
 
 
 ### View logs in Application Insights
