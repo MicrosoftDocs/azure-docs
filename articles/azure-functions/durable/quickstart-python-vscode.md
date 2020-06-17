@@ -48,7 +48,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a language for your function app project | Python | Create a local Node.js Functions project. |
+    | Select a language for your function app project | Python | Create a local Python Functions project. |
     | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Python version | Python 3.6, 3.7, or 3.8 | VS Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
@@ -56,7 +56,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A package.json file is also created in the root folder.
+A requirements.txt file is also created in the root folder.
 
 ### Enable Azure Functions V2 compatibility mode
 
