@@ -5,7 +5,7 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: vpn-gateway-3rdparty-device-config-cisco-asa
+ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
 
