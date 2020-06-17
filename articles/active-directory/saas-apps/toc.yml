@@ -499,6 +499,8 @@
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
         href: egnyte-tutorial.md
+      - name: Ekarda
+        href: ekarda-tutorial.md
       - name: eKincare
         href: ekincare-tutorial.md
       - name: Eli Onboarding
@@ -688,6 +690,8 @@
         href: helpshift-tutorial.md
       - name: Health Support System
         href: health-support-system-tutorial.md
+      - name: Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -1192,8 +1196,6 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
-      - name: Perforce Helix Core- Helix Authentication Service
-        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
