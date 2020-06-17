@@ -15,7 +15,7 @@ manager: timlt
 
 This guide discusses how to secure public applications or devices that cannot securely store secrets or accept browser input. These types of applications fall under the category of IoT or internet of things. Some examples of these applications may include: Smart TV devices or sensor data emitting applications. 
 
-[!INCLUDE [authentication details](./includes/view-auth-details.md)]
+[!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 ## Create an application registration in Azure AD
 

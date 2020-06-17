@@ -15,7 +15,7 @@ manager: timlt
 
 The following guide pertains to an application which is hosted on web servers, maintains multiple business scenarios, and deploys to web servers. The application has the requirement to provide protected resources secured only to Azure AD users. The objective of the scenario is to enable the web application to authenticate to Azure AD and call Azure Maps REST APIs on behalf of the user.
 
-[!INCLUDE [authentication details](./includes/view-auth-details.md)]
+[!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 ## Create an application registration in Azure AD
 

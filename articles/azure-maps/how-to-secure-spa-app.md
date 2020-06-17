@@ -15,7 +15,7 @@ manager: timlt
 
 The following guide pertains to an application using Azure Active Directory (Azure AD) to provide an access token to Azure Maps applications when the user can't sign in to Azure AD. This flow requires hosting of a web service which must be secured to only be accessed by the single page web application. There are multiple implementations which can accomplish authentication to Azure AD. This guide leverages the product, Azure Function to acquire access tokens.
 
-[!INCLUDE [authentication details](./includes/view-auth-details.md)]
+[!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 > [!Tip]
 > Azure maps can support access tokens from user sign-on / interactive flows. Interactive flows enable a more restricted scope of access revocation and secret management.
