@@ -222,6 +222,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted App Service
       href: app-service-undelete.md
+    - name: Restore from downed region
+      href: manage-disaster-recovery.md
   - name: Move app
     items:
     - name: Move between regions
