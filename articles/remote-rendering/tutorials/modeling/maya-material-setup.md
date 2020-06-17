@@ -6,9 +6,17 @@ ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
-# Setting up Physically Based Rendering materials in Maya
+# Tutorial: Setting up Physically Based Rendering materials in Maya
 
 ## Overview
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * How to assign materials with advanced lighting model to objects in the scene.
+> * How to handle instancing of objects and materials.
+> * How to export a scene to FBX format and important options to select.
+
 Creating [Physically Based Rendering (**PBR**)](../../overview/features/pbr-materials.md) materials in `Maya` are a relatively straight forward task, similar in many ways to PBR set-up in other content creation apps like `3DS Max`. The following tutorial is a guide to basic PBR shader set-up and FBX export for ARR projects. 
 
 The sample scene in this tutorial contains a number of `Polygon Box` objects that have been assigned a number of different materials - Wood, Metal, Painted Metal, Plastic, and Rubber. Broadly speaking, each material contains all or most of the following textures 
@@ -18,6 +26,9 @@ The sample scene in this tutorial contains a number of `Polygon Box` objects tha
 * `Roughness`, which determines how rough or smooth a surface is, affecting the sharpness or blurriness of the reflections and highlights on a surface.
 *  , which adds detail to a surface, for example pitting and dents on a metal surface or grain in wood without having to add more polygons.
 * `Ambient Occlusion`, which is used to add soft shading and contact shadows to a model. It is a greyscale map that indicates which areas of a model receive full lighting (white) or full shade (Black). 
+
+## Prerequisites
+* `Autodesk Maya 2017` or newer
 
 ## Setting up materials in the scene
 In Maya, the process for setting up a PBR material is as follows:
@@ -70,7 +81,7 @@ In the sample scene, each individual box object has been instanced. This action 
 
 >Best Practice regarding instancing in your scene is to create them as you go along, as replacing 'Copies' with Instanced objects later is extremely difficult. 
 
-## FBX Export Process
+## FBX Export process
 
 We can now move on to the FBX export of your scene or scene assets. Generally speaking, it makes sense when exporting assets to only select for export those objects/assets from your scene that you want. If you have 100 objects in a scene but you only want to use 30 of them, there is no point in exporting the whole scene. So unless you are happy to export the entire scene, make your selection and go to:
 
@@ -89,4 +100,11 @@ Once you have set your configuration for Export, click 'Export Selection'.
 
 ## Conclusion
 
-In general, this type of materials looks more realistic as it is based on real world physics. It creates an additional immersive effect that the scene exists in the real world.
+In general, this type of materials looks more realistic as it is based on real world physics of light. It creates an additional immersive effect that the scene exists in the real world.
+
+## Next steps
+
+You now know the most important functionality for setting up materials with advanced lighting to objects in a scene and exporting it to FBX format that is supported by ARR. Next step would be to try to convert it and visualize in ARR.
+
+> [!div class="nextstepaction"]
+> [Quickstart: Convert a model for rendering](../../quickstarts\convert-model.md)
