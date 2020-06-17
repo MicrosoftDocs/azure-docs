@@ -108,12 +108,21 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 
 You can perform the following actions:
 
-* Create a compute instance. Specify the name, Azure VM type including GPUs (please note VM type can not be changed after creation), enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
-* Refresh the compute instances tab
-* Start, stop and restart a compute instance. Stop the VM when you are not using it to reduce cost. Then start it again when you need it.
-* Delete a compute instance
+* Create a compute instance. In the resulting form, specify:
+    * Name of the compute instance.
+    * Azure VM type including GPUs. (VM type can not be changed after creation).
+    * Whether the instance is for yourself or created for another user of the workspace.
+    * Enable/disable SSH access. SSH access is disabled by default but can be enabled at compute instance creation time.
+    * Configure virtual network settings optionally. 
 
-For each compute instance in your workspace you can:
+    You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
+
+* Refresh the compute instances tab.
+* Start, stop and restart a compute instance.  You do pay for the instance whenever it is running. Stop the VM when you are not using it to reduce cost. Then start it again when you need it. 
+* Delete a compute instance.
+* Filter the list of compute instances based on all compute instance available to you, all that you create, or all in the workspace.
+
+For each compute instance in your workspace that you have access to, you can:
 
 * Access Jupyter, JupyterLab, RStudio on the compute instance
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
