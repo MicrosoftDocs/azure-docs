@@ -34,7 +34,7 @@ You'll need to create a general-purpose storage account first to use blobs. If y
 az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
 ```
 
-![Console output of the above command. ID is highlighted in green for end-user to see.](../media/databricks-key-vault-1.png)
+![Console output of the above command. ID is highlighted in green for end-user to see.](../media/databricks-command-output-1.png)
 
 Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
 
@@ -60,7 +60,7 @@ List the blobs in the container to verify that the container has it.
 az storage blob list --account-name contosoblobstorage5 --container-name contosocontainer5 --output table --auth-mode login
 ```
 
-![Console output of the above command. It displays the file that was just stored in the container.](../media/databricks-key-vault-2.png)
+![Console output of the above command. It displays the file that was just stored in the container.](../media/databricks-command-output-2.png)
 
 Get the **key1** value of your storage container using the following command. Copy the value down.
 
@@ -68,7 +68,7 @@ Get the **key1** value of your storage container using the following command. Co
 az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 ```
 
-![Console output of the above command. The value of key1 is highlighted in a green box.](../media/databricks-key-vault-3.png)
+![Console output of the above command. The value of key1 is highlighted in a green box.](../media/databricks-command-output-3.png)
 
 ## Create a Key Vault and set a secret
 
@@ -78,8 +78,8 @@ You'll create a Key Vault using the following command. This command will display
 az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus
 ```
 
-![Image](../media/databricks-key-vault-4.png)
-![Console output of the above command. The ID and the vaultUri are both highlighted in green for the user to see.](../media/databricks-key-vault-5.png)
+![Image](../media/databricks-command-output-4.png)
+![Console output of the above command. The ID and the vaultUri are both highlighted in green for the user to see.](../media/databricks-command-output-5.png)
 
 To create the secret, use the following command. Set the value of the secret to the **key1** value from your storage account.
 
@@ -114,8 +114,6 @@ df = spark.read.text("/mnt/<mount-name>/<file-name>")
 
 df.show()
 ```
-
-
 
 ## Next steps
 
