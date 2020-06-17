@@ -26,7 +26,7 @@ You can view all of the routes of your Virtual WAN hub in the Azure portal. This
    * Point-to-site Connection
    * Route table
 
-:::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Routing":::
+   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Routing":::
 
 ## <a name="output"></a>View output
 
