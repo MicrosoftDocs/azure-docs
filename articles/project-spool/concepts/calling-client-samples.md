@@ -134,7 +134,7 @@ call.handlePushNotificationWithCompletionHandler(jsonPayload,
 ---
 
 
-### Mid-call operations
+## Mid-call operations
 You can perform various operations on a call
 
 #### Mute/unmute
@@ -186,7 +186,7 @@ call.remoteParticipants
 ```
 --- 
 
-##### Remote participant has set of properties
+## Remote participant has set of properties
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -369,7 +369,7 @@ call.stopVideo(completionHandler: ((error: Error?) -> Void) {
 ```
 --- 
 
-### Handle remote participant video streams
+## Handle remote participant video streams
 Remote participant may send video or screen sharing during a call, this sections coves how to discover and handle remote streams
 
 #### Handle remote participant video/screen sharing streams
@@ -426,7 +426,7 @@ var activeRenders = remoteParticipantStream.activeRenderers;
 
 You can subscribe to 'availabilityChanged' and 'activeRenderersChanged' events 
 
-##### Render remote participant stream
+## Render remote participant stream
 To start rendering remote participant stream
 
 
@@ -466,7 +466,7 @@ remoteParticipantStream.activeRenderers[0] == remoteVideoRenderer
 ```
 --- 
 
-##### RemoteVideoRenderer
+### RemoteVideoRenderer
 Represents remote video stream renderer, it has following properties
 
 #### [Javascript](#tab/javascript)
@@ -748,7 +748,7 @@ previewRenderer.setScalingMode(ACSScalingMode);
 --- 
  
 
-### Event model
+## Eventing model
 Most of properties and collections can change it's value.
 To subscribe to these changes you can use following:
 #### Properties
