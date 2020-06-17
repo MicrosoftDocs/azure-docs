@@ -52,6 +52,10 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 
     To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
+## Regional availability
+
+Azure Files authentication with Azure AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
+
 ## Overview of the workflow
 
 Before you enable Azure AD DS Authentication over SMB for Azure file shares, verify that your Azure AD and Azure Storage environments are properly configured. We recommend that you walk through the [prerequisites](#prerequisites) to make sure you've completed all the required steps.
