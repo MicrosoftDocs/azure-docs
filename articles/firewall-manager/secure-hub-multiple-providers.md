@@ -73,10 +73,10 @@ Create your secured virtual hub using Firewall Manager.
 3. For the new vWAN name, type **Vwan-01**.
 4. Select the **Include VPN gateway to enable security partner providers** check box.
 5. For **Gateway scale units**, select **1 scale unit - 500 Mbps**.
-6. Select **Next:Azure Firewall**.
-7. Accept the default **Azure Firewall** **Enabled** setting.
+6. Select **Next : Azure Firewall**.
+7. Accept the default **Enabled** setting.
 8. For **Specify the number of Public IP addresses**, use the slider to select **2**.
-9. Select **Next: security partner provider**.
+9. Select **Next: Security Partner Provider**.
 10. For **Security Partner Provider**, select **Enabled** and then select **ZScaler**.
 11. Select **Next: Review + create**.
 12. Select **Create**. It will take about 30 minutes to deploy.
