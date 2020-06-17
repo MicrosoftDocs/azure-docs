@@ -23,7 +23,9 @@ Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes 
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and AVS through ExpressRoute.
 
-:::image type="content" source="media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="AVS Hub and Spoke integration deployment":::
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="AVS Hub and Spoke integration deployment":::
+
+
 
 
 The architecture has the following main components:
