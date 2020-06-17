@@ -81,7 +81,7 @@ Do the following steps in the Azure portal to order a device.
 
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
-   After the order is placed successfully, if self-managed shipping was selected, you will receive an email notification. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
+   If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
 8. Click **Next** once the shipping details have been validated successfully.
 
@@ -151,8 +151,6 @@ Before you begin, you must have:
 * Installed [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
-
-<!-- [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)] -->
 
 ### Azure Cloud Shell
 
@@ -243,7 +241,7 @@ To run the code in this article in Azure Cloud Shell:
 
 ## Change the output format type
 
-All Azure CLI commands will use json as the output format unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
+All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
 
 ```azurecli
 
@@ -372,7 +370,7 @@ Perform the following steps to create a device order:
 
 ## Track an order
 
-You can get tracking information about an existing Azure Data Box order using [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, order state, subscription ID, contact information, shipment type, and device sku.
+To get tracking information about an existing Azure Data Box order, run [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -584,7 +582,7 @@ You can get tracking information about an existing Azure Data Box order using [a
 
 ## List all orders
 
-If you have ordered multiple devices, you can view all your Azure Data Box orders using [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list). The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
+If you have ordered multiple devices, you can run [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
 
    ```azurecli
@@ -731,7 +729,7 @@ The following table shows the parameter information for `az databox job list`:
 
 ## Cancel an order
 
-You can cancel an Azure Data Box order using [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel).
+To cancel an Azure Data Box order, run [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). You are required to specify your reason for canceling the order.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -763,7 +761,7 @@ You can cancel an Azure Data Box order using [az databox job cancel](https://doc
 
 ## Delete an order
 
-If you have canceled an Azure Data Box order, you may delete the order using [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete).
+If you have canceled an Azure Data Box order, you can run [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) to delete the order.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
