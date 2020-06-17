@@ -63,8 +63,8 @@ The following table lists reference and sample documentation for Azure Blob stor
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage client libraries for Python v12](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Manage blobs with Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
-| 2.x | [Azure Storage client libraries for Python v2](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Manage blobs with Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
+| 12.x | [Azure Storage client libraries v12 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/) | [Quickstart: Manage blobs with Python v12 SDK](/azure/storage/blobs/storage-quickstart-blobs-python) |
+| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Package (PyPI)](https://pypi.org/project/azure-storage-blob/2.1.0/) | [Quickstart: Manage blobs with Python v2.1 SDK](/azure/storage/blobs/storage-quickstart-blobs-python-legacy) |
 
 ## JavaScript client libraries
 
