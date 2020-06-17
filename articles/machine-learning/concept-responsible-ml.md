@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/17/2020
+ms.date: 05/08/2020
 #intent: As a data scientist, I want to know learn what responsible ML is and how I can use it in Azure Machine Learning
 ---
 

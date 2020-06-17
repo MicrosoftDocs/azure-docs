@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn what differential privacy is and how the WhiteNoise package can help you implement differential private systems that preserve data privacy.
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 06/17/2020
+ms.date: 05/03/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

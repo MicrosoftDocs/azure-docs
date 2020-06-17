@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
-ms.date: 06/17/2020
+ms.date: 06/11/2020
 ---
 
 # Enterprise and Basic Editions of Azure Machine Learning 
