@@ -171,7 +171,7 @@ The following FQDN / application rules are required for using Windows Server bas
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | To install windows-related binaries |
-| mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
+| *.mp.microsoft.com, www<span></span>.msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | To install windows-related binaries |
 | kms.core.windows.net | TCP:1688 | To install windows-related binaries |
 
 ## Next steps
