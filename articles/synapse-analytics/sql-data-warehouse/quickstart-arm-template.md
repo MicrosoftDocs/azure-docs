@@ -56,9 +56,6 @@ For example:
 The URL usually appears as, for example, https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/loadBalancers for loadbalancer of Microsoft.Network. Remove the API version from the URL so that the URL redirects to the latest version.
 -->
 
-* [Azure resource type](link to the template reference)
-* [Azure resource type](link to the template reference)
-
 <!-- List additional quickstart templates. For example: [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 Notice the resourceType and sort elements in the URL.
 -->
@@ -66,17 +63,19 @@ Notice the resourceType and sort elements in the URL.
 ### Deploy the template
 
 1. Select the following image to sign in to Azure and open the template. The template creates an Synapse SQL pool.
- 
  [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
-
-1. Update the values as necessary:
+1. Enter or update the following values:
 
     * **Subscription**: Select an Azure subscription.
-    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**.
-    * **Location**: Select a location.  For example, **Central US**.
+    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resourge group will facilitate resource clean up.
+    * **Region**: Select a region.  For example, **Central US**.
     * **SQL Server name**: Accept the default name or enter a SQL Server name.
-    * **SQL Administrator login**: Enter the administrator username of the SQL Server.
-    * **SQL Administrator password**: Enter the administraor password of the SQL Server.
+    * **SQL Administrator login**: Enter the administrator username for the SQL Server.
+    * **SQL Administrator password**: Enter the administrator password for the  SQL Server.
+    * **Data Warehouse Name**: Enter a SQL pool name.
+    * **Transparent Data Encryption**: Accept the default, enabled. 
+    * **Service Level Objective**: Accept the default, DW400c.
+    * **Location**: Accept the default location of the resource group.
     * **Review and Create**: Select.
 <!--
 <a href="https%3A%2F%2Fgithub.com%2FAzure%2Fazure-quickstart-templates%2Ftree%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create" target="_blank">
@@ -156,7 +155,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 <!-- Include a paragraph that explains how to delete unneeded resources. Add a portal screenshot or use interactive Azure CLI and Azure PowerShell commands to clean up the resources. -->
 
 
-When no longer needed, delete the resource group, which deletes the Synapse SQL pool account and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
+When no longer needed, delete the resource group. Delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
 
