@@ -8,7 +8,7 @@ ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure SQL Database & SQL Managed Instance
+# Azure Policy built-in definitions for Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
