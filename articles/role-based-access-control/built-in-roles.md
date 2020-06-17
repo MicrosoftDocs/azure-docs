@@ -6337,7 +6337,7 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
 
 ### DevTest Labs User
 
-Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. [Learn more](../lab-services/devtest-lab-add-devtest-user.md)
+Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. [Learn more](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6441,7 +6441,7 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 
 ### Lab Creator
 
-Lets you create, manage, delete your managed labs under your Azure Lab Accounts. [Learn more](../lab-services/classroom-labs/add-lab-creator.md)
+Lets you create, manage, delete your managed labs under your Azure Lab Accounts. [Learn more](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
