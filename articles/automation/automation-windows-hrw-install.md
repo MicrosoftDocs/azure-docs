@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/16/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -12,13 +12,13 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 ## Windows Hybrid Runbook Worker installation and configuration
 
 To install and configure a Windows Hybrid Runbook Worker, you can use one of the following methods.
 
-* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account. Refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
+* For Azure VMs, install the Log Analytics agent for Windows using the [virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or PowerShell. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account.
+
+    If you don't have an Azure Monitor Log Analytics workspace, refer to step 1 in the [Manual deployment](#manual-deployment) section. If you have a workspace, but it is not linked to your Automation account, refer to step 2 in the [Manual deployment](#manual-deployment) section. Otherwise, refer to steps 3 and 4 in the [Manual deployment](#manual-deployment) section.
 
 * Use an Automation runbook to completely automate the process of configuring a Windows computer. This is the recommended method for machines in your datacenter or another cloud environment.
 
@@ -57,11 +57,12 @@ To get more networking requirements for the Hybrid Runbook Worker, see [Configur
 
 For information about enabling servers for management with Azure Automation State Configuration, see [Enable machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-Enabling Azure Automation [Update Management](automation-update-management.md) automatically configures any Windows computer that's connected to your Log Analytics workspace as a Hybrid Runbook Worker to support runbook updates. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account.
-
 ### Addition of the computer to a Hybrid Runbook Worker group
 
 You can add the worker computer to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
+
+>[!NOTE]
+>Enabling Azure Automation [Update Management](automation-update-management.md) automatically configures any Windows computer that's connected to your Log Analytics workspace as a Hybrid Runbook Worker to support managing its operating system updates. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account.
 
 ## Automated deployment
 
@@ -112,7 +113,7 @@ After the script is finished, the Hybrid Worker Groups page shows the new group 
 
 ## Manual deployment
 
-On the target machine, perform the first two steps once for your Automation environment. Then perform the remaining steps for each worker computer.
+Perform the first two steps once for your Automation environment. Then perform the remaining steps for each worker computer.
 
 ### Step 1 - Create a Log Analytics workspace
 
@@ -120,12 +121,12 @@ If you don't already have a Log Analytics workspace, review the [Azure Monitor L
 
 ### Step 2 - Add an Azure Automation feature to the Log Analytics workspace
 
-An Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable an Azure Automation feature in your Log Analytics workspace, the worker components are automatically pushed to the agent computer.
+An Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically Update Management or Change Tracking and Inventory, the worker components are automatically pushed to the agent computer.
 
-To add the Azure Automation feature, for example, Update Management, to your workspace, run the following PowerShell cmdlet:
+For example, to add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
 ```powershell-interactive
-Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
 ### Step 3 - Install the Log Analytics agent for Windows
