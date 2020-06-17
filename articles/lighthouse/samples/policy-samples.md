@@ -5,7 +5,7 @@ ms.date: 06/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Lighthouse
+# Azure Policy built-in definitions for Azure Lighthouse
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
 definitions for Azure Lighthouse. For additional Azure Policy built-ins for other

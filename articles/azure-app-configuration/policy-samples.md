@@ -8,7 +8,7 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure App Configuration
+# Azure Policy built-in definitions for Azure App Configuration
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure App Configuration. For additional Azure Policy built-ins for other services, see
