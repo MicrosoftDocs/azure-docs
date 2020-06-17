@@ -921,17 +921,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/immersive-reader/tutorial-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-nodejs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/immersive-reader/tutorial-android.md",
-      "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-java-android",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/immersive-reader/tutorial-ios.md",
+      "source_path": "articles/cognitive-services/immersive-reader/ios-quickstart.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/quickstarts/client-libraries?pivots=programming-language-swift",
       "redirect_document_id": false
     },
