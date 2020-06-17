@@ -1050,8 +1050,6 @@
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
         - name: Configure connectivity
           items:
-          - name: Connectivity 
-            href: virtual-machines/windows/hadr-connectivity-configure.md
           - name: Distributed Network Name (DNN)
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
           - name: Virtual Network Name (VNN)
