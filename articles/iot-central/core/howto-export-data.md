@@ -88,16 +88,21 @@ Now that you have a destination to export data to, follow these steps to set up 
 
     ![Create new Event Hub](media/howto-export-data/export-event-hub.png)
 
-5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
+5. Choose an event hub, queue, topic, or container from the drop-down list box.
+
+6. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
+
     - Event Hubs or Service Bus, go to the namespace in the Azure portal:
-        - Under **Settings**, select **Shared Access Policies**
-        - Choose the default **RootManageSharedAccessKey** or create a new one
-        - Copy either the primary or secondary connection string
+        - To use a connection string for the entire namespace:
+            1. Under **Settings**, select **Shared Access Policies**
+            2. Create a new key or choose an existing key that has **Send** permissions.
+            3. Copy either the primary or secondary connection string
+        - To use connection string for a specific event hub instance or Service Bus queue or topic, go to **Entities > Event Hubs** or **Entities > Queues** or **Entities > Topics**. Choose a specific instance, and follow the same steps above to get a connection string.
     - Storage account, go to the storage account in the Azure portal:
-        - Under **Settings**, select **Access keys**
+        - **TODO** Under **Settings**, select **Access keys**
         - Copy either the key1 connection string or the key2 connection string
 
-6. Choose an event hub, queue, topic, or container from the drop-down list box.
+    Paste in the connection string. Type in the instance or container name, keeping in mind this is case-sensitive.
 
 7. Under **Data to export**, choose the types of data to export by setting the type to **On**.
 
