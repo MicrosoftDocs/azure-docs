@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/12/2020
+ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -24,9 +24,9 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 ## June 2020
 
-Last month, we introduced the Windows Virtual Desktop Spring 2020 update. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
+Last month, we introduced the Windows Virtual Desktop Spring 2020 update in preview. This update has lots of exciting new features we'd love to tell you about. Here's what's new for the Spring 2020 update.
 
-### Windows Virtual Desktop is now integrated with Azure Resource Manager
+### Windows Virtual Desktop is now integrated with Azure Resource Manager (Preview)
 
 Windows Virtual Desktop is now integrated into Azure Resource Manager. In the latest update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. This update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
@@ -42,13 +42,10 @@ Here's what this change does for you:
 
 - Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
-- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports. You can also integrate with Power BI to use enhanced visualizations.
+- Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 
 - You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In the Spring 2020 update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
 
-### Additional gateways
-
-We've added a new gateway cluster in South Africa to reduce connection latency.
 
 ### PowerShell support
 
@@ -56,9 +53,15 @@ We've added new AzWvd cmdlets to the Azure PowerShell Az Module with the Spring 
 
 To install the module, follow the instructions in [Set up the PowerShell module for Windows Virtual Desktop](powershell-module.md).
 
-For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+You can also see a list of available commands at the [AzWvd PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
-### Microsoft Teams on Windows Virtual Desktop
+For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+### Additional gateways
+
+We've added a new gateway cluster in South Africa to reduce connection latency.
+
+### Microsoft Teams on Windows Virtual Desktop (Preview)
 
 We've made some improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and visual redirection for calls. Redirection improves latency by creating direct paths between users when they call using audio or video. Less distance means fewer hops, which makes calls look and sound smoother.
 

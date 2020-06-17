@@ -430,6 +430,8 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
+    - name: Analyze arrays and nested structures
+      href: how-to-analyze-complex-schema.md
     - name: Synapse Link
       items:
       - name: Configure Synapse Link
@@ -582,6 +584,8 @@
         href: ../data-factory/connector-file-system.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: FTP
         href: ../data-factory/connector-ftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: GitHub
+        href: ../data-factory/connector-github.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google AdWords
         href: ../data-factory/connector-google-adwords.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google BigQuery

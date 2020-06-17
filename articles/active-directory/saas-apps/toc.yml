@@ -688,8 +688,6 @@
         href: helpshift-tutorial.md
       - name: Health Support System
         href: health-support-system-tutorial.md
-      - name: Helix Core- Helix Authentication Service
-        href: perforce-helix-core-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -722,6 +720,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: Hub Planner
+        href: hub-planner-tutorial.md
       - name: HubSpot SAML
         href: hubspot-tutorial.md
       - name: Huddle
@@ -892,6 +892,8 @@
         href: kindling-tutorial.md
       - name: Kintone
         href: kintone-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-tutorial.md
       - name: Kiteworks
         href: kiteworks-tutorial.md
       - name: Klue
@@ -1190,6 +1192,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1244,12 +1248,16 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proto.io
+        href: proto.io-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
+      - name: pymetrics
+        href: pymetrics-tutorial.md
     - name: Q - R
       items:
       - name: Qlik Sense Enterprise
