@@ -38,6 +38,8 @@
         href: costs/understand-cost-mgt-data.md
       - name: Understand and work with scopes
         href: costs/understand-work-scopes.md
+      - name: Group and filter options
+        href: costs/group-filter.md
       - name: Manage costs with automation
         href: costs/manage-automation.md
       - name: Cost Management for partners
@@ -118,8 +120,6 @@
         items:
         - name: Account administrator tasks
           href: manage/account-admin-tasks.md
-        - name: Upgrade your Azure account
-          href: manage/upgrade-azure-subscription.md
         - name: Edit profile
           href: manage/change-azure-account-profile.md
         - name: Resolve past due balance
@@ -159,9 +159,9 @@
         - name: Set up Microsoft Customer Agreement billing account
           href: manage/mca-setup-account.md
         - name: Sign up with Office 365 account
-          href: manage/office-365-account-for-azure-subscription.md
+          href: manage/microsoft-365-account-for-azure-subscription.md
         - name: Sign up for Office 365 with Azure account
-          href: manage/azure-account-for-office-365-subscription.md
+          href: manage/azure-account-for-microsoft-365-subscription.md
         - name: Pay using strong customer authentication
           href: manage/open-banking-strong-customer-authentication.md
       - name: Manage subscriptions
@@ -302,8 +302,6 @@
           href: reservations/view-reservations.md
         - name: Manage reservations
           href: reservations/manage-reserved-vm-instance.md
-        - name: Change optimize setting
-          href: reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
         - name: Exchange and refund reservations
           href: reservations/exchange-and-refund-azure-reservations.md
       - name: Report costs
