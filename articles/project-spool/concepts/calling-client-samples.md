@@ -101,6 +101,30 @@ let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participant
 ```
 ---
 
+##### TODO: Making 1:1 call with with video camera
+
+#### [Javascript](#tab/javascript)
+```js
+const videoDeviceInfo = callClient.deviceManager.getCameraList()[0]; // pick first camera from available video cameras
+const placeCallOptions = {videoOptions: {camera: videoDeviceInfo}};
+const call = callClient.call(['acsUserId'], placeCallOptions);
+```
+#### [Android (Java)](#tab/java)
+```java
+// Komivi please fill this in
+VideoDeviceInfo desiredCamera = callClient.deviceManager.getCameraList()[0];
+String participants[] = new String[]{ "acsUserId"};
+PlaceCallOptions callOptions = new PlaceCallOptions();
+Call call = callClient.call(participants, callOptions);
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// Sanath please fill this in
+let placeCallOptions = ACSPlaceCallOptions();
+let groupCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
+```
+---
+
 ## Handle incoming push notification
 #### [Javascript](#tab/javascript)
 ```js
@@ -526,7 +550,7 @@ remoteVideoRenderer.target
 ```
 --- 
 
-### DeviceManager
+## DeviceManager
 Device manager lets you enumerate local devices that can be used in a call to send your audio/video streams
 It also allows you to request permission from user to access microphone/camera using native browser API
 You can access deviceManager on a callClient object
@@ -545,55 +569,17 @@ const deviceManager = callClient.deviceManager;
 ```
 --- 
 
-#### Request permission to camera/microphone
-To prompt user to grant permission to his camera/microphone call
-
-#### [Javascript](#tab/javascript)
-```js
-const result = await deviceManager.askDevicePermission(audio: true, video: true); // resolves with Promise<IDeviceAccess>;
-// result.audio = true|false
-// result.video = true|false
-```
-#### [Android (Java)](#tab/java)
-```java
-// NA
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// NA
-```
---- 
-
-You can check what's the current permission state for a given type by calling
-
-#### [Javascript](#tab/javascript)
-```js
-const result = deviceManager.getPermissionState('Microphone'); // for microphone permission state
-const result = deviceManager.getPermissionState('Camera'); // for camera permission state
-
-console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
-```
-#### [Android (Java)](#tab/java)
-```java
-// NA
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-// NA
-```
---- 
-
 #### Enumerate local devices
-Enumeration is asynchronous
+Enumeration is synchronous
 
 #### [Javascript](#tab/javascript)
 ```js
 // enumerate local cameras
-const localCameras = await deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
+const localCameras = deviceManager.getCameraList(); // [VideoDeviceInfo, VideoDeviceInfo...]
 // enumerate local cameras
-const localMicrophones = await deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+const localMicrophones = deviceManager.getMicrophoneList(); // [AudioDeviceInfo, AudioDeviceInfo...]
 // enumerate local cameras
-const localSpeakers = await deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
+const localSpeakers = deviceManager.getSpeakerList(); // [AudioDeviceInfo, AudioDeviceInfo...]
 ```
 #### [Android (Java)](#tab/java)
 ```java
@@ -614,16 +600,13 @@ var localMicrophones = deviceManager.getMicrophoneList(); // [ACSAudioDeviceInfo
 var localSpeakers = deviceManager.getSpeakerList(); // [ACSAudioDeviceInfo, ACSAudioDeviceInfo...]
 ```
 --- 
-#### Set default camera/microphone/speaker
-Device mananager allows you to set a default device that will be used when starting a call
-If not ACS will fallback to OS defaults
+#### Set default microphone/speaker
+Device mananager allows you to set a default device that will be used when starting a call. If stack defaults are not set, ACS will fallback to OS defaults
 
 * get/select default devices
 
 #### [Javascript](#tab/javascript)
 ```js
-// get default camera
-const defaultCamera = deviceManager.getCamera();
 // [asynchronous] set default camera
 await deviceManager.setCamera(VideoDeviceInfo);
 // get default microphone
@@ -637,8 +620,6 @@ await deviceManager.setSpeaker(AudioDeviceInfo);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// get default camera
-VideoDeviceInfo defaultCamera = deviceManager.getCamera();
 // get default microphone
 AudioDeviceInfo defaultMicrophone = deviceManager.getMicrophone();
 // get default speaker
@@ -650,8 +631,6 @@ deviceManager.setSpeakers(new AudioDeviceInfo());
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// get default camera
-var defaultCamera = deviceManager.getCamera();
 // [Synchronous] set default camera
 var deviceManager.setCamera(VideoDeviceInfo);
 // get default microphone
@@ -663,7 +642,8 @@ var defaultSpeaker = deviceManager.getSpeaker();
 // [Synchronous] set default speaker
 deviceManager.setDefaultSpeakers(AudioDeviceInfo);
 ```
---- 
+---
+
 #### Local camera preview
 You can use deviceManager to start render stream from your local camera, this stream won't be send to other participants, it's local preview feed
 * [asynchronous] start local video preview
@@ -746,7 +726,44 @@ previewRenderer.switchDevice(ACSVideoDeviceInfo);
 previewRenderer.setScalingMode(ACSScalingMode);
 ```
 --- 
- 
+
+#### Request permission to camera/microphone (JavaScript only)
+To prompt user to grant permission to his camera/microphone call
+
+#### [Javascript](#tab/javascript)
+```js
+const result = await deviceManager.askDevicePermission(audio: true, video: true); // resolves with Promise<IDeviceAccess>;
+// result.audio = true|false
+// result.video = true|false
+```
+#### [Android (Java)](#tab/java)
+```java
+// NA
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// NA
+```
+--- 
+
+You can check what's the current permission state for a given type by calling
+
+#### [Javascript](#tab/javascript)
+```js
+const result = deviceManager.getPermissionState('Microphone'); // for microphone permission state
+const result = deviceManager.getPermissionState('Camera'); // for camera permission state
+
+console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
+```
+#### [Android (Java)](#tab/java)
+```java
+// NA
+```
+#### [iOS (Swift)](#tab/swift)
+```swift
+// NA
+```
+--- 
 
 ## Eventing model
 Most of properties and collections can change it's value.
