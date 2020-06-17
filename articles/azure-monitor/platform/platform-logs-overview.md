@@ -45,7 +45,7 @@ You can send platform logs to one or more of the destinations in the following t
 | Event hub | Send platform log data outside of Azure, for example to a third-party SIEM or custom telemetry platform.
 | Azure storage | Archive the logs for audit or backup. |
 
-- For details on creating a diagnostic setting for activity log or resource logs, see [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md). 
+- For details on creating a diagnostic setting for activity log or resource logs, see [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md). 
 - For details on creating a diagnostic setting for Azure Active Directory logs, see the following articles.
   - [Integrate Azure AD logs with Azure Monitor logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
   - [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

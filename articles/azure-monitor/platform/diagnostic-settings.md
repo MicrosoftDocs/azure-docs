@@ -1,5 +1,5 @@
 ---
-title: Create diagnostic settings to collect platform metrics and logs and in Azure
+title: Create diagnostic settings to send platform logs and metrics to different destinations
 description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
 author: bwren
 ms.author: bwren
@@ -9,14 +9,11 @@ ms.date: 04/27/2020
 ms.subservice: logs
 ---
 
-# Create diagnostic setting to collect resource logs and metrics in Azure
-
-[Platform logs](platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database.
-
-This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations.
+# Create diagnostic settings to send platform logs and metrics to different destinations
+[Platform logs](platform-logs-overview.md) in Azure, including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. [Platform metrics](data-platform-metrics.md) are collected by default and typically stored in the Azure Monitor metrics database. This article provides details on creating and configuring diagnostic settings to send platform metrics and platform logs to different destinations.
 
 > [!IMPORTANT]
-> Before you create a diagnostic setting to collect the Activity log, you should first disable any legacy configuration. See [Collect Azure Activity log with legacy settings](diagnostic-settings-legacy.md) for details.
+> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](activity-log.md#legacy-collection-methods) for details.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
@@ -26,7 +23,7 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
 > [!NOTE]
-> [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md) with certain limitations. 
+> [Platform metrics](metrics-supported.md) are sent automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to send metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md) with certain limitations. 
 >  
 >  
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values. *For example*: The 'IOReadBytes' metric on an Blockchain can be explored and charted on a per node level. However, when exported via diagnostic settings, the metric exported represents as all read bytes for all nodes. In addition, due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the [list of exportable metrics](metrics-supported-export-diagnostic-settings.md). 
@@ -41,7 +38,7 @@ Platform logs and metrics can be sent to the destinations in the following table
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](#log-analytics-workspace) | Collecting logs and metrics into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
+| [Log Analytics workspace](#log-analytics-workspace) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
 | [Event hubs](#event-hub) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
 | [Azure storage account](#azure-storage) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely. |
 

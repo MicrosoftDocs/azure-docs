@@ -11,19 +11,19 @@ ms.subservice: logs
 ---
 
 # Azure resource logs
-Azure resource logs are [platform logs](platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default, and you must create a diagnostic setting for each Azure resource to send its resource logs to [Azure Monitor Logs](data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
+Azure resource logs are [platform logs](platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs are not collected by default. You must create a diagnostic setting for each Azure resource to send its resource logs to a Log Analytics workspace to use with [Azure Monitor Logs](data-platform-logs.md), Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
+See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting and [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md) for details on using Azure Policy to automatically create a diagnostic setting for each Azure resource you create.
 
-## Collect to Log Analytics workspace
- Collect resource logs into a Log Analytics workspace to enable the features of [Azure Monitor Logs](data-platform-logs.md) which includes the following:
+## Send to Log Analytics workspace
+ Send resource logs to a Log Analytics workspace to enable the features of [Azure Monitor Logs](data-platform-logs.md) which includes the following:
 
 - Correlate resource log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure resources, subscriptions, and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on log data.
 - Use log alerts with complex alerting logic.
 
-[Create a diagnostic setting](diagnostic-settings.md) to collect resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
+[Create a diagnostic setting](diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../log-query/logs-structure.md). The tables used by resource logs depend on what type of collection the resource is using:
 
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
 - Resource-specific - Data is written to individual table for each category of the resource.
@@ -91,7 +91,7 @@ Most Azure resources will write data to the workspace in either **Azure Diagnost
 > [!NOTE]
 > Currently, **Azure diagnostics** and **Resource-specific** mode can only be selected when configuring the diagnostic setting in the Azure portal. If you configure the setting using CLI, PowerShell, or Rest API, it will default to **Azure diagnostic**.
 
-You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in to the dedicated table. Use the [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) operator to query data across both tables.
+You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in  the dedicated table. Use the [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) operator to query data across both tables.
 
 Continue to watch [Azure Updates](https://azure.microsoft.com/updates/) blog for announcements about Azure services supporting Resource-Specific mode.
 
@@ -106,7 +106,7 @@ Azure Data Factory, because of a detailed set of logs, is a service that is know
 You should migrate your logs to use the resource-specific mode as soon as possible. If you are unable to do so immediately, an interim alternative is to isolate Azure Data Factory logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces.
 
 
-## Collect to Azure Event Hubs
+## Send to Azure Event Hubs
 Send resource logs to an event hub to send them outside of Azure, for example to a third-party SIEM or other log analytics solutions. Resource logs from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the resource type as described in [Common and service-specific schema for Azure Resource Logs](resource-logs-schema.md).
 
 Following is sample output data from Event Hubs for a resource log:
@@ -172,7 +172,7 @@ Following is sample output data from Event Hubs for a resource log:
 }
 ```
 
-## Collect to Azure Storage
+## Send to Azure Storage
 Send resource logs to Azure storage to retain it for archiving. Once you have created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories. The blobs within the container use the following naming convention:
 
 ```
@@ -200,4 +200,4 @@ Within the PT1H.json file, each event is stored with the following format. This 
 ## Next steps
 
 * [Read more about resource logs](platform-logs-overview.md).
-* [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md).
+* [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md).

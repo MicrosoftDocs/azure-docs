@@ -1,6 +1,6 @@
 ---
 title: Azure Activity log
-description: View the Azure Activity log in Azure Monitor and retrieve with PowerShell, CLI, and REST API.
+description: View the Azure Activity log and send it to Azure Monitor Logs, Azure Event Hubs, and Azure Storage.
 author: bwren
 services: azure-monitor
 
@@ -9,11 +9,11 @@ ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
 ---
+
 # Azure Activity log
+The Activity log is a [platform log](platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. For additional functionality, you should create a diagnostic setting to send the Activity log to [Azure Monitor Logs](data-platform-logs.md), to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving. This article provides details on viewing the Activity log and sending it to different destinations.
 
-The Activity log is a [platform log](platform-logs-overview.md) in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. For additional functionality, you should create a diagnostic setting to collect the Activity log in [Azure Monitor Logs](data-platform-logs.md), send it to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving. This article provides details on viewing and collecting the Activity log.
-
-See [Create diagnostic setting to collect platform logs and metrics in Azure](diagnostic-settings.md) for details on creating a diagnostic setting.
+See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting.
 
 ## View the Activity log
 You can access the Activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, then the only filter will be on the subscription. If you open it from a resource's menu, then the filter will be set to that resource. You can always change the filter though to view all other entries. Click **Add Filter** to add additional properties to the filter.
@@ -41,8 +41,8 @@ You can also access Activity log events using the following methods.
 - Use the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
 
 
-## Collect to Log Analytics workspace
- Collect the Activity log into a Log Analytics workspace to enable the features of [Azure Monitor Logs](data-platform-logs.md) which includes the following:
+## Send to Log Analytics workspace
+ Send the Activity log to a Log Analytics workspace to enable the features of [Azure Monitor Logs](data-platform-logs.md) which includes the following:
 
 - Correlate Activity log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together.
@@ -51,7 +51,7 @@ You can also access Activity log events using the following methods.
 - Store Activity log entries for longer than 90 days.
 - No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
 
-[Create a diagnostic setting](diagnostic-settings.md) to collect the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
+[Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
 
 Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
 
@@ -70,7 +70,7 @@ AzureActivity
 ```
 
 
-## Collect to Azure Event Hubs
+## Send to Azure Event Hubs
 Send the Activity Log to Azure Event Hubs to send entries outside of Azure, for example to a third-party SIEM or other log analytics solutions. Activity log  from event hubs are consumed in JSON format with a `records` element containing the records in each payload. The schema depends on the category and is described in [Schema from storage account and event hubs](activity-log-schema.md).
 
 Following is sample output data from Event Hubs for an Activity log:
@@ -132,7 +132,7 @@ Following is sample output data from Event Hubs for an Activity log:
 ```
 
 
-## Collect to  Azure storage
+## Send to  Azure storage
 Send the Activity Log to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days.
 
 When you send the Activity log to Azure, a storage container is created in the storage account as soon as an event occurs. The blobs in the container use the following naming convention:
@@ -246,7 +246,7 @@ If a log profile already exists, you first need to remove the existing log profi
 
 
 ### Log Analytics workspace
-The legacy method for collecting the Activity log into a Log Analytics workspace is connecting the log in the workspace configuration. 
+The legacy method for sending the Activity log into a Log Analytics workspace is connecting the log in the workspace configuration. 
 
 1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the Activity Log.
 1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
@@ -262,7 +262,7 @@ The legacy method for collecting the Activity log into a Log Analytics workspace
 To disable the setting, perform the same procedure and click **Disconnect** to remove the subscription from the workspace.
 
 ### Data structure changes
-Diagnostic settings collect the same data as the legacy method used to collect the Activity log with some changes to the structure of the *AzureActivity* table.
+Diagnostic settings send the same data as the legacy method used to send the Activity log with some changes to the structure of the *AzureActivity* table.
 
 The columns in the following table have been deprecated in the updated schema. They still exist in *AzureActivity* but they will have no data. The replacement for these columns are not new, but they contain the same data as the deprecated column. They are in a different format, so you may need to modify log queries that use them. 
 
