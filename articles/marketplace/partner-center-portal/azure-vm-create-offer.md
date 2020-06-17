@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/17/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -111,11 +111,16 @@ When you're publishing your offer to the commercial marketplace with Partner Cen
 
 ## Properties
 
-On the **Properties** page, you define the categories and industries that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
+On the **Properties** page, you define the categories that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
 ### Categories
 
-Select a minimum of one and a maximum of five categories. You use these categories to place your offer in the appropriate Azure Marketplace search areas. In the offer description, explain how your offer supports these categories. Virtual machine offers appear under the **Compute** category on Azure Marketplace.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. You can select:
+
+- Up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select ‘Not applicable’.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
 
 ### Legal
 

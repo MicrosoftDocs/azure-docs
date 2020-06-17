@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 06/17/2020
 ---
 
 # Create a new SaaS offer in the commercial marketplace
@@ -181,11 +181,18 @@ This page asks you to define the categories and industries used to group your of
 
 ### Category
 
-Select at least one and up to three categories for grouping your offer into the appropriate marketplace search areas. Describe how your offer supports these categories in the offer description.
+Your offer will be published to AppSource or Azure Marketplace depending on the transaction capabilities associated with your offer and your category selection. See [Comparing Microsoft AppSource and Azure Marketplace](../comparing-appsource-azure-marketplace.md) for details. Select categories and subcategories that best align with your offer and your intended audience. You can select:
+
+- Up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select ‘Not applicable’.
+
+See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industries
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+
+Industry selection applies only for offers published to AppSource.
 
 ### App version
 

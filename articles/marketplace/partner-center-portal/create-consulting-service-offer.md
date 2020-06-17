@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/17/2020
 ---
 
 # Create a consulting service offer
@@ -91,10 +91,13 @@ This page lets you set the primary product that your consulting service offer be
     - **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements.
     - **Workshop**: An interactive engagement conducted on a customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
 
-3. If you selected a primary product of **Azure**, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
-4. If you selected a primary product _other_ than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-5. Select up to six **Industries** that your offer applies to. This will make it easier for customers to find your offer.
-6. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSPs and Azure Networking MSPs.
+3. If you selected **Azure** as primary product, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
+4. If you selected **Azure** as primary product, you have the option to select up to six **Industries**. These make it easier for customers in Azure Marketplace to find your offer. If you didn’t choose Azure, skip this step.
+5. If you selected a primary product *other* than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+6. If you selected a primary product *other* than Azure, you have the option to select up to two **Industries** and two **Verticals** for each industry. These make it easier for customers in AppSource to find your offer.
+7. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSPs and Azure Networking MSPs.
+
+See the full list of industries and verticals in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before continuing.
 

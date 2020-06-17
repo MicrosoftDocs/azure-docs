@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/17/2020
 ---
 
 # Create a Power BI app for Microsoft AppSource
@@ -89,33 +89,16 @@ This page lets you define the categories and industries used to group your offer
 
 ### Category
 
-Select a minimum of one and a maximum of three categories. These categories are used to place your offer into the appropriate marketplace search areas and are shown on your offer details page. In the offer description, explain how your offer supports these categories.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. You can select:
+
+- Up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select ‘Not applicable’.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industry
 
-Optionally, select up to two industries and two verticals under each industry. While categories are used for displaying your offer, industry and verticals are used in search filters and are applied in the Storefront. If your offer targets a specific industry and/or vertical, use the offer description to explain how your offer supports the selected industries or verticals. If your offer isn't industry-specific, leave this section blank.
-
-> [!NOTE]
-> As we work to introduce new industries and verticals to improve the offer discovery experience, some industries or verticals may not yet be visible on the Storefront. Industries and verticals marked with an (*) will be available at a future date. All published offers are discoverable via keyword search.
-<p>&nbsp;
-
-| **Industry** | **Subindustry** |
-| --- | --- |
-| *Automotive | *Automotive |
-| Agriculture | *Other - Unsegmented |
-| Distribution | *Wholesale<br>Parcel and Package Shipping |
-| Education | *Higher Education<br>*Primary and Secondary Education / K-12<br>*Libraries and Museums |
-| Financial Services | *Banking and Capital Markets<br>*Insurance |
-| Government | *Defense and Intelligence (used to be called National and Public Security)<br>*Public Safety and Justice<br>*Civilian Government |
-| Healthcare (used to be called Health) | *Health Payor<br>*Health Provider<br>*Pharmaceuticals |
-| Manufacturing and Resources (used to be called Manufacturing) | *Chemical and Agrochemical<br>*Discrete Manufacturing<br>*Energy |
-| Retail and Consumer Goods (used to be called Retail) | *Consumer Goods<br>*Retailers |
-| *Media and Communications (used to be called Media and Entertainment) | *Media and Entertainment<br>*Telecommunications |
-| Professional Services | *Legal<br>*Partner Professional Services |
-| *Architecture and Construction (used to be called Architecture Engineering) | *Other - Unsegmented |
-| *Hospitality and Travel | *Hotels and Leisure<br>*Travel and Transportation<br>*Restaurants and Food Services |
-| *Other Public Sector Industries | *Forestry and Fishing<br>*Nonprofits |
-| *Real Estate | *Other - Unsegmented |
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### Legal
 
