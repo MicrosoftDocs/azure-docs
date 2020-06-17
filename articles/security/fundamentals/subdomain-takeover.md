@@ -58,7 +58,7 @@ The risk to the organization is that it enables a threat actor to take control o
 
 - **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, as well as the brand damage and loss of trust.
 
-- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.example.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. This then grants them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
+- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.contoso.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. This then grants them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
 
 - **Phishing campaigns** - Authentic-looking subdomains can be used in phishing campaigns. This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
 
@@ -82,7 +82,7 @@ By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure 
 - Azure Content Delivery Network (CDN) endpoints
 - Public IPs
 
-If you have resources that can be protected from subdomain takeover with alias records, we recommend doing so despite these limitations.
+If you have resources that can be protected from subdomain takeover with alias records, we recommend doing so despite the limited service offerings today.
 
 [Learn more](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) about the capabilities of Azure DNS's alias records.
 
@@ -108,7 +108,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - To discover dangling DNS entries, access your DNS provider and query everything that points to an Azure resource.
 
-    - Use automated tools to review your records. Many Azure customers are using PowerShell scripts for discovery of dangling DNS entries. Two of the benefits of PowerShell are that it has native support of Azure CLI and is extensible to cover other related environments.
+    - Use automated tools to review your records. Many Azure customers are using PowerShell scripts for discovery of dangling DNS entries. Two of the benefits of PowerShell are that it has native support of the Azure ARM library and is extensible to query other dependent systems, such as your DNS provider.
 
     - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. As a user with access to all of your Azure subscriptions, use Azure Resource Graph queries to build this service catalog. 
     
@@ -120,20 +120,17 @@ It's often up to developers and operations teams to run cleanup processes to avo
     |---------|---------|---------|
     |Azure Front Door|microsoft.network/frontdoors|properties.cName|
     |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
+    |Azure CDN|microsoft.cdn/profiles/endpoints|properties.hostName|
     |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
-    |...|...|...|
+    |Azure Traffic Manager|microsoft.network/trafficmanagerprofiles|properties.dnsConfig.fqdn|
+    |Azure Container Instance|microsoft.containerinstance/containergroups|properties.ipAddress.fqdn|
+    |Azure API Mnagement|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
+    |Azure AppService|microsoft.web/sites|properties.defaultHostName|
+    |Azure AppService - Slots|microsoft.web/sites/slots|properties.defaultHostName|
 
-    Use these Azure Resource Graph queries with the above table to build your service catalog: 
+    Example of using the Azure Resource Graph query with the above table to build your service catalog: 
     ```
-    az graph query -q "resources | where type == 'microsoft.classiccompute/domainnames' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.network/trafficmanagerprofiles' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsConfig.fqdn | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.network/publicipaddresses' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.dnsSettings.fqdn | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.containerinstance/containergroups' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.ipAddress.fqdn | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.network/frontdoors' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.cName | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.storage/storageaccounts' and isnotempty(properties.customDomain) | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.primaryEndpoints.blob | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.cdn/profiles/endpoints' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostName | where isnotempty(endpoint)
-    az graph query -q "resources | where type == 'microsoft.apimanagement/service' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.hostnameConfigurations.hostName | where isnotempty(endpoint)
-    az graph query -q "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') and properties.defaultHostName endswith 'azurewebsites.net' | project tenantId, subscriptionId, type,resourceGroup, name, endpoint = properties.defaultHostName | where isnotempty(endpoint)
+    Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
     ```
     
 
@@ -147,7 +144,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Review your DNS records regularly to ensure that your subdomains are mapped to Azure resources that exist (are not dangling) that you own (have not been taken over):
 
-        1. Query your DNS zones for resources pointing to Azure subdomains such as azurewebsites.net or cloudapp.Azure.com (see [this reference list](azure-domains.md)).
+        1. Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
         
         1. Confirm that you own all resources that your DNS subdomains are targeting.
 
@@ -159,8 +156,6 @@ It's often up to developers and operations teams to run cleanup processes to avo
     - Investigate why the address wasn't rerouted when the resource was decommissioned.
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
-
-
 ## Next steps
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
