@@ -394,7 +394,7 @@
           href: custom-commands.md
         - name: Quickstarts
           items:
-            - name: Build a Custom Commands App
+            - name: Build a Custom Commands app
               href: quickstart-custom-commands-application.md
         - name: How-to guides
           items:
@@ -410,6 +410,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Add language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Use Custom Voice
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integrate
               items:
                 - name: Integrate with a client app using Speech SDK
@@ -436,8 +438,16 @@
               items:
                 - name: Custom Commands concepts
                   href: custom-commands-references.md
-                - name: Custom Commands Samples (GitHub)
-                  href: http://aka.ms/speech/cc-samples
+        - name: Resources
+          items:
+            - name: Custom Commands Samples (GitHub)
+              href: http://aka.ms/speech/cc-samples
+            - name: Voice Assistants Samples (GitHub)
+              href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+            - name: Voice assistants FAQ
+              href: faq-voice-assistants.md
+            - name: Speech SDK
+              href: speech-sdk.md
     - name: Direct Line Speech
       items:
         - name: What is Direct Line Speech?
