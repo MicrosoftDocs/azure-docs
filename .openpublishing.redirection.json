@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+    "source_path": "articles/virtual-machines/linux/tutorial-lemp-stack.md",
+    "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-mean-stack.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/develop/secure-aad-app.md",
       "redirect_url": "/previous-versions/azure/security/develop/secure-aad-app",
       "redirect_document_id": false
