@@ -69,7 +69,7 @@ Next, **right-click** on the *Functions.Test* application and select **Add > Cla
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using Microsoft.Extensions.Logging.Abstractions.Internal;
 
 namespace Functions.Tests
 {
