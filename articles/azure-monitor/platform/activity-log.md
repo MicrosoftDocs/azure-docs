@@ -299,7 +299,7 @@ Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view.
 
 
 ### Enable the solution for new subscriptions
-You will soon no longer be able to add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a Resource Manager template. 
+You can no longer add the Activity Logs Analytics solution to your subscription using the Azure portal. You can add it using the following procedure with a Resource Manager template. 
 
 1. Copy the following json into a file called *ActivityLogTemplate*.json.
 

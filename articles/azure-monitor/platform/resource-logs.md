@@ -28,7 +28,7 @@ See [Create diagnostic settings to send platform logs and metrics to different d
 - Azure diagnostics - All data written is to the _AzureDiagnostics_ table.
 - Resource-specific - Data is written to individual table for each category of the resource.
 
-### Azure Diagnostics mode 
+### Azure diagnostics mode 
 In this mode, all data from any diagnostic setting will be collected in the _AzureDiagnostics_ table. This is the legacy method used today by most Azure services. Since multiple resource types send data to the same table, its schema is the superset of the schemas of all the different data types being collected.
 
 Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
@@ -49,7 +49,7 @@ The AzureDiagnostics table will look as follows:
 | Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
-### Resource-Specific
+### Resource-specific
 In this mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it makes it much easier to work with the data in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times, and the ability to grant RBAC rights on a specific table. All Azure services will eventually migrate to the Resource-Specific mode. 
 
 The example above would result in three tables being created:
