@@ -21,7 +21,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 business central**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-bc.png)
+    ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -55,7 +55,7 @@ List your offer to customers for free by providing a valid URL (beginning with *
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*) where they can get a trial.  For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with `http` or `https`) where they can get a trial.  For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
@@ -126,6 +126,23 @@ This is where you define details for your offer such as name, description, and i
 > [!NOTE]
 > You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+## Call-out descriptions
+
+1. Logo
+2. Products
+3. Categories
+4. Support address (link)
+5. Terms of use
+6. Privacy policy
+7. Offer name
+8. Summary
+9. Screenshots/videos
+10. Description
+
 ### Name
 
 The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
@@ -188,7 +205,7 @@ Add screenshots that show how your offer works. At least three screenshots are r
 
 #### Videos
 
-You can optionally add up to five videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to five videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels).
 
 #### Additional marketplace listing resources
 
@@ -353,7 +370,7 @@ The **Marketplace listing** option under the **Test drive** tab is where you def
 - **Videos** (optional) – Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk-through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
   - **Name** (required)
   - **URL (YouTube or Vimeo only)** (required)
-  - **Thumbnail** image (file must be in PNG format and 533 x 324 px)
+  - **Thumbnail** image (file must be in PNG format and 533 x 324 pixels)
 
 Select **Save draft** before continuing.
 

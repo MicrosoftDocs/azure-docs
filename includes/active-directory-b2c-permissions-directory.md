@@ -7,7 +7,8 @@ ms.date: 02/12/2020
 ms.author: mimart
 # Used by articles that interact with the Microsoft Graph API for user object manipulation.
 ---
-#### [App registrations (Preview)](#tab/app-reg-preview/)
+
+#### [App registrations](#tab/app-reg-ga/) 
 
 1. Under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
@@ -23,7 +24,7 @@ ms.author: mimart
 1. Select **Accept**.
 1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.
 
-#### [Applications](#tab/applications/)
+#### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. On the **Registered app** overview page, select **Settings**.
 1. Under **API Access**, select **Required permissions**.

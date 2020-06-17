@@ -140,3 +140,6 @@ The app name specified in the **App Service Create new** page is used as the URL
 
 > [!div class="nextstepaction"]
 > [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)
