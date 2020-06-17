@@ -94,4 +94,4 @@ To publish an interface, you must be a member of the tenant _Publisher_ role.
 
 ## Next steps
 
-The suggested next step is to learn how to [Connect to a device in your solution](howto-connect-pnp-device-solution.md).
+The suggested next step is to review the [IoT Plug and Play architecture](concepts-architecture.md).
