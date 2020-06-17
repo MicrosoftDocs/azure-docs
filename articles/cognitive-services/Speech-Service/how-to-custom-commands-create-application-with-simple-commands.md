@@ -1,5 +1,5 @@
 ---
-title: 'How To: Add simple commands to Custom Commands application - Speech service'
+title: 'How To:Create application with simple commands - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create and test a hosted Custom Commands application.
 services: cognitive-services
@@ -12,13 +12,22 @@ ms.date: 05/11/2020
 ms.author: sausin
 ---
 
-# Add simple commands
+# Create application with simple commands
+In this article, you'll learn how to:
+ - Create an empty application
+ - Update LUIS resources
+ - Add some basic commands to your Custom Commands application
 
-In this article, you will learn how to add some basic commands to your Custom Commands application.
+## Create empty application
+Create an empty Custom Commands application. For details, refer to the [quickstart](quickstart-custom-commands-e2e-application.md). Only this time, instead of importing a project, you create a blank project.
 
-## Prerequisites
-> [!div class="checklist"]
-> * [Create a Custom Commands application](./how-to-custom-commands-create-empty-project.md)
+
+   > [!div class="mx-imgBorder"]
+   > ![Create a project](media/custom-commands/create-new-project.png)
+
+## Update LUIS resources (optional)
+
+You can update the authoring resource that you selected in the **New project** window, and set a prediction resource. Prediction resource is used for recognition when your Custom Commands application is published. You don't need a prediction resource during the development and testing phases.
 
 ## Add TurnOn Command
 ### Create Command

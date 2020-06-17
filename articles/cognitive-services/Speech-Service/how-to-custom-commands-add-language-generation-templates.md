@@ -12,20 +12,19 @@ ms.date: 05/27/2020
 ms.author: sausin
 ---
 
-# Use language generation templates for speech responses
+# Add language generation templates for speech responses
 
-In this article, you will learn about the language generation aspects of speech responses. This can be achieved in two ways:
-1. Use of language generation templates.
-1. Use of adaptive expressions.
+In this article, you'll learn about the language generation aspects of speech responses. This can be achieved in two ways:
+ - Use of language generation templates
+ - Use of adaptive expressions
 
 ## Prerequisites
 
 You must have completed the steps in the following articles:
 
 > [!div class="checklist"]
-> * [How To: Create an empty application](./how-to-custom-commands-create-empty-project.md)
-> * [How To: Add simple commands](./how-to-custom-commands-add-simple-commands.md)
-> * [How To: Add parameters to commands](./how-to-custom-commands-add-simple-commands.md)
+> * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [How To: Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## Language generation templates overview
 

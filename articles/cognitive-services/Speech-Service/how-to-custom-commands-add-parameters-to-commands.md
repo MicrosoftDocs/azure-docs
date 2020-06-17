@@ -17,8 +17,7 @@ In this article, you will be adding parameters to the commands.
 
 ## Prerequisites
 > [!div class="checklist"]
-> * [How To: Create an empty application](./how-to-custom-commands-create-empty-project.md)
-> * [How To: Add simple commands](./how-to-custom-commands-add-simple-commands.md)
+> * [Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 
 ## Configure parameters for TurnOn command
 
@@ -62,11 +61,11 @@ Let's edit the existing **TurnOn** command to turn on and turn off multiple devi
    - Next, select **Add** again to add a second parameter to represent the name of the devices which can be controlled using this command. Use the following configuration.
    
 
-       | Setting            | Suggested value       | 
-       | ------------------ | --------------------- | 
-       | Name               | `SubjectDevice`         | 
-       | Is Global          | unchecked             | 
-       | Required           | checked               | 
+       | Setting            | Suggested value       |
+       | ------------------ | --------------------- |
+       | Name               | `SubjectDevice`         |
+       | Is Global          | unchecked             |
+       | Required           | checked               |
        | Response for required parameter     | Simple editor > `Which device do you want to control?`    | 
        | Type               | String                |          |
        | Configuration      | Accept predefined input values from internal catalog | 
@@ -226,4 +225,4 @@ Test out the all the three commands together using utterances related to differe
 
 
 > [!div class="nextstepaction"]
-> [How To: Configure parameter as external catalog entries](./how-to-custom-commands-add-external-catalog-string-entity.md)
+> [How To: Add configurations to commands parameters](./how-to-custom-commands-add-parameter-configuration.md)

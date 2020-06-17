@@ -26,7 +26,7 @@ Parameters are information required by the commands to complete a task. In compl
 Series of rules to be executed once the command is ready to be fulfilled, i.e. when all the conditions of the rules are satisfied.
 
 ###	Interaction rules
-Additional rules to be handle more specific or complex situations. You can add additional validations or configure advanced features such as confirmations or one-step correction.
+Additional rules to handle more specific or complex situations. You can add additional validations or configure advanced features such as confirmations or one-step correction. You can also build your own custom interaction rules.
 
 ## Parameters configuration
 ### Name
