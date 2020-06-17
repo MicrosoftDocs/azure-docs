@@ -42,12 +42,12 @@ landingContent:
           url: quickstart-custom-commands-application.md
     - linkListType: how-to-guide
       links:
-        - text: Add simple commands to your Custom Commands app
-          url: how-to-custom-commands-add-simple-commands.md
+        - text: Create application with simple commands
+          url: how-to-custom-commands-create-application-with-simple-commands.md
         - text: Add parameters to your commands
           url: how-to-custom-commands-add-parameters-to-commands.md
         - text: Add validations to parameters and prompts for correction
-          url: how-to-custom-commands-add-validations.md
+          url: how-to-custom-commands-add-parameter-configuration.md
         - text: Integrate using the Speech SDK
           url: how-to-custom-commands-setup-speech-sdk.md
         - text: Setup Continuous Deployment for your Custom Commands app using Azure DevOps

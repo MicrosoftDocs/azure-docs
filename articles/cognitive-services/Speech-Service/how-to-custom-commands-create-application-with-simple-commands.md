@@ -19,7 +19,7 @@ In this article, you'll learn how to:
  - Add some basic commands to your Custom Commands application
 
 ## Create empty application
-Create an empty Custom Commands application. For details, refer to the [quickstart](quickstart-custom-commands-e2e-application.md). Only this time, instead of importing a project, you create a blank project.
+Create an empty Custom Commands application. For details, refer to the [quickstart](quickstart-custom-commands-application.md). Only this time, instead of importing a project, you create a blank project.
 
 
    > [!div class="mx-imgBorder"]
