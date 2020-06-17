@@ -25,11 +25,11 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 ## Prerequisites 
 
 - A Microsoft Azure subscription.
-- A Windows domain on Azure virtual machines.
+- A Windows domain on Azure virtual machines or on on-premises data center extended to Azure with VNet pairing.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - An Azure virtual network and subnet with enough IP address space for these components:
    - Both virtual machines.
-   - The failover cluster IP address.
+   - The windows failover cluster IP address.
    - An IP address for each FCI.
 - DNS configured on the Azure network, pointing to the domain controllers.
 
@@ -39,13 +39,14 @@ The configuration settings for your virtual machine vary depending on the storag
 
 ## Configure VM availability 
 
-The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md), an [availability zone](../../../availability-zones/az-overview.md#availability-zones), or [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md).
+The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose avialability sets then your can leverage [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md) to physicaly locate the VMs closer; infact PG is a pre-requisite if you will use Azure Shrared disks as the shared storge.
 
 Carefully select the VM availability option that matches your intended cluster configuration. The following VM availability options are available when you plan to configure your SQL Server failover cluster instance with: 
 
- - **Shared Managed Disks** [Proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
- - **Premium File Shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set), [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)
- - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set), [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address)
+ - **Shared Managed Disks** Availability Sets with [Proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
+ - **Premium File Shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). PFS is the only shared storage option if you choose availability zones as the availability configuration for your VMs.
+ 
+ - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
    >[!IMPORTANT]
    >You can't set or change the availability set after you've created a virtual machine.
@@ -54,12 +55,11 @@ Carefully select the VM availability option that matches your intended cluster c
 
 Once you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or does not have SQL Server already installed on it. However, if you choose a SQL Server on Azure VM image, you will need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
-If you're deploying a virtual machine with storage already attached, be sure to select at least 2 premium SSDs. We recommend at least P30 (1-TB) disks.
 
    Place both virtual machines:
 
    - In the same Azure resource group as your availability set, if you're using availability sets.
-   - On the same network as your domain controller.
+   - On the same VNet as your domain controller.
    - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
    - In the Azure availability set or availability zone.
 
@@ -114,18 +114,9 @@ This table details the ports you may need to open depending on your FCI configur
 
 You will also need to join your virtual machines to the domain. You can do so using a [quickstart template](../../../active-directory-domain-services/join-windows-vm-template.md#join-an-existing-windows-server-vm-to-a-managed-domain). 
 
-## Attach storage 
+## Review storage Configuration
 
------------------------------
------------------------------
-to discuss: do we even need this section?? do we care about storage for any VMs other than SSD FCI? if so, maybe we can keep this stuff in the s2d tutorial?
-
------------------------------
------------------------------
-
-If you deployed a non-SQL Server image from Azure Marketplace, you may need to attach storage. For detailed information, see [add storage](../../../virtual-machines/linux/disks-types.md). SQL Server images come with storage already attached, but you can modify the tier of disk to suit your business need during deployment. 
-
-Both virtual machines need at least two premium SSD raw (not NTFS-formatted) disks. We recommend at least P30 (1-TB) disks. Set host caching to **Read-only**.
+If you created the VMs from Azure Marketplace SQL images through Azure Portal, then 1TB P30 disks will be attached to both VMs automaticaly. If you choose PFS or Azure Shared disks, please remove those disks as they will not be used for SQL Server Data and Log Files (feel free to leverage those disks for any other purpose if needed). If you will use S2D for shared disks, then you can add these P30 disks to S2D by following - [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 
 ## Next steps
