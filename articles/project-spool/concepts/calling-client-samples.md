@@ -111,11 +111,13 @@ const call = callClient.call(['acsUserId'], placeCallOptions);
 ```
 #### [Android (Java)](#tab/java)
 ```java
-// Komivi please fill this in
-VideoDeviceInfo desiredCamera = callClient.deviceManager.getCameraList()[0];
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().getCameraList(0);
+VideoOptions videoOptions = new VideoOptions();
+videoOptions.setCamera(desiredCamera);
+PlaceCallOptions placeCallOptions = new PlaceCallOptions();
+placeCallOptions.setVideoOptions(videoOptions);
 String participants[] = new String[]{ "acsUserId"};
-PlaceCallOptions callOptions = new PlaceCallOptions();
-Call call = callClient.call(participants, callOptions);
+Call call = callClient.call(participants, placeCallOptions);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
