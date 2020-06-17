@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 05/11/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -133,12 +133,12 @@ specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 The following Resource Provider modes are currently supported during preview:
 
 - `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Policies using this Resource
+  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
   Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
   mode is being _deprecated_.
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Policies using
-  this Resource Provider mode **must** use the
-  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
+  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is being _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md).
 

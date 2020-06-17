@@ -9,7 +9,7 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
