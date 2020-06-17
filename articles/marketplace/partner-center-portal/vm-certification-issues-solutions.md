@@ -1,6 +1,6 @@
 ---
-title: Virtual Machine certification - issues and solutions 
-description: This article will walk you through common error messages come acrossed in images, and their related solutions.  
+title: Virtual machine certification - issues and solutions 
+description: This article explains common error messages for VM images. It also discusses related solutions
 author: v-miegge 
 ms.author: v-krmall
 ms.service: marketplace
@@ -9,14 +9,14 @@ ms.topic: troubleshooting
 ms.date: 06/16/2020
 ---
 
-# Virtual Machine certification - issues and solutions
+# Virtual machine certification - issues and solutions
 
 While publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail with a message containing the error.
 
-This article will walk you through common error messages come acrossed in images, and their related solutions:
+This article explains common error messages for VM images. It also discusses related solutions:
 
 > [!NOTE]
-> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/en-US/support/v2/?stage=1).
+> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Approved base image
 
@@ -42,7 +42,7 @@ Enable VM Extensions:
 
    ![Enable guest-level monitoring](./media/vm-certification-issues-solutions-1.png)
 
-   Check whether VM Extensions are properly activated:
+Check whether VM Extensions are properly activated:
 
 5. Go to the **VM extensions** tab of the VM and verify the **Linux Diagnostics Extension**.
 6. If the Status is **Provisioning Succeeded** then the Extensions test case has passed.
@@ -52,9 +52,9 @@ Enable VM Extensions:
 
    If the VM extension fails, go to [Use Linux Diagnostic Extension to monitor metrics and logs](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux) to enable it. If you don't want the VM extension to be enabled, contact the support team and ask them to disable the extension.
 
-## Virtual Machine provisioning issue
+## Virtual machine provisioning issue
 
-Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure virtual machine (VM) image certification](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
+Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure Virtual Machine (VM) image certification](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
 
 Provisioning issues can include the following failure scenarios:
 
@@ -191,9 +191,9 @@ Update the kernel with an approved version and resubmit the request. You can fin
 
 If your image in not installed with one of the following kernel versions, update your image with the correct patches. You can find more information from the following links. Request the necessary approval from the support team after the image is updated with these required patches:
 
-• CVE-2019-11477 
-• CVE-2019-11478 
-• CVE-2019-11479
+- CVE-2019-11477 
+- CVE-2019-11478 
+- CVE-2019-11479
 
 |OS family|version|kernel|
 |---|---|---|
@@ -313,3 +313,7 @@ Refer the following table for solutions to errors related to the data disk.
 If the RDP option isn't enabled for the Windows image, you will receive this error. 
 
 Enable RDP access for Windows images before submitting.
+
+## Next Steps
+
+If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
