@@ -84,10 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type the URL:
     `https://raketa.travel/`
 
-    b. In the **Identifier (Entity ID)** text box, type the URL:
-    `https://raketa.travel/`
-
-	c. In the **Reply URL** text box, type a URL using the following pattern:
+	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`
 
 	> [!NOTE]
@@ -138,7 +135,7 @@ To configure single sign-on on **Raketa** side, you need to send the downloaded 
 
 In this section, you create a user called B.Simon in Raketa. Work with [Raketa support team](mailto:help@raketa.travel) to add the users in the Raketa platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
