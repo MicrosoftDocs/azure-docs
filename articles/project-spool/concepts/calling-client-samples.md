@@ -127,7 +127,6 @@ let cameras = callClient.deviceManager.getCameraList();
 videoOptions.camera = (cameras.first ?? nil)!;
 placeCallOptions.videoOptions = videoOptions
 let call = callClient.callWithParticipants(participants: [names], options: placeCallOptions);
-call.delegate = self;
 ```
 ---
 
