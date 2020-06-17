@@ -66,7 +66,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 |------------------------------------------------------------------------------------|:-----------:|
 | [Model explainability](how-to-machine-learning-interpretability-automl.md)                                              | All                     |
 | [Differential privacy](how-to-differential-privacy.md)                          | All                     |
-| Custom tags to implement datasheets     | All                     |
+| Custom tags to implement datasheets    | All                     |
 | Fairness AzureML Integration                                      | All                     |
 
 <br/>
