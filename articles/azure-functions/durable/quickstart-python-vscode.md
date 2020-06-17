@@ -73,8 +73,16 @@ When you created the project, the Azure Functions VS Code extension automaticall
 
 1. In the integrated terminal, activate the virtual environment in the current folder:
 
+    **Linux or macOS**
+
     ```bash
     source .venv/bin/activate
+    ```
+
+    **Windows**
+
+    ```powershell
+    .venv\scripts\activate
     ```
 
     ![Activate virtual environment](media/quickstart-python-vscode/activate-venv.png)
