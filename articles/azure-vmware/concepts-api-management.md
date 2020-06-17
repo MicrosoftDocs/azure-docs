@@ -34,7 +34,7 @@ API Management has an Azure Public API and activating Azure DDOS Protection Serv
 
 An internal deployment publishes APIs consumed by internal users or systems. DevOps team and API developers use the same management tools and developer portal as in the external deployment.
 
-Internal deployments can [integrate API Management in an internal virtual networks with Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) to create a public and secure endpoint.  The API leverages its capabilities and creates a hybrid deployment that enables different scenarios.
+Internal deployments can be [with Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) to create a public and secure endpoint for the API leveraging its capabilities and creating a hybrid deployment that enables different scenarios.  The API leverages its capabilities and creates a hybrid deployment that enables different scenarios.
 
 * Use the same API Management resource for consumption by both internal and external consumers.
 
@@ -46,7 +46,7 @@ The deployment diagram below shows consumers that can be internal or external, w
 
 In an internal deployment, APIs get exposed to the same API Management instance. In front of API Management, Application Gateway gets deployed with Azure Web Application Firewall (WAF) capability activated and a set of HTTP listener(s) and rules to filter the traffic, exposing only a subset of the backend services running on AVS.
 
-* Internal traffic is routed through ExpressRoute Gateway to Azure Firewall and then to API Management. The traffic is routed either if traffic rules are established or directly to API Management. 
+* Internal traffic is routed through ExpressRoute Gateway to Azure Firewall and then to API Management if traffic rules are established or directly to API Management.  
 
 * External traffic enters Azure through Application Gateway, which uses the external protection layer for API Management.
 
