@@ -148,7 +148,7 @@ type ReadAloudOptions = {
 
 ### LaunchResponse
 
-Contains the response from the call to `ImmersiveReader.launchAsync`.
+Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` that contains the Immersive Reader can be accessed via `container.firstChild`.
 
 ```typescript
 {
@@ -212,7 +212,6 @@ Use the following attributes to configure the look and feel of the button.
 | Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
 | Unordered Lists | Disc, Circle, Square |
 | Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
-| Hyperlinks | Coming Soon |
 
 Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
@@ -229,4 +228,4 @@ Use the most recent versions of the following browsers for the best experience w
 ## Next steps
 
 * Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstart.md)
+* [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstarts/client-libraries.md?pivots=programming-language-csharp)

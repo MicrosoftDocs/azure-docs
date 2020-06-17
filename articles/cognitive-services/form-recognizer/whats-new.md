@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
 
 ---
@@ -19,6 +19,26 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 > [!NOTE]
 > The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
+
+## April 2020
+
+### New features
+* **SDK support for Form Recognizer API v2.0 Public Preview** This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
+
+  The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
+ 
+* **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource by calling the Copy Authorization operation against the target resource endpoint.
+   * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) REST API
+   * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) REST API 
+
+### Security improvements
+
+* Customer Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## March 2020 
 

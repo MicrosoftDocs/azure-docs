@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to implement feature flags in Sprin
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 
 ms.assetid: 

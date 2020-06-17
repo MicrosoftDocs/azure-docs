@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Automation Update Management
-description: Learn how to troubleshoot and resolve issues with the Update Management solution in Azure Automation.
+title: Troubleshoot Azure Automation Update Management issues
+description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -10,21 +10,18 @@ ms.service: automation
 manager: carmonm
 ---
 
-# Troubleshoot issues with the Update Management solution
+# Troubleshoot Update Management issues
 
-This article discusses issues that you might run into when using the Update Management solution. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other onboarding issues, see [Troubleshoot solution onboarding](onboarding.md).
-
->[!NOTE]
->If you find issues when onboarding the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
+This article discusses issues that you might run into when deploying the Update Management feature on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
 >[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+>If you run into problems when deploying Update Management on a VM, check the **Operations Manager** log under **Application and Services Logs** on the local machine. Look for events with event ID 4502 and event details that contain `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`.
 
 ## Scenario: You receive the error "Failed to enable the Update solution"
 
 ### Issue
 
-When you try to enable the Update Management solution in your Automation account, you get the following error:
+When you try to enable Update Management in your Automation account, you get the following error:
 
 ```error
 Error details: Failed to enable the Update solution
@@ -36,7 +33,7 @@ This error can occur for the following reasons:
 
 * The network firewall requirements for the Log Analytics agent might not be configured correctly. This situation can cause the agent to fail when resolving the DNS URLs.
 
-* Solution targeting is misconfigured and the machine isn't receiving updates as expected.
+* Update Management targeting is misconfigured and the machine isn't receiving updates as expected.
 
 * You might also notice that the machine shows a status of `Non-compliant` under **Compliance**. At the same time, **Agent Desktop Analytics** reports the agent as `Disconnected`.
 
@@ -44,13 +41,13 @@ This error can occur for the following reasons:
 
 * Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-* Go to [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
+* Go to [Network configuration](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports must be allowed for Update Management to work.  
 
-* Go to [Network planning](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
+* Go to [Network configuration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) to learn about which addresses and ports must be allowed for the Log Analytics agent to work.
 
-* Check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but not in the **Update Management Portal, you'll need to set the scope configuration to target the machines. To learn about the scope configuration, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Check for scope configuration problems. [Scope configuration](../automation-scope-configurations-update-management.md) determines which machines are configured for Update Management. If your machine is showing up in your workspace but not in the Update Management portal, you must set the scope configuration to target the machines. To learn about the scope configuration, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
-* Remove the worker configuration by following the steps in [Deleting the hybrid runbook worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Remove the worker configuration by following the steps in [Remove the Hybrid Runbook Worker from an on-premises Windows computer](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) or [Remove the Hybrid Runbook Worker from an on-premises Linux computer](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## Scenario: Superseded update indicated as missing in Update Management
 
@@ -117,9 +114,9 @@ This issue can be caused by local configuration issues or by improperly configur
 
 4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
 
-5. If your machine shows up in the query results, check for scope configuration problems. [Scope configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines are configured for the solution. 
+5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../automation-scope-configurations-update-management.md) determines which machines are configured for Update Management. 
 
-6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Enable machines in the workspace](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. In your workspace, run this query.
 
@@ -137,7 +134,7 @@ This issue can be caused by local configuration issues or by improperly configur
 
 ### Issue
 
-When you work with solutions in your Automation account, the following error occurs:
+When you work with feature deployments in your Automation account, the following error occurs:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions
@@ -215,7 +212,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 ### Issue
 
-Virtual machines for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
+VMs for selected scopes of a dynamic group are not showing up in the Azure portal preview list. This list consists of all machines retrieved by an ARG query for the selected scopes. The scopes are filtered for machines that have Hybrid Runbook Workers installed and for which you have access permissions. 
 
 ### Cause
  
@@ -276,11 +273,11 @@ Machines do appear in ARG query results but still don't show up in the dynamic g
 
 7. Repeat the steps above for all machines that have not been displaying in the preview.
 
-## <a name="components-enabled-not-working"></a>Scenario: Components for Update Management solution enabled, while VM continues to show as being configured
+## <a name="components-enabled-not-working"></a>Scenario: Update Management components enabled, while VM continues to show as being configured
 
 ### Issue
 
-You continue to see the following message on a virtual machine 15 minutes after onboarding:
+You continue to see the following message on a VM 15 minutes after deployment begins:
 
 ```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
@@ -294,7 +291,7 @@ This error can occur for the following reasons:
 
 * There is a duplicate computer name with different source computer IDs. This scenario occurs when a VM with a particular computer name is created in different resource groups and is reporting to the same Logistics Agent workspace in the subscription.
 
-* The VM image being onboarded might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Log Analytics agent for Windows installed.
+* The VM image being deployed might come from a cloned machine that wasn't prepared with System Preparation (sysprep) with the Log Analytics agent for Windows installed.
 
 ### Resolution
 
@@ -314,7 +311,7 @@ Go to [Network planning](../automation-update-management.md#ports) to learn abou
 
 Rename your VMs to ensure unique names in their environment.
 
-#### Onboarded image from cloned machine
+#### Deployed image from cloned machine
 
 If you're using a cloned image, different computer names have the same source computer ID. In this case:
 
@@ -328,7 +325,7 @@ If you're using a cloned image, different computer names have the same source co
 
 3. Run `Restart-Service HealthService` to restart the health service. This operation recreates the key and generates a new UUID.
 
-4. If this approach doesn't work, run Sysprep on the image first and then install the MMA.
+4. If this approach doesn't work, run sysprep on the image first and then install the MMA.
 
 ## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
@@ -438,12 +435,12 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### Cause
 
-The machine has already been onboarded to another workspace for Update Management.
+The machine has already been deployed to another workspace for Update Management.
 
 ### Resolution
 
 1. Follow the steps under [Machines don't show up in the portal under Update Management](#nologs) to make sure the machine is reporting to the correct workspace.
-2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), and then try again.
+2. Clean up artifacts on the machine by [deleting the hybrid runbook group](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group), and then try again.
 
 ## <a name="machine-unable-to-communicate"></a>Scenario: Machine can't communicate with the service
 
@@ -529,7 +526,7 @@ This problem is frequently caused by network configuration and firewall issues. 
   * If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
-If you see an HRESULT, double-click the exception displayed in red to see the entire exception message. Review the following table for potential solutions or recommended actions.
+If you see an HRESULT, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.
 
 |Exception  |Resolution or action  |
 |---------|---------|
@@ -541,7 +538,7 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |`0x80072EE2`|There's a network connectivity issue or an issue in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and not disabled.        |
 |`0x80070005`| An access denied error can be caused by any one of the following:<br> Infected computer<br> Windows Update settings not configured correctly<br> File permission error with %WinDir%\SoftwareDistribution folder<br> Insufficient disk space on the system drive (C:).
-|Any other generic exception     | Run a search on the internet for  possible solutions, and work with your local IT support.         |
+|Any other generic exception     | Run a search on the internet for possible resolutions, and work with your local IT support.         |
 
 Reviewing the **%Windir%\Windowsupdate.log** file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/help/902093/how-to-read-the-windowsupdate-log-file).
 

@@ -4,7 +4,7 @@ description: This article covers the background operations that can occur, along
 author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Check for pool and node errors

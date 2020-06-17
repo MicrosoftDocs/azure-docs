@@ -37,6 +37,8 @@ SQL pool and SQL on-demand are multi-tenant capabilities and therefore reside ou
 
 ## Create an Azure Synapse workspace with a Managed workspace VNet
 
+If you have not already done so, register the Network resource provider. Registering a resource provider configures your subscription to work with the resource provider. Choose *Microsoft.Network* from the list of resource providers when you [register](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
 To create an Azure Synapse workspace that has a Managed workspace VNet associated with it, select the **Security + networking** tab in Azure portal and check the **Enable managed virtual network** checkbox.
 
 If you leave the checkbox unchecked, then your workspace won't have a VNet associated with it.
@@ -47,7 +49,7 @@ If you leave the checkbox unchecked, then your workspace won't have a VNet assoc
 ![Enable Managed workspace VNet](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->All outbound traffic from the Managed workspace VNet will be blocked in the future. It's recommended that you connect to all your data sources using Managed private endpoints.
+>All outbound traffic from the Managed workspace VNet except through Managed private endpoints will be blocked in the future. It's recommended that you create Managed private endpoints to connect to all your Azure data sources external to the workspace. 
 
 You can check whether your Azure Synapse workspace is associated to a Managed workspace VNet by selecting **Overview** from Azure portal.
 

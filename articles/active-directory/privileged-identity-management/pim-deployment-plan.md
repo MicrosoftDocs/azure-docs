@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -47,7 +47,8 @@ To use Privileged Identity Management, your directory must have one of the follo
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
@@ -320,7 +321,7 @@ You should use this stage to verify whether all the configuration you set up for
 
 ### Communicate Privileged Identity Management to affected stakeholders
 
-Deploying Privileged Identity Management will introduce additional steps for users of privileged roles. Although Privileged Identity Management greatly reduces security issues associated with privileged identities, the change needs to be effectively communicated before the tenant-wide deployment. Depending on the number of impacted administrators, organizations often elect to create an internal document, a video, or an email about the change. Frequently included in these communications include:
+Deploying Privileged Identity Management will introduce additional steps for users of privileged roles. Although Privileged Identity Management greatly reduces security issues associated with privileged identities, the change needs to be effectively communicated before the organization-wide deployment. Depending on the number of impacted administrators, organizations often elect to create an internal document, a video, or an email about the change. Frequently included in these communications include:
 
 - What is PIM
 - What is the benefit for the organization
@@ -366,7 +367,7 @@ Successfully deploying Privileged Identity Management in production is a signifi
 
 ### Use Privileged Identity Management alerts to safeguard your privileged access
 
-You should utilize Privileged Identity Management’s built-in alerting functionality to better safeguard your tenant. For more information, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
+You should utilize Privileged Identity Management’s built-in alerting functionality to better safeguard your organization. For more information, see [security alerts](pim-how-to-configure-security-alerts.md#security-alerts). These alerts include: administrators aren’t using privileged roles, roles are being assigned outside of Privileged Identity Management, roles are being activated too frequently and more. To fully protect your organization, you should regularly go through your list of alerts and fix the issues. You can view and fix your alerts the following way:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management**.

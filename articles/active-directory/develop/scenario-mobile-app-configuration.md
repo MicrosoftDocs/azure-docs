@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
@@ -360,7 +360,7 @@ Here's an example of how to add `LSApplicationQueriesSchemes`:
 
 ### Brokered authentication for Xamarin.Android
 
-MSAL.NET doesn't support brokers for Android.
+For information about enabling a broker on Android, see [Brokered authentication on Xamarin.Android](msal-net-use-brokers-with-xamarin-apps.md#brokered-authentication-for-android).
 
 ## Next steps
 

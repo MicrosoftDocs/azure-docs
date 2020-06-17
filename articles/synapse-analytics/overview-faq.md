@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure Synapse Analytics
-description: FAQ for Azure Synapse Analytics
+title: FAQ - Azure Synapse Analytics (workspaces preview)
+description: FAQ for Azure Synapse Analytics  (workspaces preview)
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (workspace preview) frequently asked questions
+# Azure Synapse Analytics (workspaces preview) frequently asked questions
 
 In this guide, you'll find the most frequently asked questions for Synapse Analytics.
 
@@ -27,15 +27,6 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 - Easily Monitor and quickly optimize, react, and debug  events happening in your workspace activities at any layer.
 - Manage your metadata across engines. Create a Spark table and it will be automatically available in your Azure Synapse databases.
 - Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts, and Data Scientists on to the same platform.
-
-### Q: How do I get started with Azure Synapse Analytics
-
-A: To start using Azure Synapse Analytics, create a [Synapse workspace](https://portal.azure.com) (it's free!) and create the resources that you want under that workspace. You can follow one of our quickstart tutorials, such as [Create a Synapse SQL pool](quickstart-create-sql-pool.md) or [Create a workspace](quickstart-create-workspace.md), that will walk you through simple use case. 
-
-You can also find sample notebooks and SQL scripts in our [repository](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). If you need to connect to a public dataset, create a new linked service with the following attributes:
-
-- azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (write **""**)
 
 ### Q: What are the main components of Azure Synapse Analytics
 
@@ -89,9 +80,9 @@ A: Data flow allows data engineers to develop graphical data transformation logi
 
 A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing the identity  through via a full AAD integration is a must.
 
-### Q: How do I get access to files and folders in the ADLSg2
+### Q: How do I get access to files and folders in the ADLS Gen2
 
-A: Access to files and folders is currently managed through ADLSg2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A: Access to files and folders is currently managed through ADLS Gen2. For more information, see [Data Lake storage access control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics
 
@@ -101,6 +92,6 @@ A: Yes, you can use your third-party business applications, like Tableau and Pow
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a SQL pool](quickstart-create-sql-pool.md)
+- [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 - [Use SQL on-demand](quickstart-sql-on-demand.md)
-- [Create an Apache Spark pool](quickstart-create-apache-spark-pool.md) 
+- [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md) 

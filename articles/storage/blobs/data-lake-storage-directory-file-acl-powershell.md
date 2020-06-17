@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
@@ -78,13 +78,13 @@ $ctx = $storageAccount.Context
 
 ## Create a file system
 
-A file system acts as a container for your files. You can create one by using the `New-AzDatalakeGen2FileSystem` cmdlet. 
+A file system acts as a container for your files. You can create one by using the `New-AzStorageContainer` cmdlet. 
 
 This example creates a file system named `my-file-system`.
 
 ```powershell
 $filesystemName = "my-file-system"
-New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
+New-AzStorageContainer -Context $ctx -Name $filesystemName
 ```
 
 ## Create a directory
@@ -346,15 +346,25 @@ In this example, the owning user and owning group have only read and write permi
 
 ### Set ACLs on all items in a file system
 
-You can use the `Get-AzDataLakeGen2Item` and the `-Recurse` parameter together with the `Update-AzDataLakeGen2Item` cmdlet to recursively to set the ACL of all directories and files in a file system. 
+You can use the `Get-AzDataLakeGen2Item` and the `-Recurse` parameter together with the `Update-AzDataLakeGen2Item` cmdlet to recursively to set the ACL for directories and files in a file system. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
+
+$Token = $Null
+do
+{
+     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
+     if($items.Count -le 0) { Break;}
+     $items | Update-AzDataLakeGen2Item -Acl $acl
+     $Token = $items[$items.Count -1].ContinuationToken;
+}
+While ($Token -ne $Null) 
 ```
+
 ### Add or update an ACL entry
 
 First, get the ACL. Then, use the `set-AzDataLakeGen2ItemAclObject` cmdlet to add or update an ACL entry. Use the `Update-AzDataLakeGen2Item` cmdlet to commit the ACL.
@@ -390,7 +400,7 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-<a id="gen1-gen2-map" />
+<a id="gen1-gen2-map"></a>
 
 ## Gen1 to Gen2 Mapping
 

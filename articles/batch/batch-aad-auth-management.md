@@ -1,8 +1,9 @@
 ---
 title: Use Azure Active Directory to authenticate Batch Management solutions
 description: Explore using Azure Active Directory to authenticate from applications that use the Batch Management .NET library.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2017
+ms.custom: has-adal-ref
 ---
 
 # Authenticate Batch Management solutions with Active Directory
@@ -23,7 +24,7 @@ To register the AccountManagement sample application, follow the steps in the [A
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.  
+Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.
 
 ![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
@@ -39,7 +40,7 @@ Follow these steps in the Azure portal:
     ![Search for your application name](./media/batch-aad-auth-management/search-app-registration.png)
 
 3. Display the **Settings** blade. In the **API Access** section, select **Required permissions**.
-4. Click **Add** to add a new required permission. 
+4. Click **Add** to add a new required permission.
 5. In step 1, enter **Windows Azure Service Management API**, select that API from the list of results, and click the **Select** button.
 6. In step 2, select the check box next to **Access Azure classic deployment model as organization users**, and click the **Select** button.
 7. Click the **Done** button.
@@ -65,11 +66,11 @@ The AccountManagement sample application defines constants for these endpoints. 
 ```csharp
 // Azure Active Directory "common" endpoint.
 private const string AuthorityUri = "https://login.microsoftonline.com/common";
-// Azure Resource Manager endpoint 
+// Azure Resource Manager endpoint
 private const string ResourceUri = "https://management.core.windows.net/";
 ```
 
-## Reference your application ID 
+## Reference your application ID
 
 Your client application uses the application ID (also referred to as the client ID) to access Azure AD at runtime. Once you've registered your application in the Azure portal, update your code to use the application ID provided by Azure AD for your registered application. In the AccountManagement sample application, copy your application ID from the Azure portal to the appropriate constant:
 
@@ -91,7 +92,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## Acquire an Azure AD authentication token
 
-After you register the AccountManagement sample in the Azure AD tenant and update the sample source code with your values, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials: 
+After you register the AccountManagement sample in the Azure AD tenant and update the sample source code with your values, the sample is ready to authenticate using Azure AD. When you run the sample, the ADAL attempts to acquire an authentication token. At this step, it prompts you for your Microsoft credentials:
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -104,7 +105,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service. 
+After you provide your credentials, the sample application can proceed to issue authenticated requests to the Batch management service.
 
 ## Next steps
 
@@ -112,7 +113,7 @@ For more information on running the [AccountManagement sample application][acct_
 
 To learn more about Azure AD, see the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). In-depth examples showing how to use ADAL are available in the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=active-directory) library.
 
-To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md). 
+To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"

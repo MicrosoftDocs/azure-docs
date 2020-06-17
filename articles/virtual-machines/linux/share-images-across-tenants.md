@@ -5,9 +5,10 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 04/05/2019
+ms.topic: how-to
+ms.date: 05/04/2019
 ms.author: cynthn
+ms.reviewer: akjosh
 ---
 # Share gallery VM images across Azure tenants
 

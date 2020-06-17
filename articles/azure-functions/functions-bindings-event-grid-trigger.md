@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, tracking-python
 ---
 
 # Azure Event Grid trigger for Azure Functions
@@ -397,13 +397,13 @@ To start receiving Event Grid HTTP requests, create an Event Grid subscription t
 
 ### Azure portal
 
-For functions that you develop in the Azure portal with the Event Grid trigger, select **Add Event Grid subscription**.
+For functions that you develop in the Azure portal with the Event Grid trigger, select **Integration** then choose the **Event Grid Trigger** and select **Create Event Grid subscription**.
 
-![Create subscription in portal](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Connect a new event subscription to trigger in the portal.":::
 
-When you select this link, the portal opens the **Create Event Subscription** page with the endpoint URL prefilled.
+When you select this link, the portal opens the **Create Event Subscription** page with the current trigger endpoint already defined.
 
-![Endpoint URL prefilled](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Create event subscription with function endpoint already defined" :::
 
 For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
@@ -567,4 +567,4 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Next steps
 
-* [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
+* [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)

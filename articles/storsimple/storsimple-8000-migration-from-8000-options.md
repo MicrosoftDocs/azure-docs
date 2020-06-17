@@ -37,6 +37,12 @@ StorSimple 5000-7000 series and StorSimple 8000 series customers can choose to m
 
 This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/migrate-storsimple-panzura/).
 
+#### Migrate to Nasuni
+
+Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure.  As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
+
+Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
+
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity
 

@@ -52,7 +52,7 @@ Connect-AzAccount
 ```
 
 [!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
- ```
+ 
  
 ## Next steps
 

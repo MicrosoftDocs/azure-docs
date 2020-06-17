@@ -146,7 +146,7 @@ Finally, you'll update your project configuration and use the command prompt to 
 Congratulations! Now you have your containerized Java App build on Azure supported JDK pushed to your ACR. You can now test the image by deploying it to Azure App Service, or pulling it to local with command (replacing the placeholder):
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## Next steps

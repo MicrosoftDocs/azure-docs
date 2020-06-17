@@ -4,7 +4,7 @@ description: How to use rendering applications with Azure Batch. This article pr
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Rendering applications

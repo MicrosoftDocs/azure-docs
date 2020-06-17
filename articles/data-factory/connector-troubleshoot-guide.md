@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot Azure Data Factory Connectors
@@ -199,7 +200,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
-- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recommendation**:  In logical SQL server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### Error code:  SqlOperationFailed
@@ -674,7 +675,7 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
             

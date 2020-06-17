@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/23/2020
+ms.date: 05/22/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -35,12 +35,12 @@ You can also associate Azure Firewall to a specific zone just for proximity reas
 
 There's no additional cost for a firewall deployed in an Availability Zone. However, there are additional costs for inbound and outbound data transfers associated with Availability Zones. For more information, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md#services-support-by-region)
+Azure Firewall Availability Zones are available in regions that support Availability Zones. For more information, see [Regions that support Availability Zones in Azure](../availability-zones/az-region.md)
 
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
 
 ## Unrestricted cloud scalability
 
@@ -56,15 +56,15 @@ You can centrally create *allow* or *deny* network filtering rules by source and
 
 ## FQDN tags
 
-FQDN tags make it easy for you to allow well-known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
+[FQDN tags](fqdn-tags.md) make it easy for you to allow well-known Azure service network traffic through your firewall. For example, say you want to allow Windows Update network traffic through your firewall. You create an application rule and include the Windows Update tag. Now network traffic from Windows Update can flow through your firewall.
 
 ## Service tags
 
-A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You can't create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
+A [service tag](service-tags.md) represents a group of IP address prefixes to help minimize complexity for security rule creation. You can't create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
 
 ## Threat intelligence
 
-Threat intelligence-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+[Threat intelligence](threat-intel.md)-based filtering can be enabled for your firewall to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 ## Outbound SNAT support
 
@@ -78,16 +78,20 @@ Inbound Internet network traffic to your firewall public IP address is translate
 
 ## Multiple public IP addresses
 
-You can associate multiple public IP addresses (up to 100) with your firewall.
+You can associate [multiple public IP addresses](deploy-multi-public-ip-powershell.md) (up to 250) with your firewall.
 
 This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
-- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
+- **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall. Consider using a [public IP address prefix](../virtual-network/public-ip-address-prefix.md) to simplify this configuration.
 
 ## Azure Monitor logging
 
-All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs. For more information, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).
+
+## Forced tunneling
+
+You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 ## Certifications
 
@@ -115,9 +119,11 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Active FTP isn't supported|Active FTP is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP PORT command.|You can use Passive FTP instead. You must still explicitly open TCP ports 20 and 21 on the firewall.
 |SNAT port utilization metric shows 0%|The Azure Firewall SNAT port utilization metric may show 0% usage even when SNAT ports are used. In this case, using the metric as part of the firewall health metric provides an incorrect result.|This issue has been fixed and rollout to production is targeted for May 2020. In some cases, firewall redeployment resolves the issue, but it's not consistent. As an intermediate workaround, only use the firewall health state to look for *status=degraded*, not for *status=unhealthy*. Port exhaustion will show as *degraded*. *Not healthy* is reserved for future use when the are more metrics to impact the firewall health.
 |DNAT isn't supported with Forced Tunneling enabled|Firewalls deployed with Forced Tunneling enabled can't support inbound access from the Internet because of asymmetric routing.|This is by design because of asymmetric routing. The return path for inbound connections goes via the on-premises firewall, which hasn't seen the connection established.
-|Outbound Passive FTP doesn't work for Firewalls with multiple public IP addresses.|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP fails when data and control channels use different source IP addresses.|An explicit SNAT configuration is planned. In the meantime, consider using a single IP address in this situation.|
+|Outbound Passive FTP doesn't work for Firewalls with multiple public IP addresses|Passive FTP establishes different connections for control and data channels. When a Firewall with multiple public IP addresses sends data outbound, it randomly selects one of its public IP addresses for the source IP address. FTP fails when data and control channels use different source IP addresses.|An explicit SNAT configuration is planned. In the meantime, consider using a single IP address in this situation.|
 |NetworkRuleHit metric is missing a protocol dimension|The ApplicationRuleHit metric allows filtering based protocol, but this capability is missing in the corresponding NetworkRuleHit metric.|A fix is being investigated.|
-|Configuration updates may take five minutes on average.|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.
+|NAT rules with ports between 64000 and 65535 are unsupported|Azure Firewall allows any port in the 1-65535 range in network and application rules, however NAT rules only support ports in the 1-63999 range.|This is a current limitation.
+|Configuration updates may take five minutes on average|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.|
+|Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software does not support the Server Name Indicator (SNI) extension, you won't be able to connect through Azure Firewall.|If browser or server software does not support SNI, then you may be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.
 
 ## Next steps
 

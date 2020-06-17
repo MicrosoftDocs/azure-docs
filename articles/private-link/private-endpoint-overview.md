@@ -31,7 +31,9 @@ Azure Private Endpoint is a network interface that connects you privately and se
 Here are some key details about private endpoints: 
 - Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
  
-- When creating a private endpoint, a network interface is also created for the lifecycle of the resource. The interface is assigned a private IP address from the subnet that maps to the Private Link Service.
+- Network connections can only be initiated by clients connecting to the Private endpoint, Service providers do not have any routing configuration to initiate connections into service consumers. Connections can only be establish in a single direction.
+
+- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. the value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
  
@@ -57,6 +59,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
@@ -117,9 +120,9 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for SQL Database using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database using CLI ](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

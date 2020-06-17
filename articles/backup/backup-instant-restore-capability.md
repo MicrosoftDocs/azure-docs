@@ -19,7 +19,7 @@ The new model for Instant Restore provides the following feature enhancements:
 * Supports disk sizes up to 32 TB. Resizing of disks is not recommended by Azure Backup.
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 * Ability to use an unmanaged VMs original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
-* For backup of VMs that are using premium storage, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete.
+* For backup of VMs that are using unmanaged premium disks in storage accounts, with Instant Restore, we recommend allocating *50%* free space of the total allocated storage space, which is required **only** for the first backup. The 50% free space is not a requirement for backups after the first backup is complete.
 
 ## What's new in this feature
 
@@ -43,7 +43,7 @@ By default, snapshots are retained for two days. This feature allows restore ope
 * It is a one directional upgrade, once upgraded to Instant restore, you cannot go back.
 
 >[!NOTE]
->With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration as per your requirement to any value between 1 to 5 days.
+>With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration according to your requirement to any value between 1 to 5 days.
 
 ## Cost impact
 
@@ -105,7 +105,7 @@ The new model does not allow deleting the restore point (Tier2) unless the snaps
 
 ### Why is my snapshot existing even after the set retention period in backup policy?
 
-If the recovery point has snapshot and that is the latest RP available, it is retained until the time there is a next successful backup. This is as per the designed "garbage collection" (GC) policy today that mandates at least one latest RP to be always present in case all backups further on fail due to an issue in the VM. In normal scenarios, RPs are cleaned up in maximum of 24 hours after their expiry.
+If the recovery point has snapshot and that is the latest RP available, it is retained until the time there is a next successful backup. This is according to the designed "garbage collection" (GC) policy today that mandates at least one latest RP to be always present in case all backups further on fail due to an issue in the VM. In normal scenarios, RPs are cleaned up in maximum of 24 hours after their expiry.
 
 ### I don’t need Instant Restore functionality. Can it be disabled?
 

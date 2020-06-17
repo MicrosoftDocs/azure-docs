@@ -95,8 +95,8 @@ Learn how to:
 
 Learn how to:
 
-- [Install and configure Terraform with Azure](../articles/terraform/terraform-install-configure.md).
-- [Create an Azure infrastructure with Terraform](../articles/terraform/terraform-create-complete-vm.md).
+- [Install and configure Terraform with Azure](/azure/developer/terraform/getting-started-cloud-shell).
+- [Create an Azure infrastructure with Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
 ## Azure Automation
