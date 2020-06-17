@@ -62,16 +62,16 @@ Notice the resourceType and sort elements in the URL.
 
 ### Deploy the template
 
-1. Select the following image to sign in to Azure and open the template. The template creates an Synapse SQL pool.
+1. Select the following image to sign in to Azure and open the template. This template creates an Synapse SQL pool.
  [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 1. Enter or update the following values:
 
     * **Subscription**: Select an Azure subscription.
     * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resourge group will facilitate resource clean up.
     * **Region**: Select a region.  For example, **Central US**.
-    * **SQL Server name**: Accept the default name or enter a SQL Server name.
+    * **SQL Server name**: Accept the default name or enter a name for the SQL Server name.
     * **SQL Administrator login**: Enter the administrator username for the SQL Server.
-    * **SQL Administrator password**: Enter the administrator password for the  SQL Server.
+    * **SQL Administrator password**: Enter the administrator password for the SQL Server.
     * **Data Warehouse Name**: Enter a SQL pool name.
     * **Transparent Data Encryption**: Accept the default, enabled. 
     * **Service Level Objective**: Accept the default, DW400c.
@@ -137,9 +137,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 ```azurecli-interactive
 echo "Enter the resource group where your Synapse SQL pool exists:" &&
 read resourcegroupName &&
-echo "Enter the server name for your Synapse SQL pool:" &&
-read serverName &&
-az sql dw list --resource-group $resourcegroupName --server $serverName 
+az resource list --resource-group $resourcegroupName 
 ```
 
 # [PowerShell](#tab/PowerShell)
@@ -205,11 +203,8 @@ Write-Host "Press [ENTER] to continue..."
 If you want to include links to more information about the service, it's acceptable to use a paragraph and bullet points.
 -->
 
-For a step-by-step tutorial that guides you through the process of creating a template, see:
+In this quickstart, you created an Azure Synapse Analytics SQL pool using an Azure Resource Manager template and validated the deployment. To learn more about Azure Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
 
-> [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
-
-See additional quickstarts to create a Synapse SQL pool using the [portal](create-data-warehouse-portal.md) or [PowerShell](create-data-warehouse-powershell.md).
-
-See addtional quickstarts to scale your Synapse SQL pool using the [portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) or [T-SQL](quickstart-scale-compute-tsql.md)
+- Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
+- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- [Create and deploy your first Azure Resource Manager template](../../azure-resource-manager/templates/template-tutorial-create-first-template)
