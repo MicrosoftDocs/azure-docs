@@ -25,7 +25,7 @@ Client libraries are necessary for client applications and tools to connect to A
 
 ## AMO and ADOMD (NuGet packages)
 
-Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). It's recommended you migrate to NuGet references instead of using Windows Installer. Starting June 2020, a preview release of [.NET Core](https://docs.microsoft.com/dotnet/core/about) packages equivalent to the AMO and ADOMD client packages are also available. 
+Analysis Services Management Objects (AMO) and ADOMD client libraries are available as installable packages from [NuGet.org](https://www.nuget.org/). It's recommended you migrate to NuGet references instead of using Windows Installer. Starting June 2020, a preview release of [.NET Core](https://docs.microsoft.com/dotnet/core/about) packages equivalent to the AMO and ADOMD client packages are also available. This .NET Core preview only supports cloud based servers.
 
 |Package  | Product version  | 
 |---------|---------|
