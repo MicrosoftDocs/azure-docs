@@ -29,21 +29,21 @@ An NSX-T logical switch segment created in a [previous tutorial]() is required t
 
    ![Click the Add button to create a new content library.](./media/content-library/create-new-content-library.png)
 
-1. Specify a name and confirm the IP address of the vCenter server and click **Next**.
+1. Specify a name and confirm the IP address of the vCenter server and select **Next**.
 
-   ![Specify a name and notes of your choosing, and then click Next.](./media/content-library/new-content-library-step1.png)
+   ![Specify a name and notes of your choosing, and then select Next.](./media/content-library/new-content-library-step1.png)
 
-1. Select the **Local content library** and click **Next**.
+1. Select the **Local content library** and select **Next**.
 
-   ![For this example, we are going to create a local content library, click Next.](./media/content-library/new-content-library-step2.png)
+   ![For this example, we are going to create a local content library, select Next.](./media/content-library/new-content-library-step2.png)
 
-1. Select the datastore that will store your content library, and then click **Next**.
+1. Select the datastore that will store your content library, and then select **Next**.
 
-   ![Select the datastore you would like to host your content library, click next.](./media/content-library/new-content-library-step3.png)
+   ![Select the datastore you would like to host your content library, select next.](./media/content-library/new-content-library-step3.png)
 
-1. Review and verify the content library settings, and then click **Finish**.
+1. Review and verify the content library settings, and then select **Finish**.
 
-   ![Verify your Settings, click Finish.](./media/content-library/new-content-library-step4.png)
+   ![Verify your Settings, select Finish.](./media/content-library/new-content-library-step4.png)
 
 ## Upload ISO image to the content library
 
@@ -53,7 +53,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Right-click the content library you want to use for a new ISO and select **Import Item**.
 
-1. Import a library item by doing one of the following for the Source, and then click **Import**:
+1. Import a library item by doing one of the following for the Source, and then select **Import**:
    1. Select URL and provide a URL to download an ISO.
 
    1. Select Local File to upload from your local system.
@@ -76,17 +76,17 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Select **New CD/DVD Drive > Client Device > Content Library ISO File**.
 
-1. Select the ISO uploaded in the previous section and then click **OK**.
+1. Select the ISO uploaded in the previous section and then select **OK**.
 
 1. Select the **Connect** check box so the ISO is mounted at power-on time.
 
 1. Select **New Network > Select dropdown > Browse**.
 
-1. Select the **logical switch (segment)** and click **OK**.
+1. Select the **logical switch (segment)** and select **OK**.
 
-1. Modify any other hardware settings and click **Next**.
+1. Modify any other hardware settings and select **Next**.
 
-1. Verify the settings and click **Finish**.
+1. Verify the settings and select **Finish**.
 
 
 ## Next steps
