@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn what differential privacy is and how the WhiteNoise package can help you implement differential private systems that preserve data privacy.
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 05/03/2020
+ms.date: 06/17/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,6 +17,9 @@ ms.topic: conceptual
 Learn what differential privacy is and how the WhiteNoise package can help you implement differentially private systems.
 
 As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
+
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks.
 
 ## How differential privacy works
 
