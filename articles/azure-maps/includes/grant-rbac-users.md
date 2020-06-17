@@ -1,4 +1,17 @@
-## Grant role based access for users to Azure Maps
+---
+title: Grant role-based access for users
+titleSuffix: Azure Maps
+description: Use role-based access control to grant users authorization to Azure Maps
+author: philmea
+ms.author: philmea
+ms.date: 06/17/2020
+ms.topic: conceptual
+ms.service: azure-maps
+services: azure-maps
+manager: timlt
+---
+
+## Grant role-based access for users to Azure Maps
 
 You grant *role-based access control* (RBAC) by assigning either an Azure AD group or security principals to one or more Azure Maps access control role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
 

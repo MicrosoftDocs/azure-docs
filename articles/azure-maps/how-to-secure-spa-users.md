@@ -1,5 +1,6 @@
 ---
 title: How to secure a single page application with user sign-in
+titleSuffix: Azure Maps
 description: How to configure a single page application which supports Azure AD single-sign-on with Azure Maps Web SDK.
 author: philmea
 ms.author: philmea

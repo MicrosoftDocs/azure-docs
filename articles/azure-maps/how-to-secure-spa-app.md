@@ -1,5 +1,6 @@
 ---
 title: How to secure a single page application with non-interactive sign-in
+titleSuffix: Azure Maps
 description: How to configure a single page application with non-interactive Azure AD Role based access control and Azure Maps Web SDK.
 author: philmea
 ms.author: philmea

@@ -1,5 +1,6 @@
 ---
 title: How to secure a daemon application
+titleSuffix: Azure Maps
 description: Use the Azure portal to manage authentication to configure a trusted daemon application.
 author: philmea
 ms.author: philmea
@@ -17,7 +18,7 @@ The following guide is for background processes, timers, and jobs which are host
 > [!Tip]
 > Microsoft recommends implementing Azure Active Directory (Azure AD) and Role based access control (RBAC) for production applications. For an overview of concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
 
-[!INCLUDE [authentication details](./includes/view-auth-details.md)]
+[!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
 ## Scenario: Shared key authentication
 
@@ -47,7 +48,7 @@ The daemon application is responsible for retrieving the shared key from a secur
 
 ## Scenario: Azure AD role-based access control
 
-Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure Portal authentication details page. This value represents the account which will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
+Once an Azure Maps account is created, the Azure Maps `x-ms-client-id` value is present in the Azure portal authentication details page. This value represents the account which will be used for REST API requests. This value should be stored in application configuration and retrieved prior to making HTTP requests. The objective of the scenario is to enable the daemon application to authenticate to Azure AD and call Azure Maps REST APIs.
 
 > [!Tip]
 > We recommend hosting on Azure Virtual Machines, Virtual Machine Scale Sets, or App Services to enable benefits of Managed Identity components.
