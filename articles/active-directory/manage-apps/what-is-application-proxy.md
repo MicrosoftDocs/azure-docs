@@ -12,7 +12,6 @@ ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
