@@ -83,7 +83,7 @@ Set routes for specific networks on the corresponding route table. For example, 
 
 :::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Set routes for specific networks on the corresponding route table":::
 
-A second level of traffic segmentation using the network security groups within the Spokes and the Hub to create a more granular traffic policy. Application Gateway is currently the only supported method to expose AVS running web app to the internet.
+A second level of traffic segmentation using the network security groups within the Spokes and the Hub to create a more granular traffic policy. 
 
 
 ### Application Gateway
