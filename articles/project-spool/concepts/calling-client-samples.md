@@ -416,7 +416,7 @@ var remoteParticipantStream = call.remoteParticipants[0].videoStreams[0];
 var remoteParticipantStream = call.remoteParticipants[0].screenSharingStreams[0];
 ```
 --- 
-It has following properties:
+A `RemoteVideoStream` has following properties:
 
 #### [Javascript](#tab/javascript)
 ```js
@@ -450,7 +450,7 @@ var activeRenders = remoteParticipantStream.activeRenderers;
 
 You can subscribe to 'availabilityChanged' and 'activeRenderersChanged' events 
 
-## Render remote participant stream
+#### Render remote participant stream
 To start rendering remote participant stream
 
 
