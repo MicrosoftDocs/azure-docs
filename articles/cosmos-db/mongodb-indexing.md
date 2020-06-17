@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/16/2020
 author: timsander1
 ms.author: tisande
 
@@ -16,7 +16,7 @@ Azure Cosmos DB's API for MongoDB takes advantage of the core index-management c
 
 ## Indexing for MongoDB server version 3.6
 
-Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend to index the shard key.
 
 To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
@@ -344,8 +344,8 @@ Compound indexes hold references to multiple fields of a document. If you want t
 
 If you want to create a wildcard index, upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-
 ## Next steps
 
 * [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)
+* To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](how-to-query-container.md) article.
