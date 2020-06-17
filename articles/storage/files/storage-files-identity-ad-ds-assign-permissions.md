@@ -73,4 +73,6 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 
 ## Next steps
 
+Now that you've assigned share-level permissions, you must configure directory and file-level permissions. Continue to the next article.
+
 [Part three: configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md)
