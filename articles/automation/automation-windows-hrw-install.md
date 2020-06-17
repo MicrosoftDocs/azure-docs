@@ -27,11 +27,11 @@ To install and configure a Windows Hybrid Runbook Worker, you can use one of the
 
 Before continuing, review the following if you are planning to deploy the Hybrid Runbook Worker role on Azure or non-Azure VMs:
 
-    * If you don't already have a Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create a workspace.
+* If you don't already have a Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create a workspace.
 
-    * If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. 
+* If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. 
 
-    * If your Automation account is already linked to a workspace, refer to steps 2 and 3 in the [Manual deployment](#manual-deployment) section.
+* If your Automation account is already linked to a workspace, refer to steps 2 and 3 in the [Manual deployment](#manual-deployment) section.
 
 ### Supported Windows operating system
 
