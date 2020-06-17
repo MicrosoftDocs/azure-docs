@@ -784,15 +784,15 @@ call.removeOnCallIdChangedListener(callIdChangeListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-    self.adHocCallClient.delegate = self
-    public func onCallsUpdated(_ adHocCallClient: ACSAdHocCallClient!,
-                            _ args: ACSCallsUpdatedEventArgs!)
+self.adHocCallClient.delegate = self
+    // Get the property of the call state by doing get on the call's state member
+    public func onCallStateChanged(_ call: ACSCall!,
+                            _ args: ACSPropertyChangedEventArgs!)
     {
-        for addedCall in args.addedCalls { print(addedCall); }
-        for removedCall in args.removedCalls { print(removedCall); }
+        print("Callback from SDK when the call state changes, current state: " + call.state.rawValue);
     }
-// unsubscribe
-self.adHocCallClient.delegate = nil
+ // to unsubscribe
+ self.adHocCallClient.delegate = nil
 
 ```
 --- 
@@ -830,7 +830,16 @@ call.removeOnLocalVideoStreamsChangedListener(localVideoStreamsChangedListener);
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-// NA - same as with properties
+self.adHocCallClient.delegate = self
+    // Collection contains the streams that were added or removed only
+    public func onLocalVideoStreamsChanged(_ call: ACSCall!,
+                                    _ args: ACSLocalVideoStreamsUpdatedEventArgs!)
+    {
+        print(args.addedStreams.count);
+        print(args.removeStreams.count);
+    }
+     // to unsubscribe
+ self.adHocCallClient.delegate = nil
 ```
 --- 
 
