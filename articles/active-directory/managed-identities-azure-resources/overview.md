@@ -55,7 +55,7 @@ For stand-alone Azure resources, you can enable **system-assigned** managed iden
 
  ![System-assigned managed identity](./media/overview/system-assigned.png)  
 
-While system-assigned managed identities provide the most convenient solution for stand-alone resources, things look different if you need to manage a group of Azure resources for the same task. In this scenario, you are better of creating an identity manually and assigning this master identity to all Azure resources you need to group. This assignment is known as **user-assigned** managed identity. 
+While system-assigned managed identities provide the most convenient solution for stand-alone resources, things look different if you need to manage a group of Azure resources for the same task. In this scenario, you are better off creating an identity manually and assigning this master identity to all Azure resources you need to group. This assignment is known as **user-assigned** managed identity. 
   
 
 ## Supported services
