@@ -133,6 +133,8 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     readAloudOptions?: ReadAloudOptions; // Options to configure Read Aloud.
     translationOptions?: TranslationOptions; // Options to configure translation.
     displayOptions?: DisplayOptions; // Options to configure text size, font, etc.
+    preferences?: string; // String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader.
+    onPreferencesChanged?: (value: string) => any; // Executes when the user's preferences have changed.
 }
 ```
 
