@@ -17,7 +17,7 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2020-06-15
+## 2020-06-22
 
 ### Azure Machine Learning SDK for Python v1.8.0
 
