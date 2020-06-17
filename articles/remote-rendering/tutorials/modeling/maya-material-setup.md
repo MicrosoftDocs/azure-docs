@@ -13,9 +13,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * How to assign materials with advanced lighting model to objects in the scene.
-> * How to handle instancing of objects and materials.
-> * How to export a scene to FBX format and important options to select.
+> * assign materials with advanced lighting model to objects in the scene.
+> * handle instancing of objects and materials.
+> * export a scene to FBX format and important options to select.
 
 Creating [Physically Based Rendering (PBR) materials](../../overview/features/pbr-materials.md) in `Maya` are a relatively straight forward task, similar in many ways to PBR set-up in other content creation apps like `3DS Max`. The following tutorial is a guide to basic PBR shader set-up and FBX export for ARR projects. 
 
@@ -104,7 +104,7 @@ In general, this type of materials looks more realistic as it is based on real w
 
 ## Next steps
 
-You now know the most important functionality for setting up materials with advanced lighting to objects in a scene and exporting it to FBX format that is supported by ARR. Next step would be to try to convert it and visualize in ARR.
+You now know the most important functionality for setting up materials with advanced lighting to objects in a scene and exporting it to FBX format that is supported by ARR. Next step would be to convert FBX file and visualize in ARR.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Convert a model for rendering](../../quickstarts\convert-model.md)
