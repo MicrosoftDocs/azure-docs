@@ -1,7 +1,7 @@
 ---
-title: Continuous integration and continuous deployment with Custom Speech - Speech service
+title: CI/CD for Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
-description: Apply DevOps with Speech and CI/CD workflows running on GitHub Actions.
+description: Apply DevOps with Custom Speech and CI/CD workflows. Implement an existing DevOps solution for your own project.
 services: cognitive-services
 author: KatieProchilo
 manager: cmayomsft
@@ -12,7 +12,7 @@ ms.date: 06/09/2020
 ms.author: kaprochi
 ---
 
-# Continuous integration and deployment with Custom Speech
+# CI/CD for Custom Speech
 
 Implement automated training, testing, and release management to enable continuous improvement of Custom Speech models as you apply updates to training and testing data. Through effective implementation of CI/CD workflows, you can ensure that the endpoint for the best-performing Custom Speech model is always available.
 
@@ -28,7 +28,7 @@ The purpose of these workflows is to ensure that each Custom Speech model has be
 
 Git servers such as GitHub and Azure DevOps can run automated workflows when specific Git events happen, such as merges or pull requests. For example, a CI workflow can be triggered when updates to testing data are pushed to the *master* branch. Different Git Servers will have different tooling, but will allow scripting command-line interface (CLI) commands so that they can execute on a build server.
 
-Along the way, the workflows should name and store data, tests, test files, models, and endpoints such that they can be traced back to the commit or version they came from. It is also helpful to name these assets so that it is easy to see which were created from testing data versus training data updates.
+Along the way, the workflows should name and store data, tests, test files, models, and endpoints such that they can be traced back to the commit or version they came from. It is also helpful to name these assets so that it is easy to see which were created after updating testing data versus training data.
 
 ### CI workflow for testing data updates
 
@@ -73,11 +73,11 @@ Use the following tools for CI/CD automation workflows for Custom Speech:
 
 ## DevOps solution for Custom Speech using GitHub Actions
 
-Go to the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) to create a copy of the template and begin development of Custom Speech models with a robust DevOps system, including testing, training, and versioning using GitHub Actions. The repository provides sample testing and training data to aid in setup and explain the workflow. After initial setup, replace the sample data with your project data.
+For an already-implemented DevOps solution for Custom Speech, go to the [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template). Create a copy of the template and begin development of custom models with a robust DevOps system that includes testing, training, and versioning using GitHub Actions. The repository provides sample testing and training data to aid in setup and explain the workflow. After initial setup, replace the sample data with your project data.
 
 The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) provides the infrastructure and detailed guidance to:
 
-- Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions [continuous integration (CI) and continuous delivery (CD)](how-to-custom-speech-continuous-integration-continuous-deployment.md) workflows.
+- Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions CI/CD workflows.
 - Walk through the "[dev inner loop](https://mitchdenny.com/the-inner-loop/)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
 - When training data is updated in a pull request to *master*, train models with the GitHub Actions CI workflow.
 - Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER). Store the test results in Azure Blob.
