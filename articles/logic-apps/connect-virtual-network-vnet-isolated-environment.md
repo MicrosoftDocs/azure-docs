@@ -46,8 +46,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
 
   > [!IMPORTANT]
   >
-  > Don't use the following IP address spaces for your virtual network or 
-  > subnets because the Logic Apps service can't resolve these addresses:
+  > Don't use the following IP address spaces for your virtual network or subnets because they aren't resolvable:<p>
   > 
   > 
   > * 0.0.0.0/8
