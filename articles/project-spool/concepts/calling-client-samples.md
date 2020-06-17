@@ -212,8 +212,7 @@ startVideoFuture.get();
 #### [iOS (Swift)](#tab/swift)
 ```swift
 call.startVideo(device: ACSVideoDeviceInfo(),
-                completionHandleFuture stopVideoTask = call.stopVideo(localVideoStream);
-stopVideoTask.get();r: ((error: Error?) -> Void) { 
+                completionHandler: ((error: Error?) -> Void) { 
     if(error == nil)
     {
         print("Video was started successfully.");
@@ -238,7 +237,7 @@ call.getLocalVideoStreams().get(0) == localVideoStream;
 ```
 #### [iOS (Swift)](#tab/swift)
 ```swift
-call.localVideoStreams
+call.localVideoStreams[0]
 ```
 --- 
 
@@ -393,7 +392,7 @@ removeParticipantTask.get();
 #### [iOS (Swift)](#tab/swift)
 ```swift
 call.removeParticipant(participant: remoteParticipant,
-                       completionHandler: ((error: Error?) -> Void)
+                       completionHandler: ((error: Error?) -> Void))
 ```
 --- 
 
