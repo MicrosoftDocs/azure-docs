@@ -249,10 +249,31 @@ To run the code in this article in Azure Cloud Shell:
 
 ## Change the output format type
 
-For all Azure CLI commands discussed in this tutorial, output format is set to .json by default. You can change the output format by using the global parameter `--output <output-type>`. For example:
+For all Azure CLI commands discussed in this tutorial, output format is set to .json by default. You can change the output format by using the global parameter `--output <output-type>`.
+
+To set the output format to yaml:
 
 ```azurecli
 PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+
+```
+
+To set the out format to tabular form (easier to read):
+
+```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+
+```
+
+Here is the sample output after setting the output format to "table":
+
+```azurecli
+PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
+Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+
+DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+--------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
 
 ```
 
