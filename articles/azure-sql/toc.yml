@@ -927,10 +927,14 @@
         href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
-      - name: Create SQL VM - Portal
+      - name: Create SQL VM 
+        items: 
+      - name: Portal
         href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
-      - name: Create SQL VM - PowerShell
+      - name: PowerShell
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+      - name: ARM template
+        items: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
       - name: Best practices
