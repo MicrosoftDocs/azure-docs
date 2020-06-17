@@ -344,7 +344,6 @@ Compound indexes hold references to multiple fields of a document. If you want t
 
 If you want to create a wildcard index, upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-
 ## Next steps
 
 * [Indexing in Azure Cosmos DB](../cosmos-db/index-policy.md)
