@@ -9918,7 +9918,12 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-php-configure.md",
-      "redirect_url": "/azure/app-service/web-sites-php-configure",
+      "redirect_url": "/azure/app-service/configure-language-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-php-configure.md",
+      "redirect_url": "/azure/app-service/configure-language-php",
       "redirect_document_id": false
     },
     {
