@@ -2,17 +2,17 @@
 title: Publish on-premises apps with Azure AD Application Proxy 
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -141,7 +141,7 @@ The following diagram illustrates in general how Azure AD authentication service
 |Active Directory (AD)|Active Directory runs on-premises to perform authentication for domain accounts. When single sign-on is configured, the connector communicates with AD to perform any additional authentication required.|
 |On-premises application|Finally, the user is able to access an on-premises application.|
 
-Azure AD Application Proxy consists of the cloud-based Application Proxy service and an on-premises connector. The connector listens for requests from the Application Proxy service and handles connections to the internal applications. It's important to note that all communications occur over SSL, and always originate at the connector to the Application Proxy service. That is, communications are outbound only. The connector uses a client certificate to authenticate to the Application Proxy service for all calls. The only exception to the connection security is the initial setup step where the client certificate is established. See the Application Proxy [Under the hood](application-proxy-security.md#under-the-hood) for more details.
+Azure AD Application Proxy consists of the cloud-based Application Proxy service and an on-premises connector. The connector listens for requests from the Application Proxy service and handles connections to the internal applications. It's important to note that all communications occur over TLS, and always originate at the connector to the Application Proxy service. That is, communications are outbound only. The connector uses a client certificate to authenticate to the Application Proxy service for all calls. The only exception to the connection security is the initial setup step where the client certificate is established. See the Application Proxy [Under the hood](application-proxy-security.md#under-the-hood) for more details.
 
 ### Application Proxy Connectors
 

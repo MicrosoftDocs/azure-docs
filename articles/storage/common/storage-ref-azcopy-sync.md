@@ -61,6 +61,9 @@ Sync a single file:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
+> [!NOTE]
+> The destination blob *must* exist. Use `azcopy copy` to copy a single file that does not yet exist in the destination. Otherwise, the following error occurs: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
+
 Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property:
 
 ```azcopy
@@ -136,13 +139,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-path** string Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
 
-**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **-h, --help**                        help for sync
 
 **--include-attributes** string   (Windows only) Include only files whose attributes match the attribute list. For example: A;S;R
 
-**--include-pattern** string      Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--include-pattern** string      Include only files where the name matches the pattern list. For example: \*.jpg;\*.pdf;exactName
 
 **--log-level** string            Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
 
@@ -156,6 +159,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
 |--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
+|--trusted-microsoft-suffixes string   |Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
 
 ## See also
 

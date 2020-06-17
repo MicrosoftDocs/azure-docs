@@ -16,7 +16,7 @@ There's an industry-wide push toward the exclusive use of Transport Layer Securi
 
 As a part of this effort, we'll be making the following changes to Azure Cache for Redis:
 
-* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances.  Existing cache instances won't be updated at this point.  You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed.  This change can be done through the Azure portal or other management APIs.
+* **Phase 1:** We'll configure the default minimum TLS version to be 1.2 for newly created cache instances (previously TLS 1.0).  Existing cache instances won't be updated at this point. You'll be allowed to [change the minimum TLS version](cache-configure.md#access-ports) back to 1.0 or 1.1 for backward compatibility, if needed. This change can be done through the Azure portal or other management APIs.
 * **Phase 2:** We'll stop supporting TLS versions 1.0 and 1.1. After this change, your application will be required to use TLS 1.2 or later to communicate with your cache.
 
 Additionally, as a part of this change, we'll be removing support for older, insecure cypher suites.  Our supported cypher suites will be restricted to the following when the cache is configured with a minimum TLS version of 1.2.
@@ -28,16 +28,18 @@ This article provides general guidance about how to detect dependencies on these
 
 The dates when these changes take effect are:
 
-| Cloud               | Phase 1 Start Date | Phase 2 Start Date |
-|---------------------|--------------------|--------------------|
-| Azure (global)      |  January 13, 2020  | March 31, 2020     |
-| Azure Government    |  March 13, 2020    | May 11, 2020       |
-| Azure Germany       |  March 13, 2020    | May 11, 2020       |
-| Azure China         |  March 13, 2020    | May 11, 2020       |
+| Cloud                | Phase 1 Start Date | Phase 2 Start Date         |
+|----------------------|--------------------|----------------------------|
+| Azure (global)       |  January 13, 2020  | Postponed due to COVID 19  |
+| Azure Government     |  March 13, 2020    | Postponed due to COVID 19  |
+| Azure Germany        |  March 13, 2020    | Postponed due to COVID 19  |
+| Azure China 21Vianet |  March 13, 2020    | Postponed due to COVID 19  |
+
+NOTE: New date for Phase 2 not yet determined
 
 ## Check whether your application is already compliant
 
-The easiest way to find out whether your application will work with TLS 1.2 is to set the **Minimum TLS version** value to TLS 1.2 on a test or staging cache that it uses. The **Minimum TLS version** setting is in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal. If the application continues to function as expected after this change, it's probably compliant. You might need to configure some Redis client libraries used by your application specifically to enable TLS 1.2, so they can connect to Azure Cache for Redis over that security protocol.
+The easiest way to find out whether your application will work with TLS 1.2 is to set the **Minimum TLS version** value to TLS 1.2 on a test or staging cache, then run tests. The **Minimum TLS version** setting is in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal.  If the application continues to function as expected after this change, it's probably compliant. You might need to configure the Redis client library used by your application to enable TLS 1.2 in order to connect to Azure Cache for Redis.
 
 ## Configure your application to use TLS 1.2
 
@@ -48,11 +50,16 @@ Most applications use Redis client libraries to handle communication with their 
 Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5.2 or earlier, and use the latest TLS version on .NET Framework 4.6 or later. If you're using an older version of .NET Framework, you can enable TLS 1.2 manually:
 
 * **StackExchange.Redis:** Set `ssl=true` and `sslprotocols=tls12` in the connection string.
-* **ServiceStack.Redis:** Follow the [ServiceStack.Redis instructions](https://github.com/ServiceStack/ServiceStack.Redis/pull/247).
+* **ServiceStack.Redis:** Follow the [ServiceStack.Redis](https://github.com/ServiceStack/ServiceStack.Redis#servicestackredis-ssl-support) instructions and requires ServiceStack.Redis v5.6 at a minimum.
 
 ### .NET Core
 
-Redis .NET Core clients use the latest TLS version by default.
+Redis .NET Core clients default to the OS default TLS version which obviously depends on the OS itself. 
+
+Depending on the OS version and any patches which have been applied, the effective default TLS version can vary. While there is one source of info about this, [here](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) is an article for Windows. 
+
+However, if you are using a old OS or just want to be sure, we recommend configuring the preferred TLS version manually through the client.
+
 
 ### Java
 
@@ -84,21 +91,27 @@ Node Redis and IORedis use TLS 1.2 by default.
 
 ### PHP
 
-Predis on PHP 7 won't work because PHP 7 supports only TLS 1.0. On PHP 7.2.1 or earlier, Predis uses TLS 1.0 or 1.1 by default. You can specify TLS 1.2 when you create the client instance:
+#### Predis
+ 
+* Versions earlier than PHP 7: Predis supports only TLS 1.0. These versions don't work with TLS 1.2; you must upgrade to use TLS 1.2.
+ 
+* PHP 7.0 to PHP 7.2.1: Predis uses only TLS 1.0 or 1.1 by default. You can use the following workaround to use TLS 1.2. Specify TLS 1.2 when you create the client instance:
 
-``` PHP
-$redis=newPredis\Client([
-    'scheme'=>'tls',
-    'host'=>'host',
-    'port'=>6380,
-    'password'=>'password',
-    'ssl'=>[
-        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-    ],
-]);
-```
+  ``` PHP
+  $redis=newPredis\Client([
+      'scheme'=>'tls',
+      'host'=>'host',
+      'port'=>6380,
+      'password'=>'password',
+      'ssl'=>[
+          'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+      ],
+  ]);
+  ```
 
-On PHP 7.3 or above, Predis uses the latest TLS version.
+* PHP 7.3 and later versions: Predis uses the latest TLS version.
+
+#### PhpRedis
 
 PhpRedis doesn't support TLS on any PHP version.
 

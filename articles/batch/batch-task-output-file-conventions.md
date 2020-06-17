@@ -1,19 +1,8 @@
 ---
-title: Persist job and task output to Azure Storage with the File Conventions library for .NET - Azure Batch | Microsoft Docs
-description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task and job output to Azure Storage, and view the persisted output in the Azure portal.
-services: batch
-documentationcenter: .net
-author: ju-shim
-manager: gwallace
-editor: ''
-
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+title: Persist output data to Azure Storage with .NET File Conventions library
+description: Learn how to use Azure Batch File Conventions library for .NET to persist Batch task & job output to Azure Storage, and view that output in the Azure portal.
+ms.topic: how-to
 ms.date: 11/14/2018
-ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -188,7 +177,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## View output files in the Azure portal
 
-The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
+The Azure portal displays task output files and logs that are persisted to a linked Azure Storage account using the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). You can implement these conventions yourself in the a language of your choice, or you can use the File Conventions library in your .NET applications.
 
 To enable the display of your output files in the portal, you must satisfy the following requirements:
 
@@ -230,7 +219,7 @@ The [source code][github_file_conventions] for the File Conventions library is a
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
-[net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account
+[net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.cloudstorageaccount
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx

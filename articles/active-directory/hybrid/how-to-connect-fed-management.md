@@ -31,7 +31,7 @@ This article describes how to manage and customize Active Directory Federation S
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
-| [Update the SSL certificate](how-to-connect-fed-ssl-update.md)| How to update the SSL certificate for an AD FS farm. |
+| [Update the TLS/SSL certificate](how-to-connect-fed-ssl-update.md)| How to update the TLS/SSL certificate for an AD FS farm. |
 | **Customize AD FS** | |
 | [Add a custom company logo or illustration](#customlogo) |How to customize an AD FS sign-in page with a company logo and illustration. |
 | [Add a sign-in description](#addsignindescription) |How to add a sign-in page description. |
@@ -103,7 +103,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
    ![Certificate password](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Specify SSL certificate](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
 
@@ -131,7 +131,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Azure AD Connect.
    ![Certificate password](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Specify SSL certificate](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. Add the server to be added as a WAP server. Because the WAP server might not be joined to the domain, the wizard asks for administrative credentials to the server being added.
 
@@ -221,7 +221,7 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims `http://contoso.com/ws/2016/02/identity/claims/objectguid` and `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 

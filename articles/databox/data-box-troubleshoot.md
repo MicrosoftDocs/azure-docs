@@ -1,13 +1,13 @@
 ---
-title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy| Microsoft Docs 
+title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy
 description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
-ms.date: 06/24/2019
+ms.topic: how-to
+ms.date: 04/30/2020
 ms.author: alkohli
 ---
 
@@ -88,6 +88,17 @@ These are errors related to container and share names.
     - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    
+### ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
+
+**Error description**: The directory or the container names contain illegal characters.
+
+**Suggested resolution**: The directory or the container names that you have copied contain unsupported characters.
+
+- On the Connect and copy page of the local web UI, download, and review the error files to identify the folder names with issues. 
+- Rename the directory or containers to ensure that they are compliant with Azure naming conventions.
+
+For more information, see the Azure naming conventions for [directories](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and [containers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## Container or share size limit errors
 

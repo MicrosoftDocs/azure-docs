@@ -11,95 +11,70 @@ ms.topic: conceptual
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+*This topic applies to administrators and solution developers.*
 
-*This topic applies to administrators.*
-
-![Power BI solution pipeline](media/howto-connect-powerbi/iot-continuous-data-export.png)
+:::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI solution pipeline":::
 
 Use the Power BI Solution for Azure IoT Central to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
+
 - Track how much data your devices are sending over time
-- Compare data volume between telemetry, states, and events
-- Identify devices that are reporting lots of measurements
-- Observe historical trends of device measurements
-- Identify problematic devices that send lots of critical events
+- Compare data volumes between different telemetry streams
+- Filter down to data sent by specific devices
+- View the most recent telemetry data in a table
 
-This solution sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous Data Export](howto-export-data-blob-storage.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs.
-
-> [!Note] 
-> The Power BI Solution for Azure IoT Central works with IoT Central apps that don't support IoT Plug and Play (Preview apps today)
-
-## Get the [Power BI Solution for Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) from Microsoft AppSource.
+This solution sets up a pipeline that reads data from your [Continuous Data Export](howto-export-data-blob-storage.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
 ## Prerequisites
-Setting up the solution requires the following:
-- Access to an Azure subscription
-- IoT Central application that does not support IoT Plug and Play (Preview apps today)
-- Continuous data export set up to Azure Blob Storage from your IoT Central app
-    - Ensure the data format is Avro
-    - We recommend you turn on measurements, devices, and device template streams to get the most out of the Power BI dashboard.
-    - Learn [how to set up continuous data export](howto-export-data-blob-storage.md)
-- Power BI Desktop (latest version)
-- Power BI Pro (if you want to share the dashboard with others)
 
-## Reports
+To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Two reports are generated automatically. 
+Setting up the solution requires the following resources:
 
-The first report shows a historical view of measurements reported by devices, and breaks down the different types of measurements and devices that have sent the highest number of measurements.
+- IoT Central application. To learn more, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+- Continuous data export configured to export telemetry, devices, and device templates to Azure Blob storage. To learn more, see [How to export IoT data to destinations in Azure](howto-export-data.md).
+  - Make sure that only your IoT Central application is exporting data to the blob container.
+  - Your [devices must send JSON encoded messages](../../iot-hub/iot-hub-devguide-messages-d2c.md). Devices must specify `contentType:application/JSON` and `contentEncoding:utf-8` or `contentEncoding:utf-16` or `contentEncoding:utf-32` in the message system properties.
+- Power BI Desktop (latest version). See [Power BI downloads](https://powerbi.microsoft.com/downloads/).
+- Power BI Pro (if you want to share the dashboard with others).
 
-![Power BI report page 1](media/howto-connect-powerbi/template-page1-hasdata.PNG)
+## Install
 
-The second report dives deeper into events and shows a historical view of errors and warnings reported. It also shows which devices are reporting the highest number of events all up, as well as specifically error events and warning events.
+To set up the pipeline, navigate to the [Power BI solution for Azure IoT Central](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the **Microsoft AppSource** site. Select **Get it now**, and follow the instructions.
 
-![Power BI report page 2](media/howto-connect-powerbi/template-page2-hasdata.PNG)
+When you open the PBIX file, be sure the read and follow the instructions on the cover page. These instructions describe how to connect your report to your SQL database.
 
-## Architecture
-All of the resources that have been created can be accessed in the Azure portal. Everything should be under one resource group.
+## Report
 
-![Azure Portal view of resource group](media/howto-connect-powerbi/azure-deployment.PNG)
+The PBIX file contains the **Devices and Telemetry** report shows a historical view of the telemetry that has been sent by devices. It provides a breakdown of the different types of telemetry, and also shows the most recent telemetry sent by devices.
 
-The specifics of each resource and how it gets used is described below.
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI Devices and Telemetry report":::
+
+## Pipeline resources
+
+You can access all the Azure resources that make up the pipeline in the Azure portal. All the resources are in the resource group you created when you set up the pipeline.
+
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Azure portal view of resource group":::
+
+The following list describes the role of each resource in the pipeline:
 
 ### Azure Functions
-The Azure Function app gets triggered each time a new file is written to Blob storage. The functions extract the fields within each measurements, devices, and device templates file and populates several intermediate SQL tables to be used by Azure Data Factory.
+
+The Azure Function app triggers each time IoT Central writes a new file to Blob storage. The functions extract data from the telemetry, devices, and device templates blobs to populate the intermediate SQL tables that Azure Data Factory uses.
 
 ### Azure Data Factory
-Azure Data Factory connects to the SQL database as a linked service. It runs stored procedure activities which process the data and store it in the analysis tables.
+
+Azure Data Factory connects to the SQL database as a linked service. It runs stored procedures to process the data and store it in the analysis tables.
+
+Azure Data Factory runs every 15 minutes to transform the latest batch of data to load into the SQL tables (which is the current minimal number for the **Tumbling Window Trigger**).
 
 ### Azure SQL Database
-These tables are automatically created to populate the default reports. Explore these schemas in Power BI and you can build your own visualizations on this data.
 
-| Table name |
-|------------|
-|[analytics].[Measurements]|
-|[analytics].[Messages]|
-|[stage].[Measurements]|
-|[analytics].[Properties]|
-|[analytics].[PropertyDefinitions]|
-|[analytics].[MeasurementDefinitions]|
-|[analytics].[Devices]|
-|[analytics].[DeviceTemplates]|
-|[dbo].[date]|
-|[dbo].[ChangeTracking]|
+Azure Data Factory generates a set of analysis tables for Power BI. You can explore these schemas in Power BI and use them to build your own visualizations.
 
 ## Estimated costs
 
-Here is an estimate of the Azure costs (Azure Function, Data Factory, Azure SQL) involved. All prices are in USD. Keep in mind that prices vary by region, so you should always look up the latest prices of the individual services to get the actual prices.
-The following defaults are set for you in the template (you can modify any of these after things get set up):
-
-- Azure Functions: App Service plan S1, $74.40/month
-- Azure SQL S1, ~$30/month
-
-We encourage you to familiarize yourself with the various pricing options and tweak things to suit your needs.
-
-## Resources
-
-Visit AppSource to get the [Power BI Solution for Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate).
+The [Power BI solution for Azure IoT Central](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the Microsoft AppSource site includes a link to a cost estimator for the resources you deploy.
 
 ## Next steps
 
-Now that you have learned how to visualize your data in Power BI, here is the suggested next step:
-
-> [!div class="nextstepaction"]
-> [How to manage devices](howto-manage-devices.md)
+Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices.md).

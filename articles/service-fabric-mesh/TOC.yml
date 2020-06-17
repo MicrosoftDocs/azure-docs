@@ -72,6 +72,8 @@
     href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md  
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
+  - name: Move an application to another Azure region
+    href: move-across-regions.md
   - name: Find samples
     href: service-fabric-mesh-howto-find-samples.md
 

@@ -151,7 +151,7 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 ## Set up Azure Active Directory client authentication
 For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
 * Use Azure Active Directory for client identity.
-* Use a certificate for server identity and SSL encryption of HTTP communication.
+* Use a certificate for server identity and TLS encryption of HTTP communication.
 
 Setting up Azure Active Directory (Azure AD) to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert). Azure AD enables organizations (known as tenants) to manage user access to applications. 
 

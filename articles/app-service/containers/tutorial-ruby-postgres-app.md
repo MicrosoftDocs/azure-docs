@@ -4,9 +4,9 @@ description: Learn how to get a Linux Ruby app working in Azure App Service, wit
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, cli-validate, seodec18
 ---
+
 # Build a Ruby and Postgres app in Azure App Service on Linux
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Ruby app and connect it to a PostgreSQL database. When you're finished, you'll have a [Ruby on Rails](https://rubyonrails.org/) app running on App Service on Linux.
@@ -121,14 +121,14 @@ az postgres server create --location "West Europe" --resource-group myResourceGr
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
   "administratorLogin": "adminuser",
   "earliestRestoreDate": "2018-06-15T12:38:25.280000+00:00",
-  "fullyQualifiedDomainName": "<postgres-server-name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgres-server-name>",
+  "fullyQualifiedDomainName": "&lt;postgres-server-name&gt;.postgres.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/&lt;postgres-server-name&gt;",
   "location": "westeurope",
-  "name": "<postgres-server-name>",
+  "name": "&lt;postgres-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "capacity": 2,
@@ -137,9 +137,9 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
     "size": null,
     "tier": "GeneralPurpose"
   },
-  < Output has been truncated for readability >
+  &lt; Output has been truncated for readability &gt;
 }
-```
+</pre>
 
 ### Configure server firewall
 
@@ -330,7 +330,7 @@ git push azure master
 
 During deployment, Azure App Service communicates its progress with Git.
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -342,8 +342,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 ### Browse to the Azure app
 
@@ -466,7 +466,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 ## Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Manage the Azure app
 

@@ -2,16 +2,16 @@
 title: Manage your organizations from the My Account portal - Azure AD
 description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Manage your connected organizations from the Organizations page
@@ -30,7 +30,7 @@ The **Organizations** page of the **My Account** portal helps you to manage the 
 
 ## View your organizations
 
-1. Sign in to your work or school account, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
+1. Sign in to your work or school account, and then go to the **My Account** (https://myaccount.microsoft.com/) page.
 
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 

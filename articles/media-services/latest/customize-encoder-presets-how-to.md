@@ -10,7 +10,6 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.custom: 
 ms.date: 05/03/2019
 ms.author: juliako
 ms.custom: seodec18

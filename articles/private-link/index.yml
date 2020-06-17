@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: What is a Private Endpoint?
             url: private-endpoint-overview.md
+          - text: Private Endpoints DNS integration
+            url: private-endpoint-dns.md            
       - linkListType: quickstart
         links:
           - text: Create a Private Endpoint
@@ -60,7 +62,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network
           - text: REST
-            url: /rest/api/virtualnetwork/privatelinkservices           
-                
+            url: /rest/api/virtualnetwork/privatelinkservices
+
 
 

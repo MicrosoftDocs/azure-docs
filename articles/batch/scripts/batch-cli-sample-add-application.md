@@ -1,20 +1,9 @@
 ---
 title: Azure CLI Script Example - Add an Application in Batch
 description: This sample script demonstrates how to add an application for use with an Azure Batch pool or a task.
-services: batch
-documentationcenter: ''
-author: ju-shim
-manager: gwallace
-editor: 
-
-ms.assetid:
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 01/29/2018
-ms.author: jushiman
+
 ---
 
 # CLI example: Add an application to an Azure Batch account

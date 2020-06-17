@@ -1,5 +1,5 @@
 ---
-title: Configure Azure AD custom roles in Privileged Identity Management (PIM)| Microsoft Docs
+title: Configure Azure AD custom role - Privileged Identity Management (PIM)
 description: How to configure Azure AD custom roles in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -8,8 +8,9 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -24,6 +25,11 @@ ms.collection: M365-identity-device-management
 # Configure Azure AD custom roles in Privileged Identity Management
 
 A privileged role administrator can change the role settings that apply to a user when they activate their assignment to a custom role and for other application administrators that are assigning custom roles.
+
+> [!NOTE]
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Open role settings
 
@@ -93,7 +99,7 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Activate an Azure AD custom role](azure-ad-custom-roles-activate.md)
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

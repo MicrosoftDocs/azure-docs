@@ -3,7 +3,7 @@ title: Monitoring usage and estimated costs in Azure Monitor
 description: Overview of the process of using Azure Monitor usage and estimated costs page
 author: dalekoetke
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: mbullwin

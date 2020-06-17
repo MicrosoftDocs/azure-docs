@@ -2,12 +2,9 @@
 title: Best practices for Azure Kubernetes Service (AKS)
 description: Collection of the cluster operator and developer best practices to build and manage applications in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: mlearned
+
 ---
 
 # Cluster operator and developer best practices to build and manage applications on Azure Kubernetes Service (AKS)

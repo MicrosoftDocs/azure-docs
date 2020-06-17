@@ -2,14 +2,11 @@
 title: Review your individual Azure bill
 description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription.
 author: bandersmsft
-manager: dougeby
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2019
+ms.date: 06/16/2020
 ms.author: banders
 ---
 
@@ -18,6 +15,8 @@ ms.author: banders
 This article helps you understand and review your Azure bill. For each billing period, you normally receive an invoice in email. The invoice is a representation of your Azure bill. The same cost information on the invoice is available in the Azure portal. In this tutorial you will compare your invoice with the detailed daily usage file and with cost analysis in the Azure portal.
 
 This tutorial applies only to Azure customers with an individual subscription. Common individual subscriptions are those with pay-as-you-go rates purchased directly from the Azure website.
+
+If you need help understanding unexpected charges, see [Analyze unexpected charges](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Or, if you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
 
 In this tutorial, you learn how to:
 
@@ -35,7 +34,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Compare invoiced charges with usage file
 
@@ -45,7 +44,7 @@ The first step to compare usage and costs is to download your invoice and usage 
 
 In the Azure portal, type *subscriptions* in the search box and then click [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Navigate to subscriptions](./media/review-individual-bill/navigate-subscriptions.png)
+[![Navigate to subscriptions](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 In the list of subscriptions, click the subscription.
 
@@ -96,7 +95,7 @@ The **Usage Charges** section of your invoice shows the total value (cost) for e
 
 ![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
 
-In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example.
+In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example that focuses on the meter name (P10 disks) that corresponds to the same line item on the invoice.
 
 ![Usage file summed value for MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 
@@ -145,7 +144,7 @@ For example, a single virtual machine (VM) created in Azure may have the followi
 
 When the VM is created, each meter begins emitting usage records. This usage and the meter's price is tracked in the Azure metering system.
 
-You can see the meters that were used to calculate your bill in the usage CSV file.
+You can see the meters that were used to calculate your bill in the usage CSV file, like in the earlier example.
 
 ## <a name="payment"></a>Pay your bill
 

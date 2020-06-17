@@ -1,11 +1,11 @@
 ---
 title: Controlling ingress traffic in Azure Australia
 description: A guide for controlling ingress traffic in Azure Australia to meet Australian Government requirements for Secure Internet Gateways
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Controlling ingress traffic in Azure Australia
@@ -14,11 +14,11 @@ A core element of securing ICT systems is controlling network traffic. Traffic s
 
 This guide gives details about how inbound (ingress) network traffic works within Azure, and recommendations for implementing network security controls for an internet connected system.
 
-The network controls align with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
+The network controls align with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC's Information Security Manual (ISM).
 
 ## Requirements
 
-The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.acsc.gov.au/publications/protect/Cloud_Computing_Security_for_Tenants.pdf).
+The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in implementing network security, the ACSC has published [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm), and to assist with securing systems in Cloud environments the ACSC has published [Cloud Computing Security for Tenants](https://www.cyber.gov.au/publications/cloud-computing-security-for-tenants).
 
 These guides outline the context for implementing network security and controlling traffic and include practical recommendations for network design and configuration.
 
@@ -28,13 +28,13 @@ The following key requirements, identified in the publications from the ACSC, ar
 
 |Description|Source|
 |---|---|
-|**Implement Network Segmentation and Segregation, for example, n-tier architecture, using host-based firewalls and CSP’s network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.**| _Cloud Computing for Tenants_|
-|**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant’s remote users) and the cloud service to meet the tenant’s availability requirements  | _Cloud Computing for Tenants_|
+|**Implement Network Segmentation and Segregation, for example, n-tier architecture, using host-based firewalls and CSP's network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.**| _Cloud Computing for Tenants_|
+|**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant's remote users) and the cloud service to meet the tenant's availability requirements  | _Cloud Computing for Tenants_|
 |**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, segmentation and segregation apply from the data link layer up to and including the application layer; however, in sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. Using a firewall or security appliance as the only security measure is not sufficient. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn’t need to communicate with another host, service, or network, it shouldn't be allowed to. If a host, service, or network only needs to talk to another host, service, or network using specific ports or protocols, then any other ports or protocols should be disabled. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn't need to communicate with another host, service, or network, it shouldn't be allowed to. If a host, service, or network only needs to talk to another host, service, or network using specific ports or protocols, then any other ports or protocols should be disabled. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Separate hosts and networks based on their sensitivity or criticality to business operations**. Separation can be achieved by using different hardware or platforms depending on different security classifications, security domains, or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |**Identify, authenticate, and authorise access by all entities to all other entities**. All users, hosts, and services should have their access restricted to only the other users, hosts, and services required to do their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorisation services should be disabled and their use should be closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Implement allow listing of network traffic instead of deny listing**. Only permit access for known good network traffic (that is, that which is identified, authenticated, and authorised), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Whitelisting results in a superior security policy to blacklisting, and significantly improves an organisation’s capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Implement allow listing of network traffic instead of deny listing**. Only permit access for known good network traffic (that is, that which is identified, authenticated, and authorised), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Whitelisting results in a superior security policy to blacklisting, and significantly improves an organisation's capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |
 
 This article provides information and recommendations on how these requirements can be met for systems deployed in Azure using both Infrastructure as a Service (IaaS) and Platform as a Service (PaaS). You should also read the article on [Controlling egress traffic in Azure Australia](gateway-egress-traffic.md) to fully understand controlling network traffic within Azure.
@@ -53,10 +53,10 @@ The architectural diagram shown here depicts the possible paths that network tra
 
 |Component | Description|
 |---|---|
-|**DDoS Protection** | Distributed denial of service (DDoS) attacks attempt to exhaust an application’s resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Azure includes DDoS Protection automatically through the Azure platform and provides additional mitigation capabilities that can be enabled for specific applications for more granular control.|
+|**DDoS Protection** | Distributed denial of service (DDoS) attacks attempt to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Azure includes DDoS Protection automatically through the Azure platform and provides additional mitigation capabilities that can be enabled for specific applications for more granular control.|
 | **Traffic Manager** | Azure Traffic Manager is a Domain Name System (DNS) based traffic load balancer that can distribute traffic optimally to services across Azure regions, while providing high availability and responsiveness. Traffic Manager uses DNS to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints.|
 | **ExpressRoute** | ExpressRoute is a dedicated network connection for consuming Microsoft cloud services. It is provisioned through a connectivity provider and offers more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. An ExpressRoute circuit represents the logical connection between the on-premises infrastructure and Microsoft cloud services through a connectivity provider.|
-| **ExpressRoute Private Peering** | ExpressRoute Private Peering is a connection between the on-premises environment and private Azure virtual networks. Private Peering enables access to Azure services such as Virtual Machines, that are deployed within a virtual network. The resources and virtual networks accessed via private peering are considered an extension of an organisation’s core network. Private Peering provides bi-directional connectivity between the on-premises network and Azure virtual networks using private IP addresses.|
+| **ExpressRoute Private Peering** | ExpressRoute Private Peering is a connection between the on-premises environment and private Azure virtual networks. Private Peering enables access to Azure services such as Virtual Machines, that are deployed within a virtual network. The resources and virtual networks accessed via private peering are considered an extension of an organisation's core network. Private Peering provides bi-directional connectivity between the on-premises network and Azure virtual networks using private IP addresses.|
 | **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Office 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organisation or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organisation must opt in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
 |
 
@@ -134,7 +134,7 @@ All communication to resources within Azure passes through the Microsoft maintai
 
 Internet accessible resources are susceptible to DDoS attacks. To protect against these attacks, Azure provides DDoS protections at a Basic and a Standard level.
 
-Basic is automatically enabled as part of the Azure platform including always-on traffic monitoring, and real-time mitigation of common network-level attacks, providing the same defences utilised by Microsoft’s online services. The entire scale of Azure’s global network can be used to distribute and mitigate attack traffic across regions. Protection is provided for IPv4 and IPv6 Azure public IP addresses
+Basic is automatically enabled as part of the Azure platform including always-on traffic monitoring, and real-time mitigation of common network-level attacks, providing the same defences utilised by Microsoft's online services. The entire scale of Azure's global network can be used to distribute and mitigate attack traffic across regions. Protection is provided for IPv4 and IPv6 Azure public IP addresses
 
 Standard provides additional mitigation capabilities over the Basic service tier that are tuned specifically to Azure Virtual Network resources. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Protection is provided for IPv4 Azure public IP addresses.
 
@@ -270,7 +270,7 @@ Leveraging PaaS can provide enhanced functionality and availability and reduce m
 
 To provide a secure entry point, PaaS capabilities such as Application Gateway can be configured with an external, public facing interface and an internal, private interface for communicating with application services. This prevents the need to configure application servers with Public IP addresses and expose them to external networks.
 
-To use PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed instances and more.
+To use PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed Instance, and more.
 
 |Resource | Link|
 |---|---|

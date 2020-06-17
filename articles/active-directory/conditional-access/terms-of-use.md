@@ -82,7 +82,7 @@ Once you have finalized your terms of use document, use the following procedure 
 1. For **Terms of use document**, browse to your finalized terms of use PDF and select it.
 1. Select the language for your terms of use document. The language option allows you to upload multiple terms of use, each with a different language. The version of the terms of use that an end user will see will be based on their browser preferences.
 1. To require end users to view the terms of use prior to accepting them, set **Require users to expand the terms of use** to **On**.
-1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. For more information, see [Per-device terms of use](#per-device-terms-of-use).
+1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. Users may be required to install additional applications if this option is enabled. For more information, see [Per-device terms of use](#per-device-terms-of-use).
 1. If you want to expire terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
    ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
@@ -245,7 +245,7 @@ The following procedure describes how to add a terms of use language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -273,6 +273,14 @@ If a user is using Windows 10 and Microsoft Edge, they will receive a message si
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+### Register an iOS device
+
+If a user is using an iOS device, they will be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### Register an Android device
+
+If a user is using an Android device, they will be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
 ### Browsers
 

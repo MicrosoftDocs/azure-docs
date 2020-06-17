@@ -2,30 +2,30 @@
 title: 'Quickstart: Apache Spark clusters with Azure CLI - Azure HDInsight'
 description: This quickstart shows how to use Azure CLI to create an Apache Spark cluster in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.author: hrasheed
-#Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster.
+ms.date: 02/03/2020
+#Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a Spark cluster.
 ---
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure CLI
 
-In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using Azure CLI. Apache Spark enables fast data analytics and cluster computing using in-memory processing. The [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) is Microsoft's cross-platform command-line experience for managing Azure resources.
+In this quickstart, you learn how to create an Apache Spark cluster in Azure HDInsight using the Azure command-line interface (CLI). Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. The Azure CLI is Microsoft's cross-platform command-line experience for managing Azure resources.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 ## Prerequisites
 
-Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), if you don't want to use Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Create an Apache Spark cluster
 
-1. Sign in to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the code block. Else, enter the command below:
+1. Sign in to your Azure subscription. If you plan to use Azure Cloud Shell, select **Try it** in the upper-right corner of the following code block. Else, enter the following command:
 
     ```azurecli-interactive
     az login
@@ -100,18 +100,18 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
 ## Clean up resources
 
-After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
+After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it isn't in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
 Enter all or some of the following commands to remove resources:
 
@@ -138,7 +138,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you learned how to create an Apache Spark cluster in Azure HDInsight using Azure CLI.  Advance to the next tutorial to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
+In this quickstart, you learned how to create an Apache Spark cluster in Azure HDInsight using Azure CLI.  Advance to the next tutorial to learn how to use an HDInsight cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
 > [Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)

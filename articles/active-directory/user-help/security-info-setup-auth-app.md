@@ -2,16 +2,16 @@
 title: Set up the Microsoft Authenticator app as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity using the Microsoft Authenticator app as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Set up the Microsoft Authenticator app as your verification method
@@ -44,7 +44,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
 ### To set up the Microsoft Authenticator app
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 

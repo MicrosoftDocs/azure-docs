@@ -3,7 +3,7 @@ title: "Quickstart: Set up sign-in for a desktop app"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 

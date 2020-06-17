@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 02/10/2020
 ms.author: iainfou
 
 ---
@@ -22,18 +22,18 @@ This article helps you troubleshoot issues with secure LDAP access in Azure AD D
 
 ## Common connection issues
 
-If you have trouble connecting to an Azure AD DS managed domain using secure LDAP, review the following troubleshooting steps. After each troubleshooting step, try to connect to the Azure AD DS managed domain again:
+If you have trouble connecting to an Azure AD DS managed domain using secure LDAP, review the following troubleshooting steps. After each troubleshooting step, try to connect to the managed domain again:
 
 * The issuer chain of the secure LDAP certificate must be trusted on the client. You can add the Root certification authority (CA) to the trusted root certificate store on the client to establish the trust.
     * Make sure you [export and apply the certificate to client computers][client-cert].
 * Verify the secure LDAP certificate for your managed domain has the DNS name in the *Subject* or the *Subject Alternative Names* attribute.
     * Review the [secure LDAP certificate requirements][certs-prereqs] and create a replacement certificate if needed.
 * Verify that the LDAP client, such as *ldp.exe* connects to the secure LDAP endpoint using a DNS name, not the IP address.
-    * The certificate applied to the Azure AD DS managed domain doesn't include the IP addresses of the service, only the DNS names.
-* Check the DNS name the LDAP client connects to. It must resolve to the public IP address for secure LDAP on the Azure AD DS managed domain.
+    * The certificate applied to the managed domain doesn't include the IP addresses of the service, only the DNS names.
+* Check the DNS name the LDAP client connects to. It must resolve to the public IP address for secure LDAP on the managed domain.
     * If the DNS name resolves to the internal IP address, update the DNS record to resolve to the external IP address.
 * For external connectivity, the network security group must include a rule that allows the traffic to TCP port 636 from the internet.
-    * If you can connect to the Azure AD DS managed domain using secure LDAP from resources directly connected to the virtual network but not external connections, make sure you [create a network security group rule to allow secure LDAP traffic][ldaps-nsg].
+    * If you can connect to the managed domain using secure LDAP from resources directly connected to the virtual network but not external connections, make sure you [create a network security group rule to allow secure LDAP traffic][ldaps-nsg].
 
 ## Next steps
 

@@ -1,9 +1,11 @@
 ---
-title: 'Reference: Ubuntu DSVM'
-description: 'Details on tools included in the Ubuntu Data Science Virtual Machine'
+title: 'Reference: Ubuntu Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
+description: Details on tools included in the Ubuntu Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 
 ms.author: gopalv
 ms.date: 09/11/2019
@@ -49,7 +51,7 @@ Some example notebooks are available in JupyterHub.
 
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
 
-To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to `http://localhost:54321` to get started. Sample notebooks are also available in JupyterHub.
 
 ### Keras
 
@@ -63,7 +65,7 @@ MXNet is a deep learning framework designed for both efficiency and flexibility.
 
 The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep learning tasks. These tasks include managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
 
-DIGITS is available as a service called *digits*. Start the service and browse to http://localhost:5000 to get started.
+DIGITS is available as a service called *digits*. Start the service and browse to `http://localhost:5000` to get started.
 
 DIGITS is also installed as a Python module in the Conda root environment.
 
@@ -134,7 +136,7 @@ If you're on a graphical interface or have X11 forwarding set up, you can enter 
 
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at [https://localhost:8000/](https://localhost:8000/).
+The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at `https://localhost:8000/`.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
@@ -236,9 +238,9 @@ You can access the [Azure portal](https://portal.azure.com) from the pre-install
 
 ## Azure Machine Learning
 
-Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models from Azure Machine Learning Studio (classic). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You can build your experiments and models in Azure Machine Learning studio (preview). You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://ml.azure.com).
 
-After you sign in to Azure Machine Learning Studio (classic), you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning Studio (classic). 
+After you sign in to Azure Machine Learning studio, you can use an experimentation canvas to build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook that is hosted on Azure Machine Learning and can work seamlessly with the experiments in Azure Machine Learning studio. 
 
 Operationalize the machine learning models that you have built by wrapping them in a web service interface. Operationalizing machine learning models enables clients written in any language to invoke predictions from those models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 

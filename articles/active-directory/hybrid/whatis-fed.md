@@ -12,7 +12,6 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.topic: conceptual
 ms.collection: M365-identity-device-management
 ---
 

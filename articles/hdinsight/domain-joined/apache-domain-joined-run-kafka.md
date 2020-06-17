@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 05/19/2020
 ---
 
 # Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)
@@ -142,6 +142,9 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 4. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
 
+> [!NOTE]  
+> For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
+
 5. Verify that **sales_user1** can produce to topic `salesevents` by executing the following command:
 
    ```bash
@@ -190,7 +193,10 @@ If you're not going to continue to use this application, delete the Kafka cluste
 1. In the list of HDInsight clusters that appears, click the **...** next to the cluster that you created for this tutorial. 
 1. Click **Delete**. Click **Yes**.
 
+## Troubleshooting
+If kafka-producer-consumer.jar does not work in a domain joined cluster, please make sure you are using the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bring your own key to Apache Kafka](../kafka/apache-kafka-byok.md)
+> [Customer-managed key disk encryption](../disk-encryption.md)

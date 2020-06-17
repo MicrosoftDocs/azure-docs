@@ -51,6 +51,10 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Open `Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs`
+
+Locate `StartSession()` and add the following line, substituting in your account domain from earlier: `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";`.
+
 ## Deploy the app to your iOS device
 
 Power on the iOS device, sign in, and connect it to the computer using a USB cable.

@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
+ms.custom: [amqp, mqtt]
 ---
 
 # Understand the identity registry in your IoT hub
@@ -73,6 +74,8 @@ Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-
 Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-devguide-endpoints.md) to import device identities in bulk to an IoT hub's identity registry. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
 
 For more information about the import and export APIs, see [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities](iot-hub-bulk-identity-mgmt.md).
+
+Device identities can also be exported and imported from an IoT Hub via the Service API via either the [REST API](/rest/api/iothub/service/jobclient/createimportexportjob) or one of the IoT Hub [Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks).
 
 ## Device provisioning
 
@@ -178,7 +181,7 @@ Device identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optional |A composite object containing authentication information and security materials. |
@@ -202,8 +205,8 @@ Module identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
+| moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optional |A composite object containing authentication information and security materials. |

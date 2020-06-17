@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 11/04/2019
+  ms.date: 05/20/2020
 
 landingContent:
   - title: About Azure Policy
@@ -72,10 +72,10 @@ landingContent:
             url: ./how-to/author-policies-for-arrays.md
       - linkListType: concept
         links:
-          - text: Policy for AKS
-            url: ./concepts/rego-for-aks.md
-          - text: Policy for AKS Engine
-            url: ./concepts/aks-engine.md
+          - text: Regulatory Compliance
+            url: ./concepts/regulatory-compliance.md
+          - text: Policy for Kubernetes
+            url: ./concepts/policy-for-kubernetes.md
           - text: Policy for VMs
             url: ./concepts/guest-configuration.md
 
@@ -94,10 +94,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Microsoft Q&A for Azure Policy
+            url: /answers/topics/azure-policy.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance
+            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 
@@ -111,10 +113,6 @@ landingContent:
             url: /powershell/module/az.resources/#policies
           - text: Azure PowerShell (Policy Insights)
             url: /powershell/module/az.policyinsights#policy_insights
-          - text: Azure SDK for .NET (Assignments)
-            url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
-          - text: Azure SDK for .NET (Policy Definitions)
-            url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
           - text: REST (Policy Insights)
             url: /rest/api/policy-insights/
           - text: REST (Assignments)
@@ -125,3 +123,22 @@ landingContent:
             url: /rest/api/resources/policysetdefinitions
           - text: Resource Manager templates
             url: /azure/templates/microsoft.authorization/allversions
+
+  - title: Reference (more)
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure SDK for .NET (Assignments)
+            url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+          - text: Azure SDK for .NET (Policy Definitions)
+            url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+          - text: Azure SDK for Node (Policy)
+            url: /javascript/api/@azure/arm-policy
+          - text: Azure SDK for Node (Policy Insights)
+            url: /javascript/api/@azure/arm-policyinsights
+          - text: Azure SDK for Python (Policy)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+          - text: Azure SDK for Python (Policy client)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+          - text: Azure SDK for Python (Policy Insights)
+            url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights

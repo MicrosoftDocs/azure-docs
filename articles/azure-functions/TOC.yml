@@ -5,7 +5,7 @@
   - name: About Azure Functions
     href: functions-overview.md
   - name: Durable Functions
-    href: durable/durable-functions-overview.md 
+    href: durable/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -15,23 +15,24 @@
   items:
   - name: Create function
     expanded: true
-    items:   
+    items:
     - name: Visual Studio Code
       href: /azure/azure-functions/functions-create-first-function-vs-code
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: Command line
       href: functions-create-first-azure-function-azure-cli.md
-    - name: Maven (Java)
-      href: functions-create-first-java-maven.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: functions-create-first-function-resource-manager.md 
   - name: Connect to storage
     items:
     - name: Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Visual Studio
       href: functions-add-output-binding-storage-queue-vs.md
-    - name: Maven (Java)
-      href: functions-add-output-binding-storage-queue-java.md
+    - name: Command line
+      href: functions-add-output-binding-storage-queue-cli.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -42,12 +43,16 @@
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
     href: functions-create-vnet.md
+  - name: Establish private site access
+    href: functions-create-private-site-access.md
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
-    href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
+    href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
   - name: Machine learning with TensorFlow
-    href: functions-machine-learning-tensorflow.md 
+    href: functions-machine-learning-tensorflow.md
+  - name: Image classification with PyTorch
+    href: machine-learning-pytorch.md
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
@@ -67,13 +72,13 @@
     - name: JavaScript
       href: /samples/browse/?products=azure-functions&languages=javascript
     - name: PowerShell
-      href: /samples/browse/?products=azure-functions&languages=azurepowershell  
+      href: /samples/browse/?products=azure-functions&languages=azurepowershell
     - name: Python
       href: /samples/browse/?products=azure-functions&languages=python
     - name: TypeScript
-      href: /samples/browse/?products=azure-functions&languages=typescript   
+      href: /samples/browse/?products=azure-functions&languages=typescript
   - name: Azure CLI
-    href: functions-cli-samples.md    
+    href: functions-cli-samples.md
 - name: Concepts
   items:
   - name: Compare runtime versions
@@ -105,7 +110,7 @@
       href: functions-bindings-errors.md
   - name: Languages
     items:
-    - name: Supported languages 
+    - name: Supported languages
       href: supported-languages.md
     - name: C# (class library)
       href: functions-dotnet-class-library.md
@@ -114,36 +119,48 @@
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
-      href: functions-reference-node.md   
+      href: functions-reference-node.md
     - name: Java
-      href: functions-reference-java.md 
+      href: functions-reference-java.md
     - name: PowerShell
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
     - name: TypeScript
       href: functions-reference-node.md#typescript
+  - name: Security
+    items:
+    - name: Security overview
+      href: security-concepts.md
+      displayName: secure, ssl
+    - name: Security baseline
+      href: security-baseline.md
   - name: Diagnostics
     href: functions-diagnostics.md
   - name: Consumption plan costs
-    href: functions-consumption-costs.md  
+    href: functions-consumption-costs.md
   - name: Performance considerations
-    href: functions-best-practices.md 
+    href: functions-best-practices.md
     displayName: best practice
+  - name: Storage considerations
+    href: storage-considerations.md
+    displayName: encryption, keys, mount, files
   - name: Functions Proxies
-    href: functions-proxies.md 
+    href: functions-proxies.md
   - name: Networking options
     href: functions-networking-options.md
   - name: IP addresses
-    href: ip-addresses.md 
+    href: ip-addresses.md
+  - name: Custom handlers
+    href: functions-custom-handlers.md
 - name: How-to guides
   items:
   - name: Develop
-    items: 
+    items:
     - name: Developer guide
       href: functions-reference.md
     - name: Local development
-      items:  
+      items:
         - name: Develop and debug locally
           href: functions-develop-local.md
         - name: Visual Studio Code development
@@ -153,27 +170,33 @@
         - name: Core Tools development
           href: functions-run-local.md
     - name: Create functions
-      items: 
-      - name: HTTP trigger   
-        items:  
+      items:
+      - name: HTTP trigger
+        items:
         - name: Azure portal
           href: functions-create-first-azure-function.md
         - name: Command line
           href: create-cli.md
         - name: Visual Studio
-          href: create-visual-studio.md  
+          href: create-visual-studio.md
         - name: Visual Studio Code
-          href: create-visual-studio-code.md  
+          href: create-visual-studio-code.md
+        - name: Java using Gradle
+          href: functions-create-first-java-gradle.md
         - name: Java using Eclipse
           href: functions-create-maven-eclipse.md
         - name: Java using IntelliJ IDEA
           href: functions-create-maven-intellij.md
-        - name: Linux App Service plan  
+        - name: Kotlin using Maven
+          href: functions-create-first-kotlin-maven.md
+        - name: Kotlin using IntelliJ
+          href: functions-create-maven-kotlin-intellij.md
+        - name: Linux App Service plan
           href: create-function-app-linux-app-service-plan.md
         - name: Linux Consumption plan
           href: functions-create-first-azure-function-azure-cli-linux.md
         - name: Azure for Students Starter
-          href: functions-create-student-starter.md  
+          href: functions-create-student-starter.md
       - name: Azure Cosmos DB trigger
         href: functions-create-cosmos-db-triggered-function.md
       - name: Blob storage trigger
@@ -194,6 +217,8 @@
         href: add-output-binding-storage-queue-vs-code.md
       - name: Storage - Visual Studio
         href: add-output-binding-storage-queue-vs.md
+      - name: Storage - Java
+        href: functions-add-output-binding-storage-queue-java.md
     - name: Debug and test
       items:
         - name: Test functions
@@ -226,7 +251,7 @@
     - name: Run from package
       href: run-functions-from-deployment-package.md
     - name: Functions in Kubernetes
-      href: functions-kubernetes-keda.md 
+      href: functions-kubernetes-keda.md
       displayName: keda
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
@@ -237,19 +262,19 @@
       maintainContext: true
   - name: Configure
     items:
-    - name: Manage a function app 
+    - name: Manage a function app
       href: functions-how-to-use-azure-function-app-settings.md
       displayName: app setting, application setting
-    - name: Set the runtime version 
+    - name: Set the runtime version
       href: set-runtime-version.md
-    - name: Manually register an extension 
+    - name: Manually register an extension
       href: install-update-binding-extensions-manual.md
-    - name: Disable a function 
+    - name: Disable a function
       href: disable-function.md
     - name: Geo-disaster recovery
       href: functions-geo-disaster-recovery.md
   - name: Monitor
-    items: 
+    items:
       - name: Monitor functions
         href: functions-monitoring.md
         displayName: App Insights, Application Insights, logs, logging
@@ -279,8 +304,10 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Reference secrets from Key Vault
       href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Encrypt site data
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Integrate
-    items:   
+    items:
     - name: Add bindings
       items:
       - name: Azure Cosmos DB - portal
@@ -298,11 +325,11 @@
     - name: Connect to a virtual Network
       href: functions-create-vnet-old.md
     - name: Create an Open API 2.0 definition
-      href: functions-api-definition-getting-started.md    
+      href: functions-api-definition-getting-started.md
     - name: Export to PowerApps and Microsoft Flow
       href: app-service-export-api-to-powerapps-and-flow.md
     - name: Use a managed identity
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
+      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Customize HTTP function endpoint
       href: functions-create-serverless-api.md
     - name: Manage on-premises resources
@@ -310,37 +337,105 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
-      href: functions-recover-storage-account.md   
+      href: functions-recover-storage-account.md
+    - name: Troubleshoot Python dependencies
+      href: recover-module-not-found.md
 - name: Reference
   items:
   - name: API references
     items:
+    - name: ARM template
+      href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+    - name: Azure CLI
+      href: /cli/azure/functionapp
+    - name: Azure PowerShell
+      href: /powershell/module/az.functions
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
     - name: Python
-      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings
     items:
     - name: Blob storage
-      href: functions-bindings-storage-blob.md
+      items:
+        - name: Overview
+          displayName: Blob storage
+          href: functions-bindings-storage-blob.md
+        - name: Trigger
+          displayName: Blob storage
+          href: functions-bindings-storage-blob-trigger.md
+        - name: Input
+          displayName: Blob storage
+          href: functions-bindings-storage-blob-input.md
+        - name: Output
+          displayName: Blob storage
+          href: functions-bindings-storage-blob-output.md
     - name: Azure Cosmos DB
-      items: 
+      items:
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
         displayName: Azure Cosmos DB
       - name: Functions 2.x
-        href: functions-bindings-cosmosdb-v2.md
         displayName: Azure Cosmos DB
+        items:
+        - name: Overview
+          href: functions-bindings-cosmosdb-v2.md
+          displayName: Azure Cosmos DB
+        - name: Trigger
+          href: functions-bindings-cosmosdb-v2-trigger.md
+          displayName: Azure Cosmos DB
+        - name: Input
+          href: functions-bindings-cosmosdb-v2-input.md
+          displayName: Azure Cosmos DB
+        - name: Output
+          href: functions-bindings-cosmosdb-v2-output.md
+          displayName: Azure Cosmos DB
     - name: Event Grid
-      href: functions-bindings-event-grid.md
+      items:
+        - name: Overview
+          href: functions-bindings-event-grid.md
+          displayName: Event Grid
+        - name: Trigger
+          href: functions-bindings-event-grid-trigger.md
+          displayName: Event Grid
+        - name: Output
+          href: functions-bindings-event-grid-output.md
+          displayName: Event Grid
     - name: Event Hubs
-      href: functions-bindings-event-hubs.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-hubs.md
+        displayName: Azure Event Hubs
+      - name: Trigger
+        href: functions-bindings-event-hubs-trigger.md
+        displayName: Azure Event Hubs
+      - name: Output
+        href: functions-bindings-event-hubs-output.md
+        displayName: Azure Event Hubs
     - name: IoT Hub
-      href: functions-bindings-event-iot.md
+      items:
+      - name: Overview
+        href: functions-bindings-event-iot.md
+        displayName: Azure IoT Hubs
+      - name: Trigger
+        href: functions-bindings-event-iot-trigger.md
+        displayName: Azure IoT Hubs
+      - name: Output
+        href: functions-bindings-event-iot-output.md
+        displayName: Azure IoT Hubs
     - name: HTTP and webhooks
-      href: functions-bindings-http-webhook.md
+      items:
+        - name: Overview
+          href: functions-bindings-http-webhook.md
+          displayName: HTTP
+        - name: Trigger
+          href: functions-bindings-http-webhook-trigger.md
+          displayName: HTTP
+        - name: Output
+          href: functions-bindings-http-webhook-output.md
+          displayName: HTTP
     - name: Microsoft Graph
       href: functions-bindings-microsoft-graph.md
     - name: Mobile Apps
@@ -348,25 +443,55 @@
     - name: Notification Hubs
       href: functions-bindings-notification-hubs.md
     - name: Queue storage
-      href: functions-bindings-storage-queue.md
+      items:
+        - name: Overview
+          href: functions-bindings-storage-queue.md
+          displayName: Queue storage
+        - name: Trigger
+          href: functions-bindings-storage-queue-trigger.md
+          displayName: Queue storage
+        - name: Output
+          href: functions-bindings-storage-queue-output.md
+          displayName: Queue storage
     - name: SendGrid
       href: functions-bindings-sendgrid.md
     - name: Service Bus
-      href: functions-bindings-service-bus.md
+      items:
+      - name: Overview
+        href: functions-bindings-service-bus.md
+        displayName: Service Bus
+      - name: Trigger
+        href: functions-bindings-service-bus-trigger.md
+        displayName: Service Bus
+      - name: Output
+        href: functions-bindings-service-bus-output.md
+        displayName: Service Bus
     - name: SignalR Service
-      href: functions-bindings-signalr-service.md
+      items:
+      - name: Overview
+        href: functions-bindings-signalr-service.md
+        displayName: SignalR Service
+      - name: Trigger
+        href: functions-bindings-signalr-service-trigger.md
+        displayName: SignalR Service
+      - name: Input
+        href: functions-bindings-signalr-service-input.md
+        displayName: SignalR Service
+      - name: Output
+        href: functions-bindings-signalr-service-output.md
+        displayName: SignalR Service
     - name: Table storage
       href: functions-bindings-storage-table.md
     - name: Timer
       href: functions-bindings-timer.md
     - name: Twilio
-      href: functions-bindings-twilio.md    
+      href: functions-bindings-twilio.md
     - name: Warmup
       href: functions-bindings-warmup.md
   - name: host.json 2.x reference
-    href: functions-host-json.md      
+    href: functions-host-json.md
   - name: host.json 1.x reference
-    href: functions-host-json-v1.md    
+    href: functions-host-json-v1.md
   - name: Networking FAQ
     href: functions-networking-faq.md
   - name: OpenAPI reference
@@ -382,13 +507,13 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Quota information
-    href: functions-scale.md#service-limits 
+    href: functions-scale.md#service-limits
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://www.youtube.com/c/AzureFunctions
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter

@@ -1,18 +1,15 @@
 ---
-title: Use Azure Pipelines to build and deploy HPC solutions - Azure Batch | Microsoft Docs
+title: Use Azure Pipelines to build & deploy HPC solutions
 description: Learn how to deploy a build/release pipeline for an HPC application running on Azure Batch.
-author: christianreddington
+author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
-ms.custom: fasttrack-new
-services: batch
-ms.service: batch
+ms.topic: how-to
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions
 
-Azure DevOps services provide a range of tools used by development teams when building a custom application. Tools provided by Azure DevOps can translate into automated building and testing of high performance compute solutions. This article demonstrates how to set up a continuous integration (CI) and continuous deployment (CD) using Azure Pipelines for a high performance compute solution deployed on Azure Batch.
+Azure DevOps Services provide a range of tools used by development teams when building a custom application. Tools provided by Azure DevOps can translate into automated building and testing of high performance compute solutions. This article demonstrates how to set up a continuous integration (CI) and continuous deployment (CD) using Azure Pipelines for a high performance compute solution deployed on Azure Batch.
 
 Azure Pipelines provides a range of modern CI/CD processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
 

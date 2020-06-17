@@ -1,21 +1,22 @@
 ---
-title: Azure Event Grid Azure SignalR event schema
+title: Azure SignalR as Event Grid source
 description: Describes the properties that are provided for Azure SignalR events with Azure Event Grid
 services: event-grid
-author: chenyl
+author: femila
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 06/11/2019
-ms.author: chenyl
+ms.topic: conceptual
+ms.date: 04/23/2020
+ms.author: femila
 ---
 
 # Azure Event Grid event schema for SignalR Service
 
-This article provides the properties and schema for SignalR Service events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for SignalR Service events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure SignalR as an event source.
 
+## Event Grid event schema
 
-## Available event types
+### Available event types
 
 SignalR Service emits the following event types:
 
@@ -24,7 +25,7 @@ SignalR Service emits the following event types:
 | Microsoft.SignalRService.ClientConnectionConnected | Raised when a client connection connected. |
 | Microsoft.SignalRService.ClientConnectionDisconnected | Raised when a client connection disconnected. |
 
-## Example event
+### Example event
 
 The following example shows the schema of a client connection connected event: 
 
@@ -67,7 +68,7 @@ The schema for a client connection disconnected event is similar:
 }]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -91,6 +92,12 @@ The data object has the following properties:
 | connectionId | string | The unique identifier for the client connection. |
 | userId | string | The user identifier defined in claim. |
 | errorMessage | string | The error that causes the connection disconnected. |
+
+## Tutorials and how-tos
+|Title | Description |
+|---------|---------|
+| [React to Azure SignalR Service events by using Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Overview of integrating Azure SignalR Service with Event Grid. |
+| [How to send Azure SignalR Service events to Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Shows how to send  Azure SignalR Service events to an application through Event Grid. |
 
 ## Next steps
 

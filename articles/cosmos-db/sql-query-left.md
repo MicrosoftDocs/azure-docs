@@ -43,6 +43,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 [{"l1": "a", "l2": "ab"}]  
 ```  
 
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)

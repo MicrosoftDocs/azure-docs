@@ -22,7 +22,7 @@ Azure API for FHIR enables rapid exchange of data through Fast Healthcare Intero
 - Control your own data at scale with Role-Based Access Control (RBAC)
 - Audit log tracking for access, creation, modification, and reads within each data store
 
-Azure API for FHIR allows you to create and deploy a FHIR service in just minutes to leverage the elastic scale of the cloud.  You pay only for the throughput and storage you need. The Azure services that power Azure API for FHIR are designed for rapid performance no matter what size datasets you’re managing.  The data persistence layer in the Azure API for FHIR leverages Azure Cosmos DB, which guarantees latencies at the 99th percentile and guarantees high availability with multi-homing capabilities. 
+Azure API for FHIR allows you to create and deploy a FHIR service in just minutes to leverage the elastic scale of the cloud.  You pay only for the throughput and storage you need. The Azure services that power Azure API for FHIR are designed for rapid performance no matter what size datasets you’re managing.
 
 The FHIR API and compliant data store enable you to securely connect and interact with any system that utilizes FHIR APIs.  Microsoft takes on the operations, maintenance, updates, and compliance requirements in the PaaS offering, so you can free up your own operational and development resources. 
 

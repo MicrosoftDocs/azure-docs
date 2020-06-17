@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
 ---
@@ -14,13 +14,13 @@ ms.reviewer: tyao
 
 By default, Azure Front Door Service responds to user requests regardless of the location of the user making the request. However, in some cases, you may want to restrict access to your web applications by country/region. Web application firewall (WAF) service at Front Door enables you to define a policy using custom access rules for specific path on your endpoint to allow or block access from specified countries/regions. 
 
-A WAF policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
+A WAF policy usually includes a set of custom rules. A rule consists of match conditions, an action, and a priority. In match condition, you define a match variable, operator, and match value.  For geo filtering rule, match variable is REMOTE_ADDR, operator is GeoMatch, value is the two letter country/region code of interest. You may combine a GeoMatch condition and a REQUEST_URI string match condition to create a path-based geo-filtering rule.
 
 You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) or by using our [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## Country code reference
+## Country/Region code reference
 
-|Country code | Country name |
+|Country/Region code | Country?Region name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|

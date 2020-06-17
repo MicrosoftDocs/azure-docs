@@ -6,14 +6,15 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 06/16/2020
 ms.author: helohr
+manager: lizross
 ---
 # Set up MSIX app attach
 
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
@@ -23,20 +24,39 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
-- The MSIX packaging tool
-- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy the Windows Virtual Desktop Fall 2019 release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy the Windows Virtual Desktop Spring 2020 release, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- The MSIX packaging tool.
+- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 
 ## Get the OS image
 
-First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
+First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
+
+### Get the OS image from the Azure portal
+
+To get the OS image from the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com) and sign in.
+
+2. Go to **Create a virtual machine**.
+
+3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
+      
+4. Follow the rest of the instructions to finish creating the virtual machine.
+
+     >[!NOTE]
+     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
+
+### Get the OS image from the Windows Insider portal
+
+To get the OS image from the Windows Insider Portal:
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
      >[!NOTE]
-     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
+     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](/windows-insider/at-home/).
 
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19035** or later.
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** or later.
 
 3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
@@ -47,7 +67,7 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 
 ## Prepare the VHD image for Azure 
 
-Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
+Next, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
 After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
 
@@ -69,13 +89,21 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
+After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mount-VHD command to stage and and Dismount-VHD to destage. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+>[!NOTE]
+>This change will require that you restart the virtual machine.
+
 Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
 
 Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
 ## Prepare the application for MSIX app attach 
 
-If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
+If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) to convert the legacy application to an MSIX package.
 
 ## Generate a VHD or VHDX package for MSIX
 
@@ -252,7 +280,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
@@ -386,7 +414,7 @@ rmdir $packageName -Force -Verbose
 
 ## Set up simulation scripts for the MSIX app attach agent
 
-After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Each of these automatic scripts runs one phase of the app attach scripts:
 
@@ -403,7 +431,7 @@ To install the license files, you'll need to use a PowerShell script that calls 
 
 Here's how to set up the licenses for offline use: 
 
-1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Update the following variables in the script for step 3:
       1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
       2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
@@ -416,7 +444,7 @@ $methodName = "AddLicenseMethod"
 $parentID = "./Vendor/MSFT/EnterpriseModernAppManagement/AppLicenses/StoreLicenses"
 
 #TODO - Update $contentID with the ContentID value from the unencoded license file (.xml)
-$contentID = "{‘ContentID’_in_unencoded_license_file}"
+$contentID = "{'ContentID'_in_unencoded_license_file}"
 
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
@@ -447,4 +475,4 @@ catch [Exception]
 
 This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub), or leave feedback for the MSIX app and packaging tool at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) and the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).
+You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).

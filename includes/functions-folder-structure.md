@@ -33,3 +33,4 @@ The [host.json](../articles/azure-functions/functions-host-json.md) file contain
 * [F# script](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
 * [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+* [Python](../articles/azure-functions/functions-reference-python.md#folder-structure)

@@ -23,9 +23,9 @@ All of the WAF features listed below exist inside of a WAF Policy. You can creat
 
 ![Application Gateway WAF diagram](../media/ag-overview/waf1.png)
 
-Application Gateway operates as an application delivery controller (ADC). It offers Secure Sockets Layer (SSL) termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites, and security enhancements.
+Application Gateway operates as an application delivery controller (ADC). It offers Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites, and security enhancements.
 
-Application Gateway security enhancements include SSL policy management and end-to-end SSL support. Application security is strengthened by WAF integration into Application Gateway. The combination protects your web applications against common vulnerabilities. And it provides an easy-to-configure central location to manage.
+Application Gateway security enhancements include TLS policy management and end-to-end TLS support. Application security is strengthened by WAF integration into Application Gateway. The combination protects your web applications against common vulnerabilities. And it provides an easy-to-configure central location to manage.
 
 ## Benefits
 
@@ -35,7 +35,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 
 * Protect your web applications from web vulnerabilities and attacks without modification to back-end code.
 
-* Protect multiple web applications at the same time. An instance of Application Gateway can host of up to 40 websites that are protected by a web application firewall.
+* Protect multiple web applications at the same time. An instance of Application Gateway can host up to 40 websites that are protected by a web application firewall.
 
 * Create custom WAF policies for different sites behind the same WAF 
 
@@ -67,7 +67,7 @@ This section describes the core benefits that WAF on Application Gateway provide
 - Configurable request size limits with lower and upper bounds.
 - Exclusion lists let you omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication or password fields.
 - Create custom rules to suit the specific needs of your applications.
-- Geo-filter traffic to allow or block certain countries from gaining access to your applications. (preview)
+- Geo-filter traffic to allow or block certain countries/regions from gaining access to your applications. (preview)
 - Protect your applications from bots with the bot mitigation ruleset. (preview)
 
 ## WAF Policy

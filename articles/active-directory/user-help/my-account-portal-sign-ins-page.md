@@ -2,16 +2,16 @@
 title: View and search your recent sign-in activity from the My Sign-in (preview) page - Azure Active Directory | Microsoft Docs
 description: Details about how to view and search your recent sign-in activity from the My Sign-ins page of the My Account portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: rhicock
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # View and search your recent sign-in activity from the My Sign-ins (preview) page
@@ -26,7 +26,7 @@ You can view all of your recent work or school account sign-in activity, from th
 
 ## View your recent sign-in activity
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
 2. Select **My Sign-ins (preview)** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins (preview)** block.
 

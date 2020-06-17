@@ -51,9 +51,9 @@ For more information on how to configure the **SetupEntryPoint**, see [Configure
 
 ### Build a package by using Visual Studio
 
-If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
+If you used Visual Studio to create your application, you can use the *Package* command to automatically create a package that matches the layout described above.
 
-To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
+To create a package, right-click the application project in *Solution Explorer* and choose the **Package** command:
 
 ![Packaging an application with Visual Studio][vs-package-command]
 

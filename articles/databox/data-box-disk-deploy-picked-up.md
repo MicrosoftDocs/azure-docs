@@ -7,18 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
-::: zone target="chromeless"
 
-## Return Azure Data Box Disk 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -41,13 +37,19 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 ::: zone-end
 
+::: zone target="chromeless"
+
+## Return Azure Data Box Disk 
+
+::: zone-end
+
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
 2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
     - Reuse the packaging from the initial shipment.  
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries in Asia.
+The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries/regions in Asia.
 
 ### [In US or Canada](#tab/in-us-or-canada)
 
@@ -140,10 +142,10 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     To: kadcustcare@singpost.com
     Subject: Microsoft Azure Pick-up - XZ00001234567 
     Body: 
-     a.	Requestor name
-     b.	Requestor contact number
-     c.	Requestor collection address
-     d.	Preferred collection date
+     a.    Requestor name
+     b.    Requestor contact number
+     c.    Requestor collection address
+     d.    Preferred collection date
     ```
 
    > [!NOTE]
@@ -157,7 +159,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 ### [In Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India and have selected the self-managed shipping option during order creation, follow these instructions. 
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
@@ -165,7 +167,7 @@ If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and h
 
     ```
     To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body: 
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
@@ -173,8 +175,6 @@ If you are using Data Box Disk in Japan, Singapore, Korea, and West Europe and h
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure Datacenter.
 
 ::: zone target="docs"
-
----
 
 ## Next steps
 

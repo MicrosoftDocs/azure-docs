@@ -41,10 +41,10 @@
       href: mca-section-invoice.md
     - name: Set up Microsoft Customer Agreement billing account
       href: mca-setup-account.md
-    - name: Sign up with Office 365 account
-      href: office-365-account-for-azure-subscription.md
-    - name: Sign up for Office 365 with Azure account
-      href: azure-account-for-office-365-subscription.md
+    - name: Sign up with Microsoft 365 account
+      href: microsoft-365-account-for-azure-subscription.md
+    - name: Sign up for Microsoft 365 with Azure account
+      href: azure-account-for-microsoft-365-subscription.md
     - name: Pay using strong customer authentication
       href: open-banking-strong-customer-authentication.md
   - name: Administer subscriptions
@@ -83,26 +83,30 @@
     items:
     - name: Get started in the Azure EA portal
       href: ea-portal-get-started.md
-    - name: Understand your EA bill
-      href: ../understand/review-enterprise-agreement-bill.md
     - name: EA roles in Azure
       href: understand-ea-roles.md
     - name: Azure EA portal administration
       href: ea-portal-administration.md
+    - name: Azure EA portal administration for partners
+      href: ea-partner-portal-administration.md
+    - name: Azure Enterprise transfers
+      href: ea-transfers.md
     - name: EA tasks in Microsoft Customer Agreement
       href: mca-enterprise-operations.md
     - name: Azure EA agreements and amendments
       href: ea-portal-agreements.md
     - name: Enterprise enrollment invoices
       href: ea-portal-enrollment-invoices.md
+    - name: Azure EA pricing
+      href: ea-pricing-overview.md
     - name: Azure Enterprise REST APIs
       href: ea-portal-rest-apis.md
     - name: Azure EA VM reserved instances
       href: ea-portal-vm-reservations.md
     - name: Troubleshoot Azure EA portal access
       href: ea-portal-troubleshoot.md
-    - name: EA tasks in Microsoft Customer Agreement
-      href: mca-enterprise-operations.md
+    - name: Azure Marketplace
+      href: ea-azure-marketplace.md
 - name: Troubleshoot
   items:
   - name: No subscriptions found
@@ -111,7 +115,7 @@
     href: billing-troubleshoot-azure-payment-issues.md
   - name: Declined card
     href: troubleshoot-declined-card.md
-  - name: Sign up issues
+  - name: Azure account sign-up issues
     href: troubleshoot-azure-sign-up.md
   - name: Subscription sign-in issues
     href: troubleshoot-sign-in-issue.md
@@ -130,13 +134,13 @@
     - name: Review resource usage
       href: review-service-usage-api.md
   - name: .NET samples
-  items:
-  - name: Invoice API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-  - name: Usage API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-  - name: RateCard API code sample
-    href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+    items:
+    - name: Invoice API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Usage API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: RateCard API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Reference
   items:
   - name: Billing Automation Scenarios

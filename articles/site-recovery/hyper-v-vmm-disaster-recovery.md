@@ -4,10 +4,10 @@ description: Learn how to set up disaster recovery for Hyper-V VMs between your 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.custom: MVC
+
 ---
 # Set up disaster recovery for Hyper-V VMs to a secondary on-premises site
 
@@ -39,7 +39,7 @@ To complete this scenario:
 
 - Connects VMs to appropriate target VM networks after failover. 
 - Optimally places replica VMs on target Hyper-V host servers. 
-- If you don’t configure network mapping, replica VMs won’t be connected to a VM network after failover.
+- If you don't configure network mapping, replica VMs won't be connected to a VM network after failover.
 
 Prepare VMM as follows:
 

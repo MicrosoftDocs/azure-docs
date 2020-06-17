@@ -18,6 +18,9 @@ The recommended actions are shut-down or resize, specific to resource being reco
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
+## Optimize spend for MariaDB, MySQL and PostgreSQL servers by right sizing 
+Advisor analyses your usage and recommends if your MariaDB/MySQL/PostgreSQL database server resources have been underutilized for an extended period of time over the last 7 days. Low resource utilization results in unwanted expenditure which can be fixed without significant performance impact. To reduce your costs and efficiently manage your resources, we recommend reducing the compute size (vCores) by half.
+
 ## Reduce costs by eliminating unprovisioned ExpressRoute circuits
 
 Advisor identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month, and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
@@ -32,6 +35,27 @@ Advisor will review your virtual machine usage over the last 30 days and determi
 
 Advisor will also notify you of reserved instances that you have that will expire in the next 30 days. It will recommend that you purchase new reserved instances to avoid paying pay-as-you-go pricing.
 
+## Buy reserved instances for several resource types to save over your pay-as-you-go costs
+
+We analyze usage pattern for below list of resources, over last 30 days and recommend reserved capacity purchase that maximizes your savings. 
+### Cosmos DB reserved capacity
+We analyzed your Cosmos DB usage pattern over last 30 days and recommend reserved capacity purchase to optimize costs. With reserved capacity you can pre-purchase Cosmos DB hourly usage and save over your pay-as-you-go costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and by extrapolating the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings even more.
+
+### SQL PaaS reserved capacity
+We analyze SQL PaaS elastic pools and managed instance usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase SQL DB hourly usage and save over your SQL compute costs. SQL license is charged separately and is not discounted by the reservation. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and by extrapolating the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+
+### App service stamp fee reserved capacity
+We analyze your App Service isolated environment stamp fees usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase hourly usage for the isolated environment stamp fee and save over your Pay-as-you-go costs. Note that reserved capacity only applies to the stamp fee and not to the App Service instances. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing based on usage pattern over last 30 days.
+
+### Blob storage reserved capacity
+We analyzed you Azure Blob and Datalake storage usage over last 30 days and calculated reserved capacity purchase that would maximize your savings. With reserved capacity you can pre-purchase hourly usage and save over your current on-demand costs. Blob storage reserved capacity applies only to data stored on Azure Blob (GPv2) and Azure Data Lake Storage (Gen 2). Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+
+### MariaDB, MySQL and PostgreSQL reserved capacity
+We analyze your Azure Database for MariaDB, MySQL and PostgreSQL usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase MariaDB, MySQL and PostgreSQL hourly usage and save over your costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and the usage pattern over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+
+### Synapse analytics (formerly SQL DW) reserved capacity
+We analyze your Azure Synapse Analytics usage pattern over last 30 days and recommend reserved capacity purchase that maximizes your savings. With reserved capacity you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved capacity is a billing benefit and will automatically apply to new or existing deployments. Saving estimates are calculated for individual subscriptions using 3-year reservation pricing and the usage pattern observed over last 30 days. Shared scope recommendations are available in reservation purchase experience and can increase savings further.
+
 ## Delete unassociated public IP addresses to save money
 
 Advisor identifies public IP addresses that are not currently associated to Azure resources such as Load Balancers or VMs. These public IP addresses come with a nominal charge. If you do not plan to use them, deleting them can result in cost savings.
@@ -42,6 +66,13 @@ Azure Advisor will detect Azure Data Factory pipelines that repeatedly fail and 
 
 ## Use Standard Snapshots for Managed Disks
 To save 60% of cost, we recommend storing your snapshots in Standard Storage, regardless of the storage type of the parent disk. This option is the default option for Managed Disks snapshots. Azure Advisor will identify snapshots that are stored Premium Storage and recommend migrating your snapshot from Premium to Standard Storage. [Learn more about Managed Disk pricing](https://aka.ms/aa_manageddisksnapshot_learnmore)
+
+## Utilize Lifecycle Management
+Azure Advisor will utilize intelligence regarding your Azure blob storage object count, total size, and transactions to detect if one or more of your storage accounts would be best suited to enable lifecycle management to tier data. It will prompt you to create Lifecycle Management rules to automatically tier your data to Cool or Archive to optimize your storage costs while retaining your data in Azure blob storage for application compatibility.
+
+## Create an Ephemeral OS Disk recommendation
+With [Ephemeral OS Disk](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks), Customers get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It is more preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads. Advisor has recommendation for resources which can take benefits with Ephemeral OS Disk. 
+
 
 ## How to access Cost recommendations in Azure Advisor
 
@@ -55,8 +86,9 @@ To save 60% of cost, we recommend storing your snapshots in Standard Storage, re
 
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
-* [Get Started](advisor-get-started.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Get started with Advisor](advisor-get-started.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor high availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+

@@ -2,16 +2,16 @@
 title: Change your work or school account password - Azure AD
 description: Learn to change your work or school account password from the Change Password page of the My Account portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Change your work or school account password from the Change Password page
@@ -23,7 +23,7 @@ The **Change password** page of the **My Account** portal helps you to update an
 
 ## Update a password from the Change password page
 
-1. Sign in to your work or school account, using your existing password, and then go to the **My Account** (https://myprofile.microsoft.com/) page.
+1. Sign in to your work or school account, using your existing password, and then go to the **My Account** (https://myaccount.microsoft.com/) page.
 
 2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
 

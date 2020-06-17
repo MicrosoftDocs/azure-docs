@@ -1,7 +1,6 @@
 ---
 title: FAQs - Network Performance Monitor solution in Azure | Microsoft Docs
 description: This article captures the frequently asked questions about Network Performance Monitor in Azure. Network Performance Monitor (NPM) helps you monitor the performance of your networks in near real time and detect and locate network performance bottlenecks.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
@@ -183,7 +182,7 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
-When either of the endpoints lies in Azure, traceroute shows up unidentified hops as Azure ndrastructure does not reveal identity to traceroute. 
+When either of the endpoints lies in Azure, traceroute shows up unidentified hops as Azure Infrastructure does not reveal identity to traceroute. 
 
 ### I get alerts for unhealthy tests but I do not see the high values in NPM's loss and latency graph. How do I check what is unhealthy?
 NPM raises an alert if end to end latency between source and destination crosses the threshold for any path between them. Some networks have multiple paths connecting the same source and destination. NPM raises an alert is any path is unhealthy. The loss and latency seen in the graphs is the average value for all the paths, hence it may not show the exact value of a single path. To understand where the threshold has been breached, look for the "SubType" column in the alert. If the issue is caused by a path the SubType value will be NetworkPath (for Performance Monitor tests), EndpointPath (for Service Connectivity Monitor tests) and ExpressRoutePath (for ExpressRotue Monitor tests). 
@@ -225,7 +224,7 @@ This can happen if either the host firewall or the intermediate firewall (networ
 As the network paths between A to B can be different from the network paths between B to A, different values for loss and latency can be observed.
 
 ### Why are all my ExpressRoute circuits and peering connections not being discovered?
-NPM now discovers ExpressRoute circuits and peering connections in all subscriptions to which the user has access. Choose all the subscriptions where your Express Route resources are linked and enable monitoring for each discovered resource. NPM looks for connection objects when discovering a private peering, so please check if a VNET is associated with your peering.
+NPM now discovers ExpressRoute circuits and peering connections in all subscriptions to which the user has access. Choose all the subscriptions where your Express Route resources are linked and enable monitoring for each discovered resource. NPM looks for connection objects when discovering a private peering, so please check if a VNET is associated with your peering. NPM does not detect circuits and peering that are in a diffrent tenant from the Log Analytics workspace.
 
 ### The ER Monitor capability has a diagnostic message "Traffic is not passing through ANY circuit". What does that mean?
 
@@ -236,6 +235,12 @@ This can happen if:
 * The ER circuit is down.
 * The route filters are configured in such a manner that they give priority to other routes (such as a VPN connection or another ExpressRoute circuit) over the intended ExpressRoute circuit. 
 * The on-premises and Azure nodes chosen for monitoring the ExpressRoute circuit in the monitoring configuration, do not have connectivity to each other over the intended ExpressRoute circuit. Ensure that you have chosen correct nodes that have connectivity to each other over the ExpressRoute circuit you intend to monitor.
+
+### Why does ExpressRoute Monitor report my circuit/peering as unhealthy when it is available and passing data.
+ExpressRoute Monitor compares the network performance values (loss, latency and bandwidth utilisation) reported by the agents/service with the thresholds set during Configuration. For a circuit, if the bandwidth utilisation reported is greater than the threshold set in Configuration, the circuit is marked as unhealthy. For peerings, if the loss, latency or bandwidth utilisation reported is greater than the threshold set in the Configuration, the peering is marked as unhealthy. NPM does not utilise metrics or any other form of data to deicde health state.
+
+### Why does ExpressRoute Monitor'bandwidth utilisation report a value differrent from metrics bits in/out
+For ExpressRoute Monitor, bandwidth utiliation is the average of incoming and outgoing bandwidth over the last 20 mins It is expressed in Bits/sec. For Express Route metrics, bit in/out are per minute data points.Internally the dataset used for both is the same, but the aggregation valies between NPM and ER metrics. For granular, minute by minute monitoring and fast alerts, we recommend setting alerts directly on ER metrics
 
 ### While configuring monitoring of my ExpressRoute circuit, the Azure nodes are not being detected.
 This can happen if the Azure nodes are connected through Operations Manager. The ExpressRoute Monitor capability supports only those Azure nodes that are connected as Direct Agents.

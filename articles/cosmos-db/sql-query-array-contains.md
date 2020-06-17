@@ -64,9 +64,12 @@ SELECT
   "b1": true,
   "b2": false,
   "b3": false
-}] 
-```  
-  
+}]
+```
+
+## Remarks
+
+This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
 
 ## Next steps
 

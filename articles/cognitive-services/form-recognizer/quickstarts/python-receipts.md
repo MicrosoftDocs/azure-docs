@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
+ms.custom: tracking-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
 
@@ -19,15 +20,14 @@ In this quickstart, you'll use the Azure Form Recognizer REST API with Python to
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> This quickstart uses the Form Recognizer v2.0 API. If your subscription is not in the `West US 2` or `West Europe` region, you need to use the v1.0 API. Follow the [v1.0 quickstart](./curl-train-extract-v1.md) instead.
-
 ## Prerequisites
 
 To complete this quickstart, you must have:
-- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) for this quickstart.
+- A URL for an image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
+
+> [!NOTE]
+> This quickstart uses a remote receipt accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync).
 
 ## Create a Form Recognizer resource
 
@@ -460,7 +460,7 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer REST API with Python to extract the contents of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API with Python to extract the content of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

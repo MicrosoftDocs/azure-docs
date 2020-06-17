@@ -4,7 +4,7 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -24,7 +24,7 @@ We are going to use following two components:
 
 1. We will first create an Azure AAD service principal and assign it `Monitoring Reader` access over Application Gateway's resource group. 
 
-    ```bash
+    ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
         applicationGatewayGroupId=$(az group show -g $applicationGatewayGroupName -o tsv --query "id")
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId

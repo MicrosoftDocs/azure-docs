@@ -1,12 +1,11 @@
 ---
 title: Incoming Request Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor request calls for your Python apps via OpenCensus Python.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.custom: tracking-python
 
 ---
 
@@ -30,29 +29,16 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`.
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
 
     ```python
     OPENCENSUS = {
         'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
+            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1)',
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
+                connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. You can also add urls to `settings.py` under `BLACKLIST_PATHS` for requests that you do not want to track.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
-            )''',
-            'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -84,16 +70,16 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
     
     ```
 
-2. You can configure your `flask` middleware directly in the code. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {
         'TRACE': {
             'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1.0)',
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                service_name='foobar',
+                connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent to it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -118,9 +104,9 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
             'TRACE': {
                 'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=1.0)',
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                    service_name='foobar',
+                    connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': 'https://example.com',  <--- This site will not be traced if a request is sent to it.
+                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }

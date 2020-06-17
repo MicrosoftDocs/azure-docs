@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 

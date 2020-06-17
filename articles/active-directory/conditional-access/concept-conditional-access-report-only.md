@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 05/01/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,11 +22,12 @@ Conditional Access is widely used by our customers to stay secure by applying th
 Report-only mode is a new Conditional Access policy state that allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment.  With the release of report-only mode:
 
 - Conditional Access policies can be enabled in report-only mode.
-- During sign-in, policies in report-only mode are evaluated but not enforced. Results are logged in the **Conditional Access** and **Report-only (Preview)** tabs of the Sign-in log details.
+- During sign-in, policies in report-only mode are evaluated but not enforced.
+- Results are logged in the **Conditional Access** and **Report-only** tabs of the Sign-in log details.
 - Customers with an Azure Monitor subscription can monitor the impact of their Conditional Access policies using the Conditional Access insights workbook.
 
 > [!WARNING]
-> Policies in report-only mode that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant. To prevent end users from receiving prompts during sign-in, exclude device platforms Mac, iOS and Android from report-only policies that perform device compliance checks.
+> Policies in report-only mode that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant. To prevent end users from receiving prompts during sign-in, exclude device platforms Mac, iOS and Android from report-only policies that perform device compliance checks. Note that report-only mode is not applicable for CA policies with "User Actions" scope.
 
 ![Report-only tab in Azure AD sign-in log](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

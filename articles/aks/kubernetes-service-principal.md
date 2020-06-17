@@ -2,19 +2,16 @@
 title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: mlearned
+ms.date: 04/02/2020
+
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
 ---
 
 # Service principals with Azure Kubernetes Service (AKS)
 
-To interact with Azure APIs, an AKS cluster requires an [Azure Active Directory (AD) service principal][aad-service-principal]. The service principal is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
+To interact with Azure APIs, an AKS cluster requires either an [Azure Active Directory (AD) service principal][aad-service-principal] or a [managed identity](use-managed-identity.md). A service principal or managed identity is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
 
 This article shows how to create and use a service principal for your AKS clusters.
 
@@ -67,6 +64,9 @@ az aks create \
     --service-principal <appId> \
     --client-secret <password>
 ```
+
+> [!NOTE]
+> If you're using an existing service principal with customized secret, ensure the secret is no longer than 190 bytes.
 
 If you deploy an AKS cluster using the Azure portal, on the *Authentication* page of the **Create Kubernetes cluster** dialog, choose to **Configure service principal**. Select **Use existing**, and specify the following values:
 

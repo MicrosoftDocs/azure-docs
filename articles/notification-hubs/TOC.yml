@@ -1,4 +1,4 @@
-- name: Notification Hubs Documentation
+- name: Notification Hubs documentation
   href: index.yml
 - name: Overview
   items:
@@ -9,9 +9,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a notification hub - Azure portal
+  - name: Create notification hub - Azure portal
     href: create-notification-hub-portal.md  
-  - name: Configure a notification hub - Azure portal
+  - name: Create notification hub - Azure CLI
+    href: create-notification-hub-azure-cli.md
+  - name: Create notification hub - ARM template
+    displayName: Resource Manager
+    href: create-notification-hub-template.md
+  - name: Configure a notification hub
     href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
   items:
@@ -19,21 +24,23 @@
     items:
     - name: Firebase Cloud Messaging
       items:
-      - name: Push notifications to all registrations
+      - name: Send push notifications to all registrations (SDK version 1.0.0-preview1)
+        href: android-sdk.md
+      - name: Send push notifications to all registrations (SDK version 0.6)
         href: notification-hubs-android-push-notification-google-fcm-get-started.md
-      - name: Push notifications to specific devices
+      - name: Send push notifications to specific devices
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
-      - name: Push notifications to specific users
+      - name: Send push notifications to specific users
         href: push-notifications-android-specific-users-firebase-cloud-messaging.md
-      - name: Push notifications to Xamarin Android apps 
+      - name: Send push notifications to Xamarin Android apps 
         href: xamarin-notification-hubs-push-notifications-android-gcm.md
     - name: Google Cloud Message (deprecated)
       items:      
-      - name: Push notifications to all registrations
+      - name: Send push notifications to all registrations
         href: notification-hubs-android-push-notification-google-gcm-get-started.md      
-      - name: Push notifications to specific devices
+      - name: Send push notifications to specific devices
         href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-      - name: Push notifications to specific users
+      - name: Send push notifications to specific users
         href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: iOS
     items:
@@ -79,6 +86,8 @@
     href: samples-powershell.md
 - name: Concepts
   items: 
+  - name: Transport Layer Security (TLS)
+    href: notification-hubs-tls12.md
   - name: Enterprise push architecture guidance
     href: notification-hubs-enterprise-push-notification-architecture.md
   - name: Device registrations
@@ -133,15 +142,19 @@
   - name: Register with application backend
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Use token-based authentication with Apple devices
-    href: notification-hubs-push-notification-http2-token-authentification.md
+    href: notification-hubs-push-notification-http2-token-authentication.md
   - name: Troubleshoot dropped notifications
     href: notification-hubs-push-notification-fixer.md
   - name: Push notifications using Baidu cloud push
     href: notification-hubs-baidu-china-android-notifications-get-started.md
+  - name: Use APNS VOIP through Notification Hubs
+    href: voip-apns.md  
 - name: Reference
   items:  
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
+  - name: Azure CLI
+    href: /cli/azure/ext/notification-hub/notification-hub
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST
@@ -160,8 +173,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Request a feature

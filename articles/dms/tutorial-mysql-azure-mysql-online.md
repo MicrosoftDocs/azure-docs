@@ -33,6 +33,13 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
+
+
 ## Prerequisites
 
 To complete this tutorial, you need to:
@@ -220,6 +227,8 @@ After the service is created, locate it within the Azure portal, open it, and th
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
     ![Map to target databases](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > Though you can select multiple databases in this step, each instance of Azure Database Migration Service supports up to four databases for concurrent migration. Also, there is a limit of two instances of Azure Database Migration Service per region in a subscription. For example, if you have 40 databases to migrate, you can only migrate eight of them concurrently, and only if you have created two instances of Azure Database Migration Service.
 
 3. Select **Save**, on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 

@@ -5,13 +5,15 @@ description: Get support and training and provide feedback for Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.date: 01/18/2019 
 ---
 # Get support and training for Azure Machine Learning Studio (classic)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
 
@@ -20,7 +22,6 @@ This article provides information on how to learn more about Azure Machine Learn
 See our learning resources:
 + [Tutorials and how-to articles](../studio/index.yml) 
 + [Beginner data science videos](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
-+ [Algorithm cheat sheets](../studio/algorithm-cheat-sheet.md) 
 
 ## Submit doc feedback
 

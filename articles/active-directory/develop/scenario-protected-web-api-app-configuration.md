@@ -3,16 +3,12 @@ title: Configure protected web API apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
@@ -44,7 +40,7 @@ The bearer token that's set in the header when the app is called holds informati
 Here's a C# code example that shows a client calling the API after it acquires a token with Microsoft Authentication Library for .NET (MSAL.NET):
 
 ```csharp
-var scopes = new[] {$"api://.../access_as_user}";
+var scopes = new[] {$"api://.../access_as_user"};
 var result = await app.AcquireToken(scopes)
                       .ExecuteAsync();
 
@@ -105,7 +101,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 The middleware is added to the web API by this instruction:
 
 ```csharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+         .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization. They don't sign in users with personal accounts. But you can change the templates to use the Microsoft identity platform endpoint by adding this code to Startup.cs:

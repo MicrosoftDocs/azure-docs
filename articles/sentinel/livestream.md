@@ -1,30 +1,24 @@
 ---
-title: Use hunting Livestream in Azure Sentinel to detect threats| Microsoft Docs
+title: Use hunting Livestream in Azure Sentinel to detect threats | Microsoft Docs
 description: This article describes how to use hunting Livestream in Azure Sentinel to keep track of data.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2019
-ms.author: cabailey
+ms.date: 06/14/2020
+ms.author: yelevin
 ---
 
 # Use hunting livestream in Azure Sentinel to detect threats
-
-> [!IMPORTANT]
-> Hunting livestream in Azure Sentinel is currently in public preview and gradually rolling out to tenants.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Use hunting livestream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a livestream session using any Log Analytics query.
 
@@ -47,32 +41,32 @@ You can create a livestream session from an existing hunting query, or create yo
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting**.
 
-2. To create a livestream session from a hunting query:
+1. To create a livestream session from a hunting query:
     
     1. From the **Queries** tab, locate the hunting query to use.
-    2. Right-click the query and select **Add to livestream**. For example:
+    1. Right-click the query and select **Add to livestream**. For example:
     
     > [!div class="mx-imgBorder"]
     > ![create Livestream session from Azure Sentinel hunting query](./media/livestream/livestream-from-query.png)
 
-3. To create a livestream session from scratch: 
+1. To create a livestream session from scratch: 
     
     1. Select the **Livestream** tab
-    2. Select **Go to livestream**.
+    1. Click **+ New livestream**.
     
-4. On the **Livestream** pane:
+1. On the **Livestream** pane:
     
     - If you started livestream from a query, review the query and make any changes you want to make.
     - If you started livestream from scratch, create your query. 
 
-5. Select **Play** from the command bar.
+1. Select **Play** from the command bar.
     
     The status bar under the command bar indicates whether your livestream session is running or paused. In the following example, the session is running:
     
     > [!div class="mx-imgBorder"]
     > ![create livestream session from Azure Sentinel hunting](./media/livestream/livestream-session.png)
 
-6. Select **Save** from the command bar.
+1. Select **Save** from the command bar.
     
     Unless you select **Pause**, the session continues to run until you are signed out from the Azure portal.
 
@@ -80,7 +74,7 @@ You can create a livestream session from an existing hunting query, or create yo
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Livestream** tab.
 
-2. Select the livestream session you want to view or edit. For example:
+1. Select the livestream session you want to view or edit. For example:
     
     > [!div class="mx-imgBorder"]
     > ![create livestream session from Azure Sentinel hunting query](./media/livestream/livestream-tab.png)

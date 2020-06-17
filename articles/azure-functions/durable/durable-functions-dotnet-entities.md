@@ -367,7 +367,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
 
-The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
+The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob-input.md) can be made available to a class-based entity.
 
 ```csharp
 public class BlobBackedEntity

@@ -8,9 +8,10 @@
   expanded: true
   items:
   - name: Create Unity app
-    href: unity-overview.yml
     expanded: true
     items:
+    - name: Unity overview
+      href: unity-overview.md
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
     - name: Android
@@ -99,6 +100,8 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
   - name: SDK for HoloLens C++/WinRT
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+  - name: Azure CLI
+    href: /cli/azure/ext/mixed-reality/spatial-anchors-account
 - name: Resources
   items:
   - name: Release Notes

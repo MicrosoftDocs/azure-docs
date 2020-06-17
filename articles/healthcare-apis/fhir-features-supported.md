@@ -16,9 +16,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Latest version supported: `4.0.0`
+Latest version supported: `4.0.1`
 
-Previous versions also currently supported include: `3.0.1`
+Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
@@ -35,16 +35,18 @@ Previous versions also currently supported include: `3.0.1`
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
+| chained search                 | No        | Yes       | No        |                                           |
+| reverse chained search         | No        | No        | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
-| batch                          | No        | No        | No        |                                                     |
-| transaction                    | No        | No        | No        |                                                     |
+| batch                          | Yes       | Yes       | Yes       |                                                     |
+| transaction                    | No        | Yes       | No        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | paging                         | Partial   | Partial   | Partial   | `self` and `next` are supported                     |
 | intermediaries                 | No        | No        | No        |                                                     |
 
 ## Search
 
-All search parameter types are supported. Chained parameters and reverse chaining are *not* supported.
+All search parameter types are supported. 
 
 | Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
@@ -53,10 +55,10 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | String                | Yes       | Yes       | Yes       |         |
 | Token                 | Yes       | Yes       | Yes       |         |
 | Reference             | Yes       | Yes       | Yes       |         |
-| Composite             | Yes       | Yes       | Yes       |        |
-| Quantity              | Yes       | Yes       | Yes       |Issue [#103](https://github.com/Microsoft/fhir-server/issues/103) |
+| Composite             | Yes       | Yes       | Yes       |         |
+| Quantity              | Yes       | Yes       | Yes       |         |
 | URI                   | Yes       | Yes       | Yes       |         |
-| Special               | No        | No        | No        |        
+| Special               | No        | No        | No        |         |
 
 
 | Modifiers             | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
@@ -71,6 +73,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 |`:not-in` (token)      | No        | No        | No        |         |
 |`:[type]` (reference)  | No        | No        | No        |         |
 |`:below` (uri)         | Yes       | Yes       | Yes       |         |
+|`:not`                 | No        | No        | No        |         |
 |`:above` (uri)         | No        | No        | No        | Issue [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Common search parameter | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
