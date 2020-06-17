@@ -24,7 +24,7 @@ Premium plan provides additional features, such as premium compute instances, th
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
 
-For a detailed comparision between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparision section](#hosting-plans-comparison).
+For a detailed comparison between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparison section](#hosting-plans-comparison).
 
 ## Consumption plan
 
