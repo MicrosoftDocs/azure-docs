@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 06/13/2020
+ms.date: 06/19/2020
 ---
 
 # Block connections created by connectors in Azure Logic Apps
