@@ -91,12 +91,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
-
-	> [!NOTE]
-	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [Ekarda Client support team](mailto:contact@ekarda.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. If you don't have **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
