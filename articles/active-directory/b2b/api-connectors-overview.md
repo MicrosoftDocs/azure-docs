@@ -19,8 +19,8 @@ ms.collection: M365-identity-device-management
 ## Overview 
 As a developer or IT administrator, you can use API connectors to integrate your [self-service sign-up user flows](self-service-sign-up-overview.md) with external systems by leveraging web APIs. For example, you can use API connectors to:
 
-- [**Integrate with a custom approval workflows**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing account creation.
-- [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions.
+- [**Integrate with a custom approval workflow**](self-service-sign-up-add-approvals.md). Connect to a custom approval system for managing account creation.
+- [**Perform identity verification**](code-samples-self-service-sign-up.md#identity-verification). Use an identity verification service to add an extra level of security to account creation decisions.
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
@@ -50,7 +50,7 @@ An API connector at this step in the sign-up process is invoked after the attrib
 
 - Validate user input data and ask a user to resubmit data.
 - Block a user sign-up based on data entered by the user.
-- Perform identity proofing.
+- Perform identity verification.
 - Query external systems for existing data about the user to return it in the application token or store it in Azure AD.
 
 <!-- > [!IMPORTANT]
