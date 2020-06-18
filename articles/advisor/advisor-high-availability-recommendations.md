@@ -8,18 +8,18 @@ ms.date: 01/29/2019
 
 # Improve the availability of your application by using Azure Advisor
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get high-availability recommendations from Advisor on the **High Availability** tab of the Advisor dashboard.
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get high availability recommendations from Advisor on the **High Availability** tab of the Advisor dashboard.
 
 ## Ensure virtual machine fault tolerance
 
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
 
 > [!NOTE]
 > If you choose to create an availability set, you need to add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
 
 ## Ensure availability set fault tolerance
 
-To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
+To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
 ## Use managed disks to improve data reliability
 
