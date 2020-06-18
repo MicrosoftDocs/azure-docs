@@ -164,7 +164,7 @@ Following are options and benefits for enabling two-step verification:
 * Require MFA challenge via Microsoft Authenticator for all users
 * Restrict legacy authentication protocols.
 
-This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information In Azure AD Security Defaults
+This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](/azure/active-directory/authentication/concept-mfa-whichversion). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
@@ -186,7 +186,7 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
+> Option 2, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
