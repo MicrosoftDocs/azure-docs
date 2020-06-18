@@ -36,6 +36,8 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Get help with AVS deployment or provisioning failures
+    href: fix-deployment-provisioning-failures.md
   - name: Azure Backup Server for AVS
     items:
     - name: Set up Azure Backup Server for AVS
