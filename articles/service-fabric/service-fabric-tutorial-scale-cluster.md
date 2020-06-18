@@ -873,15 +873,3 @@ Next, advance to the following tutorial to learn how to upgrade the runtime of a
 [reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-
-> * Add and remove node types (scale out and scale in)
-> * Increase node resources (scale up)
-
-Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
-> [!div class="nextstepaction"]
-> [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-
-[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
