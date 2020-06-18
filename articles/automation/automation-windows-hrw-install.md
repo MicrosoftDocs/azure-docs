@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based computers in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/10/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -27,11 +27,22 @@ To install and configure a Windows Hybrid Runbook Worker, you can use one of the
 > [!NOTE]
 > To manage the configuration of servers that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the servers as DSC nodes.
 
+### Supported Windows operating system
+
+The following versions of the Windows operating system are officially supported for a Windows Hybrid Runbook Worker:
+
+* Windows Server 2019
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise (including multi-session) and Pro
+* Windows 8 Enterprise and Pro
+* Windows 7 SP1
+
 ### Minimum requirements for Windows Hybrid Runbook Worker
 
 The minimum requirements for a Windows Hybrid Runbook Worker are:
 
-* Windows Server 2012 or later
 * Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
 * .NET Framework 4.6.2 or later
 * Two cores

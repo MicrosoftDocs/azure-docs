@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Manage digital twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 

@@ -1,25 +1,33 @@
 ---
-title: Azure Cosmos DB performance tips for .NET
-description: Learn client configuration options to improve Azure Cosmos DB performance.
+title: Azure Cosmos DB performance tips for .NET SDK v2
+description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/16/2020
 ms.author: sngun
 
 ---
 
-# Performance tips for Azure Cosmos DB and .NET
+# Performance tips for Azure Cosmos DB and .NET SDK v2
 
 > [!div class="op_single_selector"]
-> * [Async Java](performance-tips-async-java.md)
-> * [Java](performance-tips-java.md)
-> * [.NET](performance-tips.md)
-> 
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v2](performance-tips.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](performance-tips-async-java.md)
+> * [Sync Java SDK v2](performance-tips-java.md)
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
 
 So, if you're trying to improve your database performance, consider these options:
+
+## Upgrade to the .NET V3 SDK
+The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you use the .NET v3 SDK, see the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md) for the following information:
+- Defaults to Direct TCP mode
+- Stream API support
+- Support custom serializer to allow System.Text.JSON usage
+- Integrated batch and bulk support
 
 ## Hosting recommendations
 
@@ -57,7 +65,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. There are two key configuration settings available for configuring client connection policy: the connection *mode* and the connection *protocol*.  The two available modes are:
 
-   * Gateway mode
+   * Gateway mode (Default)
       
      Gateway mode is supported on all SDK platforms and is the configured default for the [Microsoft.Azure.DocumentDB SDK](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, gateway mode is the best choice because it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So direct mode offers better performance because there are fewer network hops. We also recommend gateway connection mode when you run applications in environments that have a limited number of socket connections.
 
@@ -65,7 +73,7 @@ How a client connects to Azure Cosmos DB has important performance implications,
 
    * Direct mode
 
-     Direct mode supports connectivity through TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](sql-api-sdk-dotnet-standard.md).
+     Direct mode supports connectivity through TCP protocol.
 
 In gateway mode, Azure Cosmos DB uses port 443 and ports 10250, 10255, and 10256 when you're using the Azure Cosmos DB API for MongoDB. Port 10250 maps to a default MongoDB instance without geo-replication. Ports 10255 and 10256 map to the MongoDB instance that has geo-replication.
      
@@ -78,23 +86,11 @@ When you use TCP in direct mode, in addition to the gateway ports, you need to e
 
 Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. TCP protocol uses TLS for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that direct mode is the default.
-
-```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
-new CosmosClientOptions
-{
-    ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
-});
-```
-
 For the Microsoft.Azure.DocumentDB SDK, you configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
+Uri serviceEndpoint = new Uri("https://contoso.documents.net");
+string authKey = "your authKey from the Azure portal";
 DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
 new ConnectionPolicy
 {
@@ -106,6 +102,17 @@ new ConnectionPolicy
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway and the `Protocol` value in `ConnectionPolicy` is ignored.
 
 ![The Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
+
+**Ephemeral port exhaustion**
+
+If you see a high connection volume or high port usage on your instances, first verify that your client instances are singletons. In other words, the client instances should be unique for the lifetime of the application.
+
+When running on the TCP protocol, the client optimizes for latency by using the long-lived connections as opposed to the HTTPS protocol, which terminates the connections after 2 minutes of inactivity.
+
+In scenarios where you have sparse access and if you notice a higher connection count when compared to the gateway mode access, you can:
+
+* Configure the [ConnectionPolicy.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
+* Configure the [ConnectionPolicy.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) property must be greater than or equal to 10 minutes. The recommended values are between 20 minutes and 24 hours.
 
 **Call OpenAsync to avoid startup latency on first request**
 
@@ -137,15 +144,9 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
 
-**Use stream APIs**
-
-[.NET SDK V3](sql-api-sdk-dotnet-standard.md) contains stream APIs that can receive and return data without serializing. 
-
-Middle-tier applications that don't consume responses directly from the SDK but relay them to other application tiers can benefit from the stream APIs. See the [item management](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement) samples for examples of stream handling.
-
 **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-Each `DocumentClient` and `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
+Each `DocumentClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
    <a id="max-connection"></a>
 
@@ -161,7 +162,7 @@ SQL .NET SDK 1.9.0 and later support parallel queries, which enable you to query
 
 ***Tuning degree of parallelism***
 
-Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) or `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
+Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
 
 Note that parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
 

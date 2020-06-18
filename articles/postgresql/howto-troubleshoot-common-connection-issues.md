@@ -46,6 +46,8 @@ If the application persistently fails to connect to Azure Database for PostgreSQ
 * User error: You might have mistyped connection parameters, such as the server name in the connection string or a missing *\@servername* suffix in the user name.
 * If you see the error _Server is not configured to allow ipv6 connections_, note that the Basic tier doesn't support VNet service endpoints. You have to remove the Microsoft.Sql endpoint from the subnet that is attempting to connect to the Basic server.
 
+* If you see the connection error _sslmode value "***" invalid when SSL support is not compiled in_ error, it means your PostgreSQL client does not support SSL. Most probably, the client-side libpq has not been compiled with the "--with-openssl" flag. Please try connecting with a PostgreSQL client that has SSL support. 
+
 ### Steps to resolve persistent connectivity issues
 
 1. Set up [firewall rules](howto-manage-firewall-using-portal.md) to allow the client IP address. For temporary testing purposes only, set up a firewall rule using 0.0.0.0 as the starting IP address and using 255.255.255.255 as the ending IP address. This will open the server to all IP addresses. If this resolves your connectivity issue, remove this rule and create a firewall rule for an appropriately limited IP address or address range.
