@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/18/2020
 ms.author: rogarana
 ---
 
@@ -13,7 +13,9 @@ ms.author: rogarana
 
 Before you enable Active Directory Domain Services (AD DS) authentication, make sure you've read the [overview article](storage-files-identity-auth-active-directory-enable.md) to understand the supported scenarios and requirements.
 
-This article describes the process required for enabling Active Directory Domain Services (AD DS) authentication on your storage account. After enabling the feature, you must configure your storage account and your AD DS, to use AD DS credentials for authenticating to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account. To register your storage account with AD DS, create an account representing it in your AD DS, similar to creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
+This article describes the process required for enabling Active Directory Domain Services (AD DS) authentication on your storage account. After enabling the feature, you must configure your storage account and your AD DS, to use AD DS credentials for authenticating to your Azure file share. To enable AD DS authentication over SMB for Azure file shares, you need to register your storage account with AD DS and then set the required domain properties on the storage account.
+
+To register your storage account with AD DS, create an account representing it in your AD DS. You can think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
