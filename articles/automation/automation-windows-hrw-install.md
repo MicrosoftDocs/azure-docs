@@ -12,8 +12,6 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-
-
 ## Prerequisites
 
 Before you start, make sure that you have the following.
