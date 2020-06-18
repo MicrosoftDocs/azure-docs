@@ -11,7 +11,7 @@ ms.custom: mvc, devcenter
 # Create your first Azure function with Java and IntelliJ
 
 This article shows you:
-- How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven
+- How to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA
 - Steps for testing and debugging the function in the integrated development environment (IDE) on your own computer
 - Instructions for deploying the function project to Azure Functions
 
@@ -23,15 +23,12 @@ This article shows you:
 
 To develop a function with Java and IntelliJ, install the following software:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 8
-- [Apache Maven](https://maven.apache.org), version 3.0 or higher
-- [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ An [Azure supported Java Development Kit (JDK)](https://aka.ms/azure-jdks) for Java 8
++ An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
++ [Maven 3.5.0+](https://maven.apache.org/download.cgi)
++ Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
 
-> [!IMPORTANT]
-> The JAVA_HOME environment variable must be set to the install location of the JDK to complete the steps in this article.
-
- We recommend that you install [Azure Functions Core Tools, version 2](functions-run-local.md#v2). It provides a local development environment for writing, running, and debugging Azure Functions.
 
 ## Create a Functions project
 
