@@ -177,7 +177,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
    ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
    
-## Using the console to produce and consume topics in ESP Kafka
+## Produce and consume topics in ESP Kafka by using the console
 
 > [!NOTE]
 > You can't use console commands to create topics. Instead, you must use the Java code demonstrated in the preceding section. For more information, see [Create topics in a Kafka cluster with ESP](#create-topics-in-a-kafka-cluster-with-esp).
