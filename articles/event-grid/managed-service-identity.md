@@ -41,10 +41,13 @@ In the previous section, you learned how to enable a system-managed identity whi
 
 ### Use the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Search for **event grid topics** in the search bar.
+2. Search for **event grid topics** in the search bar at the top.
 3. Select the **topic** for which you want to enable the managed identity. 
 4. Switch to the **Identity** tab. 
-5. Turn on the switch to enable the identity. 
+5. Turn **on** the switch to enable the identity. 
+1. Select **Save** on the toolbar to save the setting. 
+
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Identity page for a topic"::: 
 
 You can use similar steps to enable an identity for an Event Grid domain.
 
