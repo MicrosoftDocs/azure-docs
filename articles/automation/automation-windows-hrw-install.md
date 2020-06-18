@@ -165,7 +165,7 @@ In the search results, you should see heartbeat records for the machine, indicat
 
 1. Enable the feature to add the agent machine. For Update Management and Azure VMs, see [Enable Azure VMs](automation-onboard-solutions-from-automation-account.md#enable-azure-vms), and for non-Azure VMs see [Enable machines in the workspace](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). For Change Tracking and Azure VMs, see [Enable Azure VMs](automation-enable-changes-from-auto-acct.md#enable-azure-vms), and for non-Azure VMs see [Enable machines in the workspace](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
-2. To confirm the version of the Hybrid Runbook Worker, browse to **C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\/** and note the **version** subfolder.
+2. To confirm the version of the Hybrid Runbook Worker, browse to `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` and note the **version** subfolder.
 
 ### Step 3 - Install the runbook environment and connect to Azure Automation
 
