@@ -2,7 +2,7 @@
 title: Container image storage 
 description: Details on how your Docker container images are stored in Azure Container Registry, including security, redundancy, and capacity.
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 06/18/2020
 ---
 
 # Container image storage in Azure Container Registry
@@ -21,17 +21,9 @@ Azure uses a geo-redundant storage scheme to guard against loss of your containe
 
 For scenarios requiring even more high-availability assurance, consider using the [geo-replication](container-registry-geo-replication.md) feature of Premium registries. Geo-replication helps guard against losing access to your registry in the event of a *total* regional failure, not just a storage failure. Geo-replication provides other benefits, too, like network-close image storage for faster pushes and pulls in distributed development or deployment scenarios.
 
-## Image limits
+## Scalable storage
 
-The following table describes the container image and storage limits in place for Azure container registries.
-
-| Resource | Limit |
-| -------- | :---- |
-| Repositories | No limit |
-| Images | No limit |
-| Layers | No limit |
-| Tags | No limit|
-| Storage | 5 TB |
+Azure Container Registry allows you to create as many repositories, images, layers, or tags as you need, up to the [registry storage limit](container-registry-skus.md#service-tier-features-and-limits). 
 
 Very high numbers of repositories and tags can impact the performance of your registry. Periodically delete unused repositories, tags, and images as part of your registry maintenance routine. Deleted registry resources like repositories, images, and tags *cannot* be recovered after deletion. For more information about deleting registry resources, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
