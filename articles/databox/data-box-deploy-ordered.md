@@ -71,6 +71,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
    }
 ]
 ```
+
 #### Install the Azure Data Box CLI extension
 
 Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
