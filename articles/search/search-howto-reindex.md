@@ -19,9 +19,9 @@ A *rebuild* refers to dropping and recreating the physical data structures assoc
 
 It's common to rebuild indexes during development when you are iterating over index design, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
 
-## "Rebuild" versus "Refresh"
+## "Rebuild" versus "refresh"
 
-Rebuild should not be confused with refreshing the contents of an index with new, modified, or deleted documents. Refreshing a search corpus is common, with some scenarios requiring up-to-the-minute updates (for example, when search needs to reflect inventory changes in an online sales app).
+Rebuild should not be confused with refreshing the contents of an index with new, modified, or deleted documents. Refreshing a search corpus is almost a given in every search app, with some scenarios requiring up-to-the-minute updates (for example, when a search corpus needs to reflect inventory changes in an online sales app).
 
 As long as you are not changing the structure of the index, you can refresh an index using the same techniques that you used to load the index initially:
 

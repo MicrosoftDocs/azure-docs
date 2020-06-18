@@ -19,17 +19,17 @@ ms.date: 06/18/2020
 
 *Incremental enrichment* is a feature that targets [skillsets](cognitive-search-working-with-skillsets.md). It leverages Azure Storage to save the processing output emitted by an enrichment pipeline for reuse in future indexer runs. Wherever possible, the indexer reuses any cached output that is still valid. 
 
-Not only does this preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+Not only does incremental enrichment preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
 
 A workflow that uses incremental caching includes the following steps:
 
 1. [Create or identify an Azure storage account](../storage/common/storage-account-create.md) to store the cache.
 1. [Enable incremental enrichment](search-howto-incremental-index.md) in the indexer.
-1. [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer), with a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset), invokes the pipeline. During processing, stages of enrichment are preserved for each document in Blob storage for future use.
-1. Test your code, and if necessary, use [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) to modify a definition.
-1. [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) reruns the pipeline, retrieving cached output for faster and more cost-effective processing.
+1. [Create an indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) - plus a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) - to invoke the pipeline. During processing, stages of enrichment are saved for each document in Blob storage for future use.
+1. Test your code, and after making changes, use [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) to modify a definition.
+1. [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) to invoke the pipeline, retrieving cached output for faster and more cost-effective processing.
 
-For more information about steps and considerations when adding incremental enrichment to an existing indexer, see [Set up incremental enrichment](search-howto-incremental-index.md).
+For more information about steps and considerations when working with an existing indexer, see [Set up incremental enrichment](search-howto-incremental-index.md).
 
 ## Indexer cache
 
