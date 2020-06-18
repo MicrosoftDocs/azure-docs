@@ -5,7 +5,7 @@ description: This article provides information on how to configure Application G
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
 ---

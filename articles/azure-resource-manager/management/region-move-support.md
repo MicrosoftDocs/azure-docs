@@ -244,14 +244,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | batchaccounts |  Yes (using template)<br/><br/> [Move Batch account across regions](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
+> | batchaccounts |  Batch accounts can't be moved directly from one region to another, but you can use a template to export a template, modify it, and deploy the template to the new region. <br/><br/> Learn about [moving a Batch account across regions](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
 ## Microsoft.BatchAI
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | clusters | No | 
+> | clusters | No <br/><br/> The Azure Batch AI service is [retired](https://docs.microsoft.com/previous-versions/azure/batch-ai/overview-what-happened-batch-ai).
 > | fileservers | No | 
 > | jobs | No | 
 > | workspaces | No | 
@@ -275,7 +275,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | blockchainmembers | No |
+> | blockchainmembers | No <br/><br/> The blockchain network can't have nodes in different regions. 
 > | watchers | No | 
 
 ## Microsoft.Blueprint
@@ -350,7 +350,7 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | accounts | No | 
-> | Cognitive Search | Yes (using template)<br/><br/> [Move your Cognitive Search service to another region](../../search/search-howto-move-across-regions.md)
+> | Cognitive Search | Supported with manual steps.<br/><br/> Learn about [moving your Azure Cognitive Search service to another region](../../search/search-howto-move-across-regions.md)
 
 ## Microsoft.Compute
 
@@ -1006,7 +1006,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | vaults | No. [Disable vault and recreate](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) for Site Recovery  | 
+> | vaults | No.<br/><br/> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br/><br/> In Recovery Services vaults for Azure Site Recovery, you can [disable and recreate the vault](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) in the target region. | 
 
 
 ## Microsoft.Relay

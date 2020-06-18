@@ -3,18 +3,17 @@ title: How applications appear on the access panel | Microsoft Docs
 description: Troubleshoot why an application is appearing in the Access Panel
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ---

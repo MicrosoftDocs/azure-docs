@@ -119,7 +119,7 @@ In contrast, admin rights over content hosted on the service, such as the abilit
 
 ## Certifications and compliance
 
-Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://aka.ms/azurecompliance) from the official Audit reports page.
+Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) from the official Audit reports page.
 
 ## See also
 
