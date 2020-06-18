@@ -118,7 +118,7 @@
       href: ./how-to/guest-configuration-create-linux.md
     - name: Create a Guest Configuration policy from Group Policy
       displayName: powershell, dsc, grouppolicy, windows
-      href: ./how-to/guest-configuration-create-gp.md
+      href: ./how-to/guest-configuration-create-group-policy.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
