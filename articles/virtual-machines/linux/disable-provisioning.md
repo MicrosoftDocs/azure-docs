@@ -68,17 +68,17 @@ az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperat
 
 Run one of the following, as root, to remove the Azure Linux Agent:
 
-### For Ubuntu >=18.04
+#### For Ubuntu >=18.04
 ```bash
 apt -y remove walinuxagent
 ```
 
-### For Redhat >= 7.7
+#### For Redhat >= 7.7
 ```bash
 yum -y remove WALinuxAgent
 ```
 
-### For SUSE
+#### For SUSE
 ```bash
 zypper --non-interactive remove python-azure-agent
 ```
@@ -88,15 +88,15 @@ zypper --non-interactive remove python-azure-agent
 
 If you know you will not ever reinstall the Linux Agent again, then you can run the below:
 
-### For Ubuntu >=18.04
+#### For Ubuntu >=18.04
 ```bash
 apt -y remove walinuxagent
-#rm -f /etc/waagent.conf
+rm -f /etc/waagent.conf
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
 
-### For Redhat >= 7.7
+#### For Redhat >= 7.7
 ```bash
 yum -y remove WALinuxAgent
 rm -f /etc/waagent.conf.rpmsave
@@ -104,7 +104,7 @@ rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
 
-### For SUSE
+#### For SUSE
 ```bash
 zypper --non-interactive remove python-azure-agent
 rm -f /etc/waagent.conf.rpmsave
@@ -120,17 +120,21 @@ cloud-init clean --logs --seed
 ```
 
 ## Deprovision and create an image
-The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", such as:
-- generate a new ssh host key
-- delete the admin username that was specified during provisioning
+The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", however, now it is removed, you will need to perform actions such as the below, and remove any sensitive data from it.
+
+- remove all existing ssh host key
+```bash
+rm /etc/ssh/ssh_host_*key*
+```
+- delete the admin account
+```bash
+touch /var/run/utmp
+userdel -f -r <admin_user_account>
+```
 - delete the root password
-
-But you have an image that does not contain the Linux Agent, the you need to ensure your image is removed of all sensitive data, and ensure the following is completed:
-
-- generate a new ssh host key
-- delete the admin username that was specified during provisioning
-- delete the root password
-
+```bash
+passwd -d root
+```
 
 Once you have completed the above, you can create the custom image using the Azure CLI.
 
