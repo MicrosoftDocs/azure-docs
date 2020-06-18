@@ -14,7 +14,7 @@ ms.custom: include file
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Included storage<sup>1</sup> (GiB) | 10 | 100 | 500 |
-| Maximum storage (TiB) | 20| 20 | 20 |
+| Storage limit (TiB) | 20| 20 | 20 |
 | Maximum image layer size (GiB) | 200 | 200 | 200 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
@@ -32,7 +32,7 @@ ms.custom: include file
 | &bull; Repositories per scope map | N/A | N/A | 500 |
 
 
-<sup>1</sup> Storage included in the daily rate for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Azure Container Registry pricing][pricing].
+<sup>1</sup> Storage included in the daily rate for each tier. You're charged an additional daily rate per GiB for image storage, up to the storage limit. For rate information, see [Azure Container Registry pricing][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. Azure Container Registry strives to improve performance as usage requires.
 

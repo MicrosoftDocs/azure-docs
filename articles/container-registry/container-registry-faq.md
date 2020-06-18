@@ -4,7 +4,7 @@ description: Answers for frequently asked questions related to the Azure Contain
 author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
-ms.author: sajayaƒ
+ms.author: sajaya
 ---
 
 # Frequently asked questions about Azure Container Registry
