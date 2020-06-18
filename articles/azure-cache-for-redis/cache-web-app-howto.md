@@ -63,7 +63,7 @@ Next, you create the cache for the app.
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
 
@@ -146,7 +146,6 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
             {
                IDatabase cache = redis.GetDatabase();
 
-
                // Perform cache operations using the cache object...
 
                // Simple PING command
@@ -166,12 +165,37 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
                // Get the client list, useful to see if connection list is growing...
                ViewBag.command5 = "CLIENT LIST";
-               ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+               StringBuilder sb = new StringBuilder();
 
-            }
+               var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+               var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+               var clients = server.ClientList();
+
+               sb.AppendLine("Cache response :");
+               foreach (var client in clients)
+               {
+                   sb.AppendLine(client.Raw);
+               }
+
+               ViewBag.command5Result = sb.ToString();
 
             return View();
         }
+                
+        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+        {
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
+
+        public static ConnectionMultiplexer Connection
+        {
+            get
+            {
+                return lazyConnection.Value;
+            }
+        }
+
     ```
 
 4. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
