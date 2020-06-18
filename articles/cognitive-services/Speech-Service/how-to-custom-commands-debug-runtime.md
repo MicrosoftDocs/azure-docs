@@ -119,9 +119,9 @@ A few checks to start with:
 
 - Similar intents and examples sentences among commands
 
-    The Luis recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
+    The LUIS recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
 
-    For best practice of improving recognition accuracy, refer [Luis best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    For best practice of improving recognition accuracy, refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 - Dialog is canceled
     

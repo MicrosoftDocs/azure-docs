@@ -17,17 +17,17 @@ ms.author: xiaojul
 This article describes how to debug when you see errors while building Custom Commands application. 
 
 ## Errors when creating an application
-Custom Commands also creates an application in [Luis](https://www.luis.ai/) when creating a Custom Commands application. 
+Custom Commands also creates an application in [LUIS](https://www.luis.ai/) when creating a Custom Commands application. 
 
-[Luis limits 500 applications per authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Creation of Luis application could fail if you are using an authoring resource that already have 500 applications. 
+[LUIS limits 500 applications per authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Creation of LUIS application could fail if you are using an authoring resource that already have 500 applications. 
 
-Make sure the selected Luis authoring resource has less than 500. If not, you can new Luis authoring resource, switch to another one, or try to clean up your Luis applications.  
+Make sure the selected LUIS authoring resource has less than 500. If not, you can new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
 
 ## Errors when deleting an application
-### Can't delete Luis application
-When deleting a Custom Commands application, Custom Commands also try to delete the Luis application associated with the Custom Commands application.
+### Can't delete LUIS application
+When deleting a Custom Commands application, Custom Commands also try to delete the LUIS application associated with the Custom Commands application.
 
-If the deletion of Luis application failed, please go to your [Luis](https://www.luis.ai/) account to delete them manually.
+If the deletion of LUIS application failed, please go to your [LUIS](https://www.luis.ai/) account to delete them manually.
 
 ### TooManyRequests
 When you try to delete large amount of applications all at once, it's likely you would see 'TooManyRequests' errors. This means your deletion requests get throttled by Azure. 
@@ -46,7 +46,7 @@ Please remove any **Call Web Endpoint** action that uses this Web Endpoint befor
 
 ## Errors when training an application
 ### Build in intents
-Luis has build-in Yes/No intents. Having sample sentences with only "yes", "no" would fail the training. 
+LUIS has build-in Yes/No intents. Having sample sentences with only "yes", "no" would fail the training. 
 
 | Keyword | Variations | 
 | ------- | --------- | 
@@ -58,7 +58,7 @@ Custom Commands does not allow common sample sentences shared among different co
 
 Please make sure you don't have common sample sentences shared among different commands. 
 
-For best practice of balancing your sample sentences across different commands, please refer [Luis best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+For best practice of balancing your sample sentences across different commands, please refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
 ### Empty sample sentences
 You need to have at least 1 sample sentence for each Command.
@@ -79,13 +79,13 @@ For example, you can define a parameter {vehicle} for the example sentences belo
 | Book a flight | Book a {vehicle} |
 | Book a taxi | Book a {vehicle} |
 
-For best practice of Luis training, please refer [Luis best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+For best practice of LUIS training, please refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
 
-## Can't update Luis key
+## Can't update LUIS key
 ### Reassign to E0 authoring resource
-Luis does not support reassigning Luis application to E0 authoring resource.
+LUIS does not support reassigning LUIS application to E0 authoring resource.
 
 If you need to change your authoring resource from F0 to E0, or change to a different E0 resource, please recreate the application.
 
 ### Save button is disabled
-If you never assign a Luis prediction resource to your application, the Save button would be disabled when you try to change your authoring resource without adding a prediction resource.
+If you never assign a LUIS prediction resource to your application, the Save button would be disabled when you try to change your authoring resource without adding a prediction resource.

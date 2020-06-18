@@ -20,11 +20,11 @@ In this article you will create and test Custom Commands application using Speec
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Download the sample
-[Smart Room Lite](https://aka.ms/speech/cc-quickstart).
+[Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
   > [!NOTE]
-  > At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and neur regions.
+  > At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and northeurope regions.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -43,9 +43,9 @@ In this article you will create and test Custom Commands application using Speec
 ## Import an existing application as a new Custom Commands project
 1. Select **New project** to create a project.
 
-1. In the **Name** box, enter a project name.
-1. In the **Language** list, select a language.
-1. Select **Browse files** and in the browse window, select the **Smart-Room-Lite.json** file.
+1. In the **Name** box, enter project name as `Smart-Room-Lite` (or something else of your choice).
+1. In the **Language** list, select **English (United States)**.
+1. Select **Browse files** and in the browse window, select the **SmartRoomLite.json** file.
 
     > [!div class="mx-imgBorder"]
    > ![Create a project](media/custom-commands/import-project.png)
@@ -71,17 +71,17 @@ In this article you will create and test Custom Commands application using Speec
 You should now see overview of your new Custom Commands application.
 
 ## Try out some voice commands
-1. Select **Train** present at the top of the right pane.
-1. Once training is completed, select **Test**.
+1. Select **Train** at the top of the right pane.
+1. Once training is completed, select **Test** and try out the following utterances:
     - Turn on the tv
     - Set the temperature to 80 degrees
     - Turn it off
     - Set an alarm
 
 ## Integrate Custom Commands application in an assistant
-Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you will need to configure prediction Luis resource.  
+Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you will need to configure prediction LUIS resource.  
 
-### Update prediction Luis resource
+### Update prediction LUIS resource
 
 
 1. Select **Settings** in the left pane and select  **LUIS resources** in the middle pane.
@@ -96,13 +96,13 @@ Before you can access this application from outside Speech Studio, you need to p
 
 ### Publish the application
 
-Select  **Publish** present on the top of right panel. Once publish completes, a new window will appear. Note down the **Application id** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
+Select  **Publish** on top of the right pane. Once publish completes, a new window will appear. Note down the **Application id** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
 
 Alternatively, you can also get these values by selecting **Settings** > **General** section.
 
 ### Access application from client
 
-In the scope of this article, we will be using the windows voice assistant client you downloaded as part of the pre-requisites. Unzip the folder.
+In the scope of this article, we will be using the Windows Voice Assistant client you downloaded as part of the pre-requisites. Unzip the folder.
 1. Launch **VoiceAssistantClient.exe**.
 1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app Id**.
   > [!div class="mx-imgBorder"]
