@@ -73,7 +73,7 @@ landingContent:
           - text: Copy data in bulk
             url: /azure/data-factory/tutorial-bulk-copy-portal
           - text: Copy data incrementally
-            url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+            url: /azure/data-factory/tutorial-incremental-copy-overview
           - text: Load ADLS Gen2
             url: /azure/data-factory/load-azure-data-lake-storage-gen2
           - text: Load SQL DW
